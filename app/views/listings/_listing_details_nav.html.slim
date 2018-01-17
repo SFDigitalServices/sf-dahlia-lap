@@ -1,0 +1,6 @@
+ul.lined-nav
+  li.lined-nav_item class=(active_path(listing_path(@listing.Id)))
+    =link_to 'Listing Details', listing_path(@listing.Id)
+  li.lined-nav_item class=(active_path(listing_applications_path(@listing.Id)))
+    =link_to 'Applications', listing_applications_path(@listing.Id)
+.clear.margin-bottom--half

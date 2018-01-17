@@ -1,0 +1,97 @@
+// modifications to toolkit styles
+.top-bar .row {
+  max-width: none;
+  padding: 0 1rem;
+}
+
+.top-bar-section ul.nav-menu li:not(.has-form) a:not(.button) {
+  &.active {
+    border-bottom-color: #0077da;
+  }
+  // &:hover {
+  //   border-bottom-color: #6cb8ff;
+  // }
+}
+
+
+.segmented-radios {
+  padding: 0 1rem 1rem;
+  li {
+    a.button,
+    button {
+      margin: 0;
+      border: 2px solid #0077da;
+      border-radius: 0;
+      box-shadow: none;
+      border-right: 0;
+      &:hover, &:focus {
+        background-color: #0077da;
+        color: #fff;
+      }
+    }
+
+    &:first-of-type {
+      a.button,
+      button {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+
+    &:last-of-type {
+      a.button,
+      button {
+        border-right: 2px solid #0077da;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+  }
+}
+
+.content-grid {
+  .content-card p {
+    word-wrap: break-word;
+  }
+}
+
+
+// react-table overrides
+.ReactTable {
+  .rt-th,
+  .rt-td {
+    white-space: normal;
+  }
+  .rt-tr {
+    font-size: 0.9rem;
+    .rt-th {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      padding: 10px 5px;
+      border-bottom: 1px solid #0077da;
+      text-transform: uppercase;
+      background: #eee;
+    }
+    .rt-td {
+      cursor: pointer;
+    }
+    &.-odd {
+      &, & + .subcomponent {
+        background: #f5f8f9;
+      }
+    }
+    &.-even {
+      &, & + .subcomponent {
+        background: #fff;
+      }
+    }
+  }
+  .rt-tbody .rt-tr {
+    &:hover {
+      &, & + .subcomponent {
+        background-color: #e7f4f9;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+nav#nav-top-bar.top-bar(top-bar role="navigation")
+  .row#nav-top-bar-row
+    section.top-bar-section
+      ul.nav-menu.left
+        == render 'layouts/navigation_links'
+      ul.nav-menu.right
+        == render 'layouts/user_links'

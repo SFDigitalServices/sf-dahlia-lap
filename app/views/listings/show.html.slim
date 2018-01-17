@@ -1,0 +1,6 @@
+h1
+  = @listing.Name
+
+== render 'listing_details_nav'
+
+== react_component 'ListingDetails', { listing: @listing }

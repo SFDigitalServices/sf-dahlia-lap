@@ -1,0 +1,10 @@
+/*
+ * - Toolkit is included from DAHLIA even though we're really only using
+ * a small amount of the style (fonts, navbar, etc.)
+ * - LAP includes some leasing agent portal styles and overrides.
+ * - note: react-table.css default style is included via webpack in application.html
+ *
+ *= require toolkit
+ *= require lap
+ *= require_self
+ */

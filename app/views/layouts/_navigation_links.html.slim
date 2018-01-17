@@ -1,0 +1,7 @@
+/ li= link_to 'Home', root_path
+- if user_signed_in?
+  li= link_to 'Listings', listings_path, class: active_path(listings_path)
+  li= link_to 'Applications', applications_path, class: active_path(applications_path)
+  li= link_to 'Pending Flagged Apps', pending_review_index_path, class: active_path(pending_review_index_path)
+  li= link_to 'Marked Duplicate Apps', marked_duplicate_index_path, class: active_path(marked_duplicate_index_path)
+  / li= link_to 'Spreadsheet Prototype', spreadsheet_applications_path, class: active_path(spreadsheet_applications_path)

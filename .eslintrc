@@ -1,0 +1,12 @@
+{
+  "extends": "react-app",
+  "rules": {
+    # "no-unused-vars": 0,
+    "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/anchor-is-valid": 2
+  },
+  "globals" : {
+    "React": true,
+    "ReactDOM": true,
+  },
+}

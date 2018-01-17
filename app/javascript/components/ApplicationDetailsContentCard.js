@@ -1,0 +1,75 @@
+import React from 'react'
+import _ from 'lodash'
+import moment from 'moment'
+import utils from '../utils'
+
+var generateContent = (dataCollection, field, i) => {
+  if (dataCollection == null) {
+    return
+  }
+  let value = dataCollection[field]
+  let label = utils.cleanField(field)
+  if (_.includes(field, '.')) {
+    let parts = field.split('.')
+    label = utils.cleanField(parts[0])
+    if (dataCollection[label]) {
+      value = dataCollection[label][parts[1]]
+    }
+  }
+  if (_.includes(field, 'Date')) {
+    // cheap way of knowing when to parse date fields
+    value = moment(value).format('L')
+  }
+  if (_.includes(field, 'URL')) {
+    // cheap way of knowing when to parse URL fields
+    value = <a target='_blank' href={value}>{value}</a>
+  }
+  if (!value) { value = 'None'}
+  return (
+    <div className="margin-bottom--half" key={i}>
+      <h4 className="t-sans t-small t-bold no-margin">
+        {label}
+      </h4>
+      <p>{value}</p>
+    </div>
+  )
+}
+
+var generateData = (label, value) => {
+  return (
+    <div className="margin-bottom--half" key={i}>
+      <h4 className="t-sans t-small t-bold no-margin">
+        {label}
+      </h4>
+      <p>{value}</p>
+    </div>
+  )
+}
+
+const ApplicationDetailsContentCard = ({ dataCollection, title, fields }) => {
+  let halfLength = Math.ceil(fields.length / 2)
+  let firstFields = _.take(fields, halfLength)
+  let lastFields = _.takeRight(fields, (halfLength % 2 === 0 ? halfLength : halfLength - 1))
+  let i = 0
+  let firstFieldsContent = _.map(firstFields, field => generateContent(dataCollection, field, i++))
+  let lastFieldsContent = _.map(lastFields, field => generateContent(dataCollection, field, i++))
+  return (
+      <div className="content-card padding-bottom-none margin-bottom--half bg-trans">
+        <h4 className="content-card_title t-serif">{title}</h4>
+        <ul className="content-grid">
+          <li className="content-item">
+            <div className="content-card">
+              {firstFieldsContent}
+            </div>
+          </li>
+          <li className="content-item">
+            <div className="content-card">
+              {lastFieldsContent}
+            </div>
+          </li>
+        </ul>
+      </div>
+  )
+}
+
+export default ApplicationDetailsContentCard
