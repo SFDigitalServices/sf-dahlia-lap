@@ -10,7 +10,7 @@ let {
   ethnicity_options,
 } = formOptions
 
-const DemographicInfoSection = ({editPage}) => {
+const DemographicInfoSection = () => {
   return (
     <NestedForm field="demographics">
       <Form>

@@ -9,12 +9,12 @@ let {
 
 const ReservedPrioritySection = ({editValues, listing}) => {
   let autofillValues = {}
+
   if (editValues && editValues.Has_ADA_Priorities_Selected) {
     let selected = editValues.Has_ADA_Priorities_Selected.split(";")
     _.each(selected, (value) => {
       autofillValues[value] = true
     })
-    autofillValues['answeredCommunityScreening'] = editValues.Answered_Community_Screening
   }
 
   let reservedTypes = _.map(listing.Units, (unit) => {

@@ -108,22 +108,32 @@ class PaperApplicationForm extends React.Component {
     )
   }
 
-get demographicsSection () {
-  if (!this.props.editPage) {
-    return (
-      <DemographicInfoSection editPage={this.props.editPage} />
-    )
+  get demographicsSection () {
+    if (!this.props.editPage) {
+      return (
+        <DemographicInfoSection />
+      )
+    }
   }
-}
 
   render() {
     let { listing } = this.props
+    let fieldMapper = {
+      Has_Military_Service: 'hasMilitaryService',
+      Has_DevelopmentalDisability: 'hasDevelopmentalDisability',
+      Answered_Community_Screening: 'answeredCommunityScreening',
+      Annual_Income: 'annualIncome',
+      Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
+      Terms_Acknowledged: 'agreeToTerms'
+    }
+
     let autofillValues = {}
     if (this.props.application) {
-      autofillValues["annualIncome"] = this.props.application.Annual_Income
-      autofillValues["householdVouchersSubsidies"] = this.props.application.Housing_Voucher_or_Subsidy
-      autofillValues["agreeToTerms"] = this.props.application.Terms_Acknowledged
+      _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+        autofillValues[shortFormField] = this.props.application[salesforceField]
+      })
     }
+
 
     return (
       <div>

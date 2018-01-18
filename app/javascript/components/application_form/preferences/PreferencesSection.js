@@ -33,8 +33,8 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
     _.forEach(editValues.preferences, (preference) => {
       if (preference.Application_Member) {
         let editPreference = {}
-        _.forEach(preference, (value, key) => {
-          editPreference[fieldMapper[key]] = value
+        _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+          editPreference[shortFormField] = preference[salesforceField]
         })
         let naturalKey = `${preference["Application_Member.First_Name"]},${preference["Application_Member.Last_Name"]},${preference["Application_Member.Date_of_Birth"]}`
         editPreference["naturalKey"] = naturalKey

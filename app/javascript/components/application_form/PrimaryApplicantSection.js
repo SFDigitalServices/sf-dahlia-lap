@@ -34,14 +34,16 @@ let fieldMapper = {
   Mailing_City: 'mailingCity',
   Mailing_State: 'mailingState',
   Mailing_Zip_Code: 'mailingZip',
+  Phone: 'phone',
+  Phone_Type: 'phoneType',
+  Email: 'email'
 }
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
-    _.forEach(editValues.Applicant, (value, key) => {
-      let attribute = fieldMapper[key] || 'test'
-      autofillValues[attribute] = value
+    _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+      autofillValues[shortFormField] = editValues.Applicant[salesforceField]
     })
     formApi.values.primaryApplicant = autofillValues
   }

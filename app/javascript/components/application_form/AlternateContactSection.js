@@ -15,7 +15,7 @@ let fieldMapper = {
   Middle_Name: 'middleName',
   Alternate_Contact_Type: 'alternateContactType',
   Alternate_Contact_Type_Other: 'alternateContactTypeOther',
-  Agency_Name: 'Agency',
+  Agency_Name: 'agency',
   Email: 'email',
   Phone: 'phone',
   Phone_Type: 'phoneType'
@@ -24,9 +24,8 @@ let fieldMapper = {
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
   if (editValues && editValues.Alternate_Contact) {
-    _.forEach(editValues.Alternate_Contact, (value, key) => {
-      let attribute = fieldMapper[key] || 'test'
-      autofillValues[attribute] = value
+    _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+      autofillValues[shortFormField] = editValues.Alternate_Contact[salesforceField]
     })
   }
   return (

@@ -18,8 +18,8 @@ const HouseholdMembersSection = ({ formApi, editValues }) => {
   if (editValues && editValues.household_members && !formApi.values.householdMembers) {
     _.forEach(editValues.household_members, (member) => {
       let editMember = {}
-      _.forEach(member, (value, key) => {
-        editMember[fieldMapper[key]] = value
+      _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+        editMember[shortFormField] = member[salesforceField]
       })
       autofillHouseholdMembers.push(editMember)
     })

@@ -180,6 +180,7 @@ applications:
     Applicant__r.Id:
     Applicant__r.First_Name__c:
     Applicant__r.Last_Name__c:
+    Applicant__r.Middle_Name__c:
     Applicant__r.Name__c:
     Applicant__r.Date_of_Birth__c:
     Applicant__r.Phone_Type__c:
@@ -201,6 +202,7 @@ applications:
     Alternate_Contact__r.Id:
     Alternate_Contact__r.Name__c:
     Alternate_Contact__r.First_Name__c:
+    Alternate_Contact__r.Middle_Name__c:
     Alternate_Contact__r.Last_Name__c:
     Alternate_Contact__r.Date_of_Birth__c:
     Alternate_Contact__r.Phone_Type__c:

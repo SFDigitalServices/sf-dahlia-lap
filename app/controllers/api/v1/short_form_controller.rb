@@ -89,6 +89,7 @@ class Api::V1::ShortFormController < ApiController
                 lastName
                 agency
                 phone
+                phoneType
                 email
                 languageOther
                 mailingAddress
