@@ -1,5 +1,4 @@
 # Leasing Agent Portal
-* ...
 
 ## To setup:
 * Use ruby 2.2.5
