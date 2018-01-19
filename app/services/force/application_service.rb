@@ -73,7 +73,6 @@ module Force
         SELECT #{query_fields(:show_preference)}
         FROM Application_Preference__c
         WHERE Application__c = '#{application_id}'
-        AND #{user_can_access}
       ), :show_preference)
     end
 
