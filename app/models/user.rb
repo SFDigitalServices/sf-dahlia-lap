@@ -6,14 +6,14 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # To do: Need to find out why provider, uid and email have to be unique (acc to Migrations)
-    user = User.where(provider: auth.provider, uid: auth.uid).first ||
-           User.where(email: auth.info.email).first || User.new
+    user = User.where(provider: auth.provider, uid: auth.uid, email: auth.extra.username).first ||
+           User.new
     user.provider = auth.provider
     user.uid = auth.uid
     user.salesforce_user_id = auth.extra.user_id
-    user.email = auth.info.email
+    user.email = auth.extra.username
     user.oauth_token = auth.credentials.token
-    # have to do a separate lookup to grab the AccountId
+    # have to do a separate lookup to grab the Salesforce AccountId
     service = Force::UserService.new(user)
     service.load_user
     user.salesforce_account_id = service.account_id
