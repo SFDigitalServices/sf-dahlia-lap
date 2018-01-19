@@ -127,6 +127,7 @@ class Api::V1::ShortFormController < ApiController
                 certificateNumber
                 naturalKey
                 preferenceProof
+                individualPreference
                 optOut
                 recordTypeDevName
                 ifCombinedIndividualPreference

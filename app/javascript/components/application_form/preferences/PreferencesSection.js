@@ -20,12 +20,11 @@ const disableAddPreference = (formApi, listingPreferences) => {
 
 let fieldMapper = {
   Listing_Preference_ID: "listingPreferenceID",
-  Individual_preference: "liveOrWork",
+  Individual_preference: "individualPreference",
   Certificate_Number: "certificateNumber",
   Type_of_proof: "preferenceProof",
   Preference_Name: "preferenceName"
 }
-
 
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
   let autofillPreferences = []

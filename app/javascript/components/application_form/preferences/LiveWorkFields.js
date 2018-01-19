@@ -19,7 +19,7 @@ const LiveWorkFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <label>Individual Preference</label>
         <Select
-          field={`shortFormPreferences.${i}.liveOrWork`}
+          field={`shortFormPreferences.${i}.individualPreference`}
           options={[{value: 'Live in SF', label: 'Live in SF'},
             {value: 'Work in SF', label: 'Work in SF'}]}
         />
