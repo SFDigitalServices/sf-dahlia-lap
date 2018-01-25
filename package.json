@@ -14,6 +14,7 @@
     "coffeescript": "1.12.7",
     "lodash": "^4.17.4",
     "moment": "^2.19.1",
+    "postcss-smart-import": "^0.7.6",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-datepicker": "0.61.0",
