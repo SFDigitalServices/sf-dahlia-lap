@@ -90,7 +90,8 @@ const ApplicationDetails = ({ application, file_base_url }) => {
         fields={[
           'Has_Military_Service',
           'Has_DevelopmentalDisability',
-          'Has_ADA_Priorities_Selected'
+          'Has_ADA_Priorities_Selected',
+          'Answered_Community_Screening'
         ]}
       />
       {(() => {

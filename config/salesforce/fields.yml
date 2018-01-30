@@ -60,6 +60,7 @@ listings:
     Lottery_Street_Address__c:
     Lottery_City__c:
     Lottery_URL__c:
+    Reserved_community_type__c:
     # ------------------
     Application_Phone__c:
     Application_Organization__c:

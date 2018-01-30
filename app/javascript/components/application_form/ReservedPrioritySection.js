@@ -46,7 +46,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
   }
 
   const reservedCommunityMarkup = () => {
-    if (_.includes(reservedTypes, 'Senior')) {
+    if (!!listing.Reserved_community_type) {
       return (
         <div className="margin-bottom--2x small-12 columns">
           <h4>Qualifying Information for the Building Community Type</h4>
