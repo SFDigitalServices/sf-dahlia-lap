@@ -8,6 +8,45 @@
 * run `bundle install`
 * run `./bin/rails webpacker:install`
 
+Ensure you have .babelrc containing the following:
+```
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": "> 1%",
+          "uglify": true
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-object-rest-spread",
+    "transform-async-to-generator",
+    ["babel-plugin-root-import", {
+      "rootPathSuffix": "app/javascript"
+    }],
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }],
+    [
+      "transform-class-properties",
+      {
+        "spec": true
+      }
+    ]
+  ]
+}
+
+```
+
 ## To run server:
 * `bin/webpack-dev-server --hot`
 * `rails s`
