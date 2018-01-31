@@ -1,9 +1,10 @@
-h1
-  = "Edit Application"
-p
-		= "Application lottery number: #{@application.Lottery_Number}"
-p
-		= "For listing: #{@listing.Name}"
+header.lead-header
+  h1
+    = "Edit Application"
+  p
+    = "Application lottery number: #{@application.Lottery_Number}"
+  p
+    = "For listing: #{@listing.Name}"
 
 / for the "edit" view, we would also find + pass in @application,
 / include webpacked react-table CSS
