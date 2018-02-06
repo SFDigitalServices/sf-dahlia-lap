@@ -1,1 +1,1 @@
-import 'react-table/react-table.css'
+import '../../assets/stylesheets/react-table.css'
