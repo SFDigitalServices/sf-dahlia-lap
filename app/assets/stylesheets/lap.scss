@@ -1,18 +1,15 @@
 // modifications to toolkit styles
-.top-bar .row {
-  max-width: none;
-  padding: 0 1rem;
-}
-
-.top-bar-section ul.nav-menu li:not(.has-form) a:not(.button) {
-  &.active {
-    border-bottom-color: #0077da;
+.top-bar {
+  .name-logo a {
+    background: url(logo.png) no-repeat;
   }
-  // &:hover {
-  //   border-bottom-color: #6cb8ff;
-  // }
-}
 
+  .top-bar-section {
+    @media screen and (min-width: 75rem) {
+      float: none;
+    }
+  }
+}
 
 .segmented-radios {
   padding: 0 1rem 1rem;
