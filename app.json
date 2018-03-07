@@ -1,0 +1,61 @@
+{
+  "name": "sf-dahlia-lap",
+  "scripts": {
+    "postdeploy": "rake db:setup && rake db:migrate"
+  },
+  "env": {
+    "COMMUNITY_LOGIN_URL": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SALESFORCE_CLIENT_ID": {
+      "required": true
+    },
+    "SALESFORCE_CLIENT_SECRET": {
+      "required": true
+    },
+    "SALESFORCE_INSTANCE_URL": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "papertrail",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
