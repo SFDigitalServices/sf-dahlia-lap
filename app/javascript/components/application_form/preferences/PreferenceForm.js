@@ -3,6 +3,7 @@ import { Select } from 'react-form'
 import _ from 'lodash'
 import CertOfPreferenceFields from './CertOfPreferenceFields'
 import DisplacedFields from './DisplacedFields'
+import AntiDisplacementFields from './AntiDisplacementFields'
 import NeighborhoodResidentFields from './NeighborhoodResidentFields'
 import LiveWorkFields from './LiveWorkFields'
 import DefaultPreferenceFields from './DefaultPreferenceFields'
@@ -54,6 +55,8 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
           return <DisplacedFields {...{i, householdMembers}} />
         case 'Live or Work in San Francisco Preference':
           return <LiveWorkFields {...{i, householdMembers}} />
+        case 'Anti-Displacement Housing Preference (ADHP)':
+          return <AntiDisplacementFields {...{i, householdMembers}} />
         default:
           return <DefaultPreferenceFields {...{i, householdMembers}}  />
       }
