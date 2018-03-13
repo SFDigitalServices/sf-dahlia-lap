@@ -6,6 +6,7 @@ import DisplacedFields from './DisplacedFields'
 import AntiDisplacementFields from './AntiDisplacementFields'
 import NeighborhoodResidentFields from './NeighborhoodResidentFields'
 import LiveWorkFields from './LiveWorkFields'
+import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
 import DefaultPreferenceFields from './DefaultPreferenceFields'
 
 let recordTypeMap = {
@@ -57,6 +58,8 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
           return <LiveWorkFields {...{i, householdMembers}} />
         case 'Anti-Displacement Housing Preference (ADHP)':
           return <AntiDisplacementFields {...{i, householdMembers}} />
+        case 'Rent Burdened / Assisted Housing Preference':
+          return <RentBurdenedAssistedHousingFields {...{i, householdMembers}} />
         default:
           return <DefaultPreferenceFields {...{i, householdMembers}}  />
       }
