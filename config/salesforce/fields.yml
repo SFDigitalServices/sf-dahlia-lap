@@ -93,6 +93,8 @@ applications:
       label: 'Application Number'
     Listing__r.Name:
       label: 'Listing Name'
+    Listing__r.Lottery_Date__c:
+      label: 'Lottery Date'
     Applicant__r.First_Name__c:
     Applicant__r.Last_Name__c:
     Application_Submitted_Date__c:

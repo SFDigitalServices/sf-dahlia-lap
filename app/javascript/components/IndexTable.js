@@ -47,8 +47,35 @@ class IndexTable extends React.Component {
       } else {
         column.Header = utils.cleanField(field)
       }
-      if (column.Header === 'Name') {
+      if (column.Header === 'Listing Name') {
         column.filterable = true
+        column.filterMethod = (filter, row) => {
+          if (filter.value === "all") {
+            return true;
+          }
+          return row[filter.id] == filter.value
+        },
+        column.Filter = ({ filter, onChange }) => {
+          let listingOptions = []
+          let i = 0
+          let listingNames = []
+          listingNames = _.uniq(_.map(this.props.results, 'Listing.Name'))
+          _.each(listingNames, (name) => {
+            listingOptions.push(
+              <option value={name} key={i++}>{name}</option>
+            )
+          })
+          return (
+            <select
+              onChange={event => onChange(event.target.value)}
+              style={{ width: "100%" }}
+              value={filter ? filter.value : "all"}
+            >
+              <option value="all">Show All</option>
+              {listingOptions}
+            </select>
+          )
+        }
       }
       columns.push(column)
     })
@@ -74,6 +101,12 @@ class IndexTable extends React.Component {
       <ReactTable
         columns={this.columnData()}
         data={this.state.data}
+        defaultSorted={[
+          {
+            id: "Listing__r.Lottery_Date__c",
+            desc: true
+          }
+        ]}
         SubComponent={row => {
           let linkTags = []
           let i = 0
