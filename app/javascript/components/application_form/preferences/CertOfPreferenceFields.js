@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select } from 'react-form'
+import { Select, Text } from 'react-form'
 
 const CertOfPreferenceFields = ({ householdMembers, i }) => {
   return (
@@ -10,6 +10,12 @@ const CertOfPreferenceFields = ({ householdMembers, i }) => {
           field={`shortFormPreferences.${i}.naturalKey`}
           options={householdMembers}
           value={`shortFormPreferences.${i}.naturalKey`}
+        />
+      </div>
+      <div className="small-6 columns">
+        <label>COP Certificate Number</label>
+        <Text
+          field={`shortFormPreferences.${i}.certificateNumber`}
         />
       </div>
       <div className="small-12 columns">
