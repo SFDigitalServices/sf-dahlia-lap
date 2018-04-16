@@ -8,7 +8,6 @@ module Force
     # marked duplicates - already marked, can unmark if needed :)
 
     def pending_review_record_sets
-      # TO DO: remove this so that leasing agents have access to hideOnCommunity__c as well
       if @user.admin?
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c

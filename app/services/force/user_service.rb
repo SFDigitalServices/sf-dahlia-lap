@@ -1,7 +1,7 @@
 module Force
   # encapsulate all Salesforce User querying functions
   class UserService < Force::Base
-    COMMUNITY_USER_TYPE = 'CspLitePortal'.freeze
+    COMMUNITY_USER_TYPE = 'PowerPartner'.freeze
     attr_accessor :account_id, :admin
 
     def initialize(user)
