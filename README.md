@@ -50,3 +50,6 @@ Ensure you have .babelrc containing the following:
 ## To run server:
 * `bin/webpack-dev-server --hot`
 * `rails s`
+
+## To update css from Pattern Library:
+* `npm run import-styles`
