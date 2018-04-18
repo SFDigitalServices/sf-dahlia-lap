@@ -47,6 +47,11 @@ class IndexTable extends React.Component {
       } else {
         column.Header = utils.cleanField(field)
       }
+      // for Listings and Flagged/Duplicates Tab
+      if (column.Header == 'Name') {
+        column.filterable = true
+      }
+      // for Applications Tab
       if (column.Header === 'Listing Name') {
         column.filterable = true
         column.filterMethod = (filter, row) => {

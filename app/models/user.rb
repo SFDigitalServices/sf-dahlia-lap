@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :omniauthable, :trackable
 
   def self.from_omniauth(auth)
-    # To do: Need to find out why provider, uid and email have to be unique (acc to Migrations)
     user = User.where(provider: auth.provider, uid: auth.uid, email: auth.extra.username).first ||
            User.new
     user.provider = auth.provider
