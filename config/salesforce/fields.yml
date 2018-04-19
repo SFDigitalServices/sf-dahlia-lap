@@ -178,6 +178,7 @@ applications:
     Answered_Community_Screening__c:
     Has_Military_Service__c:
     Has_DevelopmentalDisability__c:
+        label: 'Has Developmental Disability'
     Has_ADA_Priorities_Selected__c:
     Terms_Acknowledged__c:
     Applicant__r.Id:

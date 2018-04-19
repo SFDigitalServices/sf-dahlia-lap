@@ -65,6 +65,9 @@ class SpreadsheetIndexTable extends React.Component {
         column.Header = attrs.label
       } else if (_.includes(field, '__r.')) {
         column.Header = utils.cleanField(_.last(field.split('__r.')))
+      }
+        else if (_.includes(field, '.')) {
+        column.Header = utils.cleanField(_.last(field.split('.')))
       } else {
         column.Header = utils.cleanField(field)
       }
