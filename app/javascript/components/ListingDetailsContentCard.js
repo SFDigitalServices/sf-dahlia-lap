@@ -40,9 +40,9 @@ var generateContent = (listing, field, i) => {
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
-  let halfLength = Math.ceil(fields.length / 2)
-  let firstFields = _.take(fields, halfLength)
-  let lastFields = _.takeRight(fields, (halfLength % 2 === 0 ? halfLength : halfLength - 1))
+  let halfLength = fields.length / 2
+  let firstFields = _.take(fields, Math.floor(halfLength))
+  let lastFields = _.takeRight(fields, Math.ceil(halfLength))
 
   let i = 0
   let firstFieldsContent = _.map(firstFields, field => generateContent(listing, field, i++))
