@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     get 'marked_duplicate_index' => 'flagged_record_sets#marked_duplicate_index'
   end
 
+  resources :pattern_libraries, only: %w[index]
+
   ## --- API namespacing
   namespace :api do
     namespace :v1 do
