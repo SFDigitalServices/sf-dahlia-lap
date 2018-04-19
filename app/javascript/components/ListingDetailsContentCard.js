@@ -3,9 +3,18 @@ import _ from 'lodash'
 import moment from 'moment'
 import utils from '../utils'
 
+var generateHtml = (value) => {
+  return {__html: value}
+}
+
+
 var generateContent = (listing, field, i) => {
   const formattedValue = (value, field) => {
-    if (_.includes(value, 'http')) {
+    if (field == 'Legal_Disclaimers') {
+      // TO DO: sanitize html
+      return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
+    }
+    else if (_.includes(value, 'http')) {
       return(<a target='_blank' href={value}>{value}</a>)
     }
     else {
