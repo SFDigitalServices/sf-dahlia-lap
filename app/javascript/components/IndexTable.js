@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-// import moment from 'moment'
+import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '../utils'
 import IndexTableCell from './IndexTableCell'
@@ -28,6 +28,10 @@ class IndexTable extends React.Component {
         ),
         Cell: (cellInfo) => {
           let val = this.state.data[cellInfo.index][cellInfo.column.id]
+          if (cellInfo.column.Header == 'Lottery Date') {
+            // cheap way of knowing when to parse date fields
+            val = moment(val).format('L')
+          }
           return <IndexTableCell {...{ attrs, val }} />
         },
         filterMethod: (filter, row) => {
@@ -64,17 +68,22 @@ class IndexTable extends React.Component {
           let listingOptions = []
           let i = 0
           let listingNames = []
-          listingNames = _.uniq(_.map(this.props.results, 'Listing.Name'))
-          _.each(listingNames, (name) => {
+          let uniqListings = _.uniqBy(_.map(this.props.results, (result) => {
+            return {name: result['Listing.Name'], lotteryDate: moment(result['Listing.Lottery_Date'])}
+          }), 'name')
+          let sortedUniqListings = _.sortBy(uniqListings, (listing) => {
+            return listing.lotteryDate
+          })
+          _.each(sortedUniqListings, (listing) => {
             listingOptions.push(
-              <option value={name} key={i++}>{name}</option>
+              <option value={listing.name} key={i++}>{listing.name}</option>
             )
           })
           return (
             <select
               onChange={event => onChange(event.target.value)}
               style={{ width: "100%" }}
-              value={filter ? filter.value : "all"}
+              value={filter ? filter.value : sortedUniqListings[0].name}
             >
               <option value="all">Show All</option>
               {listingOptions}
@@ -106,12 +115,6 @@ class IndexTable extends React.Component {
       <ReactTable
         columns={this.columnData()}
         data={this.state.data}
-        defaultSorted={[
-          {
-            id: "Listing__r.Lottery_Date__c",
-            desc: true
-          }
-        ]}
         SubComponent={row => {
           let linkTags = []
           let i = 0
