@@ -11,20 +11,12 @@ const ListingDetails = ({ listing }) => {
     'Application_Due_Date',
     'Number_of_Applications',
     'Status',
-    'Building__r.Name',
-    'Min_Occupancy',
-    'Max_Occupancy',
-    'Min_BR',
-    'Max_BR',
     'Lottery_Winners',
     'Lottery_Results',
-    'Min_Income',
-    'Max_Income',
   ]
 
   let buildingInformationFields = [
     'Building_Name',
-    'Project_ID',
     'Building_Street_Address',
     'Building_City',
     'Building_State',
@@ -50,8 +42,8 @@ const ListingDetails = ({ listing }) => {
     'Fee',
     'Amenities',
     'Deposit_Min',
-    'Costs_Not_Included',
-    'Deposit_Max'
+    'Deposit_Max',
+    'Costs_Not_Included'
   ]
 
   let lotteryInfoFields = [
@@ -61,15 +53,13 @@ const ListingDetails = ({ listing }) => {
     'Lottery_Status',
     'Lottery_Street_Address',
     'Lottery_Summary',
-    'Lottery_City',
-    'Lottery_URL',
+    'Lottery_City'
   ]
 
   let appInfoFields = [
     'Application_Phone',
     'Office_Hours',
     'Application_Organization',
-    'Office_Closed',
     'Application_Street_Address',
     'Application_City',
     'Application_State',
@@ -83,8 +73,7 @@ const ListingDetails = ({ listing }) => {
     'Leasing_Agent_Title',
     'Leasing_Agent_Email',
     'Leasing_Agent_Phone',
-    'Preference_Detail',
-    'Rental_Assistance',
+    'Preference_Detail'
   ]
 
   let eligibilityRulesFields = [
