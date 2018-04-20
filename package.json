@@ -33,6 +33,9 @@
     "babel-preset-env": "^1.6.1",
     "babel-runtime": "^6.26.0",
     "caniuse-lite": "^1.0.30000760",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.10.0",
     "eslint-config-react-app": "^2.0.1",
     "eslint-config-react-tools": "^1.0.10",
@@ -51,8 +54,14 @@
     "test": "jest"
   },
   "jest": {
+    "setupFiles": [
+      "./spec/javascript/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "roots": [
-      "test/javascript"
+      "spec/javascript"
     ],
     "moduleDirectories": [
       "node_modules",

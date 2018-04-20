@@ -13,11 +13,6 @@
     ],
     "react"
   ],
-  "env": {
-    "test": {
-      "presets": [["env"], "react"]
-    }
-  },
   "plugins": [
     "syntax-dynamic-import",
     "transform-object-rest-spread",
@@ -35,5 +30,28 @@
         "spec": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [["env"], "react"],
+      "plugins": [
+        "syntax-dynamic-import",
+        "transform-object-rest-spread",
+        "transform-async-to-generator",
+        ["babel-plugin-root-import", {
+          "rootPathSuffix": "app/javascript"
+        }],
+        ["transform-runtime", {
+          "polyfill": false,
+          "regenerator": true
+        }],
+        [
+          "transform-class-properties",
+          {
+            "spec": true
+          }
+        ]
+      ]
+    }
+  }
 }

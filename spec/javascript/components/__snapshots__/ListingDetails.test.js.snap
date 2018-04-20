@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render ListingDetails just fine 1`] = `
+exports[`Should render ListingDetails 1`] = `
 <div>
   <div
     className="content-card padding-bottom-none margin-bottom--half bg-trans"
@@ -19,6 +19,18 @@ exports[`Should render ListingDetails just fine 1`] = `
         <div
           className="content-card"
         >
+          <div
+            className="margin-bottom--half"
+          >
+            <h4
+              className="t-sans t-small t-bold no-margin"
+            >
+              Owner
+            </h4>
+            <p>
+              xxx
+            </p>
+          </div>
           <div
             className="margin-bottom--half"
           >
