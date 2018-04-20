@@ -2,6 +2,45 @@ h1 PATTERN LIBRARY
 
 .pl-group
   .pl-heading
+    h3 BreadCrumbs
+  .pl-preview
+    == react_component 'BreadCrumbs', { alpha: 'Alpha', beta: 'Beta', gamma: 'Gamma'}
+
+.pl-group
+  .pl-heading
+    h3 Button
+  .pl-preview
+    == react_component 'Button', { text: 'Save'}
+
+.pl-group
+  .pl-heading
+    h3 Checkbox
+  .pl-preview
+    == react_component 'checkbox', { name: 'Alpha', text: 'Checkbox'}
+
+
+.pl-group
+  .pl-heading
+    h3 Dropdown
+  .pl-preview
+    == react_component 'Dropdown', { buttonSize: 'tiny', iconSize: 'small', text: 'status'}
+
+
+.pl-group
+  .pl-heading
+    h3 Dropdown Menu
+  .pl-preview
+    == react_component 'dropdownMenu', { alpha: 'Alpha', beta: 'Beta'}
+
+.pl-group
+  .pl-heading
+    h3 Dropdown Menu Multiselect
+  .pl-preview
+    == react_component 'dropdownMenuMultiSelect', { alpha: 'Alpha', beta: 'Beta'}
+
+.pl-group
+  .pl-heading
     h3 PageHeader
   .pl-preview
-    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content' }
+    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: 'Export'}
+
