@@ -16,9 +16,15 @@ h2 Atoms
 
 .pl-group
   .pl-heading
+    h3 Dropdown Menu Item 
+  .pl-preview
+    == react_component 'dropdownMenuItem', { selected: 'false', name: 'Beta', item: 'Menu item', url: '#'}
+
+.pl-group
+  .pl-heading
     h3 Dropdown Menu Item Checkbox
   .pl-preview
-    == react_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', text: 'Checkbox'}
+    == react_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', label: 'Checkbox'}
 
 h2 Molecules
 
@@ -39,7 +45,7 @@ h2 Molecules
   .pl-heading
     h3 Dropdown Menu
   .pl-preview
-    == react_component 'dropdownMenu', { alpha: 'Alpha', beta: 'Beta'}
+    == react_component 'dropdownMenu', { item: 'Alpha'}
 
 .pl-group
   .pl-heading
@@ -63,11 +69,16 @@ h2 Molecules
   .pl-heading
     h3 Table Pagination
   .pl-preview
-    == react_component 'TablePagination', { }
+    == react_component 'TablePagination', { pages: 'of 6' }
 
 h2 Organisms
 
 .pl-group
+  .pl-heading
+    h3 Modal
+  .pl-preview
+    == react_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel' }
+
   .pl-heading
     h3 PageHeader
   .pl-preview

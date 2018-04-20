@@ -3,7 +3,7 @@ import dropdownMenuItemCheckbox from '../atoms/dropdownMenuItemCheckbox'
 
 const dropdownMenuMultiSelect = ({ }) => {
   return (
-    <ul class="dropdown-menu" role="listbox" aria-hidden="true" aria-multiselectable="true" aria-activedescendant tabindex="-1">
+    <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-multiselectable="true" aria-activedescendant tabindex="-1">
       <dropdownMenuItemCheckbox/>
     </ul>
   )

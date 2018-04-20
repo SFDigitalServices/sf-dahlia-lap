@@ -1,10 +1,10 @@
 import React from 'react'
+import dropdownMenuItem from '../atoms/dropdownMenuItem'
 
-const dropdownMenu = ({ alpha, beta }) => {
+const dropdownMenu = ({ item }) => {
   return (
-    <ul class="dropdown-menu" role="listbox" aria-hidden="true" aria-activedescendant tabindex="-1">
-      <li class="dropdown-menu_item" role="option" aria-selected="false"><a href="#">{alpha}</a></li>
-      <li class="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">{beta}</a></li>
+    <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-activedescendant tabindex="-1">
+      <dropdownMenuItem item={item}/>
     </ul>
   )
 }
