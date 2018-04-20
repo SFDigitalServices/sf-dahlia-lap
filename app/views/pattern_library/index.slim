@@ -1,10 +1,12 @@
-h1 PATTERN LIBRARY
+h1 Pattern Library
+
+h2 Atoms
 
 .pl-group
   .pl-heading
     h3 BreadCrumbs
   .pl-preview
-    == react_component 'BreadCrumbs', { alpha: 'Alpha', beta: 'Beta', gamma: 'Gamma'}
+    == react_component 'BreadCrumbs', { item: 'Alpha', item_2: 'Beta', item_3: 'Gamma'}
 
 .pl-group
   .pl-heading
@@ -14,16 +16,23 @@ h1 PATTERN LIBRARY
 
 .pl-group
   .pl-heading
-    h3 Checkbox
+    h3 Dropdown Menu Item Checkbox
   .pl-preview
-    == react_component 'checkbox', { name: 'Alpha', text: 'Checkbox'}
+    == react_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', text: 'Checkbox'}
 
+h2 Molecules
 
 .pl-group
   .pl-heading
-    h3 Dropdown
+    h3 Alert Box
   .pl-preview
-    == react_component 'Dropdown', { buttonSize: 'tiny', iconSize: 'small', text: 'status'}
+    == react_component 'AlertBox', { message: 'You need to resolve any errors before moving on.' }
+
+.pl-group
+  .pl-heading
+    h3 Alert Notice
+  .pl-preview
+    == react_component 'AlertNotice', { title: 'Your household income is too low.', content: 'Please edit your income if you believe you might have made a mistake. Be aware that if you falsify any information on your application you will be disqualified.' }
 
 
 .pl-group
@@ -36,11 +45,30 @@ h1 PATTERN LIBRARY
   .pl-heading
     h3 Dropdown Menu Multiselect
   .pl-preview
-    == react_component 'dropdownMenuMultiSelect', { alpha: 'Alpha', beta: 'Beta'}
+    == react_component 'dropdownMenuMultiSelect', { }
+
+.pl-group
+  .pl-heading
+    h3 Dropdown
+  .pl-preview
+    == react_component 'Dropdown', { text: 'status', size: 'tiny'}
+
+.pl-group
+  .pl-heading
+    h3 Tabs Menu
+  .pl-preview
+    == react_component 'TabsMenu', { }
+
+.pl-group
+  .pl-heading
+    h3 Table Pagination
+  .pl-preview
+    == react_component 'TablePagination', { }
+
+h2 Organisms
 
 .pl-group
   .pl-heading
     h3 PageHeader
   .pl-preview
-    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: 'Export'}
-
+    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: 'Export', item: 'Alpha', itemA: 'beta', itemB: 'gamma' }
