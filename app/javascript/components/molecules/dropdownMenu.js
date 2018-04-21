@@ -1,10 +1,10 @@
 import React from 'react'
-import dropdownMenuItem from '../atoms/dropdownMenuItem'
+import DropdownMenuItem from '../atoms/dropdownMenuItem'
 
-const dropdownMenu = ({ item }) => {
+const dropdownMenu = ({ item, selected, name, url }) => {
   return (
     <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-activedescendant tabindex="-1">
-      <dropdownMenuItem item={item}/>
+      <DropdownMenuItem item={item} selected={selected} name={name} url={url}/>
     </ul>
   )
 }

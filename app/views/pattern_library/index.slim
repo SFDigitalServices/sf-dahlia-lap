@@ -6,7 +6,7 @@ h2 Atoms
   .pl-heading
     h3 BreadCrumbs
   .pl-preview
-    == react_component 'BreadCrumbs', { item: 'Alpha', item_2: 'Beta', item_3: 'Gamma'}
+    == react_component 'BreadCrumbs', { item: 'Alpha', itemA: 'Beta', itemB: 'Gamma'}
 
 .pl-group
   .pl-heading
@@ -18,13 +18,13 @@ h2 Atoms
   .pl-heading
     h3 Dropdown Menu Item 
   .pl-preview
-    == react_component 'dropdownMenuItem', { selected: 'false', name: 'Beta', item: 'Menu item', url: '#'}
+    == react_component 'dropdownMenuItem', { selected: 'false', name: 'Beta', item: 'Menu item', url: '1'}
 
 .pl-group
   .pl-heading
     h3 Dropdown Menu Item Checkbox
   .pl-preview
-    == react_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', label: 'Checkbox'}
+    == react_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', item: 'Check'}
 
 h2 Molecules
 
@@ -45,13 +45,13 @@ h2 Molecules
   .pl-heading
     h3 Dropdown Menu
   .pl-preview
-    == react_component 'dropdownMenu', { item: 'Alpha'}
+    == react_component 'dropdownMenu', { item: 'Alpha', selected: 'selected', name: 'Some', url: '1'}
 
 .pl-group
   .pl-heading
     h3 Dropdown Menu Multiselect
   .pl-preview
-    == react_component 'dropdownMenuMultiSelect', { }
+    == react_component 'dropdownMenuMultiSelect', { selected: 'false', name: 'Alpha', item: 'Some' }
 
 .pl-group
   .pl-heading
@@ -82,4 +82,4 @@ h2 Organisms
   .pl-heading
     h3 PageHeader
   .pl-preview
-    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: 'Export', item: 'Alpha', itemA: 'beta', itemB: 'gamma' }
+    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: 'Export', item: 'Alpha', itemA: 'Beta', itemB: 'Gamma' }
