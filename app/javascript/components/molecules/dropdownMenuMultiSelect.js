@@ -1,7 +1,7 @@
 import React from 'react'
-import DropdownMenuItemCheckbox from '../atoms/DropdownMenuItemCheckbox'
+import DropdownMenuItemCheckbox from '../atoms/dropdownMenuItemCheckbox'
 
-const DropdownMenuMultiSelect = ({ name, item, selected }) => {
+const dropdownMenuMultiSelect = ({ name, item, selected }) => {
   return (
     <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-multiselectable="true" aria-activedescendant tabindex="-1">
       <DropdownMenuItemCheckbox item={item} selected={selected} name={name}/>
@@ -9,4 +9,4 @@ const DropdownMenuMultiSelect = ({ name, item, selected }) => {
   )
 }
 
-export default DropdownMenuMultiSelect
+export default dropdownMenuMultiSelect

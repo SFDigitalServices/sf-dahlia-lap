@@ -5,6 +5,7 @@ import BreadCrumbs from 'components/atoms/BreadCrumbs'
 import Button from 'components/atoms/Button'
 import dropdownMenuItem from 'components/atoms/dropdownMenuItem'
 import dropdownMenuItemCheckbox from 'components/atoms/dropdownMenuItemCheckbox'
+import Icon from 'components/atoms/Icon'
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
 import dropdownMenu from 'components/molecules/dropdownMenu'
@@ -19,6 +20,7 @@ import PageHeader from 'components/organisms/PageHeader'
 WebpackerReact.setup({ Button })
 WebpackerReact.setup({ dropdownMenuItem })
 WebpackerReact.setup({ dropdownMenuItemCheckbox })
+WebpackerReact.setup({ Icon })
 WebpackerReact.setup({ BreadCrumbs })
 WebpackerReact.setup({ AlertBox })
 WebpackerReact.setup({ AlertNotice })

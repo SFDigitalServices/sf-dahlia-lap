@@ -1,6 +1,7 @@
 import React from 'react'
+import Icon from '../atoms/Icon'
 
-const Modal = ({ header, hidden, content, primary, secondary }) => {
+const Modal = ({ header, hidden, content, primary, secondary, icon }) => {
   return (
     <div aria-labelledby="modalTitle" aria-hidden={hidden} role="dialog">
       <header className="modal-inner">

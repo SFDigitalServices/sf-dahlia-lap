@@ -26,6 +26,12 @@ h2 Atoms
   .pl-preview
     == react_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', item: 'Check'}
 
+.pl-group
+  .pl-heading
+    h3 Icon
+  .pl-preview
+    == react_component 'Icon', { icon: '#i-arrow-down'}
+
 h2 Molecules
 
 .pl-group
@@ -57,13 +63,13 @@ h2 Molecules
   .pl-heading
     h3 Dropdown
   .pl-preview
-    == react_component 'Dropdown', { text: 'status', size: 'tiny'}
+    == react_component 'Dropdown', { text: 'status', size: 'tiny', icon: '#i-arrow-down'}
 
 .pl-group
   .pl-heading
     h3 Tabs Menu
   .pl-preview
-    == react_component 'TabsMenu', { }
+    == react_component 'TabsMenu', { item: 'Short Form Application', url: '#', active: 'true', itemB: 'Supplemental Information', urlB: '#', activeB: 'false' }
 
 .pl-group
   .pl-heading
@@ -77,7 +83,7 @@ h2 Organisms
   .pl-heading
     h3 Modal
   .pl-preview
-    == react_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel' }
+    == react_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
 
   .pl-heading
     h3 PageHeader
