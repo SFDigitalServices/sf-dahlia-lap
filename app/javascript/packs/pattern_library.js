@@ -6,6 +6,9 @@ import Button from 'components/atoms/Button'
 import dropdownMenuItem from 'components/atoms/dropdownMenuItem'
 import dropdownMenuItemCheckbox from 'components/atoms/dropdownMenuItemCheckbox'
 import Icon from 'components/atoms/Icon'
+import FormGroupTextInput from 'components/atoms/FormGroupTextInput'
+import FormGroupTextArea from 'components/atoms/FormGroupTextArea'
+import FormGroupTextValue from 'components/atoms/FormGroupTextValue'
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
 import dropdownMenu from 'components/molecules/dropdownMenu'
@@ -21,6 +24,9 @@ WebpackerReact.setup({ Button })
 WebpackerReact.setup({ dropdownMenuItem })
 WebpackerReact.setup({ dropdownMenuItemCheckbox })
 WebpackerReact.setup({ Icon })
+WebpackerReact.setup({ FormGroupTextInput })
+WebpackerReact.setup({ FormGroupTextArea })
+WebpackerReact.setup({ FormGroupTextValue })
 WebpackerReact.setup({ BreadCrumbs })
 WebpackerReact.setup({ AlertBox })
 WebpackerReact.setup({ AlertNotice })
