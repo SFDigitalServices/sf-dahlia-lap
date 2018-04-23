@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render ListingDetails 1`] = `
+exports[`ListingDetails Should render ListingDetails 1`] = `
 <div>
   <div
     className="content-card padding-bottom-none margin-bottom--half bg-trans"
@@ -40,7 +40,7 @@ exports[`Should render ListingDetails 1`] = `
               Application Due Date
             </h4>
             <p>
-              04/20/2018
+              04/23/2018
             </p>
           </div>
         </div>
@@ -165,7 +165,7 @@ exports[`Should render ListingDetails 1`] = `
               Lottery Date
             </h4>
             <p>
-              04/20/2018
+              04/23/2018
             </p>
           </div>
           <div
@@ -177,7 +177,7 @@ exports[`Should render ListingDetails 1`] = `
               Lottery Results Date
             </h4>
             <p>
-              04/20/2018
+              04/23/2018
             </p>
           </div>
         </div>
