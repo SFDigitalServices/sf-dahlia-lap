@@ -54,11 +54,11 @@ const AlternateContactSection = ({editValues}) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <label>Relationship</label>
+                <label>Alternate Contact Type</label>
                 <Select field="alternateContactType" options={alternate_contact_options} />
               </div>
               <div className="small-4 columns">
-                <label>Relationship other</label>
+                <label>Alternate Contact Type Other</label>
                 <Text field="alternateContactTypeOther" />
               </div>
               <div className="small-4 columns">

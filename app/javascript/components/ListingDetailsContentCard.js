@@ -3,9 +3,18 @@ import _ from 'lodash'
 import moment from 'moment'
 import utils from '../utils'
 
+var generateHtml = (value) => {
+  return {__html: value}
+}
+
+
 var generateContent = (listing, field, i) => {
   const formattedValue = (value, field) => {
-    if (_.includes(value, 'http')) {
+    if (field == 'Legal_Disclaimers') {
+      // TO DO: sanitize html
+      return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
+    }
+    else if (_.includes(value, 'http')) {
       return(<a target='_blank' href={value}>{value}</a>)
     }
     else {
@@ -40,9 +49,9 @@ var generateContent = (listing, field, i) => {
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
-  let halfLength = Math.ceil(fields.length / 2)
-  let firstFields = _.take(fields, halfLength)
-  let lastFields = _.takeRight(fields, (halfLength % 2 === 0 ? halfLength : halfLength - 1))
+  let halfLength = fields.length / 2
+  let firstFields = _.take(fields, Math.floor(halfLength))
+  let lastFields = _.takeRight(fields, Math.ceil(halfLength))
 
   let i = 0
   let firstFieldsContent = _.map(firstFields, field => generateContent(listing, field, i++))
