@@ -129,7 +129,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               }
             }
           >
-            xxx2
+            xxx1
           </div>
           <div
             className="rt-td"
@@ -142,7 +142,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               }
             }
           >
-            zzz2
+            zzz1
           </div>
         </div>
       </div>
@@ -182,7 +182,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               }
             }
           >
-            xxx1
+            xxx2
           </div>
           <div
             className="rt-td"
@@ -195,7 +195,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               }
             }
           >
-            zzz1
+            zzz2
           </div>
         </div>
       </div>
@@ -1361,14 +1361,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
     defaultResized={Array []}
     defaultSortDesc={false}
     defaultSortMethod={[Function]}
-    defaultSorted={
-      Array [
-        Object {
-          "desc": true,
-          "id": "Listing__r.Lottery_Date__c",
-        },
-      ]
-    }
+    defaultSorted={Array []}
     expanded={Object {}}
     expanderDefaults={
       Object {
@@ -1669,9 +1662,9 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="xxx2"
+                            val="xxx1"
                           >
-                            xxx2
+                            xxx1
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -1700,9 +1693,9 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="zzz2"
+                            val="zzz1"
                           >
-                            zzz2
+                            zzz1
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -1779,9 +1772,9 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="xxx1"
+                            val="xxx2"
                           >
-                            xxx1
+                            xxx2
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -1810,9 +1803,9 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="zzz1"
+                            val="zzz2"
                           >
-                            zzz1
+                            zzz2
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -3838,14 +3831,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
           defaultResized={Array []}
           defaultSortDesc={false}
           defaultSortMethod={[Function]}
-          defaultSorted={
-            Array [
-              Object {
-                "desc": true,
-                "id": "Listing__r.Lottery_Date__c",
-              },
-            ]
-          }
+          defaultSorted={Array []}
           expanded={Object {}}
           expanderDefaults={
             Object {
@@ -3919,17 +3905,6 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
           resolvedData={
             Array [
               Object {
-                "_index": 1,
-                "_nestingLevel": 0,
-                "_original": Object {
-                  "first_name": "xxx2",
-                  "last_name": "zzz2",
-                },
-                "_subRows": undefined,
-                "first_name": "xxx2",
-                "last_name": "zzz2",
-              },
-              Object {
                 "_index": 0,
                 "_nestingLevel": 0,
                 "_original": Object {
@@ -3939,6 +3914,17 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                 "_subRows": undefined,
                 "first_name": "xxx1",
                 "last_name": "zzz1",
+              },
+              Object {
+                "_index": 1,
+                "_nestingLevel": 0,
+                "_original": Object {
+                  "first_name": "xxx2",
+                  "last_name": "zzz2",
+                },
+                "_subRows": undefined,
+                "first_name": "xxx2",
+                "last_name": "zzz2",
               },
             ]
           }
@@ -3950,27 +3936,9 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
           showPaginationTop={false}
           skipNextSort={false}
           sortable={true}
-          sorted={
-            Array [
-              Object {
-                "desc": true,
-                "id": "Listing__r.Lottery_Date__c",
-              },
-            ]
-          }
+          sorted={Array []}
           sortedData={
             Array [
-              Object {
-                "_index": 1,
-                "_nestingLevel": 0,
-                "_original": Object {
-                  "first_name": "xxx2",
-                  "last_name": "zzz2",
-                },
-                "_subRows": undefined,
-                "first_name": "xxx2",
-                "last_name": "zzz2",
-              },
               Object {
                 "_index": 0,
                 "_nestingLevel": 0,
@@ -3981,6 +3949,17 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                 "_subRows": undefined,
                 "first_name": "xxx1",
                 "last_name": "zzz1",
+              },
+              Object {
+                "_index": 1,
+                "_nestingLevel": 0,
+                "_original": Object {
+                  "first_name": "xxx2",
+                  "last_name": "zzz2",
+                },
+                "_subRows": undefined,
+                "first_name": "xxx2",
+                "last_name": "zzz2",
               },
             ]
           }
@@ -4248,14 +4227,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
     defaultResized={Array []}
     defaultSortDesc={false}
     defaultSortMethod={[Function]}
-    defaultSorted={
-      Array [
-        Object {
-          "desc": true,
-          "id": "Listing__r.Lottery_Date__c",
-        },
-      ]
-    }
+    defaultSorted={Array []}
     expanded={
       Object {
         "0": true,
@@ -4560,9 +4532,9 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="xxx2"
+                            val="xxx1"
                           >
-                            xxx2
+                            xxx1
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -4591,9 +4563,9 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="zzz2"
+                            val="zzz1"
                           >
-                            zzz2
+                            zzz1
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -4673,9 +4645,9 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="xxx1"
+                            val="xxx2"
                           >
-                            xxx1
+                            xxx2
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -4704,9 +4676,9 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         >
                           <IndexTableCell
                             attrs={Object {}}
-                            val="zzz1"
+                            val="zzz2"
                           >
-                            zzz1
+                            zzz2
                           </IndexTableCell>
                         </div>
                       </Td>
@@ -6732,14 +6704,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
           defaultResized={Array []}
           defaultSortDesc={false}
           defaultSortMethod={[Function]}
-          defaultSorted={
-            Array [
-              Object {
-                "desc": true,
-                "id": "Listing__r.Lottery_Date__c",
-              },
-            ]
-          }
+          defaultSorted={Array []}
           expanded={
             Object {
               "0": true,
@@ -6817,17 +6782,6 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
           resolvedData={
             Array [
               Object {
-                "_index": 1,
-                "_nestingLevel": 0,
-                "_original": Object {
-                  "first_name": "xxx2",
-                  "last_name": "zzz2",
-                },
-                "_subRows": undefined,
-                "first_name": "xxx2",
-                "last_name": "zzz2",
-              },
-              Object {
                 "_index": 0,
                 "_nestingLevel": 0,
                 "_original": Object {
@@ -6837,6 +6791,17 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                 "_subRows": undefined,
                 "first_name": "xxx1",
                 "last_name": "zzz1",
+              },
+              Object {
+                "_index": 1,
+                "_nestingLevel": 0,
+                "_original": Object {
+                  "first_name": "xxx2",
+                  "last_name": "zzz2",
+                },
+                "_subRows": undefined,
+                "first_name": "xxx2",
+                "last_name": "zzz2",
               },
             ]
           }
@@ -6848,27 +6813,9 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
           showPaginationTop={false}
           skipNextSort={false}
           sortable={true}
-          sorted={
-            Array [
-              Object {
-                "desc": true,
-                "id": "Listing__r.Lottery_Date__c",
-              },
-            ]
-          }
+          sorted={Array []}
           sortedData={
             Array [
-              Object {
-                "_index": 1,
-                "_nestingLevel": 0,
-                "_original": Object {
-                  "first_name": "xxx2",
-                  "last_name": "zzz2",
-                },
-                "_subRows": undefined,
-                "first_name": "xxx2",
-                "last_name": "zzz2",
-              },
               Object {
                 "_index": 0,
                 "_nestingLevel": 0,
@@ -6879,6 +6826,17 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                 "_subRows": undefined,
                 "first_name": "xxx1",
                 "last_name": "zzz1",
+              },
+              Object {
+                "_index": 1,
+                "_nestingLevel": 0,
+                "_original": Object {
+                  "first_name": "xxx2",
+                  "last_name": "zzz2",
+                },
+                "_subRows": undefined,
+                "first_name": "xxx2",
+                "last_name": "zzz2",
               },
             ]
           }
