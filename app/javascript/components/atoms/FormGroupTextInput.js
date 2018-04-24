@@ -5,7 +5,7 @@ const FormGroupTextInput = ({ label, id, name, placeholder, describeId, note }) 
     <div className="form-group">
       <label for={name} className="">{label}</label>
       <input type="text" id={id} name={name} placeholder={placeholder} aria-describedby={describeId}/>
-      <span class="form-note shift-up" id={describeId}>{note}</span>
+      <span className="form-note shift-up" id={describeId}>{note}</span>
     </div>
   )
 }
