@@ -41,6 +41,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.2'
   gem 'pry-rails'
   gem 'binding_of_caller'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
