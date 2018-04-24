@@ -1,5 +1,7 @@
 # Leasing Agent Portal
 
+Leasing agent portal allows leasing agents to manage applications.
+
 ## To setup:
 * Use ruby 2.2.5
 * Use node v8.9.1 (npm v5.5.1)
