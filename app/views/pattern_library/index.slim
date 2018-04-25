@@ -97,6 +97,12 @@ h2 Molecules
 
 .pl-group
   .pl-heading
+    h3 FormGridRow
+  .pl-preview
+    == react_component 'FormGridRow', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }
+
+.pl-group
+  .pl-heading
     h3 Tabs Menu
   .pl-preview
     == react_component 'TabsMenu', { item: 'Short Form Application', url: '#', active: 'true', itemB: 'Supplemental Information', urlB: '#', activeB: 'false' }
@@ -125,3 +131,9 @@ h2 Organisms
     h3 TabsSection
   .pl-preview
     == react_component 'TabsSection', { item: 'Short Form Application', url: '#', active: 'true', itemB: 'Supplemental Information', urlB: '#', activeB: 'false' }
+
+.pl-group
+  .pl-heading
+    h3 TabsCardSection
+  .pl-preview
+    == react_component 'TabsCardSection', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }
