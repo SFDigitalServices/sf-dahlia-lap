@@ -20,6 +20,7 @@ import TabsMenu from 'components/molecules/TabsMenu'
 import TablePagination from 'components/molecules/TablePagination'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
+import TabsSection from 'components/organisms/TabsSection'
 
 // All setup components after this
 WebpackerReact.setup({ Button })
@@ -41,3 +42,4 @@ WebpackerReact.setup({ TabsMenu })
 WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ Modal })
 WebpackerReact.setup({ PageHeader })
+WebpackerReact.setup({ TabsSection })
