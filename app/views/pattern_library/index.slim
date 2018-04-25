@@ -117,6 +117,12 @@ h2 Organisms
 
 .pl-group
   .pl-heading
+    h3 ContentSection
+  .pl-preview
+    == react_component 'ContentSection', { title: 'Title', subtitle: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }
+
+.pl-group
+  .pl-heading
     h3 Modal
   .pl-preview
     == react_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
@@ -134,6 +140,6 @@ h2 Organisms
 
 .pl-group
   .pl-heading
-    h3 TabsCardSection
+    h3 TabCard
   .pl-preview
-    == react_component 'TabsCardSection', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }
+    == react_component 'TabCard', { title: 'Title', subtitle: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }

@@ -19,10 +19,11 @@ import Dropdown from 'components/molecules/Dropdown'
 import FormGridRow from 'components/molecules/FormGridRow'
 import TabsMenu from 'components/molecules/TabsMenu'
 import TablePagination from 'components/molecules/TablePagination'
+import ContentSection from 'components/organisms/ContentSection'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
 import TabsSection from 'components/organisms/TabsSection'
-import TabsCardSection from 'components/organisms/TabsCardSection'
+import TabCard from 'components/organisms/TabCard'
 
 // All setup components after this
 WebpackerReact.setup({ Button })
@@ -43,7 +44,8 @@ WebpackerReact.setup({ Dropdown })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ TabsMenu })
 WebpackerReact.setup({ TablePagination })
+WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ Modal })
 WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ TabsSection })
-WebpackerReact.setup({ TabsCardSection })
+WebpackerReact.setup({ TabCard })
