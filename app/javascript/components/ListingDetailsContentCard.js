@@ -32,6 +32,10 @@ var generateContent = (listing, field, i) => {
       value = listing[label][parts[1]]
     }
   }
+  // to do: refactor so labelling overwrite isn't hardcoded
+  if (label  == 'In Lottery') {
+    label = 'Applications in Lottery'
+  }
   if (_.includes(field, 'Date')) {
     // cheap way of knowing when to parse date fields
     value = moment(value).format('L')

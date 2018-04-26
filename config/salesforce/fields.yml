@@ -70,7 +70,8 @@ listings:
     Application_State__c:
     Organization_URL__c:
     Application_Postal_Code__c:
-    Number_of_Applications__c:
+    In_Lottery__c:
+      label: 'Applications in Lottery'
     Leasing_Agent_Name__c:
     Leasing_Agent_Title__c:
     Leasing_Agent_Email__c:
@@ -235,6 +236,7 @@ flagged_record_sets:
       label: 'App Number'
     Flagged_Record_Set__r.Rule_Name__c:
     Primary_Application_Applicant_Name__c:
+      label: 'Primary Applicant Name'
     Flagged_Record_Set__r.Listing__r.Lottery_Status__c:
       label: 'Lottery Status'
     Review_Status__c:
