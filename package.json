@@ -8,6 +8,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "axios": "^0.17.0",
+    "babel-core": "^6.26.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-root-import": "5.1.0",
     "babel-preset-react": "^6.24.1",
