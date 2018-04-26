@@ -52,7 +52,7 @@ module Force
     end
 
     def submit(data)
-      api_post('/shortForm', application_defaults.merge(data))
+      api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
     end
 
     private
