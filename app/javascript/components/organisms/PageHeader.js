@@ -13,7 +13,7 @@ const PageHeader = ({ title, content, action, breadcrumbs }) => {
               <p>{content}</p>
             </div>
             <div className="medium-4 columns no-padding">
-              { action && (<span className="lead-header_secondary-action"><a href={action.link} className="alt-caps">{action.title}</a></span>) }
+              { action && <span className="lead-header_secondary-action"><a href={action.link} className="alt-caps">{action.title}</a></span> }
             </div>
           </hgroup>
         </div>
