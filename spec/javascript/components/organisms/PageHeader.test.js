@@ -26,4 +26,13 @@ describe('PageHeader', () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   })
+
+  test('should render succesfully without action', () => {
+    const component = renderer.create(
+      <PageHeader title={title} content={content} breadcrumbs={breadcrumbs} />,
+    );
+
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  })
 })
