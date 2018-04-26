@@ -7,6 +7,8 @@ import PaperApplicationForm from 'components/application_form/PaperApplicationFo
 import ListingDetails from 'components/ListingDetails'
 import ApplicationDetails from 'components/ApplicationDetails'
 
+import './pattern_library'
+
 Turbolinks.start()
 
 WebpackerReact.setup({ IndexTable }) // ES6 shorthand for {IndexTable: IndexTable}

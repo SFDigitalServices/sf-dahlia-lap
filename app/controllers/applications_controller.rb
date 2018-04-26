@@ -11,13 +11,11 @@ class ApplicationsController < ApplicationController
   def show
     @application = application_service.application(params[:id])
     @file_base_url = ENV['SALESFORCE_SERVLET']
-    pp @application
   end
 
   def edit
     @application = application_service.application(params[:id])
     @listing = listing_service.listing(@application.Listing.Id, current_user.admin)
-    pp @application
   end
 
   def listing_index

@@ -3,7 +3,6 @@ class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
   def submit
-    pp application_api_params
     application = application_service.submit(application_api_params)
     render json: { application: application }
   end
