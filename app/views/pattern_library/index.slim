@@ -6,7 +6,7 @@ h2 Atoms
   .pl-heading
     h3 BreadCrumbs
   .pl-preview
-    == react_component 'BreadCrumbs', { item: 'Alpha', itemA: 'Beta', itemB: 'Gamma'}
+    == react_component 'BreadCrumbs', { items: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gama', link: '#' }] }
 
 .pl-group
   .pl-heading
@@ -88,4 +88,7 @@ h2 Organisms
   .pl-heading
     h3 PageHeader
   .pl-preview
-    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: 'Export', item: 'Alpha', itemA: 'Beta', itemB: 'Gamma' }
+    == react_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: { title: 'Export', link: '#' }, breadcrumbs: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gama', link: '#' }, { title: 'Pi', link: '#' }] }
+    
+  
+  
