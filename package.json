@@ -3,8 +3,7 @@
   "private": true,
   "engines": {
     "node": "8.10.x",
-    "npm": "5.5.x",
-    "yarn": "1.6.x"
+    "npm": "5.5.x"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
