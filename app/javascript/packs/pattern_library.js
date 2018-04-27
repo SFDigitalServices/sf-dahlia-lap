@@ -16,7 +16,7 @@ import TabsMenu from 'components/molecules/TabsMenu'
 import TablePagination from 'components/molecules/TablePagination'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
-import PageHeaderSimple from 'components/molecules/PageHeaderSimple'
+import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 
 Turbolinks.start()
 
