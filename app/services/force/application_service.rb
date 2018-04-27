@@ -52,7 +52,7 @@ module Force
     end
 
     def submit(data)
-      api_post('/shortForm', application_defaults.merge(data))
+      api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
     end
 
     private
@@ -79,8 +79,8 @@ module Force
     def app_proof_files(application_id)
       parsed_index_query(%(
         SELECT #{query_fields(:show_proof_files)}
-        FROM Attachment
-        WHERE ParentId = '#{application_id}'
+        FROM Attachment__c
+        WHERE Related_Application__c = '#{application_id}'
       ), :show_proof_files)
     end
 
