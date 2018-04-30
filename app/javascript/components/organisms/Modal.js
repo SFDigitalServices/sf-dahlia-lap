@@ -3,6 +3,8 @@ import Icon from '../atoms/Icon'
 import ReactModal from 'react-modal';
 import _ from 'lodash'
 
+import Alert from '../organisms/Alert'
+
 const styleTypes = {
   small: {
     overlay: {
@@ -79,5 +81,11 @@ Modal.Footer = ({ children }) => (
     </div>
   </footer>
 )
+
+Modal.Alert = (props) => {
+  return (
+    <Alert {...props} />
+  )
+}
 
 export default Modal

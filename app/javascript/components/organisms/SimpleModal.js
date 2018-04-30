@@ -4,8 +4,8 @@ import ReactModal from 'react-modal';
 import _ from 'lodash'
 
 import Modal from './Modal'
-import AlertBox from '../molecules/AlertBox'
-import AlertNotice from '../molecules/AlertNotice'
+// import AlertBox from '../molecules/AlertBox'
+// import AlertNotice from '../molecules/AlertNotice'
 
 const primaryButtonClass = (type) => {
   if (type == 'status')
@@ -27,16 +27,18 @@ const SimpleModalBody = ({
   onPrimaryClick,
   onSecondaryClick,
   children,
-  alertBox,
-  alertNotice
+  alert,
+  invert
 }) => {
   const primaryButtonClassNames = `button ${primaryButtonClass(type)}`
+
+  //{ alertBox && <AlertBox message={alertBox} invert={invert} /> }
+  //{ alertNotice && <AlertNotice {...{ invert, ...alertNotice }} /> }
 
   return (
     <Modal.Body onCloseClick={onCloseClick} hidden={isOpen}>
       <Modal.Header title={header} />
-      { alertBox && <AlertBox message={alertBox} /> }
-      { alertNotice && <AlertNotice {...alertNotice} /> }
+      { alert && <Modal.Alert {...alert} /> }
       <Modal.Content>{children}</Modal.Content>
       <Modal.Footer>
         <div className="modal-button_item">
@@ -61,23 +63,24 @@ const SimpleModal = ({
   onSecondaryClick,
   type,
   children,
-  alertBox,
-  alertNotice
+  alert,
+  invert
 }) => {
   return (
     <Modal isOpen={isOpen} >
       <SimpleModalBody  {...{
           type,
           header,
-          alertBox,
-          alertNotice,
+          alert,
           isOpen,
           content,
           primary,
           secondary,
           onCloseClick,
           onPrimaryClick,
-          onSecondaryClick }}>
+          onSecondaryClick,
+          invert
+        }}>
         { children }
       </SimpleModalBody>
     </Modal>

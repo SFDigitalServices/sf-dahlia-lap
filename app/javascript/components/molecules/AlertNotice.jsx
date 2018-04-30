@@ -1,8 +1,9 @@
 import React from 'react'
 
-const AlertNotice = ({ title, content }) => {
+const AlertNotice = ({ title, content, invert }) => {
+  const invertClass = invert ? 'invert' : ''
   return (
-    <div className="alert-notice alert">
+    <div className={`alert-notice alert ${invertClass}`}>
       <p className="t-tiny c-alert margin-bottom">
         {title}
       </p>

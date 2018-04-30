@@ -10,15 +10,19 @@ class ModalWrapper extends React.Component {
 
     this.state = {
       statusModalIsOpen: false,
-      dangerModalIsOpen: false
+      dangerModalIsOpen: false,
+      invertModalIsOpen: false
     };
 
-    this.openStatusModal = this.openStatusModal.bind(this)
     // this.afterOpenModal = this.afterOpenModal.bind(this)
+    this.openStatusModal = this.openStatusModal.bind(this)
     this.closeStatusModal = this.closeStatusModal.bind(this)
 
     this.openDangerModal = this.openDangerModal.bind(this)
     this.closeDangerModal = this.closeDangerModal.bind(this)
+
+    this.openInvertModal = this.openInvertModal.bind(this)
+    this.closeInvertModal = this.closeInvertModal.bind(this)
   }
 
   openStatusModal() {
@@ -35,6 +39,14 @@ class ModalWrapper extends React.Component {
 
   closeDangerModal() {
     this.setState({dangerModalIsOpen: false});
+  }
+
+  openInvertModal() {
+    this.setState({invertModalIsOpen: true});
+  }
+
+  closeInvertModal() {
+    this.setState({invertModalIsOpen: false});
   }
 
   render() {
@@ -64,35 +76,46 @@ class ModalWrapper extends React.Component {
           onPrimaryClick={() => this.closeDangerModal()}
           onSecondaryClick={() => this.closeDangerModal()}
           type='alert'
-          alertBox="This change will affect this application's preferences"
-          alertNotice={ {
-            title: 'This application woudl no longer be elegible for Live Work Preference',
-            content: 'Note, you will have the opportunity to grant another household member this preference'
+          invert={false}
+          alert={{
+            title: "This change will affect this application's preferences",
+            subTitle: 'This application woudl no longer be elegible for Live Work Preference',
+            message: 'Note, you will have the opportunity to grant another household member this preference',
+            invert: false
           }}>
           <div>content</div>
         </SimpleModal>
 
         <br/>
-        <button onClick={this.openDangerModal}>Open Invert Modal</button>
+
+        <button onClick={this.openInvertModal}>Open Invert Modal</button>
         <SimpleModal
-          header='Remove loterry prefrence?'
+          header='Remove loterry prefrence? Invert Modal'
           primary='remove'
           secondary='cancel'
-          isOpen={this.state.dangerModalIsOpen}
-          onCloseClick={() => this.closeDangerModal()}
-          onPrimaryClick={() => this.closeDangerModal()}
-          onSecondaryClick={() => this.closeDangerModal()}
+          isOpen={this.state.invertModalIsOpen}
+          onCloseClick={() => this.closeInvertModal()}
+          onPrimaryClick={() => this.closeInvertModal()}
+          onSecondaryClick={() => this.closeInvertModal()}
           type='alert'
-          alertBox="This change will affect this application's preferences"
-          alertNotice={ {
-            title: 'This application woudl no longer be elegible for Live Work Preference',
-            content: 'Note, you will have the opportunity to grant another household member this preference'
+          invert={true}
+          alert={{
+            title: "This change will affect this application's preferences",
+            subTitle: 'This application woudl no longer be elegible for Live Work Preference',
+            message: 'Note, you will have the opportunity to grant another household member this preference',
+            invert: true
           }}>
           <div>content</div>
         </SimpleModal>
+
       </div>
     )
   }
 }
+
+
+
+
+
 
 export default ModalWrapper
