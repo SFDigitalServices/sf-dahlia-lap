@@ -1,5 +1,4 @@
 import WebpackerReact from 'webpacker-react'
-import Turbolinks from 'turbolinks'
 
 // All imports from Pattern Library
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
@@ -16,8 +15,7 @@ import TabsMenu from 'components/molecules/TabsMenu'
 import TablePagination from 'components/molecules/TablePagination'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
-
-Turbolinks.start()
+import ModalPatterLibraryWrapper from 'components/pattern_library_wrappers/Modal'
 
 // All setup components after this
 WebpackerReact.setup({ Button })
@@ -33,4 +31,5 @@ WebpackerReact.setup({ Dropdown })
 WebpackerReact.setup({ TabsMenu })
 WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ Modal })
+WebpackerReact.setup({ ModalPatterLibraryWrapper} )
 WebpackerReact.setup({ PageHeader })

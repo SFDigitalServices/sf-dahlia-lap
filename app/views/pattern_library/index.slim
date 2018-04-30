@@ -79,12 +79,19 @@ h2 Molecules
 
 h2 Organisms
 
+/ .pl-group
+/   .pl-heading
+/     h3 Modal
+/   .pl-preview
+/     == react_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
+
 .pl-group
   .pl-heading
     h3 Modal
   .pl-preview
-    == react_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
+    == react_component 'ModalPatterLibraryWrapper', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
 
+.pl-group
   .pl-heading
     h3 PageHeader
   .pl-preview
