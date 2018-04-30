@@ -9,7 +9,6 @@ class ListingsController < ApplicationController
 
   def show
     @listing = service.listing(params[:id], current_user.admin)
-    pp @listing
   end
 
   private

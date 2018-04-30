@@ -47,9 +47,10 @@ var generateData = (label, value) => {
 }
 
 const ApplicationDetailsContentCard = ({ dataCollection, title, fields }) => {
-  let halfLength = Math.ceil(fields.length / 2)
-  let firstFields = _.take(fields, halfLength)
-  let lastFields = _.takeRight(fields, (halfLength % 2 === 0 ? halfLength : halfLength - 1))
+  let firstHalf = Math.ceil(fields.length / 2)
+  let lastHalf = fields.length  - firstHalf
+  let firstFields = _.take(fields, firstHalf)
+  let lastFields = _.takeRight(fields, lastHalf)
   let i = 0
   let firstFieldsContent = _.map(firstFields, field => generateContent(dataCollection, field, i++))
   let lastFieldsContent = _.map(lastFields, field => generateContent(dataCollection, field, i++))

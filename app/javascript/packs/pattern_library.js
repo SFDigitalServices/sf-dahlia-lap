@@ -1,4 +1,5 @@
 import WebpackerReact from 'webpacker-react'
+import Turbolinks from 'turbolinks'
 
 // All imports from Pattern Library
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
@@ -24,6 +25,8 @@ import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
+
+Turbolinks.start()
 
 // All setup components after this
 WebpackerReact.setup({ Button })

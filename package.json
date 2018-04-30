@@ -2,13 +2,14 @@
   "name": "sf-dahlia-lap",
   "private": true,
   "engines": {
-    "node": "8.9.x",
+    "node": "8.10.x",
     "npm": "5.5.x",
-    "yarn": "1.3.x"
+    "yarn": "1.x.x"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "axios": "^0.17.0",
+    "babel-core": "^6.26.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-root-import": "5.1.0",
     "babel-preset-react": "^6.24.1",
@@ -27,10 +28,15 @@
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",
+    "babel-jest": "^22.4.3",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
     "babel-runtime": "^6.26.0",
     "caniuse-lite": "^1.0.30000760",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.10.0",
     "eslint-config-react-app": "^2.0.1",
     "eslint-config-react-tools": "^1.0.10",
@@ -39,10 +45,29 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "7.4.0",
+    "jest": "^22.4.3",
+    "react-test-renderer": "^16.3.2",
+    "sinon": "^4.5.0",
     "webpack": "3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "import-styles": "cp ../sf-dahlia-pattern-library/dist/assets/toolkit/styles/toolkit-lap.css app/assets/stylesheets/toolkit.scss"
+    "import-styles": "cp ../sf-dahlia-pattern-library/dist/assets/toolkit/styles/toolkit-lap.css app/assets/stylesheets/toolkit.scss",
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": [
+      "./spec/javascript/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "roots": [
+      "spec/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript"
+    ]
   }
 }

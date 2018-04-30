@@ -1,5 +1,7 @@
 # Leasing Agent Portal
 
+A portal for leasing agents to manage listings and applications.
+
 ## To setup:
 * Use ruby 2.2.5
 * Use node v8.9.1 (npm v5.5.1)
@@ -53,3 +55,19 @@ Ensure you have .babelrc containing the following:
 
 ## To update css from Pattern Library:
 * `npm run import-styles`
+
+# To run tests
+
+Rails tests:
+
+`bundle exec rake spec`
+
+Running React/Javascript tests:
+
+`yarn test`
+
+If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
+
+`yarn test -u`
+
+_Note2: Snapshots should be pushed to the repo_

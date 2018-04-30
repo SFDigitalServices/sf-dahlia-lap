@@ -9,7 +9,7 @@ const ListingDetails = ({ listing }) => {
     'Name',
     'Account.Name',
     'Application_Due_Date',
-    'Number_of_Applications',
+    'In_Lottery',
     'Status',
     'Lottery_Winners',
     'Lottery_Results',
