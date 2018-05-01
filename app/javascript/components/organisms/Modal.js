@@ -32,14 +32,11 @@ const styleTypes = {
 const titileize = (value) =>  _.capitalize(value)
 
 class Modal extends React.Component {
-  defaultType = 'small'
+  defaultStyleType = 'small'
 
   render() {
-    const style = styleTypes[this.defaultType]
-    const {
-      children,
-      isOpen
-    } = this.props
+    const { children, isOpen, styleType } = this.props
+    const style = styleTypes[styleType || this.defaultStyleType]
 
     return (
       <ReactModal isOpen={isOpen} style={style} >

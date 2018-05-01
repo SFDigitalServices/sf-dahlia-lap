@@ -29,7 +29,9 @@ const SimpleModalBody = ({
     <Modal.Body onCloseClick={onCloseClick} hidden={isOpen}>
       <Modal.Header title={header} />
       { alert && <Modal.Alert {...alert} /> }
-      <Modal.Content>{children}</Modal.Content>
+      <Modal.Content>
+        {children}
+      </Modal.Content>
       <Modal.Footer>
         <div className="modal-button_item modal-button_primary">
           <button className={primaryButtonClassName} onClick={onPrimaryClick}>{primary}</button>

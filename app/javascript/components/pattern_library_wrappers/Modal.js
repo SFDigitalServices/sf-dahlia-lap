@@ -11,49 +11,17 @@ class ModalWrapper extends React.Component {
     invertModalIsOpen: false
   }
 
-  // constructor() {
-  //   super()
-  //
-  //   this.state = {
-  //     statusModalIsOpen: false,
-  //     dangerModalIsOpen: false,
-  //     invertModalIsOpen: false
-  //   };
-  //
-  //   // this.afterOpenModal = this.afterOpenModal.bind(this)
-  //   this.openStatusModal = this.openStatusModal.bind(this)
-  //   this.closeStatusModal = this.closeStatusModal.bind(this)
-  //
-  //   this.openDangerModal = this.openDangerModal.bind(this)
-  //   this.closeDangerModal = this.closeDangerModal.bind(this)
-  //
-  //   this.openInvertModal = this.openInvertModal.bind(this)
-  //   this.closeInvertModal = this.closeInvertModal.bind(this)
-  // }
+  openStatusModal  = () => this.setState({ statusModalIsOpen: true })
 
-  openStatusModal = () => {
-    this.setState({statusModalIsOpen: true})
-  }
+  closeStatusModal = () => this.setState({ statusModalIsOpen: false })
 
-  closeStatusModal = () => {
-    this.setState({statusModalIsOpen: false})
-  }
+  openDangerModal  = () => this.setState({ dangerModalIsOpen: true })
 
-  openDangerModal = () => {
-    this.setState({dangerModalIsOpen: true})
-  }
+  closeDangerModal = () => this.setState({ dangerModalIsOpen: false })
 
-  closeDangerModal = () => {
-    this.setState({dangerModalIsOpen: false})
-  }
+  openInvertModal  = () => this.setState({ invertModalIsOpen: true })
 
-  openInvertModal = () => {
-    this.setState({invertModalIsOpen: true})
-  }
-
-  closeInvertModal = () => {
-    this.setState({invertModalIsOpen: false})
-  }
+  closeInvertModal = () => this.setState({ invertModalIsOpen: false })
 
   render() {
     return (
@@ -70,7 +38,7 @@ class ModalWrapper extends React.Component {
           type='status'>
           <div>content</div>
         </SimpleModal>
-        
+
         <br/>
 
         <button onClick={this.openDangerModal}>Open Danger Modal</button>
