@@ -28,7 +28,7 @@ const AlertBox = ({ message, invert, noMargin, onCloseClick, dismiss, closeType 
           <use xlinkHref="#i-warning"></use>
         </svg>
       </span>
-      <p class="alert-body">
+      <p className="alert-body">
         {message}
       </p>
       { closeLink }
