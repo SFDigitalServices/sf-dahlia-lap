@@ -51,7 +51,7 @@ class Modal extends React.Component {
 Modal.Body = ({ children, onCloseClick, hidden }) => (
   <div aria-labelledby="modalTitle" aria-hidden={hidden} role="dialog">
     {children}
-    <a className="close-reveal-modal" aria-label="Close" onClick={() => onCloseClick()}>
+    <a className="close-reveal-modal" aria-label="Close" onClick={onCloseClick}>
       <span className="ui-icon ui-medium i-primary">
         <svg>
           <use xlinkHref="#i-close"></use>
@@ -83,9 +83,7 @@ Modal.Footer = ({ children }) => (
 )
 
 Modal.Alert = (props) => {
-  return (
-    <Alert {...props} />
-  )
+  return (<Alert {...props} />)
 }
 
 export default Modal

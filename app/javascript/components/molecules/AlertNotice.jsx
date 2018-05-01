@@ -1,6 +1,9 @@
 import React from 'react'
 
-const AlertNotice = ({ title, content, invert }) => {
+const AlertNotice = ({ title, content, invert, dismiss }) => {
+  if (dismiss)
+    return null
+
   const invertClass = invert ? 'invert' : ''
   return (
     <div className={`alert-notice alert ${invertClass}`}>

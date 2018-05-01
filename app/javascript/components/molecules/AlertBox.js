@@ -1,13 +1,25 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const AlertBox = ({ message, invert, noMarging }) => {
+const getCloseLink = (type, onCloseClick) => {
+  if (type == 'text')
+    return <a className="close text" onClick={onCloseClick}>Close</a>
+  else
+    return <a className="close" onClick={onCloseClick}>&times;</a>
+}
+
+const AlertBox = ({ message, invert, noMargin, onCloseClick, dismiss, closeType }) => {
+  if (dismiss)
+    return null
+
   const alertClass = classNames({
     'alert-box': true,
     alert: true,
     invert: !!invert,
-    'no-margin': !!noMarging
+    'no-margin': !!noMargin
   })
+
+  const closeLink = getCloseLink(closeType, onCloseClick)
 
   return (
     <div data-alert className={alertClass}>
@@ -19,7 +31,7 @@ const AlertBox = ({ message, invert, noMarging }) => {
       <p class="alert-body">
         {message}
       </p>
-      <a href="#" className="close ">&times;</a>
+      { closeLink }
     </div>
   )
 }
