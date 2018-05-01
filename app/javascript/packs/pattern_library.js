@@ -1,4 +1,5 @@
 import WebpackerReact from 'webpacker-react'
+import Turbolinks from 'turbolinks'
 
 // All imports from Pattern Library
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
