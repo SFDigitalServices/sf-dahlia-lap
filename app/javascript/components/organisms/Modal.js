@@ -33,6 +33,7 @@ const titileize = (value) =>  _.capitalize(value)
 
 class Modal extends React.Component {
   defaultType = 'small'
+
   render() {
     const style = styleTypes[this.defaultType]
     const {
