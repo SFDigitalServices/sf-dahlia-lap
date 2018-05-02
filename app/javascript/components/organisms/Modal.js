@@ -5,30 +5,6 @@ import _ from 'lodash'
 
 import Alert from '../organisms/Alert'
 
-// minWidth: '20rem',
-//      maxWidth: '60rem'
-// const styleTypes = {
-//   small: {
-//     overlay: {
-//       backgroundColor: 'rgba(0,0,0,0.3)'
-//     },
-//     content: {
-//         opacity: '1',
-//         border: '0',
-//         borderRadius: '4px',
-//         bottom: 'auto',
-//         minHeight: '10rem',
-//         left: '50%',
-//         padding: '0px',
-//         position: 'fixed',
-//         right: 'auto',
-//         top: '50%',
-//         transform: 'translate(-50%,-50%)',
-//         width: '600px',
-//     }
-//   }
-// }
-
 const styleTypes = {
   small: {
     overlay: {
@@ -59,8 +35,6 @@ class Modal extends React.Component {
   render() {
     const { children, isOpen, styleType } = this.props
     const style = styleTypes[styleType || this.defaultStyleType]
-
-    const style1 = {}
     return (
       <ReactModal isOpen={isOpen} style={style}>
         {children}
