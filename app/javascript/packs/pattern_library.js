@@ -23,6 +23,7 @@ import TablePagination from 'components/molecules/TablePagination'
 import ContentSection from 'components/organisms/ContentSection'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
+import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
 
@@ -50,5 +51,7 @@ WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ Modal })
 WebpackerReact.setup({ PageHeader })
+
+WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
