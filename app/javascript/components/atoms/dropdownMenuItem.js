@@ -1,9 +1,12 @@
 import React from 'react'
 
-const dropdownMenuItem = ({ item, selected, name, url }) => {
+const dropdownMenuItem = ({ value, label, selected, onChange }) => {
+  let liClassName = 'dropdown-menu_item'
+  if (selected)
+    liClassName += ' is-selected'
   return (
-    <li className="dropdown-menu_item" role="option" aria-selected={selected}>
-      <a href={url}>{item}</a>
+    <li className={liClassName} role="option" aria-selected={selected}>
+      <a onClick={() => onChange && onChange(value, label) }>{value}</a>
     </li>
   )
 }
