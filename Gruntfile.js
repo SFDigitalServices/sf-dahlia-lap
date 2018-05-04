@@ -55,9 +55,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-replace');
-  grunt.loadNpmTasks('grunt-sort-json');
-  grunt.loadNpmTasks('grunt-json-remove-fields');
-
 
   // register task
   grunt.registerTask('default', [

@@ -56,7 +56,6 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "import-styles": "cp ../sf-dahlia-pattern-library/dist/assets/toolkit/styles/toolkit-lap.css app/assets/stylesheets/toolkit.scss",
     "test": "jest"
   },
   "jest": {
