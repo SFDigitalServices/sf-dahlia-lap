@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
   // Delete the old toolkit.css
   clean: {
-    css: ['<%= applicationAssetsPath %>/stylesheets/toolkit.css']
+    css: ['<%= applicationAssetsPath %>/stylesheets/toolkit-lap.css']
   },
 
   //Copy the latest compiled toolkit.css file from the pattern library into our app
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       files: [
         {
           src: '<%= patternLibraryPath %>/dist/assets/toolkit/styles/toolkit-lap.css',
-          dest: '<%= applicationAssetsPath %>/stylesheets/toolkit.scss'
+          dest: '<%= applicationAssetsPath %>/stylesheets/toolkit-lap.scss'
         }
       ],
     },
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       files: [
         {
           expand: true, flatten: true,
-          src: ['<%= applicationAssetsPath %>/stylesheets/toolkit.scss'],
+          src: ['<%= applicationAssetsPath %>/stylesheets/toolkit-lap.scss'],
           dest: '<%= applicationAssetsPath %>/stylesheets/'
         }
       ]
