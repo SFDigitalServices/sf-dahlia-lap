@@ -5,7 +5,6 @@ import _ from 'lodash'
 
 /*
 TODO
-1. Wrapper for pattern library
 1. Position menu items
 1. Include blank
 */
@@ -14,6 +13,7 @@ class Dropdown extends React.Component {
   constructor(props) {
     super(props)
     this.state = { expanded: false }
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   toggleExpand = () => {
@@ -21,7 +21,8 @@ class Dropdown extends React.Component {
   }
 
   onChange = (value, label) => {
-    this.setState({expanded: false})
+    if (!this.props.multiple)
+      this.setState({expanded: false})
     this.props.onChange && this.props.onChange(value, label)
   }
 
@@ -34,7 +35,7 @@ class Dropdown extends React.Component {
           <DropdownMenuMultiSelect
             style={style}
             onChange={this.onChange}
-            value={value}
+            values={value}
             items={items}/>
         )
       } else {
@@ -49,13 +50,27 @@ class Dropdown extends React.Component {
     }
   }
 
+  componentDidMount() {
+   document.addEventListener('mousedown', this.handleClickOutside);
+ }
+
+ componentWillUnmount() {
+   document.removeEventListener('mousedown', this.handleClickOutside);
+ }
+
+  handleClickOutside(event) {
+   if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+     this.setState({expanded: false})
+   }
+ }
+
   render() {
-    const { prompt, size , items, value} = this.props
+    const { prompt, size = 'small', items, value} = this.props
     const style =  {}//{ left: '16px', top: '95px'}
     const selectedItem = _.find(items, { value: value })
 
     return (
-      <div class="dropdown">
+      <div class="dropdown" ref={(node) => this.wrapperRef = node }>
         <button onClick={this.toggleExpand} className={`${size} button dropdown-button has-icon--right text-align-left`}>
           <span className="ui-icon ui-small">
             <svg>
