@@ -26,6 +26,7 @@ import PageHeader from 'components/organisms/PageHeader'
 import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
+import DropdownWrapper from 'components/pattern_library_wrappers/DropdownWrapper'
 
 Turbolinks.start()
 
@@ -51,7 +52,7 @@ WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ Modal })
 WebpackerReact.setup({ PageHeader })
-
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
+WebpackerReact.setup({ DropdownWrapper })

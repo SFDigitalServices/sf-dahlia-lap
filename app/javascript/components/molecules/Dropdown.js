@@ -1,33 +1,58 @@
 import React from 'react'
 import DropdownMenu from '../molecules/dropdownMenu'
+import DropdownMenuMultiSelect from '../molecules/dropdownMenuMultiSelect'
+import _ from 'lodash'
 
 /*
 TODO
-1. Change Dropdown label, based on selected
-2. Callback from the outside world
-3. Wrapper for pattern library
+1. Wrapper for pattern library
+1. Position menu items
+1. Include blank
 */
 class Dropdown extends React.Component {
 
-  state = { expanded: false }
+  constructor(props) {
+    super(props)
+    this.state = { expanded: false }
+  }
 
   toggleExpand = () => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
   }
 
-  onChange = (key, value) => {
+  onChange = (value, label) => {
     this.setState({expanded: false})
+    this.props.onChange && this.props.onChange(value, label)
+  }
+
+  menu() {
+    const { prompt, size , items, value, multiple, style, onChange } = this.props
+
+    if (this.state.expanded) {
+      if (multiple) {
+        return (
+          <DropdownMenuMultiSelect
+            style={style}
+            onChange={this.onChange}
+            value={value}
+            items={items}/>
+        )
+      } else {
+        return (
+          <DropdownMenu
+            style={style}
+            onChange={this.onChange}
+            value={value}
+            items={items}/>
+        )
+      }
+    }
   }
 
   render() {
-    const { text, size } = this.props
-    const style = {}
-    const items = [
-      { value: 'key1', label:'value1' },
-      { value: 'key2', label:'value2' }
-    ]
-
-    const value='key1'
+    const { prompt, size , items, value} = this.props
+    const style =  {}//{ left: '16px', top: '95px'}
+    const selectedItem = _.find(items, { value: value })
 
     return (
       <div class="dropdown">
@@ -37,15 +62,9 @@ class Dropdown extends React.Component {
               <use xlinkHref="#i-arrow-down"></use>
             </svg>
           </span>
-          {text}
+          {selectedItem ? selectedItem.label : prompt}
         </button>
-        { this.state.expanded &&
-          <DropdownMenu
-            style={style}
-            onChange={this.onChange}
-            value={value}
-            items={items}/>
-        }
+        {this.menu()}
       </div>
     )
   }

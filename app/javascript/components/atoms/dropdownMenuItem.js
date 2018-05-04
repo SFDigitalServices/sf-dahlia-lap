@@ -6,7 +6,7 @@ const dropdownMenuItem = ({ value, label, selected, onChange }) => {
     liClassName += ' is-selected'
   return (
     <li className={liClassName} role="option" aria-selected={selected}>
-      <a onClick={() => onChange && onChange(value, label) }>{value}</a>
+      <a onClick={() => onChange && onChange(value, label) }>{label}</a>
     </li>
   )
 }
