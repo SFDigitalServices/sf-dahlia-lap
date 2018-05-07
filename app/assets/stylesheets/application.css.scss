@@ -4,8 +4,8 @@
  * - LAP includes some leasing agent portal styles and overrides.
  * - note: react-table.css default style is included via webpack in application.html
  *
- *= require toolkit
+ *= require toolkit-lap
  *= require lap
- *= require pattern_libraries
+ *= require pattern-library
  *= require_self
  */

@@ -1,7 +1,7 @@
 import React from 'react'
-import DropdownMenuItem from '../atoms/dropdownMenuItem'
+import DropdownMenuItem from '../atoms/DropdownMenuItem'
 
-const dropdownMenu = ({ items, value, onChange, style }) => {
+const DropdownMenu = ({ items, value, onChange, style }) => {
   return (
     <ul className="dropdown-menu" style={style} role="listbox" aria-hidden="true" aria-activedescendant tabindex="-1">
       {
@@ -17,4 +17,4 @@ const dropdownMenu = ({ items, value, onChange, style }) => {
   )
 }
 
-export default dropdownMenu
+export default DropdownMenu

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const dropdownMenuItem = ({ value, label, selected, onChange }) => {
+const DropdownMenuItem = ({ value, label, selected, onChange }) => {
   let liClassName = 'dropdown-menu_item'
   if (selected)
     liClassName += ' is-selected'
@@ -11,4 +11,4 @@ const dropdownMenuItem = ({ value, label, selected, onChange }) => {
   )
 }
 
-export default dropdownMenuItem
+export default DropdownMenuItem

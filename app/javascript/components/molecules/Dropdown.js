@@ -1,6 +1,6 @@
 import React from 'react'
-import DropdownMenu from '../molecules/dropdownMenu'
-import DropdownMenuMultiSelect from '../molecules/dropdownMenuMultiSelect'
+import DropdownMenu from '../molecules/DropdownMenu'
+import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 import _ from 'lodash'
 
 /*

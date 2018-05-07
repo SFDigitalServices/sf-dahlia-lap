@@ -1,10 +1,8 @@
 import React from 'react'
-import DropdownMenuItemCheckbox from '../atoms/dropdownMenuItemCheckbox'
+import DropdownMenuItemCheckbox from '../atoms/DropdownMenuItemCheckbox'
 import _ from 'lodash'
 
-// const dropdownMenuMultiSelect = ({ items, values, onChange, style }) => {
-
-class dropdownMenuMultiSelect extends React.Component {
+class DropdownMenuMultiSelect extends React.Component {
   // state = { values: {} }
   //
   // onChangeHandler = (key, value) => {
@@ -34,4 +32,4 @@ class dropdownMenuMultiSelect extends React.Component {
   }
 }
 
-export default dropdownMenuMultiSelect
+export default DropdownMenuMultiSelect

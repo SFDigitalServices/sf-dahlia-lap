@@ -54,7 +54,7 @@ Ensure you have .babelrc containing the following:
 * `rails s`
 
 ## To update css from Pattern Library:
-* `npm run import-styles`
+* `grunt`
 
 # To run tests
 
