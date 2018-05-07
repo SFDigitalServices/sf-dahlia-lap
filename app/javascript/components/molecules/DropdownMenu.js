@@ -5,6 +5,7 @@ const DropdownMenu = ({ items, value, onChange, style }) => {
   return (
     <ul className="dropdown-menu" style={style} role="listbox" aria-hidden="true" aria-activedescendant tabindex="-1">
       {
+        items &&
         items.map((item) => (
           <DropdownMenuItem
             key={item.value}

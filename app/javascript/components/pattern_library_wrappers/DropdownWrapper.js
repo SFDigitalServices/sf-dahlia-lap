@@ -15,17 +15,16 @@ class DropdownWrapper extends React.Component {
   }
 
   render() {
-    const items = [
-      { value: 'value1', label:'label1' },
-      { value: 'value2', label:'label2' }
-    ]
+    const { items } = this.props
 
     return (
       <div>
+        <h3>Single select</h3>
         <div>
           Value: {this.state.dropdown1Value}
           <Dropdown prompt="Select option" value={this.state.dropdown1Value} onChange={this.onChangeDropdown1} items={items} />
         </div>
+        <h3>Multiple select</h3>
         <div>
           Values: {this.state.dropdown2Value}
           <Dropdown prompt="Select option" multiple={true} value={this.state.dropdown2Value} onChange={this.onChangeDropdown2} items={items} />
