@@ -36,7 +36,12 @@ class ModalWrapper extends React.Component {
           onPrimaryClick={this.closeStatusModal}
           onSecondaryClick={this.closeStatusModal}
           type='status'>
-          <div>content</div>
+          <p class="c-steel">Loreum ipsum</p>
+
+          <div class="form-group">
+  			   <label>Comment Required</label>
+  			   <textarea name="textarea-id" id="textarea-id" cols="30" rows="10" placeholder="Type here" aria-describedby="described-id"></textarea>
+          </div>
         </SimpleModal>
 
         <br/>
