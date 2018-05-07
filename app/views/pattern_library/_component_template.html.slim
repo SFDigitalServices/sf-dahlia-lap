@@ -1,8 +1,9 @@
-a name="#{component_name.parameterize}"
+- name = options[:title] || component_name
+a name="#{name.parameterize}"
 div class="#{options[:pl_group_class] || 'pl-group'}"
   .pl-heading
-    a href="##{component_name.parameterize}"
-      h3 = component_name
+    a href="##{name.parameterize}"
+      h3 = name
   .pl-preview
     == react_component component_name, args
     
