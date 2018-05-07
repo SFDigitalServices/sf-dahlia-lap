@@ -1,7 +1,7 @@
 import React from 'react'
-import ContentSection from '../organisms/ContentSection'
+import ContentSection from '../molecules/ContentSection'
 
-const TabCard = ({ title, subtitle, label, id, name, placeholder, describeId, note, error }) => {
+const TabCard = ({ title, subtitle, title_description, subtitle_description, label, id, name, placeholder, describeId, note, error }) => {
   return (
     <section className="tabs-card-row row full-width inner--3x margin-bottom--2x">
       <div className="app-card form-card tabs-card max-width expand-on-small">
