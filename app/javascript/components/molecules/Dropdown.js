@@ -14,11 +14,6 @@ const computeLeftWith = (ref) => {
   return 0
 }
 
-/*
-TODO
-1. Position menu items
-1. Include blank
-*/
 class Dropdown extends React.Component {
 
   constructor(props) {
@@ -38,21 +33,21 @@ class Dropdown extends React.Component {
       this.setState({expanded: false })
   }
 
-  onChange = (value, label) => {
+  onChangeHandler = (value, label) => {
     if (!this.props.multiple)
       this.setState({expanded: false})
     this.props.onChange && this.props.onChange(value, label)
   }
 
   menu() {
-    const { prompt, size , items, value, multiple, onChange } = this.props
+    const { prompt, size , items, value, multiple } = this.props
 
     if (this.state.expanded) {
       if (multiple) {
         return (
           <DropdownMenuMultiSelect
             style={this.state.style}
-            onChange={this.onChange}
+            onChange={this.onChangeHandler}
             values={value}
             items={items}/>
         )
@@ -60,7 +55,7 @@ class Dropdown extends React.Component {
         return (
           <DropdownMenu
             style={this.state.style}
-            onChange={this.onChange}
+            onChange={this.onChangeHandler}
             value={value}
             items={items}/>
         )
@@ -88,13 +83,17 @@ class Dropdown extends React.Component {
    }
  }
 
+ onKeyPressHandler = () => {
+   console.log("onKeyPressHandler")
+ }
+
  render() {
    const { prompt, size = 'small', items, value} = this.props
    const selectedItem = _.find(items, { value: value })
 
    return (
     <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'relative' }}>
-      <button aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
+      <button onKeyPress={this.onKeyPressHandler} aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
         <span className="ui-icon ui-small">
           <svg>
             <use xlinkHref="#i-arrow-down"></use>
