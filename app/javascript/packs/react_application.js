@@ -6,6 +6,7 @@ import SpreadsheetIndexTable from 'components/SpreadsheetIndexTable'
 import PaperApplicationForm from 'components/application_form/PaperApplicationForm'
 import ListingDetails from 'components/ListingDetails'
 import ApplicationDetails from 'components/ApplicationDetails'
+import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
 
 import './pattern_library'
 
@@ -16,3 +17,4 @@ WebpackerReact.setup({ SpreadsheetIndexTable })
 WebpackerReact.setup({ PaperApplicationForm })
 WebpackerReact.setup({ ListingDetails })
 WebpackerReact.setup({ ApplicationDetails })
+WebpackerReact.setup({ LeaseUpsPage })

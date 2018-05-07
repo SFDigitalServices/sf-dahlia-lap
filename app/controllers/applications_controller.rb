@@ -15,7 +15,7 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = application_service.application(params[:id])
-    @listing = listing_service.listing(@application.Listing.Id, current_user.admin)
+    @listing = listing_service.listing(@application.Listing.Id)
   end
 
   def listing_index
@@ -38,7 +38,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_listing
-    @listing = listing_service.listing(params[:listing_id], current_user.admin)
+    @listing = listing_service.listing(params[:listing_id])
   end
 
   def application_service

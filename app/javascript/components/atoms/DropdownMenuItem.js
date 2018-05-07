@@ -1,6 +1,6 @@
 import React from 'react'
 
-const dropdownMenuItem = ({ item, selected, name, url }) => {
+const DropdownMenuItem = ({ item, selected, name, url }) => {
   return (
     <li className="dropdown-menu_item" role="option" aria-selected={selected}>
       <a href={url}>{item}</a>
@@ -8,4 +8,4 @@ const dropdownMenuItem = ({ item, selected, name, url }) => {
   )
 }
 
-export default dropdownMenuItem
+export default DropdownMenuItem

@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = service.listing(params[:id], current_user.admin)
+    @listing = service.listing(params[:id])
   end
 
   private

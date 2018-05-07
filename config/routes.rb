@@ -15,12 +15,14 @@ Rails.application.routes.draw do
         get '/' => 'applications#listing_index'
       end
     end
+    resources :lease_ups, only: %w[index]
   end
   resources :applications, only: %w[index show edit] do
     collection do
       get 'spreadsheet'
     end
   end
+
 
   scope '/flagged_record_sets' do
     get ':id/flagged_applications' => 'flagged_record_sets#flagged_applications', as: :flagged_applications
