@@ -65,6 +65,7 @@ class Dropdown extends React.Component {
 
  componentDidMount() {
    document.addEventListener('mousedown', this.handleClickOutside);
+   document.addEventListener('keydown', this.onEscapeHandler);
    this.setState({
      style: {
        top: computeTopWith(this.buttonRef),
@@ -75,6 +76,7 @@ class Dropdown extends React.Component {
 
  componentWillUnmount() {
    document.removeEventListener('mousedown', this.handleClickOutside);
+   document.removeEventListener('keydown', this.onEscapeHandler);
  }
 
  handleClickOutside(event) {
@@ -83,8 +85,9 @@ class Dropdown extends React.Component {
    }
  }
 
- onKeyPressHandler = () => {
-   // console.log("onKeyPressHandler")
+ onEscapeHandler = (event) => {
+   if (event.keyCode === 27)
+    this.setState({expanded: false})
  }
 
  render() {
@@ -93,7 +96,7 @@ class Dropdown extends React.Component {
 
    return (
     <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'relative' }}>
-      <button onKeyPress={this.onKeyPressHandler} aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
+      <button aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
         <span className="ui-icon ui-small">
           <svg>
             <use xlinkHref="#i-arrow-down"></use>
