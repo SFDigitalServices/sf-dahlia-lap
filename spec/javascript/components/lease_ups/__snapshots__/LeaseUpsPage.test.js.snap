@@ -1303,6 +1303,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -1735,6 +1736,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -4870,6 +4872,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -8423,6 +8426,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -8855,6 +8859,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -9287,6 +9292,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -9719,6 +9725,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -10151,6 +10158,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                         aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
                                         onClick={[Function]}
+                                        onKeyPress={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"

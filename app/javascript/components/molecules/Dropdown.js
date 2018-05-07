@@ -84,7 +84,7 @@ class Dropdown extends React.Component {
  }
 
  onKeyPressHandler = () => {
-   console.log("onKeyPressHandler")
+   // console.log("onKeyPressHandler")
  }
 
  render() {
