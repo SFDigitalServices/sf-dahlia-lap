@@ -1,6 +1,6 @@
 import React from 'react'
 
-const dropdownMenuItemCheckbox = ({ name, item, selected }) => {
+const DropdownMenuItemCheckbox = ({ name, item, selected }) => {
   return (
     <li className="dropdown-menu_item" role="option" aria-selected={selected}>
       <div className="checkbox">
@@ -11,4 +11,4 @@ const dropdownMenuItemCheckbox = ({ name, item, selected }) => {
   )
 }
 
-export default dropdownMenuItemCheckbox
+export default DropdownMenuItemCheckbox

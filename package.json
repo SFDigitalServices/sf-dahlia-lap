@@ -70,6 +70,8 @@
     "roots": [
       "spec/javascript"
     ],
+    "cache": false,
+    "resetModules": true,
     "moduleDirectories": [
       "node_modules",
       "app/javascript"

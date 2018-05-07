@@ -26,12 +26,18 @@ module Force
       result.map { |i| Hashie::Mash.new(i) }
     end
 
+    def debug(q)
+      puts "[SOQL]> #{q}" if Rails.env.development? # HACK: make this better
+    end
     # run a Salesforce SOQL query
+
     def query(q)
+      debug(q)
       @client.query(q)
     end
 
     def query_first(q)
+      debug(q)
       massage(@client.query(q)).first
     end
 
