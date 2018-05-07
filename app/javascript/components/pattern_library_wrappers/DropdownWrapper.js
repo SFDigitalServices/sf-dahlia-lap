@@ -4,7 +4,7 @@ import Dropdown from '../molecules/Dropdown'
 
 class DropdownWrapper extends React.Component {
 
-  state = { dropdown1Value: null, dropdown2Value: new Set() }
+  state = { dropdown1Value: null, dropdown2Value: null }
 
   onChangeDropdown1 = (value, label) => {
     this.setState({dropdown1Value: value})
@@ -12,11 +12,6 @@ class DropdownWrapper extends React.Component {
 
   onChangeDropdown2 = (values) => {
     this.setState({ dropdown2Value: values })
-    // this.setState((prevState) => {
-    //   let newValues = new Set([...prevState.dropdown2Value, ...[value]])
-    //   console.log(newValues)
-    //   return { dropdown2Value: newValues }
-    // })
   }
 
   render() {
@@ -32,7 +27,7 @@ class DropdownWrapper extends React.Component {
           <Dropdown prompt="Select option" value={this.state.dropdown1Value} onChange={this.onChangeDropdown1} items={items} />
         </div>
         <div>
-          Value: {this.state.dropdown2Value}
+          Values: {this.state.dropdown2Value}
           <Dropdown prompt="Select option" multiple={true} value={this.state.dropdown2Value} onChange={this.onChangeDropdown2} items={items} />
         </div>
       </div>

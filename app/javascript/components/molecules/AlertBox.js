@@ -8,7 +8,7 @@ const AlertBox = ({ message }) => {
           <use xlinkHref="#i-warning"></use>
         </svg>
       </span>
-      <p class="alert-body">
+      <p className="alert-body">
         {message}
       </p>
       <a href="#" className="close ">&times;</a>

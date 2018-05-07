@@ -1292,9 +1292,17 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -1305,8 +1313,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -1713,9 +1724,17 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -1726,8 +1745,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -4837,9 +4859,17 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -4850,8 +4880,11 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -8379,9 +8412,17 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -8392,8 +8433,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -8800,9 +8844,17 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -8813,8 +8865,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -9221,9 +9276,17 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -9234,8 +9297,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -9642,9 +9708,17 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -9655,8 +9729,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>
@@ -10063,9 +10140,17 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   >
                                     <div
                                       className="dropdown"
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "position": "relative",
+                                        }
+                                      }
                                     >
                                       <button
+                                        aria-expanded="false"
                                         className="tiny button dropdown-button has-icon--right text-align-left"
+                                        onClick={[Function]}
                                       >
                                         <span
                                           className="ui-icon ui-small"
@@ -10076,8 +10161,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                             />
                                           </svg>
                                         </span>
-                                        Status
                                       </button>
+                                      <div
+                                        aria-hidden="true"
+                                        role="menu"
+                                      />
                                     </div>
                                   </Dropdown>
                                 </LeaseUpStatusCell>

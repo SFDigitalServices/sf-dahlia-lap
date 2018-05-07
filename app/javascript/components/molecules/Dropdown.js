@@ -1,7 +1,18 @@
 import React from 'react'
+import ReactDOM  from 'react-dom'
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 import _ from 'lodash'
+
+const computeTopWith = (buttonRef) => {
+  // Hardcoded for now.
+  // Not spending time yet on getting the right top based on button
+  return 50
+}
+
+const computeLeftWith = (ref) => {
+  return 0
+}
 
 /*
 TODO
@@ -12,12 +23,19 @@ class Dropdown extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { expanded: false }
+    this.state = { expanded: false, style: { top: 0, left: 0 } }
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  toggleExpand = () => {
+  toggleExpand = (e) => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
+    e.stopPropagation() // We need this so we do no call collpase function
+  }
+
+  componentClickHandler = (e) => {
+    // We want to hide only when we click in the component but outisde the menu
+    if (this.wrapperRef == e.target)
+      this.setState({expanded: false })
   }
 
   onChange = (value, label) => {
@@ -27,13 +45,13 @@ class Dropdown extends React.Component {
   }
 
   menu() {
-    const { prompt, size , items, value, multiple, style, onChange } = this.props
+    const { prompt, size , items, value, multiple, onChange } = this.props
 
     if (this.state.expanded) {
       if (multiple) {
         return (
           <DropdownMenuMultiSelect
-            style={style}
+            style={this.state.style}
             onChange={this.onChange}
             values={value}
             items={items}/>
@@ -41,7 +59,7 @@ class Dropdown extends React.Component {
       } else {
         return (
           <DropdownMenu
-            style={style}
+            style={this.state.style}
             onChange={this.onChange}
             value={value}
             items={items}/>
@@ -50,37 +68,44 @@ class Dropdown extends React.Component {
     }
   }
 
-  componentDidMount() {
+ componentDidMount() {
    document.addEventListener('mousedown', this.handleClickOutside);
+   this.setState({
+     style: {
+       top: computeTopWith(this.buttonRef),
+       left: computeLeftWith(this.buttonRef)
+      }
+   })
  }
 
  componentWillUnmount() {
    document.removeEventListener('mousedown', this.handleClickOutside);
  }
 
-  handleClickOutside(event) {
+ handleClickOutside(event) {
    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
      this.setState({expanded: false})
    }
  }
 
-  render() {
-    const { prompt, size = 'small', items, value} = this.props
-    const style =  {}//{ left: '16px', top: '95px'}
-    const selectedItem = _.find(items, { value: value })
+ render() {
+   const { prompt, size = 'small', items, value} = this.props
+   const selectedItem = _.find(items, { value: value })
 
-    return (
-      <div class="dropdown" ref={(node) => this.wrapperRef = node }>
-        <button onClick={this.toggleExpand} className={`${size} button dropdown-button has-icon--right text-align-left`}>
-          <span className="ui-icon ui-small">
-            <svg>
-              <use xlinkHref="#i-arrow-down"></use>
-            </svg>
-          </span>
-          {selectedItem ? selectedItem.label : prompt}
-        </button>
+   return (
+    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'relative' }}>
+      <button aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
+        <span className="ui-icon ui-small">
+          <svg>
+            <use xlinkHref="#i-arrow-down"></use>
+          </svg>
+        </span>
+        {selectedItem ? selectedItem.label : prompt}
+      </button>
+      <div aria-hidden={this.state.expanded ? 'false' : 'true'} role='menu'>
         {this.menu()}
       </div>
+    </div>
     )
   }
 }
