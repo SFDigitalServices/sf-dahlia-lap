@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Item = ({ item, current }) => {
   if (current) {
@@ -21,5 +22,17 @@ const BreadCrumbs = ({ items }) => {
     </nav>
   )
 }
+
+Item.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired
+  })
+}
+
+BreadCrumbs.propTypes = {
+  items: PropTypes.array.isRequired,
+}
+
 
 export default BreadCrumbs

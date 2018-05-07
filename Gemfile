@@ -42,6 +42,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'rspec-rails', '~> 3.7'
+  gem 'webmock'
+  gem "pry-byebug", '~> 3.4.0'
+  gem 'awesome_print'
+  gem 'vcr'
 end
 
 group :development do

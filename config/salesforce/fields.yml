@@ -87,6 +87,24 @@ listings:
     Lottery_Status__c:
     Office_Hours__c:
 
+lease_ups:
+  index_fields:
+    Application__c:
+    Application__r.Name:
+    Application__r.First_Name__c:
+    Application__r.Last_Name__c:
+    Application__r.Email__c:
+    Application__r.Phone__c:
+    Application__r.Residence_Address__c:
+    Application__r.Mailing_Address__c:
+    Preference_Order__c:
+    Preference_Lottery_Rank__c:
+    Application__r.Processing_Status__c:
+      label: 'Lease Up Status'
+    LastModifiedDate:
+      label: 'Status Updated'
+    Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
+
 applications:
   index_fields:
     Id:

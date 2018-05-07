@@ -10,7 +10,7 @@ module Force
       ))
     end
 
-    def listing(id, admin)
+    def listing(id)
       show_fields = query_fields(:show)
       query_first(%(
         SELECT #{show_fields},

@@ -41,5 +41,3 @@ exports[`BreadCrumbs should render succesfully 1`] = `
   </ol>
 </nav>
 `;
-
-exports[`BreadCrumbs should render succesfully without BreadCrumbs 1`] = `null`;
