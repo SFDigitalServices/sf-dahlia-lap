@@ -87,7 +87,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <label>Date of Birth <span className="checkbox-block_note no-margin">(required)</span></label>
+                <label>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
                 <DatePickerText
                   required={true}
                   prefilledDate={autofillValues['DOB']}
