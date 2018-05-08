@@ -18,6 +18,7 @@ import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import Dropdown from 'components/molecules/Dropdown'
 import FormGridRow from 'components/molecules/FormGridRow'
+import FormGridTable from 'components/molecules/FormGridTable'
 import EditablePanel from 'components/molecules/EditablePanel'
 import TabsMenu from 'components/molecules/TabsMenu'
 import TableExpandable from 'components/molecules/TableExpandable'
@@ -50,6 +51,7 @@ WebpackerReact.setup({ DropdownMenu })
 WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ Dropdown })
 WebpackerReact.setup({ FormGridRow })
+WebpackerReact.setup({ FormGridTable })
 WebpackerReact.setup({ EditablePanel })
 WebpackerReact.setup({ TabsMenu })
 WebpackerReact.setup({ TableExpandable })
