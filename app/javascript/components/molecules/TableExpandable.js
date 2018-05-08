@@ -20,11 +20,11 @@ const TableExpandable = ({ header, value, headerB, valueB, label, id, name, plac
             {value}
           </td>
           <td className="text-right">
-            <a href='#' class='action-link'>{valueB}</a>
+            <a href='#' className='action-link'>{valueB}</a>
           </td>
         </tr>
-        <tr class="tr-expand-content is-expanded" aria-hidden="false">
-          <td colspan="7" class="td-expand-nested no-padding">
+        <tr className="tr-expand-content is-expanded" aria-hidden="false">
+          <td colspan="7" className="td-expand-nested no-padding">
             <EditablePanel label={label} id={id} name={name} placeholder={placeholder} describeId={describeId} note={note} error={error} />
           </td>
         </tr>
