@@ -4,6 +4,7 @@ import ReactModal from 'react-modal';
 import _ from 'lodash'
 
 import Alert from '../organisms/Alert'
+import StringUtils from '../../utils/StringUtils'
 
 const styleTypes = {
   small: {
@@ -26,8 +27,6 @@ const styleTypes = {
     }
   }
 }
-
-const titileize = (value) =>  _.capitalize(value)
 
 class Modal extends React.Component {
   defaultStyleType = 'small'
@@ -58,7 +57,7 @@ Modal.Body = ({ children, onCloseClick, hidden }) => (
 
 Modal.Header = ({ title }) => (
   <header className="modal-inner">
-    <h1 className="modal-title t-gamma no-margin">{titileize(title)}</h1>
+    <h1 className="modal-title t-gamma no-margin">{StringUtils.titleize(title)}</h1>
   </header>
 )
 
