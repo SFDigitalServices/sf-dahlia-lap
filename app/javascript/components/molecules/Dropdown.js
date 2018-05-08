@@ -22,6 +22,22 @@ class Dropdown extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+    document.addEventListener('keydown', this.onEscapeHandler);
+    this.setState({
+      style: {
+        top: computeTopWith(this.buttonRef),
+        left: computeLeftWith(this.buttonRef)
+       }
+    })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('keydown', this.onEscapeHandler);
+  }
+
   toggleExpand = (e) => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
     e.stopPropagation() // We need this so we do no call collpase function
@@ -36,6 +52,8 @@ class Dropdown extends React.Component {
   onChangeHandler = (value, label) => {
     if (!this.props.multiple)
       this.setState({expanded: false})
+    if (!this.props.multiple)
+      this.buttonRef.focus()
     this.props.onChange && this.props.onChange(value, label)
   }
 
@@ -62,22 +80,6 @@ class Dropdown extends React.Component {
       }
     }
   }
-
- componentDidMount() {
-   document.addEventListener('mousedown', this.handleClickOutside);
-   document.addEventListener('keydown', this.onEscapeHandler);
-   this.setState({
-     style: {
-       top: computeTopWith(this.buttonRef),
-       left: computeLeftWith(this.buttonRef)
-      }
-   })
- }
-
- componentWillUnmount() {
-   document.removeEventListener('mousedown', this.handleClickOutside);
-   document.removeEventListener('keydown', this.onEscapeHandler);
- }
 
  handleClickOutside(event) {
    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {

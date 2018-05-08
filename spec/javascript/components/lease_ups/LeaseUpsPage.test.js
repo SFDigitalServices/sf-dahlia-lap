@@ -21,12 +21,24 @@ const buildApplication = (uniqId, attributes = {}) => {
    }
 }
 
+// jest.useFakeTimers();
+
 describe('LeaseUpsPage', () => {
   const listings = {
     Id: '1',
     Name: 'xxxx',
     Building_Street_Address: 'yyyy'
   }
+
+  let clock = null;
+
+  beforeEach(() => {
+    clock = sinon.useFakeTimers(new Date(2018, 3, 23).getTime());
+  });
+
+  afterEach(() => {
+    clock.restore();
+  })
 
   test('Should render LeaseUpTable', () => {
     const results = [ buildApplication(1), buildApplication(2) ]
