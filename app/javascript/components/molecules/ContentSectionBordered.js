@@ -1,7 +1,7 @@
 import React from 'react'
 import FormGridRow from '../molecules/FormGridRow'
 
-const ContentSection = ({ title, subtitle, titleDescription, subtitleDescription, label, id, name, placeholder, describeId, note, error }) => {
+const ContentSectionBordered = ({ title, subtitle, titleDescription, subtitleDescription, label, id, name, placeholder, describeId, note, error }) => {
   return (
     <div className="content-section">
       <div className="app-inner header-wide">
@@ -19,4 +19,4 @@ const ContentSection = ({ title, subtitle, titleDescription, subtitleDescription
   )
 }
 
-export default ContentSection
+export default ContentSectionBordered
