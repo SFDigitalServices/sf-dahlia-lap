@@ -9,15 +9,15 @@ const Tab = ({ title, url, active }) => {
 
   return (
     <li className={liClassName} role="none">
-      <a href="{url}" role="menuitem" tabindex="0" aria-selected={active}>{title}</a>
+      <a href={url} role="menuitem" tabindex="0" aria-selected={active}>{title}</a>
     </li>
   )
 }
 
-const TabsMenu = ({ items, url }) => {
+const TabsMenu = ({ items, currentUrl }) => {
   return (
     <ul className="tabs full-width-small-only" role="menubar">
-      {items.map((item) => <Tab key={item.url} {...item} active={item.url == url} /> )}
+      {items.map((item) => <Tab key={item.url} {...item} active={item.url == currentUrl} /> )}
     </ul>
   )
 }
