@@ -2,15 +2,18 @@ import React from 'react'
 import DropdownMenuItem from '../atoms/DropdownMenuItem'
 
 class DropdownMenu extends React.Component {
-  render() {
-    const { items, value, onChange, style } = this.props
-    const onChangeHandler = (e, value, label) => onChange && onChange(value, label)
-    const onKeyDownHandler = (idx) => (e, value, label) => {
-      if (e.keyCode == 13 || e.keyCode == 32) {
-        onChange && onChange(value, label)
-        e.preventDefault()
-      }
+
+  handleOnChange = (e, value, label) => this.props.onChange && this.props.onChange(value, label)
+
+  handleOnKeyDown = (e, value, label) => {
+    if (e.keyCode == 13 || e.keyCode == 32) {
+      this.props.onChange && this.props.onChange(value, label)
+      e.preventDefault()
     }
+  }
+
+  render() {
+    const { items, value, style } = this.props
 
     return (
       <ul className="dropdown-menu" style={style} role="listbox" aria-hidden="true" aria-activedescendant tabindex="-1">
@@ -21,8 +24,8 @@ class DropdownMenu extends React.Component {
               key={item.value}
               {...item}
               selected={item.value == value}
-              onChange={onChangeHandler}
-              onKeyDown={onKeyDownHandler(idx)} />)
+              onChange={this.handleOnChange}
+              onKeyDown={this.handleOnKeyDown} />)
           )
         }
       </ul>

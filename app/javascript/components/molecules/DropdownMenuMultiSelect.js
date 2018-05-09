@@ -5,7 +5,7 @@ import _ from 'lodash'
 class DropdownMenuMultiSelect extends React.Component {
 
   // I chose to keep the state out of the component,
-  // so we might be able to integrate it with mobx (or any state managment easly)
+  // so we might be able to integrate it with mobx
   // Fed
   onChangeHandler = (value, label, selected) => {
     let newValues = []
