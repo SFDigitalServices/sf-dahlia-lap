@@ -1,10 +1,23 @@
 import React from 'react'
+import classNames from 'classnames'
 
-const TabsMenu = ({ item, url, active, itemB, urlB, activeB }) => {
+const Tab = ({ title, url, active }) => {
+  const liClassName = classNames({
+    'tab-title': true,
+    'active': active
+  })
+
+  return (
+    <li className={liClassName} role="none">
+      <a href="{url}" role="menuitem" tabindex="0" aria-selected={active}>{title}</a>
+    </li>
+  )
+}
+
+const TabsMenu = ({ items, url }) => {
   return (
     <ul className="tabs full-width-small-only" role="menubar">
-      <li className="tab-title active" role="none"><a href="{url}" role="menuitem" tabindex="0" aria-selected={active}>{item}</a></li>
-      <li className="tab-title" role="none"><a href="{urlB}" role="menuitem" tabindex="-1" aria-selected={activeB}>{itemB}</a></li>
+      {items.map((item) => <Tab key={item.url} {...item} active={item.url == url} /> )}
     </ul>
   )
 }

@@ -28,6 +28,7 @@
     "react-datepicker": "0.61.0",
     "react-dom": "^16.0.0",
     "react-form": "2.6.1",
+    "react-json-view": "^1.16.6",
     "react-table": "^6.7.4",
     "turbolinks": "^5.0.3",
     "webpacker-react": "^0.3.2"
