@@ -4,7 +4,7 @@ div class="#{options[:pl_group_class] || 'pl-group'}"
   .pl-heading
     a href="##{name.parameterize}"
       h3 = name
-  .pl-preview
+  div class="pl-preview #{options[:pl_preview_class]}"
     == react_component component_name, args
     
   div Properties
