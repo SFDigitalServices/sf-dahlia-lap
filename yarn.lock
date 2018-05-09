@@ -3522,6 +3522,10 @@ grunt-contrib-copy@0.8.1:
     chalk "^1.1.1"
     file-sync-cmp "^0.1.0"
 
+grunt-json-remove-fields@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/grunt-json-remove-fields/-/grunt-json-remove-fields-0.1.2.tgz#b7a33dfb5561c5ed6f0bfd031fe6cbf9328461ea"
+
 grunt-legacy-log-utils@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/grunt-legacy-log-utils/-/grunt-legacy-log-utils-0.1.1.tgz#c0706b9dd9064e116f36f23fe4e6b048672c0f7e"
@@ -3559,6 +3563,10 @@ grunt-replace@0.11.0:
     applause "1.1.0"
     chalk "^1.0.0"
     lodash "^3.1.0"
+
+grunt-sort-json@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/grunt-sort-json/-/grunt-sort-json-0.0.5.tgz#d86c8d3491bedcf2cce9744e4afcd96e1bf0dea5"
 
 grunt@0.4.5:
   version "0.4.5"
