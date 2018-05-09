@@ -7,6 +7,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
 >
   <div
     className="rt-table"
+    role="grid"
     style={undefined}
   >
     <div
@@ -19,12 +20,13 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
     >
       <div
         className="rt-tr"
+        role="row"
         style={undefined}
       >
         <div
           className="rt-th"
           onClick={[Function]}
-          role="heading"
+          role="columnheader"
           style={
             Object {
               "flex": "35 0 auto",
@@ -32,6 +34,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               "width": "35px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className=""
@@ -40,7 +43,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
         <div
           className="rt-th  rt-resizable-header -cursor-pointer"
           onClick={[Function]}
-          role="heading"
+          role="columnheader"
           style={
             Object {
               "flex": "100 0 auto",
@@ -48,6 +51,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               "width": "100px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="rt-resizable-header-content"
@@ -63,7 +67,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
         <div
           className="rt-th  rt-resizable-header -cursor-pointer"
           onClick={[Function]}
-          role="heading"
+          role="columnheader"
           style={
             Object {
               "flex": "100 0 auto",
@@ -71,6 +75,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
               "width": "100px",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="rt-resizable-header-content"
@@ -95,15 +100,18 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
     >
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -odd"
           onClick={[Function]}
+          role="row"
           style={undefined}
         >
           <div
             className="rt-td  rt-expandable"
             onClick={[Function]}
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -121,6 +129,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           <div
             className="rt-td"
             onClick={[Function]}
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -134,6 +143,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           <div
             className="rt-td"
             onClick={[Function]}
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -148,15 +158,18 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -even"
           onClick={[Function]}
+          role="row"
           style={undefined}
         >
           <div
             className="rt-td  rt-expandable"
             onClick={[Function]}
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -174,6 +187,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           <div
             className="rt-td"
             onClick={[Function]}
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -187,6 +201,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           <div
             className="rt-td"
             onClick={[Function]}
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -201,13 +216,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -222,6 +240,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -236,6 +255,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -252,13 +272,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -273,6 +296,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -287,6 +311,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -303,13 +328,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -324,6 +352,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -338,6 +367,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -354,13 +384,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -375,6 +408,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -389,6 +423,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -405,13 +440,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -426,6 +464,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -440,6 +479,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -456,13 +496,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -477,6 +520,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -491,6 +535,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -507,13 +552,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -528,6 +576,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -542,6 +591,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -558,13 +608,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -579,6 +632,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -593,6 +647,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -609,13 +664,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -630,6 +688,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -644,6 +703,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -660,13 +720,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -681,6 +744,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -695,6 +759,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -711,13 +776,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -732,6 +800,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -746,6 +815,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -762,13 +832,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -783,6 +856,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -797,6 +871,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -813,13 +888,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -834,6 +912,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -848,6 +927,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -864,13 +944,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -885,6 +968,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -899,6 +983,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -915,13 +1000,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -936,6 +1024,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -950,6 +1039,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -966,13 +1056,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -987,6 +1080,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -1001,6 +1095,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -1017,13 +1112,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -odd"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -1038,6 +1136,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -1052,6 +1151,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -1068,13 +1168,16 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
       </div>
       <div
         className="rt-tr-group"
+        role="rowgroup"
       >
         <div
           className="rt-tr -padRow -even"
+          role="row"
           style={Object {}}
         >
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "35 0 auto",
@@ -1089,6 +1192,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -1103,6 +1207,7 @@ exports[`IndexIndexTable Should render IndexTable 1`] = `
           </div>
           <div
             className="rt-td"
+            role="gridcell"
             style={
               Object {
                 "flex": "100 0 auto",
@@ -1436,11 +1541,12 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
       className="ReactTable"
       style={Object {}}
     >
-      <Table
+      <TableComponent
         className=""
       >
         <div
           className="rt-table"
+          role="grid"
         >
           <Thead
             className="-header"
@@ -1458,9 +1564,10 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                 }
               }
             >
-              <Tr>
+              <TrComponent>
                 <div
                   className="rt-tr"
+                  role="row"
                 >
                   <ThComponent
                     className=""
@@ -1477,7 +1584,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                     <div
                       className="rt-th"
                       onClick={[Function]}
-                      role="heading"
+                      role="columnheader"
                       style={
                         Object {
                           "flex": "35 0 auto",
@@ -1485,6 +1592,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                           "width": "35px",
                         }
                       }
+                      tabIndex="-1"
                     >
                       <div
                         className=""
@@ -1506,7 +1614,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                     <div
                       className="rt-th  rt-resizable-header -cursor-pointer"
                       onClick={[Function]}
-                      role="heading"
+                      role="columnheader"
                       style={
                         Object {
                           "flex": "100 0 auto",
@@ -1514,6 +1622,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                           "width": "100px",
                         }
                       }
+                      tabIndex="-1"
                     >
                       <div
                         className="rt-resizable-header-content"
@@ -1547,7 +1656,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                     <div
                       className="rt-th  rt-resizable-header -cursor-pointer"
                       onClick={[Function]}
-                      role="heading"
+                      role="columnheader"
                       style={
                         Object {
                           "flex": "100 0 auto",
@@ -1555,6 +1664,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                           "width": "100px",
                         }
                       }
+                      tabIndex="-1"
                     >
                       <div
                         className="rt-resizable-header-content"
@@ -1574,7 +1684,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                     </div>
                   </ThComponent>
                 </div>
-              </Tr>
+              </TrComponent>
             </div>
           </Thead>
           <Tbody
@@ -1593,21 +1703,23 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                 }
               }
             >
-              <TrGroup
+              <TrGroupComponent
                 key="0"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-odd"
                     onClick={[Function]}
                   >
                     <div
                       className="rt-tr -odd"
                       onClick={[Function]}
+                      role="row"
                     >
-                      <Td
+                      <TdComponent
                         className=" rt-expandable"
                         key="0-undefined"
                         onClick={[Function]}
@@ -1622,6 +1734,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         <div
                           className="rt-td  rt-expandable"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -1636,8 +1749,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                             •
                           </div>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         onClick={[Function]}
@@ -1652,6 +1765,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1667,8 +1781,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                             xxx1
                           </IndexTableCell>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         onClick={[Function]}
@@ -1683,6 +1797,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1698,26 +1813,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                             zzz1
                           </IndexTableCell>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="1"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-even"
                     onClick={[Function]}
                   >
                     <div
                       className="rt-tr -even"
                       onClick={[Function]}
+                      role="row"
                     >
-                      <Td
+                      <TdComponent
                         className=" rt-expandable"
                         key="0-undefined"
                         onClick={[Function]}
@@ -1732,6 +1849,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         <div
                           className="rt-td  rt-expandable"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -1746,8 +1864,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                             •
                           </div>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         onClick={[Function]}
@@ -1762,6 +1880,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1777,8 +1896,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                             xxx2
                           </IndexTableCell>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         onClick={[Function]}
@@ -1793,6 +1912,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1808,26 +1928,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                             zzz2
                           </IndexTableCell>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="0"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -1840,6 +1962,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -1852,8 +1975,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -1866,6 +1989,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1878,8 +2002,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -1892,6 +2016,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1904,26 +2029,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="1"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -1936,6 +2063,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -1948,8 +2076,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -1962,6 +2090,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -1974,8 +2103,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -1988,6 +2117,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2000,26 +2130,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="2"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2032,6 +2164,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2044,8 +2177,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2058,6 +2191,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2070,8 +2204,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2084,6 +2218,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2096,26 +2231,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="3"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2128,6 +2265,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2140,8 +2278,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2154,6 +2292,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2166,8 +2305,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2180,6 +2319,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2192,26 +2332,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="4"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2224,6 +2366,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2236,8 +2379,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2250,6 +2393,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2262,8 +2406,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2276,6 +2420,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2288,26 +2433,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="5"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2320,6 +2467,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2332,8 +2480,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2346,6 +2494,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2358,8 +2507,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2372,6 +2521,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2384,26 +2534,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="6"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2416,6 +2568,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2428,8 +2581,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2442,6 +2595,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2454,8 +2608,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2468,6 +2622,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2480,26 +2635,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="7"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2512,6 +2669,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2524,8 +2682,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2538,6 +2696,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2550,8 +2709,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2564,6 +2723,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2576,26 +2736,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="8"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2608,6 +2770,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2620,8 +2783,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2634,6 +2797,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2646,8 +2810,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2660,6 +2824,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2672,26 +2837,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="9"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2704,6 +2871,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2716,8 +2884,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2730,6 +2898,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2742,8 +2911,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2756,6 +2925,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2768,26 +2938,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="10"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2800,6 +2972,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2812,8 +2985,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2826,6 +2999,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2838,8 +3012,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2852,6 +3026,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2864,26 +3039,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="11"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2896,6 +3073,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -2908,8 +3086,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -2922,6 +3100,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2934,8 +3113,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -2948,6 +3127,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -2960,26 +3140,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="12"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -2992,6 +3174,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -3004,8 +3187,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -3018,6 +3201,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3030,8 +3214,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -3044,6 +3228,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3056,26 +3241,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="13"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -3088,6 +3275,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -3100,8 +3288,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -3114,6 +3302,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3126,8 +3315,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -3140,6 +3329,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3152,26 +3342,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="14"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -3184,6 +3376,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -3196,8 +3389,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -3210,6 +3403,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3222,8 +3416,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -3236,6 +3430,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3248,26 +3443,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="15"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -3280,6 +3477,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -3292,8 +3490,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -3306,6 +3504,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3318,8 +3517,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -3332,6 +3531,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3344,26 +3544,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="16"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -3376,6 +3578,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -3388,8 +3591,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -3402,6 +3605,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3414,8 +3618,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -3428,6 +3632,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3440,26 +3645,28 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="17"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -3472,6 +3679,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -3484,8 +3692,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -3498,6 +3706,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3510,8 +3719,8 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -3524,6 +3733,7 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -3536,15 +3746,15 @@ exports[`IndexIndexTable Should render IndexTable 2`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
+              </TrGroupComponent>
             </div>
           </Tbody>
         </div>
-      </Table>
+      </TableComponent>
       <div
         className="pagination-bottom"
       >
@@ -4306,11 +4516,12 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
       className="ReactTable"
       style={Object {}}
     >
-      <Table
+      <TableComponent
         className=""
       >
         <div
           className="rt-table"
+          role="grid"
         >
           <Thead
             className="-header"
@@ -4328,9 +4539,10 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                 }
               }
             >
-              <Tr>
+              <TrComponent>
                 <div
                   className="rt-tr"
+                  role="row"
                 >
                   <ThComponent
                     className=""
@@ -4347,7 +4559,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                     <div
                       className="rt-th"
                       onClick={[Function]}
-                      role="heading"
+                      role="columnheader"
                       style={
                         Object {
                           "flex": "35 0 auto",
@@ -4355,6 +4567,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                           "width": "35px",
                         }
                       }
+                      tabIndex="-1"
                     >
                       <div
                         className=""
@@ -4376,7 +4589,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                     <div
                       className="rt-th  rt-resizable-header -cursor-pointer"
                       onClick={[Function]}
-                      role="heading"
+                      role="columnheader"
                       style={
                         Object {
                           "flex": "100 0 auto",
@@ -4384,6 +4597,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                           "width": "100px",
                         }
                       }
+                      tabIndex="-1"
                     >
                       <div
                         className="rt-resizable-header-content"
@@ -4417,7 +4631,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                     <div
                       className="rt-th  rt-resizable-header -cursor-pointer"
                       onClick={[Function]}
-                      role="heading"
+                      role="columnheader"
                       style={
                         Object {
                           "flex": "100 0 auto",
@@ -4425,6 +4639,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                           "width": "100px",
                         }
                       }
+                      tabIndex="-1"
                     >
                       <div
                         className="rt-resizable-header-content"
@@ -4444,7 +4659,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                     </div>
                   </ThComponent>
                 </div>
-              </Tr>
+              </TrComponent>
             </div>
           </Thead>
           <Tbody
@@ -4463,21 +4678,23 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                 }
               }
             >
-              <TrGroup
+              <TrGroupComponent
                 key="0"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-odd"
                     onClick={[Function]}
                   >
                     <div
                       className="rt-tr -odd"
                       onClick={[Function]}
+                      role="row"
                     >
-                      <Td
+                      <TdComponent
                         className=" rt-expandable"
                         key="0-undefined"
                         onClick={[Function]}
@@ -4492,6 +4709,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         <div
                           className="rt-td  rt-expandable"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -4506,8 +4724,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                             •
                           </div>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         onClick={[Function]}
@@ -4522,6 +4740,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4537,8 +4756,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                             xxx1
                           </IndexTableCell>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         onClick={[Function]}
@@ -4553,6 +4772,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4568,29 +4788,31 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                             zzz1
                           </IndexTableCell>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                   <ul
                     className="subcomponent button-radio-group segmented-radios inline-group"
                   />
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="1"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-even"
                     onClick={[Function]}
                   >
                     <div
                       className="rt-tr -even"
                       onClick={[Function]}
+                      role="row"
                     >
-                      <Td
+                      <TdComponent
                         className=" rt-expandable"
                         key="0-undefined"
                         onClick={[Function]}
@@ -4605,6 +4827,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         <div
                           className="rt-td  rt-expandable"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -4619,8 +4842,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                             •
                           </div>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         onClick={[Function]}
@@ -4635,6 +4858,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4650,8 +4874,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                             xxx2
                           </IndexTableCell>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         onClick={[Function]}
@@ -4666,6 +4890,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                         <div
                           className="rt-td"
                           onClick={[Function]}
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4681,26 +4906,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                             zzz2
                           </IndexTableCell>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="0"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -4713,6 +4940,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -4725,8 +4953,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -4739,6 +4967,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4751,8 +4980,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -4765,6 +4994,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4777,26 +5007,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="1"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -4809,6 +5041,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -4821,8 +5054,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -4835,6 +5068,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4847,8 +5081,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -4861,6 +5095,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4873,26 +5108,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="2"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -4905,6 +5142,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -4917,8 +5155,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -4931,6 +5169,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4943,8 +5182,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -4957,6 +5196,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -4969,26 +5209,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="3"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5001,6 +5243,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5013,8 +5256,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5027,6 +5270,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5039,8 +5283,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5053,6 +5297,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5065,26 +5310,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="4"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5097,6 +5344,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5109,8 +5357,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5123,6 +5371,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5135,8 +5384,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5149,6 +5398,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5161,26 +5411,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="5"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5193,6 +5445,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5205,8 +5458,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5219,6 +5472,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5231,8 +5485,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5245,6 +5499,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5257,26 +5512,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="6"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5289,6 +5546,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5301,8 +5559,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5315,6 +5573,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5327,8 +5586,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5341,6 +5600,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5353,26 +5613,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="7"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5385,6 +5647,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5397,8 +5660,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5411,6 +5674,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5423,8 +5687,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5437,6 +5701,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5449,26 +5714,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="8"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5481,6 +5748,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5493,8 +5761,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5507,6 +5775,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5519,8 +5788,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5533,6 +5802,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5545,26 +5815,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="9"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5577,6 +5849,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5589,8 +5862,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5603,6 +5876,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5615,8 +5889,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5629,6 +5903,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5641,26 +5916,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="10"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5673,6 +5950,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5685,8 +5963,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5699,6 +5977,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5711,8 +5990,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5725,6 +6004,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5737,26 +6017,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="11"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5769,6 +6051,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5781,8 +6064,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5795,6 +6078,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5807,8 +6091,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5821,6 +6105,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5833,26 +6118,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="12"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5865,6 +6152,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5877,8 +6165,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5891,6 +6179,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5903,8 +6192,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -5917,6 +6206,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5929,26 +6219,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="13"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -5961,6 +6253,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -5973,8 +6266,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -5987,6 +6280,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -5999,8 +6293,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -6013,6 +6307,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6025,26 +6320,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="14"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -6057,6 +6354,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -6069,8 +6367,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -6083,6 +6381,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6095,8 +6394,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -6109,6 +6408,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6121,26 +6421,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="15"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -6153,6 +6455,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -6165,8 +6468,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -6179,6 +6482,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6191,8 +6495,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -6205,6 +6509,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6217,26 +6522,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="16"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -odd"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -6249,6 +6556,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -6261,8 +6569,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -6275,6 +6583,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6287,8 +6596,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -6301,6 +6610,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6313,26 +6623,28 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
-              <TrGroup
+              </TrGroupComponent>
+              <TrGroupComponent
                 key="17"
               >
                 <div
                   className="rt-tr-group"
+                  role="rowgroup"
                 >
-                  <Tr
+                  <TrComponent
                     className="-padRow -even"
                     style={Object {}}
                   >
                     <div
                       className="rt-tr -padRow -even"
+                      role="row"
                       style={Object {}}
                     >
-                      <Td
+                      <TdComponent
                         className=""
                         key="0-undefined"
                         style={
@@ -6345,6 +6657,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "35 0 auto",
@@ -6357,8 +6670,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="1-first_name"
                         style={
@@ -6371,6 +6684,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6383,8 +6697,8 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
-                      <Td
+                      </TdComponent>
+                      <TdComponent
                         className=""
                         key="2-last_name"
                         style={
@@ -6397,6 +6711,7 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                       >
                         <div
                           className="rt-td"
+                          role="gridcell"
                           style={
                             Object {
                               "flex": "100 0 auto",
@@ -6409,15 +6724,15 @@ exports[`IndexIndexTable Should render IndexTable 3`] = `
                              
                           </span>
                         </div>
-                      </Td>
+                      </TdComponent>
                     </div>
-                  </Tr>
+                  </TrComponent>
                 </div>
-              </TrGroup>
+              </TrGroupComponent>
             </div>
           </Tbody>
         </div>
-      </Table>
+      </TableComponent>
       <div
         className="pagination-bottom"
       >
