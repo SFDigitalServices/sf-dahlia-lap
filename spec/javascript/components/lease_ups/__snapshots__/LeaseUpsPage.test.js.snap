@@ -480,11 +480,12 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
             className="ReactTable"
             style={Object {}}
           >
-            <Table
+            <TableComponent
               className=""
             >
               <div
                 className="rt-table"
+                role="grid"
               >
                 <Thead
                   className="-header"
@@ -502,9 +503,10 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                       }
                     }
                   >
-                    <Tr>
+                    <TrComponent>
                       <div
                         className="rt-tr"
+                        role="row"
                       >
                         <ThComponent
                           className="td-min-narrow rt-resizable-header -cursor-pointer"
@@ -521,7 +523,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th td-min-narrow rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -529,6 +531,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -562,7 +565,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -570,6 +573,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -603,7 +607,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -611,6 +615,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -644,7 +649,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -652,6 +657,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -685,7 +691,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -693,6 +699,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -726,7 +733,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -734,6 +741,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -767,7 +775,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -775,6 +783,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -808,7 +817,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -816,6 +825,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -849,7 +859,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           <div
                             className="rt-th td-min-wide rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -857,6 +867,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -876,7 +887,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           </div>
                         </ThComponent>
                       </div>
-                    </Tr>
+                    </TrComponent>
                   </div>
                 </Thead>
                 <Tbody
@@ -895,21 +906,23 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                       }
                     }
                   >
-                    <TrGroup
+                    <TrGroupComponent
                       key="0"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -odd"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -odd"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -924,6 +937,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -936,8 +950,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   CAP 1
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -952,6 +966,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -967,8 +982,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   Application Name 1
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -983,6 +998,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -997,8 +1013,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some first name 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -1013,6 +1029,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1027,8 +1044,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some last name 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -1043,6 +1060,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1057,8 +1075,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -1073,6 +1091,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1087,8 +1106,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some email 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -1103,6 +1122,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1117,8 +1137,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   1316 BURNETT 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -1133,6 +1153,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1143,12 +1164,12 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -1163,6 +1184,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1311,26 +1333,28 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="1"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -even"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -even"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -1345,6 +1369,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1357,8 +1382,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   CAP 1
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -1373,6 +1398,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1388,8 +1414,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   Application Name 2
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -1404,6 +1430,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1418,8 +1445,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some first name 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -1434,6 +1461,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1448,8 +1476,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some last name 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -1464,6 +1492,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1478,8 +1507,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -1494,6 +1523,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1508,8 +1538,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   some email 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -1524,6 +1554,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1538,8 +1569,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   1316 BURNETT 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -1554,6 +1585,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1564,12 +1596,12 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -1584,6 +1616,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1732,26 +1765,28 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="0"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -odd rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -odd rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -1766,6 +1801,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1778,8 +1814,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -1792,6 +1828,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1804,8 +1841,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -1820,6 +1857,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1832,8 +1870,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -1848,6 +1886,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1860,8 +1899,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -1876,6 +1915,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1888,8 +1928,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -1904,6 +1944,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1916,8 +1957,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -1932,6 +1973,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1944,8 +1986,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -1960,6 +2002,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1972,8 +2015,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -1986,6 +2029,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -1998,26 +2042,28 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="1"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -even rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -even rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -2032,6 +2078,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2044,8 +2091,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -2058,6 +2105,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2070,8 +2118,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -2086,6 +2134,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2098,8 +2147,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -2114,6 +2163,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2126,8 +2176,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -2142,6 +2192,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2154,8 +2205,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -2170,6 +2221,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2182,8 +2234,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -2198,6 +2250,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2210,8 +2263,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -2226,6 +2279,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2238,8 +2292,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -2252,6 +2306,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2264,26 +2319,28 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="2"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -odd rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -odd rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -2298,6 +2355,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2310,8 +2368,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -2324,6 +2382,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2336,8 +2395,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -2352,6 +2411,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2364,8 +2424,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -2380,6 +2440,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2392,8 +2453,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -2408,6 +2469,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2420,8 +2482,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -2436,6 +2498,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2448,8 +2511,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -2464,6 +2527,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2476,8 +2540,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -2492,6 +2556,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2504,8 +2569,8 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -2518,6 +2583,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -2530,15 +2596,15 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
+                    </TrGroupComponent>
                   </div>
                 </Tbody>
               </div>
-            </Table>
+            </TableComponent>
             <div
               className="pagination-bottom"
             >
@@ -4025,11 +4091,12 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
             className="ReactTable"
             style={Object {}}
           >
-            <Table
+            <TableComponent
               className=""
             >
               <div
                 className="rt-table"
+                role="grid"
               >
                 <Thead
                   className="-header"
@@ -4047,9 +4114,10 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                       }
                     }
                   >
-                    <Tr>
+                    <TrComponent>
                       <div
                         className="rt-tr"
+                        role="row"
                       >
                         <ThComponent
                           className="td-min-narrow rt-resizable-header -cursor-pointer"
@@ -4066,7 +4134,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th td-min-narrow rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4074,6 +4142,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4107,7 +4176,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4115,6 +4184,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4148,7 +4218,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4156,6 +4226,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4189,7 +4260,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4197,6 +4268,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4230,7 +4302,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4238,6 +4310,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4271,7 +4344,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4279,6 +4352,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4312,7 +4386,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4320,6 +4394,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4353,7 +4428,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4361,6 +4436,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4394,7 +4470,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           <div
                             className="rt-th td-min-wide rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -4402,6 +4478,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -4421,7 +4498,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           </div>
                         </ThComponent>
                       </div>
-                    </Tr>
+                    </TrComponent>
                   </div>
                 </Thead>
                 <Tbody
@@ -4440,21 +4517,23 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                       }
                     }
                   >
-                    <TrGroup
+                    <TrGroupComponent
                       key="0"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -odd"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -odd"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -4469,6 +4548,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4481,8 +4561,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   CAP 1
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -4497,6 +4577,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4512,8 +4593,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   Application Name 1
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -4528,6 +4609,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4542,8 +4624,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   some first name 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -4558,6 +4640,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4572,8 +4655,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   some last name 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -4588,6 +4671,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4602,8 +4686,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -4618,6 +4702,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4632,8 +4717,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   some email 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -4648,6 +4733,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4662,8 +4748,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   1316 SUTTER
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -4678,6 +4764,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4688,12 +4775,12 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -4708,6 +4795,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4856,26 +4944,28 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="0"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -even rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -even rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -4890,6 +4980,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4902,8 +4993,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -4916,6 +5007,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4928,8 +5020,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -4944,6 +5036,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4956,8 +5049,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -4972,6 +5065,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -4984,8 +5078,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -5000,6 +5094,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5012,8 +5107,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -5028,6 +5123,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5040,8 +5136,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -5056,6 +5152,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5068,8 +5165,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -5084,6 +5181,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5096,8 +5194,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -5110,6 +5208,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5122,26 +5221,28 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="1"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -odd rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -odd rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -5156,6 +5257,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5168,8 +5270,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -5182,6 +5284,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5194,8 +5297,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -5210,6 +5313,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5222,8 +5326,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -5238,6 +5342,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5250,8 +5355,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -5266,6 +5371,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5278,8 +5384,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -5294,6 +5400,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5306,8 +5413,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -5322,6 +5429,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5334,8 +5442,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -5350,6 +5458,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5362,8 +5471,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -5376,6 +5485,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5388,26 +5498,28 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="2"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -even rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -even rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -5422,6 +5534,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5434,8 +5547,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -5448,6 +5561,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5460,8 +5574,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -5476,6 +5590,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5488,8 +5603,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -5504,6 +5619,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5516,8 +5632,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -5532,6 +5648,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5544,8 +5661,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -5560,6 +5677,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5572,8 +5690,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -5588,6 +5706,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5600,8 +5719,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -5616,6 +5735,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5628,8 +5748,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -5642,6 +5762,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5654,26 +5775,28 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="3"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="-padRow -odd rt-tr-status "
                           style={Object {}}
                         >
                           <div
                             className="rt-tr -padRow -odd rt-tr-status "
+                            role="row"
                             style={Object {}}
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -5688,6 +5811,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5700,8 +5824,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               style={
@@ -5714,6 +5838,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5726,8 +5851,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -5742,6 +5867,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5754,8 +5880,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -5770,6 +5896,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5782,8 +5909,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -5798,6 +5925,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5810,8 +5938,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -5826,6 +5954,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5838,8 +5967,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -5854,6 +5983,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5866,8 +5996,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -5882,6 +6012,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5894,8 +6025,8 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               style={
@@ -5908,6 +6039,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                             >
                               <div
                                 className="rt-td td-min-wide"
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -5920,15 +6052,15 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                    
                                 </span>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
+                    </TrGroupComponent>
                   </div>
                 </Tbody>
               </div>
-            </Table>
+            </TableComponent>
             <div
               className="pagination-bottom"
             >
@@ -7567,11 +7699,12 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
             className="ReactTable"
             style={Object {}}
           >
-            <Table
+            <TableComponent
               className=""
             >
               <div
                 className="rt-table"
+                role="grid"
               >
                 <Thead
                   className="-header"
@@ -7589,9 +7722,10 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                       }
                     }
                   >
-                    <Tr>
+                    <TrComponent>
                       <div
                         className="rt-tr"
+                        role="row"
                       >
                         <ThComponent
                           className="td-min-narrow rt-resizable-header -cursor-pointer"
@@ -7608,7 +7742,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th td-min-narrow rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7616,6 +7750,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7649,7 +7784,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7657,6 +7792,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7690,7 +7826,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7698,6 +7834,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7731,7 +7868,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7739,6 +7876,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7772,7 +7910,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7780,6 +7918,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7813,7 +7952,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7821,6 +7960,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7854,7 +7994,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7862,6 +8002,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7895,7 +8036,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th  rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7903,6 +8044,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7936,7 +8078,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           <div
                             className="rt-th td-min-wide rt-resizable-header -cursor-pointer"
                             onClick={[Function]}
-                            role="heading"
+                            role="columnheader"
                             style={
                               Object {
                                 "flex": "100 0 auto",
@@ -7944,6 +8086,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                 "width": "100px",
                               }
                             }
+                            tabIndex="-1"
                           >
                             <div
                               className="rt-resizable-header-content"
@@ -7963,7 +8106,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           </div>
                         </ThComponent>
                       </div>
-                    </Tr>
+                    </TrComponent>
                   </div>
                 </Thead>
                 <Tbody
@@ -7982,21 +8125,23 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                       }
                     }
                   >
-                    <TrGroup
+                    <TrGroupComponent
                       key="0"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -odd"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -odd"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -8011,6 +8156,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8023,8 +8169,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   CAP 2
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -8039,6 +8185,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8054,8 +8201,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   Application Name 1
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -8070,6 +8217,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8084,8 +8232,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some first name 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -8100,6 +8248,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8114,8 +8263,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some last name 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -8130,6 +8279,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8144,8 +8294,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -8160,6 +8310,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8174,8 +8325,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some email 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -8190,6 +8341,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8204,8 +8356,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   1316 BURNETT 1
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -8220,6 +8372,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8230,12 +8383,12 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -8250,6 +8403,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8398,26 +8552,28 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="1"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -even"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -even"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -8432,6 +8588,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8444,8 +8601,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   CAP 1
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -8460,6 +8617,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8475,8 +8633,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   Application Name 2
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -8491,6 +8649,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8505,8 +8664,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some first name 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -8521,6 +8680,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8535,8 +8695,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some last name 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -8551,6 +8711,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8565,8 +8726,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -8581,6 +8742,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8595,8 +8757,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some email 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -8611,6 +8773,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8625,8 +8788,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   1316 BURNETT 2
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -8641,6 +8804,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8651,12 +8815,12 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -8671,6 +8835,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8819,26 +8984,28 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="2"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -odd"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -odd"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -8853,6 +9020,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8865,8 +9033,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   CAP 1
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -8881,6 +9049,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8896,8 +9065,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   Application Name 3
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -8912,6 +9081,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8926,8 +9096,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some first name 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -8942,6 +9112,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8956,8 +9127,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some last name 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -8972,6 +9143,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -8986,8 +9158,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -9002,6 +9174,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9016,8 +9189,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some email 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -9032,6 +9205,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9046,8 +9220,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   1316 BURNETT 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -9062,6 +9236,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9072,12 +9247,12 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -9092,6 +9267,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9240,26 +9416,28 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="3"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -even"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -even"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -9274,6 +9452,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9286,8 +9465,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   CAP 2
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -9302,6 +9481,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9317,8 +9497,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   Application Name 4
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -9333,6 +9513,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9347,8 +9528,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some first name 4
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -9363,6 +9544,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9377,8 +9559,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some last name 4
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -9393,6 +9575,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9407,8 +9590,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -9423,6 +9606,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9437,8 +9621,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some email 4
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -9453,6 +9637,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9467,8 +9652,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   1316 BURNETT 4
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -9483,6 +9668,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9493,12 +9679,12 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -9513,6 +9699,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9661,26 +9848,28 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
-                    <TrGroup
+                    </TrGroupComponent>
+                    <TrGroupComponent
                       key="4"
                     >
                       <div
                         className="rt-tr-group"
+                        role="rowgroup"
                       >
-                        <Tr
+                        <TrComponent
                           className="rt-tr-status is-processing -odd"
                           tabIndex="0"
                         >
                           <div
                             className="rt-tr rt-tr-status is-processing -odd"
+                            role="row"
                             tabIndex="0"
                           >
-                            <Td
+                            <TdComponent
                               className="td-min-narrow"
                               key="0-preference_rank"
                               onClick={[Function]}
@@ -9695,6 +9884,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-narrow"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9707,8 +9897,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   CAP 1
                                 </div>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="1-application_number"
                               onClick={[Function]}
@@ -9723,6 +9913,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9738,8 +9929,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   Application Name 3
                                 </a>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="2-first_name"
                               onClick={[Function]}
@@ -9754,6 +9945,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9768,8 +9960,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some first name 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="3-last_name"
                               onClick={[Function]}
@@ -9784,6 +9976,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9798,8 +9991,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some last name 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="4-phone"
                               onClick={[Function]}
@@ -9814,6 +10007,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9828,8 +10022,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some phone
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="5-email"
                               onClick={[Function]}
@@ -9844,6 +10038,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9858,8 +10053,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   some email 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="6-address"
                               onClick={[Function]}
@@ -9874,6 +10069,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9888,8 +10084,8 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   1316 BURNETT 3
                                 </span>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className=""
                               key="7-status_updated"
                               onClick={[Function]}
@@ -9904,6 +10100,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -9914,12 +10111,12 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    7 May 18
+                                    9 May 18
                                   </div>
                                 </PrettyTime>
                               </div>
-                            </Td>
-                            <Td
+                            </TdComponent>
+                            <TdComponent
                               className="td-min-wide"
                               key="8-lease_up_status"
                               onClick={[Function]}
@@ -9934,6 +10131,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-td td-min-wide"
                                 onClick={[Function]}
+                                role="gridcell"
                                 style={
                                   Object {
                                     "flex": "100 0 auto",
@@ -10082,15 +10280,15 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   </Dropdown>
                                 </LeaseUpStatusCell>
                               </div>
-                            </Td>
+                            </TdComponent>
                           </div>
-                        </Tr>
+                        </TrComponent>
                       </div>
-                    </TrGroup>
+                    </TrGroupComponent>
                   </div>
                 </Tbody>
               </div>
-            </Table>
+            </TableComponent>
             <div
               className="pagination-bottom"
             >
