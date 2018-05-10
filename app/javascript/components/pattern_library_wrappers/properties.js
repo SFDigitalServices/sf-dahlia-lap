@@ -1,5 +1,4 @@
 import React from 'react'
-// import ReactJson from 'react-json-view'
 import JSONTree from 'react-json-tree'
 
 const theme = {
@@ -26,6 +25,7 @@ const theme = {
 
 class Properties extends React.Component {
   state = {expanded: false}
+  // hardcoding here. Minor component for PL
   style = {
     backgroundColor:'white',
     padding:'10px',
@@ -45,17 +45,18 @@ class Properties extends React.Component {
   render() {
     const { payload } = this.props
 
-
     if (this.state.expanded) {
       return (
         <div style={this.style} >
-          <a onClick={this.toggleExpand}>Hide Properties</a>
+          <a onClick={this.toggleExpand} >Hide Properties</a>
           <JSONTree data={payload} invertTheme={true} theme={theme} hideRoot={true} shouldExpandNode={() => true}/>
         </div>
       )
     } else {
       return (
-        <a onClick={this.toggleExpand}>Show Properties</a>
+        <div style={this.style}>
+          <a onClick={this.toggleExpand}>Show Properties</a>
+        </div>
       )
     }
   }
