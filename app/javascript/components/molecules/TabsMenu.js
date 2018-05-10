@@ -11,7 +11,7 @@ const Tab = ({ title, url, active, onKeyDown, linkRefs }) => {
 
   return (
     <li className={liClassName} role="none">
-      <a href={url} role="menuitem" ref={linkRefs} onKeyDown={onKeyDown} tabIndex="0" aria-selected={active}>{title}</a>
+      <a href={url} role="menuitem" ref={linkRefs} onKeyDown={onKeyDown} tabIndex='0' aria-selected={active}>{title}</a>
     </li>
   )
 }
