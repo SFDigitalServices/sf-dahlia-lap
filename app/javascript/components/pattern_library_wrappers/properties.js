@@ -4,7 +4,7 @@ import JSONTree from 'react-json-tree'
 
 const theme = {
   scheme: 'monokai',
-  author: 'wimer hazenberg (http://www.monokai.nl)',
+  author: 'somebody',
   base00: '#272822',
   base01: '#383830',
   base02: '#49483e',
