@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LeaseUpsHeader from './LeaseUpsHeader'
+import PageHeader from '../organisms/PageHeader'
 import LeaseUpsTableContainer from './LeaseUpsTableContainer'
 
 const LeaseUpsPage = ({ listing, results }) => {

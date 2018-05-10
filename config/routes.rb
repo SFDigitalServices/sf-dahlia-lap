@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get 'spreadsheet'
     end
   end
-
+  resources :lease_ups, only: %w[index]
 
   scope '/flagged_record_sets' do
     get ':id/flagged_applications' => 'flagged_record_sets#flagged_applications', as: :flagged_applications
