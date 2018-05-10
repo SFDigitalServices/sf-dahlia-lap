@@ -1143,7 +1143,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -1564,7 +1568,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -4688,7 +4696,11 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -8230,7 +8242,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -8651,7 +8667,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -9072,7 +9092,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -9493,7 +9517,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -9914,7 +9942,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
+<<<<<<< HEAD
                                     10 May 18
+=======
+                                    9 May 18
+>>>>>>> master
                                   </div>
                                 </PrettyTime>
                               </div>

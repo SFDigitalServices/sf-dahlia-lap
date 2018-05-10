@@ -1,34 +1,41 @@
-/ h1 Pattern Library
-/ 
-/ h2 Atoms
-/ 
-/ == pl_component 'BreadCrumbs', { items: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gama', link: '#' }] }
-/ == pl_component 'Button', { text: 'Save'}
-/ == pl_component 'dropdownMenuItem', { selected: 'false', name: 'Beta', item: 'Menu item', url: '1'}
-/ == pl_component 'dropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', item: 'Check'}
-/ == pl_component 'Icon', { icon: '#i-arrow-down'}
-/ == pl_component 'FormGroupTextInput', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }, { pl_group_class: 'FormGroupTextInput' }
-/ == pl_component 'FormGroupTextArea', { label: 'Text area', id: 'text-input', name: 'Input', placeholder: 'Enter text', describeId: 'label', note: 'Some text', value: '' }, { pl_group_class: 'FormGroupTextArea' }
-/ == pl_component 'FormGroupTextValue', { label: 'Text value', id: 'text-value', name: 'Value', tab: '0', describeId: 'label', note: 'Other text', value: 'Even more' }, { pl_group_class: 'FormGroupTextValue' }
-/ == pl_component 'FormGroupRadioGroup', { label: 'Radio Group', id: 'radio-group', name: 'Radio', value: 'Option 1' }, { pl_group_class: 'FormGroupRadioGroup' }
-/ == pl_component 'FormGroupCheckboxGroup', { label: 'Checkbox Group', id: 'checkbox-group', name: 'Checkbox', value: 'Option 1' }, { pl_group_class: 'FormGroupCheckboxGroup' }
-/ 
-/ h2 Molecules
-/ 
-/ == pl_component 'AlertBox', { message: 'You need to resolve any errors before moving on.' }
-/ == pl_component 'AlertNotice', { title: 'Your household income is too low.', content: 'Please edit your income if you believe you might have made a mistake. Be aware that if you falsify any information on your application you will be disqualified.' }
-/ == pl_component 'dropdownMenu', { item: 'Alpha', selected: 'selected', name: 'Some', url: '1'}
-/ == pl_component 'dropdownMenuMultiSelect', { selected: 'false', name: 'Alpha', item: 'Some' }
-/ == pl_component 'Dropdown', { text: 'status', size: 'tiny', icon: '#i-arrow-down'}
-/ == pl_component 'FormGridRow', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }
+h1 Pattern Library
+
+h2 Atoms
+
+== pl_component 'BreadCrumbs', { items: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gama', link: '#' }] }
+== pl_component 'Button', { text: 'Save'}
+== pl_component 'DropdownMenuItem', { selected: 'false', name: 'Beta', item: 'Menu item', url: '1'}
+== pl_component 'DropdownMenuItemCheckbox', { selected: 'false', name: 'Alpha', item: 'Check'}
+== pl_component 'Icon', { icon: '#i-arrow-down'}
+== pl_component 'FormGroupTextInput', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }, { pl_group_class: 'FormGroupTextInput' }
+== pl_component 'FormGroupTextArea', { label: 'Text area', id: 'text-input', name: 'Input', placeholder: 'Enter text', describeId: 'label', note: 'Some text', value: '' }, { pl_group_class: 'FormGroupTextArea' }
+== pl_component 'FormGroupTextValue', { label: 'Text value', id: 'text-value', name: 'Value', tab: '0', describeId: 'label', note: 'Other text', value: 'Even more' }, { pl_group_class: 'FormGroupTextValue' }
+== pl_component 'FormGroupRadioGroup', { label: 'Radio Group', id: 'radio-group', name: 'Radio', value: 'Option 1' }, { pl_group_class: 'FormGroupRadioGroup' }
+== pl_component 'FormGroupCheckboxGroup', { label: 'Checkbox Group', id: 'checkbox-group', name: 'Checkbox', value: 'Option 1' }, { pl_group_class: 'FormGroupCheckboxGroup' }
+
+h2 Molecules
+
+== pl_component 'AlertBox', { message: 'You need to resolve any errors before moving on.' }
+== pl_component 'AlertNotice', { title: 'Your household income is too low.', content: 'Please edit your income if you believe you might have made a mistake. Be aware that if you falsify any information on your application you will be disqualified.' }
+== pl_component 'DropdownMenu', { item: 'Alpha', selected: 'selected', name: 'Some', url: '1'}
+== pl_component 'DropdownMenuMultiSelect', { selected: 'false', name: 'Alpha', item: 'Some' }
+== pl_component 'Dropdown', { text: 'status', size: 'tiny', icon: '#i-arrow-down'}
+== pl_component 'FormGridRow', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+== pl_component 'FormGridTable', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Edit', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+== pl_component 'EditablePanel', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+== pl_component 'ContentSection', { title: 'Title', subtitle: 'Sub', titleDescription: 'Some description', subtitleDescription: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+== pl_component 'ContentSectionBordered', { title: 'Title', subtitle: 'Sub', titleDescription: 'Some description', subtitleDescription: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+== pl_component 'TableExpandable', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Edit', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
 == pl_component 'TabsMenu', { items: [ { title: 'Short Form Application', url: '/url1' }, { title: 'Supplemental Information', url: '/url2' }], currentUrl: '/url1' }
-/ == pl_component 'TablePagination', { pages: 'of 6' }
-/ 
-/ h2 Organisms
-/ 
-/ == pl_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
-/ == pl_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: { title: 'Export', link: '#' }, breadcrumbs: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gama', link: '#' }, { title: 'Pi', link: '#' }] }
-/ == pl_component 'PageHeaderSimple', { title: 'This is a title' }
-/ == pl_component 'TabsSection', { items: [ { title: 'Short Form Application', url: '/url1' }, { title: 'Supplemental Information', url: '/url2' }], currentUrl: '/url1' }
-/ == pl_component 'TabCard', { title: 'Title', subtitle: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'lable', note: 'More text', error: 'Please enter a First Name' }  
-/ 
+== pl_component 'TableSimple', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Jay' }
+== pl_component 'TablePagination', { pages: 'of 6' }
+
+
+h2 Organisms
+
+== pl_component 'Modal', { header: 'Header', hidden: 'false', content: 'Some content', primary: 'Save', secondary: 'Cancel', icon: '#i-close' }
+== pl_component 'PageHeader', { title: 'This is a title', content: 'This is some content', action: { title: 'Export', link: '#' }, breadcrumbs: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gama', link: '#' }, { title: 'Pi', link: '#' }] }
+== pl_component 'PageHeaderSimple', { title: 'This is a title' }
+== pl_component 'TabsSection', { items: [ { title: 'Short Form Application', url: '/url1' }, { title: 'Supplemental Information', url: '/url2' }], currentUrl: '/url1' }
+== pl_component 'TabCard', { title: 'Title', subtitle: 'Sub', titleDescription: 'Some description', subtitleDescription: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }  
+  
