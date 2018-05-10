@@ -10,6 +10,7 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = application_service.application(params[:id])
+    @fields = application_service.show_fields
     @file_base_url = ENV['SALESFORCE_SERVLET']
   end
 
