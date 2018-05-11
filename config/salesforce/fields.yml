@@ -2,6 +2,7 @@ listings:
   index_fields:
     Id:
     Name:
+      label: 'Listing Name'
       minWidth: 225
     Application_Due_Date__c:
       type: 'date'
@@ -239,12 +240,14 @@ flagged_record_sets:
   pending_review_fields:
     Id:
     Listing__r.Name:
+      label: 'Listing Name'
     Rule_Name__c:
     Total_Number_of_Pending_Review__c:
     Total_Number_of_Appealed__c:
   marked_duplicate_fields:
     Id:
     Listing__r.Name:
+      label: 'Listing Name'
     Rule_Name__c:
     Total_Number_of_Duplicates__c:
   flagged_applications_fields:
