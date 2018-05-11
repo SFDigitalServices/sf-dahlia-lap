@@ -1,7 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import ArrayUtils from '../../utils/ArrayUtils'
+import arrayUtils from '../../utils/arrayUtils'
+import keyboard from '../../utils/keyboard'
 
 const Tab = ({ title, url, active, onKeyDown, linkRefs }) => {
   const liClassName = classNames({
@@ -17,15 +18,13 @@ const Tab = ({ title, url, active, onKeyDown, linkRefs }) => {
 }
 
 class TabsMenu extends React.Component {
-  tabRefs = ArrayUtils.cycle([])
+  tabRefs = arrayUtils.cycle([])
   keyActiveTab = 0
 
   handleKeyDown = (e) => {
-    if (e.keyCode == 37) {        // left arrow
-      this.tabRefs.prev().focus()
-    } else if (e.keyCode == 39) { // right arrow
-      this.tabRefs.next().focus()
-    }
+    keyboard.forEvent(e)
+    .on('leftArrow',  (e) => this.tabRefs.prev().focus())
+    .on('rightArrow', (e) => this.tabRefs.next().focus())
   }
 
   addTabRef = (node) => {
