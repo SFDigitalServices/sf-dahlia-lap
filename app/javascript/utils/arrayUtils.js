@@ -5,6 +5,10 @@ class Cycle {
     this.currentPosition = 0
   }
 
+  setPosition(position) {
+    this.currentPosition = position
+  }
+
   next() {
     this.currentPosition++
 
