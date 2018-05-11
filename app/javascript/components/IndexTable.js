@@ -56,6 +56,9 @@ class IndexTable extends React.Component {
         column.filterable = true
       }
       // for Applications Tab
+      if (column.Header == 'Application Number') {
+        column.filterable = true
+      }
       if (column.Header === 'Listing Name') {
         column.filterable = true
         column.filterMethod = (filter, row) => {
