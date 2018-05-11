@@ -77,11 +77,19 @@ module Force
     end
 
     def app_proof_files(application_id)
-      parsed_index_query(%(
+      proofs = parsed_index_query(%(
         SELECT #{query_fields(:show_proof_files)}
         FROM Attachment__c
         WHERE Related_Application__c = '#{application_id}'
-      ), :show_proof_files)
+      ), :show_proof_files).map do |attachment|
+        file = query_first(%(
+          SELECT Id
+          FROM Attachment
+          WHERE ParentId = '#{attachment.Id}'
+        ))
+        { Id: file.Id, Name: attachment.Name }
+      end
+      pp proofs
     end
 
     def flagged_record_set(application_id)

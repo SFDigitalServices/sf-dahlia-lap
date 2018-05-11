@@ -17,7 +17,6 @@ var generateContent = (dataCollection, field, labelMapper, i) => {
     }
   }
   if (labelMapper && labelMapper[field]) {
-    debugger
     label = labelMapper[field].label
   }
   if (_.includes(field, 'Date')) {
