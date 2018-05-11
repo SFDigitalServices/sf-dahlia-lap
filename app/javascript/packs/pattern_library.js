@@ -18,9 +18,14 @@ import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import Dropdown from 'components/molecules/Dropdown'
 import FormGridRow from 'components/molecules/FormGridRow'
+import FormGridTable from 'components/molecules/FormGridTable'
+import EditablePanel from 'components/molecules/EditablePanel'
 import TabsMenu from 'components/molecules/TabsMenu'
+import TableExpandable from 'components/molecules/TableExpandable'
 import TablePagination from 'components/molecules/TablePagination'
-import ContentSection from 'components/organisms/ContentSection'
+import TableSimple from 'components/molecules/TableSimple'
+import ContentSection from 'components/molecules/ContentSection'
+import ContentSectionBordered from 'components/molecules/ContentSectionBordered'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
 import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
@@ -46,12 +51,16 @@ WebpackerReact.setup({ DropdownMenu })
 WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ Dropdown })
 WebpackerReact.setup({ FormGridRow })
+WebpackerReact.setup({ FormGridTable })
+WebpackerReact.setup({ EditablePanel })
 WebpackerReact.setup({ TabsMenu })
+WebpackerReact.setup({ TableExpandable })
 WebpackerReact.setup({ TablePagination })
+WebpackerReact.setup({ TableSimple })
 WebpackerReact.setup({ ContentSection })
+WebpackerReact.setup({ ContentSectionBordered })
 WebpackerReact.setup({ Modal })
 WebpackerReact.setup({ PageHeader })
-
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
