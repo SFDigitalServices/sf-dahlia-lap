@@ -9,16 +9,19 @@ class FlaggedRecordSetsController < ApplicationController
     # view needs to not render editable stuff if listing lottery status == lottery complete
     @flagged_applications = flagged_record_set_get_service.flagged_applications(params[:id])
     @fields = flagged_record_set_get_service.flagged_applications_fields
+    @page_header = {title: 'Flagged Application Set'}
   end
 
   def pending_review_index
     @pending_review_record_sets = flagged_record_set_get_service.pending_review_record_sets
     @fields = flagged_record_set_get_service.pending_review_index_fields
+    @page_header = {title: 'Flagged Applications - Pending Review'}
   end
 
   def marked_duplicate_index
     @marked_duplicate_record_sets = flagged_record_set_get_service.marked_duplicate_record_sets
     @fields = flagged_record_set_get_service.marked_duplicate_index_fields
+    @page_header = {title: 'Marked Duplicate Apps'}
   end
 
   private

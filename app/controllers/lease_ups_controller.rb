@@ -9,12 +9,18 @@ class LeaseUpsController < ApplicationController
 
       @listing = compacted_listing(full_listing)
       @lease_ups = lease_up_service.lease_ups(params[:listing_id])
+
+      @page_header = {
+        title: @listing.Name,
+        content: @listing.Building_Street_Address,
+        action: {title: 'Export', link: "/listings/#{@listing.Id}/lease_ups/export"},
+        breadcrumbs: [
+          {title: 'Lease Ups', link: '/lease_ups'},
+          {title: @listing.Name, link: "/listings/#{@listing.Id}/lease_ups"}
+        ]
+      }
     else
-      # TODO: Here we will fetch a list of listings that have a
-      # lottery status of "Complete" and status of "Active".
-      # Will be implemented in later story for creating the
-      # Lease Ups page.
-      @listings = []
+      @page_header = {title: 'Lease Ups'}
     end
   end
 
