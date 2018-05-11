@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsMenu should render tab 1`] = `
+<TabsMenu
+  currentUrl="/url1"
+  items={
+    Array [
+      Object {
+        "title": "Short Form Application",
+        "url": "/url1",
+      },
+      Object {
+        "title": "Supplemental Information",
+        "url": "/url2",
+      },
+    ]
+  }
+>
+  <ul
+    className="tabs full-width-small-only"
+    role="menubar"
+  >
+    <Tab
+      active={true}
+      key="/url1"
+      linkRefs={[Function]}
+      onKeyDown={[Function]}
+      title="Short Form Application"
+      url="/url1"
+    >
+      <li
+        className="tab-title active"
+        role="none"
+      >
+        <a
+          aria-selected={true}
+          href="/url1"
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          Short Form Application
+        </a>
+      </li>
+    </Tab>
+    <Tab
+      active={false}
+      key="/url2"
+      linkRefs={[Function]}
+      onKeyDown={[Function]}
+      title="Supplemental Information"
+      url="/url2"
+    >
+      <li
+        className="tab-title"
+        role="none"
+      >
+        <a
+          aria-selected={false}
+          href="/url2"
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="0"
+        >
+          Supplemental Information
+        </a>
+      </li>
+    </Tab>
+  </ul>
+</TabsMenu>
+`;
