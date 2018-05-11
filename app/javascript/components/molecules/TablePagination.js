@@ -9,7 +9,7 @@ const TablePagination = ({ pages }) => {
         <span className="table-pagination_pagesize">
           Show
           <span className="table-pagination_pagerows">
-            <select name="rows" id="rows" class="" data-width="auto">
+            <select name="rows" id="rows" data-width="auto">
               <option value="">20 rows</option>
                 <option value="5-rows">5 rows</option>
                 <option value="10-rows">10 rows</option>
@@ -23,7 +23,7 @@ const TablePagination = ({ pages }) => {
         <span className="table-pagination_pageinfo">
           Jump to page
           <span className="table-pagination_pagejump">
-            <select name="page" id="page" class="" data-width="auto">
+            <select name="page" id="page" data-width="auto">
               <option value="">1</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
