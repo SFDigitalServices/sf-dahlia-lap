@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     collection do
       get 'spreadsheet'
     end
+    resources :supplementals, only: %w[index]
   end
-  resources :supplemental_applications, only: %w[index]
+
 
 
   scope '/flagged_record_sets' do

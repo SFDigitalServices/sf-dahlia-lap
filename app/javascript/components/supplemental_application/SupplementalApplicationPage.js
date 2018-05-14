@@ -7,10 +7,12 @@ import TabsMenu from '../molecules/TabsMenu'
 import TabsSection from '../organisms/TabsSection'
 import TabCard from '../organisms/TabCard'
 
+import appPaths from '../../utils/appPaths'
+
 const SupplementalApplicationPage = ({ application }) => {
   const items = [
-    { title: 'Short Form Application',    url: `/application/${application.application_id}` },
-    { title: 'Supplemental Information',  url: '/supplemental_applications' }
+    { title: 'Short Form Application',    url: appPaths.toApplication(application.application_id) },
+    { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.application_id) }
   ]
 
   const currentUrl = window.location.pathname
@@ -18,7 +20,7 @@ const SupplementalApplicationPage = ({ application }) => {
   return (
     <div>
       <SupplementalApplicationHeader
-        applicationId={application.application_id}
+        applicationNumber={application.application_number}
         applicantName={application.applicant_name}
         listingId={application.listing_id}/>
       <TabsSection items={items} currentUrl={currentUrl}>
