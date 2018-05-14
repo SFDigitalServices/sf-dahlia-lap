@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SupplementalApplicationContainer = ({}) => {
-  // style="display: none;"
   return (
     <React.Fragment>
       <div class="app-inner inset-wide padding-bottom-none margin-top">

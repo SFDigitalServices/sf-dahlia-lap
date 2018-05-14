@@ -9,7 +9,7 @@ import TabCard from '../organisms/TabCard'
 
 const SupplementalApplicationPage = ({ application }) => {
   const items = [
-    { title: 'Short Form Application',    url: '/url1' },
+    { title: 'Short Form Application',    url: `/application/${application.application_id}` },
     { title: 'Supplemental Information',  url: '/supplemental_applications' }
   ]
 
