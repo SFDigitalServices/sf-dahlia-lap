@@ -59,7 +59,11 @@ class IndexTable extends React.Component {
       if (column.Header == 'Application Number') {
         column.filterable = true
       }
-      if (column.Header === 'Listing Name') {
+      // TO DO: update when Mobx is implemented so no need to pass page
+      if (column.Header === 'Listing Name' && this.props.page == 'listing_index') {
+        column.filterable = true
+      }
+      if (column.Header === 'Listing Name' && !this.props.page == 'listing_index') {
         column.filterable = true
         column.filterMethod = (filter, row) => {
           if (filter.value === "all") {
