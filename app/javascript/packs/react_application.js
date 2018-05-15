@@ -7,6 +7,7 @@ import PaperApplicationForm from 'components/application_form/PaperApplicationFo
 import ListingDetails from 'components/ListingDetails'
 import ApplicationDetails from 'components/ApplicationDetails'
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
+import ListingsPage from 'components/listings/ListingsPage'
 
 import './pattern_library'
 
@@ -18,3 +19,4 @@ WebpackerReact.setup({ PaperApplicationForm })
 WebpackerReact.setup({ ListingDetails })
 WebpackerReact.setup({ ApplicationDetails })
 WebpackerReact.setup({ LeaseUpsPage })
+WebpackerReact.setup({ ListingsPage })
