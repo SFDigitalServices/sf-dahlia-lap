@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     collection do
       get 'spreadsheet'
     end
-    resources :supplementals, only: %w[index]
+    resources :supplementals, only: %w[index], module: 'applications'
   end
 
 
