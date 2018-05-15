@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         get '/' => 'applications#listing_index'
       end
     end
-    resources :lease_ups, only: %w[index]
+    resources :lease_ups, only: %w[index], module: 'listings'
   end
   resources :applications, only: %w[index show edit] do
     collection do
