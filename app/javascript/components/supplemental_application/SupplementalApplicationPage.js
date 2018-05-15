@@ -11,8 +11,8 @@ import appPaths from '../../utils/appPaths'
 
 const SupplementalApplicationPage = ({ application }) => {
   const items = [
-    { title: 'Short Form Application',    url: appPaths.toApplication(application.application_id) },
-    { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.application_id) }
+    { title: 'Short Form Application',    url: appPaths.toApplication(application.Id) },
+    { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.Id) }
   ]
 
   const currentUrl = window.location.pathname
@@ -20,9 +20,9 @@ const SupplementalApplicationPage = ({ application }) => {
   return (
     <div>
       <SupplementalApplicationHeader
-        applicationNumber={application.application_number}
-        applicantName={application.applicant_name}
-        listingId={application.listing_id}/>
+        applicationNumber={application.Name}
+        applicantName={application.Applicant.Name}
+        listingId={application.Listing.Id}/>
       <TabsSection items={items} currentUrl={currentUrl}>
         <SupplementalApplicationContainer />
       </TabsSection>
