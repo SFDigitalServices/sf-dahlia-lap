@@ -5,12 +5,10 @@ class ListingsController < ApplicationController
   def index
     @listings = service.listings
     @fields = service.index_fields
-    @page_header = {title: 'Listings'}
   end
 
   def show
     @listing = service.listing(params[:id])
-    @page_header = {title: @listing.Name}
   end
 
   private

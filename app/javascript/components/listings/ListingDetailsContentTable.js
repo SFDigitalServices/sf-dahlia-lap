@@ -1,8 +1,8 @@
 import React from 'react'
 import _ from 'lodash'
-import utils from '../utils'
+import utils from '../../utils'
 
-const DetailsContentTable = ({ data, title, table, fields }) => {
+const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
   let i = 0
   let columns = _.map(fields, (field) => {
     if (_.includes(field, '.')) {
@@ -10,25 +10,14 @@ const DetailsContentTable = ({ data, title, table, fields }) => {
     }
     return <th key={field}>{utils.cleanField(field)}</th>
   })
-  let rows = _.map(data[table], (row) => {
+  let rows = _.map(listing[table], (row) => {
     let tableData = _.map(fields, (field) => {
-      // this is for flagged applications table
-      if (field == 'View Record Set') {
-        return (
-          <td key='view'>
-            <a href={`/flagged_record_sets/${row.Flagged_Record_Set}/flagged_applications`}>
-              View Record Set
-            </a>
-          </td>
-        )
-      }
       let value = row[field]
       if (_.includes(field, '.')) {
         let parts = field.split('.')
         // e.g. Lottery_Preference.Name, grab from nested object
-        value = String(row[parts[0]][parts[1]])
+        value = row[parts[0]][parts[1]]
       }
-      if (value) {value = String(row[field])}
       return <td key={field}>{value}</td>
     })
     return (
@@ -56,4 +45,4 @@ const DetailsContentTable = ({ data, title, table, fields }) => {
   )
 }
 
-export default DetailsContentTable
+export default ListingDetailsContentTable

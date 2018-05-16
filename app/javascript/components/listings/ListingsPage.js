@@ -1,9 +1,9 @@
 import React from 'react'
 
 import PageHeaderSimple from '../organisms/PageHeaderSimple'
-import ListingsTable from './ListingsTable'
+import IndexTable from '../IndexTable'
 
-const ListingHeader = ({}) => {
+const ListingsPageHeader = ({}) => {
   return (
     <div>
       <PageHeaderSimple title='Listings' />
@@ -11,11 +11,20 @@ const ListingHeader = ({}) => {
   )
 }
 
+const ListingsPageTable = ({ listings, fields }) => {
+  return (
+    <IndexTable
+      results={listings}
+      fields= {fields}
+      links={['View Listing', 'Add Application', 'Lease Ups'] } />
+  )
+}
+
 const ListingsPage = (props) => {
   return (
     <div>
-      <ListingHeader/>
-      <ListingsTable {...props} />
+      <ListingsPageHeader/>
+      <ListingsPageTable {...props} />
     </div>
   )
 }

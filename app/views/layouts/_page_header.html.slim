@@ -1,9 +1,0 @@
-- if @page_header
-  - if @page_header.length == 1 && @page_header[:title]
-    == react_component 'PageHeaderSimple', title: @page_header[:title]
-  - else
-    == react_component 'PageHeader', \
-        title: @page_header[:title],
-        content: @page_header[:content],
-        action: @page_header[:action],
-        breadcrumbs: @page_header[:breadcrumbs]

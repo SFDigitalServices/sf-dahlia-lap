@@ -6,7 +6,6 @@ class ApplicationsController < ApplicationController
   def index
     @applications = application_service.applications
     @fields = application_service.index_fields
-    @page_header = {title: 'Applications'}
   end
 
   def show
@@ -17,16 +16,11 @@ class ApplicationsController < ApplicationController
   def edit
     @application = application_service.application(params[:id])
     @listing = listing_service.listing(@application.Listing.Id)
-    @page_header = {
-      title: 'Edit Application',
-      content: "Application lottery number: #{@application.Lottery_Number}. For listing: #{@listing.Name}"
-    }
   end
 
   def listing_index
     @applications = application_service.listing_applications(params[:listing_id])
     @fields = application_service.index_fields
-    @page_header = {title: @listing.Name}
   end
 
   # PROTOTYPE for editable "spreadsheet" table
@@ -35,12 +29,10 @@ class ApplicationsController < ApplicationController
     # @applications = service.flagged_apps
     # just call same index method for now, but with a diff view
     index
-    @page_header = {title: 'Applications Spreadsheet'}
   end
 
   def new
     # grabs @listing and renders form
-    @page_header = {title: "New Application: #{@listing.Name}"}
   end
 
   private
