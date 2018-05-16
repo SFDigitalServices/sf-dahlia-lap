@@ -19,21 +19,12 @@ class ApplicationsController < ApplicationController
     @listing = listing_service.listing(@application.Listing.Id)
   end
 
-  def listing_index
-    @applications = application_service.listing_applications(params[:listing_id])
-    @fields = application_service.index_fields
-  end
-
   # PROTOTYPE for editable "spreadsheet" table
   def spreadsheet
     # TODO: repurpose this whole method to pull in applications matching a certain flagged set
     # @applications = service.flagged_apps
     # just call same index method for now, but with a diff view
     index
-  end
-
-  def new
-    # grabs @listing and renders form
   end
 
   private
