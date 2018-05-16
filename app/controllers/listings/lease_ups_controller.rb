@@ -5,7 +5,7 @@ module Listings
     def index
       full_listing = listing_service.listing(params[:listing_id])
 
-      raise "Listing #{params[:listing_id]} not found" unless full_listing.present?
+      raise Force::RecordNotFound, "Listing #{params[:listing_id]} not found" unless full_listing.present?
 
       @listing = compacted_listing(full_listing)
       @lease_ups = lease_up_service.lease_ups(params[:listing_id])
