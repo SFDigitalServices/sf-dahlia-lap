@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LeaseUpsController, type: :controller do
+RSpec.describe Listings::LeaseUpsController, type: :controller do
   let(:listing_id) { 'xxxxx1' }
 
   render_views
