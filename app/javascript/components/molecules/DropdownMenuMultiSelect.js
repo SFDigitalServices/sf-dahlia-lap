@@ -27,7 +27,7 @@ class DropdownMenuMultiSelect extends React.Component {
   render() {
     const { items, values, onChange, style } = this.props
     return (
-      <ul className="dropdown-menu" style={style} role="listbox" aria-hidden="false" aria-multiselectable="true" aria-activedescendant tabindex="-1">
+      <ul className="dropdown-menu" style={style} role="listbox" aria-multiselectable="true" aria-activedescendant tabindex="-1">
         {
           items &&
           items.map((item) => (
