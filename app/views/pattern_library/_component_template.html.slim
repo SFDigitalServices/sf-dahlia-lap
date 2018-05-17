@@ -3,7 +3,8 @@ div class="#{options[:pl_group_class] || 'pl-group'}"
     h3 = component_name
   .pl-preview
     == react_component component_name, args
-    
-  div Properties
-  pre
-    = args
+  
+  == react_component 'Properties', { payload: args }
+  / div Properties
+  / pre
+  /   = args

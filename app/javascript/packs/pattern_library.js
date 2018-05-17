@@ -1,6 +1,8 @@
 import WebpackerReact from 'webpacker-react'
 import Turbolinks from 'turbolinks'
 
+import Properties from 'components/pattern_library_wrappers/properties'
+
 // All imports from Pattern Library
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
 import Button from 'components/atoms/Button'
@@ -31,6 +33,8 @@ import PageHeader from 'components/organisms/PageHeader'
 import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
+import TabCardWrapper from 'components/pattern_library_wrappers/TabCardWrapper'
+
 
 Turbolinks.start()
 
@@ -64,3 +68,5 @@ WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
+WebpackerReact.setup({ Properties })
+WebpackerReact.setup({ TabCardWrapper })

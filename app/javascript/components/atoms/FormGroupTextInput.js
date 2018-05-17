@@ -3,7 +3,7 @@ import React from 'react'
 const FormGroupTextInput = ({ label, id, name, placeholder, describeId, note, error }) => {
   return (
     <div className="form-group error">
-      <label for={name} className="">{label}</label>
+      <label htmlFor={name} className="">{label}</label>
       <input type="text" id={id} className="error" name={name} placeholder={placeholder} aria-describedby={describeId}/>
       <small className="error" id={id}>
         {error}
