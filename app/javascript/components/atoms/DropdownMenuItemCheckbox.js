@@ -5,7 +5,7 @@ const DropdownMenuItemCheckbox = ({ name, item, selected }) => {
     <li className="dropdown-menu_item" role="option" aria-selected={selected}>
       <div className="checkbox">
         <input id={name} type="checkbox" name={name} tab-index="1" />
-        <label for={name}>{item}</label>
+        <label htmlFor={name}>{item}</label>
       </div>
     </li>
   )
