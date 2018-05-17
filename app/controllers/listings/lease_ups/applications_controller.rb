@@ -1,14 +1,14 @@
-module Listings
-  class LeaseUpsController < ApplicationController
+module Listings::LeaseUps
+  class ApplicationsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-      full_listing = listing_service.listing(params[:listing_id])
+      full_listing = listing_service.listing(params[:lease_up_id])
 
-      raise Force::RecordNotFound, "Listing #{params[:listing_id]} not found" unless full_listing.present?
+      raise Force::RecordNotFound, "Listing #{params[:lease_up_id]} not found" unless full_listing.present?
 
       @listing = compacted_listing(full_listing)
-      @lease_ups = lease_up_service.lease_ups(params[:listing_id])
+      @lease_ups = lease_up_service.lease_ups(params[:lease_up_id])
     end
 
     def lease_up_service
