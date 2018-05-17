@@ -8,10 +8,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, flash: { alert: 'You have been signed out.' }
   end
 
-
   rescue_from Force::RecordNotFound, with: :not_found
 
   def not_found
     render "404", status: 404
+  end
+
+  def after_sign_in_path_for(user)
+    listings_url
   end
 end
