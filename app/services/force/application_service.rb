@@ -5,13 +5,12 @@ module Force
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['applications'].freeze
 
     def applications
-      # hardcoded limit of 5000 just to prevent large queries
+      # TO DO: Cache this request
       parsed_index_query(%(
         SELECT #{query_fields(:index)}
         FROM Application__c
         WHERE #{user_can_access}
         AND Status__c != '#{DRAFT}'
-        LIMIT 5000
       ))
     end
 
@@ -77,7 +76,7 @@ module Force
     end
 
     def app_proof_files(application_id)
-      proofs = parsed_index_query(%(
+      parsed_index_query(%(
         SELECT #{query_fields(:show_proof_files)}
         FROM Attachment__c
         WHERE Related_Application__c = '#{application_id}'
@@ -89,7 +88,6 @@ module Force
         ))
         { Id: file.Id, Name: attachment.Name }
       end
-      pp proofs
     end
 
     def flagged_record_set(application_id)

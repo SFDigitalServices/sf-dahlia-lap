@@ -63,7 +63,7 @@ class IndexTable extends React.Component {
       if (column.Header === 'Listing Name' && this.props.page == 'listing_index') {
         column.filterable = true
       }
-      if (column.Header === 'Listing Name' && !this.props.page == 'listing_index') {
+      if (column.Header === 'Listing Name' && !(this.props.page == 'listing_index')) {
         column.filterable = true
         column.filterMethod = (filter, row) => {
           if (filter.value === "all") {
