@@ -20,7 +20,7 @@ module Force
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
           WHERE #{user_can_access}
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
-        ), :pending_review)
+        ), :pending_review).select { |set| set['Rule_Name'] != 'Residence Address' }
       end
     end
 
@@ -33,7 +33,7 @@ module Force
     end
 
     def flagged_applications(record_set_id)
-      parsed_index_query(%(
+      pp parsed_index_query(%(
         SELECT #{query_fields(:flagged_applications)}
         FROM Flagged_Application__c
         WHERE Flagged_Record_Set__c='#{record_set_id}'
