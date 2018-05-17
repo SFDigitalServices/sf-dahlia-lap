@@ -60,4 +60,5 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
   config.include ReactHelpers, :type => :controller
+  config.include ForceHelpers, :type => :controller
 end
