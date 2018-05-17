@@ -23,7 +23,7 @@ describe('ListingDetails', () => {
       'Owner.Name': 'xxx'
     }
     const component = renderer.create(
-      <ListingDetails listing = { listings } />,
+      <ListingDetails listing = { listings } />
     );
 
     let tree = component.toJSON();
