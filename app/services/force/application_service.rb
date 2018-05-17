@@ -5,13 +5,12 @@ module Force
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['applications'].freeze
 
     def applications
-      # hardcoded limit of 5000 just to prevent large queries
+      # TO DO: Cache this request
       parsed_index_query(%(
         SELECT #{query_fields(:index)}
         FROM Application__c
         WHERE #{user_can_access}
         AND Status__c != '#{DRAFT}'
-        LIMIT 5000
       ))
     end
 
