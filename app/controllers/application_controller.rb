@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     sign_out current_user
     redirect_to root_path, flash: { alert: 'You have been signed out.' }
   end
+
+  def after_sign_in_path_for(user)
+    listings_url
+  end
 end
