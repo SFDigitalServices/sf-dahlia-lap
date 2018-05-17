@@ -2,7 +2,7 @@ import React from 'react'
 import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
 import DetailsContentTable from './DetailsContentTable'
 
-const ApplicationDetails = ({ application, file_base_url }) => {
+const ApplicationDetails = ({ application, fields, file_base_url }) => {
 
   const editLink = () => {
     if (!application.Is_Lottery_Complete && application.Application_Submission_Type == 'Paper') {
@@ -36,6 +36,7 @@ const ApplicationDetails = ({ application, file_base_url }) => {
           'Referral_Source',
           'CreatedBy.Name'
         ]}
+        labelMapper={fields}
       />
       <ApplicationDetailsContentCard
         dataCollection={application.Applicant}
@@ -93,6 +94,7 @@ const ApplicationDetails = ({ application, file_base_url }) => {
           'Has_ADA_Priorities_Selected',
           'Answered_Community_Screening'
         ]}
+        labelMapper={fields}
       />
       {(() => {
         if (application.preferences) {

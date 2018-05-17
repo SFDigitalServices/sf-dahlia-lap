@@ -3,7 +3,7 @@ import _ from 'lodash'
 import moment from 'moment'
 import utils from '../utils'
 
-var generateContent = (dataCollection, field, i) => {
+var generateContent = (dataCollection, field, labelMapper, i) => {
   if (dataCollection == null) {
     return
   }
@@ -15,6 +15,9 @@ var generateContent = (dataCollection, field, i) => {
     if (dataCollection[label]) {
       value = dataCollection[label][parts[1]]
     }
+  }
+  if (labelMapper && labelMapper[field]) {
+    label = labelMapper[field].label
   }
   if (_.includes(field, 'Date')) {
     // cheap way of knowing when to parse date fields
@@ -46,14 +49,14 @@ var generateData = (label, value) => {
   )
 }
 
-const ApplicationDetailsContentCard = ({ dataCollection, title, fields }) => {
+const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMapper }) => {
   let firstHalf = Math.ceil(fields.length / 2)
   let lastHalf = fields.length  - firstHalf
   let firstFields = _.take(fields, firstHalf)
   let lastFields = _.takeRight(fields, lastHalf)
   let i = 0
-  let firstFieldsContent = _.map(firstFields, field => generateContent(dataCollection, field, i++))
-  let lastFieldsContent = _.map(lastFields, field => generateContent(dataCollection, field, i++))
+  let firstFieldsContent = _.map(firstFields, field => generateContent(dataCollection, field, labelMapper, i++))
+  let lastFieldsContent = _.map(lastFields, field => generateContent(dataCollection, field, labelMapper, i++))
   return (
       <div className="content-card padding-bottom-none margin-bottom--half bg-trans">
         <h4 className="content-card_title t-serif">{title}</h4>

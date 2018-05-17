@@ -3,7 +3,9 @@ class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
   def submit
+    logger.debug "application_api_params: #{application_api_params}"
     application = application_service.submit(application_api_params)
+    logger.debug "application submit response: #{application}"
     render json: { application: application }
   end
 
@@ -126,6 +128,7 @@ class Api::V1::ShortFormController < ApiController
                 certificateNumber
                 naturalKey
                 preferenceProof
+                preferenceName
                 individualPreference
                 optOut
                 recordTypeDevName

@@ -21,7 +21,7 @@ const HouseholdMemberForm = ({ i }) => {
             <Text field={`householdMembers.${i}.lastName`} />
           </div>
           <div className="small-3 columns">
-            <label>Date of Birth <span className="checkbox-block_note no-margin">(required)</span></label>
+            <label>Date of Birth <span className="checkbox-block_note no-margin">YYYY-MM-DD (required)</span></label>
             <DatePickerText
               required={true}
               dateFormat="YYYY-MM-DD"
