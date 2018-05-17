@@ -1,0 +1,667 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleModal it should render status type successfully 1`] = `
+<SimpleModal
+  alert={
+    Object {
+      "invert": false,
+      "message": "Note, you will have the opportunity to grant another household member this preference",
+      "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+      "title": "This change will affect this application's preferences",
+    }
+  }
+  header="Update Status"
+  isOpen={true}
+  onCloseClick={[MockFunction]}
+  onPrimaryClick={[MockFunction]}
+  onSecondaryClick={[MockFunction]}
+  primary="update"
+  secondary="cancel"
+  type="status"
+>
+  <Modal
+    isOpen={true}
+  >
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      closeTimeoutMS={0}
+      isOpen={true}
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+      style={
+        Object {
+          "content": Object {
+            "border": "0",
+            "borderRadius": "4px",
+            "bottom": "auto",
+            "left": "50%",
+            "minHeight": "10rem",
+            "opacity": "1",
+            "padding": "0px",
+            "position": "fixed",
+            "right": "auto",
+            "top": "50%",
+            "transform": "translate(-50%,-50%)",
+            "width": "600px",
+          },
+          "overlay": Object {
+            "backgroundColor": "rgba(0,0,0,0.3)",
+          },
+        }
+      }
+    >
+      <ModalPortal
+        ariaHideApp={true}
+        bodyOpenClassName="ReactModal__Body--open"
+        closeTimeoutMS={0}
+        defaultStyles={
+          Object {
+            "content": Object {
+              "WebkitOverflowScrolling": "touch",
+              "background": "#fff",
+              "border": "1px solid #ccc",
+              "borderRadius": "4px",
+              "bottom": "40px",
+              "left": "40px",
+              "outline": "none",
+              "overflow": "auto",
+              "padding": "20px",
+              "position": "absolute",
+              "right": "40px",
+              "top": "40px",
+            },
+            "overlay": Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.75)",
+              "bottom": 0,
+              "left": 0,
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            },
+          }
+        }
+        isOpen={true}
+        parentSelector={[Function]}
+        portalClassName="ReactModalPortal"
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+        shouldFocusAfterRender={true}
+        shouldReturnFocusAfterClose={true}
+        style={
+          Object {
+            "content": Object {
+              "border": "0",
+              "borderRadius": "4px",
+              "bottom": "auto",
+              "left": "50%",
+              "minHeight": "10rem",
+              "opacity": "1",
+              "padding": "0px",
+              "position": "fixed",
+              "right": "auto",
+              "top": "50%",
+              "transform": "translate(-50%,-50%)",
+              "width": "600px",
+            },
+            "overlay": Object {
+              "backgroundColor": "rgba(0,0,0,0.3)",
+            },
+          }
+        }
+      >
+        <div
+          aria-modal="true"
+          className="ReactModal__Overlay ReactModal__Overlay--after-open"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.3)",
+              "bottom": 0,
+              "left": 0,
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <div
+            className="ReactModal__Content ReactModal__Content--after-open"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "background": "#fff",
+                "border": "0",
+                "borderRadius": "4px",
+                "bottom": "auto",
+                "left": "50%",
+                "minHeight": "10rem",
+                "opacity": "1",
+                "outline": "none",
+                "overflow": "auto",
+                "padding": "0px",
+                "position": "fixed",
+                "right": "auto",
+                "top": "50%",
+                "transform": "translate(-50%,-50%)",
+                "width": "600px",
+              }
+            }
+            tabIndex="-1"
+          >
+            <SimpleModalBody
+              alert={
+                Object {
+                  "invert": false,
+                  "message": "Note, you will have the opportunity to grant another household member this preference",
+                  "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+                  "title": "This change will affect this application's preferences",
+                }
+              }
+              header="Update Status"
+              onCloseClick={[MockFunction]}
+              onPrimaryClick={[MockFunction]}
+              onSecondaryClick={[MockFunction]}
+              primary="update"
+              secondary="cancel"
+              type="status"
+            >
+              <Component
+                onCloseClick={[MockFunction]}
+              >
+                <div
+                  aria-labelledby="modalTitle"
+                  role="dialog"
+                >
+                  <Component
+                    title="Update Status"
+                  >
+                    <header
+                      className="modal-inner"
+                    >
+                      <h1
+                        className="modal-title t-gamma no-margin"
+                      >
+                        Update status
+                      </h1>
+                    </header>
+                  </Component>
+                  <Component
+                    invert={false}
+                    message="Note, you will have the opportunity to grant another household member this preference"
+                    subTitle="This application woudl no longer be elegible for Live Work Preference"
+                    title="This change will affect this application's preferences"
+                  >
+                    <Alert
+                      invert={false}
+                      message="Note, you will have the opportunity to grant another household member this preference"
+                      subTitle="This application woudl no longer be elegible for Live Work Preference"
+                      title="This change will affect this application's preferences"
+                    >
+                      <div
+                        className="alert-box-and-notice"
+                      >
+                        <AlertBox
+                          closeType="text"
+                          dismiss={false}
+                          invert={false}
+                          message="This change will affect this application's preferences"
+                          noMargin={true}
+                          onCloseClick={[Function]}
+                        >
+                          <div
+                            className="alert-box alert no-margin"
+                            data-alert={true}
+                          >
+                            <span
+                              className="alert-icon ui-icon ui-medium"
+                            >
+                              <svg>
+                                <use
+                                  xlinkHref="#i-warning"
+                                />
+                              </svg>
+                            </span>
+                            <p
+                              className="alert-body"
+                            >
+                              This change will affect this application's preferences
+                            </p>
+                            <a
+                              className="close text"
+                              onClick={[Function]}
+                            >
+                              Close
+                            </a>
+                          </div>
+                        </AlertBox>
+                        <AlertNotice
+                          content="Note, you will have the opportunity to grant another household member this preference"
+                          dismiss={false}
+                          invert={false}
+                          title="This application woudl no longer be elegible for Live Work Preference"
+                        >
+                          <div
+                            className="alert-notice alert "
+                          >
+                            <p
+                              className="t-tiny c-alert margin-bottom"
+                            >
+                              This application woudl no longer be elegible for Live Work Preference
+                            </p>
+                            <p
+                              className="t-tiny c-steel margin-bottom"
+                            >
+                              Note, you will have the opportunity to grant another household member this preference
+                            </p>
+                          </div>
+                        </AlertNotice>
+                      </div>
+                    </Alert>
+                  </Component>
+                  <Component>
+                    <section
+                      className="modal-inner"
+                    >
+                      <div>
+                        content
+                      </div>
+                    </section>
+                  </Component>
+                  <Component>
+                    <footer
+                      className="modal-footer bg-dust"
+                    >
+                      <div
+                        className="modal-button-group row"
+                      >
+                        <div
+                          className="modal-button_item modal-button_primary"
+                        >
+                          <button
+                            className="button primary"
+                            onClick={[MockFunction]}
+                          >
+                            update
+                          </button>
+                        </div>
+                        <div
+                          className="modal-button_item modal-button_secondary"
+                        >
+                          <button
+                            className="button no-border"
+                            onClick={[MockFunction]}
+                          >
+                            cancel
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </Component>
+                  <a
+                    aria-label="Close modal"
+                    className="close-reveal-modal"
+                    onClick={[MockFunction]}
+                  >
+                    <span
+                      className="ui-icon ui-medium i-primary"
+                    >
+                      <svg>
+                        <use
+                          xlinkHref="#i-close"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </Component>
+            </SimpleModalBody>
+          </div>
+        </div>
+      </ModalPortal>
+    </Modal>
+  </Modal>
+</SimpleModal>
+`;
+
+exports[`SimpleModal it should render status type successfully 2`] = `
+<SimpleModal
+  alert={
+    Object {
+      "invert": false,
+      "message": "Note, you will have the opportunity to grant another household member this preference",
+      "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+      "title": "This change will affect this application's preferences",
+    }
+  }
+  header="Update Status"
+  isOpen={true}
+  onCloseClick={[MockFunction]}
+  onPrimaryClick={[MockFunction]}
+  onSecondaryClick={[MockFunction]}
+  primary="update"
+  secondary="cancel"
+  type="alert"
+>
+  <Modal
+    isOpen={true}
+  >
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      closeTimeoutMS={0}
+      isOpen={true}
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+      style={
+        Object {
+          "content": Object {
+            "border": "0",
+            "borderRadius": "4px",
+            "bottom": "auto",
+            "left": "50%",
+            "minHeight": "10rem",
+            "opacity": "1",
+            "padding": "0px",
+            "position": "fixed",
+            "right": "auto",
+            "top": "50%",
+            "transform": "translate(-50%,-50%)",
+            "width": "600px",
+          },
+          "overlay": Object {
+            "backgroundColor": "rgba(0,0,0,0.3)",
+          },
+        }
+      }
+    >
+      <ModalPortal
+        ariaHideApp={true}
+        bodyOpenClassName="ReactModal__Body--open"
+        closeTimeoutMS={0}
+        defaultStyles={
+          Object {
+            "content": Object {
+              "WebkitOverflowScrolling": "touch",
+              "background": "#fff",
+              "border": "1px solid #ccc",
+              "borderRadius": "4px",
+              "bottom": "40px",
+              "left": "40px",
+              "outline": "none",
+              "overflow": "auto",
+              "padding": "20px",
+              "position": "absolute",
+              "right": "40px",
+              "top": "40px",
+            },
+            "overlay": Object {
+              "backgroundColor": "rgba(255, 255, 255, 0.75)",
+              "bottom": 0,
+              "left": 0,
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            },
+          }
+        }
+        isOpen={true}
+        parentSelector={[Function]}
+        portalClassName="ReactModalPortal"
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+        shouldFocusAfterRender={true}
+        shouldReturnFocusAfterClose={true}
+        style={
+          Object {
+            "content": Object {
+              "border": "0",
+              "borderRadius": "4px",
+              "bottom": "auto",
+              "left": "50%",
+              "minHeight": "10rem",
+              "opacity": "1",
+              "padding": "0px",
+              "position": "fixed",
+              "right": "auto",
+              "top": "50%",
+              "transform": "translate(-50%,-50%)",
+              "width": "600px",
+            },
+            "overlay": Object {
+              "backgroundColor": "rgba(0,0,0,0.3)",
+            },
+          }
+        }
+      >
+        <div
+          aria-modal="true"
+          className="ReactModal__Overlay ReactModal__Overlay--after-open"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(0,0,0,0.3)",
+              "bottom": 0,
+              "left": 0,
+              "position": "fixed",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <div
+            className="ReactModal__Content ReactModal__Content--after-open"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "background": "#fff",
+                "border": "0",
+                "borderRadius": "4px",
+                "bottom": "auto",
+                "left": "50%",
+                "minHeight": "10rem",
+                "opacity": "1",
+                "outline": "none",
+                "overflow": "auto",
+                "padding": "0px",
+                "position": "fixed",
+                "right": "auto",
+                "top": "50%",
+                "transform": "translate(-50%,-50%)",
+                "width": "600px",
+              }
+            }
+            tabIndex="-1"
+          >
+            <SimpleModalBody
+              alert={
+                Object {
+                  "invert": false,
+                  "message": "Note, you will have the opportunity to grant another household member this preference",
+                  "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+                  "title": "This change will affect this application's preferences",
+                }
+              }
+              header="Update Status"
+              onCloseClick={[MockFunction]}
+              onPrimaryClick={[MockFunction]}
+              onSecondaryClick={[MockFunction]}
+              primary="update"
+              secondary="cancel"
+              type="alert"
+            >
+              <Component
+                onCloseClick={[MockFunction]}
+              >
+                <div
+                  aria-labelledby="modalTitle"
+                  role="dialog"
+                >
+                  <Component
+                    title="Update Status"
+                  >
+                    <header
+                      className="modal-inner"
+                    >
+                      <h1
+                        className="modal-title t-gamma no-margin"
+                      >
+                        Update status
+                      </h1>
+                    </header>
+                  </Component>
+                  <Component
+                    invert={false}
+                    message="Note, you will have the opportunity to grant another household member this preference"
+                    subTitle="This application woudl no longer be elegible for Live Work Preference"
+                    title="This change will affect this application's preferences"
+                  >
+                    <Alert
+                      invert={false}
+                      message="Note, you will have the opportunity to grant another household member this preference"
+                      subTitle="This application woudl no longer be elegible for Live Work Preference"
+                      title="This change will affect this application's preferences"
+                    >
+                      <div
+                        className="alert-box-and-notice"
+                      >
+                        <AlertBox
+                          closeType="text"
+                          dismiss={false}
+                          invert={false}
+                          message="This change will affect this application's preferences"
+                          noMargin={true}
+                          onCloseClick={[Function]}
+                        >
+                          <div
+                            className="alert-box alert no-margin"
+                            data-alert={true}
+                          >
+                            <span
+                              className="alert-icon ui-icon ui-medium"
+                            >
+                              <svg>
+                                <use
+                                  xlinkHref="#i-warning"
+                                />
+                              </svg>
+                            </span>
+                            <p
+                              className="alert-body"
+                            >
+                              This change will affect this application's preferences
+                            </p>
+                            <a
+                              className="close text"
+                              onClick={[Function]}
+                            >
+                              Close
+                            </a>
+                          </div>
+                        </AlertBox>
+                        <AlertNotice
+                          content="Note, you will have the opportunity to grant another household member this preference"
+                          dismiss={false}
+                          invert={false}
+                          title="This application woudl no longer be elegible for Live Work Preference"
+                        >
+                          <div
+                            className="alert-notice alert "
+                          >
+                            <p
+                              className="t-tiny c-alert margin-bottom"
+                            >
+                              This application woudl no longer be elegible for Live Work Preference
+                            </p>
+                            <p
+                              className="t-tiny c-steel margin-bottom"
+                            >
+                              Note, you will have the opportunity to grant another household member this preference
+                            </p>
+                          </div>
+                        </AlertNotice>
+                      </div>
+                    </Alert>
+                  </Component>
+                  <Component>
+                    <section
+                      className="modal-inner"
+                    >
+                      <div>
+                        content
+                      </div>
+                    </section>
+                  </Component>
+                  <Component>
+                    <footer
+                      className="modal-footer bg-dust"
+                    >
+                      <div
+                        className="modal-button-group row"
+                      >
+                        <div
+                          className="modal-button_item modal-button_primary"
+                        >
+                          <button
+                            className="button alert-fill"
+                            onClick={[MockFunction]}
+                          >
+                            update
+                          </button>
+                        </div>
+                        <div
+                          className="modal-button_item modal-button_secondary"
+                        >
+                          <button
+                            className="button no-border"
+                            onClick={[MockFunction]}
+                          >
+                            cancel
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </Component>
+                  <a
+                    aria-label="Close modal"
+                    className="close-reveal-modal"
+                    onClick={[MockFunction]}
+                  >
+                    <span
+                      className="ui-icon ui-medium i-primary"
+                    >
+                      <svg>
+                        <use
+                          xlinkHref="#i-close"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </Component>
+            </SimpleModalBody>
+          </div>
+        </div>
+      </ModalPortal>
+    </Modal>
+  </Modal>
+</SimpleModal>
+`;

@@ -30,6 +30,7 @@ import ContentSection from 'components/molecules/ContentSection'
 import ContentSectionBordered from 'components/molecules/ContentSectionBordered'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
+import ModalWrapper from 'components/pattern_library_wrappers/ModalWrapper'
 import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
@@ -64,6 +65,7 @@ WebpackerReact.setup({ TableSimple })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ ContentSectionBordered })
 WebpackerReact.setup({ Modal })
+WebpackerReact.setup({ ModalWrapper} )
 WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
