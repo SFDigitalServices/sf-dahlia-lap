@@ -33,7 +33,7 @@ module Force
     end
 
     def flagged_applications(record_set_id)
-      pp parsed_index_query(%(
+      parsed_index_query(%(
         SELECT #{query_fields(:flagged_applications)}
         FROM Flagged_Application__c
         WHERE Flagged_Record_Set__c='#{record_set_id}'
