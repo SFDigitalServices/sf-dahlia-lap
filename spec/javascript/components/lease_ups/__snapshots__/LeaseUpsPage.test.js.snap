@@ -43,6 +43,143 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
   }
 >
   <div>
+    <LeaseUpsPageHeader
+      listing={
+        Object {
+          "Building_Street_Address": "yyyy",
+          "Id": "1",
+          "Name": "xxxx",
+        }
+      }
+    >
+      <div>
+        <PageHeader
+          action={
+            Object {
+              "link": "/listings/1/lease_ups/export",
+              "title": "Export",
+            }
+          }
+          breadcrumbs={
+            Array [
+              Object {
+                "link": "/lease_ups",
+                "title": "Lease Ups",
+              },
+              Object {
+                "link": "/listings/1/lease_ups",
+                "title": "xxxx",
+              },
+            ]
+          }
+          content="yyyy"
+          title="xxxx"
+        >
+          <header
+            className="lead-header short has-breadcrumbs bg-vapor"
+          >
+            <div
+              className="row full-width inner--3x"
+            >
+              <div
+                className="large-12 columns"
+              >
+                <BreadCrumbs
+                  items={
+                    Array [
+                      Object {
+                        "link": "/lease_ups",
+                        "title": "Lease Ups",
+                      },
+                      Object {
+                        "link": "/listings/1/lease_ups",
+                        "title": "xxxx",
+                      },
+                    ]
+                  }
+                >
+                  <nav
+                    aria-label="breadcrumb"
+                  >
+                    <ol
+                      className="breadcrumbs"
+                    >
+                      <Item
+                        item={
+                          Object {
+                            "link": "/lease_ups",
+                            "title": "Lease Ups",
+                          }
+                        }
+                        key="Lease Ups"
+                      >
+                        <li>
+                          <a
+                            href="/lease_ups"
+                          >
+                            Lease Ups
+                          </a>
+                        </li>
+                      </Item>
+                      <Item
+                        current={true}
+                        item={
+                          Object {
+                            "link": "/listings/1/lease_ups",
+                            "title": "xxxx",
+                          }
+                        }
+                      >
+                        <li
+                          className="current"
+                        >
+                          <a
+                            aria-current="page"
+                            href="/listings/1/lease_ups"
+                          >
+                            xxxx
+                          </a>
+                        </li>
+                      </Item>
+                    </ol>
+                  </nav>
+                </BreadCrumbs>
+                <hgroup
+                  className="lead-header_group"
+                >
+                  <h1
+                    className="lead-header_title small c-oil"
+                  >
+                    xxxx
+                  </h1>
+                  <div
+                    className="medium-8 columns no-padding"
+                  >
+                    <p>
+                      yyyy
+                    </p>
+                  </div>
+                  <div
+                    className="medium-4 columns no-padding"
+                  >
+                    <span
+                      className="lead-header_secondary-action"
+                    >
+                      <a
+                        className="alt-caps"
+                        href="/listings/1/lease_ups/export"
+                      >
+                        Export
+                      </a>
+                    </span>
+                  </div>
+                </hgroup>
+              </div>
+            </div>
+          </header>
+        </PageHeader>
+      </div>
+    </LeaseUpsPageHeader>
     <LeaseUpTableContainer
       listing={
         Object {
@@ -1008,7 +1145,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -1440,7 +1577,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -3365,7 +3502,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                       className="-pageInfo"
                     >
                       Page
-
+                       
                       <div
                         className="-pageJump"
                       >
@@ -3377,9 +3514,9 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={1}
                         />
                       </div>
-
+                       
                       of
-
+                       
                       <span
                         className="-totalPages"
                       >
@@ -3398,7 +3535,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={5}
                         >
                           5
-
+                           
                           rows
                         </option>
                         <option
@@ -3406,7 +3543,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={10}
                         >
                           10
-
+                           
                           rows
                         </option>
                         <option
@@ -3414,7 +3551,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={20}
                         >
                           20
-
+                           
                           rows
                         </option>
                         <option
@@ -3422,7 +3559,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={25}
                         >
                           25
-
+                           
                           rows
                         </option>
                         <option
@@ -3430,7 +3567,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={50}
                         >
                           50
-
+                           
                           rows
                         </option>
                         <option
@@ -3438,7 +3575,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           value={100}
                         >
                           100
-
+                           
                           rows
                         </option>
                       </select>
@@ -3516,6 +3653,143 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
   }
 >
   <div>
+    <LeaseUpsPageHeader
+      listing={
+        Object {
+          "Building_Street_Address": "yyyy",
+          "Id": "1",
+          "Name": "xxxx",
+        }
+      }
+    >
+      <div>
+        <PageHeader
+          action={
+            Object {
+              "link": "/listings/1/lease_ups/export",
+              "title": "Export",
+            }
+          }
+          breadcrumbs={
+            Array [
+              Object {
+                "link": "/lease_ups",
+                "title": "Lease Ups",
+              },
+              Object {
+                "link": "/listings/1/lease_ups",
+                "title": "xxxx",
+              },
+            ]
+          }
+          content="yyyy"
+          title="xxxx"
+        >
+          <header
+            className="lead-header short has-breadcrumbs bg-vapor"
+          >
+            <div
+              className="row full-width inner--3x"
+            >
+              <div
+                className="large-12 columns"
+              >
+                <BreadCrumbs
+                  items={
+                    Array [
+                      Object {
+                        "link": "/lease_ups",
+                        "title": "Lease Ups",
+                      },
+                      Object {
+                        "link": "/listings/1/lease_ups",
+                        "title": "xxxx",
+                      },
+                    ]
+                  }
+                >
+                  <nav
+                    aria-label="breadcrumb"
+                  >
+                    <ol
+                      className="breadcrumbs"
+                    >
+                      <Item
+                        item={
+                          Object {
+                            "link": "/lease_ups",
+                            "title": "Lease Ups",
+                          }
+                        }
+                        key="Lease Ups"
+                      >
+                        <li>
+                          <a
+                            href="/lease_ups"
+                          >
+                            Lease Ups
+                          </a>
+                        </li>
+                      </Item>
+                      <Item
+                        current={true}
+                        item={
+                          Object {
+                            "link": "/listings/1/lease_ups",
+                            "title": "xxxx",
+                          }
+                        }
+                      >
+                        <li
+                          className="current"
+                        >
+                          <a
+                            aria-current="page"
+                            href="/listings/1/lease_ups"
+                          >
+                            xxxx
+                          </a>
+                        </li>
+                      </Item>
+                    </ol>
+                  </nav>
+                </BreadCrumbs>
+                <hgroup
+                  className="lead-header_group"
+                >
+                  <h1
+                    className="lead-header_title small c-oil"
+                  >
+                    xxxx
+                  </h1>
+                  <div
+                    className="medium-8 columns no-padding"
+                  >
+                    <p>
+                      yyyy
+                    </p>
+                  </div>
+                  <div
+                    className="medium-4 columns no-padding"
+                  >
+                    <span
+                      className="lead-header_secondary-action"
+                    >
+                      <a
+                        className="alt-caps"
+                        href="/listings/1/lease_ups/export"
+                      >
+                        Export
+                      </a>
+                    </span>
+                  </div>
+                </hgroup>
+              </div>
+            </div>
+          </header>
+        </PageHeader>
+      </div>
+    </LeaseUpsPageHeader>
     <LeaseUpTableContainer
       listing={
         Object {
@@ -4440,7 +4714,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -6561,7 +6835,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                       className="-pageInfo"
                     >
                       Page
-
+                       
                       <div
                         className="-pageJump"
                       >
@@ -6573,9 +6847,9 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={1}
                         />
                       </div>
-
+                       
                       of
-
+                       
                       <span
                         className="-totalPages"
                       >
@@ -6594,7 +6868,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={5}
                         >
                           5
-
+                           
                           rows
                         </option>
                         <option
@@ -6602,7 +6876,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={10}
                         >
                           10
-
+                           
                           rows
                         </option>
                         <option
@@ -6610,7 +6884,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={20}
                         >
                           20
-
+                           
                           rows
                         </option>
                         <option
@@ -6618,7 +6892,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={25}
                         >
                           25
-
+                           
                           rows
                         </option>
                         <option
@@ -6626,7 +6900,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={50}
                         >
                           50
-
+                           
                           rows
                         </option>
                         <option
@@ -6634,7 +6908,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           value={100}
                         >
                           100
-
+                           
                           rows
                         </option>
                       </select>
@@ -6767,6 +7041,143 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
   }
 >
   <div>
+    <LeaseUpsPageHeader
+      listing={
+        Object {
+          "Building_Street_Address": "yyyy",
+          "Id": "1",
+          "Name": "xxxx",
+        }
+      }
+    >
+      <div>
+        <PageHeader
+          action={
+            Object {
+              "link": "/listings/1/lease_ups/export",
+              "title": "Export",
+            }
+          }
+          breadcrumbs={
+            Array [
+              Object {
+                "link": "/lease_ups",
+                "title": "Lease Ups",
+              },
+              Object {
+                "link": "/listings/1/lease_ups",
+                "title": "xxxx",
+              },
+            ]
+          }
+          content="yyyy"
+          title="xxxx"
+        >
+          <header
+            className="lead-header short has-breadcrumbs bg-vapor"
+          >
+            <div
+              className="row full-width inner--3x"
+            >
+              <div
+                className="large-12 columns"
+              >
+                <BreadCrumbs
+                  items={
+                    Array [
+                      Object {
+                        "link": "/lease_ups",
+                        "title": "Lease Ups",
+                      },
+                      Object {
+                        "link": "/listings/1/lease_ups",
+                        "title": "xxxx",
+                      },
+                    ]
+                  }
+                >
+                  <nav
+                    aria-label="breadcrumb"
+                  >
+                    <ol
+                      className="breadcrumbs"
+                    >
+                      <Item
+                        item={
+                          Object {
+                            "link": "/lease_ups",
+                            "title": "Lease Ups",
+                          }
+                        }
+                        key="Lease Ups"
+                      >
+                        <li>
+                          <a
+                            href="/lease_ups"
+                          >
+                            Lease Ups
+                          </a>
+                        </li>
+                      </Item>
+                      <Item
+                        current={true}
+                        item={
+                          Object {
+                            "link": "/listings/1/lease_ups",
+                            "title": "xxxx",
+                          }
+                        }
+                      >
+                        <li
+                          className="current"
+                        >
+                          <a
+                            aria-current="page"
+                            href="/listings/1/lease_ups"
+                          >
+                            xxxx
+                          </a>
+                        </li>
+                      </Item>
+                    </ol>
+                  </nav>
+                </BreadCrumbs>
+                <hgroup
+                  className="lead-header_group"
+                >
+                  <h1
+                    className="lead-header_title small c-oil"
+                  >
+                    xxxx
+                  </h1>
+                  <div
+                    className="medium-8 columns no-padding"
+                  >
+                    <p>
+                      yyyy
+                    </p>
+                  </div>
+                  <div
+                    className="medium-4 columns no-padding"
+                  >
+                    <span
+                      className="lead-header_secondary-action"
+                    >
+                      <a
+                        className="alt-caps"
+                        href="/listings/1/lease_ups/export"
+                      >
+                        Export
+                      </a>
+                    </span>
+                  </div>
+                </hgroup>
+              </div>
+            </div>
+          </header>
+        </PageHeader>
+      </div>
+    </LeaseUpsPageHeader>
     <LeaseUpTableContainer
       listing={
         Object {
@@ -7858,7 +8269,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -8290,7 +8701,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -8722,7 +9133,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -9154,7 +9565,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -9586,7 +9997,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               >
                                 <PrettyTime>
                                   <div>
-                                    15 May 18
+                                    23 Apr 18
                                   </div>
                                 </PrettyTime>
                               </div>
@@ -10923,7 +11334,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                       className="-pageInfo"
                     >
                       Page
-
+                       
                       <div
                         className="-pageJump"
                       >
@@ -10935,9 +11346,9 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={1}
                         />
                       </div>
-
+                       
                       of
-
+                       
                       <span
                         className="-totalPages"
                       >
@@ -10956,7 +11367,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={5}
                         >
                           5
-
+                           
                           rows
                         </option>
                         <option
@@ -10964,7 +11375,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={10}
                         >
                           10
-
+                           
                           rows
                         </option>
                         <option
@@ -10972,7 +11383,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={20}
                         >
                           20
-
+                           
                           rows
                         </option>
                         <option
@@ -10980,7 +11391,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={25}
                         >
                           25
-
+                           
                           rows
                         </option>
                         <option
@@ -10988,7 +11399,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={50}
                         >
                           50
-
+                           
                           rows
                         </option>
                         <option
@@ -10996,7 +11407,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           value={100}
                         >
                           100
-
+                           
                           rows
                         </option>
                       </select>

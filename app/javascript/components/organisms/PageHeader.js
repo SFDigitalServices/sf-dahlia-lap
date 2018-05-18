@@ -25,7 +25,10 @@ const PageHeader = ({ title, content, action, breadcrumbs }) => {
 
 PageHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  content: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.object.isRequired,
+  ]),
   action: PropTypes.object,
   breadcrumbs: PropTypes.array,
 }

@@ -2,7 +2,7 @@
 
 exports[`PageHeaderSimple should render succesfully 1`] = `
 <header
-  className="lead-header short bg-snow"
+  className="lead-header short bg-vapor"
 >
   <div
     className="row full-width inner--3x"
