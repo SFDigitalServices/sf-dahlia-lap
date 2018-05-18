@@ -1,6 +1,8 @@
 import WebpackerReact from 'webpacker-react'
 import Turbolinks from 'turbolinks'
 
+import Properties from 'components/pattern_library_wrappers/properties'
+
 // All imports from Pattern Library
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
 import Button from 'components/atoms/Button'
@@ -28,9 +30,13 @@ import ContentSection from 'components/molecules/ContentSection'
 import ContentSectionBordered from 'components/molecules/ContentSectionBordered'
 import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
+import ModalWrapper from 'components/pattern_library_wrappers/ModalWrapper'
 import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
+import DropdownWrapper from 'components/pattern_library_wrappers/DropdownWrapper'
+import TabCardWrapper from 'components/pattern_library_wrappers/TabCardWrapper'
+
 
 Turbolinks.start()
 
@@ -60,7 +66,11 @@ WebpackerReact.setup({ TableSimple })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ ContentSectionBordered })
 WebpackerReact.setup({ Modal })
+WebpackerReact.setup({ ModalWrapper} )
 WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
+WebpackerReact.setup({ DropdownWrapper })
+WebpackerReact.setup({ Properties })
+WebpackerReact.setup({ TabCardWrapper })

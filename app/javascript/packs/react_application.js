@@ -1,5 +1,6 @@
 import WebpackerReact from 'webpacker-react'
 import Turbolinks from 'turbolinks'
+import ReactModal from 'react-modal'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import ApplicationNewPage from 'components/applications/ApplicationNewPage'
@@ -36,3 +37,7 @@ WebpackerReact.setup({ ListingApplicationsPage })
 WebpackerReact.setup({ ListingPage })
 WebpackerReact.setup({ ListingsPage })
 WebpackerReact.setup({ HomePage })
+
+window.onload = () => {
+  ReactModal.setAppElement('#root')
+}

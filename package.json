@@ -13,6 +13,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-root-import": "5.1.0",
     "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
     "coffeescript": "1.12.7",
     "grunt": "0.4.5",
     "grunt-contrib-clean": "0.6.0",
@@ -28,6 +29,8 @@
     "react-datepicker": "0.61.0",
     "react-dom": "^16.0.0",
     "react-form": "2.6.1",
+    "react-modal": "^3.4.4",
+    "react-json-tree": "^0.11.0",
     "react-table": "^6.7.4",
     "turbolinks": "^5.0.3",
     "webpacker-react": "^0.3.2"

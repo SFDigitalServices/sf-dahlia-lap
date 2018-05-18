@@ -9,3 +9,17 @@
  *= require pattern-library
  *= require_self
  */
+
+.ReactModal__Overlay {
+  z-index: 1000;
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
+@media(max-width:600px) {
+  .ReactModal__Content {
+    width: 90% !important;
+  }
+}

@@ -11,10 +11,11 @@ const ListingsPageHeader = ({}) => {
   )
 }
 
-const ListingsPageTable = ({ listings, fields }) => {
+const ListingsPageTable = ({ page, results, fields }) => {
   return (
     <IndexTable
-      results={listings}
+      page={page}
+      results={results}
       fields= {fields}
       links={['View Listing', 'Add Application', 'Lease Ups'] } />
   )

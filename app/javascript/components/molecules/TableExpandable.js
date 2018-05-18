@@ -24,7 +24,7 @@ const TableExpandable = ({ header, value, headerB, valueB, label, id, name, plac
           </td>
         </tr>
         <tr className="tr-expand-content is-expanded" aria-hidden="false">
-          <td colspan="7" className="td-expand-nested no-padding">
+          <td colSpan="7" className="td-expand-nested no-padding">
             <EditablePanel label={label} id={id} name={name} placeholder={placeholder} describeId={describeId} note={note} error={error} />
           </td>
         </tr>
