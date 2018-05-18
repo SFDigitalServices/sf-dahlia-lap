@@ -71,9 +71,6 @@ WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
-<<<<<<< HEAD
-=======
 WebpackerReact.setup({ DropdownWrapper })
->>>>>>> master
 WebpackerReact.setup({ Properties })
 WebpackerReact.setup({ TabCardWrapper })
