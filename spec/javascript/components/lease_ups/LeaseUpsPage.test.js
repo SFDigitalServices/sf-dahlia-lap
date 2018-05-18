@@ -21,6 +21,8 @@ const buildApplication = (uniqId, attributes = {}) => {
    }
 }
 
+// jest.useFakeTimers();
+
 describe('LeaseUpsPage', () => {
   const listings = {
     Id: '1',

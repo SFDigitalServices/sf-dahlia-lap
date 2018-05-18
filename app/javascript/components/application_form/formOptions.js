@@ -26,11 +26,13 @@ const gender_options = labelize([
   'Trans Female',
   'Trans Male',
   'Not Listed',
+  'Decline to state',
 ])
 
 const sex_at_birth_options = labelize([
   'Female',
   'Male',
+  'Decline to answer',
 ])
 
 const relationship_options = labelize([
@@ -54,6 +56,7 @@ const relationship_options = labelize([
 const ethnicity_options = labelize([
   'Hispanic/Latino',
   'Not Hispanic/Latino',
+  'Decline to state',
 ])
 
 const race_options = labelize([
@@ -67,6 +70,7 @@ const race_options = labelize([
   'Asian and White',
   'Black/African American and White',
   'Other/Multiracial',
+  'Decline to state',
 ])
 
 const sexual_orientation_options = labelize([
@@ -75,6 +79,7 @@ const sexual_orientation_options = labelize([
   'Questioning/Unsure',
   'Straight/Heterosexual',
   'Not listed',
+  'Decline to state',
 ])
 
 const preference_proof_options_default = labelize([

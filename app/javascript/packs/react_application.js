@@ -1,5 +1,6 @@
 import WebpackerReact from 'webpacker-react'
 import Turbolinks from 'turbolinks'
+import ReactModal from 'react-modal'
 
 import IndexTable from 'components/IndexTable'
 import SpreadsheetIndexTable from 'components/SpreadsheetIndexTable'
@@ -20,3 +21,7 @@ WebpackerReact.setup({ ListingDetails })
 WebpackerReact.setup({ ApplicationDetails })
 WebpackerReact.setup({ LeaseUpsPage })
 WebpackerReact.setup({ SupplementalApplicationPage })
+
+window.onload = () => {
+  ReactModal.setAppElement('#root')
+}
