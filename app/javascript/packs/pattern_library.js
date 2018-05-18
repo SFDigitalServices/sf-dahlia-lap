@@ -34,6 +34,7 @@ import ModalWrapper from 'components/pattern_library_wrappers/ModalWrapper'
 import PageHeaderSimple from 'components/organisms/PageHeaderSimple'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
+import DropdownWrapper from 'components/pattern_library_wrappers/DropdownWrapper'
 import TabCardWrapper from 'components/pattern_library_wrappers/TabCardWrapper'
 
 
@@ -70,5 +71,6 @@ WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ PageHeaderSimple })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
+WebpackerReact.setup({ DropdownWrapper })
 WebpackerReact.setup({ Properties })
 WebpackerReact.setup({ TabCardWrapper })
