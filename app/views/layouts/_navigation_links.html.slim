@@ -1,8 +1,8 @@
 / li= link_to 'Home', root_path
 - if user_signed_in?
-  li= link_to 'Listings', listings_path, class: active_path(listings_path)
-  li= link_to 'Applications', applications_path, class: active_path(applications_path)
-  li= link_to 'Pending Flagged Apps', pending_review_index_path, class: active_path(pending_review_index_path)
-  li= link_to 'Marked Duplicate Apps', marked_duplicate_index_path, class: active_path(marked_duplicate_index_path)
-  li= link_to 'Lease Ups', '#', class: active_path(marked_duplicate_index_path)
+  li= menu_link 'Listings', listings_path
+  li= menu_link 'Applications', applications_path
+  li= menu_link 'Pending Flagged Apps',  flagged_index_path(type: :pending)
+  li= menu_link 'Marked Duplicate Apps', flagged_index_path(type: :duplicated)
+  li= menu_link 'Lease Ups', '#'
   / li= link_to 'Spreadsheet Prototype', spreadsheet_applications_path, class: active_path(spreadsheet_applications_path)

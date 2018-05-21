@@ -1,4 +1,3 @@
-# Rails controller for Listings related views/actions
 class ListingsController < ApplicationController
   before_action :authenticate_user!
 
