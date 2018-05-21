@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import _ from 'lodash'
 
 import SupplementalApplicationHeader from './SupplementalApplicationHeader'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
@@ -55,13 +56,15 @@ const mapStatusHistoryItem = (item) => {
 }
 
 const mapStatusHistoryProperty = (statusHistory) => {
+  if (_.isEmpty(statusHistory))
+    return []
   return statusHistory.map(mapStatusHistoryItem)
 }
 
-const mapProperties = ({application, status_history}) => {
+const mapProperties = ({application, statusHistory}) => {
   return {
     application: mapApplicationProperty(application),
-    statusHistory: mapStatusHistoryProperty(status_history)
+    statusHistory: mapStatusHistoryProperty(statusHistory)
   }
 }
 
