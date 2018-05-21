@@ -1,34 +1,31 @@
 import React from 'react'
 import classNames from 'classnames'
+import _ from 'lodash'
 
 import PrettyTime from '../utils/PrettyTime'
 
-const mapStatusName = (type) => {
-	switch(type) {
-		case 'default':
-			return 'No Status'
-		case 'processing':
-			return 'Processing'
-		case 'approved':
-			return 'Approved'
-		default:
-			return 'No Status'
-	}
-}
+// Keeping note of possible status from salesforce
+// [
+//   "Processing",
+//   "Withdrawn",
+//   "Disqualified",
+//   "Approved",
+//   "Lease Signed",
+//   "Appealed",
+//   "Waitlisted"
+// ]
 
-const StatusListItem = ({type, note, date}) => {
+const StatusListItem = ({status, note, date}) => {
 	const statusTagClassNames = classNames({
 		'status-list_tag': true,
-		'is-default': (type === 'default'),
-		'is-processing': (type === 'processing'),
-		'is-approved': (type === 'approved')
+		'is-default':    (!!status),
+		'is-processing': (status === 'Processing'),
+		'is-approved':   (status === 'Approved')
 	})
-
-	const statusName = mapStatusName(type)
 
 	return (
 		<li className="status-list_item">
-			<div className={statusTagClassNames}>{statusName}</div>
+			<div className={statusTagClassNames}>{status}</div>
 			<div className="status-list_comment">
 				<p className="status-list_note">{note}</p>
 				<span className="status-list_date">
@@ -40,11 +37,13 @@ const StatusListItem = ({type, note, date}) => {
 }
 
 const StatusList = ({items, onAddCommnent}) => {
+	const orderedItems =  _.orderBy(items, ['timestamp'])
+
 	return (
 		<div className="status-list">
 			<ul>
-				{ items && items.map(({type, note, date}, idx) => (
-						<StatusListItem key={idx} type={type} note={note} date={date} />
+				{ items && orderedItems.map(({status, note, date}, idx) => (
+						<StatusListItem key={idx} status={status} note={note} date={date} />
 					))
 				}
 			</ul>

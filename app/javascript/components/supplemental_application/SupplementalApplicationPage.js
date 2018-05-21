@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash'
 import moment from 'moment'
 
 import SupplementalApplicationHeader from './SupplementalApplicationHeader'
@@ -37,7 +36,7 @@ const SupplementalApplicationPage = ({ application, statusHistory }) => {
 // so we do not propagte salesforce domain specific objects thru our react components three.
 // Fed
 
-const mapApplicationProperties = (application) => {
+const mapApplicationProperty = (application) => {
   return {
     id: application.Id,
     number: application.Name,
@@ -46,34 +45,23 @@ const mapApplicationProperties = (application) => {
   }
 }
 
-const mapProcessingStatus = (processingStatus) => {
-  //TODO: map with right StatusList types
-  switch(processingStatus) {
-    case "Withdrawn":
-      return "Withdrawn"
-    default:
-      return 'default'
-  }
-}
-
 const mapStatusHistoryItem = (item) => {
   return {
-    type: mapProcessingStatus(item.Processing_Status),
+    status: item.Processing_Status,
     note: item.Processing_Comment,
     date: item.Processing_Date_Updated,
     timestamp: moment(item.Processing_Date_Updated).unix()
   }
 }
 
-const mapStatusHistoryProperties = (statusHistory) => {
-  return _.orderBy(statusHistory.map(mapStatusHistoryItem), ['timestamp'])
+const mapStatusHistoryProperty = (statusHistory) => {
+  return statusHistory.map(mapStatusHistoryItem)
 }
 
 const mapProperties = ({application, status_history}) => {
-  console.log(application)
   return {
-    application: mapApplicationProperties(application),
-    statusHistory: mapStatusHistoryProperties(status_history)
+    application: mapApplicationProperty(application),
+    statusHistory: mapStatusHistoryProperty(status_history)
   }
 }
 

@@ -65,6 +65,9 @@ module Force
       api_call('post', endpoint, params)
     end
 
+    # def api_get
+    # end
+
     private
 
     def parse_results(results, fields)
