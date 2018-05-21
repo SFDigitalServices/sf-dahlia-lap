@@ -1,9 +1,10 @@
 import React from 'react'
+import _ from 'lodash'
+import moment from 'moment'
 
 import SupplementalApplicationHeader from './SupplementalApplicationHeader'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import TabsSection from '../organisms/TabsSection'
-
 import appPaths from '../../utils/appPaths'
 import mapProps from '../../utils/mapProps'
 
@@ -59,15 +60,17 @@ const mapStatusHistoryItem = (item) => {
   return {
     type: mapProcessingStatus(item.Processing_Status),
     note: item.Processing_Comment,
-    date: item.Processing_Date_Updated
+    date: item.Processing_Date_Updated,
+    timestamp: moment(item.Processing_Date_Updated).unix()
   }
 }
 
 const mapStatusHistoryProperties = (statusHistory) => {
-  return statusHistory.map(mapStatusHistoryItem)
+  return _.orderBy(statusHistory.map(mapStatusHistoryItem), ['timestamp'])
 }
 
 const mapProperties = ({application, status_history}) => {
+  console.log(application)
   return {
     application: mapApplicationProperties(application),
     statusHistory: mapStatusHistoryProperties(status_history)

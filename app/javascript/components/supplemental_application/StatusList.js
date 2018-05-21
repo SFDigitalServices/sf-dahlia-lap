@@ -32,14 +32,14 @@ const StatusListItem = ({type, note, date}) => {
 			<div className="status-list_comment">
 				<p className="status-list_note">{note}</p>
 				<span className="status-list_date">
-					<PrettyTime time={date} />
+					<PrettyTime time={date} formatType='short' />
 				</span>
 			</div>
 		</li>
 	)
 }
 
-const StatusList = ({items, onAdd}) => {
+const StatusList = ({items, onAddCommnent}) => {
 	return (
 		<div className="status-list">
 			<ul>
@@ -49,7 +49,7 @@ const StatusList = ({items, onAdd}) => {
 				}
 			</ul>
 			<div className="status-list_footer">
-				<button className="button tertiary tiny margin-bottom-none" type="button" data-event="" onClick={onAdd}>Add a comment</button>
+				<button className="button tertiary tiny margin-bottom-none" type="button" data-event="" onClick={onAddCommnent}>Add a comment</button>
 			</div>
 		</div>
 	)
