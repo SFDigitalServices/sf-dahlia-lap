@@ -1,15 +1,18 @@
 import React from 'react'
 
-const SupplementalApplicationContainer = ({}) => {
+import StatusList from './StatusList'
+import ContentSection from '../molecules/ContentSection'
+
+const SupplementalApplicationContainer = ({statusHistory}) => {
   return (
     <React.Fragment>
-      <div class="app-inner inset-wide padding-bottom-none margin-top">
-        <h2 class="sr-only">Status Update</h2>
-        <div class="status-update expand-wide is-processing">
-          <h3 class="status-update_title">Update Status</h3>
-          <div class="status-update_action">
-            <button class="button dropdown-button has-icon--right text-align-left small is-processing" href="#" aria-expanded="false">
-              <span class="ui-icon ui-small" aria-hidden="true">
+      <div className="app-inner inset-wide padding-bottom-none margin-top">
+        <h2 className="sr-only">Status Update</h2>
+        <div className="status-update expand-wide is-processing">
+          <h3 className="status-update_title">Update Status</h3>
+          <div className="status-update_action">
+            <button className="button dropdown-button has-icon--right text-align-left small is-processing" href="#" aria-expanded="false">
+              <span className="ui-icon ui-small" aria-hidden="true">
                 <svg>
                   <use xlinkHref="#i-arrow-down"></use>
                 </svg>
@@ -17,21 +20,27 @@ const SupplementalApplicationContainer = ({}) => {
               Processing
             </button>
           </div>
-          <div class="status-update_message">
-            <div class="status-update_comment">
-              <p class="status-update_note">Some comment</p>
-              <span class="status-update_date">03/12/18 </span>
+          <div className="status-update_message">
+            <div className="status-update_comment">
+              <p className="status-update_note">Some comment</p>
+              <span className="status-update_date">03/12/18 </span>
             </div>
-            <div class="status-update_footer">
-              <button class="button tiny tertiary" type="button" data-event="">Add a comment</button>      <a href="#" class="t-small right">See Status History</a>
+            <div className="status-update_footer">
+              <button className="button tiny tertiary" type="button" data-event="">Add a comment</button>
+              <a href="/see_status_history" className="t-small right">See Status History</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="app-inner header-wide">
-        <h2 class="app-card_h2">Current Contact Information</h2>
-      </div>
+      <ContentSection title="Current Contact Information"/>
+
+      <ContentSection title="Lease Information">
+        <ContentSection.Sub title="Status History">
+            <StatusList items={statusHistory}/>
+        </ContentSection.Sub>
+      </ContentSection>
+
     </React.Fragment>
   )
 }
