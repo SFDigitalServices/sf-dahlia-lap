@@ -33,8 +33,8 @@ const SupplementalApplicationPage = ({ application, statusHistory }) => {
 /* Prop mapping      */
 /*********************/
 
-// I'm mapping properties passest to react_component to the actual Page,
-// so we do not propagte salesforce domain specific objects thru our react components three.
+// I'm mapping properties passed to react_component to the actual Page Component,
+// so we do not propagate salesforce domain objects thru our components three.
 // Fed
 
 const mapApplicationProperty = (application) => {

@@ -14,9 +14,7 @@ const getFormat = (type) => {
 const PrettyTime = ({ time, formatType }) => {
   const format = getFormat(formatType)
 
-  return (
-    <div>{moment(time).format(format)}</div>
-  )
+  return <div>{moment(time).format(format)}</div>
 }
 
 export default PrettyTime
