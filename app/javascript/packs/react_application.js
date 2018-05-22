@@ -6,11 +6,8 @@ import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import ApplicationNewPage from 'components/applications/ApplicationNewPage'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import ApplicationsPage from 'components/applications/ApplicationsPage'
-import ApplicationsSpreadsheetPage from 'components/applications/ApplicationsSpreadsheetPage'
-
-import FlaggedApplicationsPage from 'components/flagged_record_sets/FlaggedApplicationsPage'
-import MarkedDuplicateIndexPage from 'components/flagged_record_sets/MarkedDuplicateIndexPage'
-import PendingReviewIndexPage from 'components/flagged_record_sets/PendingReviewIndexPage'
+import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
+import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
 
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
 
@@ -28,10 +25,8 @@ WebpackerReact.setup({ ApplicationEditPage }) // ES6 shorthand for {ApplicationE
 WebpackerReact.setup({ ApplicationNewPage })
 WebpackerReact.setup({ ApplicationPage })
 WebpackerReact.setup({ ApplicationsPage })
-WebpackerReact.setup({ ApplicationsSpreadsheetPage })
-WebpackerReact.setup({ FlaggedApplicationsPage })
-WebpackerReact.setup({ MarkedDuplicateIndexPage })
-WebpackerReact.setup({ PendingReviewIndexPage })
+WebpackerReact.setup({ FlaggedApplicationsIndexPage })
+WebpackerReact.setup({ FlaggedApplicationsShowPage })
 WebpackerReact.setup({ LeaseUpsPage })
 WebpackerReact.setup({ ListingApplicationsPage })
 WebpackerReact.setup({ ListingPage })
