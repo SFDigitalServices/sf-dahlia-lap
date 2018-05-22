@@ -4,8 +4,19 @@ import _ from 'lodash'
 import moment from 'moment'
 
 import LeaseUpsTable from './LeaseUpsTable'
+import LeaseUpsStatusModalWrapper from './LeaseUpsStatusModalWrapper'
+
 
 class LeaseUpTableContainer extends React.Component {
+  state = {
+    statusModalIsOpen: false
+  }
+
+  openStatusModal  = (value, label) => {
+    this.setState({ statusModalIsOpen: true })
+    console.log(this.state.statusModalIsOpen, 'IN container')
+  }
+  closeStatusModal = () => this.setState({ statusModalIsOpen: false })
 
   buildRowData(result) {
     // if we are going to use Mobx this mapping logic could be extracted to a Model
@@ -49,11 +60,15 @@ class LeaseUpTableContainer extends React.Component {
     const { listing } = this.props
 
     return (
-        <LeaseUpsTable
-            dataSet={this.rowsData()}
-            listingId={listing.Id}
-            onLeaseUpStatusChange={this.updateLeaseUpStatus}
-            onCellClick={this.gotToSupplementaryInfo} />
+        <div>
+          <LeaseUpsTable
+              dataSet={this.rowsData()}
+              listingId={listing.Id}
+              onLeaseUpStatusChange={this.openStatusModal}
+              onCellClick={this.gotToSupplementaryInfo} />
+          <LeaseUpsStatusModalWrapper
+              isOpen={this.state.statusModalIsOpen}/>
+        </div>
     )
   }
 }
