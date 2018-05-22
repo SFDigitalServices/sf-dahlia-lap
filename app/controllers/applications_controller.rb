@@ -19,14 +19,6 @@ class ApplicationsController < ApplicationController
     @listing = listing_service.listing(@application.Listing.Id)
   end
 
-  # PROTOTYPE for editable "spreadsheet" table
-  def spreadsheet
-    # TODO: repurpose this whole method to pull in applications matching a certain flagged set
-    # @applications = service.flagged_apps
-    # just call same index method for now, but with a diff view
-    index
-  end
-
   private
 
   def application_listing

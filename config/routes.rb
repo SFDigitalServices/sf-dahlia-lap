@@ -20,10 +20,10 @@ Rails.application.routes.draw do
 
   resources :applications, only: %w[index show edit] do
     collection do
-      get 'spreadsheet'
       resources :flagged, module: 'applications', only: %w[index show]
     end
   end
+  resources :lease_ups, only: %w[index]
 
   resources :pattern_library, only: %w[index]
 
