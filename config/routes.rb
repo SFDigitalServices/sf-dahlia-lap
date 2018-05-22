@@ -10,25 +10,21 @@ Rails.application.routes.draw do
 
   # salesforce resources
   resources :listings, only: %w[index show] do
-    resources :applications, only: %w[new] do
-      collection do
-        get '/' => 'applications#listing_index'
+    resources :applications, only: %w[new index], module: 'listings'
+    collection do
+      resources :lease_ups, only:%w[], module: 'listings' do
+        resources :applications, module:'lease_ups', only: %w[index]
       end
     end
-    resources :lease_ups, only: %w[index]
   end
+
   resources :applications, only: %w[index show edit] do
     collection do
       get 'spreadsheet'
+      resources :flagged, module: 'applications', only: %w[index show]
     end
   end
   resources :lease_ups, only: %w[index]
-
-  scope '/flagged_record_sets' do
-    get ':id/flagged_applications' => 'flagged_record_sets#flagged_applications', as: :flagged_applications
-    get 'pending_review_index' => 'flagged_record_sets#pending_review_index'
-    get 'marked_duplicate_index' => 'flagged_record_sets#marked_duplicate_index'
-  end
 
   resources :pattern_library, only: %w[index]
 

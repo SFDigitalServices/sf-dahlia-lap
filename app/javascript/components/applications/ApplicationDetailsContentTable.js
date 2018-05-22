@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import utils from '../../utils'
+import appPaths from '../../utils/appPaths'
 
 const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
   let i = 0
@@ -16,7 +17,7 @@ const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
       if (field == 'View Record Set') {
         return (
           <td key='view'>
-            <a href={`/flagged_record_sets/${row.Flagged_Record_Set}/flagged_applications`}>
+            <a href={appPaths.toApplicationsFlagged(row.Flagged_Record_Set)}>
               View Record Set
             </a>
           </td>
