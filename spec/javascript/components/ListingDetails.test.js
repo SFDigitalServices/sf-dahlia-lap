@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import ListingDetails from 'components/ListingDetails'
+import ListingDetails from 'components/listings/ListingDetails'
 import sinon from 'sinon'
 
 describe('ListingDetails', () => {

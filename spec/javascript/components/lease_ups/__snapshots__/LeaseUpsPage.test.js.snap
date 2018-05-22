@@ -43,7 +43,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
   }
 >
   <div>
-    <LeaseUpsHeader
+    <LeaseUpsPageHeader
       listing={
         Object {
           "Building_Street_Address": "yyyy",
@@ -52,132 +52,134 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
         }
       }
     >
-      <PageHeader
-        action={
-          Object {
-            "link": "/listings/1/lease_ups/export",
-            "title": "Export",
+      <div>
+        <PageHeader
+          action={
+            Object {
+              "link": "/listings/1/lease_ups/export",
+              "title": "Export",
+            }
           }
-        }
-        breadcrumbs={
-          Array [
-            Object {
-              "link": "/lease_ups",
-              "title": "Lease Ups",
-            },
-            Object {
-              "link": "/listings/1/lease_ups",
-              "title": "xxxx",
-            },
-          ]
-        }
-        content="yyyy"
-        title="xxxx"
-      >
-        <header
-          className="lead-header short has-breadcrumbs bg-dust"
+          breadcrumbs={
+            Array [
+              Object {
+                "link": "/lease_ups",
+                "title": "Lease Ups",
+              },
+              Object {
+                "link": "/listings/1/lease_ups",
+                "title": "xxxx",
+              },
+            ]
+          }
+          content="yyyy"
+          title="xxxx"
         >
-          <div
-            className="row full-width inner--3x"
+          <header
+            className="lead-header short has-breadcrumbs bg-vapor"
           >
             <div
-              className="large-12 columns"
+              className="row full-width inner--3x"
             >
-              <BreadCrumbs
-                items={
-                  Array [
-                    Object {
-                      "link": "/lease_ups",
-                      "title": "Lease Ups",
-                    },
-                    Object {
-                      "link": "/listings/1/lease_ups",
-                      "title": "xxxx",
-                    },
-                  ]
-                }
+              <div
+                className="large-12 columns"
               >
-                <nav
-                  aria-label="breadcrumb"
+                <BreadCrumbs
+                  items={
+                    Array [
+                      Object {
+                        "link": "/lease_ups",
+                        "title": "Lease Ups",
+                      },
+                      Object {
+                        "link": "/listings/1/lease_ups",
+                        "title": "xxxx",
+                      },
+                    ]
+                  }
                 >
-                  <ol
-                    className="breadcrumbs"
+                  <nav
+                    aria-label="breadcrumb"
                   >
-                    <Item
-                      item={
-                        Object {
-                          "link": "/lease_ups",
-                          "title": "Lease Ups",
-                        }
-                      }
-                      key="Lease Ups"
+                    <ol
+                      className="breadcrumbs"
                     >
-                      <li>
-                        <a
-                          href="/lease_ups"
-                        >
-                          Lease Ups
-                        </a>
-                      </li>
-                    </Item>
-                    <Item
-                      current={true}
-                      item={
-                        Object {
-                          "link": "/listings/1/lease_ups",
-                          "title": "xxxx",
+                      <Item
+                        item={
+                          Object {
+                            "link": "/lease_ups",
+                            "title": "Lease Ups",
+                          }
                         }
-                      }
-                    >
-                      <li
-                        className="current"
+                        key="Lease Ups"
                       >
-                        <a
-                          aria-current="page"
-                          href="/listings/1/lease_ups"
+                        <li>
+                          <a
+                            href="/lease_ups"
+                          >
+                            Lease Ups
+                          </a>
+                        </li>
+                      </Item>
+                      <Item
+                        current={true}
+                        item={
+                          Object {
+                            "link": "/listings/1/lease_ups",
+                            "title": "xxxx",
+                          }
+                        }
+                      >
+                        <li
+                          className="current"
                         >
-                          xxxx
-                        </a>
-                      </li>
-                    </Item>
-                  </ol>
-                </nav>
-              </BreadCrumbs>
-              <hgroup
-                className="lead-header_group"
-              >
-                <h1
-                  className="lead-header_title small c-oil"
+                          <a
+                            aria-current="page"
+                            href="/listings/1/lease_ups"
+                          >
+                            xxxx
+                          </a>
+                        </li>
+                      </Item>
+                    </ol>
+                  </nav>
+                </BreadCrumbs>
+                <hgroup
+                  className="lead-header_group"
                 >
-                  xxxx
-                </h1>
-                <div
-                  className="medium-8 columns no-padding"
-                >
-                  <p>
-                    yyyy
-                  </p>
-                </div>
-                <div
-                  className="medium-4 columns no-padding"
-                >
-                  <span
-                    className="lead-header_secondary-action"
+                  <h1
+                    className="lead-header_title small c-oil"
                   >
-                    <a
-                      className="alt-caps"
-                      href="/listings/1/lease_ups/export"
+                    xxxx
+                  </h1>
+                  <div
+                    className="medium-8 columns no-padding"
+                  >
+                    <p>
+                      yyyy
+                    </p>
+                  </div>
+                  <div
+                    className="medium-4 columns no-padding"
+                  >
+                    <span
+                      className="lead-header_secondary-action"
                     >
-                      Export
-                    </a>
-                  </span>
-                </div>
-              </hgroup>
+                      <a
+                        className="alt-caps"
+                        href="/listings/1/lease_ups/export"
+                      >
+                        Export
+                      </a>
+                    </span>
+                  </div>
+                </hgroup>
+              </div>
             </div>
-          </div>
-        </header>
-      </PageHeader>
-    </LeaseUpsHeader>
+          </header>
+        </PageHeader>
+      </div>
+    </LeaseUpsPageHeader>
     <LeaseUpTableContainer
       listing={
         Object {
@@ -3651,7 +3653,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
   }
 >
   <div>
-    <LeaseUpsHeader
+    <LeaseUpsPageHeader
       listing={
         Object {
           "Building_Street_Address": "yyyy",
@@ -3660,132 +3662,134 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
         }
       }
     >
-      <PageHeader
-        action={
-          Object {
-            "link": "/listings/1/lease_ups/export",
-            "title": "Export",
+      <div>
+        <PageHeader
+          action={
+            Object {
+              "link": "/listings/1/lease_ups/export",
+              "title": "Export",
+            }
           }
-        }
-        breadcrumbs={
-          Array [
-            Object {
-              "link": "/lease_ups",
-              "title": "Lease Ups",
-            },
-            Object {
-              "link": "/listings/1/lease_ups",
-              "title": "xxxx",
-            },
-          ]
-        }
-        content="yyyy"
-        title="xxxx"
-      >
-        <header
-          className="lead-header short has-breadcrumbs bg-dust"
+          breadcrumbs={
+            Array [
+              Object {
+                "link": "/lease_ups",
+                "title": "Lease Ups",
+              },
+              Object {
+                "link": "/listings/1/lease_ups",
+                "title": "xxxx",
+              },
+            ]
+          }
+          content="yyyy"
+          title="xxxx"
         >
-          <div
-            className="row full-width inner--3x"
+          <header
+            className="lead-header short has-breadcrumbs bg-vapor"
           >
             <div
-              className="large-12 columns"
+              className="row full-width inner--3x"
             >
-              <BreadCrumbs
-                items={
-                  Array [
-                    Object {
-                      "link": "/lease_ups",
-                      "title": "Lease Ups",
-                    },
-                    Object {
-                      "link": "/listings/1/lease_ups",
-                      "title": "xxxx",
-                    },
-                  ]
-                }
+              <div
+                className="large-12 columns"
               >
-                <nav
-                  aria-label="breadcrumb"
+                <BreadCrumbs
+                  items={
+                    Array [
+                      Object {
+                        "link": "/lease_ups",
+                        "title": "Lease Ups",
+                      },
+                      Object {
+                        "link": "/listings/1/lease_ups",
+                        "title": "xxxx",
+                      },
+                    ]
+                  }
                 >
-                  <ol
-                    className="breadcrumbs"
+                  <nav
+                    aria-label="breadcrumb"
                   >
-                    <Item
-                      item={
-                        Object {
-                          "link": "/lease_ups",
-                          "title": "Lease Ups",
-                        }
-                      }
-                      key="Lease Ups"
+                    <ol
+                      className="breadcrumbs"
                     >
-                      <li>
-                        <a
-                          href="/lease_ups"
-                        >
-                          Lease Ups
-                        </a>
-                      </li>
-                    </Item>
-                    <Item
-                      current={true}
-                      item={
-                        Object {
-                          "link": "/listings/1/lease_ups",
-                          "title": "xxxx",
+                      <Item
+                        item={
+                          Object {
+                            "link": "/lease_ups",
+                            "title": "Lease Ups",
+                          }
                         }
-                      }
-                    >
-                      <li
-                        className="current"
+                        key="Lease Ups"
                       >
-                        <a
-                          aria-current="page"
-                          href="/listings/1/lease_ups"
+                        <li>
+                          <a
+                            href="/lease_ups"
+                          >
+                            Lease Ups
+                          </a>
+                        </li>
+                      </Item>
+                      <Item
+                        current={true}
+                        item={
+                          Object {
+                            "link": "/listings/1/lease_ups",
+                            "title": "xxxx",
+                          }
+                        }
+                      >
+                        <li
+                          className="current"
                         >
-                          xxxx
-                        </a>
-                      </li>
-                    </Item>
-                  </ol>
-                </nav>
-              </BreadCrumbs>
-              <hgroup
-                className="lead-header_group"
-              >
-                <h1
-                  className="lead-header_title small c-oil"
+                          <a
+                            aria-current="page"
+                            href="/listings/1/lease_ups"
+                          >
+                            xxxx
+                          </a>
+                        </li>
+                      </Item>
+                    </ol>
+                  </nav>
+                </BreadCrumbs>
+                <hgroup
+                  className="lead-header_group"
                 >
-                  xxxx
-                </h1>
-                <div
-                  className="medium-8 columns no-padding"
-                >
-                  <p>
-                    yyyy
-                  </p>
-                </div>
-                <div
-                  className="medium-4 columns no-padding"
-                >
-                  <span
-                    className="lead-header_secondary-action"
+                  <h1
+                    className="lead-header_title small c-oil"
                   >
-                    <a
-                      className="alt-caps"
-                      href="/listings/1/lease_ups/export"
+                    xxxx
+                  </h1>
+                  <div
+                    className="medium-8 columns no-padding"
+                  >
+                    <p>
+                      yyyy
+                    </p>
+                  </div>
+                  <div
+                    className="medium-4 columns no-padding"
+                  >
+                    <span
+                      className="lead-header_secondary-action"
                     >
-                      Export
-                    </a>
-                  </span>
-                </div>
-              </hgroup>
+                      <a
+                        className="alt-caps"
+                        href="/listings/1/lease_ups/export"
+                      >
+                        Export
+                      </a>
+                    </span>
+                  </div>
+                </hgroup>
+              </div>
             </div>
-          </div>
-        </header>
-      </PageHeader>
-    </LeaseUpsHeader>
+          </header>
+        </PageHeader>
+      </div>
+    </LeaseUpsPageHeader>
     <LeaseUpTableContainer
       listing={
         Object {
@@ -7037,7 +7041,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
   }
 >
   <div>
-    <LeaseUpsHeader
+    <LeaseUpsPageHeader
       listing={
         Object {
           "Building_Street_Address": "yyyy",
@@ -7046,132 +7050,134 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
         }
       }
     >
-      <PageHeader
-        action={
-          Object {
-            "link": "/listings/1/lease_ups/export",
-            "title": "Export",
+      <div>
+        <PageHeader
+          action={
+            Object {
+              "link": "/listings/1/lease_ups/export",
+              "title": "Export",
+            }
           }
-        }
-        breadcrumbs={
-          Array [
-            Object {
-              "link": "/lease_ups",
-              "title": "Lease Ups",
-            },
-            Object {
-              "link": "/listings/1/lease_ups",
-              "title": "xxxx",
-            },
-          ]
-        }
-        content="yyyy"
-        title="xxxx"
-      >
-        <header
-          className="lead-header short has-breadcrumbs bg-dust"
+          breadcrumbs={
+            Array [
+              Object {
+                "link": "/lease_ups",
+                "title": "Lease Ups",
+              },
+              Object {
+                "link": "/listings/1/lease_ups",
+                "title": "xxxx",
+              },
+            ]
+          }
+          content="yyyy"
+          title="xxxx"
         >
-          <div
-            className="row full-width inner--3x"
+          <header
+            className="lead-header short has-breadcrumbs bg-vapor"
           >
             <div
-              className="large-12 columns"
+              className="row full-width inner--3x"
             >
-              <BreadCrumbs
-                items={
-                  Array [
-                    Object {
-                      "link": "/lease_ups",
-                      "title": "Lease Ups",
-                    },
-                    Object {
-                      "link": "/listings/1/lease_ups",
-                      "title": "xxxx",
-                    },
-                  ]
-                }
+              <div
+                className="large-12 columns"
               >
-                <nav
-                  aria-label="breadcrumb"
+                <BreadCrumbs
+                  items={
+                    Array [
+                      Object {
+                        "link": "/lease_ups",
+                        "title": "Lease Ups",
+                      },
+                      Object {
+                        "link": "/listings/1/lease_ups",
+                        "title": "xxxx",
+                      },
+                    ]
+                  }
                 >
-                  <ol
-                    className="breadcrumbs"
+                  <nav
+                    aria-label="breadcrumb"
                   >
-                    <Item
-                      item={
-                        Object {
-                          "link": "/lease_ups",
-                          "title": "Lease Ups",
-                        }
-                      }
-                      key="Lease Ups"
+                    <ol
+                      className="breadcrumbs"
                     >
-                      <li>
-                        <a
-                          href="/lease_ups"
-                        >
-                          Lease Ups
-                        </a>
-                      </li>
-                    </Item>
-                    <Item
-                      current={true}
-                      item={
-                        Object {
-                          "link": "/listings/1/lease_ups",
-                          "title": "xxxx",
+                      <Item
+                        item={
+                          Object {
+                            "link": "/lease_ups",
+                            "title": "Lease Ups",
+                          }
                         }
-                      }
-                    >
-                      <li
-                        className="current"
+                        key="Lease Ups"
                       >
-                        <a
-                          aria-current="page"
-                          href="/listings/1/lease_ups"
+                        <li>
+                          <a
+                            href="/lease_ups"
+                          >
+                            Lease Ups
+                          </a>
+                        </li>
+                      </Item>
+                      <Item
+                        current={true}
+                        item={
+                          Object {
+                            "link": "/listings/1/lease_ups",
+                            "title": "xxxx",
+                          }
+                        }
+                      >
+                        <li
+                          className="current"
                         >
-                          xxxx
-                        </a>
-                      </li>
-                    </Item>
-                  </ol>
-                </nav>
-              </BreadCrumbs>
-              <hgroup
-                className="lead-header_group"
-              >
-                <h1
-                  className="lead-header_title small c-oil"
+                          <a
+                            aria-current="page"
+                            href="/listings/1/lease_ups"
+                          >
+                            xxxx
+                          </a>
+                        </li>
+                      </Item>
+                    </ol>
+                  </nav>
+                </BreadCrumbs>
+                <hgroup
+                  className="lead-header_group"
                 >
-                  xxxx
-                </h1>
-                <div
-                  className="medium-8 columns no-padding"
-                >
-                  <p>
-                    yyyy
-                  </p>
-                </div>
-                <div
-                  className="medium-4 columns no-padding"
-                >
-                  <span
-                    className="lead-header_secondary-action"
+                  <h1
+                    className="lead-header_title small c-oil"
                   >
-                    <a
-                      className="alt-caps"
-                      href="/listings/1/lease_ups/export"
+                    xxxx
+                  </h1>
+                  <div
+                    className="medium-8 columns no-padding"
+                  >
+                    <p>
+                      yyyy
+                    </p>
+                  </div>
+                  <div
+                    className="medium-4 columns no-padding"
+                  >
+                    <span
+                      className="lead-header_secondary-action"
                     >
-                      Export
-                    </a>
-                  </span>
-                </div>
-              </hgroup>
+                      <a
+                        className="alt-caps"
+                        href="/listings/1/lease_ups/export"
+                      >
+                        Export
+                      </a>
+                    </span>
+                  </div>
+                </hgroup>
+              </div>
             </div>
-          </div>
-        </header>
-      </PageHeader>
-    </LeaseUpsHeader>
+          </header>
+        </PageHeader>
+      </div>
+    </LeaseUpsPageHeader>
     <LeaseUpTableContainer
       listing={
         Object {
