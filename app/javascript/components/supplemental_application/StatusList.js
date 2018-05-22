@@ -19,7 +19,7 @@ const getStatusClassName = (status) => {
 	if (!status) {
 		return 'default'
 	} else {
-		return _.lowerCase(status)
+		return _.toLower(status)
 	}
 }
 
