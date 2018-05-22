@@ -59,7 +59,6 @@ class Dropdown extends React.Component {
 
   menu() {
     const { prompt, size , items, value, multiple } = this.props
-
     if (this.state.expanded) {
       if (multiple) {
         return (
@@ -93,18 +92,21 @@ class Dropdown extends React.Component {
  }
 
  render() {
-   const { prompt, size = 'small', items, value} = this.props
+   const { prompt, size = 'small', items, value, buttonClasses} = this.props
    const selectedItem = _.find(items, { value: value })
 
    return (
-    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'relative' }}>
-      <button aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
-        <span className="ui-icon ui-small">
-          <svg>
-            <use xlinkHref="#i-arrow-down"></use>
-          </svg>
-        </span>
-        {selectedItem ? selectedItem.label : prompt}
+    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'absolute' }}>
+      <button
+        aria-expanded={this.state.expanded ? 'true' : 'false' }
+        onClick={this.toggleExpand} ref={(node) => this.buttonRef = node }
+        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses.join(' ')}`}>
+          <span className="ui-icon ui-small">
+            <svg>
+              <use xlinkHref="#i-arrow-down"></use>
+            </svg>
+          </span>
+          {selectedItem ? selectedItem.label : prompt}
       </button>
       <div aria-hidden={this.state.expanded ? 'false' : 'true'} role='menu'>
         {this.menu()}

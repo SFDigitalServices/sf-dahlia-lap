@@ -11,13 +11,7 @@ import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE } from './data'
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const value = cell.value || ''
   return (
-    <Dropdown text='Status' size='tiny' >
-      {
-        LEASE_UP_STATUS_OPTIONS.map( status => (
-          <DropdownMenuItem key={status} item={status} selected={false} name={status} url={status}/>
-        ))
-      }
-    </Dropdown>
+    <Dropdown items={LEASE_UP_STATUS_OPTIONS} value={value} prompt="Status" buttonClasses={['tertiary', 'no-margin', 'tiny']} />
   )
 }
 

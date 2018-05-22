@@ -23,6 +23,7 @@ class DropdownMenu extends React.Component {
             <DropdownMenuItem
               key={item.value}
               {...item}
+              style={item.style}
               selected={item.value == value}
               onChange={this.handleOnChange}
               onKeyDown={this.handleOnKeyDown} />)
