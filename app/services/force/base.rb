@@ -6,11 +6,21 @@ module Force
   class Base
     def initialize(user, opts= {})
       @user = user
-      @client = Restforce.new(
-        authentication_retries: 1,
-        oauth_token: user.oauth_token,
-        instance_url: ENV['SALESFORCE_INSTANCE_URL'],
-      )
+
+      if Rails.env.test?
+        @client = Restforce.new(username: ENV['SALESFORCE_USERNAME'],
+                      password: ENV['SALESFORCE_PASSWORD'],
+                      security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
+                      client_id: ENV['SALESFORCE_CLIENT_ID'],
+                      client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
+                      api_version: '41.0')
+      else
+        @client = Restforce.new(
+          authentication_retries: 1,
+          oauth_token: user.oauth_token,
+          instance_url: ENV['SALESFORCE_INSTANCE_URL'],
+        )
+      end
     end
 
     # cache a Salesforce SOQL query

@@ -5,6 +5,7 @@ import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '../utils'
 import IndexTableCell from './IndexTableCell'
+import appPaths from '../utils/appPaths'
 
 class IndexTable extends React.Component {
   constructor (props) {
@@ -134,7 +135,8 @@ class IndexTable extends React.Component {
             } else if (link === 'View Application') {
               href = `/applications/${row.original.Id}`
             } else if (link === 'View Flagged Applications') {
-              href = `/flagged_record_sets/${row.original.Id}/flagged_applications`
+              // href = `/flagged_record_sets/${row.original.Id}/flagged_applications`
+              href = appPaths.toApplicationsFlagged(row.original.Id)
             }
             if (href) {
               linkTags.push(
