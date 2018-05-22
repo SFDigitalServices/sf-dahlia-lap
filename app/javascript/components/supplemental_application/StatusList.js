@@ -15,13 +15,19 @@ import PrettyTime from '../utils/PrettyTime'
 //   "Waitlisted"
 // ]
 
+const getStatusClassName = (status) => {
+	if (!status) {
+		return 'default'
+	} else {
+		return _.lowerCase(status)
+	}
+}
+
 const StatusListItem = ({status, note, date}) => {
-	const statusTagClassNames = classNames({
-		'status-list_tag': true,
-		'is-default':    (!!status),
-		'is-processing': (status === 'Processing'),
-		'is-approved':   (status === 'Approved')
-	})
+	const statusTagClassNames = classNames(
+		'status-list_tag',
+		`is-${getStatusClassName(status)}`
+	)
 
 	return (
 		<li className="status-list_item">
@@ -37,7 +43,8 @@ const StatusListItem = ({status, note, date}) => {
 }
 
 const StatusList = ({items, onAddCommnent}) => {
-	const orderedItems =  _.orderBy(items, ['timestamp'])
+	// console.log(items)
+	const orderedItems =  _.orderBy(items, ['timestamp'], ['desc'])
 
 	return (
 		<div className="status-list">

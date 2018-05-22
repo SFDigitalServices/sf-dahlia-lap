@@ -9,6 +9,7 @@ import appPaths from '../../utils/appPaths'
 import mapProps from '../../utils/mapProps'
 
 const SupplementalApplicationPage = ({ application, statusHistory }) => {
+  // console.log(statusHistory)
   const tabNames = [
     { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
     { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
