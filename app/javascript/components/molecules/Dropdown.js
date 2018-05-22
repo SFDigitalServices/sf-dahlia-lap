@@ -92,7 +92,7 @@ class Dropdown extends React.Component {
  }
 
  render() {
-   const { prompt, size = 'small', items, value, buttonClasses} = this.props
+   const { prompt, size = 'small', items, value, buttonClasses = []} = this.props
    const selectedItem = _.find(items, { value: value })
 
    return (

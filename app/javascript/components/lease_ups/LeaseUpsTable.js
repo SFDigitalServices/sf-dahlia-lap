@@ -11,7 +11,7 @@ import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE } from './data'
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const value = cell.value || ''
   return (
-    <Dropdown items={LEASE_UP_STATUS_OPTIONS} value={value} prompt="Status" buttonClasses={['tertiary', 'no-margin', 'tiny']} />
+    <Dropdown items={LEASE_UP_STATUS_OPTIONS} value={value} prompt="Status" onChange={onChange} buttonClasses={['tertiary', 'no-margin', 'tiny']} />
   )
 }
 

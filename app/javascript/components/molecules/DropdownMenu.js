@@ -16,7 +16,7 @@ class DropdownMenu extends React.Component {
     const { items, value, style } = this.props
 
     return (
-      <ul className="dropdown-menu" style={style} role="listbox" aria-activedescendant tabindex="-1">
+      <ul className="dropdown-menu" style={style} role="listbox" aria-activedescendant tabIndex="-1">
         {
           items &&
           items.map((item, idx) => (
