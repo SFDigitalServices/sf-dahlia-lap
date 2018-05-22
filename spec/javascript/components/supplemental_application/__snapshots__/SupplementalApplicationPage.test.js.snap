@@ -220,19 +220,48 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
               className="status-list_item"
             >
               <div
-                className="status-list_tag"
-              />
+                className="status-list_tag is-default is-approved"
+              >
+                Approved
+              </div>
               <div
                 className="status-list_comment"
               >
                 <p
                   className="status-list_note"
-                />
+                >
+                  xxxx1
+                </p>
                 <span
                   className="status-list_date"
                 >
                   <div>
-                    21/05/18
+                    10/05/18
+                  </div>
+                </span>
+              </div>
+            </li>
+            <li
+              className="status-list_item"
+            >
+              <div
+                className="status-list_tag is-default"
+              >
+                Pending
+              </div>
+              <div
+                className="status-list_comment"
+              >
+                <p
+                  className="status-list_note"
+                >
+                  xxxx2
+                </p>
+                <span
+                  className="status-list_date"
+                >
+                  <div>
+                    10/05/18
                   </div>
                 </span>
               </div>

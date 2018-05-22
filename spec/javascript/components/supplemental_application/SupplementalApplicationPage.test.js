@@ -15,7 +15,8 @@ describe('SupplementalApplicationPage', () => {
   }
 
   const statusHistory = [
-    { status: 'Approved', note: 'xxxx1', date:'11/11/18' }
+    { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' },
+    { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' }
   ]
 
   test('it should render correctly without status history', () => {

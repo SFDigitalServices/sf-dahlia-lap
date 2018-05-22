@@ -47,6 +47,7 @@ const mapApplicationProperty = (application) => {
 }
 
 const mapStatusHistoryItem = (item) => {
+  // console.log(item.Processing_Date_Updated)
   return {
     status: item.Processing_Status,
     note: item.Processing_Comment,
