@@ -220,7 +220,7 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
               className="status-list_item"
             >
               <div
-                className="status-list_tag is-default is-approved"
+                className="status-list_tag is-approved"
               >
                 Approved
               </div>
@@ -245,7 +245,7 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
               className="status-list_item"
             >
               <div
-                className="status-list_tag is-default"
+                className="status-list_tag is-pending"
               >
                 Pending
               </div>
