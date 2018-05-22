@@ -1,4 +1,12 @@
-export const LEASE_UP_STATUS_OPTIONS = ['Processing', 'Withdrawn', 'Appealed', 'Waitlist', 'Disqualified', 'Approved', 'Lease Signed']
+export const LEASE_UP_STATUS_OPTIONS = [
+	{value: 'Processing', label: 'Processing', style: 'is-processing'},
+ {value: 'Withdrawn', label: 'Withdrawn', style: 'is-withdrawn'},
+ {value: 'Appealed', label: 'Appealed'},
+ {value: 'Waitlist', label: 'Waitlist'},
+ {value: 'Disqualified', label: 'Disqualified'},
+ {value: 'Approved', label: 'Approved'},
+ {value:'Lease Signed', label: 'Lease Signed'},
+]
 
 export const PAGE_SIZE = 5
 

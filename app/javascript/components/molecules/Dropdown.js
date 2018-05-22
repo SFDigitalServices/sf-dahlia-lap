@@ -59,7 +59,6 @@ class Dropdown extends React.Component {
 
   menu() {
     const { prompt, size , items, value, multiple } = this.props
-
     if (this.state.expanded) {
       if (multiple) {
         return (
@@ -94,7 +93,9 @@ class Dropdown extends React.Component {
 
  render() {
    const { prompt, size = 'small', items, value} = this.props
+   // console.log(prompt, size, items, value, 'props')
    const selectedItem = _.find(items, { value: value })
+   // console.log(selectedItem, 'selectedItem')
 
    return (
     <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'relative' }}>

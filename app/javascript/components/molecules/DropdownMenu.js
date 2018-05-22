@@ -14,6 +14,8 @@ class DropdownMenu extends React.Component {
 
   render() {
     const { items, value, style } = this.props
+    console.log(items, value, style, 'DropdownMenu')
+
 
     return (
       <ul className="dropdown-menu" style={style} role="listbox" aria-activedescendant tabindex="-1">
