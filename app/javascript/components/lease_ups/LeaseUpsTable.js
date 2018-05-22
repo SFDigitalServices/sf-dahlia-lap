@@ -37,14 +37,14 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       { Header: 'Phone',              accessor: 'phone' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Status Updated',     accessor: 'status_updated' ,    Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
-      { Header: 'Lease Up status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> ) }
+      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
+      { Header: 'Lease Up status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> ) }
     ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
     let attrs = {}
     if (column.id == 'lease_up_status') { // We do not want the Select to react onClick
-      attrs.className = 'td-min-wide'
+      attrs.className = 'td-min-wide td-status td-fixed-right'
       return attrs
     } else if (column.id == 'application_number') {
       return attrs
@@ -54,8 +54,13 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
             onCellClick(listingId, rowInfo)
       }
 
-      if (column.id == 'preference_rank')
+      if (column.id == 'status_updated') {
+        attrs.className = 'td-offset-right'
+      }
+
+      else if (column.id == 'preference_rank') {
         attrs.className = 'td-min-narrow'
+      }
     }
 
     return attrs
@@ -75,7 +80,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
   const sortBy = [ { id:'rankOrder', desc:false } ]
 
   return (
-    <ReactTable
+    <ReactTable className="rt-table-status"
       data={dataSet}
       columns={columns}
       getTdProps={getTdProps}
