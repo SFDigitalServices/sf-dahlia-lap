@@ -1,6 +1,3 @@
-header.lead-header
-  h1 = @title
-
 / include webpacked react-table CSS
 == stylesheet_pack_tag 'react-table'
-== react_component 'IndexTable', { results: @results, fields: @fields, links: ['View Flagged Applications']}
+== react_component 'FlaggedApplicationsIndexPage', { title: @title, results: @results, fields: @fields}

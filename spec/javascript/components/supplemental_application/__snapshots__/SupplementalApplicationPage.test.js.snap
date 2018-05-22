@@ -3,7 +3,7 @@
 exports[`SupplementalApplicationPage it should render correctly with status history 1`] = `
 <div>
   <header
-    className="lead-header short has-breadcrumbs bg-dust"
+    className="lead-header short has-breadcrumbs bg-vapor"
   >
     <div
       className="row full-width inner--3x"
@@ -289,7 +289,7 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
 exports[`SupplementalApplicationPage it should render correctly without status history 1`] = `
 <div>
   <header
-    className="lead-header short has-breadcrumbs bg-dust"
+    className="lead-header short has-breadcrumbs bg-vapor"
   >
     <div
       className="row full-width inner--3x"
