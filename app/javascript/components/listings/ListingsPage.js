@@ -2,8 +2,9 @@ import React from 'react'
 
 import PageHeaderSimple from '../organisms/PageHeaderSimple'
 import IndexTable from '../IndexTable'
+import TableLayout from '../layouts/TableLayout'
 
-const ListingsPageHeader = ({}) => {
+const ListingsPageHeader = () => {
   return (
     <div>
       <PageHeaderSimple title='Listings' />
@@ -21,8 +22,16 @@ const ListingsPageTable = ({ page, results, fields }) => {
   )
 }
 
+const pageHeader = {
+
+}
+
 const ListingsPage = (props) => {
   return (
+    <TableLayout pageHeader={pageHeader}>
+      <ListingsPageTable {...props} />
+    </TableLayout>
+
     <div>
       <ListingsPageHeader/>
       <ListingsPageTable {...props} />
