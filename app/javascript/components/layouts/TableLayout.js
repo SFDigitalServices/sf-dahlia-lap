@@ -8,11 +8,15 @@ const TableLayout = ({ children, pageHeader, tabSection }) => {
   return (
     <React.Fragment>
       <PageHeaderLayout {...pageHeader} />
-      { tabSection && <TabsSection {...tabSection} /> }
-      { tabCard ?
-          (<TabCard {...tabCard} >{children}</TabCard>)
-          :
-          children
+      { tabSection ?
+        (
+          <React.Fragment>
+            <TabsSection {...tabSection} />
+            <TabCard>{children}</TabCard>
+          </React.Fragment>
+        )
+        :
+        children
       }
     </React.Fragment>
   )
