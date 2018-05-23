@@ -1,18 +1,16 @@
 import React from 'react'
 
 import PageHeaderLayout  from './PageHeaderLayout'
-import TabCard from '../organisms/TabCard'
 import TabsSection from '../organisms/TabsSection'
 
 const CardLayout = ({ children, pageHeader, tabCard, tabSection }) => {
   return (
     <React.Fragment>
       <PageHeaderLayout {...pageHeader} />
-      { tabSection && <TabsSection {...tabSection} /> }
-      { tabCard ?
-          (<TabCard {...tabCard} >{children}</TabCard>)
-          :
-          children
+      { tabSection ?
+        (<TabsSection {...tabSection} >{children}</TabsSection>)
+        :
+        children
       }
     </React.Fragment>
   )

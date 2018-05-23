@@ -2,31 +2,33 @@ import React from 'react'
 import moment from 'moment'
 import _ from 'lodash'
 
-import SupplementalApplicationHeader from './SupplementalApplicationHeader'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-import TabsSection from '../organisms/TabsSection'
 import appPaths from '../../utils/appPaths'
 import mapProps from '../../utils/mapProps'
+import CardLayout from '../layouts/CardLayout'
 
 const SupplementalApplicationPage = ({ application, statusHistory }) => {
-  // console.log(statusHistory)
-  const tabNames = [
-    { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
-    { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
-  ]
+  const pageHeader = {
+    title: `${application.number}: ${application.name}`,
+    breadcrumbs: [
+      { title: 'Lease Ups', link: '/lease_ups' },
+      { title: 'Cameo Apartments', link: `/listings/${application.listingId}/lease_ups` },
+      { title: application.number, link: '#' }
+    ]
+  }
 
-  const currentUrl = window.location.pathname
+  const tabSection = {
+    items: [
+      { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
+      { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
+    ],
+    currentUrl:window.location.pathname
+  }
 
   return (
-    <div>
-      <SupplementalApplicationHeader
-        applicationNumber={application.number}
-        applicantName={application.name}
-        listingId={application.listingId}/>
-      <TabsSection items={tabNames} currentUrl={currentUrl}>
-        <SupplementalApplicationContainer statusHistory={statusHistory} />
-      </TabsSection>
-    </div>
+    <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+      <SupplementalApplicationContainer statusHistory={statusHistory} />
+    </CardLayout>
   )
 }
 

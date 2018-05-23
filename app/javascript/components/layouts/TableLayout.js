@@ -1,7 +1,6 @@
 import React from 'react'
 
 import PageHeaderLayout  from './PageHeaderLayout'
-import TabCard from '../organisms/TabCard'
 import TabsSection from '../organisms/TabsSection'
 
 const TableLayout = ({ children, pageHeader, tabSection }) => {
@@ -9,12 +8,7 @@ const TableLayout = ({ children, pageHeader, tabSection }) => {
     <React.Fragment>
       <PageHeaderLayout {...pageHeader} />
       { tabSection ?
-        (
-          <React.Fragment>
-            <TabsSection {...tabSection} />
-            <TabCard>{children}</TabCard>
-          </React.Fragment>
-        )
+        (<TabsSection {...tabSection}>{children}</TabsSection>)
         :
         children
       }
