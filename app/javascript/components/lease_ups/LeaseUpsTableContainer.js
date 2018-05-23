@@ -12,10 +12,7 @@ class LeaseUpTableContainer extends React.Component {
     statusModalIsOpen: false
   }
 
-  openStatusModal  = (value, label) => {
-    this.setState({ statusModalIsOpen: true })
-    console.log(this.state.statusModalIsOpen, 'IN container')
-  }
+  openStatusModal  = (value, label) => this.setState({ statusModalIsOpen: true })
   closeStatusModal = () => this.setState({ statusModalIsOpen: false })
 
   buildRowData(result) {
@@ -67,7 +64,8 @@ class LeaseUpTableContainer extends React.Component {
               onLeaseUpStatusChange={this.openStatusModal}
               onCellClick={this.gotToSupplementaryInfo} />
           <LeaseUpsStatusModalWrapper
-              isOpen={this.state.statusModalIsOpen}/>
+              isOpen={this.state.statusModalIsOpen}
+              handleClose={this.closeStatusModal} />
         </div>
     )
   }

@@ -7,19 +7,16 @@ import SimpleModal from 'components/organisms/SimpleModal'
 import { LEASE_UP_STATUS_OPTIONS } from './data'
 
 class LeaseUpsStatusModalWrapper extends React.Component {
-  closeStatusModal = () => { this.props.isOpen = false }
-
   render() {
-    console.log(this.props.isOpen)
     return (
       <SimpleModal
         header='Update Status'
         primary='update'
         secondary='cancel'
         isOpen={this.props.isOpen}
-        onCloseClick={this.closeStatusModal}
-        onPrimaryClick={this.closeStatusModal}
-        onSecondaryClick={this.closeStatusModal}
+        handleClose={this.props.handleClose}
+        onPrimaryClick={() => {}}
+        onSecondaryClick={() => {}}
         type='status'>
 {/*        <Dropdown
           items={LEASE_UP_STATUS_OPTIONS}

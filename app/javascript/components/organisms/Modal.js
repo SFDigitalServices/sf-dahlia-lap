@@ -32,20 +32,24 @@ class Modal extends React.Component {
   defaultStyleType = 'small'
 
   render() {
-    const { children, isOpen, styleType } = this.props
+    const { children, isOpen, handleClose, styleType } = this.props
     const style = styleTypes[styleType || this.defaultStyleType]
     return (
-      <ReactModal isOpen={isOpen} style={style}>
+      <ReactModal
+        isOpen={isOpen}
+        style={style}
+        onRequestClose={handleClose}
+        shouldCloseOnOverlayClick={true}>
         {children}
       </ReactModal>
     )
   }
 }
 
-Modal.Body = ({ children, onCloseClick, hidden }) => (
+Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby="modalTitle" aria-hidden={hidden} role="dialog">
     {children}
-    <a className="close-reveal-modal" aria-label="Close modal" onClick={onCloseClick}>
+    <a className="close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
       <span className="ui-icon ui-medium i-primary">
         <svg>
           <use xlinkHref="#i-close"></use>
