@@ -1,5 +1,5 @@
+/*global mount*/
 import React from 'react'
-import renderer from 'react-test-renderer'
 // import sinon from 'sinon'
 
 import SimpleModal from 'components/organisms/SimpleModal'
@@ -17,13 +17,13 @@ describe('SimpleModal', () => {
           primary='update'
           secondary='cancel'
           isOpen={isOpen}
-          onCloseClick={onCloseClick}
+          handleClose={onCloseClick}
           onPrimaryClick={onPrimaryClick}
           onSecondaryClick={onSecondaryClick}
           type='status'
           alert={{
             title: "This change will affect this application's preferences",
-            subTitle: 'This application woudl no longer be elegible for Live Work Preference',
+            subTitle: 'This application would no longer be eligible for Live Work Preference',
             message: 'Note, you will have the opportunity to grant another household member this preference',
             invert: false
           }}>
@@ -45,7 +45,7 @@ describe('SimpleModal', () => {
           primary='update'
           secondary='cancel'
           isOpen={isOpen}
-          onCloseClick={onCloseClick}
+          handleClose={onCloseClick}
           onPrimaryClick={onPrimaryClick}
           onSecondaryClick={onSecondaryClick}
           type='status'>

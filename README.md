@@ -2,13 +2,14 @@
 
 A portal for leasing agents to manage listings and applications.
 
-## To setup:
-* Use ruby 2.2.5
-* Use node v8.9.1 (npm v5.5.1)
-* install yarn (if you have homebrew you can run `brew install yarn`)
-* run `yarn install`
-* run `bundle install`
-* run `./bin/rails webpacker:install`
+## Setup
+* Use Ruby 2.2.5
+* Use Node v8.10.x (npm v5.5.x)
+* Install Yarn (if you have Homebrew you can run `brew install yarn`)
+* Run `yarn install`
+* Run `bundle install`
+* Run `overcommit --install`
+* Run `./bin/rails webpacker:install`
 
 Ensure you have .babelrc containing the following:
 ```
@@ -49,14 +50,14 @@ Ensure you have .babelrc containing the following:
 
 ```
 
-## To run server:
+## To run server
 * `bin/webpack-dev-server --hot`
 * `rails s`
 
-## To update css from Pattern Library:
+## To update css from Pattern Library
 * `grunt`
 
-# To run tests
+## To run tests
 
 Rails tests:
 

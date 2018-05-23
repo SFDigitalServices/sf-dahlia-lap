@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import moment from 'moment'
-import utils from '../utils'
+import utils from '../../utils'
 
 var generateContent = (dataCollection, field, labelMapper, i) => {
   if (dataCollection == null) {
@@ -38,16 +38,16 @@ var generateContent = (dataCollection, field, labelMapper, i) => {
   )
 }
 
-var generateData = (label, value) => {
-  return (
-    <div className="margin-bottom--half" key={i}>
-      <h4 className="t-sans t-small t-bold no-margin">
-        {label}
-      </h4>
-      <p>{value}</p>
-    </div>
-  )
-}
+// var generateData = (label, value) => {
+//   return (
+//     <div className="margin-bottom--half" key={i}>
+//       <h4 className="t-sans t-small t-bold no-margin">
+//         {label}
+//       </h4>
+//       <p>{value}</p>
+//     </div>
+//   )
+// }
 
 const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMapper }) => {
   let firstHalf = Math.ceil(fields.length / 2)

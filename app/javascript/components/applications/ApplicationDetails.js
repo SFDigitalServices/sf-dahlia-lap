@@ -1,6 +1,7 @@
 import React from 'react'
+import _ from 'lodash'
 import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
-import DetailsContentTable from './DetailsContentTable'
+import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
 
 const ApplicationDetails = ({ application, fields, file_base_url }) => {
 
@@ -16,11 +17,8 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
     return <li key={file.Id}><a target='_blank' href={`${file_base_url}/servlet/servlet.FileDownload?file=${file.Id}`}>{file.Name}</a></li>
   })
 
-
   return (
     <div>
-      <h1>Application {application.Name}</h1>
-      <h2>Name of Listing: <a href={`/listings/${application.Listing.Id}`}>{application.Listing.Name}</a></h2>
       {editLink()}
       <ApplicationDetailsContentCard
         dataCollection={application}
@@ -68,7 +66,7 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
       {(() => {
         if (application.household_members) {
           return (
-            <DetailsContentTable
+            <ApplicationDetailsContentTable
               data={application}
               title='Household Members'
               table='household_members'
@@ -99,7 +97,7 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
       {(() => {
         if (application.preferences) {
           return (
-            <DetailsContentTable
+            <ApplicationDetailsContentTable
               data={application}
               title='Application Preferences'
               table='preferences'
@@ -128,7 +126,7 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
       {(() => {
         if (application.flagged_applications) {
           return (
-            <DetailsContentTable
+            <ApplicationDetailsContentTable
               data={application}
               title='Flagged Applications'
               table='flagged_applications'

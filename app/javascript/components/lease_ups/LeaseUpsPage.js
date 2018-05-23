@@ -1,19 +1,48 @@
 import React from 'react'
 
-import LeaseUpsHeader from './LeaseUpsHeader'
+import PageHeader from '../organisms/PageHeader'
+import PageHeaderSimple from '../organisms/PageHeaderSimple'
 import LeaseUpsTableContainer from './LeaseUpsTableContainer'
 
-class LeaseUpsPage extends React.Component {
+const LeaseUpsPageHeader = ({ listing }) => {
+  if (listing) {
+    return (
+      <div>
+        <PageHeader
+          title={listing.Name}
+          content={listing.Building_Street_Address}
+          action={{title: 'Export', link: `/listings/${listing.Id}/lease_ups/export`}}
+          breadcrumbs={[
+            {title: 'Lease Ups', link: '/lease_ups'},
+            {title: listing.Name, link: `/listings/${listing.Id}/lease_ups`}
+          ]} />
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <PageHeaderSimple title='Lease Ups' />
+      </div>
+    )
+  }
+}
 
-	 render() {
-	  return (
-	    <div>
-	      <LeaseUpsHeader listing={this.props.listing} />
-	      <LeaseUpsTableContainer listing={this.props.listing} results={this.props.results} />
-     </div>
-	  )
-	 }
-
+const LeaseUpsPage = ({ listing, results }) => {
+  if (listing) {
+    return (
+      <div>
+        <LeaseUpsPageHeader listing={listing} />
+        <LeaseUpsTableContainer listing={listing} results={results} />
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <LeaseUpsPageHeader />
+        {/* TODO: implement Lease Ups page content */}
+      </div>
+    )
+  }
 }
 
 export default LeaseUpsPage

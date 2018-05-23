@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../atoms/Icon'
-import ReactModal from 'react-modal';
+import ReactModal from 'react-modal'
 import _ from 'lodash'
 
 import Alert from '../organisms/Alert'
