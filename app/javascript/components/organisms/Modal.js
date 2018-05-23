@@ -49,13 +49,22 @@ class Modal extends React.Component {
 Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby="modalTitle" aria-hidden={hidden} role="dialog">
     {children}
-    <a className="close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
+{/*    <a className="close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
       <span className="ui-icon ui-medium i-primary">
         <svg>
           <use xlinkHref="#i-close"></use>
         </svg>
       </span>
-    </a>
+    </a>*/}
+
+    <button className="button button-link close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
+      <span className="sr-only">Close</span>
+      <span className="ui-icon ui-medium i-primary">
+        <svg>
+          <use xlinkHref="#i-close"></use>
+        </svg>
+      </span>
+    </button>
   </div>
 )
 
