@@ -4,7 +4,7 @@ import PageHeader from '../organisms/PageHeader'
 import PageHeaderSimple from '../organisms/PageHeaderSimple'
 
 const PageHeaderLayout = (props) => {
-  if (props.action || props.breadcrumbs) {
+  if (props.content || props.action || props.breadcrumbs) {
     return <PageHeader {...props} />
   } else {
     return <PageHeaderSimple {...props} />
