@@ -4,7 +4,7 @@ import PageHeaderLayout  from './PageHeaderLayout'
 import TabCard from '../organisms/TabCard'
 import TabsSection from '../organisms/TabsSection'
 
-const TableLayout = ({ children, pageHeader, tabCard, tabSection }) => {
+const TableLayout = ({ children, pageHeader, tabSection }) => {
   return (
     <React.Fragment>
       <PageHeaderLayout {...pageHeader} />
