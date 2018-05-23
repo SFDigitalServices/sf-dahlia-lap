@@ -1,16 +1,16 @@
 import React from 'react'
 
-import PageHeaderSimple from '../organisms/PageHeaderSimple'
+// import PageHeaderSimple from '../organisms/PageHeaderSimple'
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 
-const ListingsPageHeader = () => {
-  return (
-    <div>
-      <PageHeaderSimple title='Listings' />
-    </div>
-  )
-}
+// const ListingsPageHeader = () => {
+//   return (
+//     <div>
+//       <PageHeaderSimple title='Listings' />
+//     </div>
+//   )
+// }
 
 const ListingsPageTable = ({ page, results, fields }) => {
   return (
@@ -23,8 +23,13 @@ const ListingsPageTable = ({ page, results, fields }) => {
 }
 
 const pageHeader = {
-
+  title: 'Listings'
 }
+
+// <div>
+//   <ListingsPageHeader/>
+//   <ListingsPageTable {...props} />
+// </div>
 
 const ListingsPage = (props) => {
   return (
@@ -32,10 +37,6 @@ const ListingsPage = (props) => {
       <ListingsPageTable {...props} />
     </TableLayout>
 
-    <div>
-      <ListingsPageHeader/>
-      <ListingsPageTable {...props} />
-    </div>
   )
 }
 
