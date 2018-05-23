@@ -36,6 +36,7 @@ import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
 import DropdownWrapper from 'components/pattern_library_wrappers/DropdownWrapper'
 import TabCardWrapper from 'components/pattern_library_wrappers/TabCardWrapper'
+import ContentSectionWrapper from 'components/pattern_library_wrappers/ContentSectionWrapper'
 
 
 Turbolinks.start()
@@ -74,3 +75,4 @@ WebpackerReact.setup({ TabCard })
 WebpackerReact.setup({ DropdownWrapper })
 WebpackerReact.setup({ Properties })
 WebpackerReact.setup({ TabCardWrapper })
+WebpackerReact.setup({ ContentSectionWrapper })

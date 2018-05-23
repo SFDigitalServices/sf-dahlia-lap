@@ -27,13 +27,13 @@ ContentSection.Content = ({children}) => (
   </div>
 )
 
-ContentSection.Sub = ({title, description, children}) => (
+ContentSection.Sub = ({title, children}) => (
   <React.Fragment>
-    <ContentSection.SubHeader title={title} description={description} />
+    <ContentSection.SubHeader title={title} />
     <ContentSection.Content>
       {children}
     </ContentSection.Content>
   </React.Fragment>
 )
 
-export default ContentSection
+export default ContentSection;
