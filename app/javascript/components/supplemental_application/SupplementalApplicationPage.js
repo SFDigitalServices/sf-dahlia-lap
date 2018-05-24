@@ -22,7 +22,7 @@ const SupplementalApplicationPage = ({ application }) => {
       <SupplementalApplicationHeader
         applicationNumber={application.Name}
         applicantName={application.Applicant.Name}
-        listingId={application.Listing.Id}/>
+        listing={application.Listing}/>
       <TabsSection items={items} currentUrl={currentUrl}>
         <SupplementalApplicationContainer />
       </TabsSection>
