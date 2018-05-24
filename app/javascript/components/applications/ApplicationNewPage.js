@@ -1,15 +1,7 @@
 import React from 'react'
 
-import PageHeaderSimple from '../organisms/PageHeaderSimple'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
-
-const ApplicationNewPageHeader = ({ listing }) => {
-  return (
-    <div>
-      <PageHeaderSimple title={`New Application: ${listing.Name}`} />
-    </div>
-  )
-}
+import CardLayout from '../layouts/CardLayout'
 
 const ApplicationNewPageForm = ({ listing }) => {
   return (
@@ -18,11 +10,13 @@ const ApplicationNewPageForm = ({ listing }) => {
 }
 
 const ApplicationNewPage = (props) => {
+  const pageHeader = {
+    title: `New Application: ${props.listing.Name}`
+  }
   return (
-    <div>
-      <ApplicationNewPageHeader {...props}/>
+    <CardLayout pageHeader={pageHeader}>
       <ApplicationNewPageForm {...props} />
-    </div>
+    </CardLayout>
   )
 }
 

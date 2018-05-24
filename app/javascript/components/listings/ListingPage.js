@@ -1,16 +1,7 @@
 import React from 'react'
 
-// import PageHeaderSimple from '../organisms/PageHeaderSimple'
 import ListingDetails from './ListingDetails'
 import CardLayout from '../layouts/CardLayout'
-
-// const ListingPageHeader = ({ listing }) => {
-//   return (
-//     <div>
-//       <PageHeaderSimple title={listing.Name} />
-//     </div>
-//   )
-// }
 
 const ListingPageDetails = ({ listing }) => {
   return <ListingDetails listing={listing} />

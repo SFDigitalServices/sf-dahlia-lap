@@ -10,7 +10,7 @@ const ApplicationPage = (props) => {
     content: (<span>Name of Listing: <a href={`/listings/${application.Listing.Id}`}>{application.Listing.Name}</a></span>)
   }
 
-  const tabSection = null
+  const tabSection = null // TODO: do wee need tabs here?
 
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
