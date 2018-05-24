@@ -22,7 +22,7 @@ const SupplementalApplicationPage = ({ application, statusHistory }) => {
       <SupplementalApplicationHeader
         applicationNumber={application.number}
         applicantName={application.name}
-        listingId={application.listingId}/>
+        listing={application.listing}/>
       <TabsSection items={tabNames} currentUrl={currentUrl}>
         <SupplementalApplicationContainer statusHistory={statusHistory} />
       </TabsSection>
@@ -38,12 +38,19 @@ const SupplementalApplicationPage = ({ application, statusHistory }) => {
 // so we do not propagate salesforce domain objects thru our components three.
 // Fed
 
+const mapListing = (listing) => {
+  return {
+    id: listing.Id,
+    name: listing.Name
+  }
+}
+
 const mapApplicationProperty = (application) => {
   return {
     id: application.Id,
     number: application.Name,
     name: application.Applicant.Name,
-    listingId: application.Listing.Id
+    listing: mapListing(application.Listing)
   }
 }
 
