@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import BreadCrumbs from '../atoms/BreadCrumbs'
 
-const PageHeader = ({ title, content, action, breadcrumbs }) => {
+const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
   return (
-    <header className="lead-header short has-breadcrumbs bg-vapor">
+    <header className={`lead-header short has-breadcrumbs bg-${background}`}>
       <div className="row full-width inner--3x">
         <div className="large-12 columns">
           { breadcrumbs && <BreadCrumbs items={breadcrumbs}/>}
@@ -17,7 +17,7 @@ const PageHeader = ({ title, content, action, breadcrumbs }) => {
               { action && (
                 <span className="lead-header_secondary-action">
                   <a href={action.link} className="alt-caps">{action.title}</a>
-                </span>) 
+                </span>)
               }
             </div>
           </hgroup>
@@ -26,6 +26,10 @@ const PageHeader = ({ title, content, action, breadcrumbs }) => {
     </header>
   )
 }
+
+PageHeader.defaultProps = {
+  background: 'vapor'
+};
 
 PageHeader.propTypes = {
   title: PropTypes.string.isRequired,

@@ -40,6 +40,7 @@ exports[`ApplicationPage should render succesfully 1`] = `
     tabSection={null}
   >
     <PageHeaderLayout
+      background="snow"
       content={
         <span>
           Name of Listing: 
@@ -51,6 +52,7 @@ exports[`ApplicationPage should render succesfully 1`] = `
       title="Application undefined"
     >
       <PageHeader
+        background="snow"
         content={
           <span>
             Name of Listing: 
@@ -62,7 +64,7 @@ exports[`ApplicationPage should render succesfully 1`] = `
         title="Application undefined"
       >
         <header
-          className="lead-header short has-breadcrumbs bg-vapor"
+          className="lead-header short has-breadcrumbs bg-snow"
         >
           <div
             className="row full-width inner--3x"

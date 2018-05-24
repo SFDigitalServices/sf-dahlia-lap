@@ -17,11 +17,12 @@ html
     / include toolkit.css and other CSS overrides
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => 'reload'
     == csrf_meta_tags
-  body.bg-vapor
+  body
+    //.bg-vapor
     .site-container
       header
         == render 'layouts/navigation'
-      section#root.app-container.inner--3x
+      section#root
         == render 'layouts/messages'
         == yield
     == render 'layouts/icons'

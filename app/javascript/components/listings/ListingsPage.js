@@ -16,6 +16,11 @@ const ListingsPageTable = ({ page, results, fields }) => {
 const layout = {
   pageHeader: {
     title: 'Listings'
+  },
+  tabSection: {
+    items: [
+      { title: 'Listings' }
+    ]
   }
 }
 

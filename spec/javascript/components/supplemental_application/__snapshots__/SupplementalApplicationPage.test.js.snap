@@ -3,7 +3,7 @@
 exports[`SupplementalApplicationPage it should render correctly with status history 1`] = `
 Array [
   <header
-    className="lead-header short has-breadcrumbs bg-vapor"
+    className="lead-header short has-breadcrumbs bg-snow"
   >
     <div
       className="row full-width inner--3x"
@@ -64,7 +64,7 @@ Array [
     </div>
   </header>,
   <div
-    className="tabs-section tabs-row row full-width inner--3x"
+    className="tabs-section tabs-row row full-width inner--3x bg-snow"
   >
     <ul
       className="tabs full-width-small-only"
@@ -106,179 +106,175 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x"
   >
     <div
-      className="app-card form-card tabs-card max-width expand-on-small"
+      className="app-inner inset-wide padding-bottom-none margin-top"
     >
-      <div
-        className="app-inner inset-wide padding-bottom-none margin-top"
+      <h2
+        className="sr-only"
       >
-        <h2
-          className="sr-only"
-        >
-          Status Update
-        </h2>
-        <div
-          className="status-update expand-wide is-processing"
-        >
-          <h3
-            className="status-update_title"
-          >
-            Update Status
-          </h3>
-          <div
-            className="status-update_action"
-          >
-            <button
-              aria-expanded="false"
-              className="button dropdown-button has-icon--right text-align-left small is-processing"
-              href="#"
-            >
-              <span
-                aria-hidden="true"
-                className="ui-icon ui-small"
-              >
-                <svg>
-                  <use
-                    xlinkHref="#i-arrow-down"
-                  />
-                </svg>
-              </span>
-              Processing
-            </button>
-          </div>
-          <div
-            className="status-update_message"
-          >
-            <div
-              className="status-update_comment"
-            >
-              <p
-                className="status-update_note"
-              >
-                Some comment
-              </p>
-              <span
-                className="status-update_date"
-              >
-                03/12/18 
-              </span>
-            </div>
-            <div
-              className="status-update_footer"
-            >
-              <button
-                className="button tiny tertiary"
-                data-event=""
-                type="button"
-              >
-                Add a comment
-              </button>
-              <a
-                className="t-small right"
-                href="/see_status_history"
-              >
-                See Status History
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+        Status Update
+      </h2>
       <div
-        className="app-inner header-wide"
-      >
-        <h2
-          className="app-card_h2"
-        >
-          Current Contact Information
-        </h2>
-      </div>
-      <div
-        className="app-inner header-wide"
-      >
-        <h2
-          className="app-card_h2"
-        >
-          Lease Information
-        </h2>
-      </div>
-      <div
-        className="app-inner subheader-wide"
+        className="status-update expand-wide is-processing"
       >
         <h3
-          className="app-card_h3 t-sans"
+          className="status-update_title"
         >
-          Status History
+          Update Status
         </h3>
-      </div>
-      <div
-        className="app-inner inset-wide border-bottom"
-      >
         <div
-          className="status-list"
+          className="status-update_action"
         >
-          <ul>
-            <li
-              className="status-list_item"
+          <button
+            aria-expanded="false"
+            className="button dropdown-button has-icon--right text-align-left small is-processing"
+            href="#"
+          >
+            <span
+              aria-hidden="true"
+              className="ui-icon ui-small"
             >
-              <div
-                className="status-list_tag is-approved"
-              >
-                Approved
-              </div>
-              <div
-                className="status-list_comment"
-              >
-                <p
-                  className="status-list_note"
-                >
-                  xxxx1
-                </p>
-                <span
-                  className="status-list_date"
-                >
-                  <div>
-                    10/05/18
-                  </div>
-                </span>
-              </div>
-            </li>
-            <li
-              className="status-list_item"
-            >
-              <div
-                className="status-list_tag is-pending"
-              >
-                Pending
-              </div>
-              <div
-                className="status-list_comment"
-              >
-                <p
-                  className="status-list_note"
-                >
-                  xxxx2
-                </p>
-                <span
-                  className="status-list_date"
-                >
-                  <div>
-                    10/05/18
-                  </div>
-                </span>
-              </div>
-            </li>
-          </ul>
+              <svg>
+                <use
+                  xlinkHref="#i-arrow-down"
+                />
+              </svg>
+            </span>
+            Processing
+          </button>
+        </div>
+        <div
+          className="status-update_message"
+        >
           <div
-            className="status-list_footer"
+            className="status-update_comment"
+          >
+            <p
+              className="status-update_note"
+            >
+              Some comment
+            </p>
+            <span
+              className="status-update_date"
+            >
+              03/12/18 
+            </span>
+          </div>
+          <div
+            className="status-update_footer"
           >
             <button
-              className="button tertiary tiny margin-bottom-none"
+              className="button tiny tertiary"
               data-event=""
-              onClick={[Function]}
               type="button"
             >
               Add a comment
             </button>
+            <a
+              className="t-small right"
+              href="/see_status_history"
+            >
+              See Status History
+            </a>
           </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="app-inner header-wide"
+    >
+      <h2
+        className="app-card_h2"
+      >
+        Current Contact Information
+      </h2>
+    </div>
+    <div
+      className="app-inner header-wide"
+    >
+      <h2
+        className="app-card_h2"
+      >
+        Lease Information
+      </h2>
+    </div>
+    <div
+      className="app-inner subheader-wide"
+    >
+      <h3
+        className="app-card_h3 t-sans"
+      >
+        Status History
+      </h3>
+    </div>
+    <div
+      className="app-inner inset-wide border-bottom"
+    >
+      <div
+        className="status-list"
+      >
+        <ul>
+          <li
+            className="status-list_item"
+          >
+            <div
+              className="status-list_tag is-approved"
+            >
+              Approved
+            </div>
+            <div
+              className="status-list_comment"
+            >
+              <p
+                className="status-list_note"
+              >
+                xxxx1
+              </p>
+              <span
+                className="status-list_date"
+              >
+                <div>
+                  10/05/18
+                </div>
+              </span>
+            </div>
+          </li>
+          <li
+            className="status-list_item"
+          >
+            <div
+              className="status-list_tag is-pending"
+            >
+              Pending
+            </div>
+            <div
+              className="status-list_comment"
+            >
+              <p
+                className="status-list_note"
+              >
+                xxxx2
+              </p>
+              <span
+                className="status-list_date"
+              >
+                <div>
+                  10/05/18
+                </div>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <div
+          className="status-list_footer"
+        >
+          <button
+            className="button tertiary tiny margin-bottom-none"
+            data-event=""
+            onClick={[Function]}
+            type="button"
+          >
+            Add a comment
+          </button>
         </div>
       </div>
     </div>
@@ -289,7 +285,7 @@ Array [
 exports[`SupplementalApplicationPage it should render correctly without status history 1`] = `
 Array [
   <header
-    className="lead-header short has-breadcrumbs bg-vapor"
+    className="lead-header short has-breadcrumbs bg-snow"
   >
     <div
       className="row full-width inner--3x"
@@ -350,7 +346,7 @@ Array [
     </div>
   </header>,
   <div
-    className="tabs-section tabs-row row full-width inner--3x"
+    className="tabs-section tabs-row row full-width inner--3x bg-snow"
   >
     <ul
       className="tabs full-width-small-only"
@@ -392,91 +388,87 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x"
   >
     <div
-      className="app-card form-card tabs-card max-width expand-on-small"
+      className="app-inner inset-wide padding-bottom-none margin-top"
     >
-      <div
-        className="app-inner inset-wide padding-bottom-none margin-top"
+      <h2
+        className="sr-only"
       >
-        <h2
-          className="sr-only"
+        Status Update
+      </h2>
+      <div
+        className="status-update expand-wide is-processing"
+      >
+        <h3
+          className="status-update_title"
         >
-          Status Update
-        </h2>
+          Update Status
+        </h3>
         <div
-          className="status-update expand-wide is-processing"
+          className="status-update_action"
         >
-          <h3
-            className="status-update_title"
+          <button
+            aria-expanded="false"
+            className="button dropdown-button has-icon--right text-align-left small is-processing"
+            href="#"
           >
-            Update Status
-          </h3>
-          <div
-            className="status-update_action"
-          >
-            <button
-              aria-expanded="false"
-              className="button dropdown-button has-icon--right text-align-left small is-processing"
-              href="#"
+            <span
+              aria-hidden="true"
+              className="ui-icon ui-small"
             >
-              <span
-                aria-hidden="true"
-                className="ui-icon ui-small"
-              >
-                <svg>
-                  <use
-                    xlinkHref="#i-arrow-down"
-                  />
-                </svg>
-              </span>
-              Processing
-            </button>
+              <svg>
+                <use
+                  xlinkHref="#i-arrow-down"
+                />
+              </svg>
+            </span>
+            Processing
+          </button>
+        </div>
+        <div
+          className="status-update_message"
+        >
+          <div
+            className="status-update_comment"
+          >
+            <p
+              className="status-update_note"
+            >
+              Some comment
+            </p>
+            <span
+              className="status-update_date"
+            >
+              03/12/18 
+            </span>
           </div>
           <div
-            className="status-update_message"
+            className="status-update_footer"
           >
-            <div
-              className="status-update_comment"
+            <button
+              className="button tiny tertiary"
+              data-event=""
+              type="button"
             >
-              <p
-                className="status-update_note"
-              >
-                Some comment
-              </p>
-              <span
-                className="status-update_date"
-              >
-                03/12/18 
-              </span>
-            </div>
-            <div
-              className="status-update_footer"
+              Add a comment
+            </button>
+            <a
+              className="t-small right"
+              href="/see_status_history"
             >
-              <button
-                className="button tiny tertiary"
-                data-event=""
-                type="button"
-              >
-                Add a comment
-              </button>
-              <a
-                className="t-small right"
-                href="/see_status_history"
-              >
-                See Status History
-              </a>
-            </div>
+              See Status History
+            </a>
           </div>
         </div>
       </div>
-      <div
-        className="app-inner header-wide"
+    </div>
+    <div
+      className="app-inner header-wide"
+    >
+      <h2
+        className="app-card_h2"
       >
-        <h2
-          className="app-card_h2"
-        >
-          Current Contact Information
-        </h2>
-      </div>
+        Current Contact Information
+      </h2>
     </div>
   </section>,
 ]
