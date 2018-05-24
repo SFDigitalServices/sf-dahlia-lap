@@ -14,11 +14,13 @@ import FormGroupTextArea from 'components/atoms/FormGroupTextArea'
 import FormGroupTextValue from 'components/atoms/FormGroupTextValue'
 import FormGroupRadioGroup from 'components/atoms/FormGroupRadioGroup'
 import FormGroupCheckboxGroup from 'components/atoms/FormGroupCheckboxGroup'
+import Spinner from 'components/atoms/Spinner'
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
 import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import Dropdown from 'components/molecules/Dropdown'
+import Loading from 'components/molecules/Loading'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
 import EditablePanel from 'components/molecules/EditablePanel'
@@ -50,12 +52,14 @@ WebpackerReact.setup({ FormGroupTextArea })
 WebpackerReact.setup({ FormGroupTextValue })
 WebpackerReact.setup({ FormGroupRadioGroup })
 WebpackerReact.setup({ FormGroupCheckboxGroup })
+WebpackerReact.setup({ Spinner })
 WebpackerReact.setup({ BreadCrumbs })
 WebpackerReact.setup({ AlertBox })
 WebpackerReact.setup({ AlertNotice })
 WebpackerReact.setup({ DropdownMenu })
 WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ Dropdown })
+WebpackerReact.setup({ Loading })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
 WebpackerReact.setup({ EditablePanel })
