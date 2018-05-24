@@ -4,21 +4,12 @@ import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
 
 const ApplicationDetails = ({ application, fields, file_base_url }) => {
 
-  const editLink = () => {
-    if (!application.Is_Lottery_Complete && application.Application_Submission_Type == 'Paper') {
-      return (
-        <p><a href={`/applications/${application.Id}/edit`}>Edit Application</a></p>
-      )
-    }
-  }
-
   let proofList = _.map(application.proof_files, (file) => {
     return <li key={file.Id}><a target='_blank' href={`${file_base_url}/servlet/servlet.FileDownload?file=${file.Id}`}>{file.Name}</a></li>
   })
 
   return (
     <div>
-      {editLink()}
       <ApplicationDetailsContentCard
         dataCollection={application}
         title='Application Data'
