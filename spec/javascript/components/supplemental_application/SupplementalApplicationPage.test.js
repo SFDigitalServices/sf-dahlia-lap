@@ -10,7 +10,8 @@ describe('SupplementalApplicationPage', () => {
       Name: 'applicant name'
     },
     Listing: {
-      Id: 'listing1'
+      Id: 'listing1',
+      Name: 'listingName'
     }
   }
 

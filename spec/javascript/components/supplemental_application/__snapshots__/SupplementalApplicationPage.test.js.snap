@@ -26,9 +26,9 @@ Array [
             </li>
             <li>
               <a
-                href="/listings/listing1/lease_ups"
+                href="/listings/lease_ups/listing1/applications"
               >
-                Cameo Apartments
+                listingName
               </a>
             </li>
             <li
@@ -312,9 +312,9 @@ Array [
             </li>
             <li>
               <a
-                href="/listings/listing1/lease_ups"
+                href="/listings/lease_ups/listing1/applications"
               >
-                Cameo Apartments
+                listingName
               </a>
             </li>
             <li
