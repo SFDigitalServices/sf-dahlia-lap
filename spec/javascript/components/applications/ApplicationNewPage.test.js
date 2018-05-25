@@ -1,6 +1,7 @@
 import React from 'react'
-import ApplicationNewPage from 'components/applications/ApplicationNewPage'
+import renderer from 'react-test-renderer';
 
+import ApplicationNewPage from 'components/applications/ApplicationNewPage'
 import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
 
@@ -10,10 +11,10 @@ describe('ApplicationNewPage', () => {
   test('should render succesfully', () => {
     const listing = modelsFactory.listing(1)
 
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <ApplicationNewPage listing={listing} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 })
