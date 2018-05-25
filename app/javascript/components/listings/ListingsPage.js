@@ -4,6 +4,7 @@ import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 
 const ListingsPageTable = ({ page, results, fields }) => {
+  console.log(JSON.stringify(results))
   return (
     <IndexTable
       page={page}

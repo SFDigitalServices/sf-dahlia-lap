@@ -1,16 +1,7 @@
 import React from 'react'
 
-// import PageHeaderSimple from '../../organisms/PageHeaderSimple'
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 import TableLayout from '../../layouts/TableLayout'
-
-// const FlaggedApplicationsShowPageHeader = ({}) => {
-//   return (
-//     <div>
-//       <PageHeaderSimple title='Flagged Application Set' />
-//     </div>
-//   )
-// }
 
 const FlaggedApplicationsShowPageTable = ({ results, fields }) => {
   return (

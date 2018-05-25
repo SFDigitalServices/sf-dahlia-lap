@@ -3,6 +3,7 @@ import React from 'react'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
 
+
 const ApplicationNewPageForm = ({ listing }) => {
   return (
     <PaperApplicationForm listing={listing} />

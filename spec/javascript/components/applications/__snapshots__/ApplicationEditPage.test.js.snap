@@ -1,0 +1,2997 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationNewPage should render succesfully 1`] = `
+<ApplicationEditPage
+  application={
+    Object {
+      "Applicant": Object {
+        "City": "city",
+        "Date_of_Birth": "xxxx1",
+        "Email": "xxxx2",
+        "First_Name": "xxxx3",
+        "Id": 1,
+        "Last_Name": "lastName",
+        "Mailing_City": "mailingCity",
+        "Mailing_State": "mailingState",
+        "Mailing_Street": "mailingAddress",
+        "Mailing_Zip_Code": "mailingZip",
+        "Middle_Name": "middleName",
+        "Phone": "phone",
+        "Phone_Type": "phoneType",
+        "State": "state",
+        "Street": "address",
+        "Zip_Code": "zip",
+      },
+      "Application": "1",
+      "Application.Email": "some email 1",
+      "Application.First_Name": "some first name 1",
+      "Application.Last_Name": "some last name 1",
+      "Application.Name": "Application Name 1",
+      "Application.Phone": "some phone",
+      "Application.Processing_Status": "processing",
+      "Application.Residence_Address": "1316 BURNETT 1",
+      "LastModifiedDate:": "14 feb 19",
+      "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+      "Preference_Lottery_Rank": "1",
+      "Preference_Order": "1",
+    }
+  }
+  editPage={true}
+  listing={
+    Object {
+      "Id": 1,
+      "Name": "xxx2",
+    }
+  }
+>
+  <CardLayout
+    pageHeader={
+      Object {
+        "content": "Application lottery number: undefined. For listing: xxx2",
+        "title": "Edit Application",
+      }
+    }
+  >
+    <PageHeaderLayout
+      background="snow"
+      content="Application lottery number: undefined. For listing: xxx2"
+      title="Edit Application"
+    >
+      <PageHeader
+        background="snow"
+        content="Application lottery number: undefined. For listing: xxx2"
+        title="Edit Application"
+      >
+        <header
+          className="lead-header short has-breadcrumbs bg-snow"
+        >
+          <div
+            className="row full-width inner--3x"
+          >
+            <div
+              className="large-12 columns"
+            >
+              <hgroup
+                className="lead-header_group"
+              >
+                <h1
+                  className="lead-header_title small-serif c-oil"
+                >
+                  Edit Application
+                </h1>
+                <div
+                  className="medium-8 columns no-padding"
+                >
+                  <p>
+                    Application lottery number: undefined. For listing: xxx2
+                  </p>
+                </div>
+                <div
+                  className="medium-4 columns no-padding"
+                />
+              </hgroup>
+            </div>
+          </div>
+        </header>
+      </PageHeader>
+    </PageHeaderLayout>
+    <ApplicationEditPageForm
+      application={
+        Object {
+          "Applicant": Object {
+            "City": "city",
+            "Date_of_Birth": "xxxx1",
+            "Email": "xxxx2",
+            "First_Name": "xxxx3",
+            "Id": 1,
+            "Last_Name": "lastName",
+            "Mailing_City": "mailingCity",
+            "Mailing_State": "mailingState",
+            "Mailing_Street": "mailingAddress",
+            "Mailing_Zip_Code": "mailingZip",
+            "Middle_Name": "middleName",
+            "Phone": "phone",
+            "Phone_Type": "phoneType",
+            "State": "state",
+            "Street": "address",
+            "Zip_Code": "zip",
+          },
+          "Application": "1",
+          "Application.Email": "some email 1",
+          "Application.First_Name": "some first name 1",
+          "Application.Last_Name": "some last name 1",
+          "Application.Name": "Application Name 1",
+          "Application.Phone": "some phone",
+          "Application.Processing_Status": "processing",
+          "Application.Residence_Address": "1316 BURNETT 1",
+          "LastModifiedDate:": "14 feb 19",
+          "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+          "Preference_Lottery_Rank": "1",
+          "Preference_Order": "1",
+        }
+      }
+      editPage={true}
+      listing={
+        Object {
+          "Id": 1,
+          "Name": "xxx2",
+        }
+      }
+    >
+      <PaperApplicationForm
+        application={
+          Object {
+            "Applicant": Object {
+              "City": "city",
+              "Date_of_Birth": "xxxx1",
+              "Email": "xxxx2",
+              "First_Name": "xxxx3",
+              "Id": 1,
+              "Last_Name": "lastName",
+              "Mailing_City": "mailingCity",
+              "Mailing_State": "mailingState",
+              "Mailing_Street": "mailingAddress",
+              "Mailing_Zip_Code": "mailingZip",
+              "Middle_Name": "middleName",
+              "Phone": "phone",
+              "Phone_Type": "phoneType",
+              "State": "state",
+              "Street": "address",
+              "Zip_Code": "zip",
+            },
+            "Application": "1",
+            "Application.Email": "some email 1",
+            "Application.First_Name": "some first name 1",
+            "Application.Last_Name": "some last name 1",
+            "Application.Name": "Application Name 1",
+            "Application.Phone": "some phone",
+            "Application.Processing_Status": "processing",
+            "Application.Residence_Address": "1316 BURNETT 1",
+            "LastModifiedDate:": "14 feb 19",
+            "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+            "Preference_Lottery_Rank": "1",
+            "Preference_Order": "1",
+          }
+        }
+        editPage={true}
+        listing={
+          Object {
+            "Id": 1,
+            "Name": "xxx2",
+          }
+        }
+      >
+        <div>
+          <t
+            defaultValues={
+              Object {
+                "agreeToTerms": undefined,
+                "annualIncome": undefined,
+                "answeredCommunityScreening": undefined,
+                "hasDevelopmentalDisability": undefined,
+                "hasMilitaryService": undefined,
+                "householdVouchersSubsidies": undefined,
+                "primaryApplicant": Object {
+                  "DOB": "xxxx1",
+                  "address": "address",
+                  "city": "city",
+                  "email": "xxxx2",
+                  "firstName": "xxxx3",
+                  "lastName": "lastName",
+                  "mailingAddress": "mailingAddress",
+                  "mailingCity": "mailingCity",
+                  "mailingState": "mailingState",
+                  "mailingZip": "mailingZip",
+                  "middleName": "middleName",
+                  "phone": "phone",
+                  "phoneType": "phoneType",
+                  "state": "state",
+                  "zip": "zip",
+                },
+              }
+            }
+            onSubmit={[Function]}
+          >
+            <Connect(t)
+              defaultValues={
+                Object {
+                  "agreeToTerms": undefined,
+                  "annualIncome": undefined,
+                  "answeredCommunityScreening": undefined,
+                  "hasDevelopmentalDisability": undefined,
+                  "hasMilitaryService": undefined,
+                  "householdVouchersSubsidies": undefined,
+                  "primaryApplicant": Object {
+                    "DOB": "xxxx1",
+                    "address": "address",
+                    "city": "city",
+                    "email": "xxxx2",
+                    "firstName": "xxxx3",
+                    "lastName": "lastName",
+                    "mailingAddress": "mailingAddress",
+                    "mailingCity": "mailingCity",
+                    "mailingState": "mailingState",
+                    "mailingZip": "mailingZip",
+                    "middleName": "middleName",
+                    "phone": "phone",
+                    "phoneType": "phoneType",
+                    "state": "state",
+                    "zip": "zip",
+                  },
+                }
+              }
+              onSubmit={[Function]}
+              store={
+                Object {
+                  "dispatch": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                  Symbol(observable): [Function],
+                }
+              }
+            >
+              <t
+                defaultValues={
+                  Object {
+                    "agreeToTerms": undefined,
+                    "annualIncome": undefined,
+                    "answeredCommunityScreening": undefined,
+                    "hasDevelopmentalDisability": undefined,
+                    "hasMilitaryService": undefined,
+                    "householdVouchersSubsidies": undefined,
+                    "primaryApplicant": Object {
+                      "DOB": "xxxx1",
+                      "address": "address",
+                      "city": "city",
+                      "email": "xxxx2",
+                      "firstName": "xxxx3",
+                      "lastName": "lastName",
+                      "mailingAddress": "mailingAddress",
+                      "mailingCity": "mailingCity",
+                      "mailingState": "mailingState",
+                      "mailingZip": "mailingZip",
+                      "middleName": "middleName",
+                      "phone": "phone",
+                      "phoneType": "phoneType",
+                      "state": "state",
+                      "zip": "zip",
+                    },
+                  }
+                }
+                dispatch={[Function]}
+                formState={
+                  Object {
+                    "asyncErrors": Object {},
+                    "asyncSuccesses": Object {},
+                    "asyncValidations": 0,
+                    "asyncWarnings": Object {},
+                    "errors": Object {},
+                    "submits": 0,
+                    "submitted": false,
+                    "successes": Object {},
+                    "touched": Object {},
+                    "validating": Object {},
+                    "validationFailed": Object {},
+                    "validationFailures": 0,
+                    "values": Object {
+                      "agreeToTerms": undefined,
+                      "annualIncome": undefined,
+                      "answeredCommunityScreening": undefined,
+                      "hasDevelopmentalDisability": undefined,
+                      "hasMilitaryService": undefined,
+                      "householdVouchersSubsidies": undefined,
+                      "primaryApplicant": Object {
+                        "DOB": "xxxx1",
+                        "address": "address",
+                        "city": "city",
+                        "email": "xxxx2",
+                        "firstName": "xxxx3",
+                        "lastName": "lastName",
+                        "mailingAddress": "mailingAddress",
+                        "mailingCity": "mailingCity",
+                        "mailingState": "mailingState",
+                        "mailingZip": "mailingZip",
+                        "middleName": "middleName",
+                        "phone": "phone",
+                        "phoneType": "phoneType",
+                        "state": "state",
+                        "zip": "zip",
+                      },
+                    },
+                    "warnings": Object {},
+                  }
+                }
+                onSubmit={[Function]}
+                store={
+                  Object {
+                    "dispatch": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                    Symbol(observable): [Function],
+                  }
+                }
+                storeSubscription={
+                  Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": undefined,
+                    "store": Object {
+                      "dispatch": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                      Symbol(observable): [Function],
+                    },
+                    "unsubscribe": [Function],
+                  }
+                }
+              >
+                <form
+                  id="shortForm"
+                  onSubmit={[Function]}
+                >
+                  <div
+                    className="app-card form-card medium-centered"
+                  >
+                    <div
+                      className="app-inner inset"
+                    >
+                      <PrimaryApplicantSection
+                        editValues={
+                          Object {
+                            "Applicant": Object {
+                              "City": "city",
+                              "Date_of_Birth": "xxxx1",
+                              "Email": "xxxx2",
+                              "First_Name": "xxxx3",
+                              "Id": 1,
+                              "Last_Name": "lastName",
+                              "Mailing_City": "mailingCity",
+                              "Mailing_State": "mailingState",
+                              "Mailing_Street": "mailingAddress",
+                              "Mailing_Zip_Code": "mailingZip",
+                              "Middle_Name": "middleName",
+                              "Phone": "phone",
+                              "Phone_Type": "phoneType",
+                              "State": "state",
+                              "Street": "address",
+                              "Zip_Code": "zip",
+                            },
+                            "Application": "1",
+                            "Application.Email": "some email 1",
+                            "Application.First_Name": "some first name 1",
+                            "Application.Last_Name": "some last name 1",
+                            "Application.Name": "Application Name 1",
+                            "Application.Phone": "some phone",
+                            "Application.Processing_Status": "processing",
+                            "Application.Residence_Address": "1316 BURNETT 1",
+                            "LastModifiedDate:": "14 feb 19",
+                            "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+                            "Preference_Lottery_Rank": "1",
+                            "Preference_Order": "1",
+                          }
+                        }
+                        formApi={
+                          Object {
+                            "addValue": [Function],
+                            "asyncValidations": 0,
+                            "doneValidatingField": [Function],
+                            "errors": Object {},
+                            "format": [Function],
+                            "getError": [Function],
+                            "getSuccess": [Function],
+                            "getTouched": [Function],
+                            "getValue": [Function],
+                            "getWarning": [Function],
+                            "registerAsyncValidation": [Function],
+                            "removeValue": [Function],
+                            "reset": [Function],
+                            "resetAll": [Function],
+                            "setAllValues": [Function],
+                            "setError": [Function],
+                            "setSuccess": [Function],
+                            "setTouched": [Function],
+                            "setValue": [Function],
+                            "setWarning": [Function],
+                            "submitForm": [Function],
+                            "submits": 0,
+                            "submitted": false,
+                            "successes": Object {},
+                            "swapValues": [Function],
+                            "touched": Object {},
+                            "validating": Object {},
+                            "validatingField": [Function],
+                            "validationFailed": Object {},
+                            "validationFailures": 0,
+                            "values": Object {
+                              "agreeToTerms": undefined,
+                              "annualIncome": undefined,
+                              "answeredCommunityScreening": undefined,
+                              "hasDevelopmentalDisability": undefined,
+                              "hasMilitaryService": undefined,
+                              "householdVouchersSubsidies": undefined,
+                              "primaryApplicant": Object {
+                                "DOB": "xxxx1",
+                                "address": "address",
+                                "city": "city",
+                                "email": "xxxx2",
+                                "firstName": "xxxx3",
+                                "lastName": "lastName",
+                                "mailingAddress": "mailingAddress",
+                                "mailingCity": "mailingCity",
+                                "mailingState": "mailingState",
+                                "mailingZip": "mailingZip",
+                                "middleName": "middleName",
+                                "phone": "phone",
+                                "phoneType": "phoneType",
+                                "state": "state",
+                                "zip": "zip",
+                              },
+                            },
+                            "warnings": Object {},
+                          }
+                        }
+                      >
+                        <r
+                          field="primaryApplicant"
+                        >
+                          <c
+                            fieldApi={
+                              Object {
+                                "doneValidatingField": [Function],
+                                "getError": [Function],
+                                "getSuccess": [Function],
+                                "getTouched": [Function],
+                                "getValue": [Function],
+                                "getWarning": [Function],
+                                "registerAsyncValidation": [Function],
+                                "reset": [Function],
+                                "setError": [Function],
+                                "setSuccess": [Function],
+                                "setTouched": [Function],
+                                "setValue": [Function],
+                                "setWarning": [Function],
+                                "submits": 0,
+                                "submitted": false,
+                                "validatingField": [Function],
+                              }
+                            }
+                          >
+                            <t
+                              defaultValues={
+                                Object {
+                                  "DOB": "xxxx1",
+                                  "address": "address",
+                                  "city": "city",
+                                  "email": "xxxx2",
+                                  "firstName": "xxxx3",
+                                  "lastName": "lastName",
+                                  "mailingAddress": "mailingAddress",
+                                  "mailingCity": "mailingCity",
+                                  "mailingState": "mailingState",
+                                  "mailingZip": "mailingZip",
+                                  "middleName": "middleName",
+                                  "phone": "phone",
+                                  "phoneType": "phoneType",
+                                  "state": "state",
+                                  "zip": "zip",
+                                }
+                              }
+                              registerAsyncValidation={[Function]}
+                              reset={[Function]}
+                              submits={0}
+                              submitted={false}
+                              update={[Function]}
+                            >
+                              <Connect(t)
+                                defaultValues={
+                                  Object {
+                                    "DOB": "xxxx1",
+                                    "address": "address",
+                                    "city": "city",
+                                    "email": "xxxx2",
+                                    "firstName": "xxxx3",
+                                    "lastName": "lastName",
+                                    "mailingAddress": "mailingAddress",
+                                    "mailingCity": "mailingCity",
+                                    "mailingState": "mailingState",
+                                    "mailingZip": "mailingZip",
+                                    "middleName": "middleName",
+                                    "phone": "phone",
+                                    "phoneType": "phoneType",
+                                    "state": "state",
+                                    "zip": "zip",
+                                  }
+                                }
+                                registerAsyncValidation={[Function]}
+                                reset={[Function]}
+                                store={
+                                  Object {
+                                    "dispatch": [Function],
+                                    "getState": [Function],
+                                    "replaceReducer": [Function],
+                                    "subscribe": [Function],
+                                    Symbol(observable): [Function],
+                                  }
+                                }
+                                submits={0}
+                                submitted={false}
+                                update={[Function]}
+                              >
+                                <t
+                                  defaultValues={
+                                    Object {
+                                      "DOB": "xxxx1",
+                                      "address": "address",
+                                      "city": "city",
+                                      "email": "xxxx2",
+                                      "firstName": "xxxx3",
+                                      "lastName": "lastName",
+                                      "mailingAddress": "mailingAddress",
+                                      "mailingCity": "mailingCity",
+                                      "mailingState": "mailingState",
+                                      "mailingZip": "mailingZip",
+                                      "middleName": "middleName",
+                                      "phone": "phone",
+                                      "phoneType": "phoneType",
+                                      "state": "state",
+                                      "zip": "zip",
+                                    }
+                                  }
+                                  dispatch={[Function]}
+                                  formState={
+                                    Object {
+                                      "asyncErrors": Object {},
+                                      "asyncSuccesses": Object {},
+                                      "asyncValidations": 0,
+                                      "asyncWarnings": Object {},
+                                      "errors": Object {},
+                                      "submits": 0,
+                                      "submitted": false,
+                                      "successes": Object {},
+                                      "touched": Object {},
+                                      "validating": Object {},
+                                      "validationFailed": Object {},
+                                      "validationFailures": 0,
+                                      "values": Object {
+                                        "DOB": "xxxx1",
+                                        "address": "address",
+                                        "city": "city",
+                                        "email": "xxxx2",
+                                        "firstName": "xxxx3",
+                                        "lastName": "lastName",
+                                        "mailingAddress": "mailingAddress",
+                                        "mailingCity": "mailingCity",
+                                        "mailingState": "mailingState",
+                                        "mailingZip": "mailingZip",
+                                        "middleName": "middleName",
+                                        "phone": "phone",
+                                        "phoneType": "phoneType",
+                                        "state": "state",
+                                        "zip": "zip",
+                                      },
+                                      "warnings": Object {},
+                                    }
+                                  }
+                                  registerAsyncValidation={[Function]}
+                                  reset={[Function]}
+                                  store={
+                                    Object {
+                                      "dispatch": [Function],
+                                      "getState": [Function],
+                                      "replaceReducer": [Function],
+                                      "subscribe": [Function],
+                                      Symbol(observable): [Function],
+                                    }
+                                  }
+                                  storeSubscription={
+                                    Subscription {
+                                      "listeners": Object {
+                                        "clear": [Function],
+                                        "get": [Function],
+                                        "notify": [Function],
+                                        "subscribe": [Function],
+                                      },
+                                      "onStateChange": [Function],
+                                      "parentSub": undefined,
+                                      "store": Object {
+                                        "dispatch": [Function],
+                                        "getState": [Function],
+                                        "replaceReducer": [Function],
+                                        "subscribe": [Function],
+                                        Symbol(observable): [Function],
+                                      },
+                                      "unsubscribe": [Function],
+                                    }
+                                  }
+                                  submits={0}
+                                  submitted={false}
+                                  update={[Function]}
+                                >
+                                  <div
+                                    className="border-bottom margin-bottom--2x"
+                                  >
+                                    <div
+                                      className="row"
+                                    >
+                                      <h3>
+                                        Primary Applicant
+                                      </h3>
+                                    </div>
+                                    <div
+                                      className="row"
+                                    >
+                                      <div
+                                        className="form-group"
+                                      >
+                                        <div
+                                          className="small-4 columns"
+                                        >
+                                          <label>
+                                            First Name 
+                                            <span
+                                              className="checkbox-block_note no-margin"
+                                            >
+                                              (required)
+                                            </span>
+                                          </label>
+                                          <r
+                                            field="firstName"
+                                            required="true"
+                                          >
+                                            <t
+                                              fieldApi={
+                                                Object {
+                                                  "doneValidatingField": [Function],
+                                                  "getError": [Function],
+                                                  "getSuccess": [Function],
+                                                  "getTouched": [Function],
+                                                  "getValue": [Function],
+                                                  "getWarning": [Function],
+                                                  "registerAsyncValidation": [Function],
+                                                  "reset": [Function],
+                                                  "setError": [Function],
+                                                  "setSuccess": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValue": [Function],
+                                                  "setWarning": [Function],
+                                                  "submits": 0,
+                                                  "submitted": false,
+                                                  "validatingField": [Function],
+                                                }
+                                              }
+                                              required="true"
+                                            >
+                                              <input
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                required="true"
+                                                value="xxxx3"
+                                              />
+                                            </t>
+                                          </r>
+                                        </div>
+                                        <div
+                                          className="small-4 columns"
+                                        >
+                                          <label>
+                                            Middle Name
+                                          </label>
+                                          <r
+                                            field="middleName"
+                                          >
+                                            <t
+                                              fieldApi={
+                                                Object {
+                                                  "doneValidatingField": [Function],
+                                                  "getError": [Function],
+                                                  "getSuccess": [Function],
+                                                  "getTouched": [Function],
+                                                  "getValue": [Function],
+                                                  "getWarning": [Function],
+                                                  "registerAsyncValidation": [Function],
+                                                  "reset": [Function],
+                                                  "setError": [Function],
+                                                  "setSuccess": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValue": [Function],
+                                                  "setWarning": [Function],
+                                                  "submits": 0,
+                                                  "submitted": false,
+                                                  "validatingField": [Function],
+                                                }
+                                              }
+                                            >
+                                              <input
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                value="middleName"
+                                              />
+                                            </t>
+                                          </r>
+                                        </div>
+                                        <div
+                                          className="small-4 columns"
+                                        >
+                                          <label>
+                                            Last Name 
+                                            <span
+                                              className="checkbox-block_note no-margin"
+                                            >
+                                              (required)
+                                            </span>
+                                          </label>
+                                          <r
+                                            field="lastName"
+                                            required="true"
+                                          >
+                                            <t
+                                              fieldApi={
+                                                Object {
+                                                  "doneValidatingField": [Function],
+                                                  "getError": [Function],
+                                                  "getSuccess": [Function],
+                                                  "getTouched": [Function],
+                                                  "getValue": [Function],
+                                                  "getWarning": [Function],
+                                                  "registerAsyncValidation": [Function],
+                                                  "reset": [Function],
+                                                  "setError": [Function],
+                                                  "setSuccess": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValue": [Function],
+                                                  "setWarning": [Function],
+                                                  "submits": 0,
+                                                  "submitted": false,
+                                                  "validatingField": [Function],
+                                                }
+                                              }
+                                              required="true"
+                                            >
+                                              <input
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                required="true"
+                                                value="lastName"
+                                              />
+                                            </t>
+                                          </r>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="row"
+                                    >
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Email
+                                        </label>
+                                        <r
+                                          field="email"
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                          >
+                                            <input
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value="xxxx2"
+                                            />
+                                          </t>
+                                        </r>
+                                      </div>
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Phone
+                                        </label>
+                                        <r
+                                          field="phone"
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                          >
+                                            <input
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value="phone"
+                                            />
+                                          </t>
+                                        </r>
+                                      </div>
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Phone Type
+                                        </label>
+                                        <r
+                                          field="phoneType"
+                                          options={
+                                            Array [
+                                              Object {
+                                                "label": "Home",
+                                                "value": "Home",
+                                              },
+                                              Object {
+                                                "label": "Cell",
+                                                "value": "Cell",
+                                              },
+                                              Object {
+                                                "label": "Work",
+                                                "value": "Work",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                            options={
+                                              Array [
+                                                Object {
+                                                  "label": "Home",
+                                                  "value": "Home",
+                                                },
+                                                Object {
+                                                  "label": "Cell",
+                                                  "value": "Cell",
+                                                },
+                                                Object {
+                                                  "label": "Work",
+                                                  "value": "Work",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <select
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value={0}
+                                            >
+                                              <option
+                                                disabled={true}
+                                                value={0}
+                                              >
+                                                Select One...
+                                              </option>
+                                              <option
+                                                key="Home"
+                                                value={1}
+                                              >
+                                                Home
+                                              </option>
+                                              <option
+                                                key="Cell"
+                                                value={2}
+                                              >
+                                                Cell
+                                              </option>
+                                              <option
+                                                key="Work"
+                                                value={3}
+                                              >
+                                                Work
+                                              </option>
+                                            </select>
+                                          </t>
+                                        </r>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="row"
+                                    >
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          DOB 
+                                          <span
+                                            className="checkbox-block_note no-margin"
+                                          >
+                                            - YYYY-MM-DD (required)
+                                          </span>
+                                        </label>
+                                        <r
+                                          dateFormat="YYYY-MM-DD"
+                                          dropdownMode="select"
+                                          field="DOB"
+                                          prefilledDate="xxxx1"
+                                          required={true}
+                                          showYearDropdown={true}
+                                        >
+                                          <DatePickerTextWrapper
+                                            dateFormat="YYYY-MM-DD"
+                                            dropdownMode="select"
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                            prefilledDate="xxxx1"
+                                            required={true}
+                                            showYearDropdown={true}
+                                          >
+                                            <div>
+                                              <DatePicker
+                                                allowSameDay={false}
+                                                dateFormat="YYYY-MM-DD"
+                                                dateFormatCalendar="MMMM YYYY"
+                                                disabled={false}
+                                                disabledKeyboardNavigation={false}
+                                                dropdownMode="select"
+                                                monthsShown={1}
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onClickOutside={[Function]}
+                                                onFocus={[Function]}
+                                                onKeyDown={[Function]}
+                                                onMonthChange={[Function]}
+                                                onSelect={[Function]}
+                                                prefilledDate="xxxx1"
+                                                required={true}
+                                                selected={null}
+                                                shouldCloseOnSelect={true}
+                                                showTimeSelect={false}
+                                                showYearDropdown={true}
+                                                timeIntervals={30}
+                                                withPortal={false}
+                                              >
+                                                <PopperComponent
+                                                  hidePopper={true}
+                                                  popperComponent={null}
+                                                  popperModifiers={
+                                                    Object {
+                                                      "preventOverflow": Object {
+                                                        "boundariesElement": "viewport",
+                                                        "enabled": true,
+                                                        "escapeWithReference": true,
+                                                      },
+                                                    }
+                                                  }
+                                                  popperPlacement="bottom-start"
+                                                  targetComponent={
+                                                    <div
+                                                      className="react-datepicker__input-container"
+                                                    >
+                                                      <input
+                                                        autoComplete={undefined}
+                                                        autoFocus={undefined}
+                                                        className=""
+                                                        disabled={false}
+                                                        id={undefined}
+                                                        name={undefined}
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onClick={[Function]}
+                                                        onFocus={[Function]}
+                                                        onKeyDown={[Function]}
+                                                        placeholder={undefined}
+                                                        readOnly={undefined}
+                                                        required={true}
+                                                        tabIndex={undefined}
+                                                        title={undefined}
+                                                        type="text"
+                                                        value="Invalid date"
+                                                      />
+                                                    </div>
+                                                  }
+                                                >
+                                                  <Manager
+                                                    tag="div"
+                                                  >
+                                                    <div>
+                                                      <Target
+                                                        className="react-datepicker-wrapper"
+                                                      >
+                                                        <div
+                                                          className="react-datepicker-wrapper"
+                                                        >
+                                                          <div
+                                                            className="react-datepicker__input-container"
+                                                          >
+                                                            <input
+                                                              className=""
+                                                              disabled={false}
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onClick={[Function]}
+                                                              onFocus={[Function]}
+                                                              onKeyDown={[Function]}
+                                                              required={true}
+                                                              type="text"
+                                                              value="Invalid date"
+                                                            />
+                                                          </div>
+                                                        </div>
+                                                      </Target>
+                                                    </div>
+                                                  </Manager>
+                                                </PopperComponent>
+                                              </DatePicker>
+                                            </div>
+                                          </DatePickerTextWrapper>
+                                        </r>
+                                      </div>
+                                    </div>
+                                    <AddressForm
+                                      memberType="primaryApplicant"
+                                      title="Home Address"
+                                    >
+                                      <div>
+                                        <div
+                                          className="row"
+                                        >
+                                          <h4>
+                                            Home Address
+                                          </h4>
+                                        </div>
+                                        <div
+                                          className="row"
+                                        >
+                                          <div
+                                            className="form-group"
+                                          >
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                Street Address
+                                              </label>
+                                              <r
+                                                field="address"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <input
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="address"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                City
+                                              </label>
+                                              <r
+                                                field="city"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <input
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="city"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                State
+                                              </label>
+                                              <r
+                                                field="state"
+                                                maxLength="2"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                  maxLength="2"
+                                                >
+                                                  <input
+                                                    maxLength="2"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="state"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                Zip
+                                              </label>
+                                              <r
+                                                field="zip"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <input
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="zip"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </AddressForm>
+                                    <AddressForm
+                                      fieldMap={
+                                        Object {
+                                          "address": "mailingAddress",
+                                          "city": "mailingCity",
+                                          "state": "mailingState",
+                                          "zip": "mailingZip",
+                                        }
+                                      }
+                                      memberType="primaryApplicant"
+                                      title="Mailing Address"
+                                    >
+                                      <div>
+                                        <div
+                                          className="row"
+                                        >
+                                          <h4>
+                                            Mailing Address
+                                          </h4>
+                                        </div>
+                                        <div
+                                          className="row"
+                                        >
+                                          <div
+                                            className="form-group"
+                                          >
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                Street Address
+                                              </label>
+                                              <r
+                                                field="mailingAddress"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <input
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="mailingAddress"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                City
+                                              </label>
+                                              <r
+                                                field="mailingCity"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <input
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="mailingCity"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                State
+                                              </label>
+                                              <r
+                                                field="mailingState"
+                                                maxLength="2"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                  maxLength="2"
+                                                >
+                                                  <input
+                                                    maxLength="2"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="mailingState"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                            <div
+                                              className="small-6 columns"
+                                            >
+                                              <label>
+                                                Zip
+                                              </label>
+                                              <r
+                                                field="mailingZip"
+                                              >
+                                                <t
+                                                  fieldApi={
+                                                    Object {
+                                                      "doneValidatingField": [Function],
+                                                      "getError": [Function],
+                                                      "getSuccess": [Function],
+                                                      "getTouched": [Function],
+                                                      "getValue": [Function],
+                                                      "getWarning": [Function],
+                                                      "registerAsyncValidation": [Function],
+                                                      "reset": [Function],
+                                                      "setError": [Function],
+                                                      "setSuccess": [Function],
+                                                      "setTouched": [Function],
+                                                      "setValue": [Function],
+                                                      "setWarning": [Function],
+                                                      "submits": 0,
+                                                      "submitted": false,
+                                                      "validatingField": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <input
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    value="mailingZip"
+                                                  />
+                                                </t>
+                                              </r>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </AddressForm>
+                                  </div>
+                                </t>
+                              </Connect(t)>
+                            </t>
+                          </c>
+                        </r>
+                      </PrimaryApplicantSection>
+                      <AlternateContactSection
+                        editValues={
+                          Object {
+                            "Applicant": Object {
+                              "City": "city",
+                              "Date_of_Birth": "xxxx1",
+                              "Email": "xxxx2",
+                              "First_Name": "xxxx3",
+                              "Id": 1,
+                              "Last_Name": "lastName",
+                              "Mailing_City": "mailingCity",
+                              "Mailing_State": "mailingState",
+                              "Mailing_Street": "mailingAddress",
+                              "Mailing_Zip_Code": "mailingZip",
+                              "Middle_Name": "middleName",
+                              "Phone": "phone",
+                              "Phone_Type": "phoneType",
+                              "State": "state",
+                              "Street": "address",
+                              "Zip_Code": "zip",
+                            },
+                            "Application": "1",
+                            "Application.Email": "some email 1",
+                            "Application.First_Name": "some first name 1",
+                            "Application.Last_Name": "some last name 1",
+                            "Application.Name": "Application Name 1",
+                            "Application.Phone": "some phone",
+                            "Application.Processing_Status": "processing",
+                            "Application.Residence_Address": "1316 BURNETT 1",
+                            "LastModifiedDate:": "14 feb 19",
+                            "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+                            "Preference_Lottery_Rank": "1",
+                            "Preference_Order": "1",
+                          }
+                        }
+                      >
+                        <r
+                          field="alternateContact"
+                        >
+                          <c
+                            fieldApi={
+                              Object {
+                                "doneValidatingField": [Function],
+                                "getError": [Function],
+                                "getSuccess": [Function],
+                                "getTouched": [Function],
+                                "getValue": [Function],
+                                "getWarning": [Function],
+                                "registerAsyncValidation": [Function],
+                                "reset": [Function],
+                                "setError": [Function],
+                                "setSuccess": [Function],
+                                "setTouched": [Function],
+                                "setValue": [Function],
+                                "setWarning": [Function],
+                                "submits": 0,
+                                "submitted": false,
+                                "validatingField": [Function],
+                              }
+                            }
+                          >
+                            <t
+                              defaultValues={Object {}}
+                              registerAsyncValidation={[Function]}
+                              reset={[Function]}
+                              submits={0}
+                              submitted={false}
+                              update={[Function]}
+                            >
+                              <Connect(t)
+                                defaultValues={Object {}}
+                                registerAsyncValidation={[Function]}
+                                reset={[Function]}
+                                store={
+                                  Object {
+                                    "dispatch": [Function],
+                                    "getState": [Function],
+                                    "replaceReducer": [Function],
+                                    "subscribe": [Function],
+                                    Symbol(observable): [Function],
+                                  }
+                                }
+                                submits={0}
+                                submitted={false}
+                                update={[Function]}
+                              >
+                                <t
+                                  defaultValues={Object {}}
+                                  dispatch={[Function]}
+                                  formState={
+                                    Object {
+                                      "asyncErrors": Object {},
+                                      "asyncSuccesses": Object {},
+                                      "asyncValidations": 0,
+                                      "asyncWarnings": Object {},
+                                      "errors": Object {},
+                                      "submits": 0,
+                                      "submitted": false,
+                                      "successes": Object {},
+                                      "touched": Object {},
+                                      "validating": Object {},
+                                      "validationFailed": Object {},
+                                      "validationFailures": 0,
+                                      "values": Object {},
+                                      "warnings": Object {},
+                                    }
+                                  }
+                                  registerAsyncValidation={[Function]}
+                                  reset={[Function]}
+                                  store={
+                                    Object {
+                                      "dispatch": [Function],
+                                      "getState": [Function],
+                                      "replaceReducer": [Function],
+                                      "subscribe": [Function],
+                                      Symbol(observable): [Function],
+                                    }
+                                  }
+                                  storeSubscription={
+                                    Subscription {
+                                      "listeners": Object {
+                                        "clear": [Function],
+                                        "get": [Function],
+                                        "notify": [Function],
+                                        "subscribe": [Function],
+                                      },
+                                      "onStateChange": [Function],
+                                      "parentSub": undefined,
+                                      "store": Object {
+                                        "dispatch": [Function],
+                                        "getState": [Function],
+                                        "replaceReducer": [Function],
+                                        "subscribe": [Function],
+                                        Symbol(observable): [Function],
+                                      },
+                                      "unsubscribe": [Function],
+                                    }
+                                  }
+                                  submits={0}
+                                  submitted={false}
+                                  update={[Function]}
+                                >
+                                  <div
+                                    className="border-bottom margin-bottom--2x"
+                                  >
+                                    <div
+                                      className="row"
+                                    >
+                                      <h3>
+                                        Alternate Contact
+                                      </h3>
+                                    </div>
+                                    <div
+                                      className="row"
+                                    >
+                                      <div
+                                        className="form-group"
+                                      >
+                                        <div
+                                          className="small-4 columns"
+                                        >
+                                          <label>
+                                            First Name
+                                          </label>
+                                          <r
+                                            field="firstName"
+                                          >
+                                            <t
+                                              fieldApi={
+                                                Object {
+                                                  "doneValidatingField": [Function],
+                                                  "getError": [Function],
+                                                  "getSuccess": [Function],
+                                                  "getTouched": [Function],
+                                                  "getValue": [Function],
+                                                  "getWarning": [Function],
+                                                  "registerAsyncValidation": [Function],
+                                                  "reset": [Function],
+                                                  "setError": [Function],
+                                                  "setSuccess": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValue": [Function],
+                                                  "setWarning": [Function],
+                                                  "submits": 0,
+                                                  "submitted": false,
+                                                  "validatingField": [Function],
+                                                }
+                                              }
+                                            >
+                                              <input
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                value=""
+                                              />
+                                            </t>
+                                          </r>
+                                        </div>
+                                        <div
+                                          className="small-4 columns"
+                                        >
+                                          <label>
+                                            Middle Name
+                                          </label>
+                                          <r
+                                            field="middleName"
+                                          >
+                                            <t
+                                              fieldApi={
+                                                Object {
+                                                  "doneValidatingField": [Function],
+                                                  "getError": [Function],
+                                                  "getSuccess": [Function],
+                                                  "getTouched": [Function],
+                                                  "getValue": [Function],
+                                                  "getWarning": [Function],
+                                                  "registerAsyncValidation": [Function],
+                                                  "reset": [Function],
+                                                  "setError": [Function],
+                                                  "setSuccess": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValue": [Function],
+                                                  "setWarning": [Function],
+                                                  "submits": 0,
+                                                  "submitted": false,
+                                                  "validatingField": [Function],
+                                                }
+                                              }
+                                            >
+                                              <input
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                value=""
+                                              />
+                                            </t>
+                                          </r>
+                                        </div>
+                                        <div
+                                          className="small-4 columns"
+                                        >
+                                          <label>
+                                            Last Name
+                                          </label>
+                                          <r
+                                            field="lastName"
+                                          >
+                                            <t
+                                              fieldApi={
+                                                Object {
+                                                  "doneValidatingField": [Function],
+                                                  "getError": [Function],
+                                                  "getSuccess": [Function],
+                                                  "getTouched": [Function],
+                                                  "getValue": [Function],
+                                                  "getWarning": [Function],
+                                                  "registerAsyncValidation": [Function],
+                                                  "reset": [Function],
+                                                  "setError": [Function],
+                                                  "setSuccess": [Function],
+                                                  "setTouched": [Function],
+                                                  "setValue": [Function],
+                                                  "setWarning": [Function],
+                                                  "submits": 0,
+                                                  "submitted": false,
+                                                  "validatingField": [Function],
+                                                }
+                                              }
+                                            >
+                                              <input
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                value=""
+                                              />
+                                            </t>
+                                          </r>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="row"
+                                    >
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Alternate Contact Type
+                                        </label>
+                                        <r
+                                          field="alternateContactType"
+                                          options={
+                                            Array [
+                                              Object {
+                                                "label": "Family Member",
+                                                "value": "Family Member",
+                                              },
+                                              Object {
+                                                "label": "Friend",
+                                                "value": "Friend",
+                                              },
+                                              Object {
+                                                "label": "Social Worker or Housing Counselor",
+                                                "value": "Social Worker or Housing Counselor",
+                                              },
+                                              Object {
+                                                "label": "Other",
+                                                "value": "Other",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                            options={
+                                              Array [
+                                                Object {
+                                                  "label": "Family Member",
+                                                  "value": "Family Member",
+                                                },
+                                                Object {
+                                                  "label": "Friend",
+                                                  "value": "Friend",
+                                                },
+                                                Object {
+                                                  "label": "Social Worker or Housing Counselor",
+                                                  "value": "Social Worker or Housing Counselor",
+                                                },
+                                                Object {
+                                                  "label": "Other",
+                                                  "value": "Other",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <select
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value={0}
+                                            >
+                                              <option
+                                                disabled={true}
+                                                value={0}
+                                              >
+                                                Select One...
+                                              </option>
+                                              <option
+                                                key="Family Member"
+                                                value={1}
+                                              >
+                                                Family Member
+                                              </option>
+                                              <option
+                                                key="Friend"
+                                                value={2}
+                                              >
+                                                Friend
+                                              </option>
+                                              <option
+                                                key="Social Worker or Housing Counselor"
+                                                value={3}
+                                              >
+                                                Social Worker or Housing Counselor
+                                              </option>
+                                              <option
+                                                key="Other"
+                                                value={4}
+                                              >
+                                                Other
+                                              </option>
+                                            </select>
+                                          </t>
+                                        </r>
+                                      </div>
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Alternate Contact Type Other
+                                        </label>
+                                        <r
+                                          field="alternateContactTypeOther"
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                          >
+                                            <input
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value=""
+                                            />
+                                          </t>
+                                        </r>
+                                      </div>
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Agency (if applicable)
+                                        </label>
+                                        <r
+                                          field="agency"
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                          >
+                                            <input
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value=""
+                                            />
+                                          </t>
+                                        </r>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="row"
+                                    >
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Email
+                                        </label>
+                                        <r
+                                          field="email"
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                          >
+                                            <input
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value=""
+                                            />
+                                          </t>
+                                        </r>
+                                      </div>
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Phone
+                                        </label>
+                                        <r
+                                          field="phone"
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                          >
+                                            <input
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value=""
+                                            />
+                                          </t>
+                                        </r>
+                                      </div>
+                                      <div
+                                        className="small-4 columns"
+                                      >
+                                        <label>
+                                          Phone Type
+                                        </label>
+                                        <r
+                                          field="phoneType"
+                                          options={
+                                            Array [
+                                              Object {
+                                                "label": "Home",
+                                                "value": "Home",
+                                              },
+                                              Object {
+                                                "label": "Cell",
+                                                "value": "Cell",
+                                              },
+                                              Object {
+                                                "label": "Work",
+                                                "value": "Work",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <t
+                                            fieldApi={
+                                              Object {
+                                                "doneValidatingField": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "reset": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "validatingField": [Function],
+                                              }
+                                            }
+                                            options={
+                                              Array [
+                                                Object {
+                                                  "label": "Home",
+                                                  "value": "Home",
+                                                },
+                                                Object {
+                                                  "label": "Cell",
+                                                  "value": "Cell",
+                                                },
+                                                Object {
+                                                  "label": "Work",
+                                                  "value": "Work",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <select
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              value={0}
+                                            >
+                                              <option
+                                                disabled={true}
+                                                value={0}
+                                              >
+                                                Select One...
+                                              </option>
+                                              <option
+                                                key="Home"
+                                                value={1}
+                                              >
+                                                Home
+                                              </option>
+                                              <option
+                                                key="Cell"
+                                                value={2}
+                                              >
+                                                Cell
+                                              </option>
+                                              <option
+                                                key="Work"
+                                                value={3}
+                                              >
+                                                Work
+                                              </option>
+                                            </select>
+                                          </t>
+                                        </r>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </t>
+                              </Connect(t)>
+                            </t>
+                          </c>
+                        </r>
+                      </AlternateContactSection>
+                      <HouseholdMembersSection
+                        editValues={
+                          Object {
+                            "Applicant": Object {
+                              "City": "city",
+                              "Date_of_Birth": "xxxx1",
+                              "Email": "xxxx2",
+                              "First_Name": "xxxx3",
+                              "Id": 1,
+                              "Last_Name": "lastName",
+                              "Mailing_City": "mailingCity",
+                              "Mailing_State": "mailingState",
+                              "Mailing_Street": "mailingAddress",
+                              "Mailing_Zip_Code": "mailingZip",
+                              "Middle_Name": "middleName",
+                              "Phone": "phone",
+                              "Phone_Type": "phoneType",
+                              "State": "state",
+                              "Street": "address",
+                              "Zip_Code": "zip",
+                            },
+                            "Application": "1",
+                            "Application.Email": "some email 1",
+                            "Application.First_Name": "some first name 1",
+                            "Application.Last_Name": "some last name 1",
+                            "Application.Name": "Application Name 1",
+                            "Application.Phone": "some phone",
+                            "Application.Processing_Status": "processing",
+                            "Application.Residence_Address": "1316 BURNETT 1",
+                            "LastModifiedDate:": "14 feb 19",
+                            "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+                            "Preference_Lottery_Rank": "1",
+                            "Preference_Order": "1",
+                          }
+                        }
+                        formApi={
+                          Object {
+                            "addValue": [Function],
+                            "asyncValidations": 0,
+                            "doneValidatingField": [Function],
+                            "errors": Object {},
+                            "format": [Function],
+                            "getError": [Function],
+                            "getSuccess": [Function],
+                            "getTouched": [Function],
+                            "getValue": [Function],
+                            "getWarning": [Function],
+                            "registerAsyncValidation": [Function],
+                            "removeValue": [Function],
+                            "reset": [Function],
+                            "resetAll": [Function],
+                            "setAllValues": [Function],
+                            "setError": [Function],
+                            "setSuccess": [Function],
+                            "setTouched": [Function],
+                            "setValue": [Function],
+                            "setWarning": [Function],
+                            "submitForm": [Function],
+                            "submits": 0,
+                            "submitted": false,
+                            "successes": Object {},
+                            "swapValues": [Function],
+                            "touched": Object {},
+                            "validating": Object {},
+                            "validatingField": [Function],
+                            "validationFailed": Object {},
+                            "validationFailures": 0,
+                            "values": Object {
+                              "agreeToTerms": undefined,
+                              "annualIncome": undefined,
+                              "answeredCommunityScreening": undefined,
+                              "hasDevelopmentalDisability": undefined,
+                              "hasMilitaryService": undefined,
+                              "householdVouchersSubsidies": undefined,
+                              "primaryApplicant": Object {
+                                "DOB": "xxxx1",
+                                "address": "address",
+                                "city": "city",
+                                "email": "xxxx2",
+                                "firstName": "xxxx3",
+                                "lastName": "lastName",
+                                "mailingAddress": "mailingAddress",
+                                "mailingCity": "mailingCity",
+                                "mailingState": "mailingState",
+                                "mailingZip": "mailingZip",
+                                "middleName": "middleName",
+                                "phone": "phone",
+                                "phoneType": "phoneType",
+                                "state": "state",
+                                "zip": "zip",
+                              },
+                            },
+                            "warnings": Object {},
+                          }
+                        }
+                      >
+                        <div
+                          className="border-bottom margin-bottom--2x"
+                        >
+                          <div
+                            className="row"
+                          >
+                            <h3>
+                              Household Members
+                            </h3>
+                          </div>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <div
+                                className="small-4 columns"
+                              >
+                                <button
+                                  className="mb-4 mr-4 btn btn-success"
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  + Additional Member
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </HouseholdMembersSection>
+                      <ReservedPrioritySection
+                        editValues={
+                          Object {
+                            "Applicant": Object {
+                              "City": "city",
+                              "Date_of_Birth": "xxxx1",
+                              "Email": "xxxx2",
+                              "First_Name": "xxxx3",
+                              "Id": 1,
+                              "Last_Name": "lastName",
+                              "Mailing_City": "mailingCity",
+                              "Mailing_State": "mailingState",
+                              "Mailing_Street": "mailingAddress",
+                              "Mailing_Zip_Code": "mailingZip",
+                              "Middle_Name": "middleName",
+                              "Phone": "phone",
+                              "Phone_Type": "phoneType",
+                              "State": "state",
+                              "Street": "address",
+                              "Zip_Code": "zip",
+                            },
+                            "Application": "1",
+                            "Application.Email": "some email 1",
+                            "Application.First_Name": "some first name 1",
+                            "Application.Last_Name": "some last name 1",
+                            "Application.Name": "Application Name 1",
+                            "Application.Phone": "some phone",
+                            "Application.Processing_Status": "processing",
+                            "Application.Residence_Address": "1316 BURNETT 1",
+                            "LastModifiedDate:": "14 feb 19",
+                            "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+                            "Preference_Lottery_Rank": "1",
+                            "Preference_Order": "1",
+                          }
+                        }
+                        listing={
+                          Object {
+                            "Id": 1,
+                            "Name": "xxx2",
+                          }
+                        }
+                      >
+                        <div
+                          className="border-bottom margin-bottom--2x"
+                        >
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="small-12 columns"
+                            >
+                              <h3>
+                                Reserved and Priority Qualifying Information
+                              </h3>
+                              <h4>
+                                Qualifying Information For a Reserved Unit
+                              </h4>
+                            </div>
+                            <div
+                              className="small-12 columns margin-bottom--2x"
+                            >
+                              <r
+                                field="adaPrioritiesSelected"
+                              >
+                                <c
+                                  fieldApi={
+                                    Object {
+                                      "doneValidatingField": [Function],
+                                      "getError": [Function],
+                                      "getSuccess": [Function],
+                                      "getTouched": [Function],
+                                      "getValue": [Function],
+                                      "getWarning": [Function],
+                                      "registerAsyncValidation": [Function],
+                                      "reset": [Function],
+                                      "setError": [Function],
+                                      "setSuccess": [Function],
+                                      "setTouched": [Function],
+                                      "setValue": [Function],
+                                      "setWarning": [Function],
+                                      "submits": 0,
+                                      "submitted": false,
+                                      "validatingField": [Function],
+                                    }
+                                  }
+                                >
+                                  <t
+                                    defaultValues={Object {}}
+                                    registerAsyncValidation={[Function]}
+                                    reset={[Function]}
+                                    submits={0}
+                                    submitted={false}
+                                    update={[Function]}
+                                  >
+                                    <Connect(t)
+                                      defaultValues={Object {}}
+                                      registerAsyncValidation={[Function]}
+                                      reset={[Function]}
+                                      store={
+                                        Object {
+                                          "dispatch": [Function],
+                                          "getState": [Function],
+                                          "replaceReducer": [Function],
+                                          "subscribe": [Function],
+                                          Symbol(observable): [Function],
+                                        }
+                                      }
+                                      submits={0}
+                                      submitted={false}
+                                      update={[Function]}
+                                    >
+                                      <t
+                                        defaultValues={Object {}}
+                                        dispatch={[Function]}
+                                        formState={
+                                          Object {
+                                            "asyncErrors": Object {},
+                                            "asyncSuccesses": Object {},
+                                            "asyncValidations": 0,
+                                            "asyncWarnings": Object {},
+                                            "errors": Object {},
+                                            "submits": 0,
+                                            "submitted": false,
+                                            "successes": Object {},
+                                            "touched": Object {},
+                                            "validating": Object {},
+                                            "validationFailed": Object {},
+                                            "validationFailures": 0,
+                                            "values": Object {},
+                                            "warnings": Object {},
+                                          }
+                                        }
+                                        registerAsyncValidation={[Function]}
+                                        reset={[Function]}
+                                        store={
+                                          Object {
+                                            "dispatch": [Function],
+                                            "getState": [Function],
+                                            "replaceReducer": [Function],
+                                            "subscribe": [Function],
+                                            Symbol(observable): [Function],
+                                          }
+                                        }
+                                        storeSubscription={
+                                          Subscription {
+                                            "listeners": Object {
+                                              "clear": [Function],
+                                              "get": [Function],
+                                              "notify": [Function],
+                                              "subscribe": [Function],
+                                            },
+                                            "onStateChange": [Function],
+                                            "parentSub": undefined,
+                                            "store": Object {
+                                              "dispatch": [Function],
+                                              "getState": [Function],
+                                              "replaceReducer": [Function],
+                                              "subscribe": [Function],
+                                              Symbol(observable): [Function],
+                                            },
+                                            "unsubscribe": [Function],
+                                          }
+                                        }
+                                        submits={0}
+                                        submitted={false}
+                                        update={[Function]}
+                                      >
+                                        <div
+                                          className="small-6 columns"
+                                        >
+                                          <label>
+                                            ADA Priorities Selected
+                                          </label>
+                                          <div
+                                            className="checkbox-group"
+                                            role="group"
+                                          >
+                                            <div
+                                              className="form-item"
+                                              key="0"
+                                            >
+                                              <div
+                                                className="checkbox"
+                                              >
+                                                <r
+                                                  field="Mobility impaired"
+                                                  id="adaPrioritiesSelected-0"
+                                                  name="adaPrioritiesSelected"
+                                                >
+                                                  <t
+                                                    fieldApi={
+                                                      Object {
+                                                        "doneValidatingField": [Function],
+                                                        "getError": [Function],
+                                                        "getSuccess": [Function],
+                                                        "getTouched": [Function],
+                                                        "getValue": [Function],
+                                                        "getWarning": [Function],
+                                                        "registerAsyncValidation": [Function],
+                                                        "reset": [Function],
+                                                        "setError": [Function],
+                                                        "setSuccess": [Function],
+                                                        "setTouched": [Function],
+                                                        "setValue": [Function],
+                                                        "setWarning": [Function],
+                                                        "submits": 0,
+                                                        "submitted": false,
+                                                        "validatingField": [Function],
+                                                      }
+                                                    }
+                                                    id="adaPrioritiesSelected-0"
+                                                    name="adaPrioritiesSelected"
+                                                  >
+                                                    <input
+                                                      checked={false}
+                                                      id="adaPrioritiesSelected-0"
+                                                      name="adaPrioritiesSelected"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      type="checkbox"
+                                                    />
+                                                  </t>
+                                                </r>
+                                                <label
+                                                  htmlFor="adaPrioritiesSelected-0"
+                                                >
+                                                  Mobility impaired
+                                                </label>
+                                              </div>
+                                            </div>
+                                            <div
+                                              className="form-item"
+                                              key="1"
+                                            >
+                                              <div
+                                                className="checkbox"
+                                              >
+                                                <r
+                                                  field="Vision impaired"
+                                                  id="adaPrioritiesSelected-1"
+                                                  name="adaPrioritiesSelected"
+                                                >
+                                                  <t
+                                                    fieldApi={
+                                                      Object {
+                                                        "doneValidatingField": [Function],
+                                                        "getError": [Function],
+                                                        "getSuccess": [Function],
+                                                        "getTouched": [Function],
+                                                        "getValue": [Function],
+                                                        "getWarning": [Function],
+                                                        "registerAsyncValidation": [Function],
+                                                        "reset": [Function],
+                                                        "setError": [Function],
+                                                        "setSuccess": [Function],
+                                                        "setTouched": [Function],
+                                                        "setValue": [Function],
+                                                        "setWarning": [Function],
+                                                        "submits": 0,
+                                                        "submitted": false,
+                                                        "validatingField": [Function],
+                                                      }
+                                                    }
+                                                    id="adaPrioritiesSelected-1"
+                                                    name="adaPrioritiesSelected"
+                                                  >
+                                                    <input
+                                                      checked={false}
+                                                      id="adaPrioritiesSelected-1"
+                                                      name="adaPrioritiesSelected"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      type="checkbox"
+                                                    />
+                                                  </t>
+                                                </r>
+                                                <label
+                                                  htmlFor="adaPrioritiesSelected-1"
+                                                >
+                                                  Vision impaired
+                                                </label>
+                                              </div>
+                                            </div>
+                                            <div
+                                              className="form-item"
+                                              key="2"
+                                            >
+                                              <div
+                                                className="checkbox"
+                                              >
+                                                <r
+                                                  field="Hearing impaired"
+                                                  id="adaPrioritiesSelected-2"
+                                                  name="adaPrioritiesSelected"
+                                                >
+                                                  <t
+                                                    fieldApi={
+                                                      Object {
+                                                        "doneValidatingField": [Function],
+                                                        "getError": [Function],
+                                                        "getSuccess": [Function],
+                                                        "getTouched": [Function],
+                                                        "getValue": [Function],
+                                                        "getWarning": [Function],
+                                                        "registerAsyncValidation": [Function],
+                                                        "reset": [Function],
+                                                        "setError": [Function],
+                                                        "setSuccess": [Function],
+                                                        "setTouched": [Function],
+                                                        "setValue": [Function],
+                                                        "setWarning": [Function],
+                                                        "submits": 0,
+                                                        "submitted": false,
+                                                        "validatingField": [Function],
+                                                      }
+                                                    }
+                                                    id="adaPrioritiesSelected-2"
+                                                    name="adaPrioritiesSelected"
+                                                  >
+                                                    <input
+                                                      checked={false}
+                                                      id="adaPrioritiesSelected-2"
+                                                      name="adaPrioritiesSelected"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      type="checkbox"
+                                                    />
+                                                  </t>
+                                                </r>
+                                                <label
+                                                  htmlFor="adaPrioritiesSelected-2"
+                                                >
+                                                  Hearing impaired
+                                                </label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </t>
+                                    </Connect(t)>
+                                  </t>
+                                </c>
+                              </r>
+                            </div>
+                          </div>
+                        </div>
+                      </ReservedPrioritySection>
+                      <PreferencesSection
+                        editValues={
+                          Object {
+                            "Applicant": Object {
+                              "City": "city",
+                              "Date_of_Birth": "xxxx1",
+                              "Email": "xxxx2",
+                              "First_Name": "xxxx3",
+                              "Id": 1,
+                              "Last_Name": "lastName",
+                              "Mailing_City": "mailingCity",
+                              "Mailing_State": "mailingState",
+                              "Mailing_Street": "mailingAddress",
+                              "Mailing_Zip_Code": "mailingZip",
+                              "Middle_Name": "middleName",
+                              "Phone": "phone",
+                              "Phone_Type": "phoneType",
+                              "State": "state",
+                              "Street": "address",
+                              "Zip_Code": "zip",
+                            },
+                            "Application": "1",
+                            "Application.Email": "some email 1",
+                            "Application.First_Name": "some first name 1",
+                            "Application.Last_Name": "some last name 1",
+                            "Application.Name": "Application Name 1",
+                            "Application.Phone": "some phone",
+                            "Application.Processing_Status": "processing",
+                            "Application.Residence_Address": "1316 BURNETT 1",
+                            "LastModifiedDate:": "14 feb 19",
+                            "Listing_Preference_ID.Record_Type_For_App_Preferences": "CAP",
+                            "Preference_Lottery_Rank": "1",
+                            "Preference_Order": "1",
+                          }
+                        }
+                        formApi={
+                          Object {
+                            "addValue": [Function],
+                            "asyncValidations": 0,
+                            "doneValidatingField": [Function],
+                            "errors": Object {},
+                            "format": [Function],
+                            "getError": [Function],
+                            "getSuccess": [Function],
+                            "getTouched": [Function],
+                            "getValue": [Function],
+                            "getWarning": [Function],
+                            "registerAsyncValidation": [Function],
+                            "removeValue": [Function],
+                            "reset": [Function],
+                            "resetAll": [Function],
+                            "setAllValues": [Function],
+                            "setError": [Function],
+                            "setSuccess": [Function],
+                            "setTouched": [Function],
+                            "setValue": [Function],
+                            "setWarning": [Function],
+                            "submitForm": [Function],
+                            "submits": 0,
+                            "submitted": false,
+                            "successes": Object {},
+                            "swapValues": [Function],
+                            "touched": Object {},
+                            "validating": Object {},
+                            "validatingField": [Function],
+                            "validationFailed": Object {},
+                            "validationFailures": 0,
+                            "values": Object {
+                              "agreeToTerms": undefined,
+                              "annualIncome": undefined,
+                              "answeredCommunityScreening": undefined,
+                              "hasDevelopmentalDisability": undefined,
+                              "hasMilitaryService": undefined,
+                              "householdVouchersSubsidies": undefined,
+                              "primaryApplicant": Object {
+                                "DOB": "xxxx1",
+                                "address": "address",
+                                "city": "city",
+                                "email": "xxxx2",
+                                "firstName": "xxxx3",
+                                "lastName": "lastName",
+                                "mailingAddress": "mailingAddress",
+                                "mailingCity": "mailingCity",
+                                "mailingState": "mailingState",
+                                "mailingZip": "mailingZip",
+                                "middleName": "middleName",
+                                "phone": "phone",
+                                "phoneType": "phoneType",
+                                "state": "state",
+                                "zip": "zip",
+                              },
+                            },
+                            "warnings": Object {},
+                          }
+                        }
+                      >
+                        <div
+                          className="border-bottom margin-bottom--2x"
+                        >
+                          <h3>
+                            Preferences
+                          </h3>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <div
+                                className="small-4 columns"
+                              >
+                                <button
+                                  className="mb-4 mr-4 btn btn-success"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  + Add Preference
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </PreferencesSection>
+                      <HouseholdIncomeSection>
+                        <div
+                          className="border-bottom margin-bottom--2x"
+                        >
+                          <h3>
+                            Declared Household Income
+                          </h3>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="small-6 columns"
+                            >
+                              <label>
+                                Annual Income
+                              </label>
+                              <r
+                                field="annualIncome"
+                              >
+                                <t
+                                  fieldApi={
+                                    Object {
+                                      "doneValidatingField": [Function],
+                                      "getError": [Function],
+                                      "getSuccess": [Function],
+                                      "getTouched": [Function],
+                                      "getValue": [Function],
+                                      "getWarning": [Function],
+                                      "registerAsyncValidation": [Function],
+                                      "reset": [Function],
+                                      "setError": [Function],
+                                      "setSuccess": [Function],
+                                      "setTouched": [Function],
+                                      "setValue": [Function],
+                                      "setWarning": [Function],
+                                      "submits": 0,
+                                      "submitted": false,
+                                      "validatingField": [Function],
+                                    }
+                                  }
+                                >
+                                  <input
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    value=""
+                                  />
+                                </t>
+                              </r>
+                            </div>
+                            <div
+                              className="small-6 columns"
+                            >
+                              <label>
+                                Housing Voucher/ Subsidy
+                              </label>
+                              <r
+                                field="householdVouchersSubsidies"
+                                options={
+                                  Array [
+                                    Object {
+                                      "label": "true",
+                                      "value": "true",
+                                    },
+                                    Object {
+                                      "label": "false",
+                                      "value": "false",
+                                    },
+                                    Object {
+                                      "label": "Left Blank",
+                                      "value": "Left Blank",
+                                    },
+                                  ]
+                                }
+                              >
+                                <t
+                                  fieldApi={
+                                    Object {
+                                      "doneValidatingField": [Function],
+                                      "getError": [Function],
+                                      "getSuccess": [Function],
+                                      "getTouched": [Function],
+                                      "getValue": [Function],
+                                      "getWarning": [Function],
+                                      "registerAsyncValidation": [Function],
+                                      "reset": [Function],
+                                      "setError": [Function],
+                                      "setSuccess": [Function],
+                                      "setTouched": [Function],
+                                      "setValue": [Function],
+                                      "setWarning": [Function],
+                                      "submits": 0,
+                                      "submitted": false,
+                                      "validatingField": [Function],
+                                    }
+                                  }
+                                  options={
+                                    Array [
+                                      Object {
+                                        "label": "true",
+                                        "value": "true",
+                                      },
+                                      Object {
+                                        "label": "false",
+                                        "value": "false",
+                                      },
+                                      Object {
+                                        "label": "Left Blank",
+                                        "value": "Left Blank",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <select
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    value={0}
+                                  >
+                                    <option
+                                      disabled={true}
+                                      value={0}
+                                    >
+                                      Select One...
+                                    </option>
+                                    <option
+                                      key="true"
+                                      value={1}
+                                    >
+                                      true
+                                    </option>
+                                    <option
+                                      key="false"
+                                      value={2}
+                                    >
+                                      false
+                                    </option>
+                                    <option
+                                      key="Left Blank"
+                                      value={3}
+                                    >
+                                      Left Blank
+                                    </option>
+                                  </select>
+                                </t>
+                              </r>
+                            </div>
+                          </div>
+                        </div>
+                      </HouseholdIncomeSection>
+                      <div
+                        className="checkbox-group"
+                        role="group"
+                      >
+                        <div
+                          className="form-item"
+                        >
+                          <div
+                            className="checkbox"
+                          >
+                            <r
+                              field="agreeToTerms"
+                              id="agreeToTerms"
+                              name="agreeToTerms"
+                            >
+                              <t
+                                fieldApi={
+                                  Object {
+                                    "doneValidatingField": [Function],
+                                    "getError": [Function],
+                                    "getSuccess": [Function],
+                                    "getTouched": [Function],
+                                    "getValue": [Function],
+                                    "getWarning": [Function],
+                                    "registerAsyncValidation": [Function],
+                                    "reset": [Function],
+                                    "setError": [Function],
+                                    "setSuccess": [Function],
+                                    "setTouched": [Function],
+                                    "setValue": [Function],
+                                    "setWarning": [Function],
+                                    "submits": 0,
+                                    "submitted": false,
+                                    "validatingField": [Function],
+                                  }
+                                }
+                                id="agreeToTerms"
+                                name="agreeToTerms"
+                              >
+                                <input
+                                  checked={false}
+                                  id="agreeToTerms"
+                                  name="agreeToTerms"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                              </t>
+                            </r>
+                            <label
+                              htmlFor="agreeToTerms"
+                            >
+                              Signature on Terms of Agreement
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="button-pager"
+                    >
+                      <div
+                        className="button-pager_row primary"
+                      >
+                        <button
+                          className="primary radius margin-right"
+                          disabled={false}
+                          onClick={[Function]}
+                          type="submit"
+                        >
+                          Save
+                        </button>
+                        <button
+                          className="primary radius"
+                          disabled={false}
+                          onClick={[Function]}
+                          type="submit"
+                        >
+                          Save and New
+                        </button>
+                      </div>
+                      <div
+                        className="button-pager_row primary"
+                      >
+                        <a
+                          className="primary radius"
+                          href="/listings"
+                        >
+                          Cancel
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </t>
+            </Connect(t)>
+          </t>
+        </div>
+      </PaperApplicationForm>
+    </ApplicationEditPageForm>
+  </CardLayout>
+</ApplicationEditPage>
+`;
