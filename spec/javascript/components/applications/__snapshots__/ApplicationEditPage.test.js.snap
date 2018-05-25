@@ -6,6 +6,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
     Object {
       "Applicant": Object {
         "City": "city",
+        "DOB": "2018-04-23T04:00:00.000Z",
         "Date_of_Birth": "2018-04-23T04:00:00.000Z",
         "Email": "xxxx2",
         "First_Name": "xxxx3",
@@ -110,6 +111,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                 Object {
                   "Applicant": Object {
                     "City": "city",
+                    "DOB": "2018-04-23T04:00:00.000Z",
                     "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                     "Email": "xxxx2",
                     "First_Name": "xxxx3",
@@ -153,6 +155,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                   Object {
                     "Applicant": Object {
                       "City": "city",
+                      "DOB": "2018-04-23T04:00:00.000Z",
                       "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                       "Email": "xxxx2",
                       "First_Name": "xxxx3",
@@ -378,6 +381,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
+                                      "DOB": "2018-04-23T04:00:00.000Z",
                                       "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
@@ -1507,6 +1511,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
+                                      "DOB": "2018-04-23T04:00:00.000Z",
                                       "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
@@ -2161,6 +2166,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
+                                      "DOB": "2018-04-23T04:00:00.000Z",
                                       "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
@@ -2288,6 +2294,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
+                                      "DOB": "2018-04-23T04:00:00.000Z",
                                       "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
@@ -2635,6 +2642,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
+                                      "DOB": "2018-04-23T04:00:00.000Z",
                                       "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",

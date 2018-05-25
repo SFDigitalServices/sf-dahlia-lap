@@ -22,6 +22,7 @@ const applicant = (uniqId) => {
   return {
     Id: uniqId,
     Date_of_Birth: values.fixedISOdDate(),
+    'DOB': values.fixedISOdDate(),
     Email: 'xxxx2',
     First_Name: 'xxxx3',
     Last_Name: 'lastName',
