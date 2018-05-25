@@ -1,4 +1,6 @@
 import React from 'react'
+import renderer from 'react-test-renderer';
+
 import ApplicationsPage from 'components/applications/ApplicationsPage'
 
 describe('ApplicationsPage', () => {
@@ -6,10 +8,10 @@ describe('ApplicationsPage', () => {
     const applications = []
     const fields = {}
 
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <ApplicationsPage applications={applications} fields={fields} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 })

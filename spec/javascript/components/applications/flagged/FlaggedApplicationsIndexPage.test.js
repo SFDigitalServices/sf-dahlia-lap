@@ -1,6 +1,7 @@
 import React from 'react'
-import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
+import renderer from 'react-test-renderer';
 
+import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
 import modelsFactory from '../../../factories/models'
 
 describe('FlaggedApplicationsIndexPage', () => {
@@ -8,12 +9,12 @@ describe('FlaggedApplicationsIndexPage', () => {
     const results = modelsFactory.applicationsList()
     const fields = modelsFactory.applicationFields()
 
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <FlaggedApplicationsIndexPage
         results={results}
         fields={fields} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 })

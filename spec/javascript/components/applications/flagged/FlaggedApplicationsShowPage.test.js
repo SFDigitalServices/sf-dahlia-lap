@@ -1,6 +1,7 @@
 import React from 'react'
-import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
+import renderer from 'react-test-renderer';
 
+import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
 import modelsFactory from '../../../factories/models'
 
 describe('FlaggedApplicationsShowPage', () => {
@@ -8,12 +9,12 @@ describe('FlaggedApplicationsShowPage', () => {
     const results = modelsFactory.applicationsList()
     const fields = modelsFactory.applicationFields()
 
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <FlaggedApplicationsShowPage
         results={results}
         fields={fields} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 })

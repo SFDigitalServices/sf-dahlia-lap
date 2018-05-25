@@ -1,6 +1,7 @@
 import React from 'react'
-import ApplicationEditPage from 'components/applications/ApplicationEditPage'
+import renderer from 'react-test-renderer';
 
+import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import modelsFactory from '../../factories/models'
 
 describe('ApplicationNewPage', () => {
@@ -8,10 +9,10 @@ describe('ApplicationNewPage', () => {
     const listing = modelsFactory.listing(1)
     const application = modelsFactory.applicationWithApplicant(1)
 
-    const wrapper = mount(
+    const wrapper = renderer.create(
       <ApplicationEditPage listing={listing} application={application} editPage={true} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 })
