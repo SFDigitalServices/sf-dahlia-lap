@@ -2,6 +2,8 @@ import React from 'react'
 
 import PageHeaderLayout  from './PageHeaderLayout'
 import TabsSection from '../organisms/TabsSection'
+import TabCard from '../organisms/TabCard'
+import AppCard from '../molecules/AppCard'
 
 class CardLayout extends React.Component {
 
@@ -17,9 +19,17 @@ class CardLayout extends React.Component {
       <React.Fragment>
         <PageHeaderLayout {...pageHeader} background='snow'/>
         { tabSection ?
-          (<TabsSection {...tabSection} background='snow'>{children}</TabsSection>)
+          (
+            <TabsSection {...tabSection} background='snow'>
+              <AppCard>{children}</AppCard>
+            </TabsSection>
+          )
           :
-          children
+          (
+            <TabCard padding={true}>
+              <AppCard>{children}</AppCard>
+            </TabCard>
+          )
         }
       </React.Fragment>
     )
