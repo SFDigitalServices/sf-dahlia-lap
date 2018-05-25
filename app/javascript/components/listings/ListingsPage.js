@@ -17,12 +17,6 @@ const layout = {
   pageHeader: {
     title: 'Listings'
   }
-  // ,
-  // tabSection: {
-  //   items: [
-  //     { title: 'Listings' }
-  //   ]
-  // }
 }
 
 const ListingsPage = (props) => {

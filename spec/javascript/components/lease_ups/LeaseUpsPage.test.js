@@ -1,14 +1,11 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
-import sinon from 'sinon'
-import ApplicationFactory from '../../factories/applications'
+import factory from '../../factory'
+import sharedHooks from '../../support/sharedHooks'
 
 const buildApplication = (uniqId, attributes = {}) => {
-  return ApplicationFactory.validApplication(uniqId, attributes)
+  return factory.validApplication(uniqId, attributes)
 }
-
-// jest.useFakeTimers();
 
 describe('LeaseUpsPage', () => {
   const listings = {
@@ -17,15 +14,7 @@ describe('LeaseUpsPage', () => {
     Building_Street_Address: 'yyyy'
   }
 
-  let clock = null;
-
-  beforeEach(() => {
-    clock = sinon.useFakeTimers(new Date(2018, 3, 23).getTime());
-  });
-
-  afterEach(() => {
-    clock.restore();
-  })
+  sharedHooks.useFakeTimers()
 
   test('Should render LeaseUpTable', () => {
     const results = [ buildApplication(1), buildApplication(2) ]
