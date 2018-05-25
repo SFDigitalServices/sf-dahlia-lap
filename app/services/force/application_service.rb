@@ -22,7 +22,6 @@ module Force
         AND Status__c != '#{DRAFT}'
         AND #{user_can_access}
       ))
-      # prybug
       application['preferences'] = app_preferences(id)
       application['proof_files'] = app_proof_files(id)
       application['household_members'] = app_household_members(application)

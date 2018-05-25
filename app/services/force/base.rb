@@ -66,7 +66,6 @@ module Force
 
     def api_call(method, endpoint, params)
       apex_endpoint = "/services/apexrest#{endpoint}"
-      # puts "api_call :: #{apex_endpoint} :: #{params.as_json}"
       response = @client.send(method, apex_endpoint, params.as_json)
       response.body
     end
@@ -74,9 +73,6 @@ module Force
     def api_post(endpoint, params)
       api_call('post', endpoint, params)
     end
-
-    # def api_get
-    # end
 
     private
 
@@ -93,7 +89,6 @@ module Force
         if field.include? '.'
           parts = field.split('.')
           if parts.count == 3
-            # e.g. Flagged_Record_Set__r.Listing__r.Lottery_Status__c
             val = result[parts[0]].try(:[], parts[1]).try(:[], parts[2])
           else
             val = result[parts.first] ? result[parts.first][parts.last] : nil
