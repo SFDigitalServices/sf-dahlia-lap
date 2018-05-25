@@ -1,10 +1,10 @@
 import React from 'react'
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
-import factory from '../../factory'
+import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
 
 const buildApplication = (uniqId, attributes = {}) => {
-  return factory.application(uniqId, attributes)
+  return modelsFactory.application(uniqId, attributes)
 }
 
 describe('LeaseUpsPage', () => {

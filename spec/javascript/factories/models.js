@@ -1,3 +1,5 @@
+import values from './values'
+
 const application = (uniqId, attributes = {}) => {
   return {
     'Preference_Order': '1',
@@ -19,7 +21,7 @@ const application = (uniqId, attributes = {}) => {
 const applicant = (uniqId) => {
   return {
     Id: uniqId,
-    Date_of_Birth: 'xxxx1',
+    Date_of_Birth: values.fixedISOdDate(),
     Email: 'xxxx2',
     First_Name: 'xxxx3',
     Last_Name: 'lastName',

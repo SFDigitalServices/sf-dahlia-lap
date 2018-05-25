@@ -6,7 +6,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
     Object {
       "Applicant": Object {
         "City": "city",
-        "Date_of_Birth": "xxxx1",
+        "Date_of_Birth": "2018-04-23T04:00:00.000Z",
         "Email": "xxxx2",
         "First_Name": "xxxx3",
         "Id": 1,
@@ -110,7 +110,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                 Object {
                   "Applicant": Object {
                     "City": "city",
-                    "Date_of_Birth": "xxxx1",
+                    "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                     "Email": "xxxx2",
                     "First_Name": "xxxx3",
                     "Id": 1,
@@ -153,7 +153,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                   Object {
                     "Applicant": Object {
                       "City": "city",
-                      "Date_of_Birth": "xxxx1",
+                      "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                       "Email": "xxxx2",
                       "First_Name": "xxxx3",
                       "Id": 1,
@@ -202,7 +202,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                         "hasMilitaryService": undefined,
                         "householdVouchersSubsidies": undefined,
                         "primaryApplicant": Object {
-                          "DOB": "xxxx1",
+                          "DOB": "2018-04-23T04:00:00.000Z",
                           "address": "address",
                           "city": "city",
                           "email": "xxxx2",
@@ -232,7 +232,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                           "hasMilitaryService": undefined,
                           "householdVouchersSubsidies": undefined,
                           "primaryApplicant": Object {
-                            "DOB": "xxxx1",
+                            "DOB": "2018-04-23T04:00:00.000Z",
                             "address": "address",
                             "city": "city",
                             "email": "xxxx2",
@@ -271,7 +271,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                             "hasMilitaryService": undefined,
                             "householdVouchersSubsidies": undefined,
                             "primaryApplicant": Object {
-                              "DOB": "xxxx1",
+                              "DOB": "2018-04-23T04:00:00.000Z",
                               "address": "address",
                               "city": "city",
                               "email": "xxxx2",
@@ -312,7 +312,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                               "hasMilitaryService": undefined,
                               "householdVouchersSubsidies": undefined,
                               "primaryApplicant": Object {
-                                "DOB": "xxxx1",
+                                "DOB": "2018-04-23T04:00:00.000Z",
                                 "address": "address",
                                 "city": "city",
                                 "email": "xxxx2",
@@ -378,7 +378,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
-                                      "Date_of_Birth": "xxxx1",
+                                      "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
                                       "Id": 1,
@@ -448,7 +448,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                       "hasMilitaryService": undefined,
                                       "householdVouchersSubsidies": undefined,
                                       "primaryApplicant": Object {
-                                        "DOB": "xxxx1",
+                                        "DOB": "2018-04-23T04:00:00.000Z",
                                         "address": "address",
                                         "city": "city",
                                         "email": "xxxx2",
@@ -497,7 +497,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                     <t
                                       defaultValues={
                                         Object {
-                                          "DOB": "xxxx1",
+                                          "DOB": "2018-04-23T04:00:00.000Z",
                                           "address": "address",
                                           "city": "city",
                                           "email": "xxxx2",
@@ -523,7 +523,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                       <Connect(t)
                                         defaultValues={
                                           Object {
-                                            "DOB": "xxxx1",
+                                            "DOB": "2018-04-23T04:00:00.000Z",
                                             "address": "address",
                                             "city": "city",
                                             "email": "xxxx2",
@@ -558,7 +558,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                         <t
                                           defaultValues={
                                             Object {
-                                              "DOB": "xxxx1",
+                                              "DOB": "2018-04-23T04:00:00.000Z",
                                               "address": "address",
                                               "city": "city",
                                               "email": "xxxx2",
@@ -591,7 +591,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                               "validationFailed": Object {},
                                               "validationFailures": 0,
                                               "values": Object {
-                                                "DOB": "xxxx1",
+                                                "DOB": "2018-04-23T04:00:00.000Z",
                                                 "address": "address",
                                                 "city": "city",
                                                 "email": "xxxx2",
@@ -992,7 +992,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                                   dateFormat="YYYY-MM-DD"
                                                   dropdownMode="select"
                                                   field="DOB"
-                                                  prefilledDate="xxxx1"
+                                                  prefilledDate="2018-04-23T04:00:00.000Z"
                                                   required={true}
                                                   showYearDropdown={true}
                                                 >
@@ -1019,7 +1019,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                                         "validatingField": [Function],
                                                       }
                                                     }
-                                                    prefilledDate="xxxx1"
+                                                    prefilledDate="2018-04-23T04:00:00.000Z"
                                                     required={true}
                                                     showYearDropdown={true}
                                                   >
@@ -1039,9 +1039,9 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                                         onKeyDown={[Function]}
                                                         onMonthChange={[Function]}
                                                         onSelect={[Function]}
-                                                        prefilledDate="xxxx1"
+                                                        prefilledDate="2018-04-23T04:00:00.000Z"
                                                         required={true}
-                                                        selected={null}
+                                                        selected={"2018-04-23T04:00:00.000Z"}
                                                         shouldCloseOnSelect={true}
                                                         showTimeSelect={false}
                                                         showYearDropdown={true}
@@ -1083,7 +1083,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                                                 tabIndex={undefined}
                                                                 title={undefined}
                                                                 type="text"
-                                                                value="Invalid date"
+                                                                value="2018-04-23"
                                                               />
                                                             </div>
                                                           }
@@ -1111,7 +1111,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                                                       onKeyDown={[Function]}
                                                                       required={true}
                                                                       type="text"
-                                                                      value="Invalid date"
+                                                                      value="2018-04-23"
                                                                     />
                                                                   </div>
                                                                 </div>
@@ -1507,7 +1507,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
-                                      "Date_of_Birth": "xxxx1",
+                                      "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
                                       "Id": 1,
@@ -2161,7 +2161,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
-                                      "Date_of_Birth": "xxxx1",
+                                      "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
                                       "Id": 1,
@@ -2231,7 +2231,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                       "hasMilitaryService": undefined,
                                       "householdVouchersSubsidies": undefined,
                                       "primaryApplicant": Object {
-                                        "DOB": "xxxx1",
+                                        "DOB": "2018-04-23T04:00:00.000Z",
                                         "address": "address",
                                         "city": "city",
                                         "email": "xxxx2",
@@ -2288,7 +2288,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
-                                      "Date_of_Birth": "xxxx1",
+                                      "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
                                       "Id": 1,
@@ -2635,7 +2635,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                   Object {
                                     "Applicant": Object {
                                       "City": "city",
-                                      "Date_of_Birth": "xxxx1",
+                                      "Date_of_Birth": "2018-04-23T04:00:00.000Z",
                                       "Email": "xxxx2",
                                       "First_Name": "xxxx3",
                                       "Id": 1,
@@ -2705,7 +2705,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                       "hasMilitaryService": undefined,
                                       "householdVouchersSubsidies": undefined,
                                       "primaryApplicant": Object {
-                                        "DOB": "xxxx1",
+                                        "DOB": "2018-04-23T04:00:00.000Z",
                                         "address": "address",
                                         "city": "city",
                                         "email": "xxxx2",

@@ -1,14 +1,14 @@
 import React from 'react'
 
 import ApplicationPage from 'components/applications/ApplicationPage'
-import factory from '../../factory'
+import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
 
 describe('ApplicationPage', () => {
   sharedHooks.useFakeTimers()
 
   test('should render succesfully', () => {
-    const application = factory.applicationWithListing(1)
+    const application = modelsFactory.applicationWithListing(1)
     const fields = {}
     const fileBaseUrl = ''
 

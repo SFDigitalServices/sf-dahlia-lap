@@ -1,12 +1,12 @@
 import React from 'react'
 import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
 
-import factory from '../../../factory'
+import modelsFactory from '../../../factories/models'
 
 describe('FlaggedApplicationsShowPage', () => {
   test('should render succesfully', () => {
-    const results = factory.applicationsList()
-    const fields = factory.applicationFields()
+    const results = modelsFactory.applicationsList()
+    const fields = modelsFactory.applicationFields()
 
     const wrapper = mount(
       <FlaggedApplicationsShowPage
