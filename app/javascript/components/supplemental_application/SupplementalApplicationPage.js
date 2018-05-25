@@ -1,15 +1,13 @@
 import React from 'react'
-import moment from 'moment'
-import _ from 'lodash'
 
 import SupplementalApplicationHeader from './SupplementalApplicationHeader'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import TabsSection from '../organisms/TabsSection'
 import appPaths from '../../utils/appPaths'
 import mapProps from '../../utils/mapProps'
+import mapProperties from './mapProperties'
 
 const SupplementalApplicationPage = ({ application, statusHistory }) => {
-  // console.log(statusHistory)
   const tabNames = [
     { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
     { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
@@ -28,52 +26,6 @@ const SupplementalApplicationPage = ({ application, statusHistory }) => {
       </TabsSection>
     </div>
   )
-}
-
-/*********************/
-/* Prop mapping      */
-/*********************/
-
-// I'm mapping properties passed to react_component to the actual Page Component,
-// so we do not propagate salesforce domain objects thru our components three.
-// Fed
-
-const mapListing = (listing) => {
-  return {
-    id: listing.Id,
-    name: listing.Name
-  }
-}
-
-const mapApplicationProperty = (application) => {
-  return {
-    id: application.Id,
-    number: application.Name,
-    name: application.Applicant.Name,
-    listing: mapListing(application.Listing)
-  }
-}
-
-const mapStatusHistoryItem = (item) => {
-  return {
-    status: item.Processing_Status,
-    note: item.Processing_Comment,
-    date: item.Processing_Date_Updated,
-    timestamp: moment(item.Processing_Date_Updated).unix()
-  }
-}
-
-const mapStatusHistoryProperty = (statusHistory) => {
-  if (_.isEmpty(statusHistory))
-    return []
-  return statusHistory.map(mapStatusHistoryItem)
-}
-
-const mapProperties = ({application, statusHistory}) => {
-  return {
-    application: mapApplicationProperty(application),
-    statusHistory: mapStatusHistoryProperty(statusHistory)
-  }
 }
 
 export default mapProps(mapProperties)(SupplementalApplicationPage)

@@ -27,7 +27,9 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
             <li>
               <a
                 href="/listings/lease_ups/listing1/applications"
-              />
+              >
+                listingName
+              </a>
             </li>
             <li
               className="current"
@@ -311,7 +313,9 @@ exports[`SupplementalApplicationPage it should render correctly without status h
             <li>
               <a
                 href="/listings/lease_ups/listing1/applications"
-              />
+              >
+                listingName
+              </a>
             </li>
             <li
               className="current"
