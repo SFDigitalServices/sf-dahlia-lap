@@ -1,7 +1,7 @@
 import React from 'react'
 import Spinner from '../atoms/Spinner'
 
-const Loading = ({  }) => {
+const Loading = () => {
   return (
     <div className="loading loading-panel">
       <Spinner />
