@@ -8,7 +8,7 @@ describe('ApplicationPage', () => {
   sharedHooks.useFakeTimers()
 
   test('should render succesfully', () => {
-    const application = factory.validApplicationWithListing(1)
+    const application = factory.applicationWithListing(1)
     const fields = {}
     const fileBaseUrl = ''
 

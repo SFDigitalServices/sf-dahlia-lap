@@ -8,7 +8,7 @@ describe('ApplicationNewPage', () => {
   sharedHooks.useFakeTimers()
   
   test('should render succesfully', () => {
-    const listing = factory.validListing(1)
+    const listing = factory.listing(1)
 
     const wrapper = mount(
       <ApplicationNewPage listing={listing} />,

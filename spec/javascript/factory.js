@@ -1,4 +1,4 @@
-const validApplication = (uniqId, attributes = {}) => {
+const application = (uniqId, attributes = {}) => {
   return {
     'Preference_Order': '1',
     'Application': '1',
@@ -37,15 +37,15 @@ const applicant = (uniqId) => {
   }
 }
 
-const validApplicationWithApplicant = (uniqId) => {
-  return validApplication(uniqId, { Applicant: applicant(uniqId) } )
+const applicationWithApplicant = (uniqId) => {
+  return application(uniqId, { Applicant: applicant(uniqId) } )
 }
 
-const validApplicationWithListing = (uniqId) => {
-  return validApplication(uniqId, { 'Listing': { 'Id': uniqId }} )
+const applicationWithListing = (uniqId) => {
+  return application(uniqId, { 'Listing': { 'Id': uniqId }} )
 }
 
-const validListing = (uniqId) => {
+const listing = (uniqId) => {
   return {
     'Id': uniqId,
     'Name': 'xxx2'
@@ -111,13 +111,13 @@ const applicationsList = () => {
 }
 
 export default {
-  validApplication,
-  validApplicationWithListing,
-  validListing,
+  application,
+  applicationWithListing,
+  listing,
   listingFields,
   listingsList,
   applicationsList,
   applicant,
-  validApplicationWithApplicant,
+  applicationWithApplicant,
   applicationFields
 }

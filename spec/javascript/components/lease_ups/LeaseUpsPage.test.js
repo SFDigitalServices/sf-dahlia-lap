@@ -4,7 +4,7 @@ import factory from '../../factory'
 import sharedHooks from '../../support/sharedHooks'
 
 const buildApplication = (uniqId, attributes = {}) => {
-  return factory.validApplication(uniqId, attributes)
+  return factory.application(uniqId, attributes)
 }
 
 describe('LeaseUpsPage', () => {

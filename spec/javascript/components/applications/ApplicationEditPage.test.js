@@ -5,8 +5,8 @@ import factory from '../../factory'
 
 describe('ApplicationNewPage', () => {
   test('should render succesfully', () => {
-    const listing = factory.validListing(1)
-    const application = factory.validApplicationWithApplicant(1)
+    const listing = factory.listing(1)
+    const application = factory.applicationWithApplicant(1)
 
     const wrapper = mount(
       <ApplicationEditPage listing={listing} application={application} editPage={true} />,

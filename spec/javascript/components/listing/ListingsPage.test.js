@@ -4,7 +4,7 @@ import factory from '../../factory'
 
 describe('ListingsPage', () => {
   test('should render succesfully', () => {
-    const listing = factory.validListing(1)
+    const listing = factory.listing(1)
 
     const wrapper = mount(
       <ListingPage listing={listing}/>,
