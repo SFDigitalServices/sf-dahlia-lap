@@ -42,16 +42,14 @@ module Force
     # run a Salesforce SOQL query
 
     def query_with_cache_for_developers(q)
-      puts "Using caching...."
+      puts "Using caching for query...."
       key = Digest::MD5.hexdigest(q)
       force_refresh = !ENV['CACHE_SALESFORCE_REQUESTS']
       puts "...forcing cache refresh: #{force_refresh}" # if force_refresh
-      puts "...cache key #{key}"
-      result = Rails.cache.fetch(key) do
+      result = Rails.cache.fetch(key, force: force_refresh) do
         puts "...not hitting cache"
         @client.query(q).as_json.take(50) # we do not need all the results
       end
-      puts "..donde with cache"
       result.map { |i| Hashie::Mash.new(i) }
     end
 

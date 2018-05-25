@@ -16,9 +16,17 @@ class TableLayout extends React.Component {
       <React.Fragment>
         <PageHeaderLayout {...pageHeader} background='dust'/>
         { tabSection ?
-          (<TabsSection {...tabSection} background='dust' padding={true}>{children}</TabsSection>)
+          (
+            <TabsSection {...tabSection} background='dust' padding={true}>
+              {children}
+            </TabsSection>
+          )
           :
-          (<TabCard padding={true}>{children}</TabCard>)
+          (
+            <TabCard padding={true}>
+              {children}
+            </TabCard>
+          )
         }
       </React.Fragment>
     )

@@ -16,6 +16,7 @@ Rails.application.configure do
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
+    # for some reason memory_store was not working, I moved it to file_store, Fed
     # config.cache_store = :memory_store
     config.cache_store = :file_store, "#{root}/tmp/cache/"
 
