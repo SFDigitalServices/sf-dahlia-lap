@@ -94,14 +94,14 @@ class Dropdown extends React.Component {
  render() {
    const { prompt, size = 'small', items, value, buttonClasses = []} = this.props
    const selectedItem = _.find(items, { value: value })
-   // console.log(selectedItem, 'selectedItem')
 
    return (
-    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'absolute' }}>
+    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={this.props.styles}>
       <button
         aria-expanded={this.state.expanded ? 'true' : 'false' }
         onClick={this.toggleExpand} ref={(node) => this.buttonRef = node }
-        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses.join(' ')}`}>
+        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses.join(' ')}`}
+        type="button">
           <span className="ui-icon ui-small">
             <svg>
               <use xlinkHref="#i-arrow-down"></use>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 // import moment from 'moment'
 import ReactTable from 'react-table'
-import utils from '~/utils'
+import utils from '~/utils/utils'
 import apiService from '~/apiService'
 import IndexTableCell from './IndexTableCell'
 

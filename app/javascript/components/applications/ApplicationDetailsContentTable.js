@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
-import utils from '../../utils'
-import appPaths from '../../utils/appPaths'
+import utils from '~/utils/utils'
+import appPaths from '~/utils/appPaths'
 
 const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
   let i = 0

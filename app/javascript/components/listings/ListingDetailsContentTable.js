@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import utils from '../../utils'
+import utils from '~/utils/utils'
 
 const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
   let i = 0

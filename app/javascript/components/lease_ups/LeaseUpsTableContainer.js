@@ -1,19 +1,57 @@
 import React from 'react'
-import ReactTable from 'react-table'
 import _ from 'lodash'
-import moment from 'moment'
 
+import apiService from '~/apiService'
 import LeaseUpsTable from './LeaseUpsTable'
 import LeaseUpsStatusModalWrapper from './LeaseUpsStatusModalWrapper'
 
-
 class LeaseUpTableContainer extends React.Component {
   state = {
-    statusModalIsOpen: false
+    statusModal: {
+      isOpen: false,
+      status: '',
+    }
   }
 
-  openStatusModal  = (value, label) => this.setState({ statusModalIsOpen: true })
-  closeStatusModal = () => this.setState({ statusModalIsOpen: false })
+  openStatusModal  = () => {
+    this.setState(prevState => ({statusModal: {...prevState.statusModal, isOpen: true}}))
+  }
+
+  closeStatusModal = () => {
+    this.setState(prevState => ({statusModal: {...prevState.statusModal, isOpen: false}}))
+  }
+
+  setStatusModalStatus = (value) => {
+    this.setState(prevState => ({statusModal: {...prevState.statusModal, status: value}}))
+  }
+
+  leaseUpStatusChangeHandler = (value) => {
+    this.setStatusModalStatus(value)
+    this.openStatusModal()
+  }
+
+  createStatusUpdate = async (submittedValues) => {
+    var status = this.state.statusModal.status
+    var comment = submittedValues.comment && submittedValues.comment.trim()
+
+    if (status && comment) {
+      var data = {
+        status: status,
+        comment: comment,
+        applicationId: 'the application ID goes here'
+      }
+      var response = await apiService.createLeaseUpStatus(data)
+
+      // check response for errors and handle? how should errors be handled?
+
+      // MAY HAPPEN HERE OR MAY NEED TO HAPPEN ELSEWHERE:
+      // ensure that the final selected status in the modal gets propagated
+      // to the status button in the correct row in the applications table
+
+      // close the modal
+      this.closeStatusModal()
+    }
+  }
 
   buildRowData(result) {
     // if we are going to use Mobx this mapping logic could be extracted to a Model
@@ -41,11 +79,7 @@ class LeaseUpTableContainer extends React.Component {
     return rowData
   }
 
-  updateLeaseUpStatus = (applicationId, status) => {
-    // apiService.updateLeaseUpStatus(applicationId, status)
-  }
-
-  gotToSupplementaryInfo = (listingId, rowInfo) => {
+  goToSupplementaryInfo = (listingId, rowInfo) => {
     window.location.href = `/listing/${listingId}/lease_ups/${rowInfo.original.id}`
   }
 
@@ -57,16 +91,19 @@ class LeaseUpTableContainer extends React.Component {
     const { listing } = this.props
 
     return (
-        <div>
-          <LeaseUpsTable
-              dataSet={this.rowsData()}
-              listingId={listing.Id}
-              onLeaseUpStatusChange={this.openStatusModal}
-              onCellClick={this.gotToSupplementaryInfo} />
-          <LeaseUpsStatusModalWrapper
-              isOpen={this.state.statusModalIsOpen}
-              handleClose={this.closeStatusModal} />
-        </div>
+      <div>
+        <LeaseUpsTable
+            dataSet={this.rowsData()}
+            listingId={listing.Id}
+            onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
+            onCellClick={this.goToSupplementaryInfo} />
+        <LeaseUpsStatusModalWrapper
+            isOpen={this.state.statusModal.isOpen}
+            status={this.state.statusModal.status}
+            changeHandler={this.setStatusModalStatus}
+            submitHandler={this.createStatusUpdate}
+            closeHandler={this.closeStatusModal} />
+      </div>
     )
   }
 }

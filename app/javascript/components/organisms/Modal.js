@@ -1,10 +1,8 @@
 import React from 'react'
-import Icon from '../atoms/Icon'
 import ReactModal from 'react-modal'
-import _ from 'lodash'
 
 import Alert from '../organisms/Alert'
-import StringUtils from '../../utils/StringUtils'
+import stringUtils from '~/utils/stringUtils'
 
 const styleTypes = {
   small: {
@@ -49,14 +47,6 @@ class Modal extends React.Component {
 Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby="modalTitle" aria-hidden={hidden} role="dialog">
     {children}
-{/*    <a className="close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
-      <span className="ui-icon ui-medium i-primary">
-        <svg>
-          <use xlinkHref="#i-close"></use>
-        </svg>
-      </span>
-    </a>*/}
-
     <button className="button button-link close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
       <span className="sr-only">Close</span>
       <span className="ui-icon ui-medium i-primary">
@@ -69,8 +59,8 @@ Modal.Body = ({ children, handleClose, hidden }) => (
 )
 
 Modal.Header = ({ title }) => (
-  <header className="modal-inner">
-    <h1 className="modal-title t-gamma no-margin">{StringUtils.titleize(title)}</h1>
+  <header className="modal-inner margin-top">
+    <h1 className="modal-title t-gamma no-margin">{stringUtils.titleize(title)}</h1>
   </header>
 )
 

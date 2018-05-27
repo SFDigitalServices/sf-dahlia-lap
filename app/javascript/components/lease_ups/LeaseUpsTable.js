@@ -2,16 +2,21 @@ import React from 'react'
 import ReactTable from 'react-table'
 import _ from 'lodash'
 
-import DropdownMenuItem  from '../atoms/DropdownMenuItem'
 import Dropdown from '../molecules/Dropdown'
-import PrettyTime from '../utils/PrettyTime'
+import PrettyTime from '~/utils/PrettyTime'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE } from './data'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const value = cell.value || ''
   return (
-    <Dropdown items={LEASE_UP_STATUS_OPTIONS} value={value} prompt="Status" onChange={onChange} buttonClasses={['tertiary', 'no-margin', 'tiny']} />
+    <Dropdown
+      items={LEASE_UP_STATUS_OPTIONS}
+      value={value}
+      prompt='Status'
+      onChange={onChange}
+      styles={{position: 'absolute'}}
+      buttonClasses={['tertiary', 'no-margin', 'tiny']} />
   )
 }
 
@@ -43,10 +48,10 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
 
   const getTdProps = (state, rowInfo, column, instance) => {
     let attrs = {}
-    if (column.id == 'lease_up_status') { // We do not want the Select to react onClick
+    if (column.id === 'lease_up_status') { // We do not want the Select to react onClick
       attrs.className = 'td-min-wide td-status td-fixed-right'
       return attrs
-    } else if (column.id == 'application_number') {
+    } else if (column.id === 'application_number') {
       return attrs
     } else {
       attrs.onClick = (e, handleOriginal) => {
@@ -54,11 +59,11 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
             onCellClick(listingId, rowInfo)
       }
 
-      if (column.id == 'status_updated') {
+      if (column.id === 'status_updated') {
         attrs.className = 'td-offset-right'
       }
 
-      else if (column.id == 'preference_rank') {
+      else if (column.id === 'preference_rank') {
         attrs.className = 'td-min-narrow'
       }
     }

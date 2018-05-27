@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import moment from 'moment'
-import utils from '../../utils'
+import utils from '~/utils/utils'
 
 var generateContent = (dataCollection, field, labelMapper, i) => {
   if (dataCollection == null) {
