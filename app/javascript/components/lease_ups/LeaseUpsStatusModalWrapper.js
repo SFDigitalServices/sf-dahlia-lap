@@ -1,17 +1,12 @@
 import React from 'react'
-import _ from 'lodash'
 
 import Dropdown from '../molecules/Dropdown'
 import FormModal from 'components/organisms/FormModal'
 import { TextArea } from 'react-form'
 import formUtils from '~/utils/formUtils'
-import { LEASE_UP_STATUS_OPTIONS } from './data'
+import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
 class LeaseUpsStatusModalWrapper extends React.Component {
-  getStatusButtonStyle(status) {
-    return status ? _.find(LEASE_UP_STATUS_OPTIONS, {value: status}).style : 'tertiary'
-  }
-
   formValidator = (values) => {
     return {
       comment: !values.comment || values.comment.trim() === '' ? 'Please provide a comment.' : null,
@@ -29,7 +24,8 @@ class LeaseUpsStatusModalWrapper extends React.Component {
         onSubmit={this.props.submitHandler}
         onSecondaryClick={this.props.closeHandler}
         type="status"
-        validateError={this.formValidator}>
+        validateError={this.formValidator}
+        alert={this.props.alert}>
           {formApi => (
             <div className={'form-group ' + (formUtils.submitErrors(formApi).comment ? 'error' : '')}>
               <h2 className="form-label">Status/Comment</h2>
@@ -38,7 +34,7 @@ class LeaseUpsStatusModalWrapper extends React.Component {
                 value={this.props.status}
                 prompt="Status"
                 onChange={this.props.changeHandler}
-                buttonClasses={[this.getStatusButtonStyle(this.props.status), 'margin-bottom--half', 'expand', 'small']} />
+                buttonClasses={[getLeaseUpStatusStyle(this.props.status), 'margin-bottom--half', 'expand', 'small']} />
               {!this.props.status && <small className="error">Please provide a status.</small>}
               <label className='sr-only' htmlFor="status-comment" id="status-comment-label">Comment</label>
               <TextArea

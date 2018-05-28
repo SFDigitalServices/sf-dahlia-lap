@@ -6,7 +6,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
     Object {
       "invert": false,
       "message": "Note, you will have the opportunity to grant another household member this preference",
-      "subTitle": "This application would no longer be eligible for Live Work Preference",
+      "subtitle": "This application would no longer be eligible for Live Work Preference",
       "title": "This change will affect this application's preferences",
     }
   }
@@ -166,7 +166,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                 Object {
                   "invert": false,
                   "message": "Note, you will have the opportunity to grant another household member this preference",
-                  "subTitle": "This application would no longer be eligible for Live Work Preference",
+                  "subtitle": "This application would no longer be eligible for Live Work Preference",
                   "title": "This change will affect this application's preferences",
                 }
               }
@@ -201,13 +201,13 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                   <Component
                     invert={false}
                     message="Note, you will have the opportunity to grant another household member this preference"
-                    subTitle="This application would no longer be eligible for Live Work Preference"
+                    subtitle="This application would no longer be eligible for Live Work Preference"
                     title="This change will affect this application's preferences"
                   >
                     <Alert
                       invert={false}
                       message="Note, you will have the opportunity to grant another household member this preference"
-                      subTitle="This application would no longer be eligible for Live Work Preference"
+                      subtitle="This application would no longer be eligible for Live Work Preference"
                       title="This change will affect this application's preferences"
                     >
                       <div
@@ -342,7 +342,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
     Object {
       "invert": false,
       "message": "Note, you will have the opportunity to grant another household member this preference",
-      "subTitle": "This application would no longer be eligible for Live Work Preference",
+      "subtitle": "This application would no longer be eligible for Live Work Preference",
       "title": "This change will affect this application's preferences",
     }
   }
@@ -502,7 +502,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                 Object {
                   "invert": false,
                   "message": "Note, you will have the opportunity to grant another household member this preference",
-                  "subTitle": "This application would no longer be eligible for Live Work Preference",
+                  "subtitle": "This application would no longer be eligible for Live Work Preference",
                   "title": "This change will affect this application's preferences",
                 }
               }
@@ -537,13 +537,13 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                   <Component
                     invert={false}
                     message="Note, you will have the opportunity to grant another household member this preference"
-                    subTitle="This application would no longer be eligible for Live Work Preference"
+                    subtitle="This application would no longer be eligible for Live Work Preference"
                     title="This change will affect this application's preferences"
                   >
                     <Alert
                       invert={false}
                       message="Note, you will have the opportunity to grant another household member this preference"
-                      subTitle="This application would no longer be eligible for Live Work Preference"
+                      subtitle="This application would no longer be eligible for Live Work Preference"
                       title="This change will affect this application's preferences"
                     >
                       <div

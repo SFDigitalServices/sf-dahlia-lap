@@ -11,6 +11,7 @@ class LeaseUpTableContainer extends React.Component {
       isOpen: false,
       status: null,
       applicationId: null,
+      alert: null
     }
   }
 
@@ -28,6 +29,10 @@ class LeaseUpTableContainer extends React.Component {
 
   setStatusModalAppId = (value) => {
     this.setState(prevState => ({statusModal: {...prevState.statusModal, applicationId: value}}))
+  }
+
+  setStatusModalAlert = (alert) => {
+    this.setState(prevState => ({statusModal: {...prevState.statusModal, alert: alert}}))
   }
 
   leaseUpStatusChangeHandler = (applicationId, status) => {
@@ -52,11 +57,12 @@ class LeaseUpTableContainer extends React.Component {
       if (response) {
         this.setStatusModalStatus(null)
         this.setStatusModalAppId(null)
+        this.setStatusModalAlert(null)
         this.closeStatusModal()
       } else {
         // this is a quick error handling approach - product may want to
         // provide guidance on exact handling desired in this case
-        alert('There was an error processing your status update. Please try again.')
+        this.setStatusModalAlert({title: 'Something went wrong, please try again.', invert: true})
       }
       // MAY HAPPEN HERE OR MAY NEED TO HAPPEN ELSEWHERE:
       // ensure that the final selected status in the modal gets propagated
@@ -114,7 +120,8 @@ class LeaseUpTableContainer extends React.Component {
             applicationId={this.state.statusModal.applicationId}
             changeHandler={this.setStatusModalStatus}
             submitHandler={this.createStatusUpdate}
-            closeHandler={this.closeStatusModal} />
+            closeHandler={this.closeStatusModal}
+            alert={this.state.statusModal.alert} />
       </div>
     )
   }

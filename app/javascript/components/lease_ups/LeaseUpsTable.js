@@ -5,7 +5,7 @@ import _ from 'lodash'
 import Dropdown from '../molecules/Dropdown'
 import PrettyTime from '~/utils/PrettyTime'
 
-import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE } from './data'
+import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
 const LeaseUpStatusCell = ({ cell, onChange, applicationId }) => {
   const value = cell.value || ''
@@ -16,7 +16,7 @@ const LeaseUpStatusCell = ({ cell, onChange, applicationId }) => {
       prompt='Status'
       onChange={onChange.bind(null, applicationId)}
       styles={{position: 'absolute'}}
-      buttonClasses={['tertiary', 'no-margin', 'tiny']} />
+      buttonClasses={[getLeaseUpStatusStyle(value), 'no-margin', 'tiny']} />
   )
 }
 
@@ -43,7 +43,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
-      { Header: 'Lease Up status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
+      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
     ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
@@ -73,7 +73,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
 
   const getTrProps = (state, rowInfo, column) => {
     const statusClassName = (rowInfo && !!_.trim(rowInfo.row.lease_up_status))
-                            ? `is-${_.lowerCase(rowInfo.row.lease_up_status)}`
+                            ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
                             : ''
 
     return {

@@ -23,7 +23,7 @@ describe('SimpleModal', () => {
           type='status'
           alert={{
             title: "This change will affect this application's preferences",
-            subTitle: 'This application would no longer be eligible for Live Work Preference',
+            subtitle: 'This application would no longer be eligible for Live Work Preference',
             message: 'Note, you will have the opportunity to grant another household member this preference',
             invert: false
           }}>

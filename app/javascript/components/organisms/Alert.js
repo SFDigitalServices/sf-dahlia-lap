@@ -11,11 +11,11 @@ class Alert extends React.Component {
   }
 
   render() {
-    const { title, subTitle, message, invert } = this.props
+    const { title, subtitle, message, invert } = this.props
     return (
       <div className='alert-box-and-notice'>
         <AlertBox message={title} invert={invert} closeType='text' noMargin={true} dismiss={this.state.dismiss} onCloseClick={this.onCloseClick} />
-        <AlertNotice title={subTitle} content={message} invert={invert} dismiss={this.state.dismiss} />
+        {subtitle && <AlertNotice title={subtitle} content={message} invert={invert} dismiss={this.state.dismiss} />}
       </div>
     )
   }
