@@ -37,6 +37,9 @@ Rails.application.routes.draw do
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
       end
+      scope '/field-update-comments' do
+        post 'create' => 'field_update_comments#create'
+      end
     end
   end
 end

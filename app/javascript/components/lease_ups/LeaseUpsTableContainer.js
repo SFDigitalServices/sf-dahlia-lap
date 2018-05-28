@@ -9,7 +9,8 @@ class LeaseUpTableContainer extends React.Component {
   state = {
     statusModal: {
       isOpen: false,
-      status: '',
+      status: null,
+      applicationId: null,
     }
   }
 
@@ -25,8 +26,13 @@ class LeaseUpTableContainer extends React.Component {
     this.setState(prevState => ({statusModal: {...prevState.statusModal, status: value}}))
   }
 
-  leaseUpStatusChangeHandler = (value) => {
-    this.setStatusModalStatus(value)
+  setStatusModalAppId = (value) => {
+    this.setState(prevState => ({statusModal: {...prevState.statusModal, applicationId: value}}))
+  }
+
+  leaseUpStatusChangeHandler = (applicationId, status) => {
+    this.setStatusModalStatus(status)
+    this.setStatusModalAppId(applicationId)
     this.openStatusModal()
   }
 
@@ -38,18 +44,23 @@ class LeaseUpTableContainer extends React.Component {
       var data = {
         status: status,
         comment: comment,
-        applicationId: 'the application ID goes here'
+        applicationId: this.state.statusModal.applicationId
       }
+
       var response = await apiService.createLeaseUpStatus(data)
 
-      // check response for errors and handle? how should errors be handled?
-
+      if (response) {
+        this.setStatusModalStatus(null)
+        this.setStatusModalAppId(null)
+        this.closeStatusModal()
+      } else {
+        // this is a quick error handling approach - product may want to
+        // provide guidance on exact handling desired in this case
+        alert('There was an error processing your status update. Please try again.')
+      }
       // MAY HAPPEN HERE OR MAY NEED TO HAPPEN ELSEWHERE:
       // ensure that the final selected status in the modal gets propagated
       // to the status button in the correct row in the applications table
-
-      // close the modal
-      this.closeStatusModal()
     }
   }
 
@@ -74,7 +85,7 @@ class LeaseUpTableContainer extends React.Component {
     }
 
     rowData.preference_rank = `${result['Listing_Preference_ID.Record_Type_For_App_Preferences']} ${result['Preference_Lottery_Rank']}`
-    rowData.rankOrder = parseInt(`${result['Preference_Order']}${result['Preference_Lottery_Rank']}`)
+    rowData.rankOrder = parseInt(`${result['Preference_Order']}${result['Preference_Lottery_Rank']}`, 10)
 
     return rowData
   }
@@ -100,6 +111,7 @@ class LeaseUpTableContainer extends React.Component {
         <LeaseUpsStatusModalWrapper
             isOpen={this.state.statusModal.isOpen}
             status={this.state.statusModal.status}
+            applicationId={this.state.statusModal.applicationId}
             changeHandler={this.setStatusModalStatus}
             submitHandler={this.createStatusUpdate}
             closeHandler={this.closeStatusModal} />

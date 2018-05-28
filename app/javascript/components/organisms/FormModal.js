@@ -20,8 +20,8 @@ const FormModalBody = ({
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
-    primary: (!type || type=='status'),
-    'alert-fill': (type == 'alert')
+    primary: (!type || type === 'status'),
+    'alert-fill': (type === 'alert')
   })
 
   return (
@@ -40,7 +40,7 @@ const FormModalBody = ({
                 <button className={primaryButtonClassName} type="submit">{primary}</button>
               </div>
               <div className="modal-button_item modal-button_secondary">
-                <button className="button no-border" onClick={onSecondaryClick}>{secondary}</button>
+                <button className="button no-border" onClick={onSecondaryClick} type="button">{secondary}</button>
               </div>
             </Modal.Footer>
           </form>

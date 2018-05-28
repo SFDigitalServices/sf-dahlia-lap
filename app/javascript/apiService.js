@@ -39,11 +39,13 @@ const submitApplication = async (data) => {
 // Creates a new Field Update Comment Salesforce record
 const createLeaseUpStatus = async (data) => {
   let postData = {
-    status: data.status,
-    applicationId: data.applicationId,
-    comment: data.comment,
+    field_update_comment: {
+      Processing_Status__c: data.status,
+      Processing_Comment__c: data.comment,
+      Application__c: data.applicationId,
+    }
   }
-  return await apiCall('post', '/TBD/TBD', postData)
+  return await apiCall('post', '/field-update-comments/create', postData)
 }
 
 export default {
