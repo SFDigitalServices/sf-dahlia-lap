@@ -3,13 +3,13 @@
 exports[`ListingsPage should render succesfully 1`] = `
 Array [
   <header
-    className="lead-header short bg-snow"
+    className="lead-header short  bg-snow"
   >
     <div
       className="row full-width inner--3x"
     >
       <div
-        className="large-12 columns "
+        className="large-12 columns"
       >
         <hgroup
           className="lead-header_group"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PageHeaderLayout  from './PageHeaderLayout'
+import PageHeader from '../organisms/PageHeader'
 import TabsSection from '../organisms/TabsSection'
 import TabCard from '../organisms/TabCard'
 import AppCard from '../molecules/AppCard'
@@ -17,7 +17,7 @@ class CardLayout extends React.Component {
 
     return (
       <React.Fragment>
-        <PageHeaderLayout {...pageHeader} background='snow'/>
+        <PageHeader {...pageHeader} background='snow'/>
         { tabSection ?
           (
             <TabsSection {...tabSection} background='snow'>

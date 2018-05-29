@@ -51,14 +51,6 @@ Array [
           >
             name: applicant name
           </h1>
-          <div
-            className="medium-8 columns no-padding"
-          >
-            <p />
-          </div>
-          <div
-            className="medium-4 columns no-padding"
-          />
         </hgroup>
       </div>
     </div>
@@ -337,14 +329,6 @@ Array [
           >
             name: applicant name
           </h1>
-          <div
-            className="medium-8 columns no-padding"
-          >
-            <p />
-          </div>
-          <div
-            className="medium-4 columns no-padding"
-          />
         </hgroup>
       </div>
     </div>

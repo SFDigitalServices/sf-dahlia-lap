@@ -3,7 +3,7 @@
 exports[`ApplicationNewPage should render succesfully 1`] = `
 Array [
   <header
-    className="lead-header short has-breadcrumbs bg-snow"
+    className="lead-header short  bg-snow"
   >
     <div
       className="row full-width inner--3x"
@@ -26,9 +26,6 @@ Array [
               Application lottery number: undefined. For listing: xxx2
             </p>
           </div>
-          <div
-            className="medium-4 columns no-padding"
-          />
         </hgroup>
       </div>
     </div>

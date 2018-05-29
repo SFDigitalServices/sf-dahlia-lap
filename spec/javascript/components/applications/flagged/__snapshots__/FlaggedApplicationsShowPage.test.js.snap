@@ -3,13 +3,13 @@
 exports[`FlaggedApplicationsShowPage should render succesfully 1`] = `
 Array [
   <header
-    className="lead-header short bg-dust"
+    className="lead-header short  bg-dust"
   >
     <div
       className="row full-width inner--3x"
     >
       <div
-        className="large-12 columns "
+        className="large-12 columns"
       >
         <hgroup
           className="lead-header_group"

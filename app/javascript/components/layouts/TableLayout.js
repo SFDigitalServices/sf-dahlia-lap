@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PageHeaderLayout  from './PageHeaderLayout'
+import PageHeader from '../organisms/PageHeader'
 import TabsSection from '../organisms/TabsSection'
 import TabCard from '../organisms/TabCard'
 
@@ -14,7 +14,7 @@ class TableLayout extends React.Component {
     const { children, pageHeader, tabSection } = this.props
     return (
       <React.Fragment>
-        <PageHeaderLayout {...pageHeader} background='dust'/>
+        <PageHeader {...pageHeader} background='dust'/>
         { tabSection ?
           (
             <TabsSection {...tabSection} background='dust' padding={true}>
