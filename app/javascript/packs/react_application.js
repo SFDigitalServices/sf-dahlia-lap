@@ -10,6 +10,7 @@ import FlaggedApplicationsIndexPage from 'components/applications/flagged/Flagge
 import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
 
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
+import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 import ListingPage from 'components/listings/ListingPage'
@@ -28,6 +29,7 @@ WebpackerReact.setup({ ApplicationsPage })
 WebpackerReact.setup({ FlaggedApplicationsIndexPage })
 WebpackerReact.setup({ FlaggedApplicationsShowPage })
 WebpackerReact.setup({ LeaseUpsPage })
+WebpackerReact.setup({ SupplementalApplicationPage })
 WebpackerReact.setup({ ListingApplicationsPage })
 WebpackerReact.setup({ ListingPage })
 WebpackerReact.setup({ ListingsPage })

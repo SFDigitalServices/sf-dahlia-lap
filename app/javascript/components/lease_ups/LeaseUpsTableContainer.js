@@ -4,6 +4,7 @@ import _ from 'lodash'
 import moment from 'moment'
 
 import LeaseUpsTable from './LeaseUpsTable'
+import appPaths from '../../utils/appPaths'
 
 class LeaseUpTableContainer extends React.Component {
 
@@ -38,7 +39,7 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   gotToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = `/listing/${listingId}/lease_ups/${rowInfo.original.id}`
+    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.id)
   }
 
   rowsData() {
