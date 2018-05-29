@@ -1,6 +1,5 @@
 require 'restforce'
 require 'facets/hash/rekey'
-require 'rainbow' # it's being used by other gems.
 
 module Force
   # encapsulate all Salesforce querying functions in one handy service
@@ -38,7 +37,7 @@ module Force
     end
 
     def debug(q)
-      puts Rainbow("[SOQL]> #{q}").magenta if Rails.env.development? # HACK: make this better
+      puts "[SOQL]> #{q}" if Rails.env.development? # HACK: make this better
     end
     # run a Salesforce SOQL query
 
