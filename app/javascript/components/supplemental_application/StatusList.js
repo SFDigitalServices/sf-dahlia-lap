@@ -18,6 +18,8 @@ import PrettyTime from '../utils/PrettyTime'
 const getStatusClassName = (status) => {
 	if (!status) {
 		return 'default'
+	} else if (status === 'Lease Signed') {
+		return 'leased'
 	} else {
 		return _.toLower(status)
 	}
