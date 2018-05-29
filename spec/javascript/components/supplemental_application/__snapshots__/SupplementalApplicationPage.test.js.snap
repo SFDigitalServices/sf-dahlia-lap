@@ -236,7 +236,7 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
                   className="status-list_date"
                 >
                   <div>
-                    10/05/18
+                    5/10/18
                   </div>
                 </span>
               </div>
@@ -261,7 +261,7 @@ exports[`SupplementalApplicationPage it should render correctly with status hist
                   className="status-list_date"
                 >
                   <div>
-                    10/05/18
+                    5/10/18
                   </div>
                 </span>
               </div>
