@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 
 import LeaseUpsTable from './LeaseUpsTable'
-import appPaths from '~/utils/appPaths'
+import appPaths from '~/components/appPaths'
 
 class LeaseUpTableContainer extends React.Component {
 

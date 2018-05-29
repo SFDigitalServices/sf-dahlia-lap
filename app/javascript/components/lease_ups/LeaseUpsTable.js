@@ -4,8 +4,8 @@ import _ from 'lodash'
 
 import DropdownMenuItem  from '../atoms/DropdownMenuItem'
 import Dropdown from '../molecules/Dropdown'
-import PrettyTime from '../utils/PrettyTime'
-import appPaths from '~/utils/appPaths'
+import PrettyTime from '../atoms/PrettyTime'
+import appPaths from '~/components/appPaths'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE } from './data'
 

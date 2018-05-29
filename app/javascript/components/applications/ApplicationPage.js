@@ -2,7 +2,7 @@ import React from 'react'
 
 import ApplicationDetails from './ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
-import appPaths from '~/utils/appPaths'
+import appPaths from '~/components/appPaths'
 import mapProps from '~/utils/mapProps'
 import { mapApplication } from '../propMappers'
 

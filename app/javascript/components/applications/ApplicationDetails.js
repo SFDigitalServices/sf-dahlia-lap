@@ -1,12 +1,12 @@
 import React from 'react'
-import _ from 'lodash'
+import { map } from 'lodash'
 
 import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
 import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
 
 const ApplicationDetails = ({ application, fields, file_base_url }) => {
 
-  let proofList = _.map(application.proof_files, (file) => {
+  let proofList = map(application.proof_files, (file) => {
     return <li key={file.Id}><a target='_blank' href={`${file_base_url}/servlet/servlet.FileDownload?file=${file.Id}`}>{file.Name}</a></li>
   })
 
