@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactTable from 'react-table'
-import _ from 'lodash'
+import { trim } from 'lodash'
 
 import Dropdown from '../molecules/Dropdown'
 import PrettyTime from '~/utils/PrettyTime'
@@ -72,7 +72,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
   }
 
   const getTrProps = (state, rowInfo, column) => {
-    const statusClassName = (rowInfo && !!_.trim(rowInfo.row.lease_up_status))
+    const statusClassName = (rowInfo && !!trim(rowInfo.row.lease_up_status))
                             ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
                             : ''
 

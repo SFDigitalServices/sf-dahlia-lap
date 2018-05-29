@@ -1,39 +1,41 @@
 import React from 'react'
-import _ from 'lodash'
+import { set, cloneDeep, trim, findIndex, map } from 'lodash'
 
 import apiService from '~/apiService'
 import LeaseUpsTable from './LeaseUpsTable'
 import LeaseUpsStatusModalWrapper from './LeaseUpsStatusModalWrapper'
 
 class LeaseUpTableContainer extends React.Component {
-  state = {
-    statusModal: {
-      isOpen: false,
-      status: null,
-      applicationId: null,
-      alert: null
+  constructor(props) {
+    super(props)
+    this.state = {
+      statusModal: {
+        isOpen: false,
+        status: null,
+        applicationId: null,
+        alert: null
+      },
+      results: this.props.results
     }
   }
 
-  openStatusModal  = () => {
-    this.setState(prevState => ({statusModal: {...prevState.statusModal, isOpen: true}}))
+  updateState = (path, value) => {
+    this.setState(prevState => {
+      var newState = cloneDeep(prevState)
+      set(newState, path, value)
+      return newState
+    })
   }
 
-  closeStatusModal = () => {
-    this.setState(prevState => ({statusModal: {...prevState.statusModal, isOpen: false}}))
-  }
+  openStatusModal = () => this.updateState('statusModal.isOpen', true)
 
-  setStatusModalStatus = (value) => {
-    this.setState(prevState => ({statusModal: {...prevState.statusModal, status: value}}))
-  }
+  closeStatusModal = () => this.updateState('statusModal.isOpen', false)
 
-  setStatusModalAppId = (value) => {
-    this.setState(prevState => ({statusModal: {...prevState.statusModal, applicationId: value}}))
-  }
+  setStatusModalStatus = (value) => this.updateState('statusModal.status', value)
 
-  setStatusModalAlert = (alert) => {
-    this.setState(prevState => ({statusModal: {...prevState.statusModal, alert: alert}}))
-  }
+  setStatusModalAppId = (value) => this.updateState('statusModal.applicationId', value)
+
+  setStatusModalAlert = (message) => this.updateState('statusModal.alert', message)
 
   leaseUpStatusChangeHandler = (applicationId, status) => {
     this.setStatusModalStatus(status)
@@ -44,24 +46,29 @@ class LeaseUpTableContainer extends React.Component {
   createStatusUpdate = async (submittedValues) => {
     var status = this.state.statusModal.status
     var comment = submittedValues.comment && submittedValues.comment.trim()
+    var applicationId = this.state.statusModal.applicationId
 
     if (status && comment) {
       var data = {
         status: status,
         comment: comment,
-        applicationId: this.state.statusModal.applicationId
+        applicationId: applicationId
       }
 
       var response = await apiService.createLeaseUpStatus(data)
 
       if (response) {
+        // find the application in question in the applications table
+        // data and update its lease up status value
+        var applicationIndex = findIndex(this.state.results, {Application: applicationId})
+        this.updateState(`results[${applicationIndex}]['Application.Processing_Status']`, status)
+
         this.setStatusModalStatus(null)
         this.setStatusModalAppId(null)
         this.setStatusModalAlert(null)
         this.closeStatusModal()
       } else {
-        // this is a quick error handling approach - product may want to
-        // provide guidance on exact handling desired in this case
+        // WIP
         this.setStatusModalAlert({title: 'Something went wrong, please try again.', invert: true})
       }
       // MAY HAPPEN HERE OR MAY NEED TO HAPPEN ELSEWHERE:
@@ -84,7 +91,7 @@ class LeaseUpTableContainer extends React.Component {
       preference_order:   result["Preference_Order"],
     }
 
-    if (!!_.trim(result['Application.Mailing_Address'])) {
+    if (!!trim(result['Application.Mailing_Address'])) {
       rowData.address = result['Application.Mailing_Address']
     } else {
       rowData.address = result['Application.Residence_Address']
@@ -101,7 +108,7 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   rowsData() {
-   return _.map(this.props.results, result => this.buildRowData(result))
+    return map(this.state.results, result => this.buildRowData(result))
   }
 
   render() {
