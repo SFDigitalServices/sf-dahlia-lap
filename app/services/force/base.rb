@@ -4,16 +4,18 @@ require 'facets/hash/rekey'
 module Force
   # encapsulate all Salesforce querying functions in one handy service
   class Base
-    def initialize(user, opts= {})
+    def initialize(user)
       @user = user
 
       if Rails.env.test?
-        @client = Restforce.new(username: ENV['SALESFORCE_USERNAME'],
-                      password: ENV['SALESFORCE_PASSWORD'],
-                      security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
-                      client_id: ENV['SALESFORCE_CLIENT_ID'],
-                      client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
-                      api_version: '41.0')
+        @client = Restforce.new(
+          username: ENV['SALESFORCE_USERNAME'],
+          password: ENV['SALESFORCE_PASSWORD'],
+          security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
+          client_id: ENV['SALESFORCE_CLIENT_ID'],
+          client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
+          api_version: '41.0',
+        )
       else
         @client = Restforce.new(
           authentication_retries: 1,
@@ -66,7 +68,6 @@ module Force
 
     def api_call(method, endpoint, params)
       apex_endpoint = "/services/apexrest#{endpoint}"
-      # puts "api_call :: #{apex_endpoint} :: #{params.as_json}"
       response = @client.send(method, apex_endpoint, params.as_json)
       response.body
     end
@@ -90,7 +91,6 @@ module Force
         if field.include? '.'
           parts = field.split('.')
           if parts.count == 3
-            # e.g. Flagged_Record_Set__r.Listing__r.Lottery_Status__c
             val = result[parts[0]].try(:[], parts[1]).try(:[], parts[2])
           else
             val = result[parts.first] ? result[parts.first][parts.last] : nil

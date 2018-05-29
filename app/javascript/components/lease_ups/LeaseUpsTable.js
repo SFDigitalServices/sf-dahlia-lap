@@ -4,6 +4,7 @@ import { trim } from 'lodash'
 
 import Dropdown from '../molecules/Dropdown'
 import PrettyTime from '~/utils/PrettyTime'
+import appPaths from '~/utils/appPaths'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
@@ -36,7 +37,7 @@ const NoData = ({ children, className, ...rest }) => {
 const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
       { Header: 'Preference Rank',    accessor: 'preference_rank',    headerClassName: 'td-min-narrow', Cell: (cell) => ( <div>{cell.value}</div>) },
-      { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={`/applications/${cell.original.id}`} className="has-border">{cell.value}</a>) },
+      { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={appPaths.toApplication(cell.original.id)} className="has-border">{cell.value}</a>) },
       { Header: 'First Name',         accessor: 'first_name' ,        Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Last Name',          accessor: 'last_name' ,         Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Phone',              accessor: 'phone' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },

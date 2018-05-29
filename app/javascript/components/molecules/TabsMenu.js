@@ -1,8 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import arrayUtils from '../../utils/arrayUtils'
-import keyboard from '../../utils/keyboard'
+import arrayUtils from '~/utils/arrayUtils'
+import keyboard from '~/utils/keyboard'
 
 const Tab = ({ title, url, active, onKeyDown, linkRefs, onFocus }) => {
   const liClassName = classNames({
@@ -49,7 +49,7 @@ class TabsMenu extends React.Component {
               onKeyDown={this.handleKeyDown}
               onFocus={this.handleOnFocus}
               linkRefs={this.addTabRef}
-              active={item.url == currentUrl} /> )
+              active={item.url === currentUrl} /> )
           )
         }
       </ul>

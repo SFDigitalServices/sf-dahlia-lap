@@ -4,6 +4,7 @@ import { set, cloneDeep, trim, findIndex, map } from 'lodash'
 import apiService from '~/apiService'
 import LeaseUpsTable from './LeaseUpsTable'
 import LeaseUpsStatusModalWrapper from './LeaseUpsStatusModalWrapper'
+import appPaths from '~/utils/appPaths'
 
 class LeaseUpTableContainer extends React.Component {
   constructor(props) {
@@ -103,8 +104,8 @@ class LeaseUpTableContainer extends React.Component {
     return rowData
   }
 
-  goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = `/listing/${listingId}/lease_ups/${rowInfo.original.id}`
+  goToSupplementaryInfo = (rowInfo) => {
+    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.id)
   }
 
   rowsData() {
