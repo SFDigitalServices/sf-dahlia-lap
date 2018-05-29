@@ -2,17 +2,15 @@ import React from 'react'
 
 import SupplementalApplicationHeader from './SupplementalApplicationHeader'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-
-import TabsMenu from '../molecules/TabsMenu'
 import TabsSection from '../organisms/TabsSection'
-import TabCard from '../organisms/TabCard'
-
 import appPaths from '../../utils/appPaths'
+import mapProps from '../../utils/mapProps'
+import mapProperties from './mapProperties'
 
-const SupplementalApplicationPage = ({ application }) => {
-  const items = [
-    { title: 'Short Form Application',    url: appPaths.toApplication(application.Id) },
-    { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.Id) }
+const SupplementalApplicationPage = ({ application, statusHistory }) => {
+  const tabNames = [
+    { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
+    { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
   ]
 
   const currentUrl = window.location.pathname
@@ -20,15 +18,14 @@ const SupplementalApplicationPage = ({ application }) => {
   return (
     <div>
       <SupplementalApplicationHeader
-        applicationNumber={application.Name}
-        applicantName={application.Applicant.Name}
-        listing={application.Listing}/>
-      <TabsSection items={items} currentUrl={currentUrl}>
-        <SupplementalApplicationContainer />
+        applicationNumber={application.number}
+        applicantName={application.name}
+        listing={application.listing}/>
+      <TabsSection items={tabNames} currentUrl={currentUrl}>
+        <SupplementalApplicationContainer statusHistory={statusHistory} />
       </TabsSection>
     </div>
   )
 }
 
-
-export default SupplementalApplicationPage
+export default mapProps(mapProperties)(SupplementalApplicationPage)
