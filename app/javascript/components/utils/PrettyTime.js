@@ -5,7 +5,7 @@ import moment from 'moment'
 const getFormat = (type) => {
   switch (type) {
     case 'short':
-      return 'D/MM/YY'
+      return 'M/DD/YY'
     default:
       return 'D MMM YY'
   }
