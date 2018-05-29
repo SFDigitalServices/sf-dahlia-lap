@@ -5,7 +5,7 @@ import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '../utils'
 import IndexTableCell from './IndexTableCell'
-import appPaths from '../utils/appPaths'
+import appPaths from '~/utils/appPaths'
 
 class IndexTable extends React.Component {
   constructor (props) {

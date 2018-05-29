@@ -1,10 +1,8 @@
 import React from 'react'
-import ReactTable from 'react-table'
 import _ from 'lodash'
-import moment from 'moment'
 
 import LeaseUpsTable from './LeaseUpsTable'
-import appPaths from '../../utils/appPaths'
+import appPaths from '~/utils/appPaths'
 
 class LeaseUpTableContainer extends React.Component {
 

@@ -12,15 +12,13 @@ const ApplicationsPageTable = ({ applications, fields }) => {
   )
 }
 
-const layout = {
-  pageHeader: {
+const ApplicationsPage = (props) => {
+  const pageHeader = {
     title: 'Applications'
   }
-}
 
-const ApplicationsPage = (props) => {
   return (
-    <TableLayout {...layout}>
+    <TableLayout pageHeader={pageHeader} >
       <ApplicationsPageTable {...props} />
     </TableLayout>
   )
