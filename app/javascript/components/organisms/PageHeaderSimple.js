@@ -18,5 +18,4 @@ PageHeaderSimple.defaultProps = {
   background: 'vapor'
 };
 
-
 export default PageHeaderSimple
