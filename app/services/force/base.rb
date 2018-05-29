@@ -59,7 +59,7 @@ module Force
 
     def query(q)
       debug(q)
-      if !!ENV['CACHE_SALESFORCE_REQUESTS']
+      if Rails.env.development? && !!ENV['CACHE_SALESFORCE_REQUESTS']
         query_with_cache(q)
       else
         @client.query(q)
