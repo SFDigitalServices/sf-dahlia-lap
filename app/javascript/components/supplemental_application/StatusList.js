@@ -42,9 +42,15 @@ const StatusListItem = ({status, note, date}) => {
 	)
 }
 
+const sortByTimestamp = (item) => {
+	if (!item.timestamp)
+		return -1
+
+	return item.timestamp
+}
+
 const StatusList = ({items, onAddCommnent}) => {
-	// console.log(items)
-	const orderedItems =  _.orderBy(items, ['timestamp'], ['desc'])
+	const orderedItems = _.sortBy(items,[sortByTimestamp])
 
 	return (
 		<div className="status-list">
