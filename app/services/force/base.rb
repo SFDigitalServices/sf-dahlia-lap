@@ -1,5 +1,6 @@
 require 'restforce'
 require 'facets/hash/rekey'
+require 'rainbow' # it's being used by other gems.
 
 module Force
   # encapsulate all Salesforce querying functions in one handy service
@@ -37,26 +38,30 @@ module Force
     end
 
     def debug(q)
-      puts "[SOQL]> #{q}" if Rails.env.development? # HACK: make this better
+      puts Rainbow("[SOQL]> #{q}").magenta if Rails.env.development? # HACK: make this better
     end
     # run a Salesforce SOQL query
 
-    def query_with_cache_for_developers(q)
+    # This method was added to help developers debug/code faster.
+    # because some queries take way too long (like Applications)
+    # It's not designed to be used in prod.
+    # it can be enable by setting CACHE_SALESFORCE_REQUESTS=yes
+    # I'm not using cache_query since the logic it's different. cache_query should be removed. Also, it's not being used.
+    # Fed
+    def query_with_cache(q)
       puts "Using caching for query...."
       key = Digest::MD5.hexdigest(q)
-      force_refresh = !ENV['CACHE_SALESFORCE_REQUESTS']
-      puts "...forcing cache refresh: #{force_refresh}" # if force_refresh
-      result = Rails.cache.fetch(key, force: force_refresh) do
+      result = Rails.cache.fetch(key) do
         puts "...not hitting cache"
-        @client.query(q).as_json.take(50) # we do not need all the results
+        @client.query(q).as_json.take(50) # we do not need all the results..for example in applications
       end
       result.map { |i| Hashie::Mash.new(i) }
     end
 
     def query(q)
       debug(q)
-      if Rails.env.development?
-        query_with_cache_for_developers(q)
+      if !!ENV['CACHE_SALESFORCE_REQUESTS']
+        query_with_cache(q)
       else
         @client.query(q)
       end
