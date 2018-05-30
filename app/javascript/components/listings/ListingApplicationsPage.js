@@ -1,7 +1,7 @@
 import React from 'react'
 
 import IndexTable from '../IndexTable'
-import CardLayout from '../layouts/CardLayout'
+import TableLayout from '../layouts/TableLayout'
 
 const ListingApplicationsTable = ({ listing, results, fields }) => {
   return (
@@ -28,9 +28,9 @@ const ListingApplicationsPage = (props) => {
   }
 
   return (
-    <CardLayout pageHeader={pageHeader} tabSection={tabs}>
+    <TableLayout pageHeader={pageHeader} tabSection={tabs}>
       <ListingApplicationsTable {...props} />
-    </CardLayout>
+    </TableLayout>
   )
 }
 

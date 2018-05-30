@@ -8,8 +8,7 @@ import AppCard from '../molecules/AppCard'
 class CardLayout extends React.Component {
 
   componentWillMount = () => {
-    let orig = document.body.className
-    document.body.className = orig + (orig ? ' ' : '') + 'bg-snow'
+    document.body.classList.add('bg-snow')
   }
 
   render() {

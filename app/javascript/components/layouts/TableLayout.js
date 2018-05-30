@@ -6,8 +6,7 @@ import TabCard from '../organisms/TabCard'
 
 class TableLayout extends React.Component {
   componentWillMount = () => {
-    let orig = document.body.className
-    document.body.className = orig + (orig ? ' ' : '') + 'bg-white'
+    document.body.classList.add('bg-white')
   }
 
   render() {
