@@ -1,5 +1,6 @@
 import React from 'react'
 import { set, cloneDeep, trim, findIndex, map } from 'lodash'
+import moment from 'moment'
 
 import apiService from '~/apiService'
 import LeaseUpsTable from './LeaseUpsTable'
@@ -14,7 +15,8 @@ class LeaseUpTableContainer extends React.Component {
         isOpen: false,
         status: null,
         applicationId: null,
-        alert: null
+        showAlert: null,
+        loading: false,
       },
       results: this.props.results
     }
@@ -36,7 +38,11 @@ class LeaseUpTableContainer extends React.Component {
 
   setStatusModalAppId = (value) => this.updateState('statusModal.applicationId', value)
 
-  setStatusModalAlert = (message) => this.updateState('statusModal.alert', message)
+  setStatusModalLoading = (loading) => this.updateState('statusModal.loading', loading)
+
+  showStatusModalAlert = () => this.updateState('statusModal.showAlert', true)
+
+  hideStatusModalAlert = () => this.updateState('statusModal.showAlert', false)
 
   leaseUpStatusChangeHandler = (applicationId, status) => {
     this.setStatusModalStatus(status)
@@ -45,6 +51,8 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   createStatusUpdate = async (submittedValues) => {
+    this.setStatusModalLoading(true)
+
     var status = this.state.statusModal.status
     var comment = submittedValues.comment && submittedValues.comment.trim()
     var applicationId = this.state.statusModal.applicationId
@@ -59,22 +67,22 @@ class LeaseUpTableContainer extends React.Component {
       var response = await apiService.createLeaseUpStatus(data)
 
       if (response) {
-        // find the application in question in the applications table
-        // data and update its lease up status value
+        // find the application in question in the applications table data
+        // and update its lease up status value and status updated date
+        // in the table
         var applicationIndex = findIndex(this.state.results, {Application: applicationId})
         this.updateState(`results[${applicationIndex}]['Application.Processing_Status']`, status)
+        this.updateState(`results[${applicationIndex}]['Status_Last_Updated']`, moment().format("D MMM YY"))
 
+        this.setStatusModalLoading(false)
         this.setStatusModalStatus(null)
         this.setStatusModalAppId(null)
-        this.setStatusModalAlert(null)
+        this.hideStatusModalAlert(null)
         this.closeStatusModal()
       } else {
-        // WIP
-        this.setStatusModalAlert({title: 'Something went wrong, please try again.', invert: true})
+        this.setStatusModalLoading(false)
+        this.showStatusModalAlert()
       }
-      // MAY HAPPEN HERE OR MAY NEED TO HAPPEN ELSEWHERE:
-      // ensure that the final selected status in the modal gets propagated
-      // to the status button in the correct row in the applications table
     }
   }
 
@@ -87,7 +95,7 @@ class LeaseUpTableContainer extends React.Component {
       last_name:          result['Application.Last_Name'],
       phone:              result['Application.Phone'],
       email:              result['Application.Email'],
-      status_updated:     result['LastModifiedDate'],
+      status_updated:     result['Status_Last_Updated'],
       lease_up_status:    result['Application.Processing_Status'],
       preference_order:   result["Preference_Order"],
     }
@@ -104,7 +112,7 @@ class LeaseUpTableContainer extends React.Component {
     return rowData
   }
 
-  goToSupplementaryInfo = (rowInfo) => {
+  goToSupplementaryInfo = (listingId, rowInfo) => {
     window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.id)
   }
 
@@ -129,7 +137,9 @@ class LeaseUpTableContainer extends React.Component {
             changeHandler={this.setStatusModalStatus}
             submitHandler={this.createStatusUpdate}
             closeHandler={this.closeStatusModal}
-            alert={this.state.statusModal.alert} />
+            showAlert={this.state.statusModal.showAlert}
+            onAlertCloseClick={this.hideStatusModalAlert}
+            loading={this.state.statusModal.loading} />
       </div>
     )
   }

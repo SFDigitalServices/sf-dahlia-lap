@@ -10,6 +10,7 @@
  *= require_self
  */
 
+// TODO: move these styles into the PL - we have an upcoming story to do this
 .ReactModal__Overlay {
   z-index: 1000;
 }
@@ -21,5 +22,20 @@
 @media(max-width:600px) {
   .ReactModal__Content {
     width: 90% !important;
+  }
+}
+
+.form-modal_form_wrapper {
+  position: relative;
+
+  .form-modal_loading {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    .loading {
+      height: 100%;
+    }
   }
 }

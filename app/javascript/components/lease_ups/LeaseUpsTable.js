@@ -43,28 +43,22 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       { Header: 'Phone',              accessor: 'phone' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
+      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} /> : <i>none</i> ) },
       { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
     ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
     let attrs = {}
-    if (column.id === 'lease_up_status') { // We do not want the Select to react onClick
+
+    // classes and onClick actions vary depending on the type of column
+    if (column.id === 'lease_up_status') {
       attrs.className = 'td-min-wide td-status td-fixed-right'
-      return attrs
-    } else if (column.id === 'application_number') {
-      return attrs
-    } else {
-      attrs.onClick = (e, handleOriginal) => {
-          if (rowInfo)
-            onCellClick(listingId, rowInfo)
-      }
+    } else if (column.id !== 'application_number') {
+      attrs.onClick = (e, handleOriginal) => { if (rowInfo) onCellClick(listingId, rowInfo) }
 
       if (column.id === 'status_updated') {
         attrs.className = 'td-offset-right'
-      }
-
-      else if (column.id === 'preference_rank') {
+      } else if (column.id === 'preference_rank') {
         attrs.className = 'td-min-narrow'
       }
     }

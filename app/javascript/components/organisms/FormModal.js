@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { Form } from 'react-form'
 
 import Modal from './Modal'
+import FormModalLoading from '../molecules/FormModalLoading'
 
 const FormModalBody = ({
   type,
@@ -10,13 +11,15 @@ const FormModalBody = ({
   isOpen,
   primary,
   secondary,
-  alert,
-  invert,
+  showAlert,
+  alertMsg,
+  onAlertCloseClick,
   handleClose,
   onSubmit,
   onSecondaryClick,
   children,
   validateError,
+  loading,
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
@@ -27,25 +30,35 @@ const FormModalBody = ({
   return (
     <Modal.Body hidden={isOpen} handleClose={handleClose}>
       <Modal.Header title={header} />
-      { alert && <Modal.Alert {...alert} /> }
+      {
+        showAlert && alertMsg &&
+        <Modal.Alert
+          invert={true}
+          show={showAlert}
+          title={alertMsg}
+          onCloseClick={onAlertCloseClick} />
+      }
 
-      <Form onSubmit={onSubmit} validateError={validateError}>
-        {formApi => (
-          <form onSubmit={formApi.submitForm} className="no-margin">
-            <Modal.Content>
-              {children(formApi)}
-            </Modal.Content>
-            <Modal.Footer>
-              <div className="modal-button_item modal-button_primary">
-                <button className={primaryButtonClassName} type="submit">{primary}</button>
-              </div>
-              <div className="modal-button_item modal-button_secondary">
-                <button className="button no-border" onClick={onSecondaryClick} type="button">{secondary}</button>
-              </div>
-            </Modal.Footer>
-          </form>
-        )}
-      </Form>
+      <div className="form-modal_form_wrapper">
+        <Form onSubmit={onSubmit} validateError={validateError}>
+          {formApi => (
+            <form onSubmit={formApi.submitForm} className="no-margin">
+              <Modal.Content>
+                {children(formApi)}
+              </Modal.Content>
+              <Modal.Footer>
+                <div className="modal-button_item modal-button_primary">
+                  <button className={primaryButtonClassName} type="submit">{primary}</button>
+                </div>
+                <div className="modal-button_item modal-button_secondary">
+                  <button className="button no-border" onClick={onSecondaryClick} type="button">{secondary}</button>
+                </div>
+              </Modal.Footer>
+            </form>
+          )}
+        </Form>
+        {loading && <FormModalLoading />}
+      </div>
     </Modal.Body>
   )
 }

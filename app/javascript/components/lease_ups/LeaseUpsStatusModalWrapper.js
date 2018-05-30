@@ -25,7 +25,10 @@ class LeaseUpsStatusModalWrapper extends React.Component {
         onSecondaryClick={this.props.closeHandler}
         type="status"
         validateError={this.formValidator}
-        alert={this.props.alert}>
+        showAlert={this.props.showAlert}
+        alertMsg="Something went wrong, please try again."
+        onAlertCloseClick={this.props.onAlertCloseClick}
+        loading={this.props.loading}>
           {formApi => (
             <div className={'form-group ' + (formUtils.submitErrors(formApi).comment ? 'error' : '')}>
               <h2 className="form-label">Status/Comment</h2>

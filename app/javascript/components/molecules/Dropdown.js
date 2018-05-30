@@ -1,8 +1,7 @@
 import React from 'react'
-import ReactDOM  from 'react-dom'
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
-import _ from 'lodash'
+import { find } from 'lodash'
 
 const computeTopWith = (buttonRef) => {
   // Hardcoded for now.
@@ -45,7 +44,7 @@ class Dropdown extends React.Component {
 
   componentClickHandler = (e) => {
     // We want to hide only when we click in the component but outisde the menu
-    if (this.wrapperRef == e.target)
+    if (this.wrapperRef === e.target)
       this.setState({expanded: false })
   }
 
@@ -58,7 +57,7 @@ class Dropdown extends React.Component {
   }
 
   menu() {
-    const { prompt, size , items, value, multiple } = this.props
+    const { items, value, multiple } = this.props
     if (this.state.expanded) {
       if (multiple) {
         return (
@@ -92,8 +91,8 @@ class Dropdown extends React.Component {
  }
 
  render() {
-   const { prompt, size = 'small', items, value, buttonClasses = []} = this.props
-   const selectedItem = _.find(items, { value: value })
+   const { prompt, items, value, buttonClasses = []} = this.props
+   const selectedItem = find(items, { value: value })
 
    return (
     <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={this.props.styles}>
