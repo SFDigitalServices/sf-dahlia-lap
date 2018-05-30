@@ -189,12 +189,12 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                     title="Update Status"
                   >
                     <header
-                      className="modal-inner"
+                      className="modal-inner margin-top"
                     >
                       <h1
                         className="modal-title t-gamma no-margin"
                       >
-                        Update status
+                        Update Status
                       </h1>
                     </header>
                   </Component>
@@ -215,11 +215,9 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                       >
                         <AlertBox
                           closeType="text"
-                          dismiss={false}
                           invert={false}
                           message="This change will affect this application's preferences"
                           noMargin={true}
-                          onCloseClick={[Function]}
                         >
                           <div
                             className="alert-box alert no-margin"
@@ -239,17 +237,15 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                             >
                               This change will affect this application's preferences
                             </p>
-                            <a
-                              className="close text"
-                              onClick={[Function]}
+                            <button
+                              className="button button-link close text"
                             >
                               Close
-                            </a>
+                            </button>
                           </div>
                         </AlertBox>
                         <AlertNotice
                           content="Note, you will have the opportunity to grant another household member this preference"
-                          dismiss={false}
                           invert={false}
                           title="This application would no longer be eligible for Live Work Preference"
                         >
@@ -310,11 +306,16 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                       </div>
                     </footer>
                   </Component>
-                  <a
+                  <button
                     aria-label="Close modal"
-                    className="close-reveal-modal"
+                    className="button button-link close-reveal-modal"
                     onClick={[MockFunction]}
                   >
+                    <span
+                      className="sr-only"
+                    >
+                      Close
+                    </span>
                     <span
                       className="ui-icon ui-medium i-primary"
                     >
@@ -324,7 +325,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                         />
                       </svg>
                     </span>
-                  </a>
+                  </button>
                 </div>
               </Component>
             </SimpleModalBody>
@@ -525,12 +526,12 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                     title="Update Status"
                   >
                     <header
-                      className="modal-inner"
+                      className="modal-inner margin-top"
                     >
                       <h1
                         className="modal-title t-gamma no-margin"
                       >
-                        Update status
+                        Update Status
                       </h1>
                     </header>
                   </Component>
@@ -551,11 +552,9 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                       >
                         <AlertBox
                           closeType="text"
-                          dismiss={false}
                           invert={false}
                           message="This change will affect this application's preferences"
                           noMargin={true}
-                          onCloseClick={[Function]}
                         >
                           <div
                             className="alert-box alert no-margin"
@@ -575,17 +574,15 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                             >
                               This change will affect this application's preferences
                             </p>
-                            <a
-                              className="close text"
-                              onClick={[Function]}
+                            <button
+                              className="button button-link close text"
                             >
                               Close
-                            </a>
+                            </button>
                           </div>
                         </AlertBox>
                         <AlertNotice
                           content="Note, you will have the opportunity to grant another household member this preference"
-                          dismiss={false}
                           invert={false}
                           title="This application would no longer be eligible for Live Work Preference"
                         >
@@ -646,11 +643,16 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                       </div>
                     </footer>
                   </Component>
-                  <a
+                  <button
                     aria-label="Close modal"
-                    className="close-reveal-modal"
+                    className="button button-link close-reveal-modal"
                     onClick={[MockFunction]}
                   >
+                    <span
+                      className="sr-only"
+                    >
+                      Close
+                    </span>
                     <span
                       className="ui-icon ui-medium i-primary"
                     >
@@ -660,7 +662,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                         />
                       </svg>
                     </span>
-                  </a>
+                  </button>
                 </div>
               </Component>
             </SimpleModalBody>

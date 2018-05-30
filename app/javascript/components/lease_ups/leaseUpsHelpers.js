@@ -13,7 +13,10 @@ export const LEASE_UP_STATUS_OPTIONS = [
 export const PAGE_SIZE = 5
 
 export const getLeaseUpStatusStyle = (status) => {
-  return status ? _.find(LEASE_UP_STATUS_OPTIONS, {value: status}).style : 'tertiary'
+  var style = 'tertiary'
+  var statusStyle = _.find(LEASE_UP_STATUS_OPTIONS, {value: status})
+  if (statusStyle) style = statusStyle.style
+  return style
 }
 
 // const FILTER_PREFERENES_OPTIONS = ['COP', 'DTHP', 'NRHP', 'Live/Work', 'No Preference', 'Marked Invalid', 'Show All']

@@ -358,7 +358,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                 },
                 Object {
                   "Cell": [Function],
-                  "Header": "Lease Up status",
+                  "Header": "Lease Up Status",
                   "accessor": "lease_up_status",
                   "headerClassName": "td-min-wide tr-fixed-right",
                 },
@@ -865,7 +865,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                               <div
                                 className="rt-resizable-header-content"
                               >
-                                Lease Up status
+                                Lease Up Status
                               </div>
                               <Resizer
                                 onMouseDown={[Function]}
@@ -906,11 +906,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -odd"
+                            className="rt-tr-status tertiary -odd"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -odd"
+                              className="rt-tr rt-tr-status tertiary -odd"
                               tabIndex="0"
                             >
                               <Td
@@ -1145,11 +1145,9 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -1176,6 +1174,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -1190,7 +1189,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -1339,6 +1338,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -1354,6 +1358,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -1386,11 +1391,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -even"
+                            className="rt-tr-status tertiary -even"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -even"
+                              className="rt-tr rt-tr-status tertiary -even"
                               tabIndex="0"
                             >
                               <Td
@@ -1625,11 +1630,9 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -1656,6 +1659,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -1670,7 +1674,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -1819,6 +1823,11 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -1834,6 +1843,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -2931,7 +2941,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                         "Expander": undefined,
                         "Filter": undefined,
                         "Footer": undefined,
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "Pivot": undefined,
                         "PivotValue": undefined,
                         "accessor": [Function],
@@ -3205,7 +3215,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                         "Expander": undefined,
                         "Filter": undefined,
                         "Footer": undefined,
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "Pivot": undefined,
                         "PivotValue": undefined,
                         "accessor": [Function],
@@ -3312,7 +3322,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                       },
                       Object {
                         "Cell": [Function],
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "accessor": "lease_up_status",
                         "headerClassName": "td-min-wide tr-fixed-right",
                       },
@@ -3718,18 +3728,30 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
           </ReactTable>
         </LeaseUpsTable>
         <LeaseUpsStatusModalWrapper
-          handleClose={[Function]}
+          applicationId={null}
+          changeHandler={[Function]}
+          closeHandler={[Function]}
           isOpen={false}
+          loading={false}
+          onAlertCloseClick={[Function]}
+          showAlert={null}
+          status={null}
+          submitHandler={[Function]}
         >
-          <SimpleModal
+          <FormModal
+            alertMsg="Something went wrong, please try again."
             handleClose={[Function]}
             header="Update Status"
             isOpen={false}
-            onPrimaryClick={[Function]}
+            loading={false}
+            onAlertCloseClick={[Function]}
             onSecondaryClick={[Function]}
+            onSubmit={[Function]}
             primary="update"
             secondary="cancel"
+            showAlert={null}
             type="status"
+            validateError={[Function]}
           >
             <Modal
               handleClose={[Function]}
@@ -3831,7 +3853,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                 />
               </Modal>
             </Modal>
-          </SimpleModal>
+          </FormModal>
         </LeaseUpsStatusModalWrapper>
       </div>
     </LeaseUpTableContainer>
@@ -4157,7 +4179,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                 },
                 Object {
                   "Cell": [Function],
-                  "Header": "Lease Up status",
+                  "Header": "Lease Up Status",
                   "accessor": "lease_up_status",
                   "headerClassName": "td-min-wide tr-fixed-right",
                 },
@@ -4650,7 +4672,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                               <div
                                 className="rt-resizable-header-content"
                               >
-                                Lease Up status
+                                Lease Up Status
                               </div>
                               <Resizer
                                 onMouseDown={[Function]}
@@ -4691,11 +4713,11 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -odd"
+                            className="rt-tr-status tertiary -odd"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -odd"
+                              className="rt-tr rt-tr-status tertiary -odd"
                               tabIndex="0"
                             >
                               <Td
@@ -4930,11 +4952,9 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -4961,6 +4981,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -4975,7 +4996,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -5124,6 +5145,11 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -5139,6 +5165,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -6502,7 +6529,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                         "Expander": undefined,
                         "Filter": undefined,
                         "Footer": undefined,
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "Pivot": undefined,
                         "PivotValue": undefined,
                         "accessor": [Function],
@@ -6776,7 +6803,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                         "Expander": undefined,
                         "Filter": undefined,
                         "Footer": undefined,
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "Pivot": undefined,
                         "PivotValue": undefined,
                         "accessor": [Function],
@@ -6883,7 +6910,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                       },
                       Object {
                         "Cell": [Function],
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "accessor": "lease_up_status",
                         "headerClassName": "td-min-wide tr-fixed-right",
                       },
@@ -7219,18 +7246,30 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
           </ReactTable>
         </LeaseUpsTable>
         <LeaseUpsStatusModalWrapper
-          handleClose={[Function]}
+          applicationId={null}
+          changeHandler={[Function]}
+          closeHandler={[Function]}
           isOpen={false}
+          loading={false}
+          onAlertCloseClick={[Function]}
+          showAlert={null}
+          status={null}
+          submitHandler={[Function]}
         >
-          <SimpleModal
+          <FormModal
+            alertMsg="Something went wrong, please try again."
             handleClose={[Function]}
             header="Update Status"
             isOpen={false}
-            onPrimaryClick={[Function]}
+            loading={false}
+            onAlertCloseClick={[Function]}
             onSecondaryClick={[Function]}
+            onSubmit={[Function]}
             primary="update"
             secondary="cancel"
+            showAlert={null}
             type="status"
+            validateError={[Function]}
           >
             <Modal
               handleClose={[Function]}
@@ -7332,7 +7371,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                 />
               </Modal>
             </Modal>
-          </SimpleModal>
+          </FormModal>
         </LeaseUpsStatusModalWrapper>
       </div>
     </LeaseUpTableContainer>
@@ -7824,7 +7863,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                 },
                 Object {
                   "Cell": [Function],
-                  "Header": "Lease Up status",
+                  "Header": "Lease Up Status",
                   "accessor": "lease_up_status",
                   "headerClassName": "td-min-wide tr-fixed-right",
                 },
@@ -8373,7 +8412,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                               <div
                                 className="rt-resizable-header-content"
                               >
-                                Lease Up status
+                                Lease Up Status
                               </div>
                               <Resizer
                                 onMouseDown={[Function]}
@@ -8414,11 +8453,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -odd"
+                            className="rt-tr-status tertiary -odd"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -odd"
+                              className="rt-tr rt-tr-status tertiary -odd"
                               tabIndex="0"
                             >
                               <Td
@@ -8653,11 +8692,9 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -8684,6 +8721,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -8698,7 +8736,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -8847,6 +8885,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -8862,6 +8905,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -8894,11 +8938,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -even"
+                            className="rt-tr-status tertiary -even"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -even"
+                              className="rt-tr rt-tr-status tertiary -even"
                               tabIndex="0"
                             >
                               <Td
@@ -9133,11 +9177,9 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -9164,6 +9206,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -9178,7 +9221,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -9327,6 +9370,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -9342,6 +9390,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -9374,11 +9423,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -odd"
+                            className="rt-tr-status tertiary -odd"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -odd"
+                              className="rt-tr rt-tr-status tertiary -odd"
                               tabIndex="0"
                             >
                               <Td
@@ -9613,11 +9662,9 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -9644,6 +9691,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -9658,7 +9706,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -9807,6 +9855,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -9822,6 +9875,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -9854,11 +9908,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -even"
+                            className="rt-tr-status tertiary -even"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -even"
+                              className="rt-tr rt-tr-status tertiary -even"
                               tabIndex="0"
                             >
                               <Td
@@ -10093,11 +10147,9 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -10124,6 +10176,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -10138,7 +10191,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -10287,6 +10340,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -10302,6 +10360,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -10334,11 +10393,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                           className="rt-tr-group"
                         >
                           <Tr
-                            className="rt-tr-status is-processing -odd"
+                            className="rt-tr-status tertiary -odd"
                             tabIndex="0"
                           >
                             <div
-                              className="rt-tr rt-tr-status is-processing -odd"
+                              className="rt-tr rt-tr-status tertiary -odd"
                               tabIndex="0"
                             >
                               <Td
@@ -10573,11 +10632,9 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   }
                                 >
-                                  <PrettyTime>
-                                    <div>
-                                      23 Apr 18
-                                    </div>
-                                  </PrettyTime>
+                                  <i>
+                                    none
+                                  </i>
                                 </div>
                               </Td>
                               <Td
@@ -10604,6 +10661,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   }
                                 >
                                   <LeaseUpStatusCell
+                                    applicationId="1"
                                     cell={
                                       Object {
                                         "aggregated": undefined,
@@ -10618,7 +10676,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           "Expander": undefined,
                                           "Filter": undefined,
                                           "Footer": undefined,
-                                          "Header": "Lease Up status",
+                                          "Header": "Lease Up Status",
                                           "Pivot": undefined,
                                           "PivotValue": undefined,
                                           "accessor": [Function],
@@ -10767,6 +10825,11 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                       }
                                       onChange={[Function]}
                                       prompt="Status"
+                                      styles={
+                                        Object {
+                                          "position": "absolute",
+                                        }
+                                      }
                                       value="processing"
                                     >
                                       <div
@@ -10782,6 +10845,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                           aria-expanded="false"
                                           className="button dropdown-button has-icon--right text-align-left tertiary no-margin tiny"
                                           onClick={[Function]}
+                                          type="button"
                                         >
                                           <span
                                             className="ui-icon ui-small"
@@ -11081,7 +11145,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                         "Expander": undefined,
                         "Filter": undefined,
                         "Footer": undefined,
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "Pivot": undefined,
                         "PivotValue": undefined,
                         "accessor": [Function],
@@ -11355,7 +11419,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                         "Expander": undefined,
                         "Filter": undefined,
                         "Footer": undefined,
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "Pivot": undefined,
                         "PivotValue": undefined,
                         "accessor": [Function],
@@ -11462,7 +11526,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                       },
                       Object {
                         "Cell": [Function],
-                        "Header": "Lease Up status",
+                        "Header": "Lease Up Status",
                         "accessor": "lease_up_status",
                         "headerClassName": "td-min-wide tr-fixed-right",
                       },
@@ -12078,18 +12142,30 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
           </ReactTable>
         </LeaseUpsTable>
         <LeaseUpsStatusModalWrapper
-          handleClose={[Function]}
+          applicationId={null}
+          changeHandler={[Function]}
+          closeHandler={[Function]}
           isOpen={false}
+          loading={false}
+          onAlertCloseClick={[Function]}
+          showAlert={null}
+          status={null}
+          submitHandler={[Function]}
         >
-          <SimpleModal
+          <FormModal
+            alertMsg="Something went wrong, please try again."
             handleClose={[Function]}
             header="Update Status"
             isOpen={false}
-            onPrimaryClick={[Function]}
+            loading={false}
+            onAlertCloseClick={[Function]}
             onSecondaryClick={[Function]}
+            onSubmit={[Function]}
             primary="update"
             secondary="cancel"
+            showAlert={null}
             type="status"
+            validateError={[Function]}
           >
             <Modal
               handleClose={[Function]}
@@ -12191,7 +12267,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                 />
               </Modal>
             </Modal>
-          </SimpleModal>
+          </FormModal>
         </LeaseUpsStatusModalWrapper>
       </div>
     </LeaseUpTableContainer>
