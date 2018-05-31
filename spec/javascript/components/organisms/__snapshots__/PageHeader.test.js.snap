@@ -86,7 +86,7 @@ exports[`PageHeader should render succesfully 1`] = `
 
 exports[`PageHeader should render succesfully without BreadCrumbs 1`] = `
 <header
-  className="lead-header short has-breadcrumbs bg-vapor"
+  className="lead-header short  bg-vapor"
 >
   <div
     className="row full-width inner--3x"
@@ -193,9 +193,6 @@ exports[`PageHeader should render succesfully without action 1`] = `
             content1
           </p>
         </div>
-        <div
-          className="medium-4 columns no-padding"
-        />
       </hgroup>
     </div>
   </div>

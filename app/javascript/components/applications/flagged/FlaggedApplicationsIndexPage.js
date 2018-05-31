@@ -1,15 +1,7 @@
 import React from 'react'
 
-import PageHeaderSimple from '../../organisms/PageHeaderSimple'
 import IndexTable from '../../IndexTable'
-
-const FlaggedApplicationsIndexPageHeader = ({ title }) => {
-  return (
-    <div>
-      <PageHeaderSimple title={title} />
-    </div>
-  )
-}
+import TableLayout from '../../layouts/TableLayout'
 
 const FlaggedApplicationsIndexPageTable = ({ results, fields }) => {
   return (
@@ -22,12 +14,11 @@ const FlaggedApplicationsIndexPageTable = ({ results, fields }) => {
   )
 }
 
-const FlaggedApplicationsIndexPage = (props) => {
+const FlaggedApplicationsIndexPage = ({title, ...props}) => {
   return (
-    <div>
-      <FlaggedApplicationsIndexPageHeader {...props} />
+    <TableLayout pageHeader={{title: title}}>
       <FlaggedApplicationsIndexPageTable {...props} />
-    </div>
+    </TableLayout>
   )
 }
 

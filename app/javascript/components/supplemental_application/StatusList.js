@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import _ from 'lodash'
 
-import PrettyTime from '~/utils/PrettyTime'
+import PrettyTime from '../atoms/PrettyTime'
 
 // Keeping note of possible status from salesforce
 // [

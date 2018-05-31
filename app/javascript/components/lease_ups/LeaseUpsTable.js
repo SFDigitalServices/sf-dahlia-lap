@@ -3,7 +3,7 @@ import ReactTable from 'react-table'
 import { trim } from 'lodash'
 
 import Dropdown from '../molecules/Dropdown'
-import PrettyTime from '~/utils/PrettyTime'
+import PrettyTime from '../atoms/PrettyTime'
 import appPaths from '~/utils/appPaths'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
