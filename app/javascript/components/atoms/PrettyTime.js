@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 
-
 const getFormat = (type) => {
   switch (type) {
     case 'short':

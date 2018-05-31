@@ -1,15 +1,7 @@
 import React from 'react'
 
-import PageHeaderSimple from '../organisms/PageHeaderSimple'
+import TableLayout from '../layouts/TableLayout'
 import IndexTable from '../IndexTable'
-
-const ApplicationsPageHeader = ({}) => {
-  return (
-    <div>
-      <PageHeaderSimple title='Applications' />
-    </div>
-  )
-}
 
 const ApplicationsPageTable = ({ applications, fields }) => {
   return (
@@ -21,11 +13,14 @@ const ApplicationsPageTable = ({ applications, fields }) => {
 }
 
 const ApplicationsPage = (props) => {
+  const pageHeader = {
+    title: 'Applications'
+  }
+
   return (
-    <div>
-      <ApplicationsPageHeader/>
+    <TableLayout pageHeader={pageHeader} >
       <ApplicationsPageTable {...props} />
-    </div>
+    </TableLayout>
   )
 }
 

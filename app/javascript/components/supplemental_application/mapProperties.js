@@ -1,22 +1,9 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-const mapListing = (listing) => {
-  return {
-    id: listing.Id,
-    name: listing.Name
-  }
-}
+import { mapApplication } from '../propMappers'
 
-const mapApplicationProperty = (application) => {
-  return {
-    id: application.Id,
-    number: application.Name,
-    name: application.Applicant.Name,
-    listing: mapListing(application.Listing)
-  }
-}
-
+// NOTE: what kind of saleforce domain object is this one? Fed
 const mapStatusHistoryItem = (item) => {
   return {
     status: item.Processing_Status,
@@ -26,7 +13,7 @@ const mapStatusHistoryItem = (item) => {
   }
 }
 
-const mapStatusHistoryProperty = (statusHistory) => {
+const mapStatusHistory = (statusHistory) => {
   if (_.isEmpty(statusHistory))
     return []
   return statusHistory.map(mapStatusHistoryItem)
@@ -34,8 +21,8 @@ const mapStatusHistoryProperty = (statusHistory) => {
 
 const mapProperties = ({application, statusHistory}) => {
   return {
-    application: mapApplicationProperty(application),
-    statusHistory: mapStatusHistoryProperty(statusHistory)
+    application: mapApplication(application),
+    statusHistory: mapStatusHistory(statusHistory)
   }
 }
 

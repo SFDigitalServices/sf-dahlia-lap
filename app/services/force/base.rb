@@ -41,9 +41,29 @@ module Force
     end
     # run a Salesforce SOQL query
 
+    # This method was added to help developers debug/code faster.
+    # because some queries take way too long (like Applications)
+    # It's not designed to be used in prod.
+    # it can be enable by setting CACHE_SALESFORCE_REQUESTS=yes
+    # I'm not using cache_query since the logic it's different. cache_query should be removed. Also, it's not being used.
+    # Fed
+    def query_with_cache(q)
+      puts "Using caching for query...."
+      key = Digest::MD5.hexdigest(q)
+      result = Rails.cache.fetch(key) do
+        puts "...not hitting cache"
+        @client.query(q).as_json.take(50) # we do not need all the results..for example in applications
+      end
+      result.map { |i| Hashie::Mash.new(i) }
+    end
+
     def query(q)
       debug(q)
-      @client.query(q)
+      if Rails.env.development? && !!ENV['CACHE_SALESFORCE_REQUESTS']
+        query_with_cache(q)
+      else
+        @client.query(q)
+      end
     end
 
     def query_first(q)
