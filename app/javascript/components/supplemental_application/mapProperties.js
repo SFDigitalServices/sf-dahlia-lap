@@ -32,10 +32,18 @@ const mapStatusHistoryProperty = (statusHistory) => {
   return statusHistory.map(mapStatusHistoryItem)
 }
 
+const mapFormFields = (application) => {
+  return {
+    dependents: application.Total_Household_Size,
+    maritalStatus: application.Applicant.Marital_Status
+  }
+}
+
 const mapProperties = ({application, statusHistory}) => {
   return {
     application: mapApplicationProperty(application),
-    statusHistory: mapStatusHistoryProperty(statusHistory)
+    statusHistory: mapStatusHistoryProperty(statusHistory),
+    formFields: mapFormFields(application)
   }
 }
 

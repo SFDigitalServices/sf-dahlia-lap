@@ -229,6 +229,7 @@ applications:
     Applicant__r.Mailing_City__c:
     Applicant__r.Mailing_State__c:
     Applicant__r.Mailing_Zip_Code__c:
+    Applicant__r.Marital_Status__c:
     Alternate_Contact__r.Id:
     Alternate_Contact__r.First_Name__c:
     Alternate_Contact__r.Middle_Name__c:

@@ -7,7 +7,12 @@ const DropdownMenuItem = ({ value, label, selected, onChange, onKeyDown }) => {
 
   return (
     <li className={liClassName} role="option" aria-selected={selected} >
-      <a tabIndex="0" onKeyDown={(e) => onKeyDown(e, value, label)} onClick={(e) => onChange(e, value, label) }>{label}</a>
+      <a
+        tabIndex="0"
+        onKeyDown={(e) => onKeyDown(e, value, label)}
+        onClick={(e) => onChange(e, value, label) }>
+        {label}
+      </a>
     </li>
   )
 }

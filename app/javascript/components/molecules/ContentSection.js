@@ -21,16 +21,16 @@ ContentSection.SubHeader = ({title , description}) => (
   </div>
 )
 
-ContentSection.Content = ({children}) => (
-  <div className="app-inner inset-wide border-bottom">
+ContentSection.Content = ({children, border}) => (
+  <div className={`app-inner inset-wide ${border ? 'border-bottom' : ''}`}>
     {children}
   </div>
 )
 
-ContentSection.Sub = ({title, description, children}) => (
+ContentSection.Sub = ({title, description, border = true, children}) => (
   <React.Fragment>
     <ContentSection.SubHeader title={title} description={description} />
-    <ContentSection.Content>
+    <ContentSection.Content border={border}>
       {children}
     </ContentSection.Content>
   </React.Fragment>

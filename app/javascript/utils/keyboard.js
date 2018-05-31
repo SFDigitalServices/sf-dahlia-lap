@@ -10,7 +10,7 @@ const isKeyword = (keyCode, code) => {
   if (keyCode == null)
     throw `Keyboard code mapping '${code}' not found.`
 
-  return keyCode == keyCodeMapped
+  return keyCode === keyCodeMapped
 }
 
 const isKeywordEvent = (e, code) => isKeyword(e.keyCode, code)
