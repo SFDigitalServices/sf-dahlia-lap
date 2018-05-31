@@ -4,7 +4,6 @@ import _ from 'lodash'
 import StatusList from './StatusList'
 import ContentSection from '../molecules/ContentSection'
 
-
 const StatusUpdateSection = () => (
   <div className="app-inner inset-wide padding-bottom-none margin-top">
     <h2 className="sr-only">Status Update</h2>

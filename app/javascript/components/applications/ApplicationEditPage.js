@@ -1,17 +1,7 @@
 import React from 'react'
 
-import PageHeader from '../organisms/PageHeader'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
-
-const ApplicationEditPageHeader = ({ listing, application }) => {
-  return (
-    <div>
-      <PageHeader
-        title='Edit Application'
-        content={`Application lottery number: ${application.Lottery_Number}. For listing: ${listing.Name}`} />
-    </div>
-  )
-}
+import CardLayout from '../layouts/CardLayout'
 
 const ApplicationEditPageForm = ({ listing, application, editPage }) => {
   return (
@@ -23,11 +13,16 @@ const ApplicationEditPageForm = ({ listing, application, editPage }) => {
 }
 
 const ApplicationEditPage = (props) => {
+  const { application, listing } = props
+  const pageHeader = {
+    title: 'Edit Application',
+    content: `Application lottery number: ${application.Lottery_Number}. For listing: ${listing.Name}`
+  }
+
   return (
-    <div>
-      <ApplicationEditPageHeader {...props}/>
+    <CardLayout pageHeader={pageHeader}>
       <ApplicationEditPageForm {...props} />
-    </div>
+    </CardLayout>
   )
 }
 

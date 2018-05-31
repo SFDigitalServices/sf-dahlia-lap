@@ -5,7 +5,7 @@ import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '../utils'
 import IndexTableCell from './IndexTableCell'
-import appPaths from '../utils/appPaths'
+import appPaths from '~/components/appPaths'
 
 class IndexTable extends React.Component {
   constructor (props) {
@@ -29,7 +29,7 @@ class IndexTable extends React.Component {
         ),
         Cell: (cellInfo) => {
           let val = this.state.data[cellInfo.index][cellInfo.column.id]
-          if (cellInfo.column.Header == 'Lottery Date') {
+          if (cellInfo.column.Header === 'Lottery Date') {
             // cheap way of knowing when to parse date fields
             val = moment(val).format('L')
           }
@@ -53,27 +53,27 @@ class IndexTable extends React.Component {
         column.Header = utils.cleanField(field)
       }
       // for Listings and Flagged/Duplicates Tab
-      if (column.Header == 'Name') {
+      if (column.Header === 'Name') {
         column.filterable = true
       }
       if (column.Header == 'Last Name') {
         column.filterable = true
       }
       // for Applications Tab
-      if (column.Header == 'Application Number') {
+      if (column.Header === 'Application Number') {
         column.filterable = true
       }
       // TO DO: update when Mobx is implemented so no need to pass page
-      if (column.Header === 'Listing Name' && this.props.page == 'listing_index') {
+      if (column.Header === 'Listing Name' && this.props.page === 'listing_index') {
         column.filterable = true
       }
-      if (column.Header === 'Listing Name' && !(this.props.page == 'listing_index')) {
+      if (column.Header === 'Listing Name' && !(this.props.page === 'listing_index')) {
         column.filterable = true
         column.filterMethod = (filter, row) => {
           if (filter.value === "all") {
             return true;
           }
-          return row[filter.id] == filter.value
+          return row[filter.id] === filter.value
         },
         column.Filter = ({ filter, onChange }) => {
           let listingOptions = []
@@ -85,16 +85,20 @@ class IndexTable extends React.Component {
           let sortedUniqListings = _.sortBy(uniqListings, (listing) => {
             return listing.lotteryDate
           })
+
           _.each(sortedUniqListings, (listing) => {
             listingOptions.push(
               <option value={listing.name} key={i++}>{listing.name}</option>
             )
           })
+
+          const selectFilterValue = filter ? filter.value : (sortedUniqListings[0] ? sortedUniqListings[0].name : undefined)
+
           return (
             <select
               onChange={event => onChange(event.target.value)}
               style={{ width: "100%" }}
-              value={filter ? filter.value : sortedUniqListings[0].name}
+              value={selectFilterValue}
             >
               <option value="all">Show All</option>
               {listingOptions}
