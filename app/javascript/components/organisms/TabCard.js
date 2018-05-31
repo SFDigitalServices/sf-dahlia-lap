@@ -1,14 +1,27 @@
 import React from 'react'
-import ContentSection from '../molecules/ContentSection'
 
-const TabCard = ({ children }) => {
+import classNames from 'classnames'
+
+const TabCard = ({ children, padding }) => {
+  const sectionClassName = classNames(
+    "tabs-card-row",
+    "row",
+    "full-width",
+    "inner--3x",
+    "margin-bottom--2x",
+    {
+      "padding-top--2x": padding
+    }
+  )
   return (
-    <section className="tabs-card-row row full-width inner--3x margin-bottom--2x">
-      <div className="app-card form-card tabs-card max-width expand-on-small">
-        {children}
-      </div>
+    <section className={sectionClassName}>
+      {children}
     </section>
   )
 }
+
+TabCard.defaultProps = {
+  padding: false
+};
 
 export default TabCard

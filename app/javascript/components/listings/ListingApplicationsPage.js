@@ -1,15 +1,7 @@
 import React from 'react'
 
-import PageHeaderSimple from '../organisms/PageHeaderSimple'
 import IndexTable from '../IndexTable'
-
-const ListingApplicationsHeader = ({ listing }) => {
-  return (
-    <div>
-      <PageHeaderSimple title={listing.Name} />
-    </div>
-  )
-}
+import TableLayout from '../layouts/TableLayout'
 
 const ListingApplicationsTable = ({ listing, results, fields }) => {
   return (
@@ -21,11 +13,24 @@ const ListingApplicationsTable = ({ listing, results, fields }) => {
 }
 
 const ListingApplicationsPage = (props) => {
+  const { listing } = props
+
+  const pageHeader = {
+    title: listing.Name
+  }
+
+  const tabs = {
+    items: [
+      { title: 'Listing Details', url: `/listings/${listing.Id}` },
+      { title: 'Applications',    url: `/listings/${listing.Id}/applications`  }
+    ],
+    currentUrl:window.location.pathname
+  }
+
   return (
-    <div>
-      <ListingApplicationsHeader {...props}/>
+    <TableLayout pageHeader={pageHeader} tabSection={tabs}>
       <ListingApplicationsTable {...props} />
-    </div>
+    </TableLayout>
   )
 }
 
