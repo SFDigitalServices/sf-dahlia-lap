@@ -20,6 +20,7 @@ const styleTypes = {
         padding: '0px',
         position: 'fixed',
         right: 'auto',
+        overflow: 'visible',
         transform: 'translate(-50%,-50%)',
         width: '600px'
     }

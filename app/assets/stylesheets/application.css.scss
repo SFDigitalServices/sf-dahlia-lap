@@ -25,6 +25,12 @@
   }
 }
 
+.ReactModal__Content {
+  .dropdown {
+    position: relative;
+  }
+}
+
 .form-modal_form_wrapper {
   position: relative;
 
@@ -38,4 +44,9 @@
       height: 100%;
     }
   }
+}
+
+.form-modal_dropdown-menu {
+  max-width: none;
+  margin-top: 4px;
 }
