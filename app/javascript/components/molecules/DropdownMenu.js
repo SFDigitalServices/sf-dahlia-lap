@@ -6,17 +6,22 @@ class DropdownMenu extends React.Component {
   handleOnChange = (e, value, label) => this.props.onChange && this.props.onChange(value, label)
 
   handleOnKeyDown = (e, value, label) => {
-    if (e.keyCode == 13 || e.keyCode == 32) {
+    if (e.keyCode === 13 || e.keyCode === 32) {
       this.props.onChange && this.props.onChange(value, label)
       e.preventDefault()
     }
   }
 
   render() {
-    const { items, value, style } = this.props
+    const { items, value, style, classes } = this.props
 
     return (
-      <ul className="dropdown-menu" style={style} role="listbox" aria-activedescendant tabIndex="-1">
+      <ul
+        className={`dropdown-menu ${classes.join(' ')}`}
+        style={style}
+        role="listbox"
+        tabIndex="-1"
+        aria-activedescendant>
         {
           items &&
           items.map((item, idx) => (
@@ -24,7 +29,7 @@ class DropdownMenu extends React.Component {
               key={item.value}
               {...item}
               style={item.style}
-              selected={item.value == value}
+              selected={item.value === value}
               onChange={this.handleOnChange}
               onKeyDown={this.handleOnKeyDown} />)
           )

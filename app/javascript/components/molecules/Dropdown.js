@@ -56,7 +56,7 @@ class Dropdown extends React.Component {
     this.props.onChange && this.props.onChange(value, label)
   }
 
-  menu() {
+  menu = (classes) => {
     const { items, value, multiple } = this.props
     if (this.state.expanded) {
       if (multiple) {
@@ -65,7 +65,8 @@ class Dropdown extends React.Component {
             style={this.state.style}
             onChange={this.onChangeHandler}
             values={value}
-            items={items}/>
+            items={items}
+            classes={classes} />
         )
       } else {
         return (
@@ -73,7 +74,8 @@ class Dropdown extends React.Component {
             style={this.state.style}
             onChange={this.onChangeHandler}
             value={value}
-            items={items}/>
+            items={items}
+            classes={classes} />
         )
       }
     }
@@ -91,7 +93,7 @@ class Dropdown extends React.Component {
  }
 
  render() {
-   const { prompt, items, value, buttonClasses = []} = this.props
+   const { prompt, items, value, buttonClasses, menuClasses = []} = this.props
    const selectedItem = find(items, { value: value })
 
    return (
@@ -108,8 +110,8 @@ class Dropdown extends React.Component {
           </span>
           {selectedItem ? selectedItem.label : prompt}
       </button>
-      <div aria-hidden={this.state.expanded ? 'false' : 'true'} role='menu'>
-        {this.menu()}
+      <div className="dropdown-menu-wrapper" aria-hidden={this.state.expanded ? 'false' : 'true'} role='menu'>
+        {this.menu(menuClasses)}
       </div>
     </div>
     )

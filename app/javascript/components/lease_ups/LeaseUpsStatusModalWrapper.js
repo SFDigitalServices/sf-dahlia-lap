@@ -37,7 +37,8 @@ class LeaseUpsStatusModalWrapper extends React.Component {
                 value={this.props.status}
                 prompt="Status"
                 onChange={this.props.changeHandler}
-                buttonClasses={[getLeaseUpStatusStyle(this.props.status), 'margin-bottom--half', 'expand', 'small']} />
+                buttonClasses={[getLeaseUpStatusStyle(this.props.status), 'margin-bottom--half', 'expand', 'small']}
+                menuClasses={['form-modal_dropdown-menu']} />
               {!this.props.status && <small className="error">Please provide a status.</small>}
               <label className='sr-only' htmlFor="status-comment" id="status-comment-label">Comment</label>
               <TextArea

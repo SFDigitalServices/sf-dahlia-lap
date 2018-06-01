@@ -17,7 +17,7 @@ const LeaseUpStatusCell = ({ cell, onChange, applicationId }) => {
       prompt='Status'
       onChange={onChange.bind(null, applicationId)}
       styles={{position: 'absolute'}}
-      buttonClasses={[getLeaseUpStatusStyle(value), 'no-margin', 'tiny']} />
+      buttonClasses={[getLeaseUpStatusStyle(value), 'tiny']} />
   )
 }
 
@@ -80,7 +80,8 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
   const sortBy = [ { id:'rankOrder', desc:false } ]
 
   return (
-    <ReactTable className="rt-table-status"
+    <ReactTable
+      className="rt-table-status"
       data={dataSet}
       columns={columns}
       getTdProps={getTdProps}
