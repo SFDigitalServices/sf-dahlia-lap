@@ -3,9 +3,9 @@ import { Form } from 'react-form';
 import { isEmpty } from 'lodash'
 
 import ContentSection from '../molecules/ContentSection'
-import DemographicsInputs from './DemographicsInputs'
-import StatusList from './StatusList'
-import StatusUpdateForm from './StatusUpdateForm'
+import DemographicsInputs from './sections/DemographicsInputs'
+import StatusList from './sections/StatusList'
+import StatusUpdateForm from './sections/StatusUpdateForm'
 
 //TODO: refactor. this is a placeholder
 const StatusUpdateSection = () => (

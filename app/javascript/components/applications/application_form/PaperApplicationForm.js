@@ -15,7 +15,6 @@ import DemographicInfoSection from './DemographicInfoSection'
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
     this.state = {
       loading: false,
       submittedValues: {},
@@ -60,7 +59,6 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    console.log(submittedValues)
     this.setState({ submittedValues })
     this.setState({ loading: true })
     let applicationData = submittedValues
@@ -74,7 +72,6 @@ class PaperApplicationForm extends React.Component {
       applicationData["applicationSubmissionType"] = this.props.application.Application_Submission_Type
     }
 
-    console.log(applicationData)
     // let response = await apiService.submitApplication(applicationData)
     let response = false
     if (response == false) {
@@ -132,12 +129,7 @@ class PaperApplicationForm extends React.Component {
         autofillValues[shortFormField] = this.props.application[salesforceField]
       })
     }
-
-    console.log('autofillValues')
-    console.log(autofillValues)
-    console.log('this.props.application')
-    console.log(this.props.application)
-
+    
     return (
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>
