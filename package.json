@@ -61,7 +61,8 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint app/javascript"
   },
   "jest": {
     "setupFiles": [

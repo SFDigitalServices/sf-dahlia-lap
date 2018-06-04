@@ -51,15 +51,10 @@ const ButtonPager = () => (
 )
 
 class SupplementalApplicationContainer extends React.Component {
-
-  handleOnSubmit = (values) => {
-    console.log(values)
-  }
-
   render() {
-    const { statusHistory, formFields } = this.props
+    const { statusHistory, formFields, onSubmit } = this.props
     return (
-        <Form onSubmit={this.handleOnSubmit} defaultValues={formFields}	>
+        <Form onSubmit={onSubmit} defaultValues={formFields}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{margin:'0px'}}>
               <StatusUpdateSection/>

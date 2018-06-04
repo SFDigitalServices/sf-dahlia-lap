@@ -2,6 +2,7 @@ import _ from 'lodash'
 import moment from 'moment'
 
 import { mapApplication } from '../propMappers'
+import { updateApplicationAction } from './actions'
 
 // NOTE: what kind of saleforce domain object is this one? Fed
 const mapStatusHistoryItem = (item) => {
@@ -27,10 +28,12 @@ const mapFormFields = (application) => {
 }
 
 const mapProperties = ({application, statusHistory}) => {
+  console.log(application)
   return {
     formFields: mapFormFields(application),
     application: mapApplication(application),
-    statusHistory: mapStatusHistory(statusHistory)
+    statusHistory: mapStatusHistory(statusHistory),
+    onSubmit: (values) => updateApplicationAction(application, values)
   }
 }
 

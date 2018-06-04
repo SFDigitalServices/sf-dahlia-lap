@@ -8,6 +8,10 @@ module Applications
       # @field_values = { dependents: 2, maritalStatus: 'Married'}
     end
 
+    def update
+      application_service.update
+    end
+
     def field_update_comment_service
       Force::FieldUpdateCommentService.new(current_user)
     end
