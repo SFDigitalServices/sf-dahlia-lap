@@ -4,7 +4,6 @@ class Api::V1::ShortFormController < ApiController
 
   def submit
     logger.debug "application_api_params: #{application_api_params}"
-    prybug
     application = application_service.submit(application_api_params)
     logger.debug "application submit response: #{application}"
     render json: { application: application }
