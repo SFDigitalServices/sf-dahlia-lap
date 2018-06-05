@@ -28,7 +28,6 @@ const mapFormFields = (application) => {
 }
 
 const mapProperties = ({application, statusHistory}) => {
-  console.log(application)
   return {
     formFields: mapFormFields(application),
     application: mapApplication(application),

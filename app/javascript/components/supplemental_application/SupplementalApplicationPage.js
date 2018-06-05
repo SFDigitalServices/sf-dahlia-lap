@@ -7,7 +7,6 @@ import CardLayout from '../layouts/CardLayout'
 import mapProperties from './mapProperties'
 
 const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit }) => {
-  console.log(application)
   const pageHeader = {
     title: `${application.number}: ${application.name}`,
     breadcrumbs: [

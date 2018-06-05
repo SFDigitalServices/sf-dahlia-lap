@@ -45,7 +45,7 @@ const ButtonPager = () => (
         <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
         <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
       </ul>
-      <button class="button primary small" type="submit">Save</button>
+      <button className="button primary small" type="submit">Save</button>
     </div>
   </div>
 )
@@ -60,7 +60,7 @@ class SupplementalApplicationContainer extends React.Component {
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
               <LeaseInformationSection statusHistory={statusHistory} />
-              <div class="padding-bottom--2x margin-bottom--2x"></div>
+              <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager/>
             </form>
           )}

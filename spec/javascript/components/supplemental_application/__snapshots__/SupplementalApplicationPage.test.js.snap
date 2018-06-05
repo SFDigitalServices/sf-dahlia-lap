@@ -427,7 +427,7 @@ Array [
           </div>
         </div>
         <div
-          class="padding-bottom--2x margin-bottom--2x"
+          className="padding-bottom--2x margin-bottom--2x"
         />
         <div
           className="button-pager"
@@ -499,7 +499,7 @@ Array [
               </li>
             </ul>
             <button
-              class="button primary small"
+              className="button primary small"
               type="submit"
             >
               Save
@@ -858,7 +858,7 @@ Array [
           </div>
         </div>
         <div
-          class="padding-bottom--2x margin-bottom--2x"
+          className="padding-bottom--2x margin-bottom--2x"
         />
         <div
           className="button-pager"
@@ -930,7 +930,7 @@ Array [
               </li>
             </ul>
             <button
-              class="button primary small"
+              className="button primary small"
               type="submit"
             >
               Save

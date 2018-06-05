@@ -19,13 +19,6 @@ export const applicantFieldMapper = {
   Marital_Status:'maritalStatus'
 }
 
-// Listing_Preference_ID: "listingPreferenceID",
-// Preference_Name: "preferenceName",
-// Application_Preference: ''
-// Requires_Proof: ''
-// Type_of_proof
-// Type_of_proof: "preferenceProof",
-// Preference_Proof: 'preferenceProof',
 export const preferenceFieldMapper = {
   Individual_preference: "individualPreference",
   Certificate_Number: "certificateNumber",
