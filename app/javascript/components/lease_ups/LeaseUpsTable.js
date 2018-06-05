@@ -4,6 +4,7 @@ import { trim } from 'lodash'
 
 import Dropdown from '../molecules/Dropdown'
 import PrettyTime from '../atoms/PrettyTime'
+import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
@@ -37,13 +38,13 @@ const NoData = ({ children, className, ...rest }) => {
 const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
       { Header: 'Preference Rank',    accessor: 'preference_rank',    headerClassName: 'td-min-narrow', Cell: (cell) => ( <div>{cell.value}</div>) },
-      { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={appPaths.toApplication(cell.original.id)} className="has-border">{cell.value}</a>) },
+      { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.id)} className="has-border">{cell.value}</a>) },
       { Header: 'First Name',         accessor: 'first_name' ,        Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Last Name',          accessor: 'last_name' ,         Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Phone',              accessor: 'phone' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} /> : <i>none</i> ) },
+      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} parseFormat={utils.SALESFORCE_DATE_FORMAT} /> : <i>none</i> ) },
       { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
     ]
 

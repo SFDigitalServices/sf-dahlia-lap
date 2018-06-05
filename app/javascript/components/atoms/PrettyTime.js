@@ -1,19 +1,18 @@
 import React from 'react'
 import moment from 'moment'
 
-const getFormat = (type) => {
+const getDisplayFormat = (type) => {
   switch (type) {
     case 'short':
       return 'M/DD/YY'
     default:
-      return 'D MMM YY'
+      return 'MM/DD/YYYY'
   }
 }
 
-const PrettyTime = ({ time, formatType }) => {
-  const format = getFormat(formatType)
-
-  return <div>{moment(time).format(format)}</div>
+const PrettyTime = ({ time, parseFormat = '', displayType }) => {
+  const displayFormat = getDisplayFormat(displayType)
+  return <div>{moment(time, parseFormat).format(displayFormat)}</div>
 }
 
 export default PrettyTime

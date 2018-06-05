@@ -1,10 +1,11 @@
 import React from 'react'
-import { set, cloneDeep, trim, findIndex, map } from 'lodash'
+import { set, clone, trim, findIndex, map } from 'lodash'
 import moment from 'moment'
 
 import apiService from '~/apiService'
 import LeaseUpsTable from './LeaseUpsTable'
 import LeaseUpsStatusModalWrapper from './LeaseUpsStatusModalWrapper'
+import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 
 class LeaseUpTableContainer extends React.Component {
@@ -22,27 +23,38 @@ class LeaseUpTableContainer extends React.Component {
     }
   }
 
-  updateState = (path, value) => {
+  updateStatusModal = (path, value) => {
     this.setState(prevState => {
-      var newState = cloneDeep(prevState)
-      set(newState, path, value)
-      return newState
+      return {
+        statusModal: set(clone(prevState.statusModal), path, value)
+      }
     })
   }
 
-  openStatusModal = () => this.updateState('statusModal.isOpen', true)
+  updateResults = (path, value) => {
+    this.setState(prevState => {
+      return {
+        results: set(clone(prevState.results), path, value)
+      }
+    })
+  }
 
-  closeStatusModal = () => this.updateState('statusModal.isOpen', false)
+  openStatusModal = () => this.updateStatusModal('isOpen', true)
 
-  setStatusModalStatus = (value) => this.updateState('statusModal.status', value)
+  closeStatusModal = () => {
+    this.updateStatusModal('isOpen', false)
+    this.hideStatusModalAlert()
+  }
 
-  setStatusModalAppId = (value) => this.updateState('statusModal.applicationId', value)
+  setStatusModalStatus = (value) => this.updateStatusModal('status', value)
 
-  setStatusModalLoading = (loading) => this.updateState('statusModal.loading', loading)
+  setStatusModalAppId = (value) => this.updateStatusModal('applicationId', value)
 
-  showStatusModalAlert = () => this.updateState('statusModal.showAlert', true)
+  setStatusModalLoading = (loading) => this.updateStatusModal('loading', loading)
 
-  hideStatusModalAlert = () => this.updateState('statusModal.showAlert', false)
+  showStatusModalAlert = () => this.updateStatusModal('showAlert', true)
+
+  hideStatusModalAlert = () => this.updateStatusModal('showAlert', false)
 
   leaseUpStatusChangeHandler = (applicationId, status) => {
     this.setStatusModalStatus(status)
@@ -71,8 +83,8 @@ class LeaseUpTableContainer extends React.Component {
         // and update its lease up status value and status updated date
         // in the table
         var applicationIndex = findIndex(this.state.results, {Application: applicationId})
-        this.updateState(`results[${applicationIndex}]['Application.Processing_Status']`, status)
-        this.updateState(`results[${applicationIndex}]['Status_Last_Updated']`, moment().format("D MMM YY"))
+        this.updateResults(`[${applicationIndex}]['Application.Processing_Status']`, status)
+        this.updateResults(`[${applicationIndex}]['Status_Last_Updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
 
         this.setStatusModalLoading(false)
         this.setStatusModalStatus(null)

@@ -6,7 +6,7 @@ import { find } from 'lodash'
 const computeTopWith = (buttonRef) => {
   // Hardcoded for now.
   // Not spending time yet on getting the right top based on button
-  return 50
+  return 40
 }
 
 const computeLeftWith = (ref) => {

@@ -37,7 +37,7 @@ const StatusListItem = ({status, note, date}) => {
 			<div className="status-list_comment">
 				<p className="status-list_note">{note}</p>
 				<span className="status-list_date">
-					<PrettyTime time={date} formatType='short' />
+					<PrettyTime time={date} displayType='short' />
 				</span>
 			</div>
 		</li>
