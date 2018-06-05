@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { find } from 'lodash'
 
 export const LEASE_UP_STATUS_OPTIONS = [
  {value: 'Processing', label: 'Processing', style: 'is-processing'},
@@ -14,7 +14,7 @@ export const PAGE_SIZE = 5
 
 export const getLeaseUpStatusStyle = (status) => {
   var style = 'tertiary'
-  var statusStyle = _.find(LEASE_UP_STATUS_OPTIONS, {value: status})
+  var statusStyle = find(LEASE_UP_STATUS_OPTIONS, {value: status})
   if (statusStyle) style = statusStyle.style
   return style
 }

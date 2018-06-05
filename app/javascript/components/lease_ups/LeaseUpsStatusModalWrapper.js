@@ -14,32 +14,43 @@ class LeaseUpsStatusModalWrapper extends React.Component {
   };
 
   render() {
+    const {
+      isOpen,
+      closeHandler,
+      submitHandler,
+      showAlert,
+      onAlertCloseClick,
+      loading,
+      status,
+      changeHandler
+    } = this.props
+
     return (
       <FormModal
         header="Update Status"
         primary="update"
         secondary="cancel"
-        isOpen={this.props.isOpen}
-        handleClose={this.props.closeHandler}
-        onSubmit={this.props.submitHandler}
-        onSecondaryClick={this.props.closeHandler}
+        isOpen={isOpen}
+        handleClose={closeHandler}
+        onSubmit={submitHandler}
+        onSecondaryClick={closeHandler}
         type="status"
         validateError={this.formValidator}
-        showAlert={this.props.showAlert}
+        showAlert={showAlert}
         alertMsg="Something went wrong, please try again."
-        onAlertCloseClick={this.props.onAlertCloseClick}
-        loading={this.props.loading}>
+        onAlertCloseClick={onAlertCloseClick}
+        loading={loading}>
           {formApi => (
             <div className={'form-group ' + (formUtils.submitErrors(formApi).comment ? 'error' : '')}>
               <h2 className="form-label">Status/Comment</h2>
               <Dropdown
                 items={LEASE_UP_STATUS_OPTIONS}
-                value={this.props.status}
+                value={status}
                 prompt="Status"
-                onChange={this.props.changeHandler}
-                buttonClasses={[getLeaseUpStatusStyle(this.props.status), 'margin-bottom--half', 'expand', 'small']}
+                onChange={changeHandler}
+                buttonClasses={[getLeaseUpStatusStyle(status), 'margin-bottom--half', 'expand', 'small']}
                 menuClasses={['form-modal_dropdown-menu']} />
-              {!this.props.status && <small className="error">Please provide a status.</small>}
+              {!status && <small className="error">Please provide a status.</small>}
               <label className='sr-only' htmlFor="status-comment" id="status-comment-label">Comment</label>
               <TextArea
                 field="comment"

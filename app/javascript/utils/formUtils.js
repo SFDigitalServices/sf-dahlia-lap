@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { reduce, mapValues } from 'lodash'
 
 // Returns an object whose keys are the form fields and whose
 // values indicate whether that field has both been touched
@@ -8,7 +8,7 @@ import _ from 'lodash'
 // them errors as soon as the form renders. So this function
 // lets us know if fields have errors only after user interaction.
 const touchedErrors = (formApi) => {
-  return _.reduce(formApi.errors , function(obj, error, field) {
+  return reduce(formApi.errors , function(obj, error, field) {
     obj[field] = formApi.touched[field] && error
     return obj;
   }, {});
@@ -23,7 +23,7 @@ const touchedErrors = (formApi) => {
 // So this function lets us know if fields have errors only
 // after user has tried to submit the form.
 const submitErrors = (formApi) => {
-  return formApi.submits > 0 ? formApi.errors : _.mapValues(formApi.errors, () => null)
+  return formApi.submits > 0 ? formApi.errors : mapValues(formApi.errors, () => null)
 };
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
 import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
@@ -19,7 +19,7 @@ class IndexTable extends React.Component {
   columnData = () => {
     let { fields } = this.props
     var columns = []
-    _.each(fields, (attrs, field) => {
+    each(fields, (attrs, field) => {
       attrs = attrs || {}
       if (field === 'Id') return
       let column = {
@@ -47,8 +47,8 @@ class IndexTable extends React.Component {
       }
       if (attrs.label) {
         column.Header = attrs.label
-      } else if (_.includes(field, '.')) {
-        column.Header = utils.cleanField(_.last(field.split('.')))
+      } else if (includes(field, '.')) {
+        column.Header = utils.cleanField(last(field.split('.')))
       } else {
         column.Header = utils.cleanField(field)
       }
@@ -78,14 +78,14 @@ class IndexTable extends React.Component {
         column.Filter = ({ filter, onChange }) => {
           let listingOptions = []
           let i = 0
-          let uniqListings = _.uniqBy(_.map(this.props.results, (result) => {
+          let uniqListings = uniqBy(map(this.props.results, (result) => {
             return {name: result['Listing.Name'], lotteryDate: moment(result['Listing.Lottery_Date'])}
           }), 'name')
-          let sortedUniqListings = _.sortBy(uniqListings, (listing) => {
+          let sortedUniqListings = sortBy(uniqListings, (listing) => {
             return listing.lotteryDate
           })
 
-          _.each(sortedUniqListings, (listing) => {
+          each(sortedUniqListings, (listing) => {
             listingOptions.push(
               <option value={listing.name} key={i++}>{listing.name}</option>
             )
@@ -132,7 +132,7 @@ class IndexTable extends React.Component {
         SubComponent={row => {
           let linkTags = []
           let i = 0
-          _.each(links, (link) => {
+          each(links, (link) => {
             let href = ''
             if (link === 'View Listing') {
               href = `/listings/${row.original.Id}`

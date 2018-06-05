@@ -1,19 +1,19 @@
 import React from 'react'
-import _ from 'lodash'
+import { map, includes, last } from 'lodash'
 import utils from '~/utils/utils'
 
 const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
   let i = 0
-  let columns = _.map(fields, (field) => {
-    if (_.includes(field, '.')) {
-      field = _.last(field.split('.'))
+  let columns = map(fields, (field) => {
+    if (includes(field, '.')) {
+      field = last(field.split('.'))
     }
     return <th key={field}>{utils.cleanField(field)}</th>
   })
-  let rows = _.map(listing[table], (row) => {
-    let tableData = _.map(fields, (field) => {
+  let rows = map(listing[table], (row) => {
+    let tableData = map(fields, (field) => {
       let value = row[field]
-      if (_.includes(field, '.')) {
+      if (includes(field, '.')) {
         let parts = field.split('.')
         // e.g. Lottery_Preference.Name, grab from nested object
         value = row[parts[0]][parts[1]]
@@ -41,7 +41,6 @@ const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
         </tbody>
       </table>
     </div>
-
   )
 }
 
