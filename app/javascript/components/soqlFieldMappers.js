@@ -15,7 +15,8 @@ export const applicantFieldMapper = {
   Mailing_State: 'mailingState',
   Mailing_Zip_Code: 'mailingZip',
   Phone: 'phone',
-  Phone_Type: 'phoneType'
+  Phone_Type: 'phoneType',
+  Marital_Status:'maritalStatus'
 }
 
 // Listing_Preference_ID: "listingPreferenceID",
@@ -44,15 +45,17 @@ export const preferenceFieldMapper = {
 }
 
 export const applicationFieldMapper = {
+  Id: 'id',
   Has_Military_Service: 'hasMilitaryService',
   Has_DevelopmentalDisability: 'hasDevelopmentalDisability',
   Answered_Community_Screening: 'answeredCommunityScreening',
   Annual_Income: 'annualIncome',
   Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
-  Terms_Acknowledged: 'agreeToTerms'
+  Terms_Acknowledged: 'agreeToTerms',
+  applicationId: "a0o0x000000OHykAAG"
 }
 
-export const householdMembersfieldMapper = {
+export const householdMembersFieldMapper = {
   Date_of_Birth: 'DOB',
   First_Name: 'firstName',
   Last_Name: 'lastName',
@@ -69,6 +72,6 @@ export const applicationShape = {
   ...{
     primaryApplicant: shapeMapper('Applicant', applicantFieldMapper),
     shortFormPreferences: listMapper('preferences', preferenceFieldMapper),
-    householdMembers: listMapper('household_members', householdMembersfieldMapper)
+    householdMembers: listMapper('household_members', householdMembersFieldMapper)
   }
 }

@@ -4,7 +4,7 @@ import {
   applicantFieldMapper,
   preferenceFieldMapper,
   applicationFieldMapper,
-  householdMembersfieldMapper,
+  householdMembersFieldMapper,
   applicationShape
 } from './soqlFieldMappers'
 
@@ -14,7 +14,7 @@ const mapApplication = createFieldMapper(applicationFieldMapper)
 
 const mapPrefences = createFieldMapper(preferenceFieldMapper)
 
-const mapHouseholdMembers = createFieldMapper(householdMembersfieldMapper)
+const mapHouseholdMembers = createFieldMapper(householdMembersFieldMapper)
 
 const buildApplicationShape = soqlObject => {
   return mapFields(applicationShape, {}, soqlObject)

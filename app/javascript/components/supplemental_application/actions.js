@@ -11,10 +11,7 @@ export const updateApplicationAction = async (application, values) => {
     }
   })
 
-  console.log(application)
-  console.log(applicationUpdated)
   let response = await apiService.submitApplication(applicationUpdated)
-
   if (response == false) {
     Alerts.info('Ups. Could not save form.')
   }
