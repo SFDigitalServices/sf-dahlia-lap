@@ -12,3 +12,11 @@ export const mapFields = (fieldMapper, to, from ) => {
 }
 
 export const createFieldMapper = (fields) => (source) => mapFields(fields, {}, source)
+
+export const shapeMapper = (field, fieldsMapper) => (source) => {
+  return mapFields(fieldsMapper, {}, source[field])
+}
+
+export const listMapper = (field, fieldsMapper) =>  (source) => {
+  return source[field].map(i => mapFields(fieldsMapper, {}, i))
+}

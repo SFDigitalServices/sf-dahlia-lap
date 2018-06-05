@@ -11,7 +11,6 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 
-
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
@@ -72,8 +71,7 @@ class PaperApplicationForm extends React.Component {
       applicationData["applicationSubmissionType"] = this.props.application.Application_Submission_Type
     }
 
-    // let response = await apiService.submitApplication(applicationData)
-    let response = false
+    let response = await apiService.submitApplication(applicationData)
     if (response == false) {
       alert('There was an error on submit. Please check values and try again.')
     }
@@ -129,7 +127,7 @@ class PaperApplicationForm extends React.Component {
         autofillValues[shortFormField] = this.props.application[salesforceField]
       })
     }
-    
+
     return (
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>

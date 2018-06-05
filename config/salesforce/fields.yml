@@ -149,9 +149,16 @@ applications:
     Application_Member__r.First_Name__c:
     Application_Member__r.Last_Name__c:
     Application_Member__r.Date_of_Birth__c:
+    Application_Member__r.Id:
     Individual_preference__c:
     Certificate_Number__c:
     Preference_Order__c:
+    RecordType.DeveloperName:
+    LW_Type_of_Proof__c:
+    City__c:
+    State__c:
+    Street__c:
+    Zip_Code__c:
   show_flagged_records_fields:
     Flagged_Record_Set__c:
     Flagged_Record_Set__r.Rule_Name__c:

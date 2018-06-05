@@ -1,4 +1,4 @@
-import { mapFields } from '~/utils/objectUtils'
+import { shapeMapper, listMapper } from '~/utils/objectUtils'
 
 export const applicantFieldMapper = {
   Date_of_Birth: 'DOB',
@@ -15,15 +15,32 @@ export const applicantFieldMapper = {
   Mailing_State: 'mailingState',
   Mailing_Zip_Code: 'mailingZip',
   Phone: 'phone',
-  Phone_Type: 'phoneType',
+  Phone_Type: 'phoneType'
 }
 
+// Listing_Preference_ID: "listingPreferenceID",
+// Preference_Name: "preferenceName",
+// Application_Preference: ''
+// Requires_Proof: ''
+// Type_of_proof
+// Type_of_proof: "preferenceProof",
+// Preference_Proof: 'preferenceProof',
 export const preferenceFieldMapper = {
-  Listing_Preference_ID: "listingPreferenceID",
   Individual_preference: "individualPreference",
   Certificate_Number: "certificateNumber",
+  'RecordType.DeveloperName': 'recordTypeDevName',
+  Id: 'shortformPreferenceID',
+  'Application_Member__r.Id': 'appMemberID',
+  Certificate_Number: 'certificateNumber',
+  Individual_preference: 'individualPreference',
+  LW_Type_of_Proof__c: 'lwPreferenceProof',
+  Opt_Out: 'optOut',
   Type_of_proof: "preferenceProof",
-  Preference_Name: "preferenceName"
+  City: 'city',
+  State: 'state',
+  Street: 'address',
+  Zip_Code: 'zipCode',
+  Listing_Preference_ID: 'listingPreferenceID'
 }
 
 export const applicationFieldMapper = {
@@ -46,19 +63,12 @@ export const householdMembersfieldMapper = {
   Zip_Code: 'zip',
 }
 
-const map = (field, fieldsMapper) => (source) => {
-  return mapFields(fieldsMapper, {}, source[field])
-}
-
-const mapList = (field, fieldsMapper) =>  (source) => {
-  return source[field].map(i => mapFields(fieldsMapper, {}, i))
-}
-
 export const applicationShape = {
   ...applicationFieldMapper,
+  listingID: (source) => source.Listing.Id,
   ...{
-    primaryApplicant: map('Applicant', applicantFieldMapper),
-    shortFormPreferences: mapList('preferences', preferenceFieldMapper),
-    householdMembers: mapList('household_members', householdMembersfieldMapper)
+    primaryApplicant: shapeMapper('Applicant', applicantFieldMapper),
+    shortFormPreferences: listMapper('preferences', preferenceFieldMapper),
+    householdMembers: listMapper('household_members', householdMembersfieldMapper)
   }
 }
