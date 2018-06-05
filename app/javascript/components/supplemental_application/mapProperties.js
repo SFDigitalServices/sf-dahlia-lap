@@ -17,7 +17,8 @@ const mapStatusHistoryItem = (item) => {
 const mapStatusHistory = (statusHistory) => {
   if (_.isEmpty(statusHistory))
     return []
-  return statusHistory.map(mapStatusHistoryItem)
+  else
+    return statusHistory.map(mapStatusHistoryItem)
 }
 
 const mapFormFields = (application) => {
