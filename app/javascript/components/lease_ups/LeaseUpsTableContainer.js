@@ -109,7 +109,7 @@ class LeaseUpTableContainer extends React.Component {
       email:              result['Application.Email'],
       status_updated:     result['Status_Last_Updated'],
       lease_up_status:    result['Application.Processing_Status'],
-      preference_order:   result["Preference_Order"],
+      preference_order:   result['Preference_Order'],
     }
 
     if (!!trim(result['Application.Mailing_Address'])) {
@@ -119,8 +119,9 @@ class LeaseUpTableContainer extends React.Component {
     }
 
     rowData.preference_rank = `${result['Listing_Preference_ID.Record_Type_For_App_Preferences']} ${result['Preference_Lottery_Rank']}`
-    rowData.rankOrder = parseInt(`${result['Preference_Order']}${result['Preference_Lottery_Rank']}`, 10)
-
+    var prefNum = parseFloat(result['Preference_Order'])
+    var rankNum = parseFloat(result['Preference_Lottery_Rank'])
+    rowData.rankOrder = prefNum + (rankNum * 0.0001)
     return rowData
   }
 
