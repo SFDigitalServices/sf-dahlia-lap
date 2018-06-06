@@ -16,7 +16,8 @@ export const applicantFieldMapper = {
   Mailing_Zip_Code: 'mailingZip',
   Phone: 'phone',
   Phone_Type: 'phoneType',
-  Marital_Status:'maritalStatus'
+  Marital_Status:'maritalStatus',
+  applicationId: (source) => source.Id
 }
 
 export const preferenceFieldMapper = {
@@ -45,7 +46,7 @@ export const applicationFieldMapper = {
   Annual_Income: 'annualIncome',
   Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
   Terms_Acknowledged: 'agreeToTerms',
-  applicationId: "a0o0x000000OHykAAG"
+  Total_Household_Size: 'numberOfDependents'
 }
 
 export const householdMembersFieldMapper = {
