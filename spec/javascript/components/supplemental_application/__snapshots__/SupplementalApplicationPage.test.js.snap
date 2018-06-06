@@ -355,7 +355,7 @@ Array [
           </h3>
         </div>
         <div
-          className="app-inner inset-wide "
+          className="app-inner inset-wide"
         >
           <div
             className="status-list"

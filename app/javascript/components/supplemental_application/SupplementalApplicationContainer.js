@@ -9,9 +9,9 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 
 //TODO: refactor. this is a placeholder
 const StatusUpdateSection = () => (
-  <div className="app-inner inset-wide padding-bottom-none margin-top">
+  <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
-  </div>
+  </ContentSection.Content>
 )
 
 const LeaseInformationSection = ({statusHistory}) => (
@@ -21,8 +21,8 @@ const LeaseInformationSection = ({statusHistory}) => (
     </ContentSection.Sub>
     {!isEmpty(statusHistory) &&
       (
-        <ContentSection.Sub title="Status History" border={false}>
-          <StatusList items={statusHistory} onAddCommnent={()=>alert('add comment')}/>
+        <ContentSection.Sub title="Status History" borderBottom={false}>
+          <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')}/>
         </ContentSection.Sub>
       )
     }
@@ -63,7 +63,7 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, formFields, onSubmit } = this.props
+    const { statusHistory, formFields } = this.props
     const { loading } = this.state
 
     return (
