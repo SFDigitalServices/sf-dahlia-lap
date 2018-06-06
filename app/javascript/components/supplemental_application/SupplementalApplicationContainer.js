@@ -29,10 +29,10 @@ const LeaseInformationSection = ({statusHistory}) => (
   </ContentSection>
 )
 
-const ButtonPager = () => (
+const ButtonPager = ({ disabled }) => (
   <div className="button-pager">
     <div className="button-pager_row align-buttons-left primary inset-wide">
-      <button className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width" href="#" aria-expanded="false">
+      <button className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width" href="#" aria-expanded="false" disabled={disabled}>
         <span className="ui-icon ui-small" aria-hidden="true">
           <svg>
             <use xlinkHref="#i-arrow-down"></use>
@@ -45,23 +45,36 @@ const ButtonPager = () => (
         <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
         <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
       </ul>
-      <button className="button primary small" type="submit">Save</button>
+      <button className="button primary small" type="submit" disabled={disabled}>Save</button>
     </div>
   </div>
 )
 
 class SupplementalApplicationContainer extends React.Component {
+  state = {
+    loading: false
+  }
+
+  handleOnSubmit = (value) => {
+    this.setState({loading: true})
+    this.props.onSubmit(value).then(() => {
+      this.setState({loading: false})
+    })
+  }
+
   render() {
     const { statusHistory, formFields, onSubmit } = this.props
+    const { loading } = this.state
+
     return (
-        <Form onSubmit={onSubmit} defaultValues={formFields}	>
+        <Form onSubmit={this.handleOnSubmit} defaultValues={formFields}	>
           {formApi => (
-            <form onSubmit={formApi.submitForm} style={{margin:'0px'}}>
+            <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
-              <ButtonPager/>
+              <ButtonPager disabled={loading}/>
             </form>
           )}
         </Form>

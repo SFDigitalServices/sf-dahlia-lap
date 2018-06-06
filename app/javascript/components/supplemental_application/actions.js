@@ -16,4 +16,6 @@ export const updateApplicationAction = async (application, values) => {
   if (response == false) {
     Alerts.info('Ups. Could not save form.')
   }
+
+  return response
 }
