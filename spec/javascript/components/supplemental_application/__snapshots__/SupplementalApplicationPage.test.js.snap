@@ -438,6 +438,7 @@ Array [
             <button
               aria-expanded="false"
               className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
+              disabled={false}
               href="#"
             >
               <span
@@ -500,6 +501,7 @@ Array [
             </ul>
             <button
               className="button primary small"
+              disabled={false}
               type="submit"
             >
               Save
@@ -869,6 +871,7 @@ Array [
             <button
               aria-expanded="false"
               className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
+              disabled={false}
               href="#"
             >
               <span
@@ -931,6 +934,7 @@ Array [
             </ul>
             <button
               className="button primary small"
+              disabled={false}
               type="submit"
             >
               Save
