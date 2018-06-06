@@ -8,7 +8,8 @@ export const updateApplicationAction = async (application, values) => {
   const applicationUpdated = merge(shortFormApplication, {
     primaryApplicant: {
       maritalStatus: values.maritalStatus
-    }
+    },
+    numberOfDependents: values.dependents
   })
 
   let response = await apiService.submitApplication(applicationUpdated)

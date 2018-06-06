@@ -23,7 +23,7 @@ const mapStatusHistory = (statusHistory) => {
 
 const mapFormFields = (application) => {
   return {
-    dependents: application.Total_Household_Size,
+    dependents: application.Number_of_Dependents,
     maritalStatus: application.Applicant.Marital_Status
   }
 }

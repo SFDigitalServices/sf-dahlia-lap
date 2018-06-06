@@ -35,6 +35,7 @@ class Api::V1::ShortFormController < ApiController
             :applicationSubmissionType,
             :applicationSubmittedDate,
             :status,
+            :numberOfDependents,
             :formMetadata,
             {
               primaryApplicant: %i[
@@ -124,6 +125,7 @@ class Api::V1::ShortFormController < ApiController
             },
             {
               shortFormPreferences: %i[
+                applicationId
                 listingPreferenceID
                 appMemberID
                 certificateNumber

@@ -249,6 +249,7 @@ applications:
       label: 'Relationship'
     Alternate_Contact__r.Alternate_Contact_Type_Other__c:
       label: 'Relationship - Other'
+    Number_of_Dependents__c:
 
 flagged_record_sets:
   pending_review_fields:

@@ -46,7 +46,7 @@ export const applicationFieldMapper = {
   Annual_Income: 'annualIncome',
   Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
   Terms_Acknowledged: 'agreeToTerms',
-  Total_Household_Size: 'numberOfDependents'
+  Number_of_Dependents: 'numberOfDependents'
 }
 
 export const householdMembersFieldMapper = {
