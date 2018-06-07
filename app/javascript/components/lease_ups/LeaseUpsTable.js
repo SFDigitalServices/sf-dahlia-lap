@@ -59,7 +59,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
 
       if (column.id === 'status_updated') {
         attrs.className = 'td-offset-right'
-      } else if (column.id === 'preference_rank') {
+      } else if (column.id === 'rankOrder') {
         attrs.className = 'td-min-narrow'
       }
     }
