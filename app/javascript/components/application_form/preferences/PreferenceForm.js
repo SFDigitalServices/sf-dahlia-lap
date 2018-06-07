@@ -8,14 +8,34 @@ import NeighborhoodResidentFields from './NeighborhoodResidentFields'
 import LiveWorkFields from './LiveWorkFields'
 import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
 import DefaultPreferenceFields from './DefaultPreferenceFields'
+import AliceGriffithFields from './AliceGriffithFields'
+import { recordTypeMap } from './values'
 
-let recordTypeMap = {
-  'Certificate of Preference (COP)': 'COP',
-  'Displaced Tenant Housing Preference (DTHP)': 'DTHP',
-  'Live or Work in San Francisco Preference': 'L_W',
-  'Neighborhood Resident Housing Preference (NRHP)': 'NRHP',
-  "Rent Burdened / Assisted Housing Preference": 'RB_AHP',
-  "Anti-Displacement Housing Preference (ADHP)": 'ADHP'
+const PreferenceAdditionalOptions = ({i, householdMembers, listingPreferences, listingPreferenceID }) => {
+  let preference = _.find(listingPreferences, { Id: listingPreferenceID })
+
+  if (preference) {
+    switch (preference.Lottery_Preference.Name) {
+      case 'Certificate of Preference (COP)':
+        return <CertOfPreferenceFields {...{i, householdMembers}} />
+      case 'Neighborhood Resident Housing Preference (NRHP)':
+        return <NeighborhoodResidentFields {...{i, householdMembers}} />
+      case 'Displaced Tenant Housing Preference (DTHP)':
+        return <DisplacedFields {...{i, householdMembers}} />
+      case 'Live or Work in San Francisco Preference':
+        return <LiveWorkFields {...{i, householdMembers}} />
+      case 'Anti-Displacement Housing Preference (ADHP)':
+        return <AntiDisplacementFields {...{i, householdMembers}} />
+      case 'Rent Burdened / Assisted Housing Preference':
+        return <RentBurdenedAssistedHousingFields {...{i, householdMembers}} />
+      case 'Alice Griffith Housing Development Resident':
+        return <AliceGriffithFields {...{i, householdMembers}} />
+      default:
+        return <DefaultPreferenceFields {...{i, householdMembers}}  />
+    }
+  } else {
+    return null
+  }
 }
 
 const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
@@ -43,49 +63,55 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
     return { value: natKey, label: `${member.firstName} ${member.lastName}` }
   })
 
-  const preferenceAdditionalOptions = () => {
-    let formValue = selectedPreference()
-    let preference = _.find(listingPreferences, { Id: formValue.listingPreferenceID })
-    if (preference) {
-      switch (preference.Lottery_Preference.Name) {
-        case 'Certificate of Preference (COP)':
-          return <CertOfPreferenceFields {...{i, householdMembers}} />
-        case 'Neighborhood Resident Housing Preference (NRHP)':
-          return <NeighborhoodResidentFields {...{i, householdMembers}} />
-        case 'Displaced Tenant Housing Preference (DTHP)':
-          return <DisplacedFields {...{i, householdMembers}} />
-        case 'Live or Work in San Francisco Preference':
-          return <LiveWorkFields {...{i, householdMembers}} />
-        case 'Anti-Displacement Housing Preference (ADHP)':
-          return <AntiDisplacementFields {...{i, householdMembers}} />
-        case 'Rent Burdened / Assisted Housing Preference':
-          return <RentBurdenedAssistedHousingFields {...{i, householdMembers}} />
-        default:
-          return <DefaultPreferenceFields {...{i, householdMembers}}  />
-      }
-    }
-  }
+  // const preferenceAdditionalOptions = () => {
+  //   let formValue = selectedPreference()
+  //   let preference = _.find(listingPreferences, { Id: formValue.listingPreferenceID })
+  //
+  //   if (preference) {
+  //     switch (preference.Lottery_Preference.Name) {
+  //       case 'Certificate of Preference (COP)':
+  //         return <CertOfPreferenceFields {...{i, householdMembers}} />
+  //       case 'Neighborhood Resident Housing Preference (NRHP)':
+  //         return <NeighborhoodResidentFields {...{i, householdMembers}} />
+  //       case 'Displaced Tenant Housing Preference (DTHP)':
+  //         return <DisplacedFields {...{i, householdMembers}} />
+  //       case 'Live or Work in San Francisco Preference':
+  //         return <LiveWorkFields {...{i, householdMembers}} />
+  //       case 'Anti-Displacement Housing Preference (ADHP)':
+  //         return <AntiDisplacementFields {...{i, householdMembers}} />
+  //       case 'Rent Burdened / Assisted Housing Preference':
+  //         return <RentBurdenedAssistedHousingFields {...{i, householdMembers}} />
+  //       case 'Alice Griffith Housing Development Resident':
+  //         return <AliceGriffithFields {...{i, householdMembers}} />
+  //       default:
+  //         return <DefaultPreferenceFields {...{i, householdMembers}}  />
+  //     }
+  //   }
+  // }
 
   return (
     <div>
       <div className="row">
         <div className="form-group">
-          <div className="small-6 columns">
-            <label>Preference</label>
-            <Select
-              field={`shortFormPreferences.${i}.listingPreferenceID`}
-              options={listingPreferencesOptions}
-              value={`shortFormPreferences.${i}.listingPreferenceID`}
-            />
+          <div className='row'>
+            <div className="small-6 columns">
+              <label>Preference</label>
+              <Select
+                field={`shortFormPreferences.${i}.listingPreferenceID`}
+                options={listingPreferencesOptions}
+                value={`shortFormPreferences.${i}.listingPreferenceID`}
+              />
+            </div>
+            <div className="small-offset-6 columns"/>
           </div>
 
-          {preferenceAdditionalOptions()}
+          <PreferenceAdditionalOptions
+            i={i}
+            listingPreferenceID={selectedPreference().listingPreferenceID}
+            listingPreferences={listingPreferences}
+            householdMembers={householdMembers} />
 
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="form-group">
+          <div className="row">
           <div className="small-4 columns">
             <button
               onClick={() => formApi.removeValue("shortFormPreferences", i)}
@@ -94,10 +120,25 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
                 Remove
             </button>
           </div>
+          </div>
         </div>
       </div>
+
     </div>
   )
 }
 
 export default PreferenceForm
+
+// <div className="row">
+//   <div className="form-group">
+//     <div className="small-4 columns">
+//       <button
+//         onClick={() => formApi.removeValue("shortFormPreferences", i)}
+//         type="button"
+//         className="mb-4 btn btn-danger">
+//           Remove
+//       </button>
+//     </div>
+//   </div>
+// </div>
