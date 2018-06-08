@@ -4,10 +4,10 @@ import ContentCard from '../molecules/ContentCard'
 const ContentCardGrid = ({ title, description }) => {
   return (
     <ul className="content-grid wide-grid-margins">
-      <li class="content-item">
+      <li className="content-item">
         <ContentCard title={title} description={description} />
       </li>
-      <li class="content-item">
+      <li className="content-item">
         <ContentCard title={title} description={description} />
       </li>
     </ul>
