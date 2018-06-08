@@ -1,34 +1,45 @@
 import React from 'react'
 import { Select } from 'react-form'
-import _ from 'lodash'
+import { find, map, omitBy } from 'lodash'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap, typeOfProofValues } from './values'
 import { FIELD_NAME, buildFieldId } from './utils'
 
-const findSelectedPreference = (i, formApi, listingPreferences) => {
-  let selected = formApi.values.shortFormPreferences[i] || {}
-  let matched = _.find(listingPreferences, pref => pref.Id == selected.listingPreferenceID)
+
+const setRecordTypeDevName = (i, formApi, matched) => {
   if (!!matched && matched.Lottery_Preference) {
     let prefName = matched.Lottery_Preference.Name
     formApi.values.shortFormPreferences[i].recordTypeDevName = recordTypeMap[prefName] || 'Custom'
   }
+}
+
+const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
+  let selected = formApi.values.shortFormPreferences[i] || {}
+  let matched = find(listingPreferences, pref => pref.Id == selected.listingpreferenceid)
+  setRecordTypeDevName(i, formApi, matched)
   return selected
 }
 
-const buildListingPreferencesOptions = (i, formApi, listingPreferences) => {
-  return _.map(_.omitBy(listingPreferences, (listingPref) => {
-    // omit any listingPreferences that are already selected, excluding the current one
-    let isSelected = _.find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.Id })
-    return (isSelected && isSelected !== findSelectedPreference(i, formApi, listingPreferences))
-  }), (listingPref) => {
-    // format them into form-friendly values
-    return { value: listingPref.Id, label: listingPref.Lottery_Preference.Name }
+// omit any listingPreferences that are already selected, excluding the current one
+const findPreferencesNotSelected = (formApi, listingPreferences, selectedPreference) => {
+  return omitBy(listingPreferences, (listingPref) => {
+    let isSelected = find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.Id })
+    return (isSelected && isSelected !== selectedPreference)
+  })
+}
+
+const buildListingPreferencesOptions = (preferencesNotSelected) => {
+  return map(preferencesNotSelected, (listingPref) => {
+    return {
+      value: listingPref.Id,
+      label: listingPref.Lottery_Preference.Name
+    }
   })
 }
 
 const buildHouseholdMembersOptions = (fullHousehold) => {
-  return _.map(fullHousehold, (member) => {
+  return map(fullHousehold, (member) => {
     return {
       value: `${member.firstName},${member.lastName},${member.DOB}`,
       label: `${member.firstName} ${member.lastName}`
@@ -37,7 +48,10 @@ const buildHouseholdMembersOptions = (fullHousehold) => {
 }
 
 const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
-  const listingPreferencesOptions = buildListingPreferencesOptions(i, formApi, listingPreferences)
+  const selectedPreference = findSelectedPreference(i, formApi, listingPreferences)
+  const preferencesNotSelected = findPreferencesNotSelected(formApi, listingPreferences, selectedPreference)
+
+  const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
@@ -58,7 +72,7 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
 
           <PreferenceAdditionalOptions
             i={i}
-            listingPreferenceID={findSelectedPreference(i, formApi, listingPreferences).listingPreferenceID}
+            listingPreferenceID={selectedPreference.listingPreferenceID}
             listingPreferences={listingPreferences}
             householdMembers={householdMembersOptions} />
 

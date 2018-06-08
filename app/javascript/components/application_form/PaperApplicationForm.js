@@ -77,7 +77,6 @@ class PaperApplicationForm extends React.Component {
     }
 
     let response = await apiService.submitApplication(applicationData)
-    // let response = false
     if (response == false) {
       alert('There was an error on submit. Please check values and try again.')
     }

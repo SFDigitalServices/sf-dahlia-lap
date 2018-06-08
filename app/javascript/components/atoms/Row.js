@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Row = ({children}) => (
-  <div className='row'>
+const Row = ({children, form}) => (
+  <div className={`row ${form ? 'form-grid': ''}`}>
     {children}
   </div>
 )
