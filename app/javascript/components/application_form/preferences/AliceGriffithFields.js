@@ -1,60 +1,67 @@
 import React from 'react'
+import { map } from 'lodash'
 import { Select, Text } from 'react-form'
 
-const AliceGriffithFields = ({i}) => {
-  const householdMembers = []
+import { buildFieldId } from './utils'
+import { typeOfProofValues } from './values'
+import Row from '~/components/atoms/Row'
+import Column from '~/components/atoms/Column'
+
+
+const buildTypeOfProofOptions = (values) => {
+  return map(values, (option) => (
+    { value: option, label: option }
+  ))
+}
+
+const AliceGriffithFields = ({i, householdMembers}) => {
+  const typeOfProofOptions = buildTypeOfProofOptions(typeOfProofValues)
+  const fieldId = (field) => buildFieldId(i, field)
+
   return (
     <React.Fragment>
-    <div className='row'>
-      <div className="small-3 columns">
-        <label>Preference Name</label>
-        <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
-          options={householdMembers}
-          value={`shortFormPreferences.${i}.naturalKey`}
-        />
-      </div>
-      <div className="small-3 columns">
+    <Row>
+      <Column span={3}>
         <label>HH Member on Proof</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+          field={fieldId('naturalKey')}
           options={householdMembers}
-          value={`shortFormPreferences.${i}.naturalKey`}
+          value={fieldId('naturalKey')}
         />
-      </div>
-      <div className="small-3 columns end">
+      </Column>
+      <Column span={3} end>
         <label>Type of Proof</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
-          options={householdMembers}
-          value={`shortFormPreferences.${i}.naturalKey`}
+          field={fieldId('preferenceProof')}
+          options={typeOfProofOptions}
+          value={fieldId('preferenceProof')}
         />
-      </div>
-    </div>
-    <div className='row'>
-      <div className="small-3 columns">
+      </Column>
+    </Row>
+    <Row>
+      <Column span={3}>
         <label>Alice Griffith Address</label>
-        <Text/>
-      </div>
-      <div className="small-3 columns end">
+        <Text field={fieldId('address')}/>
+      </Column>
+      <Column span={3} end>
         <label>Apt or Unit #</label>
         <Text/>
-      </div>
-    </div>
-    <div className='row'>
-      <div className="small-3 columns">
+      </Column>
+    </Row>
+    <Row>
+      <Column span={3}>
         <label>City</label>
-        <Text/>
-      </div>
-      <div className="small-3 columns">
+        <Text field={fieldId('city')}/>
+      </Column>
+      <Column span={3}>
         <label>State</label>
-        <Text/>
-      </div>
-      <div className="small-3 columns end">
+        <Select field={fieldId('state')} options={[]}/>
+      </Column>
+      <Column span={3} end>
         <label>Zip</label>
-        <Text/>
-      </div>
-    </div>
+        <Text field={fieldId('zipCode')}/>
+      </Column>
+    </Row>
     </React.Fragment>
   )
 }

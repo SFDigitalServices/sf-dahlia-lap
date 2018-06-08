@@ -7,3 +7,13 @@ export const recordTypeMap = {
   "Rent Burdened / Assisted Housing Preference": 'RB_AHP',
   "Anti-Displacement Housing Preference (ADHP)": 'ADHP'
 }
+
+export const typeOfProofValues = [
+  "Letter from SFHA verifying address",
+  "CA ID or Driver’s License",
+  "Telephone bill",
+  "Cable and internet bill",
+  "Paystub",
+  "Public benefits record",
+  "School record"
+]
