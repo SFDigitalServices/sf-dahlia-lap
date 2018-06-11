@@ -8,17 +8,14 @@ import { FIELD_NAME, buildFieldId } from './utils'
 
 
 const setRecordTypeDevName = (i, formApi, matched) => {
-  console.log('setRecordTypeDevName...')
   if (!!matched && matched.Lottery_Preference) {
     let prefName = matched.Lottery_Preference.Name
-    console.log('setRecordTypeDevName:' + recordTypeMap[prefName])
     formApi.values.shortFormPreferences[i].recordTypeDevName = recordTypeMap[prefName] || 'Custom'
   }
 }
 
 const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
   let selected = formApi.values.shortFormPreferences[i] || {}
-  console.log(selected)
   let matched = find(listingPreferences, pref => pref.Id == selected.listingPreferenceID)
   setRecordTypeDevName(i, formApi, matched)
   return selected

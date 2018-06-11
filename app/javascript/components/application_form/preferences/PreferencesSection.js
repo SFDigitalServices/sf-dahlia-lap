@@ -32,10 +32,6 @@ let fieldMapper = {
 }
 
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
-  // console.log('PreferencesSection')
-  // console.log(formApi.values.shortFormPreferences)
-  // console.log(editValues.preferences)
-
   let autofillPreferences = []
   if (editValues && editValues.preferences && !formApi.values.shortFormPreferences) {
     _.forEach(editValues.preferences, (preference) => {
@@ -51,9 +47,6 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
     })
     formApi.values.shortFormPreferences = autofillPreferences
   }
-
-  // console.log('autofillPreferences:')
-  // console.log(autofillPreferences)
 
   let { householdMembers, primaryApplicant } = formApi.values
   let fullHousehold = _.concat([primaryApplicant], householdMembers || [])

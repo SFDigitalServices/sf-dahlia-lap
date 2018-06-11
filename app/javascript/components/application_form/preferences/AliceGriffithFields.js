@@ -8,7 +8,6 @@ import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
 import FormGroup from '~/components/atoms/FormGroup'
 
-
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => (
     { value: option, label: option }
@@ -18,16 +17,10 @@ const buildTypeOfProofOptions = (values) => {
 const AddressRow = ({fieldId}) => (
   <React.Fragment>
     <Row form>
-      <Column span={3} form>
+      <Column span={6} form>
         <FormGroup>
           <label>Alice Griffith Address</label>
           <Text field={fieldId('address')}/>
-        </FormGroup>
-      </Column>
-      <Column span={3} form end>
-        <FormGroup>
-          <label>Apt or Unit #</label>
-          <Text/>
         </FormGroup>
       </Column>
     </Row>
@@ -65,26 +58,25 @@ const AliceGriffithFields = ({i, householdMembers}) => {
 
   return (
     <React.Fragment>
-    <Row form>
-      <Column span={3} form>
-        <label>HH Member on Proof</label>
-        <Select
-          field={fieldId('naturalKey')}
-          options={householdMembers}
-          value={fieldId('naturalKey')}
-        />
-      </Column>
-      <Column span={3} form end>
-        <label>Type of Proof</label>
-        <Select
-          field={fieldId('preferenceProof')}
-          options={typeOfProofOptions}
-          value={fieldId('preferenceProof')}
-        />
-      </Column>
-    </Row>
-    <AddressRow fieldId={fieldId}/>
-
+      <Row form>
+        <Column span={3} form>
+          <label>HH Member on Proof</label>
+          <Select
+            field={fieldId('naturalKey')}
+            options={householdMembers}
+            value={fieldId('naturalKey')}
+          />
+        </Column>
+        <Column span={3} form end>
+          <label>Type of Proof</label>
+          <Select
+            field={fieldId('preferenceProof')}
+            options={typeOfProofOptions}
+            value={fieldId('preferenceProof')}
+          />
+        </Column>
+      </Row>
+      <AddressRow fieldId={fieldId}/>
     </React.Fragment>
   )
 }
