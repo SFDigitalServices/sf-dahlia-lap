@@ -18,8 +18,7 @@ export const typeOfProofValues = [
   "Public benefits record",
   "School record"
 ]
-
-
+// NOTE: all possible type proofs. Leaving this as record for now.
 // Letter from SFHA verifying address
 // CA ID or Driver's License
 // Telephone bill (landline only)
