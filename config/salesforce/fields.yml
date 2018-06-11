@@ -128,6 +128,11 @@ applications:
     Individual_preference__c:
     Certificate_Number__c:
     Preference_Order__c:
+    City__c:
+    State__c:
+    Zip_Code__c:
+    Street__c:
+    RecordType.DeveloperName:
   show_flagged_records_fields:
     Flagged_Record_Set__c:
     Flagged_Record_Set__r.Rule_Name__c:

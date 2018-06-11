@@ -28,6 +28,8 @@ module Force
 
     # run a Salesforce SOQL query
     def query(q)
+      puts "SOQL>"
+      puts q
       @client.query(q)
     end
 

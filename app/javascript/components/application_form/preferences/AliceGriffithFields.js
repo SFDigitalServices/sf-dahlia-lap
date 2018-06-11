@@ -6,6 +6,7 @@ import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
+import FormGroup from '~/components/atoms/FormGroup'
 
 
 const buildTypeOfProofOptions = (values) => {
@@ -14,36 +15,8 @@ const buildTypeOfProofOptions = (values) => {
   ))
 }
 
-const FormGroup = ({children}) => (
-  <div className='form-group'>{children}</div>
-)
-
-const AliceGriffithFields = ({i, householdMembers}) => {
-  const typeOfProofOptions = buildTypeOfProofOptions(typeOfProofValues)
-  const fieldId = (field) => buildFieldId(i, field)
-
-  return (
-    <React.Fragment>
-
-    <Row form>
-      <Column span={3} form>
-        <label>HH Member on Proof</label>
-        <Select
-          field={fieldId('naturalKey')}
-          options={householdMembers}
-          value={fieldId('naturalKey')}
-        />
-      </Column>
-      <Column span={3} form end>
-        <label>Type of Proof</label>
-        <Select
-          field={fieldId('preferenceProof')}
-          options={typeOfProofOptions}
-          value={fieldId('preferenceProof')}
-        />
-      </Column>
-    </Row>
-
+const AddressRow = ({fieldId}) => (
+  <React.Fragment>
     <Row form>
       <Column span={3} form>
         <FormGroup>
@@ -83,6 +56,34 @@ const AliceGriffithFields = ({i, householdMembers}) => {
         </Row>
       </Column>
     </Row>
+  </React.Fragment>
+)
+
+const AliceGriffithFields = ({i, householdMembers}) => {
+  const typeOfProofOptions = buildTypeOfProofOptions(typeOfProofValues)
+  const fieldId = (field) => buildFieldId(i, field)
+
+  return (
+    <React.Fragment>
+    <Row form>
+      <Column span={3} form>
+        <label>HH Member on Proof</label>
+        <Select
+          field={fieldId('naturalKey')}
+          options={householdMembers}
+          value={fieldId('naturalKey')}
+        />
+      </Column>
+      <Column span={3} form end>
+        <label>Type of Proof</label>
+        <Select
+          field={fieldId('preferenceProof')}
+          options={typeOfProofOptions}
+          value={fieldId('preferenceProof')}
+        />
+      </Column>
+    </Row>
+    <AddressRow fieldId={fieldId}/>
 
     </React.Fragment>
   )

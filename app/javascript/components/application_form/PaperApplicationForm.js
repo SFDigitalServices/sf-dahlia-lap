@@ -127,6 +127,7 @@ class PaperApplicationForm extends React.Component {
       Terms_Acknowledged: 'agreeToTerms'
     }
 
+    // debugger
     let autofillValues = {}
     if (this.props.application) {
       _.forEach(fieldMapper, (shortFormField, salesforceField) => {
@@ -134,6 +135,11 @@ class PaperApplicationForm extends React.Component {
       })
     }
 
+    console.log("autofill")
+    console.log(fieldMapper)
+    console.log(this.props.application)
+    console.log(autofillValues.shortFormPreferences)
+    console.log('end')
 
     return (
       <div>
