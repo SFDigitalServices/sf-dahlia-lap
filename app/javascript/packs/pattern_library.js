@@ -17,6 +17,8 @@ import FormGroupCheckboxGroup from 'components/atoms/FormGroupCheckboxGroup'
 import Spinner from 'components/atoms/Spinner'
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
+import ContentCard from 'components/molecules/ContentCard'
+import ContentCardGrid from 'components/molecules/ContentCardGrid'
 import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import Dropdown from 'components/molecules/Dropdown'
@@ -56,6 +58,8 @@ WebpackerReact.setup({ Spinner })
 WebpackerReact.setup({ BreadCrumbs })
 WebpackerReact.setup({ AlertBox })
 WebpackerReact.setup({ AlertNotice })
+WebpackerReact.setup({ ContentCard })
+WebpackerReact.setup({ ContentCardGrid })
 WebpackerReact.setup({ DropdownMenu })
 WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ Dropdown })
