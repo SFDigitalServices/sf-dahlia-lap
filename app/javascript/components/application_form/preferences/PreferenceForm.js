@@ -1,11 +1,13 @@
 import React from 'react'
 import { Select } from 'react-form'
 import { find, map, omitBy } from 'lodash'
+import Row from '~/components/atoms/Row'
+import Column from '~/components/atoms/Column'
+import FormGroup from '~/components/atoms/FormGroup'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap, typeOfProofValues } from './values'
 import { FIELD_NAME, buildFieldId } from './utils'
-
 
 const setRecordTypeDevName = (i, formApi, matched) => {
   if (!!matched && matched.Lottery_Preference) {
@@ -55,20 +57,20 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
-    <div>
-      <div className="row">
-        <div className="form-group">
-          <div className='row'>
-            <div className="small-6 columns">
+      <Row>
+        <FormGroup>
+
+          <Row>
+            <Column span={6}>
               <label>Preference</label>
               <Select
                 field={buildFieldId(i, 'listingPreferenceID')}
                 options={listingPreferencesOptions}
                 value={buildFieldId(i,'listingPreferenceID')}
               />
-            </div>
+            </Column>
             <div className="small-offset-6 columns"/>
-          </div>
+          </Row>
 
           <PreferenceAdditionalOptions
             i={i}
@@ -76,20 +78,19 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
             listingPreferences={listingPreferences}
             householdMembers={householdMembersOptions} />
 
-          <div className="row">
-            <div className="small-4 columns">
+          <Row>
+            <Column span={4}>
               <button
                 onClick={() => formApi.removeValue(FIELD_NAME, i)}
                 type="button"
                 className="mb-4 btn btn-danger">
                   Remove
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
+            </Column>
+          </Row>
 
-    </div>
+        </FormGroup>
+      </Row>
   )
 }
 
