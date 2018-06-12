@@ -1,20 +1,20 @@
 import React from 'react'
-import _ from 'lodash'
-import utils from '~/utils'
-import appPaths from '~/components/appPaths'
+import { map, includes, last } from 'lodash'
+import utils from '~/utils/utils'
+import appPaths from '~/utils/appPaths'
 
 const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
   let i = 0
-  let columns = _.map(fields, (field) => {
-    if (_.includes(field, '.')) {
-      field = _.last(field.split('.'))
+  let columns = map(fields, (field) => {
+    if (includes(field, '.')) {
+      field = last(field.split('.'))
     }
     return <th key={field}>{utils.cleanField(field)}</th>
   })
-  let rows = _.map(data[table], (row) => {
-    let tableData = _.map(fields, (field) => {
+  let rows = map(data[table], (row) => {
+    let tableData = map(fields, (field) => {
       // this is for flagged applications table
-      if (field == 'View Record Set') {
+      if (field === 'View Record Set') {
         return (
           <td key='view'>
             <a href={appPaths.toApplicationsFlagged(row.Flagged_Record_Set)}>
@@ -24,7 +24,7 @@ const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
         )
       }
       let value = row[field]
-      if (_.includes(field, '.')) {
+      if (includes(field, '.')) {
         let parts = field.split('.')
         // e.g. Lottery_Preference.Name, grab from nested object
         value = String(row[parts[0]][parts[1]])

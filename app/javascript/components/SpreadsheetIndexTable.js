@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
-// import moment from 'moment'
+import { each, includes, last, cloneDeep } from 'lodash'
 import ReactTable from 'react-table'
-import utils from '~/utils'
+import utils from '~/utils/utils'
 import apiService from '~/apiService'
 import IndexTableCell from './IndexTableCell'
 
@@ -20,18 +19,10 @@ class SpreadsheetIndexTable extends React.Component {
     }
   }
 
-  // get isSortable() {
-  //   return !_.some(this.state.expanded)
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log(nextState)
-  // }
-
   columnData = () => {
     let { fields } = this.props
     var columns = []
-    _.each(fields, (attrs, field) => {
+    each(fields, (attrs, field) => {
       attrs = attrs || {}
       // don't show Id column
       if (field === 'Id') return
@@ -45,7 +36,7 @@ class SpreadsheetIndexTable extends React.Component {
           // we are "editing" this row if we have expanded it
           let editing = this.state.expanded[cellInfo.viewIndex]
           let lotteryStatus = this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
-          if (_.includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
+          if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
             // don't allow editing based on certain lotteryStatus values
             editing = false
           }
@@ -63,11 +54,11 @@ class SpreadsheetIndexTable extends React.Component {
       }
       if (attrs.label) {
         column.Header = attrs.label
-      } else if (_.includes(field, '__r.')) {
-        column.Header = utils.cleanField(_.last(field.split('__r.')))
+      } else if (includes(field, '__r.')) {
+        column.Header = utils.cleanField(last(field.split('__r.')))
       }
-        else if (_.includes(field, '.')) {
-        column.Header = utils.cleanField(_.last(field.split('.')))
+        else if (includes(field, '.')) {
+        column.Header = utils.cleanField(last(field.split('.')))
       } else {
         column.Header = utils.cleanField(field)
       }
@@ -101,7 +92,7 @@ class SpreadsheetIndexTable extends React.Component {
         console.log(`saving ${rowInfo.index}.....`)
         loading = {...loading}
         loading[rowInfo.index] = false
-        persistedData[rowInfo.index] = _.cloneDeep(editData[rowInfo.index])
+        persistedData[rowInfo.index] = cloneDeep(editData[rowInfo.index])
         await apiService.updateFlaggedApplication(persistedData[rowInfo.index])
         // ^^ await means that the setState won't happen until the call is made
         console.log('now done')
@@ -141,7 +132,7 @@ class SpreadsheetIndexTable extends React.Component {
           </a>
         </li>
       )
-      if (_.includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
+      if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
         return (
           <ul className="subcomponent button-radio-group segmented-radios inline-group">
             {viewApplicationLink}

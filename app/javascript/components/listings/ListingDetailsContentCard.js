@@ -1,7 +1,7 @@
 import React from 'react'
-import _ from 'lodash'
+import { includes, take, takeRight, map } from 'lodash'
 import moment from 'moment'
-import utils from '../../utils'
+import utils from '~/utils/utils'
 
 var generateHtml = (value) => {
   return {__html: value}
@@ -10,11 +10,11 @@ var generateHtml = (value) => {
 
 var generateContent = (listing, field, i) => {
   const formattedValue = (value, field) => {
-    if (field == 'Legal_Disclaimers') {
+    if (field === 'Legal_Disclaimers') {
       // TO DO: sanitize html
       return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
     }
-    else if (_.includes(value, 'http')) {
+    else if (includes(value, 'http')) {
       return(<a target='_blank' href={value}>{value}</a>)
     }
     else {
@@ -25,7 +25,7 @@ var generateContent = (listing, field, i) => {
   let value = listing[field]
   let label = utils.cleanField(field)
 
-  if (_.includes(field, '.')) {
+  if (includes(field, '.')) {
     let parts = field.split('.')
     label = utils.cleanField(parts[0])
     if (listing[label]) {
@@ -33,10 +33,10 @@ var generateContent = (listing, field, i) => {
     }
   }
   // to do: refactor so labelling overwrite isn't hardcoded
-  if (label  == 'In Lottery') {
+  if (label === 'In Lottery') {
     label = 'Applications in Lottery'
   }
-  if (_.includes(field, 'Date')) {
+  if (includes(field, 'Date')) {
     // cheap way of knowing when to parse date fields
     value = moment(value).format('L')
   }
@@ -54,12 +54,12 @@ var generateContent = (listing, field, i) => {
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
   let halfLength = fields.length / 2
-  let firstFields = _.take(fields, Math.floor(halfLength))
-  let lastFields = _.takeRight(fields, Math.ceil(halfLength))
+  let firstFields = take(fields, Math.floor(halfLength))
+  let lastFields = takeRight(fields, Math.ceil(halfLength))
 
   let i = 0
-  let firstFieldsContent = _.map(firstFields, field => generateContent(listing, field, i++))
-  let lastFieldsContent = _.map(lastFields, field => generateContent(listing, field, i++))
+  let firstFieldsContent = map(firstFields, field => generateContent(listing, field, i++))
+  let lastFieldsContent = map(lastFields, field => generateContent(listing, field, i++))
 
   return (
       <div className="content-card padding-bottom-none margin-bottom--half bg-trans">

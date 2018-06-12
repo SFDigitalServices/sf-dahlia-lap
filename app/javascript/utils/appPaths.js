@@ -1,4 +1,3 @@
-
 const toApplicationSupplementals = (applicationId) => `/applications/${applicationId}/supplementals`
 
 const toApplication = (applicationId) => `/applications/${applicationId}`
@@ -20,5 +19,5 @@ export default {
   toApplicationsFlaggedIndex,
   toListingLeaseUps,
   toApplicationEdit,
-  toListing
+  toListing,
 }
