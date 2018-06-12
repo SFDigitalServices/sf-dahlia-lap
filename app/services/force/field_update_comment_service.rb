@@ -1,8 +1,19 @@
 module Force
-  # encapsulate all Salesforce Short Form Application querying functions
+  # encapsulate all Salesforce Field Update Comment querying functions
   class FieldUpdateCommentService < Force::Base
-    DRAFT = 'Draft'.freeze
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['field_update_comment'].freeze
+
+    def create(data)
+      formatted_datetime = Time.now.strftime('%Y-%m-%dT%H:%M:%S%z')
+      data = data.merge(Processing_Date_Updated__c: formatted_datetime)
+      data = Hashie::Mash.new(data)
+      # TODO: remove this error trigger that is here for testing purposes
+      if data[:Application__c] == 'a0o0P00000AxBWAQA3'
+        @client.create!('Field_Update_Comment__cfoofoofoo', data)
+      else
+        @client.create!('Field_Update_Comment__c', data)
+      end
+    end
 
     def status_history_by_application(application_id)
       parsed_index_query(
@@ -11,7 +22,7 @@ module Force
           FROM Field_Update_Comment__c
           WHERE Application__c = '#{application_id}'
           ORDER BY Processing_Date_Updated__c DESC
-        )
+        ),
       )
     end
   end

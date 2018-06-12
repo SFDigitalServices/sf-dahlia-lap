@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :listings, only: %w[index show] do
     resources :applications, only: %w[new index], module: 'listings'
     collection do
-      resources :lease_ups, only:%w[], module: 'listings' do
-        resources :applications, module:'lease_ups', only: %w[index]
+      resources :lease_ups, only: %w[], module: 'listings' do
+        resources :applications, module: 'lease_ups', only: %w[index]
       end
     end
   end
@@ -37,6 +37,9 @@ Rails.application.routes.draw do
       end
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
+      end
+      scope '/field-update-comments' do
+        post 'create' => 'field_update_comments#create'
       end
     end
   end
