@@ -8,6 +8,7 @@ class LeaseUpTableContainer extends React.Component {
 
   buildRowData(result) {
     // if we are going to use Mobx this mapping logic could be extracted to a Model
+    // this should be moved out to propmappers
     let rowData = {
       id:                 result['Application'],
       application_number: result['Application.Name'],

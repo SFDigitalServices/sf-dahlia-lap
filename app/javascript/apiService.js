@@ -36,6 +36,10 @@ const submitApplication = async (data) => {
   return await apiCall('post', '/short-form/submit', postData)
 }
 
+const fetchApplications = async () => {
+
+}
+
 // NOTE: This is used in Lease Ups Table
 // const updateLeaseUpStatus = async (applicationNumer, status) => {
 //   console.log(`Updating lease up status for ${applicationNumer} to ${status}`)
@@ -44,5 +48,6 @@ const submitApplication = async (data) => {
 export default {
   updateApplication,
   updateFlaggedApplication,
-  submitApplication
+  submitApplication,
+  fetchApplications
 }

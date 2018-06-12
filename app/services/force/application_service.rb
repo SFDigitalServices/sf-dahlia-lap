@@ -4,13 +4,14 @@ module Force
     DRAFT = 'Draft'.freeze
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['applications'].freeze
 
-    def applications
+    def applications(options = {})
       # TO DO: Cache this request
       parsed_index_query(%(
         SELECT #{query_fields(:index)}
         FROM Application__c
         WHERE #{user_can_access}
         AND Status__c != '#{DRAFT}'
+        #{page(options)}
       ))
     end
 

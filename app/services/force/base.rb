@@ -153,6 +153,12 @@ module Force
       end
     end
 
+    def page(options)
+      limit = 25
+      offset = 5
+      "LIMIT #{limit} OFFSET #{offset}"
+    end
+
     def hash_massage(h)
       return h['records'].map { |i| massage(i) } if h.include?('records')
       # massage each hash value
