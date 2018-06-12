@@ -930,7 +930,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -942,7 +942,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -1415,7 +1415,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -1427,7 +1427,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -1900,7 +1900,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -1912,7 +1912,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -2166,7 +2166,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -2178,7 +2178,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -2432,7 +2432,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -2444,7 +2444,7 @@ exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -4757,7 +4757,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -4769,7 +4769,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -5242,7 +5242,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -5254,7 +5254,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -5508,7 +5508,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -5520,7 +5520,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -5774,7 +5774,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -5786,7 +5786,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -6040,7 +6040,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                   style={Object {}}
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -6052,7 +6052,7 @@ exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -8517,7 +8517,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -8529,7 +8529,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -9002,7 +9002,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -9014,7 +9014,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -9487,7 +9487,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -9499,7 +9499,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -9972,7 +9972,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -9984,7 +9984,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
@@ -10457,7 +10457,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                   tabIndex="0"
                                 >
                                   <Td
-                                    className=""
+                                    className="td-min-narrow"
                                     key="0-rankOrder"
                                     onClick={[Function]}
                                     style={
@@ -10469,7 +10469,7 @@ exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lott
                                     }
                                   >
                                     <div
-                                      className="rt-td"
+                                      className="rt-td td-min-narrow"
                                       onClick={[Function]}
                                       style={
                                         Object {
