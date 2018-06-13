@@ -3,8 +3,6 @@ module Api::V1
 
     def index
       applications = application_service.applications(page: params[:page])
-
-      # total_pages = application_service.applications_total_pages
       render json: applications
     end
 
