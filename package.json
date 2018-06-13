@@ -4,7 +4,7 @@
   "engines": {
     "node": "8.10.x",
     "npm": "5.5.x",
-    "yarn": "1.5.x"
+    "yarn": "1.x.x"
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
