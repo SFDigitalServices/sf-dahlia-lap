@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
-import ReactModal from 'react-modal';
 
 import SimpleModal from 'components/organisms/SimpleModal'
 
@@ -32,7 +30,7 @@ class ModalWrapper extends React.Component {
           primary='update'
           secondary='cancel'
           isOpen={this.state.statusModalIsOpen}
-          onCloseClick={this.closeStatusModal}
+          handleClose={this.closeStatusModal}
           onPrimaryClick={this.closeStatusModal}
           onSecondaryClick={this.closeStatusModal}
           type='status'>
@@ -52,14 +50,14 @@ class ModalWrapper extends React.Component {
           primary='remove'
           secondary='cancel'
           isOpen={this.state.dangerModalIsOpen}
-          onCloseClick={this.closeDangerModal}
+          handleClose={this.closeDangerModal}
           onPrimaryClick={this.closeDangerModal}
           onSecondaryClick={this.closeDangerModal}
           type='alert'
           invert={false}
           alert={{
             title: "This change will affect this application's preferences",
-            subTitle: 'This application woudl no longer be elegible for Live Work Preference',
+            subtitle: 'This application would no longer be eligible for Live Work Preference',
             message: 'Note, you will have the opportunity to grant another household member this preference',
             invert: false
           }}>
@@ -74,14 +72,14 @@ class ModalWrapper extends React.Component {
           primary='remove'
           secondary='cancel'
           isOpen={this.state.invertModalIsOpen}
-          onCloseClick={this.closeInvertModal}
+          handleClose={this.closeInvertModal}
           onPrimaryClick={this.closeInvertModal}
           onSecondaryClick={this.closeInvertModal}
           type='alert'
           invert={true}
           alert={{
             title: "This change will affect this application's preferences",
-            subTitle: 'This application woudl no longer be elegible for Live Work Preference',
+            subtitle: 'This application woudl no longer be elegible for Live Work Preference',
             message: 'Note, you will have the opportunity to grant another household member this preference',
             invert: true
           }}>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-import appPaths from '~/components/appPaths'
+import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import mapProperties from './mapProperties'

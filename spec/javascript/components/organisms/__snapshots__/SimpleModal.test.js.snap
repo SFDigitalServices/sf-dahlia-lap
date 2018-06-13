@@ -6,13 +6,13 @@ exports[`SimpleModal it should render status type successfully 1`] = `
     Object {
       "invert": false,
       "message": "Note, you will have the opportunity to grant another household member this preference",
-      "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+      "subtitle": "This application would no longer be eligible for Live Work Preference",
       "title": "This change will affect this application's preferences",
     }
   }
+  handleClose={[MockFunction]}
   header="Update Status"
   isOpen={true}
-  onCloseClick={[MockFunction]}
   onPrimaryClick={[MockFunction]}
   onSecondaryClick={[MockFunction]}
   primary="update"
@@ -20,6 +20,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
   type="status"
 >
   <Modal
+    handleClose={[MockFunction]}
     isOpen={true}
   >
     <Modal
@@ -27,6 +28,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
       bodyOpenClassName="ReactModal__Body--open"
       closeTimeoutMS={0}
       isOpen={true}
+      onRequestClose={[MockFunction]}
       parentSelector={[Function]}
       portalClassName="ReactModalPortal"
       shouldCloseOnEsc={true}
@@ -42,6 +44,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
             "left": "50%",
             "minHeight": "10rem",
             "opacity": "1",
+            "overflow": "visible",
             "padding": "0px",
             "position": "fixed",
             "right": "auto",
@@ -86,6 +89,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
           }
         }
         isOpen={true}
+        onRequestClose={[MockFunction]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
         shouldCloseOnEsc={true}
@@ -101,6 +105,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
               "left": "50%",
               "minHeight": "10rem",
               "opacity": "1",
+              "overflow": "visible",
               "padding": "0px",
               "position": "fixed",
               "right": "auto",
@@ -147,7 +152,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                 "minHeight": "10rem",
                 "opacity": "1",
                 "outline": "none",
-                "overflow": "auto",
+                "overflow": "visible",
                 "padding": "0px",
                 "position": "fixed",
                 "right": "auto",
@@ -163,12 +168,12 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                 Object {
                   "invert": false,
                   "message": "Note, you will have the opportunity to grant another household member this preference",
-                  "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+                  "subtitle": "This application would no longer be eligible for Live Work Preference",
                   "title": "This change will affect this application's preferences",
                 }
               }
+              handleClose={[MockFunction]}
               header="Update Status"
-              onCloseClick={[MockFunction]}
               onPrimaryClick={[MockFunction]}
               onSecondaryClick={[MockFunction]}
               primary="update"
@@ -176,7 +181,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
               type="status"
             >
               <Component
-                onCloseClick={[MockFunction]}
+                handleClose={[MockFunction]}
               >
                 <div
                   aria-labelledby="modalTitle"
@@ -186,25 +191,25 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                     title="Update Status"
                   >
                     <header
-                      className="modal-inner"
+                      className="modal-inner margin-top"
                     >
                       <h1
                         className="modal-title t-gamma no-margin"
                       >
-                        Update status
+                        Update Status
                       </h1>
                     </header>
                   </Component>
                   <Component
                     invert={false}
                     message="Note, you will have the opportunity to grant another household member this preference"
-                    subTitle="This application woudl no longer be elegible for Live Work Preference"
+                    subtitle="This application would no longer be eligible for Live Work Preference"
                     title="This change will affect this application's preferences"
                   >
                     <Alert
                       invert={false}
                       message="Note, you will have the opportunity to grant another household member this preference"
-                      subTitle="This application woudl no longer be elegible for Live Work Preference"
+                      subtitle="This application would no longer be eligible for Live Work Preference"
                       title="This change will affect this application's preferences"
                     >
                       <div
@@ -212,11 +217,9 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                       >
                         <AlertBox
                           closeType="text"
-                          dismiss={false}
                           invert={false}
                           message="This change will affect this application's preferences"
                           noMargin={true}
-                          onCloseClick={[Function]}
                         >
                           <div
                             className="alert-box alert no-margin"
@@ -236,19 +239,17 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                             >
                               This change will affect this application's preferences
                             </p>
-                            <a
-                              className="close text"
-                              onClick={[Function]}
+                            <button
+                              className="button button-link close text"
                             >
                               Close
-                            </a>
+                            </button>
                           </div>
                         </AlertBox>
                         <AlertNotice
                           content="Note, you will have the opportunity to grant another household member this preference"
-                          dismiss={false}
                           invert={false}
-                          title="This application woudl no longer be elegible for Live Work Preference"
+                          title="This application would no longer be eligible for Live Work Preference"
                         >
                           <div
                             className="alert-notice alert "
@@ -256,7 +257,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                             <p
                               className="t-tiny c-alert margin-bottom"
                             >
-                              This application woudl no longer be elegible for Live Work Preference
+                              This application would no longer be eligible for Live Work Preference
                             </p>
                             <p
                               className="t-tiny c-steel margin-bottom"
@@ -307,11 +308,16 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                       </div>
                     </footer>
                   </Component>
-                  <a
+                  <button
                     aria-label="Close modal"
-                    className="close-reveal-modal"
+                    className="button button-link close-reveal-modal"
                     onClick={[MockFunction]}
                   >
+                    <span
+                      className="sr-only"
+                    >
+                      Close
+                    </span>
                     <span
                       className="ui-icon ui-medium i-primary"
                     >
@@ -321,7 +327,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                         />
                       </svg>
                     </span>
-                  </a>
+                  </button>
                 </div>
               </Component>
             </SimpleModalBody>
@@ -339,13 +345,13 @@ exports[`SimpleModal it should render status type successfully 2`] = `
     Object {
       "invert": false,
       "message": "Note, you will have the opportunity to grant another household member this preference",
-      "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+      "subtitle": "This application would no longer be eligible for Live Work Preference",
       "title": "This change will affect this application's preferences",
     }
   }
+  handleClose={[MockFunction]}
   header="Update Status"
   isOpen={true}
-  onCloseClick={[MockFunction]}
   onPrimaryClick={[MockFunction]}
   onSecondaryClick={[MockFunction]}
   primary="update"
@@ -353,6 +359,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
   type="alert"
 >
   <Modal
+    handleClose={[MockFunction]}
     isOpen={true}
   >
     <Modal
@@ -360,6 +367,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
       bodyOpenClassName="ReactModal__Body--open"
       closeTimeoutMS={0}
       isOpen={true}
+      onRequestClose={[MockFunction]}
       parentSelector={[Function]}
       portalClassName="ReactModalPortal"
       shouldCloseOnEsc={true}
@@ -375,6 +383,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
             "left": "50%",
             "minHeight": "10rem",
             "opacity": "1",
+            "overflow": "visible",
             "padding": "0px",
             "position": "fixed",
             "right": "auto",
@@ -419,6 +428,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
           }
         }
         isOpen={true}
+        onRequestClose={[MockFunction]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
         shouldCloseOnEsc={true}
@@ -434,6 +444,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
               "left": "50%",
               "minHeight": "10rem",
               "opacity": "1",
+              "overflow": "visible",
               "padding": "0px",
               "position": "fixed",
               "right": "auto",
@@ -480,7 +491,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                 "minHeight": "10rem",
                 "opacity": "1",
                 "outline": "none",
-                "overflow": "auto",
+                "overflow": "visible",
                 "padding": "0px",
                 "position": "fixed",
                 "right": "auto",
@@ -496,12 +507,12 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                 Object {
                   "invert": false,
                   "message": "Note, you will have the opportunity to grant another household member this preference",
-                  "subTitle": "This application woudl no longer be elegible for Live Work Preference",
+                  "subtitle": "This application would no longer be eligible for Live Work Preference",
                   "title": "This change will affect this application's preferences",
                 }
               }
+              handleClose={[MockFunction]}
               header="Update Status"
-              onCloseClick={[MockFunction]}
               onPrimaryClick={[MockFunction]}
               onSecondaryClick={[MockFunction]}
               primary="update"
@@ -509,7 +520,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
               type="alert"
             >
               <Component
-                onCloseClick={[MockFunction]}
+                handleClose={[MockFunction]}
               >
                 <div
                   aria-labelledby="modalTitle"
@@ -519,25 +530,25 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                     title="Update Status"
                   >
                     <header
-                      className="modal-inner"
+                      className="modal-inner margin-top"
                     >
                       <h1
                         className="modal-title t-gamma no-margin"
                       >
-                        Update status
+                        Update Status
                       </h1>
                     </header>
                   </Component>
                   <Component
                     invert={false}
                     message="Note, you will have the opportunity to grant another household member this preference"
-                    subTitle="This application woudl no longer be elegible for Live Work Preference"
+                    subtitle="This application would no longer be eligible for Live Work Preference"
                     title="This change will affect this application's preferences"
                   >
                     <Alert
                       invert={false}
                       message="Note, you will have the opportunity to grant another household member this preference"
-                      subTitle="This application woudl no longer be elegible for Live Work Preference"
+                      subtitle="This application would no longer be eligible for Live Work Preference"
                       title="This change will affect this application's preferences"
                     >
                       <div
@@ -545,11 +556,9 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                       >
                         <AlertBox
                           closeType="text"
-                          dismiss={false}
                           invert={false}
                           message="This change will affect this application's preferences"
                           noMargin={true}
-                          onCloseClick={[Function]}
                         >
                           <div
                             className="alert-box alert no-margin"
@@ -569,19 +578,17 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                             >
                               This change will affect this application's preferences
                             </p>
-                            <a
-                              className="close text"
-                              onClick={[Function]}
+                            <button
+                              className="button button-link close text"
                             >
                               Close
-                            </a>
+                            </button>
                           </div>
                         </AlertBox>
                         <AlertNotice
                           content="Note, you will have the opportunity to grant another household member this preference"
-                          dismiss={false}
                           invert={false}
-                          title="This application woudl no longer be elegible for Live Work Preference"
+                          title="This application would no longer be eligible for Live Work Preference"
                         >
                           <div
                             className="alert-notice alert "
@@ -589,7 +596,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                             <p
                               className="t-tiny c-alert margin-bottom"
                             >
-                              This application woudl no longer be elegible for Live Work Preference
+                              This application would no longer be eligible for Live Work Preference
                             </p>
                             <p
                               className="t-tiny c-steel margin-bottom"
@@ -640,11 +647,16 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                       </div>
                     </footer>
                   </Component>
-                  <a
+                  <button
                     aria-label="Close modal"
-                    className="close-reveal-modal"
+                    className="button button-link close-reveal-modal"
                     onClick={[MockFunction]}
                   >
+                    <span
+                      className="sr-only"
+                    >
+                      Close
+                    </span>
                     <span
                       className="ui-icon ui-medium i-primary"
                     >
@@ -654,7 +666,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                         />
                       </svg>
                     </span>
-                  </a>
+                  </button>
                 </div>
               </Component>
             </SimpleModalBody>

@@ -1,4 +1,4 @@
- .app-container.inner--3x 
+ .app-container.inner--3x
   h1 Pattern Library
 
   h2 Atoms
@@ -19,6 +19,8 @@
 
   == pl_component 'AlertBox', { message: 'You need to resolve any errors before moving on.' }
   == pl_component 'AlertNotice', { title: 'Your household income is too low.', content: 'Please edit your income if you believe you might have made a mistake. Be aware that if you falsify any information on your application you will be disqualified.' }
+  == pl_component 'ContentCard', { title: 'Title', description: 'Description' }
+  == pl_component 'ContentCardGrid', { title: 'Title', description: 'Description' }
   == pl_component 'DropdownMenu', { value: 'value2', items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ] }, { pl_preview_class: 'pl-preview-h-150'}
   == pl_component 'DropdownMenuMultiSelect', { values: ['value1'], items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ] }, { pl_preview_class: 'pl-preview-h-150'}
   == pl_component 'DropdownWrapper', { text: 'status', size: 'tiny', icon: '#i-arrow-down', items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ]}, { title: 'Dropdown' }

@@ -1,10 +1,8 @@
 import React from 'react'
-import Icon from '../atoms/Icon'
-import ReactModal from 'react-modal';
-import _ from 'lodash'
+import ReactModal from 'react-modal'
 
 import Alert from '../organisms/Alert'
-import StringUtils from '../../utils/StringUtils'
+import stringUtils from '~/utils/stringUtils'
 
 const styleTypes = {
   small: {
@@ -22,6 +20,7 @@ const styleTypes = {
         padding: '0px',
         position: 'fixed',
         right: 'auto',
+        overflow: 'visible',
         transform: 'translate(-50%,-50%)',
         width: '600px'
     }
@@ -32,32 +31,37 @@ class Modal extends React.Component {
   defaultStyleType = 'small'
 
   render() {
-    const { children, isOpen, styleType } = this.props
+    const { children, isOpen, handleClose, styleType } = this.props
     const style = styleTypes[styleType || this.defaultStyleType]
     return (
-      <ReactModal isOpen={isOpen} style={style}>
+      <ReactModal
+        isOpen={isOpen}
+        style={style}
+        onRequestClose={handleClose}
+        shouldCloseOnOverlayClick={true}>
         {children}
       </ReactModal>
     )
   }
 }
 
-Modal.Body = ({ children, onCloseClick, hidden }) => (
+Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby="modalTitle" aria-hidden={hidden} role="dialog">
     {children}
-    <a className="close-reveal-modal" aria-label="Close modal" onClick={onCloseClick}>
+    <button className="button button-link close-reveal-modal" aria-label="Close modal" onClick={handleClose}>
+      <span className="sr-only">Close</span>
       <span className="ui-icon ui-medium i-primary">
         <svg>
           <use xlinkHref="#i-close"></use>
         </svg>
       </span>
-    </a>
+    </button>
   </div>
 )
 
 Modal.Header = ({ title }) => (
-  <header className="modal-inner">
-    <h1 className="modal-title t-gamma no-margin">{StringUtils.titleize(title)}</h1>
+  <header className="modal-inner margin-top">
+    <h1 className="modal-title t-gamma no-margin">{stringUtils.titleize(title)}</h1>
   </header>
 )
 

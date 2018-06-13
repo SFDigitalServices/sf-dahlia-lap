@@ -1,4 +1,5 @@
 module Applications
+  # Controller for handling application supplemental information
   class SupplementalsController < ApplicationController
     before_action :authenticate_user!
     def index

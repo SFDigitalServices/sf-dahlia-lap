@@ -1,13 +1,13 @@
 import React from 'react'
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
-import _ from 'lodash'
+import { find } from 'lodash'
 import PropTypes from 'prop-types';
 
 const computeTopWith = (buttonRef) => {
   // Hardcoded for now.
   // Not spending time yet on getting the right top based on button
-  return 50
+  return 40
 }
 
 const computeLeftWith = (ref) => {
@@ -45,7 +45,7 @@ class Dropdown extends React.Component {
 
   componentClickHandler = (e) => {
     // We want to hide only when we click in the component but outisde the menu
-    if (this.wrapperRef == e.target)
+    if (this.wrapperRef === e.target)
       this.setState({expanded: false })
   }
 
@@ -57,9 +57,8 @@ class Dropdown extends React.Component {
     this.props.onChange && this.props.onChange(value, label)
   }
 
-  menu() {
+  menu = (classes) => {
     const { items, value, multiple } = this.props
-
     if (this.state.expanded) {
       if (multiple) {
         return (
@@ -67,7 +66,8 @@ class Dropdown extends React.Component {
             style={this.state.style}
             onChange={this.onChangeHandler}
             values={value}
-            items={items}/>
+            items={items}
+            classes={classes} />
         )
       } else {
         return (
@@ -75,7 +75,8 @@ class Dropdown extends React.Component {
             style={this.state.style}
             onChange={this.onChangeHandler}
             value={value}
-            items={items}/>
+            items={items}
+            classes={classes} />
         )
       }
     }
@@ -93,21 +94,25 @@ class Dropdown extends React.Component {
  }
 
  render() {
-   const { prompt, size = 'small', items, value} = this.props
-   const selectedItem = _.find(items, { value: value })
+   const { prompt, items, value, buttonClasses, menuClasses = []} = this.props
+   const selectedItem = find(items, { value: value })
 
    return (
-    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={{ position: 'relative' }}>
-      <button aria-expanded={this.state.expanded ? 'true' : 'false' } onClick={this.toggleExpand} ref={(node) => this.buttonRef = node } className={`${size} button dropdown-button has-icon--right text-align-left`}>
-        <span className="ui-icon ui-small">
-          <svg>
-            <use xlinkHref="#i-arrow-down"></use>
-          </svg>
-        </span>
-        {selectedItem ? selectedItem.label : prompt}
+    <div className="dropdown" onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node } style={this.props.styles}>
+      <button
+        aria-expanded={this.state.expanded ? 'true' : 'false' }
+        onClick={this.toggleExpand} ref={(node) => this.buttonRef = node }
+        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses.join(' ')}`}
+        type="button">
+          <span className="ui-icon ui-small">
+            <svg>
+              <use xlinkHref="#i-arrow-down"></use>
+            </svg>
+          </span>
+          {selectedItem ? selectedItem.label : prompt}
       </button>
-      <div aria-hidden={this.state.expanded ? 'false' : 'true'} role='menu'>
-        {this.menu()}
+      <div className="dropdown-menu-wrapper" aria-hidden={this.state.expanded ? 'false' : 'true'} role='menu'>
+        {this.menu(menuClasses)}
       </div>
     </div>
     )

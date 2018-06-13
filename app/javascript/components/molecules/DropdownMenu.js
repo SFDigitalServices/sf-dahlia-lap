@@ -14,16 +14,22 @@ class DropdownMenu extends React.Component {
   }
 
   render() {
-    const { items, value, style } = this.props
+    const { items, value, style, classes } = this.props
 
     return (
-      <ul className="dropdown-menu" style={style} role="listbox" aria-activedescendant tabIndex="-1">
+      <ul
+        className={`dropdown-menu ${classes.join(' ')}`}
+        style={style}
+        role="listbox"
+        tabIndex="-1"
+        aria-activedescendant>
         {
           items &&
           items.map(formUtils.toOption).map((item, idx) => (
             <DropdownMenuItem
               key={item.value}
               {...item}
+              style={item.style}
               selected={item.value === value}
               onChange={this.handleOnChange}
               onKeyDown={this.handleOnKeyDown} />)
