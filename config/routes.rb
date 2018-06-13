@@ -38,6 +38,8 @@ Rails.application.routes.draw do
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
       end
+
+      resources :applications
     end
   end
 end

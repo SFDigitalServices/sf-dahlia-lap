@@ -36,8 +36,12 @@ const submitApplication = async (data) => {
   return await apiCall('post', '/short-form/submit', postData)
 }
 
-const fetchApplications = async () => {
-
+const fetchApplications = async ({ page }) => {
+  return apiCall('get', '/applications', {
+    params: {
+      page: page
+    }
+  })
 }
 
 // NOTE: This is used in Lease Ups Table

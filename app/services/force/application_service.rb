@@ -4,15 +4,21 @@ module Force
     DRAFT = 'Draft'.freeze
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['applications'].freeze
 
-    def applications(options = {})
+    def applications(options = { page: 0 })
+      builder.from(:Application__c)
+      .select(query_fields(:index))
+      .where("#{user_can_access} AND Status__c != '#{DRAFT}'")
+      .paginate(options)
+      .transform_results { |results| parse_results_for_fields(results, :index) }
+      .query
+
       # TO DO: Cache this request
-      parsed_index_query(%(
-        SELECT #{query_fields(:index)}
-        FROM Application__c
-        WHERE #{user_can_access}
-        AND Status__c != '#{DRAFT}'
-        #{page(options)}
-      ))
+      # parsed_index_query(%(
+      #   SELECT #{query_fields(:index)}
+      #   FROM Application__c
+      #   WHERE #{user_can_access}
+      #   AND Status__c != '#{DRAFT}'
+      # ))
     end
 
     def application(id)

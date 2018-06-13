@@ -71,8 +71,20 @@ module Force
       massage(@client.query(q)).first
     end
 
+    def builder
+      Force::SoqlQueryBuilder.new(@client)
+    end
+
     def parsed_index_query(q, type = :index)
+      # if options[:page].present?
+      #   full_query = "#{q} #{page(options)}"
+      #   result = parse_results(query(full_query), self.class::FIELDS["#{type}_fields"])
+      #   pages = @client.query(q).size
+      #
+      #   Force::PaginatedResult.new(result, pages)
+      # else
       parse_results(query(q), self.class::FIELDS["#{type}_fields"])
+      # end
     end
 
     def index_fields
@@ -95,6 +107,10 @@ module Force
     end
 
     private
+
+    def parse_results_for_fields(results, type)
+      parse_results(results, self.class::FIELDS["#{type}_fields"])
+    end
 
     def parse_results(results, fields)
       results.map do |result|
@@ -153,9 +169,13 @@ module Force
       end
     end
 
+    def count(query)
+      query("Select Count() #{query}")
+    end
+
     def page(options)
       limit = 25
-      offset = 5
+      offset = options[:page].to_i * limit
       "LIMIT #{limit} OFFSET #{offset}"
     end
 

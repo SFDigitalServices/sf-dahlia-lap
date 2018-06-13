@@ -50,13 +50,14 @@ const ListingNameFilter = ({ applications, filter, onChange }) => {
   )
 }
 
-const SubComponent = (row) => {
-  const items = [
-    { title: 'View Application', link: appPaths.toApplication(row.original.id) }
-  ]
-
-  return <TableSubComponent items={items} />
-}
+const SubComponent = (row) => (
+  <TableSubComponent items={
+    [{
+      title: 'View Application',
+      link: appPaths.toApplication(row.original.id)
+    }]
+  } />
+)
 
 /******************************************/
 /*      Presenter                         */

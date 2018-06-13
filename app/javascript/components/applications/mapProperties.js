@@ -26,9 +26,17 @@ const mapApplication = (application) => {
   }
 }
 
+const onFetchData = async (page) => {
+  const response = await apiService.fetchApplications({ page: page })
+  return {
+    records: response.records.map(mapApplication),
+    pages: response.pages
+  }
+}
+
 const mapProperties = ({ applications }) => {
   return {
-    fetchData: () => apiService.fetchApplications(),
+    onFetchData: onFetchData,
     applications: applications.map(mapApplication)
   }
 }
