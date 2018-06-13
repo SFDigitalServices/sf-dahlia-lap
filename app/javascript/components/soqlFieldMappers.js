@@ -21,8 +21,6 @@ export const applicantFieldMapper = {
 }
 
 export const preferenceFieldMapper = {
-  Individual_preference: "individualPreference",
-  Certificate_Number: "certificateNumber",
   'RecordType.DeveloperName': 'recordTypeDevName',
   Id: 'shortformPreferenceID',
   'Application_Member__r.Id': 'appMemberID',
