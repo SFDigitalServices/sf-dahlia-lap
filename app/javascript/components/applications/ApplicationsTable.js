@@ -5,6 +5,7 @@ import moment from 'moment'
 
 import IndexTable from '../IndexTable'
 import TableSubComponent from '~/components/atoms/TableSubComponent'
+import PrettyTime from '../atoms/PrettyTime'
 import appPaths  from '~/components/appPaths'
 
 const PAGE_SIZE = 20
@@ -67,7 +68,7 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
   const columns = [
       { Header: 'Application Number', accessor: 'number', headerClassName: 'td-min-narrow', filterable: true },
       { Header: 'Listing Name', accessor: 'listing.name', filterable: true, Filter: (attrs) => <ListingNameFilter applications={applications} {...attrs} /> },
-      { Header: 'Lottery Date', accessor: 'listing.lottery_date' },
+      { Header: 'Lottery Date', accessor: 'listing.lottery_date', Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
       { Header: 'First Name', accessor: 'applicant.first_name' },
       { Header: 'Last Name', accessor: 'applicant.last_name' },
       { Header: 'Application Submitted Date', accessor: 'submitted_date' },

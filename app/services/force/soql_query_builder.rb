@@ -1,6 +1,6 @@
 module Force
   class SoqlQueryBuilder
-    DEFAULT_PAGE_SIZE = 25
+    DEFAULT_PAGE_SIZE = 100
 
     attr_reader :client
     def initialize(client)
@@ -113,7 +113,7 @@ module Force
       Hashie::Mash.new({
         records: records,
         pages: pages,
-        page: page, 
+        page: page,
         total_size: total_size
       })
     end

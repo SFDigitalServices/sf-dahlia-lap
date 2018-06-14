@@ -8,34 +8,13 @@ class ApplicationsTableContainer extends React.Component {
 
   constructor(props) {
     super(props)
-    this.eagerPagination = new EagerPagination(20, (serverPage) => {
-      return this.props.onFetchData(serverPage)
-    })
+    this.eagerPagination = new EagerPagination(20, 100, props.onFetchData)
   }
 
-  // fetchRemoteData = (page) => {
-  //   this.setState({ loading: true })
-  //   this.props.onFetchData(page).then((response) => {
-  //     console.log('onFetchData.then')
-  //     console.log(response)
-  //     this.setState({
-  //       applications: response.result,
-  //       loading: false,
-  //       pages: response.pages,
-  //       size: response.size
-  //     })
-  //   })
-  // }
-
   handleOnFetchData = (state, instance) => {
-    // this.fetchRemoteData(state.page)
     this.setState({ loading: true })
-    this.eagerPagination.loadPage(state.page, (records, pages) => {
-      this.setState({
-        applications: records,
-        loading: false,
-        pages: pages
-      })
+    this.eagerPagination.getPage(state.page + 1).then(({ records, pages }) => {
+      this.setState({ applications: records, loading: false, pages: pages })
     })
   }
 
