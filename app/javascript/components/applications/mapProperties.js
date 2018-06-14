@@ -28,8 +28,6 @@ const mapApplication = (application) => {
 
 const onFetchData = async (page) => {
   const response = await apiService.fetchApplications({ page: page })
-  // console.log('>> onFetchData')
-  // console.log(response)
   return {
     records: response.records.map(mapApplication),
     pages: response.pages
@@ -38,8 +36,8 @@ const onFetchData = async (page) => {
 
 const mapProperties = ({ applications }) => {
   return {
-    onFetchData: onFetchData,
-    applications: applications.map(mapApplication)
+    onFetchData: onFetchData
+    // applications: applications.map(mapApplication)
   }
 }
 
