@@ -1,4 +1,5 @@
 import React from 'react'
+import { forEach } from 'lodash'
 import HouseholdMemberForm from './HouseholdMemberForm'
 
 let fieldMapper = {
@@ -16,9 +17,9 @@ let fieldMapper = {
 const HouseholdMembersSection = ({ formApi, editValues }) => {
   let autofillHouseholdMembers = []
   if (editValues && editValues.household_members && !formApi.values.householdMembers) {
-    _.forEach(editValues.household_members, (member) => {
+    forEach(editValues.household_members, (member) => {
       let editMember = {}
-      _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+      forEach(fieldMapper, (shortFormField, salesforceField) => {
         editMember[shortFormField] = member[salesforceField]
       })
       autofillHouseholdMembers.push(editMember)

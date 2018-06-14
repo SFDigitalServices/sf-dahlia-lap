@@ -39,12 +39,15 @@ PreCommit:
   RailsBestPractices:
     enabled: true
     description: 'Checking Rails best practices'
+    exclude:
+      - 'spec/javascript/**/*.snap'
 
   TrailingWhitespace:
     enabled: true
     description: 'Checking for trailing whitespace'
     exclude:
       - 'spec/vcr/**/*.yml'
+      - 'spec/javascript/**/*.snap'
       - 'app/assets/**/*.svg'
       - 'public/**/*.svg'
 

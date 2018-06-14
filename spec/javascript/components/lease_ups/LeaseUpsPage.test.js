@@ -1,3 +1,4 @@
+/*global mount*/
 import React from 'react'
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
 import modelsFactory from '../../factories/models'

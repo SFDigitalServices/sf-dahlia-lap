@@ -8,9 +8,11 @@ describe('FlaggedApplicationsIndexPage', () => {
   test('should render succesfully', () => {
     const results = modelsFactory.applicationsList()
     const fields = modelsFactory.applicationFields()
+    const title = 'Flagged Applications - Pending Review'
 
     const wrapper = renderer.create(
       <FlaggedApplicationsIndexPage
+        title={title}
         results={results}
         fields={fields} />,
     )

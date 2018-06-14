@@ -12,7 +12,6 @@ export const mapListing = (listing) => {
 }
 
 export const mapApplication = (application) => {
-  console.log(application)
   return {
     id: application.Id,
     number: application.Name,

@@ -14,7 +14,7 @@ const SimpleModalBody = ({
   secondary,
   alert,
   invert,
-  onCloseClick,
+  handleClose,
   onPrimaryClick,
   onSecondaryClick,
   children
@@ -26,7 +26,7 @@ const SimpleModalBody = ({
   })
 
   return (
-    <Modal.Body onCloseClick={onCloseClick} hidden={isOpen}>
+    <Modal.Body hidden={isOpen} handleClose={handleClose}>
       <Modal.Header title={header} />
       { alert && <Modal.Alert {...alert} /> }
       <Modal.Content>
@@ -44,10 +44,10 @@ const SimpleModalBody = ({
   )
 }
 
-const SimpleModal = ({ children, isOpen, ...SimpleModalBodyProps}) => {
+const SimpleModal = ({ children, isOpen, handleClose, ...SimpleModalBodyProps}) => {
   return (
-    <Modal isOpen={isOpen} >
-      <SimpleModalBody  {...SimpleModalBodyProps}>
+    <Modal isOpen={isOpen} handleClose={handleClose}>
+      <SimpleModalBody handleClose={handleClose} {...SimpleModalBodyProps}>
         { children }
       </SimpleModalBody>
     </Modal>

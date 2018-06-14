@@ -2,10 +2,10 @@ import React from 'react'
 import classNames from 'classnames'
 
 const getCloseLink = (type, onCloseClick) => {
-  if (type == 'text')
-    return <a className="close text" onClick={onCloseClick}>Close</a>
+  if (type === 'text')
+    return <button className="button button-link close text" onClick={onCloseClick}>Close</button>
   else
-    return <a className="close" onClick={onCloseClick}>&times;</a>
+    return <button className="button button-link close" onClick={onCloseClick}>&times;</button>
 }
 
 const AlertBox = ({ message, invert, noMargin, onCloseClick, dismiss, closeType }) => {

@@ -4,18 +4,12 @@ import AlertBox from '../molecules/AlertBox'
 import AlertNotice from '../molecules/AlertNotice'
 
 class Alert extends React.Component {
-  state = { dismiss: false }
-
-  onCloseClick = () => {
-    this.setState({ dismiss: true })
-  }
-
   render() {
-    const { title, subTitle, message, invert } = this.props
+    const { title, subtitle, message, show, invert, onCloseClick } = this.props
     return (
       <div className='alert-box-and-notice'>
-        <AlertBox message={title} invert={invert} closeType='text' noMargin={true} dismiss={this.state.dismiss} onCloseClick={this.onCloseClick} />
-        <AlertNotice title={subTitle} content={message} invert={invert} dismiss={this.state.dismiss} />
+        <AlertBox message={title} invert={invert} closeType='text' noMargin={true} show={show} onCloseClick={onCloseClick} />
+        {subtitle && <AlertNotice title={subtitle} content={message} invert={invert} show={show} />}
       </div>
     )
   }

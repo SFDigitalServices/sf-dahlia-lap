@@ -4,16 +4,18 @@ require 'facets/hash/rekey'
 module Force
   # encapsulate all Salesforce querying functions in one handy service
   class Base
-    def initialize(user, opts= {})
+    def initialize(user)
       @user = user
 
       if Rails.env.test?
-        @client = Restforce.new(username: ENV['SALESFORCE_USERNAME'],
-                      password: ENV['SALESFORCE_PASSWORD'],
-                      security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
-                      client_id: ENV['SALESFORCE_CLIENT_ID'],
-                      client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
-                      api_version: '41.0')
+        @client = Restforce.new(
+          username: ENV['SALESFORCE_USERNAME'],
+          password: ENV['SALESFORCE_PASSWORD'],
+          security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
+          client_id: ENV['SALESFORCE_CLIENT_ID'],
+          client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
+          api_version: '41.0',
+        )
       else
         @client = Restforce.new(
           authentication_retries: 1,
@@ -48,10 +50,10 @@ module Force
     # I'm not using cache_query since the logic it's different. cache_query should be removed. Also, it's not being used.
     # Fed
     def query_with_cache(q)
-      puts "Using caching for query...."
+      puts 'Using caching for query....'
       key = Digest::MD5.hexdigest(q)
       result = Rails.cache.fetch(key) do
-        puts "...not hitting cache"
+        puts '...not hitting cache'
         @client.query(q).as_json.take(50) # we do not need all the results..for example in applications
       end
       result.map { |i| Hashie::Mash.new(i) }
@@ -59,7 +61,7 @@ module Force
 
     def query(q)
       debug(q)
-      if Rails.env.development? && !!ENV['CACHE_SALESFORCE_REQUESTS']
+      if Rails.env.development? && ENV['CACHE_SALESFORCE_REQUESTS']
         query_with_cache(q)
       else
         @client.query(q)

@@ -1,4 +1,5 @@
 import React from 'react'
+import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 
@@ -24,7 +25,7 @@ let fieldMapper = {
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
   if (editValues && editValues.Alternate_Contact) {
-    _.forEach(fieldMapper, (shortFormField, salesforceField) => {
+    forEach(fieldMapper, (shortFormField, salesforceField) => {
       autofillValues[shortFormField] = editValues.Alternate_Contact[salesforceField]
     })
   }

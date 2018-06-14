@@ -6,7 +6,7 @@ import moment from 'moment'
 import IndexTable from '../IndexTable'
 import TableSubComponent from '~/components/atoms/TableSubComponent'
 import PrettyTime from '../atoms/PrettyTime'
-import appPaths  from '~/components/appPaths'
+import appPaths  from '~/utils/appPaths'
 
 const PAGE_SIZE = 20
 
