@@ -78,15 +78,7 @@ module Force
     end
 
     def parsed_index_query(q, type = :index)
-      # if options[:page].present?
-      #   full_query = "#{q} #{page(options)}"
-      #   result = parse_results(query(full_query), self.class::FIELDS["#{type}_fields"])
-      #   pages = @client.query(q).size
-      #
-      #   Force::PaginatedResult.new(result, pages)
-      # else
       parse_results(query(q), self.class::FIELDS["#{type}_fields"])
-      # end
     end
 
     def index_fields

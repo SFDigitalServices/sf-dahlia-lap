@@ -10,15 +10,6 @@ import appPaths  from '~/utils/appPaths'
 
 const PAGE_SIZE = 20
 
-// const ApplicationsTable = ({ applications, fields }) => {
-//   return (
-//     <IndexTable
-//       results={applications}
-//       fields= {fields}
-//       links={['View Application'] } />
-//   )
-// }
-
 const buildListingNameList = (applications) => {
   const uniqListings = uniqBy(map(applications, (result) => {
     return {
