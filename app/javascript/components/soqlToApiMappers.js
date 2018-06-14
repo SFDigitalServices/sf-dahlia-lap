@@ -12,7 +12,7 @@ const mapApplicant = createFieldMapper(applicantFieldMapper)
 
 const mapApplication = createFieldMapper(applicationFieldMapper)
 
-const mapPrefences = createFieldMapper(preferenceFieldMapper)
+const mapPreferences = createFieldMapper(preferenceFieldMapper)
 
 const mapHouseholdMembers = createFieldMapper(householdMembersFieldMapper)
 
@@ -24,6 +24,6 @@ export default {
   mapApplicant,
   mapApplication,
   mapHouseholdMembers,
-  mapPrefences,
+  mapPreferences,
   buildApplicationShape
 }

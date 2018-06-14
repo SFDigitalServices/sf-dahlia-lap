@@ -24,7 +24,8 @@ const DemographicsInputs = ({onChange}) => {
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>)
+    </React.Fragment>
+  )
 }
 
 export default DemographicsInputs
