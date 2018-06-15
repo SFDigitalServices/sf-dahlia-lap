@@ -7,21 +7,29 @@ var generateHtml = (value) => {
   return {__html: value}
 }
 
-
-var generateContent = (listing, field, i) => {
-  const formattedValue = (value, field) => {
-    if (field === 'Legal_Disclaimers') {
-      // TO DO: sanitize html
-      return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
-    }
-    else if (includes(value, 'http')) {
-      return(<a target='_blank' href={value}>{value}</a>)
-    }
-    else {
-      return (<p>{String(value)}</p>)
-    }
+const formattedValue = (value, field) => {
+  if (field === 'Legal_Disclaimers') {
+    // TO DO: sanitize html
+    return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
   }
+  else if (includes(value, 'http')) {
+    return(<a target='_blank' href={value}>{value}</a>)
+  }
+  else {
+    return (<p>{String(value)}</p>)
+  }
+}
 
+const Content = ({ label, value, field  }) => (
+  <div className="margin-bottom--half">
+    <h4 className="t-sans t-small t-bold no-margin">
+      {label}
+    </h4>
+      {formattedValue(value, field)}
+  </div>
+)
+
+const getLabelValue = (listing, field) => {
   let value = listing[field]
   let label = utils.cleanField(field)
 
@@ -41,15 +49,18 @@ var generateContent = (listing, field, i) => {
     value = moment(value).format('L')
   }
 
-  if (!value) return
-  return (
-    <div className="margin-bottom--half" key={i}>
-      <h4 className="t-sans t-small t-bold no-margin">
-        {label}
-      </h4>
-        {formattedValue(value, field)}
-    </div>
-  )
+  return { label, value }
+}
+
+
+var generateContent = (listing, field, i) => {
+  console.log(field)
+  const { label, value } = getLabelValue(listing, field)
+
+  if (!value)
+    return
+  else
+    return <Content key={i} label={label} value={value} field={field} />
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
