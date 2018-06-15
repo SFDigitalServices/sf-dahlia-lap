@@ -2,23 +2,29 @@ import React from 'react'
 
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
+import mapProps from '~/utils/mapProps'
 
-
-const ApplicationNewPageForm = ({ listing }) => {
+const ApplicationNewForm = ({ listing }) => {
   return (
     <PaperApplicationForm listing={listing} />
   )
 }
 
-const ApplicationNewPage = (props) => {
+const ApplicationNewPage = ({ listing }) => {
   const pageHeader = {
-    title: `New Application: ${props.listing.Name}`
+    title: `New Application: ${listing.Name}`
   }
   return (
     <CardLayout pageHeader={pageHeader}>
-      <ApplicationNewPageForm {...props} />
+      <ApplicationNewForm listing={listing} />
     </CardLayout>
   )
 }
 
-export default ApplicationNewPage
+const mapProperties = ({ listing }) => {
+  return {
+    listing // TODO: map here
+  }
+}
+
+export default mapProps(mapProperties)(ApplicationNewPage)
