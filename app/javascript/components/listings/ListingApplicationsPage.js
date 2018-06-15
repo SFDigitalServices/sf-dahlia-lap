@@ -5,8 +5,6 @@ import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 
 const ListingApplicationsTable = ({ results, fields }) => {
-  console.log(JSON.stringify(results))
-  console.log(JSON.stringify(fields))
   return (
     <IndexTable
       results={results}
