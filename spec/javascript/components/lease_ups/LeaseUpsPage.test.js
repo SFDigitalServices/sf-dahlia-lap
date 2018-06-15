@@ -1,5 +1,6 @@
 /*global mount*/
 import React from 'react'
+import renderer from 'react-test-renderer'
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
 import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
@@ -18,33 +19,32 @@ describe('LeaseUpsPage', () => {
   sharedHooks.useFakeTimers()
 
   test('Should render LeaseUpTable', () => {
-    const results = [ buildApplication(1), buildApplication(2) ]
+    const applications = [ buildApplication(1), buildApplication(2) ]
 
-    const wrapper = mount(
-      <LeaseUpsPage listing={listings} results={results} />,
+    const wrapper = renderer.create(
+      <LeaseUpsPage listing={listings} applications={applications} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 
-
   test('Should render Mailing_Address when present', () => {
-    const results = [
+    const applications = [
       buildApplication(1, {
         'Application.Residence_Address': '',
         'Application.Mailing_Address': '1316 SUTTER'
       }),
     ]
 
-    const wrapper = mount(
-      <LeaseUpsPage listing={listings} results={results} />,
+    const wrapper = renderer.create(
+      <LeaseUpsPage listing={listings} applications={applications} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 
   test('Should render order by Prefrence_Order and Preference_Lottery_Rank', () => {
-    const results = [
+    const applications = [
       buildApplication(1, {
         'Preference_Order': '2',
         'Preference_Lottery_Rank': '2'
@@ -67,10 +67,10 @@ describe('LeaseUpsPage', () => {
       })
     ]
 
-    const wrapper =  mount(
-      <LeaseUpsPage listing={listings} results={results} />,
+    const wrapper =  renderer.create(
+      <LeaseUpsPage listing={listings} applications={applications} />,
     )
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot();
   })
 })
