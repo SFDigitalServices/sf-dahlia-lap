@@ -2,6 +2,7 @@ import React from 'react'
 
 import ListingDetails from './ListingDetails'
 import CardLayout from '../layouts/CardLayout'
+import mapProps from '~/utils/mapProps'
 
 const ListingPageDetails = ({ listing }) => {
   return <ListingDetails listing={listing} />
@@ -23,4 +24,10 @@ const ListingPage = ({ listing }) => {
   )
 }
 
-export default ListingPage
+const mapProperties = ({ listing }) => {
+  return {
+    listing: listing
+  }
+}
+
+export default mapProps(mapProperties)(ListingPage)
