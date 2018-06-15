@@ -1,5 +1,5 @@
 import React from 'react'
-import { includes, take, takeRight, map } from 'lodash'
+import { includes, take, takeRight, map, isString } from 'lodash'
 import moment from 'moment'
 import utils from '~/utils/utils'
 
@@ -20,6 +20,16 @@ const formattedValue = (value, field) => {
   }
 }
 
+const RenderType = (type, value) => {
+  if (type == 'html') {
+    return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
+  } else if (type == 'link') {
+    return(<a target='_blank' href={value}>{value}</a>)
+  } else {
+    return (<p>{String(value)}</p>)
+  }
+}
+
 const Content = ({ label, value, field  }) => (
   <div className="margin-bottom--half">
     <h4 className="t-sans t-small t-bold no-margin">
@@ -29,33 +39,50 @@ const Content = ({ label, value, field  }) => (
   </div>
 )
 
-const getLabelValue = (listing, field) => {
-  let value = listing[field]
-  let label = utils.cleanField(field)
+const getFormatType = (field) => {
+  if (includes(field, 'Date'))
+    return 'date'
+  else
+    return null
+}
 
-  if (includes(field, '.')) {
-    let parts = field.split('.')
+const getFielEntryOrDefaults = (entry) => {
+  let entryWithDefaults = isString(entry) ? { field: entry, label: entry } : entry
+
+  if (!entryWithDefaults.type)
+    entryWithDefaults.formatType = getFormatType(entryWithDefaults.field)
+
+  return entryWithDefaults
+}
+
+const getTypedValue = (value, type) => {
+  if (type == 'date')
+    return moment(value).format('L')
+  else
+    return value
+}
+
+const getLabelValue = (listing, entry) => {
+  let value = listing[entry.field]
+  let label = utils.cleanField(entry.label)
+
+  if (includes(entry.field, '.')) {
+    let parts = entry.field.split('.')
     label = utils.cleanField(parts[0])
     if (listing[label]) {
       value = listing[label][parts[1]]
     }
   }
-  // to do: refactor so labelling overwrite isn't hardcoded
-  if (label === 'In Lottery') {
-    label = 'Applications in Lottery'
-  }
-  if (includes(field, 'Date')) {
-    // cheap way of knowing when to parse date fields
-    value = moment(value).format('L')
-  }
+
+  value = getTypedValue(value, entry.formatType)
 
   return { label, value }
 }
 
 
 var generateContent = (listing, field, i) => {
-  console.log(field)
-  const { label, value } = getLabelValue(listing, field)
+  const entry = getFielEntryOrDefaults(field)
+  const { label, value } = getLabelValue(listing, entry)
 
   if (!value)
     return
@@ -64,6 +91,8 @@ var generateContent = (listing, field, i) => {
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
+  // console.log(title)
+  // console.log(fields)
   let halfLength = fields.length / 2
   let firstFields = take(fields, Math.floor(halfLength))
   let lastFields = takeRight(fields, Math.ceil(halfLength))

@@ -1,9 +1,9 @@
 export const detailsFields = [
-  'Owner.Name',
+  { field: 'Owner.Name', label: 'Owner' },
   'Name',
   'Account.Name',
   'Application_Due_Date',
-  'In_Lottery',
+  { field: 'In_Lottery', label: 'Applications in Lottery' },
   'Status',
   'Lottery_Winners',
   'Lottery_Results',

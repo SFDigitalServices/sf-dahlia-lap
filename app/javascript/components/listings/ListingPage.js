@@ -26,7 +26,7 @@ const ListingPage = ({ listing }) => {
 }
 
 const mapProperties = ({ listing }) => {
-  console.log(listing)
+  // console.log(listing)
   return {
     listing: listing
   }
