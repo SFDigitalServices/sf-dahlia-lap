@@ -7,20 +7,7 @@ var generateHtml = (value) => {
   return {__html: value}
 }
 
-const formattedValue = (value, field) => {
-  if (field === 'Legal_Disclaimers') {
-    // TO DO: sanitize html
-    return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
-  }
-  else if (includes(value, 'http')) {
-    return(<a target='_blank' href={value}>{value}</a>)
-  }
-  else {
-    return (<p>{String(value)}</p>)
-  }
-}
-
-const RenderType = (type, value) => {
+const RenderType = ({type, value}) => {
   if (type == 'html') {
     return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
   } else if (type == 'link') {
@@ -30,14 +17,16 @@ const RenderType = (type, value) => {
   }
 }
 
-const Content = ({ label, value, field  }) => (
-  <div className="margin-bottom--half">
-    <h4 className="t-sans t-small t-bold no-margin">
-      {label}
-    </h4>
-      {formattedValue(value, field)}
-  </div>
-)
+const Content = ({ label, value, type }) => {
+  return (
+    <div className="margin-bottom--half">
+      <h4 className="t-sans t-small t-bold no-margin">
+        {label}
+      </h4>
+      <RenderType type={type} value={value}/>
+    </div>
+  )
+}
 
 const getFormatType = (field) => {
   if (includes(field, 'Date'))
@@ -46,10 +35,21 @@ const getFormatType = (field) => {
     return null
 }
 
+const getRenderType = (value) => {
+  if (includes(value, 'http')) {
+    return 'link'
+  } else {
+    return null
+  }
+}
+
 const getFielEntryOrDefaults = (entry) => {
   let entryWithDefaults = isString(entry) ? { field: entry, label: entry } : entry
 
-  if (!entryWithDefaults.type)
+  if (!entryWithDefaults.label)
+    entryWithDefaults.label = entryWithDefaults.field
+
+  if (!entryWithDefaults.formatType)
     entryWithDefaults.formatType = getFormatType(entryWithDefaults.field)
 
   return entryWithDefaults
@@ -65,6 +65,7 @@ const getTypedValue = (value, type) => {
 const getLabelValue = (listing, entry) => {
   let value = listing[entry.field]
   let label = utils.cleanField(entry.label)
+  let renderType = getRenderType(value)
 
   if (includes(entry.field, '.')) {
     let parts = entry.field.split('.')
@@ -76,23 +77,22 @@ const getLabelValue = (listing, entry) => {
 
   value = getTypedValue(value, entry.formatType)
 
-  return { label, value }
+  return { label, value, renderType }
 }
-
 
 var generateContent = (listing, field, i) => {
   const entry = getFielEntryOrDefaults(field)
-  const { label, value } = getLabelValue(listing, entry)
-
+  const { label, value, renderType } = getLabelValue(listing, entry)
   if (!value)
     return
   else
-    return <Content key={i} label={label} value={value} field={field} />
+    return <Content key={i}
+                    label={label}
+                    value={value}
+                    type={entry.renderType || renderType} />
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
-  // console.log(title)
-  // console.log(fields)
   let halfLength = fields.length / 2
   let firstFields = take(fields, Math.floor(halfLength))
   let lastFields = takeRight(fields, Math.ceil(halfLength))

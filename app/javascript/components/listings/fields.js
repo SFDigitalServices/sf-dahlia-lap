@@ -80,7 +80,7 @@ export const eligibilityRulesFields = [
 export const additionalInfoFields = [
   'Required_Documents',
   'Smoking_Policy',
-  'Legal_Disclaimers',
+  { field: 'Legal_Disclaimers', renderType: 'html' },
   'Pet_Policy'
 ]
 
