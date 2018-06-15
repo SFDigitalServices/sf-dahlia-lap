@@ -173,7 +173,7 @@ const listingDetail = () => {
   "Leasing_Agent_Title": null,
   "Leasing_Agent_Email": "77bluxome@eqr.com",
   "Leasing_Agent_Phone": "(415) 957-5887",
-  "Legal_Disclaimers": null,
+  "Legal_Disclaimers": 'some disclaimer',
   "Building_Selection_Criteria": null,
   "Pet_Policy": null,
   "Required_Documents": null,

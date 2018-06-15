@@ -612,7 +612,24 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Legal Disclaimers
+                  </h4>
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "some disclaimer",
+                      }
+                    }
+                  />
+                </div>
+              </div>
             </li>
           </ul>
         </div>
