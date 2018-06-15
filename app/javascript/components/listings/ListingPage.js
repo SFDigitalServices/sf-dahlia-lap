@@ -3,6 +3,7 @@ import React from 'react'
 import ListingDetails from './ListingDetails'
 import CardLayout from '../layouts/CardLayout'
 import mapProps from '~/utils/mapProps'
+import { mapListingDetails } from '~/components/propMappers'
 
 const ListingPageDetails = ({ listing }) => {
   return <ListingDetails listing={listing} />
@@ -25,6 +26,7 @@ const ListingPage = ({ listing }) => {
 }
 
 const mapProperties = ({ listing }) => {
+  console.log(listing)
   return {
     listing: listing
   }

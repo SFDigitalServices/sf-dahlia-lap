@@ -8,7 +8,7 @@ import sharedHooks from '../../support/sharedHooks'
 describe('ListingPage', () => {
   sharedHooks.useFakeTimers()
   test('should render succesfully', () => {
-    const listing = modelsFactory.listing(1)
+    const listing = modelsFactory.listingDetail()
 
     const wrapper = renderer.create(
       <ListingPage listing={listing}/>,

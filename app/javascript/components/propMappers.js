@@ -40,3 +40,32 @@ export const mapLeaseUpApplication = (application) => {
     preference_order:  application['Preference_Order']
   }
 }
+
+export const mapListingDetails = (listing) => {
+  return {
+    owner_name: 'Owner.Name',
+    name: 'Name',
+    account_name: 'Account.Name',
+    application_due_date: 'Application_Due_Date',
+    in_lottery: 'In_Lottery',
+    status: 'Status',
+    lottery_winners: 'Lottery_Winners',
+    lottery_results: 'Lottery_Results',
+    building_name: 'Building_Name',
+    building_street_address: 'Building_Street_Address',
+    building_city: 'Building_City',
+    building_state: 'Building_State',
+    building_zip_code: 'Building_Zip_Code',
+    neighborhood: 'Neighborhood',
+    developer: 'Developer',
+    building_url: 'Building_URL',
+    year_built: 'Year_Built',
+    description: 'Description',
+    lottery_preferences: 'Lottery_Preferences',
+    lottery_preference_name: 'Lottery_Preference.Name'
+    // 'Description',
+    // 'PDF_URL',
+    // 'Order',
+    // 'Available_Units'
+  }
+}
