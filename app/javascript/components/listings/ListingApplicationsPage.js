@@ -36,13 +36,11 @@ const ListingApplicationsPage = ({listing, results, fields }) => {
 }
 
 const mapProperties = ({listing, results, fields }) => {
-  return {}
-  // return {
-  //   listing: listing,
-  //   results: results, // TODO: use mapper here
-  //   fields: fields
-  // }
+  return {
+    listing: listing,
+    results: results, // TODO: use mapper here
+    fields: fields
+  }
 }
 
-// export default mapProps(mapProperties)(ListingApplicationsPage)
-export default ListingApplicationsPage
+export default mapProps(mapProperties)(ListingApplicationsPage)
