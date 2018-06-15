@@ -84,7 +84,7 @@ export const generateContent = (listing, field, i) => {
   const entry = buildFielEntryWithDefaults(field)
   const { label, value, renderType } = getLabelValue(listing, entry)
   if (!value)
-    return
+    return null
   else
     return <Content key={i}
                     label={label}
