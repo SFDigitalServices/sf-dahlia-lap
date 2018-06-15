@@ -2,8 +2,11 @@ import React from 'react'
 
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
+import mapProps from '~/utils/mapProps'
 
-const ListingApplicationsTable = ({ listing, results, fields }) => {
+const ListingApplicationsTable = ({ results, fields }) => {
+  console.log(JSON.stringify(results))
+  console.log(JSON.stringify(fields))
   return (
     <IndexTable
       results={results}
@@ -12,9 +15,7 @@ const ListingApplicationsTable = ({ listing, results, fields }) => {
   )
 }
 
-const ListingApplicationsPage = (props) => {
-  const { listing } = props
-
+const ListingApplicationsPage = ({listing, results, fields }) => {
   const pageHeader = {
     title: listing.Name
   }
@@ -29,9 +30,19 @@ const ListingApplicationsPage = (props) => {
 
   return (
     <TableLayout pageHeader={pageHeader} tabSection={tabs}>
-      <ListingApplicationsTable {...props} />
+      <ListingApplicationsTable results={results} fields={fields} />
     </TableLayout>
   )
 }
 
+const mapProperties = ({listing, results, fields }) => {
+  return {}
+  // return {
+  //   listing: listing,
+  //   results: results, // TODO: use mapper here
+  //   fields: fields
+  // }
+}
+
+// export default mapProps(mapProperties)(ListingApplicationsPage)
 export default ListingApplicationsPage
