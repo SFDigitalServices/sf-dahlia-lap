@@ -2,6 +2,7 @@ import React from 'react'
 
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 import TableLayout from '../../layouts/TableLayout'
+import mapProps from '~/utils/mapProps'
 
 const FlaggedApplicationsShowPageTable = ({ results, fields }) => {
   return (
@@ -24,4 +25,11 @@ const FlaggedApplicationsShowPage = (props) => {
   )
 }
 
-export default FlaggedApplicationsShowPage
+const mapProperties = ({ results, fields }) => {
+  return {
+    results, // TODO: map here
+    fields
+  }
+}
+
+export default mapProps(mapProperties)(FlaggedApplicationsShowPage)
