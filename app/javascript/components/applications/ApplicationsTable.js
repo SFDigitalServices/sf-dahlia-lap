@@ -69,6 +69,12 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
 
   const sortBy = [ { id:'number', desc:false } ]
 
+  const getPaginationProps = () => {
+    return  {
+      showPageSizeOptions: false
+    }
+  }
+
   return (
     <ReactTable
       manual
@@ -79,7 +85,8 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
       loading={loading}
       defaultPageSize={PAGE_SIZE}
       onFetchData={onFetchData}
-      SubComponent={SubComponent} />
+      SubComponent={SubComponent}
+      getPaginationProps={getPaginationProps} />
   )
 }
 

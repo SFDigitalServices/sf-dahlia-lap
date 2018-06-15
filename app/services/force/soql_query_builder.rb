@@ -5,6 +5,7 @@ module Force
     attr_reader :client
     def initialize(client)
       @client = client
+      @where = []
     end
 
     ################################
@@ -22,7 +23,7 @@ module Force
     end
 
     def where(where)
-      @where = where
+      @where << where
       self
     end
 
@@ -104,7 +105,11 @@ module Force
     end
 
     def _from_soql
-      "FROM #{@from} WHERE #{@where}"
+      "FROM #{@from} WHERE #{_where_soql}"
+    end
+
+    def _where_soql
+      @where.map { |a| "(#{a})" }.join(' AND ')
     end
 
     def _result(records, pages = nil, page = nil )

@@ -4,20 +4,7 @@ import mapProps from '~/utils/mapProps'
 import TableLayout from '../layouts/TableLayout'
 import ApplicationsTable from './ApplicationsTable'
 import ApplicationsTableContainer from './ApplicationsTableContainer'
-import mapProperties from './mapProperties'
-
-// We cannot re use this mappers, since the shape pass as json to the Page component are different
-// we should normalize our domain object to be re usable.
-// import { mapApplication, mapListing } from '~/components/propMappers'
-
-// const ApplicationsPageTable = ({ applications, fields }) => {
-//   return (
-//     <IndexTable
-//       results={applications}
-//       fields= {fields}
-//       links={['View Application'] } />
-//   )
-// }
+import mapProperties from './applicationsPageMapper'
 
 const ApplicationsPage = (props) => {
   const pageHeader = {
@@ -32,4 +19,3 @@ const ApplicationsPage = (props) => {
 }
 
 export default mapProps(mapProperties)(ApplicationsPage)
-// export default ApplicationsPage
