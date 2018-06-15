@@ -1,17 +1,16 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
 
-import ListingPage from 'components/listings/ListingPage'
+import ListingsPage from 'components/listings/ListingsPage'
 import modelsFactory from '../../factories/models'
-import sharedHooks from '../../support/sharedHooks'
 
 describe('ListingsPage', () => {
-  sharedHooks.useFakeTimers()
   test('should render succesfully', () => {
-    const listing = modelsFactory.listing(1)
+    const results = modelsFactory.listingsList()
+    const fields = modelsFactory.listingFields()
 
     const wrapper = renderer.create(
-      <ListingPage listing={listing}/>,
+      <ListingsPage results={results} fields={fields} />,
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot();
