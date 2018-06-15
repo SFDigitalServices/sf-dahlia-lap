@@ -2,6 +2,7 @@ import React from 'react'
 
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
+import mapProps from '~/utils/mapProps'
 
 const ListingsPageTable = ({ page, results, fields }) => {
   return (
@@ -19,12 +20,20 @@ const layout = {
   }
 }
 
-const ListingsPage = (props) => {
+const ListingsPage = ({ page, results, fields}) => {
   return (
     <TableLayout {...layout}>
-      <ListingsPageTable {...props} />
+      <ListingsPageTable page={page} results={results} fields={fields} />
     </TableLayout>
   )
 }
 
-export default ListingsPage
+const mapProperties = ({ page, results, fields}) => {
+  return {
+    page: page,
+    results: results, // TODO: use mapper here
+    fields: fields
+  }
+}
+
+export default mapProps(mapProperties)(ListingsPage)
