@@ -61,7 +61,7 @@ export const mapListingDetails = (listing) => {
     building_url: 'Building_URL',
     year_built: 'Year_Built',
     description: 'Description',
-    lottery_preferences: 'Lottery_Preferences'
+    lottery_preferences: 'Lottery_Preferences',
     lottery_preference_name: 'Lottery_Preference.Name'
     // 'Description',
     // 'PDF_URL',

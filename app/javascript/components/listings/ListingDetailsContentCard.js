@@ -1,15 +1,23 @@
 import React from 'react'
-import { includes, take, takeRight, map, isString } from 'lodash'
-import { generateContent } from './generateContent'
+import { take, takeRight, map } from 'lodash'
+import { generateContent, buildFieldSpecs, buildFieldEntry } from './generateContent'
+
+const splitInHalf = (array) => {
+  let halfLength = array.length / 2
+  let firstHalf = take(array, Math.floor(halfLength))
+  let secondHalf = takeRight(array, Math.ceil(halfLength))
+
+  return { firstHalf, secondHalf }
+}
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
-  let halfLength = fields.length / 2
-  let firstFields = take(fields, Math.floor(halfLength))
-  let lastFields = takeRight(fields, Math.ceil(halfLength))
+  const fieldSpecs = map(fields, buildFieldSpecs)
+  const entries = map(fieldSpecs, (f) => buildFieldEntry(listing, f))
 
   let i = 0
-  let firstFieldsContent = map(firstFields, field => generateContent(listing, field, i++))
-  let lastFieldsContent = map(lastFields, field => generateContent(listing, field, i++))
+  const contents = map(entries, entry => generateContent(listing, entry, i++))
+
+  const { firstHalf, secondHalf } = splitInHalf(contents)
 
   return (
       <div className="content-card padding-bottom-none margin-bottom--half bg-trans">
@@ -18,12 +26,12 @@ const ListingDetailsContentCard = ({ listing, title, fields }) => {
         <ul className="content-grid">
           <li className="content-item">
             <div className="content-card">
-              {firstFieldsContent}
+              {firstHalf}
             </div>
           </li>
           <li className="content-item">
             <div className="content-card">
-              {lastFieldsContent}
+              {secondHalf}
             </div>
           </li>
         </ul>
