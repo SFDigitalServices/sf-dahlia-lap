@@ -1,23 +1,25 @@
 import React from 'react'
-import { take, takeRight, map } from 'lodash'
-import { generateContent, buildFieldSpecs, buildFieldEntry } from './generateContent'
+import { map } from 'lodash'
+import { buildFieldSpecs, buildFieldEntry } from './fieldSpecs'
+import Field from './Field'
+import arrayUtils from '~/utils/arrayUtils'
 
-const splitInHalf = (array) => {
-  let halfLength = array.length / 2
-  let firstHalf = take(array, Math.floor(halfLength))
-  let secondHalf = takeRight(array, Math.ceil(halfLength))
-
-  return { firstHalf, secondHalf }
+export const generateContent = (listing, entry, i) => {
+  const { label, value, renderType } = entry
+  if (!value)
+    return null
+  else
+    return <Field key={i}
+                    label={label}
+                    value={value}
+                    type={renderType} />
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
   const fieldSpecs = map(fields, buildFieldSpecs)
   const entries = map(fieldSpecs, (f) => buildFieldEntry(listing, f))
-
-  let i = 0
-  const contents = map(entries, entry => generateContent(listing, entry, i++))
-
-  const { firstHalf, secondHalf } = splitInHalf(contents)
+  const contents = map(entries, (entry, idx) => generateContent(listing, entry, idx))
+  const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
 
   return (
       <div className="content-card padding-bottom-none margin-bottom--half bg-trans">

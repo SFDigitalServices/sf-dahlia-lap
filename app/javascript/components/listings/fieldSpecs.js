@@ -1,9 +1,7 @@
-import React from 'react'
 import { includes, isString } from 'lodash'
 import moment from 'moment'
 
 import utils from '~/utils/utils'
-import Field from './Field'
 
 const getFormatType = (field) => {
   if (includes(field, 'Date'))
@@ -46,24 +44,13 @@ export const buildFieldEntry = (listing, entry) => {
 }
 
 export const buildFieldSpecs = (entry) => {
-  let entryWithDefaults = isString(entry) ? { field: entry, label: entry } : entry
+  let specs = isString(entry) ? { field: entry, label: entry } : entry
 
-  if (!entryWithDefaults.label)
-    entryWithDefaults.label = entryWithDefaults.field
+  if (!specs.label)
+    specs.label = specs.field
 
-  if (!entryWithDefaults.formatType)
-    entryWithDefaults.formatType = getFormatType(entryWithDefaults.field)
+  if (!specs.formatType)
+    specs.formatType = getFormatType(specs.field)
 
-  return entryWithDefaults
-}
-
-export const generateContent = (listing, entry, i) => {
-  const { label, value, renderType } = entry
-  if (!value)
-    return null
-  else
-    return <Field key={i}
-                    label={label}
-                    value={value}
-                    type={renderType} />
+  return specs
 }
