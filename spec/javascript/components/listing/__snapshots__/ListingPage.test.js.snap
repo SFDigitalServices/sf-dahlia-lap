@@ -1,6 +1,299 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListingPage Details fields 1`] = `
+exports[`ListingPage individual fields Accessibility, Amenities, Fees fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Accessibility, Amenities, Fees
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Additional Eligibility Rules fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Additional Eligibility Rules
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Additional Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Additional Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Legal Disclaimers
+          </h4>
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "some disclaimer",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Application Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Application Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application State
+          </h4>
+          <p>
+            CA
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Building Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Building Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Name
+          </h4>
+          <p>
+            77 Bluxome
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Street Address
+          </h4>
+          <p>
+            77 Bluxome Street
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building City
+          </h4>
+          <p>
+            San Francisco
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building State
+          </h4>
+          <p>
+            CA
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Zip Code
+          </h4>
+          <p>
+            94107
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Neighborhood
+          </h4>
+          <p>
+            South of Market
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Developer
+          </h4>
+          <p>
+            Equity Residential
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building URL
+          </h4>
+          <a
+            href="https://i.imgur.com/Jh8OHJY.jpg"
+            target="_blank"
+          >
+            https://i.imgur.com/Jh8OHJY.jpg
+          </a>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Year Built
+          </h4>
+          <p>
+            2008
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Details fields 1`] = `
 <div
   className="content-card padding-bottom-none margin-bottom--half bg-trans"
 >
@@ -96,6 +389,154 @@ exports[`ListingPage Details fields 1`] = `
           </h4>
           <p>
             Active
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Leasing Agent and Developer Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Leasing Agent and Developer Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Name
+          </h4>
+          <p>
+            Cullen McCaffrey
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Email
+          </h4>
+          <p>
+            77bluxome@eqr.com
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Phone
+          </h4>
+          <p>
+            (415) 957-5887
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Lottery Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Lottery Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Date
+          </h4>
+          <p>
+            Invalid date
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Results Date
+          </h4>
+          <p>
+            Invalid date
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Status
+          </h4>
+          <p>
+            Not Yet Run
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery City
+          </h4>
+          <p>
+            San Francisco
           </p>
         </div>
       </div>

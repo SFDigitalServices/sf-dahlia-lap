@@ -1,19 +1,31 @@
 import React from 'react'
 import renderer from 'react-test-renderer';
 
+import _ from 'lodash'
 import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
 
 import ListingPage from 'components/listings/ListingPage'
 import ListingDetailsContentCard from 'components/listings/ListingDetailsContentCard'
-import { detailsFields } from 'components/listings/fields'
+import {
+  detailsFields,
+  buildingInformationFields,
+  lotteryPreferencesFields,
+  aafFields,
+  lotteryInfoFields,
+  appInfoFields,
+  agentDevInfoFields,
+  eligibilityRulesFields,
+  additionalInfoFields,
+  openHousesFields,
+  infoSessionsFields } from 'components/listings/fields'
 import { mapListingDetails } from '~/components/propMappers'
 
 describe('ListingPage', () => {
   sharedHooks.useFakeTimers()
-  test('should render succesfully', () => {
-    const listing = modelsFactory.listingDetail()
+  const listing = modelsFactory.listingDetail()
 
+  test('should render succesfully', () => {
     const wrapper = renderer.create(
       <ListingPage listing={listing}/>,
     )
@@ -21,14 +33,27 @@ describe('ListingPage', () => {
     expect(wrapper.toJSON()).toMatchSnapshot();
   })
 
-  test.only('Details fields', () => {
-    const listing = modelsFactory.listingDetail()
-    const wrapper = renderer.create(
-      <ListingDetailsContentCard
-        listing={mapListingDetails(listing)}
-        title='Details'
-        fields={detailsFields} />
-    )
-    expect(wrapper.toJSON()).toMatchSnapshot();
+  describe('individual fields', ()=> {
+    _.each([
+      { title:'Details', fields: detailsFields },
+      { title: 'Building Information', fields: buildingInformationFields },
+      { title: 'Accessibility, Amenities, Fees', fields: aafFields },
+      { title: 'Lottery Information', fields: lotteryInfoFields },
+      { title: 'Application Information', fields: appInfoFields },
+      { title: 'Leasing Agent and Developer Information', fields: agentDevInfoFields },
+      { title: 'Additional Eligibility Rules', fields: eligibilityRulesFields },
+      { title: 'Additional Information', fields: additionalInfoFields },
+    ],({ title, fields }) => {
+      test(`${title} fields`, () => {
+        const wrapper = renderer.create(
+          <ListingDetailsContentCard
+            listing={mapListingDetails(listing)}
+            title={title}
+            fields={fields} />
+        )
+        expect(wrapper.toJSON()).toMatchSnapshot();
+      })
+    })
   })
+
 })

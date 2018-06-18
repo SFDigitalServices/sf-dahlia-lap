@@ -23,6 +23,11 @@ const ListingDetailsContentCard = ({ listing, title, fields }) => {
   const contents = map(entries, (entry, idx) => generateContent(listing, entry, idx))
   const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
 
+  if (title === 'Details') {
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    // console.log(firstHalf.map(i=> i.props))
+    // console.log(secondHalf.length)
+  }
   return (
       <div className="content-card padding-bottom-none margin-bottom--half bg-trans">
         <h4 className="content-card_title t-serif">{title}</h4>

@@ -86,7 +86,7 @@ export const mapListingDetails = (listing) => {
     lottery_venue: listing.Lottery_Venue,
     lottery_summary: listing.Lottery_Summary,
     lottery_street_address: listing.Lottery_Street_Address,
-    lottery_city: listing.lottery_city,
+    lottery_city: listing.Lottery_City,
     lottery_url: listing.Lottery_URL,
     reserved_community_type: listing.Reserved_community_type,
     application_phone: listing.Application_Phone,
@@ -94,7 +94,7 @@ export const mapListingDetails = (listing) => {
     application_street_address: listing.Application_Street_Address,
     application_city: listing.Application_City,
     download_url: listing.Download_URL,
-    application_sate: listing.Application_State,
+    application_state: listing.Application_State,
     organization_url: listing.Organization_URL,
     application_postal_code: listing.Application_Postal_Code,
     in_lottery: listing.In_Lottery,
@@ -113,24 +113,27 @@ export const mapListingDetails = (listing) => {
     lottery_status: listing.Lottery_Status,
     office_hours: listing.Office_Hours,
     information_sessions: listing.Information_Sessions,
-    open_houses: listing.Open_Houses,
-    listing_lottery_preference: listing.Listing_Lottery_Preferences.map(mapListingLotteryPreferece),
+    open_houses: mapOpenHouses(listing.Open_Houses),
+    listing_lottery_preferences: listing.Listing_Lottery_Preferences.map(mapListingLotteryPreferece),
     units: listing.Units.map(mapUnit)
   }
 }
 
+const mapOpenHouses =(open_houses) => {
+  return open_houses
+}
 
-const mapListingLotteryPreferece = (listingLotteryPreference) => {
+const mapListingLotteryPreferece = (i) => {
   return {
-    id:listingLotteryPreference.Id,
-    total_submitted_apps:listingLotteryPreference.Total_Submitted_Apps,
-    order:listingLotteryPreference.Order,
-    description:listingLotteryPreference.Description,
-    available_units:listingLotteryPreference.Available_Units,
-    pdf_url:listingLotteryPreference.PDF_URL,
+    id:i.Id,
+    total_submitted_apps:i.Total_Submitted_Apps,
+    order:i.Order,
+    description:i.Description,
+    available_units:i.Available_Units,
+    pdf_url:i.PDF_URL,
     lottery_preference: {
-      id: listingLotteryPreference.Lottery_Preference.Id,
-      name: listingLotteryPreference.Lottery_Preference.Name
+      id: i.Lottery_Preference.Id,
+      name: i.Lottery_Preference.Name
     }
   }
 }

@@ -34,18 +34,10 @@ const formatLabel = (label) => {
  }
 }
 
-export const buildFieldEntry = (listing, entry) => {
-  let value = get(listing, entry.field)
+export const buildFieldEntry = (item, entry) => {
+  let value = get(item, entry.field)
   let label = utils.cleanField(entry.label)
   let renderType = entry.renderType || getRenderType(value)
-
-  // if (includes(entry.field, '.')) {
-  //   let parts = entry.field.split('.')
-  //   label = utils.cleanField(parts[0])
-  //   if (listing[label]) {
-  //     value = listing[label][parts[1]]
-  //   }
-  // }
 
   value = formatValue(value, entry.formatType)
 
