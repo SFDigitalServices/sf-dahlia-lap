@@ -61,7 +61,7 @@ const ListingsPage = ({ page, listings}) => {
 const mapProperties = ({ page, listings, fields}) => {
   return {
     page: page,
-    listings: listings.map(mapListingsTableItem), // TODO: use mapper here
+    listings: listings.map(mapListingsTableItem)
   }
 }
 

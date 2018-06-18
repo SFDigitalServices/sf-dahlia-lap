@@ -3,17 +3,49 @@ import React from 'react'
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
+import { mapListingApplicationPage } from '~/components/propMappers'
 
-const ListingApplicationsTable = ({ results, fields }) => {
+const tableFields = {
+  "id":null,
+  "name":{
+    "label":"Application Number"
+  },
+  "listing_name":{
+    "label":"Listing Name"
+  },
+  "listing_lottery_date":{
+    "label":"Lottery Date"
+  },
+  "applicant_first_name":{
+    "label": 'First Name'
+  },
+  "applicant_last_name": {
+    "label": 'Last Name'
+  },
+  "application_submitted_date":{
+    "type":"date",
+    "label": 'Application Submitted Date'
+  },
+  "total_household_size": {
+    "label": "Total Household Size"
+  },
+  "application_submission_type":{
+    "label": "Application Submission Type",
+    "editable":true,
+    "editable_options":["Electronic","Paper"]
+  }
+}
+
+const ListingApplicationsTable = ({ applications, fields }) => {
   return (
     <IndexTable
-      results={results}
-      fields= {fields}
+      results={applications}
+      fields={fields}
       links={['View Application'] } />
   )
 }
 
-const ListingApplicationsPage = ({listing, results, fields }) => {
+const ListingApplicationsPage = ({listing, applications }) => {
   const pageHeader = {
     title: listing.Name
   }
@@ -26,18 +58,20 @@ const ListingApplicationsPage = ({listing, results, fields }) => {
     currentUrl:window.location.pathname
   }
 
+  // console.log(JSON.stringify(applications))
+  // console.log(JSON.stringify(fields))
+
   return (
     <TableLayout pageHeader={pageHeader} tabSection={tabs}>
-      <ListingApplicationsTable results={results} fields={fields} />
+      <ListingApplicationsTable applications={applications} fields={tableFields} />
     </TableLayout>
   )
 }
 
-const mapProperties = ({listing, results, fields }) => {
+const mapProperties = ({listing, applications }) => {
   return {
     listing: listing,
-    results: results, // TODO: use mapper here
-    fields: fields
+    applications: applications.map(mapListingApplicationPage), // TODO: use mapper here
   }
 }
 
