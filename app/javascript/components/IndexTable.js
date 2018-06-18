@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
+import { each, includes, last, uniqBy, map, sortBy, startCase } from 'lodash'
 import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
@@ -21,7 +21,7 @@ class IndexTable extends React.Component {
     var columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
-      if (field === 'Id') return
+      if (field === 'Id' || field === 'id') return
       let column = {
         id: field,
         accessor: (row) => (
