@@ -6,7 +6,7 @@ import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import mapProperties from './mapProperties'
 
-const SupplementalApplicationPage = ({ application, statusHistory }) => {
+const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit }) => {
   const pageHeader = {
     title: `${application.number}: ${application.name}`,
     breadcrumbs: [
@@ -26,7 +26,7 @@ const SupplementalApplicationPage = ({ application, statusHistory }) => {
 
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      <SupplementalApplicationContainer statusHistory={statusHistory} />
+      <SupplementalApplicationContainer application={application}  statusHistory={statusHistory} formFields={formFields} onSubmit={onSubmit}/>
     </CardLayout>
   )
 }
