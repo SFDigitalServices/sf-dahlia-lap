@@ -19,8 +19,8 @@ const AddressRow = ({fieldId}) => (
     <Row form>
       <Column span={6} form>
         <FormGroup>
-          <label>Alice Griffith Address</label>
-          <Text field={fieldId('address')}/>
+          <label htmlFor='address'>Alice Griffith Address</label>
+          <Text id='address' field={fieldId('address')}/>
         </FormGroup>
       </Column>
     </Row>
@@ -28,22 +28,22 @@ const AddressRow = ({fieldId}) => (
     <Row form>
       <Column span={3} form>
         <FormGroup>
-          <label>City</label>
-          <Text field={fieldId('city')}/>
+          <label htmlFor='city'>City</label>
+          <Text id='city' field={fieldId('city')}/>
         </FormGroup>
       </Column>
       <Column span={3} end form>
         <Row>
           <Column span={6}>
             <FormGroup>
-              <label>State</label>
-              <Text field={fieldId('state')} />
+              <label htmlFor='state'>State</label>
+              <Text id='state' field={fieldId('state')} />
             </FormGroup>
           </Column>
           <Column span={6} end>
             <FormGroup>
-              <label>Zip</label>
-              <Text field={fieldId('zipCode')}/>
+              <label htmlFor='zipCode'>Zip</label>
+              <Text id='zipCode' field={fieldId('zipCode')}/>
             </FormGroup>
           </Column>
         </Row>
@@ -60,16 +60,18 @@ const AliceGriffithFields = ({i, householdMembers}) => {
     <React.Fragment>
       <Row form>
         <Column span={3} form>
-          <label>HH Member on Proof</label>
+          <label htmlFor='hhMemberOnProof'>HH Member on Proof</label>
           <Select
+            id='hhMemberOnProof'
             field={fieldId('naturalKey')}
             options={householdMembers}
             value={fieldId('naturalKey')}
           />
         </Column>
         <Column span={3} form end>
-          <label>Type of Proof</label>
+          <label htmlFor='typeOfProof'>Type of Proof</label>
           <Select
+            id='typeOfProof'
             field={fieldId('preferenceProof')}
             options={typeOfProofOptions}
             value={fieldId('preferenceProof')}

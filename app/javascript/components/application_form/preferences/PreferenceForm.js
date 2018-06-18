@@ -18,7 +18,7 @@ const setRecordTypeDevName = (i, formApi, matched) => {
 
 const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
   let selected = formApi.values.shortFormPreferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.Id == selected.listingPreferenceID)
+  let matched = find(listingPreferences, pref => pref.Id === selected.listingPreferenceID)
   setRecordTypeDevName(i, formApi, matched)
   return selected
 }
@@ -69,7 +69,6 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
                 value={buildFieldId(i,'listingPreferenceID')}
               />
             </Column>
-            <div className="small-offset-6 columns"/>
           </Row>
 
           <PreferenceAdditionalOptions

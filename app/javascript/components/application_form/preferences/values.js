@@ -11,10 +11,10 @@ export const recordTypeMap = {
 
 export const typeOfProofValues = [
   "Letter from SFHA verifying address",
-  "CA ID or Driver’s License",
-  "Telephone bill",
+  "CA ID or Driver's License",
+  "Telephone bill (landline only)",
   "Cable and internet bill",
-  "Paystub",
+  "Paystub (listing home address)",
   "Public benefits record",
   "School record"
 ]
