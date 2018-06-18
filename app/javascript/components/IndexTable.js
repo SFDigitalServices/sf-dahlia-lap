@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { each, includes, last, uniqBy, map, sortBy, startCase } from 'lodash'
+import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
 import moment from 'moment'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
@@ -79,7 +79,10 @@ class IndexTable extends React.Component {
           let listingOptions = []
           let i = 0
           let uniqListings = uniqBy(map(this.props.results, (result) => {
-            return {name: result['Listing.Name'], lotteryDate: moment(result['Listing.Lottery_Date'])}
+            return {
+              name: result['Listing.Name'] || result['listing_name'],
+              lotteryDate: moment(result['Listing.Lottery_Date'] || result['listing_lottery_date'])
+            }
           }), 'name')
           let sortedUniqListings = sortBy(uniqListings, (listing) => {
             return listing.lotteryDate
@@ -134,15 +137,16 @@ class IndexTable extends React.Component {
           let i = 0
           each(links, (link) => {
             let href = ''
+            const originalId = row.original.Id || row.original.id
             if (link === 'View Listing') {
-              href = `/listings/${row.original.Id}`
+              href = `/listings/${originalId}`
             } else if (link === 'Add Application' && row.original.Lottery_Status !== 'Lottery Complete') {
-              href = `/listings/${row.original.Id}/applications/new`
+              href = `/listings/${originalId}/applications/new`
             } else if (link === 'View Application') {
-              href = `/applications/${row.original.Id}`
+              href = `/applications/${originalId}`
             } else if (link === 'View Flagged Applications') {
-              // href = `/flagged_record_sets/${row.original.Id}/flagged_applications`
-              href = appPaths.toApplicationsFlagged(row.original.Id)
+              // href = `/flagged_record_sets/${originalId}/flagged_applications`
+              href = appPaths.toApplicationsFlagged(originalId)
             }
             if (href) {
               linkTags.push(

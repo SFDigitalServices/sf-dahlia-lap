@@ -11,9 +11,23 @@ export const mapListing = (listing) => {
   }
 }
 
-export const mapListingsTableItem = (listing) => {
-  // return listing
+export const mapListingApplicationPage = (application) => {
+  // return application
 
+  return {
+    id: application.Id,
+    name: application.Name,
+    listing_name: application['Listing.Name'],
+    listing_lottery_date: application['Listing.Lottery_Date'],
+    applicant_first_name: application['Applicant.First_Name'],
+    applicant_last_name: application['Applicant.Last_Name'],
+    application_submitted_date: application.Application_Submitted_Date,
+    total_household_size: application.Total_Household_Size,
+    application_submission_type: application.Application_Submission_Type
+  }
+}
+
+export const mapListingsTableItem = (listing) => {
   return  {
     id: listing.Id,
     name: listing.Name,
@@ -52,7 +66,7 @@ export const mapLeaseUpApplication = (application) => {
     residence_address: application['Application.Residence_Address'],
     preference_record_type: application['Listing_Preference_ID.Record_Type_For_App_Preferences'],
     preference_lottery_rank: application['Preference_Lottery_Rank'],
-    preference_order:  application['Preference_Order']
+    preference_order: application['Preference_Order']
   }
 }
 
