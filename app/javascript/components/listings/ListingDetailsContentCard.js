@@ -18,6 +18,8 @@ export const generateContent = (listing, entry, i) => {
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
   const fieldSpecs = map(fields, buildFieldSpecs)
   const entries = map(fieldSpecs, (f) => buildFieldEntry(listing, f))
+  // console.log(title)
+  // console.log(entries)
   const contents = map(entries, (entry, idx) => generateContent(listing, entry, idx))
   const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
 

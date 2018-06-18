@@ -1,7 +1,8 @@
+// { field, label, renderType, formatType }
 export const detailsFields = [
   { field: 'Owner.Name', label: 'Owner' },
   'Name',
-  'Account.Name',
+  { field: 'Account.Name', label: 'Account' },
   'Application_Due_Date',
   { field: 'In_Lottery', label: 'Applications in Lottery' },
   'Status',

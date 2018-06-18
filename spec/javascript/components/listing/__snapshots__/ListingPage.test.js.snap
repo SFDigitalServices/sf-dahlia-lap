@@ -1,5 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListingPage Details fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Details
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Owner
+          </h4>
+          <p>
+            Prod Vertiba
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Name
+          </h4>
+          <p>
+            Test 5/30
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Account
+          </h4>
+          <p>
+            Equity Residential
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application Due Date
+          </h4>
+          <p>
+            05/31/2018
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Applications in Lottery
+          </h4>
+          <p>
+            2
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Status
+          </h4>
+          <p>
+            Active
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`ListingPage should render succesfully 1`] = `
 Array [
   <header
