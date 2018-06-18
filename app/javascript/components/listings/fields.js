@@ -18,16 +18,16 @@ export const buildingInformationFields = [
   'Building_Zip_Code',
   'Neighborhood',
   'Developer',
-  'Building_URL',
+  { field: 'Building_URL', label: 'Building URL' },
   'Year_Built',
   'Description',
   'Lottery_Preferences'
 ]
 
 export const lotteryPreferencesFields = [
-  'Lottery_Preference.Name',
+  { field: 'Lottery_Preference.Name', label: 'Name' } ,
   'Description',
-  'PDF_URL',
+  { field: 'PDF_URL', label: 'PDF URL' },
   'Order',
   'Available_Units'
 ]
@@ -59,8 +59,8 @@ export const appInfoFields = [
   'Application_City',
   'Application_State',
   'Application_Postal_Code',
-  'Organization_URL',
-  'Download_URL'
+  { field: 'Organization_URL', label: 'Organization URL' },
+  { field: 'Download_URL', label: 'Download URL' }
 ]
 
 export const agentDevInfoFields= [

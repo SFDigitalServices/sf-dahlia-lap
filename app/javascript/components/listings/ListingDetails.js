@@ -24,9 +24,9 @@ const ListingDetails = ({ listing }) => {
     <div>
       <Card title='Details' fields={detailsFields} />
       <Card title='Building Information' fields={buildingInformationFields} />
-      { listing.Listing_Lottery_Preferences && (
+      { listing.listing_lottery_preferences && (
           <Table  title='Listing Preferences'
-                  table='Listing_Lottery_Preferences'
+                  table='listing_lottery_preferences'
                   fields={lotteryPreferencesFields} />
           )
       }
@@ -36,15 +36,15 @@ const ListingDetails = ({ listing }) => {
       <Card title='Leasing Agent and Developer Information' fields={agentDevInfoFields} />
       <Card title='Additional Eligibility Rules' fields={eligibilityRulesFields} />
       <Card title='Additional Information' fields={additionalInfoFields} />
-      { listing.Open_Houses && (
+      { listing.open_houses && (
           <Table  title='Open Houses'
-                  table='Open_Houses'
+                  table='open_houses'
                   fields={openHousesFields} />
           )
       }
-      { listing.Information_Sessions && (
+      { listing.information_sessions && (
           <Table  title='Information Sessions'
-                  table='Information_Sessions'
+                  table='information_sessions'
                   fields={infoSessionsFields} />
         )
       }
