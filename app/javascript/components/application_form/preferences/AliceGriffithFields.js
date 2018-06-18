@@ -79,6 +79,8 @@ const AliceGriffithFields = ({i, householdMembers}) => {
         </Column>
       </Row>
       <AddressRow fieldId={fieldId}/>
+      <p>Please check to make sure that a document proving the preference address was attached to the application. If no proof document was attached, do not select this preference.</p>
+						<p>MOHCD will verify that the applicant provided a valid address.</p>
     </React.Fragment>
   )
 }
