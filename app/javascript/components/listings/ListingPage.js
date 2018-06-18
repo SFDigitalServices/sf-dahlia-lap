@@ -19,7 +19,7 @@ const ListingPage = ({ listing }) => {
   }
 
   return (
-    <CardLayout pageHeader={{title: listing.Name}} tabSection={tabs}>
+    <CardLayout pageHeader={{title: listing.name}} tabSection={tabs}>
       <ListingPageDetails listing={listing} />
     </CardLayout>
   )

@@ -10,13 +10,11 @@ const RenderType = ({type, value}) => {
   } else if (type === 'link') {
     return(<a target='_blank' href={value}>{value}</a>)
   } else {
-    console.log(value)
-    return (<p>{value}</p>)
+    return (<p>{String(value)}</p>)
   }
 }
 
 const Content = ({ label, value, type }) => {
-  console.log(`${label} = ${value} = ${type}`)
   return (
     <div className="margin-bottom--half">
       <h4 className="t-sans t-small t-bold no-margin">
