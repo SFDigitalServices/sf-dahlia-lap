@@ -4,11 +4,11 @@ import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 
-const ListingsPageTable = ({ page, results, fields }) => {
+const ListingsPageTable = ({ page, listings, fields }) => {
   return (
     <IndexTable
       page={page}
-      results={results}
+      results={listings}
       fields= {fields}
       links={['View Listing', 'Add Application', 'Lease Ups'] } />
   )
@@ -20,18 +20,19 @@ const layout = {
   }
 }
 
-const ListingsPage = ({ page, results, fields}) => {
+const ListingsPage = ({ page, listings, fields}) => {
   return (
     <TableLayout {...layout}>
-      <ListingsPageTable page={page} results={results} fields={fields} />
+      <ListingsPageTable page={page} listings={listings} fields={fields} />
     </TableLayout>
   )
 }
 
-const mapProperties = ({ page, results, fields}) => {
+const mapProperties = ({ page, listings, fields}) => {
+  // console.log(JSON.stringify(fields))
   return {
     page: page,
-    results: results, // TODO: use mapper here
+    listings: listings, // TODO: use mapper here
     fields: fields
   }
 }
