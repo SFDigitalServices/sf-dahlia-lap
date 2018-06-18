@@ -11,6 +11,21 @@ export const mapListing = (listing) => {
   }
 }
 
+export const mapListingsTableItem = (listing) => {
+  // return listing
+
+  return  {
+    id: listing.Id,
+    name: listing.Name,
+    application_due_date: listing.Application_Due_Date,
+    lottery_date: listing.Lottery_Date,
+    lottery_results_date: listing.Lottery_Results_Date,
+    lottery_status: listing.Lottery_Status,
+    nflagged_applications: listing.nFlagged_Applications,
+    in_lottery: listing.In_Lottery
+  }
+}
+
 export const mapApplication = (application) => {
   return {
     id: application.Id,
