@@ -5,14 +5,7 @@ import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-let {
-  gender_options,
-  sexual_orientation_options,
-  phone_type_options,
-  sex_at_birth_options,
-  race_options,
-  ethnicity_options,
-} = formOptions
+let { phone_type_options } = formOptions
 
 let mailingAddressFieldMap = {
   address: 'mailingAddress',
@@ -23,7 +16,6 @@ let mailingAddressFieldMap = {
 
 let fieldMapper = {
   Date_of_Birth: 'DOB',
-  Email: 'email',
   First_Name: 'firstName',
   Last_Name: 'lastName',
   Middle_Name: 'middleName',

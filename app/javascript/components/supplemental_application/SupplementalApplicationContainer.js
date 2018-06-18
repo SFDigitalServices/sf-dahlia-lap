@@ -1,54 +1,85 @@
 import React from 'react'
-import _ from 'lodash'
+import { Form } from 'react-form';
+import { isEmpty } from 'lodash'
 
-import StatusList from './StatusList'
 import ContentSection from '../molecules/ContentSection'
+import DemographicsInputs from './sections/DemographicsInputs'
+import StatusList from './sections/StatusList'
+import StatusUpdateForm from './sections/StatusUpdateForm'
 
+//TODO: refactor. this is a placeholder
 const StatusUpdateSection = () => (
-  <div className="app-inner inset-wide padding-bottom-none margin-top">
-    <h2 className="sr-only">Status Update</h2>
-    <div className="status-update expand-wide is-processing">
-      <h3 className="status-update_title">Update Status</h3>
-      <div className="status-update_action">
-        <button className="button dropdown-button has-icon--right text-align-left small is-processing" href="#" aria-expanded="false">
-          <span className="ui-icon ui-small" aria-hidden="true">
-            <svg>
-              <use xlinkHref="#i-arrow-down"></use>
-            </svg>
-          </span>
-          Processing
-        </button>
-      </div>
-      <div className="status-update_message">
-        <div className="status-update_comment">
-          <p className="status-update_note">Some comment</p>
-          <span className="status-update_date">03/12/18 </span>
-        </div>
-        <div className="status-update_footer">
-          <button className="button tiny tertiary" type="button" data-event="">Add a comment</button>
-          <a href="/see_status_history" className="t-small right">See Status History</a>
-        </div>
-      </div>
+  <ContentSection.Content paddingBottomNone marginTop>
+    <StatusUpdateForm />
+  </ContentSection.Content>
+)
+
+const LeaseInformationSection = ({statusHistory}) => (
+  <ContentSection title="Lease Information">
+    <ContentSection.Sub title="Demographics">
+      <DemographicsInputs />
+    </ContentSection.Sub>
+    {!isEmpty(statusHistory) &&
+      (
+        <ContentSection.Sub title="Status History" borderBottom={false}>
+          <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')}/>
+        </ContentSection.Sub>
+      )
+    }
+  </ContentSection>
+)
+
+const ButtonPager = ({ disabled }) => (
+  <div className="button-pager">
+    <div className="button-pager_row align-buttons-left primary inset-wide">
+      <button className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width" href="#" aria-expanded="false" disabled={disabled}>
+        <span className="ui-icon ui-small" aria-hidden="true">
+          <svg>
+            <use xlinkHref="#i-arrow-down"></use>
+          </svg>
+        </span>
+        Approved
+      </button>
+      <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-activedescendant="" tabIndex="-1" style={{display: "none"}}>
+        <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is a link</a></li>
+        <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
+        <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
+      </ul>
+      <button className="button primary small" type="submit" disabled={disabled}>Save</button>
     </div>
   </div>
 )
 
-const StatusHistorySection = ({statusHistory}) => (
-  <ContentSection title="Lease Information">
-    <ContentSection.Sub title="Status History">
-        <StatusList items={statusHistory} onAddCommnent={()=>alert('add comment')}/>
-    </ContentSection.Sub>
-  </ContentSection>
-)
+class SupplementalApplicationContainer extends React.Component {
+  state = {
+    loading: false
+  }
 
-const SupplementalApplicationContainer = ({statusHistory}) => {
-  return (
-    <React.Fragment>
-      <StatusUpdateSection/>
-      <ContentSection title="Current Contact Information"/>
-      {!_.isEmpty(statusHistory) && <StatusHistorySection statusHistory={statusHistory} />}
-    </React.Fragment>
-  )
+  handleOnSubmit = (value) => {
+    this.setState({loading: true})
+    this.props.onSubmit(value).then(() => {
+      this.setState({loading: false})
+    })
+  }
+
+  render() {
+    const { statusHistory, formFields } = this.props
+    const { loading } = this.state
+
+    return (
+        <Form onSubmit={this.handleOnSubmit} defaultValues={formFields}	>
+          {formApi => (
+            <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
+              <StatusUpdateSection/>
+              <ContentSection title="Current Contact Information"/>
+              <LeaseInformationSection statusHistory={statusHistory} />
+              <div className="padding-bottom--2x margin-bottom--2x"></div>
+              <ButtonPager disabled={loading}/>
+            </form>
+          )}
+        </Form>
+    )
+  }
 }
 
 export default SupplementalApplicationContainer

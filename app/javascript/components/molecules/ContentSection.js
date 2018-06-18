@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 const ContentSection = ({title, description, children}) => (
   <React.Fragment>
@@ -21,16 +22,27 @@ ContentSection.SubHeader = ({title , description}) => (
   </div>
 )
 
-ContentSection.Content = ({children}) => (
-  <div className="app-inner inset-wide border-bottom">
-    {children}
-  </div>
-)
+ContentSection.Content = ({children, borderBottom, paddingBottomNone, marginTop}) => {
+  const divClassName = classNames(
+    'app-inner',
+    'inset-wide',
+    {
+      'border-bottom': borderBottom,
+      'padding-bottom-none': paddingBottomNone,
+      'margin-top': marginTop
+    }
+  )
+  return (
+    <div className={divClassName}>
+      {children}
+    </div>
+  )
+}
 
-ContentSection.Sub = ({title, description, children}) => (
+ContentSection.Sub = ({title, description, borderBottom = true, children}) => (
   <React.Fragment>
     <ContentSection.SubHeader title={title} description={description} />
-    <ContentSection.Content>
+    <ContentSection.Content borderBottom={borderBottom}>
       {children}
     </ContentSection.Content>
   </React.Fragment>

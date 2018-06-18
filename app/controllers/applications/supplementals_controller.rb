@@ -7,6 +7,10 @@ module Applications
       @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
     end
 
+    def update
+      application_service.update
+    end
+
     def field_update_comment_service
       Force::FieldUpdateCommentService.new(current_user)
     end

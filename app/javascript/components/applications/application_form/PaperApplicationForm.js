@@ -11,7 +11,6 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 
-
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
@@ -128,7 +127,6 @@ class PaperApplicationForm extends React.Component {
         autofillValues[shortFormField] = this.props.application[salesforceField]
       })
     }
-
 
     return (
       <div>
