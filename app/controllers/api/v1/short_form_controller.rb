@@ -134,6 +134,10 @@ class Api::V1::ShortFormController < ApiController
                 recordTypeDevName
                 ifCombinedIndividualPreference
                 shortformPreferenceID
+                address
+                city
+                state
+                zipCode
               ],
             },
           )

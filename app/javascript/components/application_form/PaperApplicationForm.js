@@ -15,7 +15,6 @@ import DemographicInfoSection from './DemographicInfoSection'
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props.listing)
     this.state = {
       loading: false,
       submittedValues: {},
@@ -25,7 +24,6 @@ class PaperApplicationForm extends React.Component {
 
   submitFormTest = (submittedValues) => {
     this.setState({ submittedValues })
-    console.log(submittedValues)
   }
 
   removeEmptyData = (applicationData) => {
@@ -68,8 +66,8 @@ class PaperApplicationForm extends React.Component {
     applicationData = this.assignDemographicData(applicationData)
     applicationData = this.removeEmptyData(applicationData)
     applicationData = this.formatAdaPriorities(applicationData)
-    console.log('about to send to API')
-    console.log(applicationData)
+    // console.log('about to send to API')
+    // console.log(applicationData)
 
     if (this.props.application) {
       applicationData["id"] = this.props.application.Id
@@ -81,7 +79,6 @@ class PaperApplicationForm extends React.Component {
       alert('There was an error on submit. Please check values and try again.')
     }
 
-    console.log('submitForm response = ', response)
     this.setState({ loading: false })
     if (this.state.submitType == 'Save') {
       window.location.href = '/applications/' + response.application.id
@@ -133,7 +130,6 @@ class PaperApplicationForm extends React.Component {
         autofillValues[shortFormField] = this.props.application[salesforceField]
       })
     }
-
 
     return (
       <div>
