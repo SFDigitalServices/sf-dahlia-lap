@@ -2,6 +2,7 @@ import React from 'react'
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 import { find } from 'lodash'
+import PropTypes from 'prop-types';
 
 const computeTopWith = (buttonRef) => {
   // Hardcoded for now.
@@ -116,6 +117,11 @@ class Dropdown extends React.Component {
     </div>
     )
   }
+}
+
+Dropdown.propTypes = {
+  items: PropTypes.array,
+  value: PropTypes.object,
 }
 
 export default Dropdown

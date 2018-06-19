@@ -12,7 +12,6 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 
-
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
