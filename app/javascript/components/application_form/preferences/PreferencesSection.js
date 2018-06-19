@@ -45,9 +45,7 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
         editPreference["naturalKey"] = naturalKey
         autofillPreferences.push(editPreference)
       }
-      console.log(preference)
     })
-    console.log(autofillPreferences)
 
     formApi.values.shortFormPreferences = autofillPreferences
   }
