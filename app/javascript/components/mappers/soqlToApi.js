@@ -7,7 +7,7 @@ import {
   householdMembersFieldMapper,
   applicationShape,
   alternateContactFieldMapper
-} from './soqlFieldMappers'
+} from './soqlToApiFields'
 
 const mapApplicant = createFieldMapper(applicantFieldMapper)
 

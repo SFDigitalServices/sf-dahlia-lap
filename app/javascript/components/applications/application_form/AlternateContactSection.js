@@ -3,7 +3,7 @@ import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 
-import soqlToApiMappers from '~/components/soqlToApiMappers'
+import soqlToApiMappers from '~/components/mappers/soqlToApi'
 
 const {
   alternate_contact_options,

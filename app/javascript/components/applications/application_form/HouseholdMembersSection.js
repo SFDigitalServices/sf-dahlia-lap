@@ -2,7 +2,7 @@ import React from 'react'
 import { forEach } from 'lodash'
 import HouseholdMemberForm from './HouseholdMemberForm'
 
-import soqlToApiMappers from '~/components/soqlToApiMappers'
+import soqlToApiMappers from '~/components/mappers/soqlToApi'
 
 const HouseholdMembersSection = ({ formApi, editValues }) => {
   let autofillHouseholdMembers = []

@@ -4,7 +4,7 @@ import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-import soqlToApiMappers from '~/components/soqlToApiMappers'
+import soqlToApiMappers from '~/components/mappers/soqlToApi'
 
 let { phone_type_options } = formOptions
 
