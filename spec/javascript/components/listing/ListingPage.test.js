@@ -19,7 +19,7 @@ import {
   additionalInfoFields,
   openHousesFields,
   infoSessionsFields } from 'components/listings/fields'
-import { mapListingDetails } from '~/components/propMappers'
+import { mapListingDetails } from '~/components/mappers/soqlToDomain'
 
 describe('ListingPage', () => {
   sharedHooks.useFakeTimers()

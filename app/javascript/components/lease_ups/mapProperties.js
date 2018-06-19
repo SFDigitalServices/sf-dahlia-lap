@@ -1,4 +1,4 @@
-import { mapListing, mapLeaseUpApplication } from '../propMappers'
+import { mapListing, mapLeaseUpApplication } from '~/components/mappers/soqlToDomain'
 
 const mapProperties = ({ listing, applications }) => {
   return  {

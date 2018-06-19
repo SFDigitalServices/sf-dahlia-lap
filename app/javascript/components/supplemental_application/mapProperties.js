@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import { mapApplication } from '../propMappers'
+import { mapApplication } from '~/components/mappers/soqlToDomain'
 import { updateApplicationAction } from './actions'
 
 // NOTE: what kind of saleforce domain object is this one? Fed
