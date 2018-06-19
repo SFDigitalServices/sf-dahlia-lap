@@ -19,7 +19,7 @@ const AddressRow = ({fieldId}) => (
     <Row form>
       <Column span={6} form>
         <FormGroup>
-          <label htmlFor='address'>Alice Griffith Address</label>
+          <label htmlFor='alice-griffith-address'>Alice Griffith Address</label>
           <Text id='address' field={fieldId('address')}/>
         </FormGroup>
       </Column>
@@ -28,7 +28,7 @@ const AddressRow = ({fieldId}) => (
     <Row form>
       <Column span={3} form>
         <FormGroup>
-          <label htmlFor='city'>City</label>
+          <label htmlFor='alice-griffith-city'>City</label>
           <Text id='city' field={fieldId('city')}/>
         </FormGroup>
       </Column>
@@ -36,13 +36,13 @@ const AddressRow = ({fieldId}) => (
         <Row>
           <Column span={6}>
             <FormGroup>
-              <label htmlFor='state'>State</label>
+              <label htmlFor='alice-griffith-state'>State</label>
               <Text id='state' field={fieldId('state')} />
             </FormGroup>
           </Column>
           <Column span={6} end>
             <FormGroup>
-              <label htmlFor='zipCode'>Zip</label>
+              <label htmlFor='alice-griffith-zip-code'>Zip</label>
               <Text id='zipCode' field={fieldId('zipCode')}/>
             </FormGroup>
           </Column>
@@ -60,7 +60,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
     <React.Fragment>
       <Row form>
         <Column span={3} form>
-          <label htmlFor='hhMemberOnProof'>HH Member on Proof</label>
+          <label htmlFor='alice-griffith-hh-member-on-proof'>HH Member on Proof</label>
           <Select
             id='hhMemberOnProof'
             field={fieldId('naturalKey')}
@@ -69,7 +69,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
           />
         </Column>
         <Column span={3} form end>
-          <label htmlFor='typeOfProof'>Type of Proof</label>
+          <label htmlFor='alice-griffith-type-of-proof'>Type of Proof</label>
           <Select
             id='typeOfProof'
             field={fieldId('preferenceProof')}
