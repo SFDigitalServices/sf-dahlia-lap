@@ -20,7 +20,7 @@ const AddressRow = ({fieldId}) => (
       <Column span={6} form>
         <FormGroup>
           <label htmlFor='alice-griffith-address'>Alice Griffith Address</label>
-          <Text id='address' field={fieldId('address')}/>
+          <Text id='alice-griffith-address' field={fieldId('address')}/>
         </FormGroup>
       </Column>
     </Row>
@@ -29,7 +29,7 @@ const AddressRow = ({fieldId}) => (
       <Column span={3} form>
         <FormGroup>
           <label htmlFor='alice-griffith-city'>City</label>
-          <Text id='city' field={fieldId('city')}/>
+          <Text id='alice-griffith-city' field={fieldId('city')}/>
         </FormGroup>
       </Column>
       <Column span={3} end form>
@@ -37,13 +37,13 @@ const AddressRow = ({fieldId}) => (
           <Column span={6}>
             <FormGroup>
               <label htmlFor='alice-griffith-state'>State</label>
-              <Text id='state' field={fieldId('state')} />
+              <Text id='alice-griffith-state' field={fieldId('state')} />
             </FormGroup>
           </Column>
           <Column span={6} end>
             <FormGroup>
               <label htmlFor='alice-griffith-zip-code'>Zip</label>
-              <Text id='zipCode' field={fieldId('zipCode')}/>
+              <Text id='alice-griffith-zip-code' field={fieldId('zipCode')}/>
             </FormGroup>
           </Column>
         </Row>
@@ -62,7 +62,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
         <Column span={3} form>
           <label htmlFor='alice-griffith-hh-member-on-proof'>HH Member on Proof</label>
           <Select
-            id='hhMemberOnProof'
+            id='alice-griffith-hh-member-on-proof'
             field={fieldId('naturalKey')}
             options={householdMembers}
             value={fieldId('naturalKey')}
@@ -71,7 +71,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
         <Column span={3} form end>
           <label htmlFor='alice-griffith-type-of-proof'>Type of Proof</label>
           <Select
-            id='typeOfProof'
+            id='alice-griffith-type-of-proof'
             field={fieldId('preferenceProof')}
             options={typeOfProofOptions}
             value={fieldId('preferenceProof')}
