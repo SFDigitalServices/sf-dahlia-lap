@@ -17,7 +17,7 @@ module Applications
     def show
       # TODO: lookup listing, pass down to view
       # view needs to not render editable stuff if listing lottery status == lottery complete
-      @flagged_records = flagged_record_set_get_service.flagged_applications(params[:id])
+      @flagged_applications = flagged_record_set_get_service.flagged_applications(params[:id])
       @fields = flagged_record_set_get_service.flagged_applications_fields
     end
 
