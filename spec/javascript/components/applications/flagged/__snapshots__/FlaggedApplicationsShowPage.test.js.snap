@@ -38,7 +38,7 @@ Array [
           className="rt-thead -header"
           style={
             Object {
-              "minWidth": "335px",
+              "minWidth": "635px",
             }
           }
         >
@@ -77,7 +77,7 @@ Array [
               <div
                 className="rt-resizable-header-content"
               >
-                Listing Name
+                App Number
               </div>
               <div
                 className="rt-resizer"
@@ -123,7 +123,76 @@ Array [
               <div
                 className="rt-resizable-header-content"
               >
-                Total Number of Duplicates
+                Primary Applicant Name
+              </div>
+              <div
+                className="rt-resizer"
+                onMouseDown={[Function]}
+                onTouchStart={[Function]}
+              />
+            </div>
+            <div
+              className="rt-th  rt-resizable-header"
+              onClick={[Function]}
+              role="heading"
+              style={
+                Object {
+                  "flex": "100 0 auto",
+                  "maxWidth": null,
+                  "width": "100px",
+                }
+              }
+            >
+              <div
+                className="rt-resizable-header-content"
+              >
+                Lottery Status
+              </div>
+              <div
+                className="rt-resizer"
+                onMouseDown={[Function]}
+                onTouchStart={[Function]}
+              />
+            </div>
+            <div
+              className="rt-th  rt-resizable-header"
+              onClick={[Function]}
+              role="heading"
+              style={
+                Object {
+                  "flex": "100 0 auto",
+                  "maxWidth": null,
+                  "width": "100px",
+                }
+              }
+            >
+              <div
+                className="rt-resizable-header-content"
+              >
+                Review Status
+              </div>
+              <div
+                className="rt-resizer"
+                onMouseDown={[Function]}
+                onTouchStart={[Function]}
+              />
+            </div>
+            <div
+              className="rt-th  rt-resizable-header"
+              onClick={[Function]}
+              role="heading"
+              style={
+                Object {
+                  "flex": "100 0 auto",
+                  "maxWidth": null,
+                  "width": "100px",
+                }
+              }
+            >
+              <div
+                className="rt-resizable-header-content"
+              >
+                Comments
               </div>
               <div
                 className="rt-resizer"
@@ -137,7 +206,7 @@ Array [
           className="rt-tbody"
           style={
             Object {
-              "minWidth": "335px",
+              "minWidth": "635px",
             }
           }
         >
@@ -177,7 +246,7 @@ Array [
                   }
                 }
               >
-                TEST Listing
+                APP-00038758
               </div>
               <div
                 className="rt-td"
@@ -190,7 +259,7 @@ Array [
                   }
                 }
               >
-                Residence Address
+                Name + DOB
               </div>
               <div
                 className="rt-td"
@@ -203,8 +272,43 @@ Array [
                   }
                 }
               >
-                1
+                Christine Dolendo
               </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Pending Review
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
             </div>
           </div>
           <div
@@ -243,7 +347,7 @@ Array [
                   }
                 }
               >
-                TEST Listing
+                APP-00185173
               </div>
               <div
                 className="rt-td"
@@ -256,7 +360,7 @@ Array [
                   }
                 }
               >
-                Residence Address
+                Name + DOB
               </div>
               <div
                 className="rt-td"
@@ -269,8 +373,245 @@ Array [
                   }
                 }
               >
-                1
+                Christine Dolendo
               </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Pending Review
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                APP-00185369
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Christine Dolendo
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Pending Review
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                APP-00185370
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Christine Dolendo
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Pending Review
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
             </div>
           </div>
           <div
@@ -287,6 +628,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -401,6 +784,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -417,6 +842,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -531,6 +998,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -547,6 +1056,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -661,6 +1212,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -677,6 +1270,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -791,6 +1426,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -807,6 +1484,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -921,6 +1640,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -937,6 +1698,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -1051,6 +1854,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -1067,6 +1912,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
@@ -1181,94 +2068,6 @@ Array [
                    
                 </span>
               </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
               <div
                 className="rt-td"
                 style={
@@ -1376,6 +2175,48 @@ Array [
                    
                 </span>
               </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -1392,6 +2233,48 @@ Array [
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
                   }
                 }
               >
