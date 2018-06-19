@@ -10,6 +10,7 @@ import PreferencesSection from './preferences/PreferencesSection'
 import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
+import AgreeToTerms from './AgreeToTerms'
 
 
 class PaperApplicationForm extends React.Component {
@@ -73,12 +74,12 @@ class PaperApplicationForm extends React.Component {
     }
 
     let response = await apiService.submitApplication(applicationData)
-    if (response == false) {
+    if (response === false) {
       alert('There was an error on submit. Please check values and try again.')
     }
 
     this.setState({ loading: false })
-    if (this.state.submitType == 'Save') {
+    if (this.state.submitType === 'Save') {
       window.location.href = '/applications/' + response.application.id
     }
     else {
@@ -87,28 +88,7 @@ class PaperApplicationForm extends React.Component {
   }
 
   saveSubmitType = (type) => {
-    this.state.submitType = type
-  }
-
-  get agreeToTermsMarkup () {
-    return (
-      <div className="checkbox-group" role="group">
-        <div className="form-item" >
-          <div className="checkbox">
-            <Checkbox field="agreeToTerms" id="agreeToTerms" name="agreeToTerms" />
-            <label htmlFor="agreeToTerms">Signature on Terms of Agreement</label>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  get demographicsSection () {
-    if (!this.props.editPage) {
-      return (
-        <DemographicInfoSection />
-      )
-    }
+    this.setState({submitType: type})
   }
 
   render() {
@@ -129,7 +109,6 @@ class PaperApplicationForm extends React.Component {
       })
     }
 
-
     return (
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>
@@ -147,8 +126,10 @@ class PaperApplicationForm extends React.Component {
                     editValues={this.props.application}
                   />
                   <HouseholdIncomeSection />
-                  {this.demographicsSection}
-                  {this.agreeToTermsMarkup}
+                  {!this.props.editPage &&
+                      <DemographicInfoSection />
+                  }
+                  <AgreeToTerms/>
                 </div>
                 <div className="button-pager">
                   <div className="button-pager_row primary">
