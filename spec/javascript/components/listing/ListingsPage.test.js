@@ -18,7 +18,7 @@ describe('ListingsPage', () => {
   })
 
 
-  test.only('should render succesfully long list', () => {
+  test('should render succesfully long list', () => {
     const fields = modelsFactory.listingFields()
     const wrapper = renderer.create(
       <ListingsPage listings={listings} fields={fields} />,

@@ -182,8 +182,6 @@ const mapUnit = (unit) => {
 }
 
 export const mapFlaggedRecords = (flaggedRecord) => {
-  // return flaggedRecord
-
   return {
     id: flaggedRecord.id,
     listing_name: flaggedRecord['Listing.Name'],

@@ -23,7 +23,7 @@ Array [
             className="medium-8 columns no-padding"
           >
             <p>
-              Application lottery number: undefined. For listing: xxx2
+              Application lottery number: 00191270. For listing: Test 5/30
             </p>
           </div>
         </hgroup>
@@ -78,7 +78,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         required="true"
-                        value="xxxx3"
+                        value="karen"
                       />
                     </div>
                     <div
@@ -90,7 +90,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value="middleName"
+                        value=""
                       />
                     </div>
                     <div
@@ -108,7 +108,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         required="true"
-                        value="lastName"
+                        value="jones"
                       />
                     </div>
                   </div>
@@ -125,7 +125,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value="xxxx2"
+                      value=""
                     />
                   </div>
                   <div
@@ -137,7 +137,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value="phone"
+                      value=""
                     />
                   </div>
                   <div
@@ -218,7 +218,7 @@ Array [
                               tabIndex={undefined}
                               title={undefined}
                               type="text"
-                              value="2018-04-23"
+                              value="1950-01-01"
                             />
                           </div>
                         </div>
@@ -249,7 +249,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="address"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -261,7 +261,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="city"
+                          value="SAN FRANCISCO"
                         />
                       </div>
                       <div
@@ -274,7 +274,7 @@ Array [
                           maxLength="2"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="state"
+                          value="CA"
                         />
                       </div>
                       <div
@@ -286,7 +286,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="zip"
+                          value="94105-1804"
                         />
                       </div>
                     </div>
@@ -315,7 +315,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingAddress"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -327,7 +327,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingCity"
+                          value="SAN FRANCISCO"
                         />
                       </div>
                       <div
@@ -340,7 +340,7 @@ Array [
                           maxLength="2"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingState"
+                          value="CA"
                         />
                       </div>
                       <div
@@ -352,7 +352,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingZip"
+                          value="94105-1804"
                         />
                       </div>
                     </div>
