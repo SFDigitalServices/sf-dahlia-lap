@@ -1,6 +1,6 @@
 import { merge } from 'lodash'
 import apiService from '~/apiService'
-import SOQLToApi from '~/components/soqlToApiMappers'
+import SOQLToApi from '~/components/mappers/soqlToApi'
 import Alerts from '~/components/Alerts'
 
 export const updateApplicationAction = async (application, values) => {

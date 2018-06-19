@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import PreferenceForm from './PreferenceForm'
 
-import soqlToApiMappers from '~/components/soqlToApiMappers'
+import soqlToApiMappers from '~/components/mappers/soqlToApi'
 
 const allPreferencesSelected = (formApi, listingPreferences) => {
   if (formApi.values && formApi.values.shortFormPreferences && listingPreferences) {

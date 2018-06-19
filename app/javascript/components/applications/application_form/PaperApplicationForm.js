@@ -12,7 +12,7 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 
-import soqlToApiMappers from '~/components/soqlToApiMappers'
+import soqlToApiMappers from '~/components/mappers/soqlToApi'
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
