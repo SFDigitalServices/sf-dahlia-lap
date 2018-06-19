@@ -3,7 +3,7 @@ import React from 'react'
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapListingApplicationPage } from '~/components/propMappers'
+import { mapListingApplicationPage, mapListing } from '~/components/propMappers'
 
 const tableFields = {
   "id":null,
@@ -47,19 +47,16 @@ const ListingApplicationsTable = ({ applications, fields }) => {
 
 const ListingApplicationsPage = ({listing, applications }) => {
   const pageHeader = {
-    title: listing.Name
+    title: listing.name
   }
 
   const tabs = {
     items: [
-      { title: 'Listing Details', url: `/listings/${listing.Id}` },
-      { title: 'Applications',    url: `/listings/${listing.Id}/applications`  }
+      { title: 'Listing Details', url: `/listings/${listing.id}` },
+      { title: 'Applications',    url: `/listings/${listing.id}/applications`  }
     ],
     currentUrl:window.location.pathname
   }
-
-  // console.log(JSON.stringify(applications))
-  // console.log(JSON.stringify(fields))
 
   return (
     <TableLayout pageHeader={pageHeader} tabSection={tabs}>
@@ -70,8 +67,8 @@ const ListingApplicationsPage = ({listing, applications }) => {
 
 const mapProperties = ({listing, applications }) => {
   return {
-    listing: listing,
-    applications: applications.map(mapListingApplicationPage), // TODO: use mapper here
+    listing: mapListing(listing),
+    applications: applications.map(mapListingApplicationPage),
   }
 }
 
