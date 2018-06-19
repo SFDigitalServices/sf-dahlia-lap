@@ -12,8 +12,6 @@ export const mapListing = (listing) => {
 }
 
 export const mapListingApplicationPage = (application) => {
-  // return application
-
   return {
     id: application.Id,
     name: application.Name,
@@ -167,6 +165,7 @@ const mapListingLotteryPreferece = (i) => {
   }
 }
 
+// TODO: this is not being mapped in the Component
 const mapUnit = (unit) => {
   return {
     unit_type: unit.Unit_Type,
@@ -183,7 +182,7 @@ const mapUnit = (unit) => {
 
 export const mapFlaggedRecords = (flaggedRecord) => {
   return {
-    id: flaggedRecord.id,
+    id: flaggedRecord.Id,
     listing_name: flaggedRecord['Listing.Name'],
     rule_name: flaggedRecord.Rule_Name,
     total_number_of_pending_review: flaggedRecord.Total_Number_of_Pending_Review,
