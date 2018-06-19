@@ -2,26 +2,13 @@ import React from 'react'
 import { forEach } from 'lodash'
 import HouseholdMemberForm from './HouseholdMemberForm'
 
-let fieldMapper = {
-  Date_of_Birth: 'DOB',
-  First_Name: 'firstName',
-  Last_Name: 'lastName',
-  Middle_Name: 'middleName',
-  Street: 'address',
-  City: 'city',
-  State: 'state',
-  Zip_Code: 'zip',
-}
-
+import soqlToApiMappers from '~/components/soqlToApiMappers'
 
 const HouseholdMembersSection = ({ formApi, editValues }) => {
   let autofillHouseholdMembers = []
   if (editValues && editValues.household_members && !formApi.values.householdMembers) {
     forEach(editValues.household_members, (member) => {
-      let editMember = {}
-      forEach(fieldMapper, (shortFormField, salesforceField) => {
-        editMember[shortFormField] = member[salesforceField]
-      })
+      let editMember = soqlToApiMappers.mapHouseholdMembers(member)
       autofillHouseholdMembers.push(editMember)
     })
     formApi.values.householdMembers = autofillHouseholdMembers

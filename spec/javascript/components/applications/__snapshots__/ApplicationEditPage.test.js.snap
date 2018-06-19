@@ -125,7 +125,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value="eee@eeee.com"
                     />
                   </div>
                   <div
@@ -137,7 +137,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value="9548883321"
                     />
                   </div>
                   <div
@@ -149,7 +149,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={2}
                     >
                       <option
                         disabled={true}
@@ -384,7 +384,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="Federic"
                       />
                     </div>
                     <div
@@ -396,7 +396,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="Daaaa"
                       />
                     </div>
                     <div
@@ -408,7 +408,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="dayan"
                       />
                     </div>
                   </div>
@@ -425,7 +425,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={2}
                     >
                       <option
                         disabled={true}
@@ -496,7 +496,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value="fede@eee.com"
                     />
                   </div>
                   <div
@@ -508,7 +508,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value="9954449943"
                     />
                   </div>
                   <div
@@ -520,7 +520,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={2}
                     >
                       <option
                         disabled={true}
@@ -559,6 +559,191 @@ Array [
                   <h3>
                     Household Members
                   </h3>
+                </div>
+                <div
+                  className="border-bottom margin-bottom--2x"
+                >
+                  <div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="form-group"
+                      >
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            First Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="diego"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Middle Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="m"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Last Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="maradona"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Date of Birth 
+                            <span
+                              className="checkbox-block_note no-margin"
+                            >
+                              YYYY-MM-DD (required)
+                            </span>
+                          </label>
+                          <div>
+                            <div>
+                              <div
+                                className="react-datepicker-wrapper"
+                              >
+                                <div
+                                  className="react-datepicker__input-container"
+                                >
+                                  <input
+                                    autoComplete={undefined}
+                                    autoFocus={undefined}
+                                    className=""
+                                    disabled={false}
+                                    id={undefined}
+                                    name={undefined}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    placeholder={undefined}
+                                    readOnly={undefined}
+                                    required={true}
+                                    tabIndex={undefined}
+                                    title={undefined}
+                                    type="text"
+                                    value="2018-04-23"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="small-12 columns"
+                      >
+                        <div>
+                          <div
+                            className="row"
+                          >
+                            <h4 />
+                          </div>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  Street Address
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="9 de julio"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  City
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="buenos aires"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  State
+                                </label>
+                                <input
+                                  maxLength="2"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="fl"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  Zip
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="33026"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <div
+                        className="small-4 columns"
+                      >
+                        <button
+                          className="mb-4 btn btn-danger"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div
                   className="row"
@@ -616,7 +801,7 @@ Array [
                             className="checkbox"
                           >
                             <input
-                              checked={false}
+                              checked={true}
                               id="adaPrioritiesSelected-0"
                               name="adaPrioritiesSelected"
                               onBlur={[Function]}
@@ -637,7 +822,7 @@ Array [
                             className="checkbox"
                           >
                             <input
-                              checked={false}
+                              checked={true}
                               id="adaPrioritiesSelected-1"
                               name="adaPrioritiesSelected"
                               onBlur={[Function]}
@@ -658,7 +843,7 @@ Array [
                             className="checkbox"
                           >
                             <input
-                              checked={false}
+                              checked={true}
                               id="adaPrioritiesSelected-2"
                               name="adaPrioritiesSelected"
                               onBlur={[Function]}
@@ -722,7 +907,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value={110000}
                     />
                   </div>
                   <div
@@ -734,7 +919,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={1}
                     >
                       <option
                         disabled={true}
@@ -775,7 +960,7 @@ Array [
                     className="checkbox"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       id="agreeToTerms"
                       name="agreeToTerms"
                       onBlur={[Function]}

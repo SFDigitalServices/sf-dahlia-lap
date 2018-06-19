@@ -16,11 +16,11 @@ const application = {
     "Middle_Name": null,
     "Name": "karen jones",
     "Date_of_Birth": "1950-01-01",
-    "Phone_Type": null,
-    "Phone": null,
+    "Phone_Type": "Cell",
+    "Phone": "9548883321",
     "Second_Phone_Type": null,
     "Second_Phone": null,
-    "Email": null,
+    "Email": "eee@eeee.com",
     "Primary_Language": null,
     "Residence_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
     "Street": "123 MAIN ST",
@@ -33,7 +33,22 @@ const application = {
     "Mailing_State": "CA",
     "Mailing_Zip_Code": "94105-1804"
   },
-  "Alternate_Contact": null,
+  "Alternate_Contact": {
+    "attributes": {
+      "type": "Application_Member",
+      "url": "\/services\/data\/v26.0\/sobjects\/Application_Member\/a0n0x000000XzcIAAS"
+    },
+    "Id": "a0n0x000000XzcIAAS",
+    "First_Name": "Federic",
+    "Middle_Name": "Daaaa",
+    "Last_Name": "dayan",
+    "Phone_Type": "Cell",
+    "Phone": "9954449943",
+    "Email": "fede@eee.com",
+    "Agency_Name": null,
+    "Alternate_Contact_Type": "Friend",
+    "Alternate_Contact_Type_Other": null
+  },
   "Listing": {
     "attributes": {
       "type": "Listing",
@@ -44,9 +59,9 @@ const application = {
     "Reserved_community_type": null
   },
   "Status": "Submitted",
-  "Total_Household_Size": 0,
+  "Total_Household_Size": 1,
   "Application_Submission_Type": "Electronic",
-  "Application_Submitted_Date": "2018-05-30",
+  "Application_Submitted_Date": "2018-06-19",
   "CreatedBy": {
     "attributes": {
       "type": "User",
@@ -54,10 +69,10 @@ const application = {
     },
     "Name": "Prod Vertiba"
   },
-  "Annual_Income": null,
+  "Annual_Income": 110000,
   "Monthly_Income": null,
   "Is_Lottery_Complete": false,
-  "Housing_Voucher_or_Subsidy": null,
+  "Housing_Voucher_or_Subsidy": "true",
   "Referral_Source": null,
   "Application_Language": "English",
   "Lottery_Number_Manual": null,
@@ -68,12 +83,12 @@ const application = {
   "Answered_Community_Screening": null,
   "Has_Military_Service": null,
   "Has_DevelopmentalDisability": null,
-  "Has_ADA_Priorities_Selected": null,
-  "Terms_Acknowledged": false,
+  "Has_ADA_Priorities_Selected": "Vision impaired;Mobility impaired;Hearing impaired",
+  "Terms_Acknowledged": true,
   "preferences": [
     {
-      "Id": "a0w0x0000014QBMAA2",
-      "Name": "AP-0000604498",
+      "Id": "a0w0x0000014pvyAAA",
+      "Name": "AP-0000612141",
       "Preference_Name": "Alice Griffith Housing Development Resident",
       "Person_who_claimed_Name": null,
       "Type_of_proof": null,
@@ -100,7 +115,19 @@ const application = {
 
   ],
   "household_members": [
-
+    {
+      "Id": "a0n0x000000XzchAAC",
+      "Name": "diego m maradona",
+      "First_Name": "diego",
+      "Last_Name": "maradona",
+      "Middle_Name": "m",
+      "Relationship_to_Applicant": null,
+      "Date_of_Birth": "1976-06-11",
+      "Street": "9 de julio",
+      "City": "buenos aires",
+      "State": "fl",
+      "Zip_Code": "33026"
+    }
   ],
   "flagged_applications": [
 

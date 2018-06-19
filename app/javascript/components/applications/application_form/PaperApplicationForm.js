@@ -12,6 +12,8 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 
+import soqlToApiMappers from '~/components/soqlToApiMappers'
+
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
@@ -92,21 +94,9 @@ class PaperApplicationForm extends React.Component {
 
   render() {
     let { listing } = this.props
-    let fieldMapper = {
-      Has_Military_Service: 'hasMilitaryService',
-      Has_DevelopmentalDisability: 'hasDevelopmentalDisability',
-      Answered_Community_Screening: 'answeredCommunityScreening',
-      Annual_Income: 'annualIncome',
-      Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
-      Terms_Acknowledged: 'agreeToTerms'
-    }
-
     let autofillValues = {}
-    if (this.props.application) {
-      _.forEach(fieldMapper, (shortFormField, salesforceField) => {
-        autofillValues[shortFormField] = this.props.application[salesforceField]
-      })
-    }
+    if (this.props.application)
+      autofillValues = soqlToApiMappers.mapApplication(this.props.application)
 
     return (
       <div>

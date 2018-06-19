@@ -58,6 +58,18 @@ export const householdMembersFieldMapper = {
   Zip_Code: 'zip',
 }
 
+export const alternateContactFieldMapper = {
+  First_Name: 'firstName',
+  Last_Name: 'lastName',
+  Middle_Name: 'middleName',
+  Alternate_Contact_Type: 'alternateContactType',
+  Alternate_Contact_Type_Other: 'alternateContactTypeOther',
+  Agency_Name: 'agency',
+  Email: 'email',
+  Phone: 'phone',
+  Phone_Type: 'phoneType'
+}
+
 export const applicationShape = {
   ...applicationFieldMapper,
   listingID: (source) => source.Listing.Id,
