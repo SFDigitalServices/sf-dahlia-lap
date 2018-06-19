@@ -4,7 +4,7 @@ import ApplicationDetails from './ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import { mapApplication } from '../propMappers'
+import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 const buildActionLinkIfNecessary = (app) => {
   if (!app.isLotterComplete && app.submissionType === 'Paper') {
