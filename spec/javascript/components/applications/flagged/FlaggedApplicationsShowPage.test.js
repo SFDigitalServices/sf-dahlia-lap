@@ -6,12 +6,12 @@ import modelsFactory from '../../../factories/models'
 
 describe('FlaggedApplicationsShowPage', () => {
   test('should render succesfully', () => {
-    const results = modelsFactory.applicationsList()
+    const flaggedApplications = modelsFactory.applicationsList()
     const fields = modelsFactory.applicationFields()
 
     const wrapper = renderer.create(
       <FlaggedApplicationsShowPage
-        results={results}
+        flaggedApplications={flaggedApplications}
         fields={fields} />,
     )
 

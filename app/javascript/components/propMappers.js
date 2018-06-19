@@ -180,3 +180,15 @@ const mapUnit = (unit) => {
     reserved_type: unit.Reserved_Type,
   }
 }
+
+export const mapFlaggedRecords = (flaggedRecord) => {
+  // return flaggedRecord
+
+  return {
+    id: flaggedRecord.id,
+    listing_name: flaggedRecord['Listing.Name'],
+    rule_name: flaggedRecord.Rule_Name,
+    total_number_of_pending_review: flaggedRecord.Total_Number_of_Pending_Review,
+    total_number_of_appealed: flaggedRecord.Total_Number_of_Appealed,
+  }
+}

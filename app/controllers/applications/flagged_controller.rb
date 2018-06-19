@@ -7,17 +7,17 @@ module Applications
       case params[:type]
       when 'pending'
         @title = "Flagged Applications - Pending Review"
-        @results, @fields = pending_data
+        @flagged_records, @fields = pending_data
       when 'duplicated'
         @title = "Marked Duplicate Apps"
-        @results, @fields = duplicated_data
+        @flagged_records, @fields = duplicated_data
       end
     end
 
     def show
       # TODO: lookup listing, pass down to view
       # view needs to not render editable stuff if listing lottery status == lottery complete
-      @flagged_applications = flagged_record_set_get_service.flagged_applications(params[:id])
+      @flagged_records = flagged_record_set_get_service.flagged_applications(params[:id])
       @fields = flagged_record_set_get_service.flagged_applications_fields
     end
 
