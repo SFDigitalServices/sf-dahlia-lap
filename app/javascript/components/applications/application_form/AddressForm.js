@@ -3,10 +3,9 @@ import { Text } from 'react-form'
 
 const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
   // to do: refactor this to use props
-  if (memberType == 'primaryApplicant'){
+  if (memberType === 'primaryApplicant') {
     return fieldMap[fieldKey]
-  }
-  else if (memberType == 'householdMember'){
+  } else if (memberType === 'householdMember') {
     return `${nestedField}.${fieldMap[fieldKey]}`
   }
 }
