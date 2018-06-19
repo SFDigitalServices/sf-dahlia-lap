@@ -2,9 +2,11 @@ import React from 'react'
 import _ from 'lodash'
 import PreferenceForm from './PreferenceForm'
 
+import soqlToApiMappers from '~/components/soqlToApiMappers'
+
 const allPreferencesSelected = (formApi, listingPreferences) => {
   if (formApi.values && formApi.values.shortFormPreferences && listingPreferences) {
-    return formApi.values.shortFormPreferences.length == listingPreferences.length
+    return formApi.values.shortFormPreferences.length === listingPreferences.length
   }
 }
 
@@ -18,23 +20,12 @@ const disableAddPreference = (formApi, listingPreferences) => {
   return (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
 }
 
-let fieldMapper = {
-  Listing_Preference_ID: "listingPreferenceID",
-  Individual_preference: "individualPreference",
-  Certificate_Number: "certificateNumber",
-  Type_of_proof: "preferenceProof",
-  Preference_Name: "preferenceName"
-}
-
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
   let autofillPreferences = []
   if (editValues && editValues.preferences && !formApi.values.shortFormPreferences) {
     _.forEach(editValues.preferences, (preference) => {
       if (preference.Application_Member) {
-        let editPreference = {}
-        _.forEach(fieldMapper, (shortFormField, salesforceField) => {
-          editPreference[shortFormField] = preference[salesforceField]
-        })
+        let editPreference = soqlToApiMappers.mapPreference(preference)
         let naturalKey = `${preference["Application_Member.First_Name"]},${preference["Application_Member.Last_Name"]},${preference["Application_Member.Date_of_Birth"]}`
         editPreference["naturalKey"] = naturalKey
         autofillPreferences.push(editPreference)
