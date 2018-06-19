@@ -38,7 +38,7 @@ Array [
           className="rt-thead -header"
           style={
             Object {
-              "minWidth": "335px",
+              "minWidth": "435px",
             }
           }
         >
@@ -123,7 +123,30 @@ Array [
               <div
                 className="rt-resizable-header-content"
               >
-                Total Number of Duplicates
+                Total Number of Pending Review
+              </div>
+              <div
+                className="rt-resizer"
+                onMouseDown={[Function]}
+                onTouchStart={[Function]}
+              />
+            </div>
+            <div
+              className="rt-th  rt-resizable-header -cursor-pointer"
+              onClick={[Function]}
+              role="heading"
+              style={
+                Object {
+                  "flex": "100 0 auto",
+                  "maxWidth": null,
+                  "width": "100px",
+                }
+              }
+            >
+              <div
+                className="rt-resizable-header-content"
+              >
+                Total Number of Appealed
               </div>
               <div
                 className="rt-resizer"
@@ -137,7 +160,7 @@ Array [
           className="rt-thead -filters"
           style={
             Object {
-              "minWidth": "335px",
+              "minWidth": "435px",
             }
           }
         >
@@ -176,7 +199,7 @@ Array [
                     "width": "100%",
                   }
                 }
-                value="TEST Listing"
+                value="8 Tenth (NEMA) Unit 742"
               >
                 <option
                   value="all"
@@ -184,12 +207,124 @@ Array [
                   Show All
                 </option>
                 <option
+                  value="8 Tenth (NEMA) Unit 742"
+                >
+                  8 Tenth (NEMA) Unit 742
+                </option>
+                <option
+                  value="1036 Mission"
+                >
+                  1036 Mission
+                </option>
+                <option
+                  value="TEST Listing by Donna N"
+                >
+                  TEST Listing by Donna N
+                </option>
+                <option
+                  value="Automated Test Listing (please do not modify)"
+                >
+                  Automated Test Listing (please do not modify)
+                </option>
+                <option
+                  value="450 Mason Unit 705 TRAINING"
+                >
+                  450 Mason Unit 705 TRAINING
+                </option>
+                <option
                   value="TEST Listing"
                 >
                   TEST Listing
                 </option>
+                <option
+                  value="451 Mason TRAINING"
+                >
+                  451 Mason TRAINING
+                </option>
+                <option
+                  value="Sister Bernie Galvin Apartments Units 206 211"
+                >
+                  Sister Bernie Galvin Apartments Units 206 211
+                </option>
+                <option
+                  value="100 Van Ness Units 607 and 1005"
+                >
+                  100 Van Ness Units 607 and 1005
+                </option>
+                <option
+                  value="1335 Folsom Street"
+                >
+                  1335 Folsom Street
+                </option>
+                <option
+                  value="1222 Harrison (L Seven)"
+                >
+                  1222 Harrison (L Seven)
+                </option>
+                <option
+                  value="5880 Third (Waterbend)"
+                >
+                  5880 Third (Waterbend)
+                </option>
+                <option
+                  value="181 Sanchez (Duboce)"
+                >
+                  181 Sanchez (Duboce)
+                </option>
+                <option
+                  value="Merry Go Round Shared Housing"
+                >
+                  Merry Go Round Shared Housing
+                </option>
+                <option
+                  value="280 Brighton"
+                >
+                  280 Brighton
+                </option>
+                <option
+                  value="Test 931 Folsom (Green Acres Phase I)"
+                >
+                  Test 931 Folsom (Green Acres Phase I)
+                </option>
+                <option
+                  value="973 Market (The Wilson) Unit 303"
+                >
+                  973 Market (The Wilson) Unit 303
+                </option>
+                <option
+                  value="TEST QA LISTING TWO"
+                >
+                  TEST QA LISTING TWO
+                </option>
+                <option
+                  value="Test 450 Mason TRAINING"
+                >
+                  Test 450 Mason TRAINING
+                </option>
+                <option
+                  value="750 Harrison Street"
+                >
+                  750 Harrison Street
+                </option>
+                <option
+                  value="msol test Dec2017 lottery2"
+                >
+                  msol test Dec2017 lottery2
+                </option>
               </select>
             </div>
+            <div
+              className="rt-th"
+              onClick={[Function]}
+              role="heading"
+              style={
+                Object {
+                  "flex": "100 0 auto",
+                  "maxWidth": null,
+                  "width": "100px",
+                }
+              }
+            />
             <div
               className="rt-th"
               onClick={[Function]}
@@ -220,10 +355,800 @@ Array [
           className="rt-tbody"
           style={
             Object {
-              "minWidth": "335px",
+              "minWidth": "435px",
             }
           }
         >
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                8 Tenth (NEMA) Unit 742
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                4
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                8 Tenth (NEMA) Unit 742
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                4
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                1036 Mission
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                TEST Listing by Donna N
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                1036 Mission
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Email Address
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                TEST Listing by Donna N
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Automated Test Listing (please do not modify)
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                119
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                450 Mason Unit 705 TRAINING
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                TEST Listing by Donna N
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                1036 Mission
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
           <div
             className="rt-tr-group"
           >
@@ -273,7 +1198,7 @@ Array [
                   }
                 }
               >
-                Residence Address
+                Name + DOB
               </div>
               <div
                 className="rt-td"
@@ -286,7 +1211,178 @@ Array [
                   }
                 }
               >
-                1
+                13
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Automated Test Listing (please do not modify)
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                33
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+          >
+            <div
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
+            >
+              <div
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                451 Mason TRAINING
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Name + DOB
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
               </div>
             </div>
           </div>
@@ -339,7 +1435,7 @@ Array [
                   }
                 }
               >
-                Residence Address
+                Email Address
               </div>
               <div
                 className="rt-td"
@@ -354,17 +1450,32 @@ Array [
               >
                 1
               </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
             </div>
           </div>
           <div
             className="rt-tr-group"
           >
             <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
             >
               <div
-                className="rt-td"
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -373,12 +1484,15 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -387,12 +1501,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                TEST Listing
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -401,12 +1514,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                Name + DOB
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -415,9 +1527,20 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                1
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
               </div>
             </div>
           </div>
@@ -425,11 +1548,13 @@ Array [
             className="rt-tr-group"
           >
             <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
             >
               <div
-                className="rt-td"
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -438,12 +1563,15 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -452,12 +1580,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                TEST Listing
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -466,12 +1593,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                Email Address
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -480,9 +1606,20 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
               </div>
             </div>
           </div>
@@ -490,11 +1627,13 @@ Array [
             className="rt-tr-group"
           >
             <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
             >
               <div
-                className="rt-td"
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -503,12 +1642,15 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -517,12 +1659,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                TEST Listing
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -531,12 +1672,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                Name + DOB
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -545,9 +1685,20 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                2
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
               </div>
             </div>
           </div>
@@ -555,11 +1706,13 @@ Array [
             className="rt-tr-group"
           >
             <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
             >
               <div
-                className="rt-td"
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -568,12 +1721,15 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -582,12 +1738,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                450 Mason Unit 705 TRAINING
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -596,12 +1751,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                Email Address
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -610,9 +1764,20 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                3
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
               </div>
             </div>
           </div>
@@ -620,11 +1785,13 @@ Array [
             className="rt-tr-group"
           >
             <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
+              className="rt-tr -odd"
+              onClick={[Function]}
+              style={undefined}
             >
               <div
-                className="rt-td"
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -633,12 +1800,15 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -647,12 +1817,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                450 Mason Unit 705 TRAINING
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -661,12 +1830,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                Name + DOB
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -675,9 +1843,20 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                3
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
               </div>
             </div>
           </div>
@@ -685,11 +1864,13 @@ Array [
             className="rt-tr-group"
           >
             <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
+              className="rt-tr -even"
+              onClick={[Function]}
+              style={undefined}
             >
               <div
-                className="rt-td"
+                className="rt-td  rt-expandable"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -698,12 +1879,15 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -712,12 +1896,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                450 Mason Unit 705 TRAINING
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -726,12 +1909,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                Name + DOB
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -740,35 +1922,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
+                2
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -777,752 +1935,7 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -odd"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-          >
-            <div
-              className="rt-tr -padRow -even"
-              style={Object {}}
-            >
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
+                0
               </div>
             </div>
           </div>
@@ -1572,7 +1985,7 @@ Array [
               <span
                 className="-totalPages"
               >
-                1
+                13
               </span>
             </span>
             <span
@@ -1632,7 +2045,7 @@ Array [
           >
             <button
               className="-btn"
-              disabled={true}
+              disabled={false}
               onClick={[Function]}
               type="button"
             >

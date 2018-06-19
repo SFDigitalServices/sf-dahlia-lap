@@ -4,11 +4,11 @@ import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 
-const FlaggedApplicationsShowPageTable = ({ results, fields }) => {
+const FlaggedApplicationsShowPageTable = ({ flaggedApplications, fields }) => {
   return (
     /* TODO: could render normal IndexTable for this record set if Lottery Complete, so not editable */
     <SpreadsheetIndexTable
-      results={results}
+      results={flaggedApplications}
       fields= {fields} />
   )
 }
@@ -25,9 +25,9 @@ const FlaggedApplicationsShowPage = (props) => {
   )
 }
 
-const mapProperties = ({ results, fields }) => {
+const mapProperties = ({ flaggedApplications, fields }) => {
   return {
-    results, // TODO: map here
+    flaggedApplications, // TODO: map here
     fields
   }
 }
