@@ -2,12 +2,9 @@ import React from 'react'
 import { includes, take, takeRight, map, toLower } from 'lodash'
 import moment from 'moment'
 import utils from '~/utils/utils'
-import { getLabel, titleizeLabel } from './utils'
+import { titleizeLabel } from './utils'
 
-var generateContent = (dataCollection, field, labelMapper, i) => {
-  if (dataCollection == null) {
-    return
-  }
+const getValueAndLabel = (dataCollection, field, labelMapper) => {
   let value = dataCollection[field]
   let label = utils.cleanField(field)
   if (includes(field, '.')) {
@@ -29,10 +26,22 @@ var generateContent = (dataCollection, field, labelMapper, i) => {
     value = <a target='_blank' href={value}>{value}</a>
   }
   if (!value) { value = 'None'}
+
+  label = titleizeLabel(label)
+
+  return { value, label }
+}
+
+var generateContent = (dataCollection, field, labelMapper, i) => {
+  if (dataCollection == null)
+    return
+    
+  const { value, label } = getValueAndLabel(dataCollection, field, labelMapper)
+
   return (
     <div className="margin-bottom--half" key={i}>
       <h4 className="t-sans t-small t-bold no-margin">
-        {titleizeLabel(label)}
+        {label}
       </h4>
       <p>{value}</p>
     </div>
