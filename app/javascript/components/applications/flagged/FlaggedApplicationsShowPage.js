@@ -62,7 +62,6 @@ const FlaggedApplicationsShowPage = (props) => {
 }
 
 const mapProperties = ({ flaggedApplications, fields }) => {
-  // console.log(JSON.stringify(flaggedApplications))
   return {
     flaggedApplications: flaggedApplications.map(mapFlaggedApplication)
   }
