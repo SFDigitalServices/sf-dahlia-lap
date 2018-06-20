@@ -3,21 +3,29 @@ import React from 'react'
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
+import { mapFlaggedApplication } from '~/components/mappers/soqlToDomain'
 
 const tableFields = {
-  "Id": null,
-  "Application": null,
-  "Application.Name": {
+  "id": {
+    "label": "Id"
+  },
+  "application": {
+    "label": 'Application'
+  },
+  "application_name": {
     "label": "App Number"
   },
-  "Flagged_Record_Set.Rule_Name": null,
-  "Primary_Application_Applicant_Name": {
+  "flagged_record_set_rule_name": {
+    "label": "Rule Name"
+  },
+  "primary_application_applicant_name": {
     "label": "Primary Applicant Name"
   },
-  "Flagged_Record_Set.Listing.Lottery_Status": {
+  "flagged_record_set_listing_lottery_status": {
     "label": "Lottery Status"
   },
-  "Review_Status": {
+  "review_status": {
+    "label": 'Review Status',
     "editable": true,
     "editable_options": [
       "Pending Review",
@@ -26,7 +34,8 @@ const tableFields = {
       "Appealed"
     ]
   },
-  "Comments": {
+  "comments": {
+    "label": 'Comments',
     "editable": true
   }
 }
@@ -55,7 +64,7 @@ const FlaggedApplicationsShowPage = (props) => {
 const mapProperties = ({ flaggedApplications, fields }) => {
   // console.log(JSON.stringify(flaggedApplications))
   return {
-    flaggedApplications, // TODO: map here
+    flaggedApplications: flaggedApplications.map(mapFlaggedApplication)
   }
 }
 
