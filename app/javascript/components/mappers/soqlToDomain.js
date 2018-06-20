@@ -1,4 +1,3 @@
-
 export const mapListing = (listing) => {
   if (!listing)
     return null
@@ -202,3 +201,5 @@ export const mapFlaggedApplication = (flaggedApplication) => {
     comments: flaggedApplication['Comments']
   }
 }
+
+export mapFormApplication from './soqlToDomain/mapformApplication'
