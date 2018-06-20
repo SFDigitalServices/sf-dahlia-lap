@@ -1,11 +1,8 @@
 import _ from 'lodash'
 import moment from 'moment'
 
-import { mapApplication } from '~/components/mappers/soqlToDomain'
-import { updateApplicationAction } from './actions'
-
 // NOTE: what kind of saleforce domain object is this one? Fed
-const mapStatusHistoryItem = (item) => {
+export const mapStatusHistoryItem = (item) => {
   return {
     status: item.Processing_Status,
     note: item.Processing_Comment,
@@ -14,27 +11,16 @@ const mapStatusHistoryItem = (item) => {
   }
 }
 
-const mapStatusHistory = (statusHistory) => {
+export const mapStatusHistory = (statusHistory) => {
   if (_.isEmpty(statusHistory))
     return []
   else
     return statusHistory.map(mapStatusHistoryItem)
 }
 
-const mapFormFields = (application) => {
+export const mapFormFields = (application) => {
   return {
     dependents: application.Number_of_Dependents,
     maritalStatus: application.Applicant.Marital_Status
   }
 }
-
-const mapProperties = ({application, statusHistory}) => {
-  return {
-    formFields: mapFormFields(application),
-    application: mapApplication(application),
-    statusHistory: mapStatusHistory(statusHistory),
-    onSubmit: (values) => updateApplicationAction(application, values)
-  }
-}
-
-export default mapProperties

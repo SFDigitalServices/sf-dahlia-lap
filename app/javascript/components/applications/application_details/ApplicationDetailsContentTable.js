@@ -17,7 +17,7 @@ const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
       if (field === 'View Record Set') {
         return (
           <td key='view'>
-            <a href={appPaths.toApplicationsFlagged(row.Flagged_Record_Set)}>
+            <a href={appPaths.toApplicationsFlagged(row.Flagged_Record_Set.Id)}>
               View Record Set
             </a>
           </td>
