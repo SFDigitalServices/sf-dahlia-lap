@@ -1,20 +1,22 @@
 import React from 'react'
-import { map, includes, last } from 'lodash'
-import utils from '~/utils/utils'
+import { map, includes, last, startCase, isPlainObject } from 'lodash'
 import appPaths from '~/utils/appPaths'
+import { getLabel } from './utils'
 
 const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
   let i = 0
   let columns = map(fields, (field) => {
-    if (includes(field, '.')) {
-      field = last(field.split('.'))
-    }
-    return <th key={field}>{utils.cleanField(field)}</th>
+    const label = getLabel(field)
+
+    return <th key={label}>{label}</th>
   })
   let rows = map(data[table], (row) => {
     let tableData = map(fields, (field) => {
       // this is for flagged applications table
-      if (field === 'View Record Set') {
+      if (isPlainObject(field)) {
+        field = field.field
+      }
+      if (field === 'view record set') {
         return (
           <td key='view'>
             <a href={appPaths.toApplicationsFlagged(row.Flagged_Record_Set.Id)}>
