@@ -16,10 +16,10 @@ import {
 
 const ProofListItems = ({ file_base_url, files }) => map(files, (file) => {
   return (
-    <li key={file.Id}>
+    <li key={file.id}>
       <a target='_blank'
-        href={`${file_base_url}/servlet/servlet.FileDownload?file=${file.Id}`}>
-        {file.Name}
+        href={`${file_base_url}/servlet/servlet.FileDownload?file=${file.id}`}>
+        {file.name}
       </a>
     </li>)
 })
@@ -41,12 +41,12 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
         labelMapper={fields}
       />
       <ApplicationDetailsContentCard
-        dataCollection={application.Applicant}
+        dataCollection={application.applicant}
         title='Primary Applicant'
         fields={primaryApplicantFields}
       />
       <ApplicationDetailsContentCard
-        dataCollection={application.Alternate_Contact}
+        dataCollection={application.alternate_contact}
         title='Alternate Contact'
         fields={alternateContactFields}
       />
@@ -55,33 +55,26 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
               title='Household Members'
               table='household_members'
               fields={householdMembersFields}
-            />
-          )
+            />)
       }
       <ApplicationCard
         title='Reserved and Priority Qualifying Information'
         fields={reservedAndPriorityFields}
-        labelMapper={fields}
-      />
+        labelMapper={fields} />
     { application.preferences && (
-            <Table
-              title='Application Preferences'
-              table='preferences'
-              fields={applicationPreferencesFields}
-            />
-          )
+          <Table
+            title='Application Preferences'
+            table='preferences'
+            fields={applicationPreferencesFields} /> )
       }
       <ApplicationCard
         title='Declared Household Income'
-        fields={declareHousholdIncome}
-      />
+        fields={declareHousholdIncome} />
     { application.flagged_applications && (
           <Table
             title='Flagged Applications'
             table='flagged_applications'
-            fields={flaggedApplicationsFields}
-          />
-        )
+            fields={flaggedApplicationsFields} /> )
       }
       <div className="content-card">
         <h4 className="content-card_title t-serif">Attachments</h4>

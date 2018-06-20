@@ -19,7 +19,7 @@ const ApplicationPage = (props) => {
   const { application } = props
   const pageHeader = {
     title: `Application ${application.number}`,
-    content: (<span>Name of Listing: <a href={appPaths.toListing(application.Listing.Id)}>{application.Listing.Name}</a></span>),
+    content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
     action: buildActionLinkIfNecessary(application)
   }
 
@@ -32,9 +32,9 @@ const ApplicationPage = (props) => {
 
 const mapProperties = ({ application }) => {
   return {
-    // application: mapFormApplication(application),
+    application: mapFormApplication(application),
     fields: labelMapperFields,
-    application: application
+    // application: application
   }
 }
 

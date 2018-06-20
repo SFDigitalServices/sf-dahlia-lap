@@ -693,38 +693,7 @@ Array [
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  undefined
-                </td>
-                <td>
-                  undefined
-                </td>
-                <td>
-                  <a
-                    href="/applications/flagged/1"
-                  >
-                    View Record Set
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  undefined
-                </td>
-                <td>
-                  undefined
-                </td>
-                <td>
-                  <a
-                    href="/applications/flagged/2"
-                  >
-                    View Record Set
-                  </a>
-                </td>
-              </tr>
-            </tbody>
+            <tbody />
           </table>
         </div>
         <div

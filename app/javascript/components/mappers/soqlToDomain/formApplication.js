@@ -82,7 +82,10 @@ const mapPreferences = (value) => {
 }
 
 const mapProoffiles = (value) => {
-  return {}
+  return {
+    id: value.Id,
+    name: value.Name
+  }
 }
 
 const mapHouseholdmembers = (value) => {
