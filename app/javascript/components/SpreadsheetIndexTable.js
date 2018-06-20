@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { each, includes, last, cloneDeep } from 'lodash'
+import { each, includes, last, cloneDeep, toLower } from 'lodash'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
 import apiService from '~/apiService'
@@ -25,8 +25,8 @@ class SpreadsheetIndexTable extends React.Component {
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       // don't show Id column
-      if (field === 'Id') return
-      if (field === 'Application') return
+      if (toLower(field) === 'id') return
+      if (toLower(field) === 'application') return
       let column = {
         id: field,
         accessor: (row) => (
