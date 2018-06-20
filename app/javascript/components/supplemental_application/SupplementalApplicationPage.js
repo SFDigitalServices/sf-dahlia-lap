@@ -4,7 +4,10 @@ import SupplementalApplicationContainer from './SupplementalApplicationContainer
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
-import mapProperties from './mapProperties'
+import { mapFormFields, mapStatusHistory } from './mapProperties'
+import { mapSupplementalApplication } from '~/components/mappers/soqlToDomain'
+import { updateApplicationAction } from './actions'
+
 
 const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit }) => {
   const pageHeader = {
@@ -29,6 +32,15 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
       <SupplementalApplicationContainer application={application}  statusHistory={statusHistory} formFields={formFields} onSubmit={onSubmit}/>
     </CardLayout>
   )
+}
+
+const mapProperties = ({application, statusHistory}) => {
+  return {
+    formFields: mapFormFields(application),
+    application: mapSupplementalApplication(application),
+    statusHistory: mapStatusHistory(statusHistory),
+    onSubmit: (values) => updateApplicationAction(application, values)
+  }
 }
 
 export default mapProps(mapProperties)(SupplementalApplicationPage)

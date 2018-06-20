@@ -105,7 +105,7 @@ const mapFlaggedapplications = (value) => {
   return {}
 }
 
-const mapApplication = (application) => {
+export const mapFormApplication = (application) => {
   return {
     id: application.Id,
     name: application.Name,
@@ -140,4 +140,4 @@ const mapApplication = (application) => {
   }
 }
 
-export default mapApplication
+// export default mapFormApplication

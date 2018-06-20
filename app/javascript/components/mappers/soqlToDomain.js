@@ -37,7 +37,7 @@ export const mapListingsTableItem = (listing) => {
   }
 }
 
-export const mapApplication = (application) => {
+export const mapSupplementalApplication = (application) => {
   return {
     id: application.Id,
     number: application.Name,
@@ -202,4 +202,4 @@ export const mapFlaggedApplication = (flaggedApplication) => {
   }
 }
 
-export mapFormApplication from './soqlToDomain/mapformApplication'
+export { mapFormApplication } from './soqlToDomain/formApplication'

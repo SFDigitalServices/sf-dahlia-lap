@@ -1,10 +1,11 @@
 import React from 'react'
 
-import ApplicationDetails from './ApplicationDetails'
+import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
+import { mapFormApplication } from '~/components/mappers/soqlToDomain'
+import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
 const buildActionLinkIfNecessary = (app) => {
   if (!app.isLotterComplete && app.submissionType === 'Paper') {
@@ -18,7 +19,7 @@ const ApplicationPage = (props) => {
   const { application } = props
   const pageHeader = {
     title: `Application ${application.number}`,
-    content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
+    content: (<span>Name of Listing: <a href={appPaths.toListing(application.Listing.Id)}>{application.Listing.Name}</a></span>),
     action: buildActionLinkIfNecessary(application)
   }
 
@@ -29,9 +30,11 @@ const ApplicationPage = (props) => {
   )
 }
 
-const mapProperties = ({application}) => {
+const mapProperties = ({ application }) => {
   return {
-    application: mapApplication(application)
+    // application: mapFormApplication(application),
+    fields: labelMapperFields,
+    application: application
   }
 }
 
