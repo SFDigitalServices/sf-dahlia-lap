@@ -230,7 +230,7 @@ Array [
                   id="demographics-dependents"
                   onBlur={[Function]}
                   onChange={[Function]}
-                  value={0}
+                  value={3}
                 >
                   <option
                     disabled={true}
@@ -316,7 +316,7 @@ Array [
                   id="demographics-marital-status"
                   onBlur={[Function]}
                   onChange={[Function]}
-                  value={0}
+                  value={2}
                 >
                   <option
                     disabled={true}

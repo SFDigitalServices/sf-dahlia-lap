@@ -24,7 +24,7 @@ const payload = {
        mailingZip: '94105-1804',
        phone: '9548883321',
        phoneType: 'Cell',
-       maritalStatus: 'Married',
+       maritalStatus: 'Domestic Partner',
        applicationId: 'a0n0x000000AbE6AAK' },
     shortFormPreferences:
      [ { recordTypeDevName: 'AG',

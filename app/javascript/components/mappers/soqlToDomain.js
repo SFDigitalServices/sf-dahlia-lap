@@ -1,4 +1,5 @@
-
+import { mapShape, mapList } from './utils'
+import moment from 'moment'
 
 export const mapListing = (listing) => {
   if (!listing)
@@ -201,6 +202,22 @@ export const mapFlaggedApplication = (flaggedApplication) => {
     flagged_record_set_listing_lottery_status: flaggedApplication["Flagged_Record_Set.Listing.Lottery_Status"],
     review_status: flaggedApplication["Review_Status"],
     comments: flaggedApplication['Comments']
+  }
+}
+
+// export const mapFieldUpdateComment = (statusHistory) => {
+//   if (_.isEmpty(statusHistory))
+//     return []
+//   else
+//     return statusHistory.map(mapStatusHistoryItem)
+// }
+
+export const mapFieldUpdateComment = (item) => {
+  return {
+    status: item.Processing_Status,
+    note: item.Processing_Comment,
+    date: item.Processing_Date_Updated,
+    timestamp: moment(item.Processing_Date_Updated).unix()
   }
 }
 

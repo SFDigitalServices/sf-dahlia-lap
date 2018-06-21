@@ -1,3 +1,5 @@
+import { mapShape, mapList } from '../utils'
+
 const mapApplicant = (value) => {
   return {
     id:value.Id,
@@ -21,7 +23,8 @@ const mapApplicant = (value) => {
     mailing_street:value.Mailing_Street,
     mailing_city:value.Mailing_City,
     mailing_state:value.Mailing_State,
-    mailing_zip_code:value.Mailing_Zip_Code
+    mailing_zip_code:value.Mailing_Zip_Code,
+    marital_status:value.Marital_Status
   }
 }
 
@@ -112,14 +115,14 @@ export const mapFormApplication = (application) => {
   return {
     id: application.Id,
     name: application.Name,
-    applicant: mapApplicant(application.Applicant),
-    alternate_contact: mapAlternateContact(application.Alternate_Contact),
-    listing: mapListing(application.Listing),
+    applicant: mapShape(mapApplicant,application.Applicant),
+    alternate_contact: mapShape(mapAlternateContact,application.Alternate_Contact),
+    listing: mapShape(mapListing,application.Listing),
     status: application.Status,
     total_household_size: application.Total_Household_Size,
     application_submission_type: application.Application_Submission_Type,
     application_submitted_date: application.Application_Submitted_Date,
-    createdby: mapCreatedBy(application.CreatedBy),
+    createdby: mapShape(mapCreatedBy, application.CreatedBy),
     annual_income: application.Annual_Income,
     monthly_income: application.Monthly_Income,
     is_lottery_complete: application.Is_Lottery_Complete,
@@ -136,10 +139,11 @@ export const mapFormApplication = (application) => {
     has_developmentaldisability: application.Has_DevelopmentalDisability,
     has_ada_priorities_selected: application.Has_ADA_Priorities_Selected,
     terms_acknowledged: application.Terms_Acknowledged,
-    preferences: application.preferences.map(mapPreferences),
-    proof_files: application.proof_files.map(mapProoffiles),
-    household_members: application.household_members.map(mapHouseholdmembers),
-    flagged_applications: application.flagged_applications.map(mapFlaggedapplications)
+    preferences: mapList(mapPreferences, application.preferences),
+    proof_files: mapList(mapProoffiles, application.proof_files),
+    household_members: mapList(mapHouseholdmembers, application.household_members),
+    flagged_applications: mapList(mapFlaggedapplications, application.flagged_applications),
+    number_of_dependents: application.Number_of_Dependents
   }
 }
 

@@ -63,11 +63,13 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, formFields } = this.props
+    const { statusHistory, formFields, application } = this.props
     const { loading } = this.state
 
+    // console.log(application)
+
     return (
-        <Form onSubmit={this.handleOnSubmit} defaultValues={formFields}	>
+        <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
