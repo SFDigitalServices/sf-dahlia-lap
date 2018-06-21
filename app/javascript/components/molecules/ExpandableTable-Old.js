@@ -1,7 +1,7 @@
 import React from 'react'
 import EditablePanel from '../molecules/EditablePanel'
 
-const TableExpandable = ({ header, value, headerB, valueB, label, id, name, placeholder, describeId, note, error }) => {
+const ExpandableTable = ({ header, value, headerB, valueB, label, id, name, placeholder, describeId, note, error }) => {
   return (
     <table className="td-light td-plain th-plain" role="grid">
       <thead>
@@ -20,7 +20,7 @@ const TableExpandable = ({ header, value, headerB, valueB, label, id, name, plac
             {value}
           </td>
           <td className="text-right">
-            <a href='#' className='action-link'>{valueB}</a>
+            <button className='button button-link action-link'>{valueB}</button>
           </td>
         </tr>
         <tr className="tr-expand-content is-expanded" aria-hidden="false">
@@ -34,4 +34,4 @@ const TableExpandable = ({ header, value, headerB, valueB, label, id, name, plac
 }
 
 
-export default TableExpandable
+export default ExpandableTable

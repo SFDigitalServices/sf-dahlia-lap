@@ -27,7 +27,6 @@ import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
 import EditablePanel from 'components/molecules/EditablePanel'
 import TabsMenu from 'components/molecules/TabsMenu'
-import TableExpandable from 'components/molecules/TableExpandable'
 import TablePagination from 'components/molecules/TablePagination'
 import TableSimple from 'components/molecules/TableSimple'
 import ContentSection from 'components/molecules/ContentSection'
@@ -38,6 +37,7 @@ import ModalWrapper from 'components/pattern_library_wrappers/ModalWrapper'
 import TabsSection from 'components/organisms/TabsSection'
 import TabCard from 'components/organisms/TabCard'
 import DropdownWrapper from 'components/pattern_library_wrappers/DropdownWrapper'
+import ExpandableTableWrapper from 'components/pattern_library_wrappers/ExpandableTableWrapper'
 import TabCardWrapper from 'components/pattern_library_wrappers/TabCardWrapper'
 import ContentSectionWrapper from 'components/pattern_library_wrappers/ContentSectionWrapper'
 
@@ -68,7 +68,6 @@ WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
 WebpackerReact.setup({ EditablePanel })
 WebpackerReact.setup({ TabsMenu })
-WebpackerReact.setup({ TableExpandable })
 WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ TableSimple })
 WebpackerReact.setup({ ContentSection })
@@ -78,7 +77,8 @@ WebpackerReact.setup({ ModalWrapper} )
 WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })
-WebpackerReact.setup({ DropdownWrapper })
 WebpackerReact.setup({ Properties })
+WebpackerReact.setup({ DropdownWrapper })
+WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ TabCardWrapper })
 WebpackerReact.setup({ ContentSectionWrapper })

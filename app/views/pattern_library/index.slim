@@ -31,7 +31,7 @@
   == pl_component 'ContentSectionWrapper', { title: 'Title', subtitle: 'Sub', titleDesc: 'Some description', subtitleDesc: 'Some description'}, { title: 'ContentSection' }
 
   == pl_component 'ContentSectionBordered', { title: 'Title', subtitle: 'Sub', titleDescription: 'Some description', subtitleDescription: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
-  == pl_component 'TableExpandable', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Edit', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+  == pl_component 'ExpandableTableWrapper', { columns: @expandable_table_columns, data: @expandable_table_data }, { title: 'ExpandableTable'}
   == pl_component 'TabsMenu', { items: [ { title: 'Short Form Application', url: '/pattern_library?url1=true' }, { title: 'Supplemental Information', url: '/pattern_library?url2=false' }, { title: 'Other Information', url: '/pattern_library?url3=false' }], currentUrl: request.original_fullpath }
   == pl_component 'TableSimple', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Jay' }
   == pl_component 'TablePagination', { pages: 'of 6' }

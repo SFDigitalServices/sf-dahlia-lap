@@ -1,0 +1,34 @@
+columns:
+  - content: '<span class="sr-only">Status Mark</span>'
+  - content: 'Preference Name'
+  - content: 'Person Who Claimed'
+  - content: 'Preference Rank'
+  - content: 'Type of Proof'
+  - content: 'Status'
+  - content: 'Actions'
+    expander: true
+    classes:
+      - 'text-right'
+data:
+  - - '<span class="ui-icon ui-medium i-success"><svg><use xlink:href="#i-check"></use></svg></span>'
+    - "Displaced Tenant Housing Preference"
+    - Jason Holmes
+    - 12
+    - ""
+    - Confirmed
+    - ""
+  - - '<span class="ui-icon ui-medium i-alert"><svg><use xlink:href="#i-close"></use></svg></span>'
+    - "Neighborhood Resident Housing Preference"
+    - Jason Holmes
+    - 25
+    - "<a href='#'>Cable Bill</a>"
+    - Invalid
+    - "<a href='#' class='action-link' style='display: none'>Edit</a>"
+    - "expandable"
+  - - "Live or Work Housing Preference"
+    - Jason Holmes
+    - 112
+    - "<a href='#'>Cable Bill</a>"
+    - Unconfirmed
+    - "<a href='#' class='action-link margin-bottom--half'>Confirm</a><br> <a href='#' class='action-link c-alert'>Remove</a>"
+    - "expandable"
