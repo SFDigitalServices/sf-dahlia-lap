@@ -5,7 +5,6 @@ const cleanupWords = (value) => {
   // hey, if you think this is ugly and want to kill the developer
   // it was done by Fe. You can come and get me, I live in Buenos Aires, right now.
   // I'll be waiting. I'm not making anote about refactoring because it's pretty ovbious.
-
   each([
     [' Or ', ' or '],
     [' Of ', ' of '],

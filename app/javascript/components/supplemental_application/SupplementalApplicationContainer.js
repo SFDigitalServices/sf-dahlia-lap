@@ -45,7 +45,7 @@ const ButtonPager = ({ disabled }) => (
         <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
         <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
       </ul>
-      <button className="button primary small" type="submit" disabled={disabled}>Save</button>
+      <button className="button primary small save-btn" type="submit" disabled={disabled}>Save</button>
     </div>
   </div>
 )
