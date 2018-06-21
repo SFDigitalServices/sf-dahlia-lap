@@ -11,14 +11,6 @@ module Force
       .paginate(options)
       .transform_results { |results| parse_results_for_fields(results, :index) }
       .query
-
-      # TO DO: Cache this request
-      # parsed_index_query(%(
-      #   SELECT #{query_fields(:index)}
-      #   FROM Application__c
-      #   WHERE #{user_can_access}
-      #   AND Status__c != '#{DRAFT}'
-      # ))
     end
 
     def application(id)
