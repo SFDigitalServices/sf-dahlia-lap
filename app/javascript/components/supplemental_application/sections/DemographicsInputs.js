@@ -14,13 +14,13 @@ const DemographicsInputs = ({onChange}) => {
       <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group label='Number of Dependents'>
-            <Select field='dependents' options={numberOfDependentsOptions} placeholder='Select One'/>
+            <Select id='demographics-dependents' field='dependents' options={numberOfDependentsOptions} placeholder='Select One'/>
           </FormGrid.Group>
         </FormGrid.Item>
 
         <FormGrid.Item>
           <FormGrid.Group label='Primary Applicant Marital Status'>
-            <Select field='maritalStatus' options={martialStatusOptions} placeholder='Select One' />
+            <Select id='demographics-marital-status' field='maritalStatus' options={martialStatusOptions} placeholder='Select One' />
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>

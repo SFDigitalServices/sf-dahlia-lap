@@ -34,7 +34,6 @@ const mapProperties = ({ application }) => {
   return {
     application: mapFormApplication(application),
     fields: labelMapperFields,
-    // application: application
   }
 }
 

@@ -36,7 +36,7 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
 
 const mapProperties = ({application, statusHistory}) => {
   return {
-    formFields: mapFormFields(application),
+    formFields: mapFormFields(application), // SQOL to Domain
     application: mapSupplementalApplication(application),
     statusHistory: mapStatusHistory(statusHistory),
     onSubmit: (values) => updateApplicationAction(application, values)
