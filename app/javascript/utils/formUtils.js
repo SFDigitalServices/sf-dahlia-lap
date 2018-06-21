@@ -1,4 +1,14 @@
-import { reduce, mapValues } from 'lodash'
+import { reduce, mapValues, isObjectLike } from 'lodash'
+
+const toOption = (item) =>  {
+  if (isObjectLike(item))
+    return item
+  else
+    return { value: item, label: item }
+}
+const toOptions = (items) => {
+  return items.map(toOption)
+}
 
 // Returns an object whose keys are the form fields and whose
 // values indicate whether that field has both been touched
@@ -27,6 +37,8 @@ const submitErrors = (formApi) => {
 };
 
 export default {
+  toOption,
+  toOptions,
   touchedErrors,
-  submitErrors,
+  submitErrors
 }

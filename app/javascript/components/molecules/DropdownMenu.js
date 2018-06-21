@@ -1,5 +1,6 @@
 import React from 'react'
 import DropdownMenuItem from '../atoms/DropdownMenuItem'
+import formUtils from '~/utils/formUtils'
 
 class DropdownMenu extends React.Component {
 
@@ -24,7 +25,7 @@ class DropdownMenu extends React.Component {
         aria-activedescendant>
         {
           items &&
-          items.map((item, idx) => (
+          items.map(formUtils.toOption).map((item, idx) => (
             <DropdownMenuItem
               key={item.value}
               {...item}
