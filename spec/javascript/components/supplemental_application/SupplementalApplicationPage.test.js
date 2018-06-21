@@ -3,12 +3,13 @@ import renderer from 'react-test-renderer'
 import { mount } from 'enzyme';
 import apiService from '~/apiService'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
-import application from '../../fixtures/application'
+import supplementalApplication from '../../fixtures/supplemental_application'
 import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
 
 jest.mock('apiService', () => {
-  const mockSubmitApplication = (data) => {
+  const mockSubmitApplication = async (data) => {
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    // console.log(data)
     expect(data).toEqual(mockShortFormSubmitPayload)
   }
 
@@ -25,7 +26,7 @@ describe('SupplementalApplicationPage', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
         statusHistory={statusHistory}
-        application={application}/>
+        application={supplementalApplication}/>
     );
 
     let tree = component.toJSON();
@@ -35,12 +36,13 @@ describe('SupplementalApplicationPage', () => {
   test('it saves correctly', () => {
     const wrapper = mount(
       <SupplementalApplicationPage
-        application={application}
+        application={supplementalApplication}
         statusHistory={statusHistory}/>
     );
 
+    // console.log(wrapper.find('#demographics-dependents select').debug())
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
-    wrapper.find('#demographics-marital-status select option[value=2]').simulate('change')
+    wrapper.find('#demographics-marital-status select option[value=3]').simulate('change')
     wrapper.find('form').first().simulate('submit')
   })
 })
