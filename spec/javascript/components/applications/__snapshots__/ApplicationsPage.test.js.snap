@@ -3154,57 +3154,6 @@ Array [
                 1
               </span>
             </span>
-            <span
-              className="select-wrap -pageSizeOptions"
-            >
-              <select
-                onChange={[Function]}
-                value={20}
-              >
-                <option
-                  value={5}
-                >
-                  5
-                   
-                  rows
-                </option>
-                <option
-                  value={10}
-                >
-                  10
-                   
-                  rows
-                </option>
-                <option
-                  value={20}
-                >
-                  20
-                   
-                  rows
-                </option>
-                <option
-                  value={25}
-                >
-                  25
-                   
-                  rows
-                </option>
-                <option
-                  value={50}
-                >
-                  50
-                   
-                  rows
-                </option>
-                <option
-                  value={100}
-                >
-                  100
-                   
-                  rows
-                </option>
-              </select>
-            </span>
           </div>
           <div
             className="-next"
