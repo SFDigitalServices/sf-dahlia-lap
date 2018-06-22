@@ -8,39 +8,37 @@ import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload
 
 jest.mock('apiService', () => {
   const mockSubmitApplication = async (data) => {
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-    // console.log(data)
     expect(data).toEqual(mockShortFormSubmitPayload)
   }
-
-  return { submitApplication: mockSubmitApplication };
+  return { submitApplication: mockSubmitApplication }
 })
 
-describe('SupplementalApplicationPage', () => {
-  const statusHistory = [
-    { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' },
-    { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' }
-  ]
+const statusHistory = [
+  { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' },
+  { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' }
+]
 
+describe('SupplementalApplicationPage', () => {
   test('it should render correctly without status history', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
         statusHistory={statusHistory}
         application={supplementalApplication}/>
-    );
+    )
 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
   test('it saves correctly', () => {
+    mockShortFormSubmitPayload.numberOfDependents = 1
+    mockShortFormSubmitPayload.primaryApplicant.maritalStatus = 'Domestic Partner'
     const wrapper = mount(
       <SupplementalApplicationPage
         application={supplementalApplication}
         statusHistory={statusHistory}/>
-    );
+    )
 
-    // console.log(wrapper.find('#demographics-dependents select').debug())
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     wrapper.find('#demographics-marital-status select option[value=3]').simulate('change')
     wrapper.find('form').first().simulate('submit')

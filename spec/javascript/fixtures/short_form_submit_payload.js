@@ -6,7 +6,7 @@ const payload = {
     annualIncome: 110000,
     householdVouchersSubsidies: 'true',
     agreeToTerms: true,
-    numberOfDependents: 1,
+    numberOfDependents: 2,
     listingID: 'a0W0x000000GhJUEA0',
     primaryApplicant:
      { DOB: '1950-01-01',
@@ -24,7 +24,7 @@ const payload = {
        mailingZip: '94105-1804',
        phone: '9548883321',
        phoneType: 'Cell',
-       maritalStatus: 'Domestic Partner',
+       maritalStatus: 'Married',
        applicationId: 'a0n0x000000AbE6AAK' },
     shortFormPreferences:
      [ { recordTypeDevName: 'AG',
