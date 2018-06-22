@@ -45,7 +45,7 @@ const mapProperties = ({application, statusHistory}) => {
     formFields: mapFormFields(application),
     application: mapFormApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
-    onSubmit:  (values) => updateApplicationAction(application, values)
+    onSubmit:  (values) => updateApplicationAction(values)
   }
 }
 

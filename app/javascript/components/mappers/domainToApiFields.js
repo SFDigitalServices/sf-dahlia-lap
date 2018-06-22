@@ -1,80 +1,80 @@
 import { shapeMapper, listMapper } from '~/utils/objectUtils'
 
 export const applicantFieldMapper = {
-  Date_of_Birth: 'DOB',
-  Email: 'email',
-  First_Name: 'firstName',
-  Last_Name: 'lastName',
-  Middle_Name: 'middleName',
-  Street: 'address',
-  City: 'city',
-  State: 'state',
-  Zip_Code: 'zip',
-  Mailing_Street: 'mailingAddress',
-  Mailing_City: 'mailingCity',
-  Mailing_State: 'mailingState',
-  Mailing_Zip_Code: 'mailingZip',
-  Phone: 'phone',
-  Phone_Type: 'phoneType',
-  Marital_Status:'maritalStatus',
-  applicationId: (source) => source.Id
+  date_of_birth: 'DOB',
+  email: 'email',
+  first_name: 'firstName',
+  last_name: 'lastName',
+  middle_name: 'middleName',
+  street: 'address',
+  city: 'city',
+  state: 'state',
+  zip_code: 'zip',
+  mailing_street: 'mailingAddress',
+  mailing_city: 'mailingCity',
+  mailing_state: 'mailingState',
+  mailing_zip_code: 'mailingZip',
+  phone: 'phone',
+  phone_type: 'phoneType',
+  marital_status:'maritalStatus',
+  applicationId: (source) => source.id
 }
 
 export const preferenceFieldMapper = {
-  'RecordType.DeveloperName': 'recordTypeDevName',
-  Id: 'shortformPreferenceID',
-  'Application_Member__r.Id': 'appMemberID',
-  Certificate_Number: 'certificateNumber',
-  Individual_preference: 'individualPreference',
-  LW_Type_of_Proof__c: 'lwPreferenceProof',
-  Opt_Out: 'optOut',
-  Type_of_proof: "preferenceProof",
-  City: 'city',
-  State: 'state',
-  Street: 'address',
-  Zip_Code: 'zipCode',
-  Listing_Preference_ID: 'listingPreferenceID'
+  'recordtype_developername': 'recordTypeDevName',
+  id: 'shortformPreferenceID',
+  'application_member__r.id': 'appMemberID',
+  certificate_number: 'certificateNumber',
+  individual_preference: 'individualPreference',
+  lw_type_of_proof__c: 'lwPreferenceProof',
+  opt_out: 'optOut',
+  type_of_proof: "preferenceProof",
+  city: 'city',
+  state: 'state',
+  street: 'address',
+  zip_code: 'zipCode',
+  listing_preference_id: 'listingPreferenceID'
 }
 
 export const applicationFieldMapper = {
-  Id: 'id',
-  Has_Military_Service: 'hasMilitaryService',
-  Has_DevelopmentalDisability: 'hasDevelopmentalDisability',
-  Answered_Community_Screening: 'answeredCommunityScreening',
-  Annual_Income: 'annualIncome',
-  Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
-  Terms_Acknowledged: 'agreeToTerms',
-  Number_of_Dependents: 'numberOfDependents'
+  id: 'id',
+  has_military_service: 'hasMilitaryService',
+  has_developmentaldisability: 'hasDevelopmentalDisability',
+  answered_community_screening: 'answeredCommunityScreening',
+  annual_income: 'annualIncome',
+  housing_voucher_or_subsidy: 'householdVouchersSubsidies',
+  terms_acknowledged: 'agreeToTerms',
+  number_of_dependents: 'numberOfDependents'
 }
 
 export const householdMembersFieldMapper = {
-  Date_of_Birth: 'DOB',
-  First_Name: 'firstName',
-  Last_Name: 'lastName',
-  Middle_Name: 'middleName',
-  Street: 'address',
-  City: 'city',
-  State: 'state',
-  Zip_Code: 'zip',
+  date_of_birth: 'DOB',
+  first_name: 'firstName',
+  last_name: 'lastName',
+  middle_name: 'middleName',
+  street: 'address',
+  city: 'city',
+  state: 'state',
+  zip_code: 'zip',
 }
 
 export const alternateContactFieldMapper = {
-  First_Name: 'firstName',
-  Last_Name: 'lastName',
-  Middle_Name: 'middleName',
-  Alternate_Contact_Type: 'alternateContactType',
-  Alternate_Contact_Type_Other: 'alternateContactTypeOther',
-  Agency_Name: 'agency',
-  Email: 'email',
-  Phone: 'phone',
-  Phone_Type: 'phoneType'
+  first_name: 'firstName',
+  last_name: 'lastName',
+  middle_name: 'middleName',
+  alternate_contact_type: 'alternateContactType',
+  alternate_contact_type_other: 'alternateContactTypeOther',
+  agency_name: 'agency',
+  email: 'email',
+  phone: 'phone',
+  phone_type: 'phoneType'
 }
 
 export const applicationShape = {
   ...applicationFieldMapper,
-  listingID: (source) => source.Listing.Id,
+  listingID: (source) => source.listing.id,
   ...{
-    primaryApplicant: shapeMapper('Applicant', applicantFieldMapper),
+    primaryApplicant: shapeMapper('applicant', applicantFieldMapper),
     shortFormPreferences: listMapper('preferences', preferenceFieldMapper),
     householdMembers: listMapper('household_members', householdMembersFieldMapper)
   }
