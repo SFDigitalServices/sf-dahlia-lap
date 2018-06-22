@@ -314,7 +314,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -odd"
+                className="rt-tr rt-tr-status  -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -447,9 +447,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -501,7 +501,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -even"
+                className="rt-tr rt-tr-status  -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -533,7 +533,7 @@ Array [
                 >
                   <a
                     className="has-border"
-                    href="/applications/1/supplementals"
+                    href="/applications/2/supplementals"
                   >
                     Application Name 2
                   </a>
@@ -634,9 +634,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -1554,7 +1554,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -odd"
+                className="rt-tr rt-tr-status  -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -1687,9 +1687,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -2749,7 +2749,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -odd"
+                className="rt-tr rt-tr-status  -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -2781,7 +2781,7 @@ Array [
                 >
                   <a
                     className="has-border"
-                    href="/applications/1/supplementals"
+                    href="/applications/3/supplementals"
                   >
                     Application Name 3
                   </a>
@@ -2882,9 +2882,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -2936,7 +2936,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -even"
+                className="rt-tr rt-tr-status  -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -2968,7 +2968,7 @@ Array [
                 >
                   <a
                     className="has-border"
-                    href="/applications/1/supplementals"
+                    href="/applications/4/supplementals"
                   >
                     Application Name 4
                   </a>
@@ -3069,9 +3069,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -3123,7 +3123,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -odd"
+                className="rt-tr rt-tr-status  -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3155,7 +3155,7 @@ Array [
                 >
                   <a
                     className="has-border"
-                    href="/applications/1/supplementals"
+                    href="/applications/2/supplementals"
                   >
                     Application Name 2
                   </a>
@@ -3256,9 +3256,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -3310,7 +3310,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -even"
+                className="rt-tr rt-tr-status  -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3443,9 +3443,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
@@ -3497,7 +3497,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status tertiary -odd"
+                className="rt-tr rt-tr-status  -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3529,7 +3529,7 @@ Array [
                 >
                   <a
                     className="has-border"
-                    href="/applications/1/supplementals"
+                    href="/applications/3/supplementals"
                   >
                     Application Name 3
                   </a>
@@ -3630,9 +3630,9 @@ Array [
                     }
                   }
                 >
-                  <i>
-                    none
-                  </i>
+                  <div>
+                    04/26/2018
+                  </div>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"

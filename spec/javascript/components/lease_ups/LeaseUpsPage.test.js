@@ -1,12 +1,37 @@
 /*global mount*/
 import React from 'react'
+import { merge } from 'lodash'
 import renderer from 'react-test-renderer'
 import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
 import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
+import applicationPreferences from '../../fixtures/application_preferences_for_lease_ups'
 
-const buildApplication = (uniqId, attributes = {}) => {
-  return modelsFactory.application(uniqId, attributes)
+
+const buildApplicationPreference = (uniqId, attributes = {}) => {
+  // return modelsFactory.application(uniqId, attributes)
+  return merge({
+    "Id": uniqId,
+    "Processing_Status": 'processing',
+    'LastModifiedDate': '2018-04-26T12:31:39.000+0000',
+    'Preference_Order': '1',
+    'Preference_Lottery_Rank': '1',
+    'Listing_Preference_ID': {
+      'Record_Type_For_App_Preferences': 'CAP'
+    },
+    "Application" : {
+      "Id": uniqId,
+      "Name": `Application Name ${uniqId}`,
+      "Applicant": {
+        "Id": '1',
+        "Residence_Address": `1316 BURNETT ${uniqId}`,
+        'First_Name': `some first name ${uniqId}`,
+        'Last_Name': `some last name ${uniqId}`,
+        'Phone': 'some phone',
+        'Email': `some email ${uniqId}`,
+      }
+    }
+  }, attributes)
 }
 
 describe('LeaseUpsPage', () => {
@@ -19,7 +44,7 @@ describe('LeaseUpsPage', () => {
   sharedHooks.useFakeTimers()
 
   test('Should render LeaseUpTable', () => {
-    const applications = [ buildApplication(1), buildApplication(2) ]
+    const applications = [ buildApplicationPreference(1), buildApplicationPreference(2) ]
 
     const wrapper = renderer.create(
       <LeaseUpsPage listing={listings} applications={applications} />,
@@ -30,10 +55,14 @@ describe('LeaseUpsPage', () => {
 
   test('Should render Mailing_Address when present', () => {
     const applications = [
-      buildApplication(1, {
-        'Application.Residence_Address': '',
-        'Application.Mailing_Address': '1316 SUTTER'
-      }),
+      buildApplicationPreference(1, {
+        'Application': {
+          'Applicant': {
+            'Residence_Address': '',
+            'Mailing_Address': '1316 SUTTER'
+          }
+        }
+      })
     ]
 
     const wrapper = renderer.create(
@@ -45,23 +74,23 @@ describe('LeaseUpsPage', () => {
 
   test('Should render order by Prefrence_Order and Preference_Lottery_Rank', () => {
     const applications = [
-      buildApplication(1, {
+      buildApplicationPreference(1, {
         'Preference_Order': '2',
         'Preference_Lottery_Rank': '2'
       }),
-      buildApplication(2, {
+      buildApplicationPreference(2, {
         'Preference_Order': '2',
         'Preference_Lottery_Rank': '1'
       }),
-      buildApplication(3, {
+      buildApplicationPreference(3, {
         'Preference_Order': '3',
         'Preference_Lottery_Rank': '1'
       }),
-      buildApplication(4, {
+      buildApplicationPreference(4, {
         'Preference_Order': '1',
         'Preference_Lottery_Rank': '2'
       }),
-      buildApplication(3, {
+      buildApplicationPreference(3, {
         'Preference_Order': '1',
         'Preference_Lottery_Rank': '1'
       })

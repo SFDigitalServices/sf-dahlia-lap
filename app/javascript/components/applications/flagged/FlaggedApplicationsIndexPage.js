@@ -47,7 +47,8 @@ const getTableFieldsForType = (type) => {
   } else if (type === 'pending') {
     return flaggedTableFields
   } else {
-    return null
+    // return null
+    throw new Error("Type is required")
   }
 }
 

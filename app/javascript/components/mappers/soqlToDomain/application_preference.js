@@ -1,5 +1,11 @@
+import { mapShape } from '../utils'
+import { mapListingPreference } from './listing_preference'
+import { mapFormApplication } from './application'
+
 export const mapApplicationPreference = (value) => {
   return {
+    application: mapShape(mapFormApplication, value.Application),
+    listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),
     id:value.Id,
     name:value.Name,
     preference_name:value.Preference_Name,
@@ -21,6 +27,7 @@ export const mapApplicationPreference = (value) => {
     state:value.State,
     zip_code:value.Zip_Code,
     street:value.Street,
-    recordtype_developername:value['RecordType.DeveloperName']
+    recordtype_developername:value['RecordType.DeveloperName'],
+    last_modified_date: value.LastModifiedDate
   }
 }

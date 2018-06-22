@@ -38,6 +38,7 @@ export const mapFormApplication = (a) => {
     has_developmentaldisability: a.Has_DevelopmentalDisability,
     has_ada_priorities_selected: a.Has_ADA_Priorities_Selected,
     terms_acknowledged: a.Terms_Acknowledged,
-    number_of_dependents: a.Number_of_Dependents
+    number_of_dependents: a.Number_of_Dependents,
+    processing_status: a.Processing_Status
   }
 }

@@ -1,5 +1,13 @@
 import { mapShape, mapList } from './utils'
 
+export { mapApplicationPreference } from './soqlToDomain/application_preference'
+export { mapFormApplication } from './soqlToDomain/application'
+export { mapListingDetails } from './soqlToDomain/listing'
+export { mapFlaggedApplication } from './soqlToDomain/flagged_application'
+export { mapFlaggedRecord } from './soqlToDomain/flagged_record'
+export { mapFieldUpdateComment } from './soqlToDomain/field_update_comment'
+
+
 export const mapListing = (listing) => {
   if (!listing)
     return null
@@ -50,59 +58,48 @@ export const mapSupplementalApplication = (application) => {
   }
 }
 
-export const mapLeaseUpApplication = (application) => {
-  return {
-    id: application['Application'],
-    application_number: application['Application.Name'],
-    first_name: application['Application.First_Name'],
-    last_name: application['Application.Last_Name'],
-    phone: application['Application.Phone'],
-    email: application['Application.Email'],
-    status_updated: application['Status_Last_Updated'],
-    lease_up_status: application['Application.Processing_Status'],
-    preference_order: application['Preference_Order'],
-    mailing_address: application['Application.Mailing_Address'],
-    residence_address: application['Application.Residence_Address'],
-    preference_record_type: application['Listing_Preference_ID.Record_Type_For_App_Preferences'],
-    preference_lottery_rank: application['Preference_Lottery_Rank'],
-    preference_order: application['Preference_Order']
-  }
-}
-
-// export const mapFlaggedRecords = (flaggedRecord) => {
-//   return {
-//     id: flaggedRecord.Id,
-//     listing_name: flaggedRecord['Listing.Name'],
-//     rule_name: flaggedRecord.Rule_Name,
-//     total_number_of_pending_review: flaggedRecord.Total_Number_of_Pending_Review,
-//     total_number_of_appealed: flaggedRecord.Total_Number_of_Appealed,
-//   }
+// export const mapLeaseUpApplication = (applicationPreferenceSOQL) => {
+//   console.log('fede')
+//   console.log(applicationPreferenceSOQL)
+//   let applicationPreference = mapApplicationPreference(applicationPreferenceSOQL)
+//
+//   applicationPreference.application = mapShape(applicationPreferenceSOQL.Application)
+//
+//   return applicationPreference
+//
+//   // return {
+//   //   id: applicationPreference.application.id,
+//   //   application_number: applicationPreference.application.name,
+//   //   first_name: application['Application.First_Name'],
+//   //   last_name: application['Application.Last_Name'],
+//   //   phone: application['Application.Phone'],
+//   //   email: application['Application.Email'],
+//   //   mailing_address: application['Application.Mailing_Address'],
+//   //   residence_address: application['Application.Residence_Address'],
+//   //   lease_up_status: application['Application.Processing_Status'],
+//   //
+//   //   status_updated: application['Status_Last_Updated'],
+//   //   preference_order: application['Preference_Order'],
+//   //   preference_record_type: application['Listing_Preference_ID.Record_Type_For_App_Preferences'],
+//   //   preference_lottery_rank: application['Preference_Lottery_Rank'],
+//   //   preference_order: application['Preference_Order']
+//   // }
+//
+//   // return {
+//   //   id: application['Application'],
+//   //   application_number: application['Application.Name'],
+//   //   first_name: application['Application.First_Name'],
+//   //   last_name: application['Application.Last_Name'],
+//   //   phone: application['Application.Phone'],
+//   //   email: application['Application.Email'],
+//   //   mailing_address: application['Application.Mailing_Address'],
+//   //   residence_address: application['Application.Residence_Address'],
+//   //   lease_up_status: application['Application.Processing_Status'],
+//
+//   //   status_updated: application['Status_Last_Updated'],
+//   //   preference_order: application['Preference_Order'],
+//   //   preference_record_type: application['Listing_Preference_ID.Record_Type_For_App_Preferences'],
+//   //   preference_lottery_rank: application['Preference_Lottery_Rank'],
+//   //   preference_order: application['Preference_Order']
+//   // }
 // }
-
-// export const mapFlaggedApplication = (flaggedApplication) => {
-//   return {
-//     id: flaggedApplication.Id,
-//     application: flaggedApplication.Application,
-//     application_name: flaggedApplication['Application.Name'] ,
-//     flagged_record_set_rule_name: flaggedApplication['Flagged_Record_Set.Rule_Name'],
-//     primary_application_applicant_name: flaggedApplication['Primary_Application_Applicant_Name'],
-//     flagged_record_set_listing_lottery_status: flaggedApplication["Flagged_Record_Set.Listing.Lottery_Status"],
-//     review_status: flaggedApplication["Review_Status"],
-//     comments: flaggedApplication['Comments']
-//   }
-// }
-
-// export const mapFieldUpdateComment = (item) => {
-//   return {
-//     status: item.Processing_Status,
-//     note: item.Processing_Comment,
-//     date: item.Processing_Date_Updated,
-//     timestamp: moment(item.Processing_Date_Updated).unix()
-//   }
-// }
-
-export { mapFormApplication } from './soqlToDomain/application'
-export { mapListingDetails } from './soqlToDomain/listing'
-export { mapFlaggedApplication } from './soqlToDomain/flagged_application'
-export { mapFlaggedRecord } from './soqlToDomain/flagged_record'
-export { mapFieldUpdateComment } from './soqlToDomain/field_update_comment'
