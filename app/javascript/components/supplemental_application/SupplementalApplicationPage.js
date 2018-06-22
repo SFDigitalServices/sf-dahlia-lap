@@ -4,8 +4,7 @@ import SupplementalApplicationContainer from './SupplementalApplicationContainer
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
-import { mapFormFields, mapStatusHistory } from './mapProperties'
-import { mapFormApplication, mapSupplementalApplication, mapFieldUpdateComment } from '~/components/mappers/soqlToDomain'
+import { mapFormApplication, mapFieldUpdateComment } from '~/components/mappers/soqlToDomain'
 import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
 
@@ -38,11 +37,8 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
   )
 }
 
-// formFields: mapFormFields(application), // SQOL to Domain
-
 const mapProperties = ({application, statusHistory}) => {
   return {
-    formFields: mapFormFields(application),
     application: mapFormApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
     onSubmit:  (values) => updateApplicationAction(values)
