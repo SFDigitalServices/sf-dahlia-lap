@@ -11,6 +11,7 @@ describe('FlaggedApplicationsIndexPage', () => {
     const wrapper = renderer.create(
       <FlaggedApplicationsIndexPage
         title={title}
+        type='pending'
         flaggedRecords={flaggedRecords} />,
     )
 
