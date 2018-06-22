@@ -63,10 +63,8 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, formFields, application } = this.props
+    const { statusHistory, application } = this.props
     const { loading } = this.state
-
-    // console.log(application)
 
     return (
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>

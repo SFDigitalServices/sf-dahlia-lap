@@ -3,9 +3,9 @@ import React from 'react'
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapFlaggedRecords } from '~/components/mappers/soqlToDomain'
+import { mapFlaggedRecord } from '~/components/mappers/soqlToDomain'
 
-const tableFields = {
+const flaggedTableFields = {
   "id":null,
   "listing_name":{
     "label":"Listing Name"
@@ -18,7 +18,20 @@ const tableFields = {
   },
   "total_number_of_appealed":{
     "label":"Total Number of Appealed"
+  }
+}
+
+const duplicatedTableFields = {
+  "id":null,
+  "listing_name":{
+    "label":"Listing Name"
   },
+  "rule_name":{
+    "label":"Rule Name"
+  },
+  "total_number_of_duplicates": {
+    "label": "Total_Number_of_Duplicates"
+  }
 }
 
 const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
@@ -28,18 +41,32 @@ const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
           links={['View Flagged Applications']} />
 }
 
-const FlaggedApplicationsIndexPage = ({title, flaggedRecords, fields}) => {
+const getTableFieldsForType = (type) => {
+  if (type === 'duplicated') {
+    return duplicatedTableFields
+  } else if (type === 'pending') {
+    return flaggedTableFields
+  } else {
+    return null
+  }
+}
+
+const FlaggedApplicationsIndexPage = ({title, flaggedRecords, type}) => {
+  const tableFields = getTableFieldsForType(type)
   return (
     <TableLayout pageHeader={{title: title}}>
-      <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
+      <FlaggedApplicationsIndexTable
+        flaggedRecords={flaggedRecords}
+        fields={tableFields} />
     </TableLayout>
   )
 }
 
-const mapProperties = ({title, flaggedRecords }) => {
+const mapProperties = ({title, flaggedRecords, type }) => {
   return {
+    type,
     title,
-    flaggedRecords: flaggedRecords.map(mapFlaggedRecords)
+    flaggedRecords: flaggedRecords.map(mapFlaggedRecord)
   }
 }
 

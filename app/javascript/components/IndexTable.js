@@ -137,7 +137,6 @@ class IndexTable extends React.Component {
           let i = 0
           each(links, (link) => {
             let href = ''
-            console.log(row.original)
             const originalId = row.original.Id || row.original.id
             if (link === 'View Listing') {
               href = `/listings/${originalId}`
