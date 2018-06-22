@@ -22,7 +22,6 @@ const ApplicationNewPage = ({ listing }) => {
 }
 
 const mapProperties = ({ listing }) => {
-  console.log(JSON.stringify(listing))
   return {
     listing // TODO: map here
   }

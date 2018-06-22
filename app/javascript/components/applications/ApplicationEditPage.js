@@ -31,7 +31,6 @@ const ApplicationEditPage = ({ listing, application, editPage }) => {
 }
 
 const mapProperties = ({ listing, application, editPage }) => {
-  console.log(JSON.stringify(application))
   return {
     listing: listing,         // TODO: map here
     application: application, // TODO: map here
