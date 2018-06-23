@@ -75,6 +75,7 @@ export const mapListingDetails = (l) => {
     credit_rating: l.Credit_Rating,
     lottery_status: l.Lottery_Status,
     office_hours: l.Office_Hours,
-    information_sessions: l.Information_Sessions
+    information_sessions: l.Information_Sessions,
+    nflagged_applications: l.nFlagged_Applications
   }
 }

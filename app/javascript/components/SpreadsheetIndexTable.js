@@ -123,11 +123,12 @@ class SpreadsheetIndexTable extends React.Component {
     }
 
     const flaggedApplicationRow = (row) => {
-      // console.log(row.original)
-      let lotteryStatus = row.original['Flagged_Record_Set.Listing.Lottery_Status']
+      console.log(row.original)
+      // let lotteryStatus = row.original['Flagged_Record_Set.Listing.Lottery_Status']
+      let lotteryStatus = row.original.flagged_record.listing.lottery_status
       let viewApplicationLink = (
         <li>
-          <a className="button secondary tiny" href={`/applications/${row.original.Application}`}>
+          <a className="button secondary tiny" href={`/applications/${row.original.application}`}>
             View Application
           </a>
         </li>

@@ -1,4 +1,3 @@
-import { get } from 'lodash'
 import { mapShape, mapList } from '../utils'
 import { mapApplicationMember } from './application_member'
 import { mapFlaggedApplication } from './flagged_application'

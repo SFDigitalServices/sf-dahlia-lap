@@ -61,9 +61,21 @@ const FlaggedApplicationsShowPage = (props) => {
   )
 }
 
-const mapProperties = ({ flaggedApplications, fields }) => {
+const buildFlaggedApplicationModel = (flaggedApplication) => {
+  // console.log(flaggedApplication)
   return {
-    flaggedApplications: flaggedApplications.map(mapFlaggedApplication)
+    ...flaggedApplication,
+    application: flaggedApplication.application.id,
+    application_name: flaggedApplication.application.name ,
+    flagged_record_set_rule_name: flaggedApplication.flagged_record.rule_name,
+    flagged_record_set_listing_lottery_status: flaggedApplication.flagged_record.listing.lottery_status,
+  }
+}
+
+const mapProperties = ({ flaggedApplications }) => {
+  // console.log(JSON.stringify(flaggedApplications))
+  return {
+    flaggedApplications: flaggedApplications.map(i => buildFlaggedApplicationModel(mapFlaggedApplication(i)))
   }
 }
 
