@@ -47,12 +47,12 @@ const getTableFieldsForType = (type) => {
   } else if (type === 'pending') {
     return flaggedTableFields
   } else {
-    // return null
     throw new Error("Type is required")
   }
 }
 
 const FlaggedApplicationsIndexPage = ({title, flaggedRecords, type}) => {
+  // console.log(flaggedRecords)
   const tableFields = getTableFieldsForType(type)
   return (
     <TableLayout pageHeader={{title: title}}>
@@ -63,11 +63,19 @@ const FlaggedApplicationsIndexPage = ({title, flaggedRecords, type}) => {
   )
 }
 
+const buildFlaggedRecordModel = (flaggedRecord) => {
+  return {
+    ...flaggedRecord,
+    listing_name: flaggedRecord.listing.name
+  }
+}
+
 const mapProperties = ({title, flaggedRecords, type }) => {
+  // console.log(JSON.stringify(flaggedRecords))
   return {
     type,
     title,
-    flaggedRecords: flaggedRecords.map(mapFlaggedRecord)
+    flaggedRecords: flaggedRecords.map(i => buildFlaggedRecordModel(mapFlaggedRecord(i)))
   }
 }
 

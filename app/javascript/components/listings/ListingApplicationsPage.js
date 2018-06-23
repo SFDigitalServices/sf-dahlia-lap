@@ -67,7 +67,6 @@ const ListingApplicationsPage = ({listing, applications }) => {
 }
 
 const mapProperties = ({listing, applications }) => {
-  // console.log(applications)
   return {
     listing: mapListingDetails(listing),
     applications: applications.map(i => buildListingApplicationModel(mapFormApplication(i))),

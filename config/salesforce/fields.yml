@@ -270,6 +270,7 @@ flagged_record_sets:
   flagged_applications_fields:
     Id:
     Application__c:
+    Application__r.Id:
     Application__r.Name:
       label: 'App Number'
     Flagged_Record_Set__r.Rule_Name__c:

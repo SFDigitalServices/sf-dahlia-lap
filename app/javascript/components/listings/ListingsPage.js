@@ -3,7 +3,7 @@ import React from 'react'
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapListingsTableItem } from '~/components/mappers/soqlToDomain'
+import { mapListingDetails } from '~/components/mappers/soqlToDomain'
 
 const tableFields = {
   "id":null,
@@ -58,10 +58,10 @@ const ListingsPage = ({ page, listings}) => {
   )
 }
 
-const mapProperties = ({ page, listings, fields}) => {
+const mapProperties = ({ page, listings}) => {
   return {
     page: page,
-    listings: listings.map(mapListingsTableItem)
+    listings: listings.map(mapListingDetails)
   }
 }
 
