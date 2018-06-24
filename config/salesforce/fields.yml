@@ -163,6 +163,7 @@ applications:
     Zip_Code__c:
   show_flagged_records_fields:
     Flagged_Record_Set__c:
+    Flagged_Record_Set__r.Id:
     Flagged_Record_Set__r.Rule_Name__c:
       label: 'Flagged Fields'
     Flagged_Record_Set__r.Total_Number_of_Pending_Review__c:

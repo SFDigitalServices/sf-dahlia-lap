@@ -65,7 +65,7 @@ export const declareHousholdIncome = [
 ]
 
 export const flaggedApplicationsFields = [
-  { field: 'flagged_record_set.rule_name', label: 'Rule Name' },
-  { field: 'flagged_record_set.total_number_of_pending_review', label: 'Total Number of Pending Review'  },
+  { field: 'flagged_record.rule_name', label: 'Rule Name' },
+  { field: 'flagged_record.total_number_of_pending_review', label: 'Total Number of Pending Review'  },
   'view record set'
 ]

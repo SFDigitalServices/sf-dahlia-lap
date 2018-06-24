@@ -8,6 +8,7 @@ import { mapListingDetails, mapApplicationPreference } from '~/components/mapper
 import { buildLeaseUpModel } from './leaseUpModel'
 
 const LeaseUpsPage = ({ listing, applications }) => {
+  console.log(applications)
   const pageHeader = {
     title: listing.name,
     content: listing.building_street_address,
@@ -31,7 +32,7 @@ const LeaseUpsPage = ({ listing, applications }) => {
 const mapProperties = ({ listing, applications }) => {
   return  {
     listing: mapListingDetails(listing),
-    applications: applications.map((v) => buildLeaseUpModel(mapApplicationPreference(v)))
+    applications: applications.map(flow(mapApplicationPreference, buildLeaseUpModel))
   }
 }
 
