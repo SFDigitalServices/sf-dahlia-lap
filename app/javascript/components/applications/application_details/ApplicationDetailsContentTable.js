@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, includes, isPlainObject } from 'lodash'
+import { map, includes, isPlainObject, get } from 'lodash'
 import appPaths from '~/utils/appPaths'
 import { getLabel } from './utils'
 
@@ -9,30 +9,25 @@ const getColumns = (fields) => map(fields, (field) => {
   return <th key={label}>{label}</th>
 })
 
+const getRow = (row, field) => {
+  if (isPlainObject(field)) {
+    field = field.field
+  }
+  if (field === 'view record set') {
+    return (
+      <td key='view'>
+        <a href={appPaths.toApplicationsFlagged(row.flagged_record.id)}>
+          View Record Set
+        </a>
+      </td>
+    )
+  }
+  const value = get(row, field)
+  return <td key={field}>{value}</td>
+}
+
 const getRows = (data, fields) => map(data, (row, idx) => {
-  let tableData = map(fields, (field) => {
-    // this is for flagged applications table
-    if (isPlainObject(field)) {
-      field = field.field
-    }
-    if (field === 'view record set') {
-      return (
-        <td key='view'>
-          <a href={appPaths.toApplicationsFlagged(row.Flagged_Record_Set.Id)}>
-            View Record Set
-          </a>
-        </td>
-      )
-    }
-    let value = row[field]
-    if (includes(field, '.')) {
-      let parts = field.split('.')
-      // e.g. Lottery_Preference.Name, grab from nested object
-      value = String(row[parts[0]][parts[1]])
-    }
-    if (value) {value = String(row[field])}
-    return <td key={field}>{value}</td>
-  })
+  const tableData = map(fields, field => getRow(row, field))
   return (
     <tr key={idx}>
       {tableData}

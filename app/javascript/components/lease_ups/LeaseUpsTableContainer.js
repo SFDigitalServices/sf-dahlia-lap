@@ -82,9 +82,9 @@ class LeaseUpTableContainer extends React.Component {
         // find the application in question in the applications table data
         // and update its lease up status value and status updated date
         // in the table
-        var applicationIndex = findIndex(this.state.applications, {Application: applicationId})
-        this.updateResults(`[${applicationIndex}]['Application.Processing_Status']`, status)
-        this.updateResults(`[${applicationIndex}]['Status_Last_Updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+        var applicationIndex = findIndex(this.state.applications, { id: applicationId })
+        this.updateResults(`[${applicationIndex}]['lease_up_status']`, status)
+        this.updateResults(`[${applicationIndex}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
 
         this.setStatusModalLoading(false)
         this.setStatusModalStatus(null)

@@ -62,7 +62,6 @@ const FlaggedApplicationsShowPage = (props) => {
 }
 
 const buildFlaggedApplicationModel = (flaggedApplication) => {
-  // console.log(flaggedApplication)
   return {
     ...flaggedApplication,
     application: flaggedApplication.application.id,
