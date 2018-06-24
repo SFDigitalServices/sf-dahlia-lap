@@ -93,10 +93,10 @@ class PaperApplicationForm extends React.Component {
   }
 
   render() {
-    let { listing } = this.props
+    let { listing, application, editPage } = this.props
     let autofillValues = {}
-    if (this.props.application)
-      autofillValues = soqlToApiMappers.mapApplication(this.props.application)
+    if (application)
+      autofillValues = soqlToApiMappers.mapApplication(application)
 
     return (
       <div>
@@ -105,17 +105,17 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
-                  <PrimaryApplicantSection formApi={formApi} editValues={this.props.application}/>
-                  <AlternateContactSection editValues={this.props.application} />
-                  <HouseholdMembersSection formApi={formApi} editValues={this.props.application} />
-                  <ReservedPrioritySection editValues={this.props.application} listing={this.props.listing}/>
+                  <PrimaryApplicantSection formApi={formApi} editValues={application}/>
+                  <AlternateContactSection editValues={application} />
+                  <HouseholdMembersSection formApi={formApi} editValues={application} />
+                  <ReservedPrioritySection editValues={application} listing={listing}/>
                   <PreferencesSection
                     formApi={formApi}
                     listingPreferences={listing.Listing_Lottery_Preferences}
-                    editValues={this.props.application}
+                    editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  {!this.props.editPage &&
+                  {!editPage &&
                       <DemographicInfoSection />
                   }
                   <AgreeToTerms/>
