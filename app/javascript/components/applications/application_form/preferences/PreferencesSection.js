@@ -4,7 +4,7 @@ import PreferenceForm from './PreferenceForm'
 
 const allPreferencesSelected = (formApi, listingPreferences) => {
   if (formApi.values && formApi.values.shortFormPreferences && listingPreferences) {
-    return formApi.values.shortFormPreferences.length == listingPreferences.length
+    return formApi.values.shortFormPreferences.length === listingPreferences.length
   }
 }
 
@@ -19,11 +19,17 @@ const disableAddPreference = (formApi, listingPreferences) => {
 }
 
 let fieldMapper = {
+  Id: 'shortformPreferenceID',
   Listing_Preference_ID: "listingPreferenceID",
   Individual_preference: "individualPreference",
   Certificate_Number: "certificateNumber",
   Type_of_proof: "preferenceProof",
-  Preference_Name: "preferenceName"
+  Preference_Name: "preferenceName",
+  State: "state",
+  Zip_Code: "zipCode",
+  City: 'city',
+  Street: 'address',
+  'RecordType.DeveloperName': 'recordTypeDevName'
 }
 
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
@@ -40,6 +46,7 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
         autofillPreferences.push(editPreference)
       }
     })
+
     formApi.values.shortFormPreferences = autofillPreferences
   }
 
