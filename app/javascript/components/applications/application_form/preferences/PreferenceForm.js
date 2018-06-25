@@ -8,6 +8,7 @@ import NeighborhoodResidentFields from './NeighborhoodResidentFields'
 import LiveWorkFields from './LiveWorkFields'
 import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
 import DefaultPreferenceFields from './DefaultPreferenceFields'
+import { naturalKeyFromMember } from './utils'
 
 let recordTypeMap = {
   'Certificate of Preference (COP)': 'COP',
@@ -39,7 +40,7 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
     return { value: listingPref.id, label: listingPref.lottery_preference.name }
   })
   const householdMembers = _.map(fullHousehold, (member) => {
-    let natKey = `${member.firstName},${member.lastName},${member.DOB}`
+    let natKey = naturalKeyFromMember(member)
     return { value: natKey, label: `${member.firstName} ${member.lastName}` }
   })
 

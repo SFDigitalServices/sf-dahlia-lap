@@ -1,11 +1,13 @@
 import { mapShape } from '../utils'
 import { mapListingPreference } from './listing_preference'
 import { mapFormApplication } from './application'
+import { mapApplicationMember } from './application_member'
 
 export const mapApplicationPreference = (value) => {
   return {
     application: mapShape(mapFormApplication, value.Application),
     listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),
+    application_member:mapShape(mapApplicationMember, value.Application_Member),
     id:value.Id,
     name:value.Name,
     preference_name:value.Preference_Name,
@@ -16,8 +18,7 @@ export const mapApplicationPreference = (value) => {
     preference_lottery_rank:value.Preference_Lottery_Rank,
     listing_preference_id:value.Listing_Preference_ID,
     receives_preference:value.Receives_Preference,
-    application_member:value.Application_Member,
-    application_member_first_name:value['Application_Member.First_Name'],
+    application_member_first_name:value['Application_Member.First_Name'], // TODO: we should not use formula values anymore
     application_member_last_name:value['Application_Member.Last_Name'],
     application_member_date_of_birth:value['Application_Member.Date_of_Birth'],
     individual_preference:value.Individual_preference,

@@ -18,7 +18,7 @@ const buildActionLinkIfNecessary = (app) => {
 const ApplicationPage = (props) => {
   const { application } = props
   const pageHeader = {
-    title: `Application ${application.number}`,
+    title: `Application ${application.name}`,
     content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
     action: buildActionLinkIfNecessary(application)
   }
@@ -31,6 +31,7 @@ const ApplicationPage = (props) => {
 }
 
 const mapProperties = ({ application }) => {
+  console.log(application)
   return {
     application: mapFormApplication(application),
     fields: labelMapperFields,
