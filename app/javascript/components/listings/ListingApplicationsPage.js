@@ -3,7 +3,7 @@ import React from 'react'
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapFormApplication, mapListingDetails } from '~/components/mappers/soqlToDomain'
+import { mapApplication, mapListing } from '~/components/mappers/soqlToDomain'
 import { buildListingApplicationModel } from './listingApplicationModel'
 
 const tableFields = {
@@ -68,8 +68,8 @@ const ListingApplicationsPage = ({listing, applications }) => {
 
 const mapProperties = ({listing, applications }) => {
   return {
-    listing: mapListingDetails(listing),
-    applications: applications.map(i => buildListingApplicationModel(mapFormApplication(i))),
+    listing: mapListing(listing),
+    applications: applications.map(i => buildListingApplicationModel(mapApplication(i))),
   }
 }
 

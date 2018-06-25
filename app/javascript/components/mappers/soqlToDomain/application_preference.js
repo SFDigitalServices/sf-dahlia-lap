@@ -1,11 +1,11 @@
 import { mapShape } from '../utils'
 import { mapListingPreference } from './listing_preference'
-import { mapFormApplication } from './application'
+import { mapApplication } from './application'
 import { mapApplicationMember } from './application_member'
 
 export const mapApplicationPreference = (value) => {
   return {
-    application: mapShape(mapFormApplication, value.Application),
+    application: mapShape(mapApplication, value.Application),
     listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),
     application_member:mapShape(mapApplicationMember, value.Application_Member),
     id:value.Id,

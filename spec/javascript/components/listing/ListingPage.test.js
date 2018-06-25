@@ -19,7 +19,7 @@ import {
   additionalInfoFields,
   openHousesFields,
   infoSessionsFields } from 'components/listings/fields'
-import { mapListingDetails } from '~/components/mappers/soqlToDomain'
+import { mapListing } from '~/components/mappers/soqlToDomain'
 
 describe('ListingPage', () => {
   sharedHooks.useFakeTimers()
@@ -47,7 +47,7 @@ describe('ListingPage', () => {
       test(`${title} fields`, () => {
         const wrapper = renderer.create(
           <ListingDetailsContentCard
-            listing={mapListingDetails(listing)}
+            listing={mapListing(listing)}
             title={title}
             fields={fields} />
         )
