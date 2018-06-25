@@ -213,6 +213,7 @@ applications:
     General_Lottery_Rank__c:
     Answered_Community_Screening__c:
     Has_Military_Service__c:
+    Reserved_Senior__c:
     Has_DevelopmentalDisability__c:
         label: 'Has Developmental Disability'
     Has_ADA_Priorities_Selected__c:

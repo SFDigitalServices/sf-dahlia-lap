@@ -66,20 +66,23 @@ class SupplementalApplicationContainer extends React.Component {
 
   handleOnSubmit = (value) => {
     this.setState({loading: true})
-    this.props.onSubmit(value).then(() => {
+    console.log(value)
+    // this.props.onSubmit(value).then(() => {
       this.setState({loading: false})
-    })
+    // })
   }
 
   render() {
     const { statusHistory, application } = this.props
     const { loading } = this.state
 
-    application.confirmedUnits = null 
+    // application.confirmedUnits = null
+    console.log(application)
     return (
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
+              <p>{formApi.values.has_military_service}</p>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
               <ConfirmedHoushold />

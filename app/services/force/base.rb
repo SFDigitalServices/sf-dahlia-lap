@@ -6,23 +6,7 @@ module Force
   class Base
     def initialize(user)
       @user = user
-
-      if Rails.env.test?
-        @client = Restforce.new(
-          username: ENV['SALESFORCE_USERNAME'],
-          password: ENV['SALESFORCE_PASSWORD'],
-          security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
-          client_id: ENV['SALESFORCE_CLIENT_ID'],
-          client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
-          api_version: '41.0',
-        )
-      else
-        @client = Restforce.new(
-          authentication_retries: 1,
-          oauth_token: user.oauth_token,
-          instance_url: ENV['SALESFORCE_INSTANCE_URL'],
-        )
-      end
+      @client = ClientFactory.instance.new_for_user(user)
     end
 
     # cache a Salesforce SOQL query
@@ -74,17 +58,17 @@ module Force
     end
 
     def parsed_index_query(q, type = :index)
-      # parse_results(query(q), self.class::FIELDS["#{type}_fields"])
+      # parse_results(query(q), self.class.fields["#{type}_fields"])
       massage(query(q))
     end
 
     def index_fields
       # cleaned index fields
-      massage(self.class::FIELDS[:index_fields])
+      massage(self.class.fields[:index_fields])
     end
 
     def show_fields
-      massage(self.class::FIELDS[:show_fields])
+      massage(self.class.fields[:show_fields])
     end
 
     def api_call(method, endpoint, params)
@@ -140,7 +124,7 @@ module Force
 
     def query_fields(type = :index)
       # FIELDS should get defined in child class
-      self.class::FIELDS["#{type}_fields"].keys.join(', ')
+      self.class.fields["#{type}_fields"].keys.join(', ')
     end
 
     # recursively remove "__c" and "__r" from all keys
@@ -169,6 +153,15 @@ module Force
     def string_massage(str)
       # calls .to_s so it works for symbols too
       str.to_s.gsub('__c', '').gsub('__r', '')
+    end
+
+    def self.load_fields(name, file_path = nil)
+      path = "#{Rails.root}/config/salesforce/fields.yml"
+      Hashie::Mash.load(path)[name.to_s]
+    end
+
+    def self.fields
+      self::FIELDS
     end
   end
 end
