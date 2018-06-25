@@ -11,10 +11,6 @@ describe('ApplicationNewPage', () => {
   sharedHooks.useFakeTimers()
 
   test('should render succesfully', () => {
-    // const listing = modelsFactory.listing(1)
-    console.log(listing.Listing_Lottery_Preferences)  
-    listing.Listing_Lottery_Preferences = []
-
     const wrapper = renderer.create(
       <ApplicationNewPage listing={listing} />,
     )

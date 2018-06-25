@@ -12,7 +12,7 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 
-import soqlToApiMappers from '~/components/mappers/soqlToApi'
+import domainToApi from '~/components/mappers/domainToApi'
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -64,14 +64,14 @@ class PaperApplicationForm extends React.Component {
     this.setState({ submittedValues })
     this.setState({ loading: true })
     let applicationData = submittedValues
-    applicationData.listingID = this.props.listing.Id
+    applicationData.listingID = this.props.listing.id
     applicationData = this.assignDemographicData(applicationData)
     applicationData = this.removeEmptyData(applicationData)
     applicationData = this.formatAdaPriorities(applicationData)
 
     if (this.props.application) {
-      applicationData["id"] = this.props.application.Id
-      applicationData["applicationSubmissionType"] = this.props.application.Application_Submission_Type
+      applicationData["id"] = this.props.application.id
+      applicationData["applicationSubmissionType"] = this.props.application.application_submission_type
     }
 
     let response = await apiService.submitApplication(applicationData)
@@ -84,7 +84,7 @@ class PaperApplicationForm extends React.Component {
       window.location.href = '/applications/' + response.application.id
     }
     else {
-      window.location.href = '/listings/' + this.props.listing.Id + '/applications/new'
+      window.location.href = '/listings/' + this.props.listing.id + '/applications/new'
     }
   }
 
@@ -96,7 +96,7 @@ class PaperApplicationForm extends React.Component {
     let { listing, application, editPage } = this.props
     let autofillValues = {}
     if (application)
-      autofillValues = soqlToApiMappers.mapApplication(application)
+      autofillValues = domainToApi.mapApplication(application)
 
     return (
       <div>
@@ -105,13 +105,13 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
-                  <PrimaryApplicantSection formApi={formApi} editValues={application}/>
+                  <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
-                  <HouseholdMembersSection formApi={formApi} editValues={application} />
+                  <HouseholdMembersSection editValues={application} formApi={formApi}  />
                   <ReservedPrioritySection editValues={application} listing={listing}/>
                   <PreferencesSection
                     formApi={formApi}
-                    listingPreferences={listing.Listing_Lottery_Preferences}
+                    listingPreferences={listing.listing_lottery_preferences}
                     editValues={application}
                   />
                   <HouseholdIncomeSection />

@@ -4,7 +4,7 @@ import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-import soqlToApiMappers from '~/components/mappers/soqlToApi'
+import domainToApi from '~/components/mappers/domainToApi'
 
 let { phone_type_options } = formOptions
 
@@ -18,7 +18,7 @@ let mailingAddressFieldMap = {
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
-    autofillValues = soqlToApiMappers.mapApplicant(editValues.Applicant)
+    autofillValues = domainToApi.mapApplicant(editValues.applicant)
     formApi.values.primaryApplicant = autofillValues
   }
   return (

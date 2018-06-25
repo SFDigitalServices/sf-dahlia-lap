@@ -13,7 +13,7 @@ const ApplicationNewForm = ({ listing }) => {
 
 const ApplicationNewPage = ({ listing }) => {
   const pageHeader = {
-    title: `New Application: ${listing.Name}`
+    title: `New Application: ${listing.name}`
   }
   return (
     <CardLayout pageHeader={pageHeader}>
@@ -24,11 +24,8 @@ const ApplicationNewPage = ({ listing }) => {
 
 const mapProperties = ({ listing }) => {
   return {
-    listing
+    listing: mapListingDetails(listing)
   }
-  // return {
-  //   listing: mapListingDetails(listing) // TODO: map here
-  // }
 }
 
 export default mapProps(mapProperties)(ApplicationNewPage)
