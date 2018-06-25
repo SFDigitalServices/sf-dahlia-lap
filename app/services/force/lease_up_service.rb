@@ -1,7 +1,9 @@
 module Force
   # encapsulate all Salesforce lease up querying functions
   class LeaseUpService < Force::Base
-    FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['lease_ups'].freeze
+    # FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['lease_ups'].freeze
+    FIELD_NAME = :lease_ups
+    FIELDS = load_fields(FIELD_NAME).freeze
 
     def lease_ups(listing_id)
       # application_data = parsed_index_query(%(

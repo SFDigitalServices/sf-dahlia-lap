@@ -10,12 +10,12 @@ const YesNoRadioGroup = ({field}) => {
         {(group) => (
           <React.Fragment>
             <p class="radio-inline">
-              <Radio group={group} value={`${field}-yes`} id={`${field}-yes`}/>
-            <label class="radio-inline_label" htmlFor={`${field}-yes`}>Yes</label>
+              <Radio group={group} value={`Yes`} id={`${field}-yes`}/>
+              <label class="radio-inline_label" htmlFor={`${field}-yes`}>Yes</label>
             </p>
             <p class="radio-inline">
-              <Radio group={group} value={`${field}-no`} id={`${field}-no`}/>
-            <label class="radio-inline_label" htmlFor={`${field}-no`}>No</label>
+              <Radio group={group} value={`No`} id={`${field}-no`}/>
+              <label class="radio-inline_label" htmlFor={`${field}-no`}>No</label>
             </p>
           </React.Fragment>
         )}
@@ -24,24 +24,22 @@ const YesNoRadioGroup = ({field}) => {
   )
 }
 
-
-
 const ConfirmedUnits = () => {
   return (
     <FormGrid.Row paddingBottom>
       <FormGrid.Item>
         <FormGrid.Group label="Senior in Household">
-          <YesNoRadioGroup field="senior_in_household" />
+          <YesNoRadioGroup field="reserved_senior" />
         </FormGrid.Group>
       </FormGrid.Item>
       <FormGrid.Item>
         <FormGrid.Group label="Veteran in Household">
-          <YesNoRadioGroup field="veteran_in_household" />
+          <YesNoRadioGroup field="has_military_service" />
         </FormGrid.Group>
       </FormGrid.Item>
       <FormGrid.Item>
         <FormGrid.Group label="Person with Developmental Disability in House">
-          <YesNoRadioGroup field="developmental_disability_in_house" />
+          <YesNoRadioGroup field="has_developmentaldisability" />
         </FormGrid.Group>
       </FormGrid.Item>
       <FormGrid.Item>

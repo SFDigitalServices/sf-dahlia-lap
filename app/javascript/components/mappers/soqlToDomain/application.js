@@ -39,6 +39,7 @@ export const mapApplication = (a) => {
     has_ada_priorities_selected: a.Has_ADA_Priorities_Selected,
     terms_acknowledged: a.Terms_Acknowledged,
     number_of_dependents: a.Number_of_Dependents,
-    processing_status: a.Processing_Status
+    processing_status: a.Processing_Status,
+    reserved_senior: a.Reserved_Senior
   }
 }

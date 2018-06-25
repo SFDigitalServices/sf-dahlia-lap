@@ -2,7 +2,8 @@ module Force
   # encapsulate all Salesforce Short Form Application querying functions
   class ApplicationService < Force::Base
     DRAFT = 'Draft'.freeze
-    FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['applications'].freeze
+    FIELD_NAME = :applications
+    FIELDS = load_fields(FIELD_NAME).freeze
 
     def applications
       # TO DO: Cache this request
