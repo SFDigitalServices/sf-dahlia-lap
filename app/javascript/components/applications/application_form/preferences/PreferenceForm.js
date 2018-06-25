@@ -22,21 +22,21 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
   const selectedPreference = () => {
     let selectedPreference = formApi.values.shortFormPreferences[i] || {}
     let matchedPreference = _.find(listingPreferences, (pref) => {
-      return pref.Id == selectedPreference.listingPreferenceID
+      return pref.id === selectedPreference.listingPreferenceID
     })
-    if (!!matchedPreference && matchedPreference.Lottery_Preference) {
-      let prefName = matchedPreference.Lottery_Preference.Name
+    if (!!matchedPreference && matchedPreference.lottery_preference) {
+      let prefName = matchedPreference.lottery_preference.name
       formApi.values.shortFormPreferences[i].recordTypeDevName = recordTypeMap[prefName] || 'Custom'
     }
     return selectedPreference
   }
   const listingPreferencesOptions = _.map(_.omitBy(listingPreferences, (listingPref) => {
     // omit any listingPreferences that are already selected, excluding the current one
-    let isSelected = _.find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.Id })
+    let isSelected = _.find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.id })
     return (isSelected && isSelected !== selectedPreference())
   }), (listingPref) => {
     // format them into form-friendly values
-    return { value: listingPref.Id, label: listingPref.Lottery_Preference.Name }
+    return { value: listingPref.id, label: listingPref.lottery_preference.name }
   })
   const householdMembers = _.map(fullHousehold, (member) => {
     let natKey = `${member.firstName},${member.lastName},${member.DOB}`
@@ -45,9 +45,9 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
 
   const preferenceAdditionalOptions = () => {
     let formValue = selectedPreference()
-    let preference = _.find(listingPreferences, { Id: formValue.listingPreferenceID })
+    let preference = _.find(listingPreferences, { id: formValue.listingPreferenceID })
     if (preference) {
-      switch (preference.Lottery_Preference.Name) {
+      switch (preference.lottery_preference.name) {
         case 'Certificate of Preference (COP)':
           return <CertOfPreferenceFields {...{i, householdMembers}} />
         case 'Neighborhood Resident Housing Preference (NRHP)':

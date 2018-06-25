@@ -3,7 +3,7 @@ import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 
-import soqlToApiMappers from '~/components/mappers/soqlToApi'
+import domainToApi from '~/components/mappers/domainToApi'
 
 const {
   alternate_contact_options,
@@ -12,8 +12,8 @@ const {
 
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
-  if (editValues && editValues.Alternate_Contact) {
-    autofillValues = soqlToApiMappers.mapAlternateContact(editValues.Alternate_Contact)
+  if (editValues && editValues.alternate_contact) {
+    autofillValues = domainToApi.mapAlternateContact(editValues.alternate_contact)
   }
   return (
     <NestedForm field="alternateContact">

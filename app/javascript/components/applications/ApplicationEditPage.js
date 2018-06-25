@@ -2,8 +2,8 @@ import React from 'react'
 
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
-
 import mapProps from '~/utils/mapProps'
+import { mapListingDetails, mapFormApplication } from '~/components/mappers/soqlToDomain'
 
 const ApplicationEditPageForm = ({ listing, application, editPage }) => {
   return (
@@ -17,7 +17,7 @@ const ApplicationEditPageForm = ({ listing, application, editPage }) => {
 const ApplicationEditPage = ({ listing, application, editPage }) => {
   const pageHeader = {
     title: 'Edit Application',
-    content: `Application lottery number: ${application.Lottery_Number}. For listing: ${listing.Name}`
+    content: `Application lottery number: ${application.lottery_number}. For listing: ${listing.name}`
   }
 
   return (
@@ -32,8 +32,8 @@ const ApplicationEditPage = ({ listing, application, editPage }) => {
 
 const mapProperties = ({ listing, application, editPage }) => {
   return {
-    listing: listing,         // TODO: map here
-    application: application, // TODO: map here
+    listing: mapListingDetails(listing),
+    application: mapFormApplication(application),
     editPage
   }
 }
