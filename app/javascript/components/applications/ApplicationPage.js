@@ -4,7 +4,7 @@ import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import { mapFormApplication } from '~/components/mappers/soqlToDomain'
+import { mapApplication } from '~/components/mappers/soqlToDomain'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
 const buildActionLinkIfNecessary = (app) => {
@@ -31,9 +31,8 @@ const ApplicationPage = (props) => {
 }
 
 const mapProperties = ({ application }) => {
-  console.log(application)
   return {
-    application: mapFormApplication(application),
+    application: mapApplication(application),
     fields: labelMapperFields,
   }
 }

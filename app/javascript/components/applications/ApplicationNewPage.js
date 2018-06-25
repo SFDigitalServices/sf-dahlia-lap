@@ -3,7 +3,7 @@ import React from 'react'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
 import mapProps from '~/utils/mapProps'
-import { mapListingDetails } from '~/components/mappers/soqlToDomain/listing'
+import { mapListing } from '~/components/mappers/soqlToDomain/listing'
 
 const ApplicationNewForm = ({ listing }) => {
   return (
@@ -24,7 +24,7 @@ const ApplicationNewPage = ({ listing }) => {
 
 const mapProperties = ({ listing }) => {
   return {
-    listing: mapListingDetails(listing)
+    listing: mapListing(listing)
   }
 }
 

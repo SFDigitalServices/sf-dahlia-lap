@@ -72,7 +72,6 @@ const buildFlaggedApplicationModel = (flaggedApplication) => {
 }
 
 const mapProperties = ({ flaggedApplications }) => {
-  // console.log(JSON.stringify(flaggedApplications))
   return {
     flaggedApplications: flaggedApplications.map(i => buildFlaggedApplicationModel(mapFlaggedApplication(i)))
   }

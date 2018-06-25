@@ -4,7 +4,7 @@ import { flow } from 'lodash'
 import LeaseUpsTableContainer from './LeaseUpsTableContainer'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapListingDetails, mapApplicationPreference } from '~/components/mappers/soqlToDomain'
+import { mapListing, mapApplicationPreference } from '~/components/mappers/soqlToDomain'
 import { buildLeaseUpModel } from './leaseUpModel'
 
 const LeaseUpsPage = ({ listing, applications }) => {
@@ -30,7 +30,7 @@ const LeaseUpsPage = ({ listing, applications }) => {
 
 const mapProperties = ({ listing, applications }) => {
   return  {
-    listing: mapListingDetails(listing),
+    listing: mapListing(listing),
     applications: applications.map(flow(mapApplicationPreference, buildLeaseUpModel))
   }
 }

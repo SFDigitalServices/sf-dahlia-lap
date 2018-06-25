@@ -6,7 +6,7 @@ import { mapUser } from './user'
 import { mapAccount } from './account'
 import { mapBuilding } from './building'
 
-export const mapListingDetails = (l) => {
+export const mapListing = (l) => {
   return {
     owner: mapShape(mapUser, l.Owner),
     account: mapShape(mapAccount, l.Account),

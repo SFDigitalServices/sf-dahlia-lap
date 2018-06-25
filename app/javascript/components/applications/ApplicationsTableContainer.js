@@ -14,15 +14,13 @@ class ApplicationsTableContainer extends React.Component {
   handleOnFetchData = (state, instance) => {
     this.setState({ loading: true })
     this.eagerPagination.getPage(state.page + 1).then(({ records, pages }) => {
-      // console.log(JSON.stringify(records))
       this.setState({ applications: records, loading: false, pages: pages })
     })
   }
-  // applications={applications}
 
   render() {
-    const { loading, applications, pages } = this.state
-    return <ApplicationsTable            
+    const { loading, pages } = this.state
+    return <ApplicationsTable
               onFetchData={this.handleOnFetchData}
               pages={pages}
               loading={loading} />

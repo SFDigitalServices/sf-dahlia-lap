@@ -2,15 +2,15 @@ import { mapShape, mapList } from '../utils'
 import { mapApplicationMember } from './application_member'
 import { mapFlaggedApplication } from './flagged_application'
 import { mapUser } from './user'
-import { mapListingDetails } from './listing'
+import { mapListing } from './listing'
 import { mapApplicationPreference } from './application_preference'
 import { mapAttachment } from './attachment'
 
-export const mapFormApplication = (a) => {
+export const mapApplication = (a) => {
   return {
     applicant: mapShape(mapApplicationMember,a.Applicant),
     alternate_contact: mapShape(mapApplicationMember,a.Alternate_Contact),
-    listing: mapShape(mapListingDetails, a.Listing),
+    listing: mapShape(mapListing, a.Listing),
     preferences: mapList(mapApplicationPreference, a.preferences),
     proof_files: mapList(mapAttachment, a.proof_files),
     household_members: mapList(mapApplicationMember, a.household_members),
