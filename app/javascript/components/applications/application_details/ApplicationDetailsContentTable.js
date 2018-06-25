@@ -2,6 +2,7 @@ import React from 'react'
 import { map, includes, isPlainObject, get } from 'lodash'
 import appPaths from '~/utils/appPaths'
 import { getLabel } from './utils'
+import { renderNative } from '~/utils/renderUtils'
 
 const getColumns = (fields) => map(fields, (field) => {
   const label = getLabel(field)
@@ -23,7 +24,7 @@ const getRow = (row, field) => {
     )
   }
   const value = get(row, field)
-  return <td key={field}>{value}</td>
+  return <td key={field}>{renderNative(value)}</td>
 }
 
 const getRows = (data, fields) => map(data, (row, idx) => {
