@@ -90,7 +90,7 @@ module Force
     def query
       soql = _query_soql
       if Rails.env.development?
-        puts "[SOQL] \n#{soql}"
+        puts "[SOQL] #{soql}"
       end
 
       records = @client.query(soql)
@@ -121,7 +121,7 @@ module Force
 
     def _query_soql
       query_str = ""
-      query_str += "SELECT \n\t #{@select} \n #{_from_soql} \n"
+      query_str += "SELECT #{@select} #{_from_soql}"
       query_str += " #{_paginate_soql}" if paginate?
       query_str
     end
@@ -131,7 +131,7 @@ module Force
     end
 
     def _from_soql
-      "FROM \n\t #{@from} \n WHERE \n\t #{_where_soql}"
+      "FROM #{@from} WHERE #{_where_soql}"
     end
 
     def _where_soql
