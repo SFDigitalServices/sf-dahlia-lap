@@ -5,12 +5,10 @@ import formUtils from '~/utils/formUtils'
 const submissionTypeOptions = formUtils.toOptions(["Paper", "Electronic", [null, "Any type"]])
 
 const buildListingOptions = (listings) => {
-  return listings.map( i => {
-    return {
-      label: i.name,
-      value: i.id
-    }
-  })
+  return formUtils.toOptions([
+    [null, 'Any Listing'],
+    ...listings.map(i => [i.id, i.name])
+  ])
 }
 
 const ApplicationsFilter = ({ onSubmit, listings = [] }) => {

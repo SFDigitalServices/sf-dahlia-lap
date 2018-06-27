@@ -13,8 +13,6 @@ class ApplicationsTableContainer extends React.Component {
   }
 
   loadPage = (page, options) => {
-    // console.log('loadPage')
-    // console.log(page)
     this.setState({ loading: true, page: page })
     this.eagerPagination.getPage(page, options).then(({ records, pages }) => {
       this.setState({ applications: records, loading: false, pages: pages })
@@ -28,11 +26,8 @@ class ApplicationsTableContainer extends React.Component {
   }
 
   handleOnFilter = (filters) => {
-    // console.log('handleOnFilter')
-    // console.log(filters)
-    this.setState({ filters })
-
     const page = 0
+    this.setState({ filters })
     this.setState({ loading: true, page: page })
     this.eagerPagination.reset()
     this.loadPage(page, { filters })
