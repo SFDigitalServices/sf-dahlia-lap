@@ -3,7 +3,7 @@ import ReactTable from 'react-table'
 import { uniqBy, map, sortBy } from 'lodash'
 import moment from 'moment'
 
-import IndexTable from '../IndexTable'
+// import IndexTable from '../IndexTable'
 import TableSubComponent from '~/components/atoms/TableSubComponent'
 import PrettyTime from '../atoms/PrettyTime'
 import appPaths  from '~/utils/appPaths'
@@ -57,8 +57,8 @@ const SubComponent = (row) => (
 
 const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
   const columns = [
-      { Header: 'Application Number', accessor: 'number', headerClassName: 'td-min-narrow', filterable: true },
-      { Header: 'Listing Name', accessor: 'listing.name', filterable: true, Filter: (attrs) => <ListingNameFilter applications={applications} {...attrs} /> },
+      { Header: 'Application Number', accessor: 'number', headerClassName: 'td-min-narrow' },
+      { Header: 'Listing Name', accessor: 'listing.name' },
       { Header: 'Lottery Date', accessor: 'listing.lottery_date', Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
       { Header: 'First Name', accessor: 'applicant.first_name' },
       { Header: 'Last Name', accessor: 'applicant.last_name' },

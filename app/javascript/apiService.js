@@ -36,10 +36,14 @@ const submitApplication = async (data) => {
   return await apiCall('post', '/short-form/submit', postData)
 }
 
-const fetchApplications = async ({ page }) => {
+const fetchApplications = async ({ page, filters }) => {
+  console.log('api fetch')
+  console.log(page)
+  console.log(filters)
   return apiCall('get', '/applications', {
     params: {
-      page: page
+      page,
+      ...filters
     }
   })
 }

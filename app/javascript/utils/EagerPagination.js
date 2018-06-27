@@ -1,36 +1,57 @@
 import { slice } from 'lodash'
 
+const getServerPageForEagerPage = (eagerPage, eagerSize, serverSize) => {
+  const recordsSize = eagerPage * eagerSize
+  return Math.floor(recordsSize / serverSize)
+}
+
+const sliceRecords = (records, eagerCurrentPage, eagerSize, serverSize) => {
+  const sIdx = ((eagerCurrentPage) * eagerSize) % serverSize
+  const eIdx = sIdx + eagerSize
+
+  return slice(records, sIdx, eIdx)
+}
+
 class EagerPagination {
 
   constructor(eagerPageSize, serverPageSize, fetchPage) {
-    this.eager = { currentPage: 0, size: eagerPageSize }
-    this.server = { currentPage: 0, size: serverPageSize }
-    this.fetchPage = async (p) => fetchPage(p)
+    this.eager = { currentPage: -1, size: eagerPageSize }
+    this.server = { currentPage: -1, size: serverPageSize }
+    this.fetchPage = fetchPage
   }
 
-  getServerPageForEagerPage(eagerPage) {
-    const recordsSize = eagerPage * this.eager.size
-    return (Math.floor(recordsSize / (this.server.size + 1)) + 1)
+  reset() {
+    // Setting this to -1, forces getPage to fetch
+    this.eager.currentPage = -1
+    this.server.currentPage = -1
   }
 
-  async getPage(eagerPage) {
-    this.eager.currentPage = eagerPage
-    const newServerPage = this.getServerPageForEagerPage(eagerPage)
-    if (newServerPage != this.server.currentPage) {
-      this.server.currentPage = newServerPage
-      const result = await this.fetchPage(this.server.currentPage)
-      this.records = result.records
-      this.pages = (result.pages * result.records.length) / this.eager.size
-    }
-    const sIdx = ((this.eager.currentPage - 1) * this.eager.size) % this.server.size
-    const eIdx = sIdx + this.eager.size
-
+  buildResponse() {
     return {
-      records: slice(this.records, sIdx, eIdx),
+      records: sliceRecords(this.records, this.eager.currentPage, this.eager.size, this.server.size),
       pages: this.pages,
       currentPage: this.eager.currentPage
     }
   }
+
+  getServerPageForEagerPage(page) {
+    return getServerPageForEagerPage(page, this.eager.size, this.server.size)
+  }
+
+  async getPage(eagerPage, options = {}) {
+    this.eager.currentPage = eagerPage
+    const newServerPage = this.getServerPageForEagerPage(eagerPage)
+    // console.log(eagerPage, this.server.currentPage, newServerPage)
+    if (newServerPage !== this.server.currentPage) {
+      this.server.currentPage = newServerPage
+      const result = await this.fetchPage(this.server.currentPage, options)
+      this.records = result.records
+      this.pages = (result.pages * result.records.length) / this.eager.size
+    }
+
+    return this.buildResponse()
+  }
+
 }
 
 export default EagerPagination

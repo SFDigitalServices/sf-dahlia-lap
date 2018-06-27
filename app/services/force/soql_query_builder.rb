@@ -27,9 +27,30 @@ module Force
       self
     end
 
+    def whereContains(field, value)
+      where("#{field} like '%#{value}%'")
+      self
+    end
+
+    def whereEq(field, value)
+      where("#{field} = #{value}")
+      self
+    end
+
+    def all
+      @page = nil
+      @per_page = nil
+    end
+
     # page: num, per: num
     def paginate(options)
-      @paginate = options
+      if options.present?
+        @page = options[:page] || 0
+        @per_page = options[:per_page] || DEFAULT_PAGE_SIZE
+      else
+        @page = 0
+        @per_page = DEFAULT_PAGE_SIZE
+      end
       self
     end
 
@@ -43,11 +64,11 @@ module Force
     ################################
 
     def current_page
-      @paginate[:page] if @paginate.present?
+      @page
     end
 
     def page_size
-      @paginate[:per] || DEFAULT_PAGE_SIZE if @paginate.present?
+      @per_page
     end
 
     def pages
@@ -55,7 +76,7 @@ module Force
     end
 
     def paginate?
-      @paginate.present?
+      @page.present?
     end
 
     ################################
@@ -67,7 +88,12 @@ module Force
     end
 
     def query
-      records = @client.query(_query_soql)
+      soql = _query_soql
+      if Rails.env.development?
+        puts "[SOQL] \n#{soql}"
+      end
+
+      records = @client.query(soql)
       if paginate?
         _result records, pages, current_page
       else
@@ -89,13 +115,13 @@ module Force
 
     def _paginate_soql
       limit = page_size
-      offset = @paginate[:page].to_i * limit
+      offset = @page.to_i * limit
       "LIMIT #{limit} OFFSET #{offset}"
     end
 
     def _query_soql
       query_str = ""
-      query_str += "SELECT #{@select} #{_from_soql}"
+      query_str += "SELECT \n\t #{@select} \n #{_from_soql} \n"
       query_str += " #{_paginate_soql}" if paginate?
       query_str
     end
@@ -105,7 +131,7 @@ module Force
     end
 
     def _from_soql
-      "FROM #{@from} WHERE #{_where_soql}"
+      "FROM \n\t #{@from} \n WHERE \n\t #{_where_soql}"
     end
 
     def _where_soql

@@ -1,3 +1,4 @@
+import { map } from 'lodash'
 import apiService from '~/apiService'
 
 const mapListing = (application) => {
@@ -26,17 +27,26 @@ const mapApplication = (application) => {
   }
 }
 
-const onFetchData = async (page) => {
-  const response = await apiService.fetchApplications({ page: page })
+const onFetchData = async (page, { filters} ) => {
+  const response = await apiService.fetchApplications({ page, filters })
   return {
     records: response.records.map(mapApplication),
     pages: response.pages
   }
 }
 
-const mapProperties = ({ applications }) => {
+const mapListingsOptions = (value) => {
   return {
-    onFetchData: onFetchData
+    id: value.Id,
+    name: value.Name
+  }
+}
+
+const mapProperties = ({ listings }) => {
+  // console.log(listings)
+  return {
+    onFetchData: onFetchData,
+    listings: map(listings, mapListingsOptions)
     // applications: applications.map(mapApplication)
   }
 }

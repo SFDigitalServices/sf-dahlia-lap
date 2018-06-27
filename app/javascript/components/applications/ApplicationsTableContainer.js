@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ApplicationsTable from './ApplicationsTable'
+import ApplicationsFilter from './ApplicationsFilter'
 import EagerPagination from '~/utils/EagerPagination'
 
 class ApplicationsTableContainer extends React.Component {
@@ -11,22 +12,46 @@ class ApplicationsTableContainer extends React.Component {
     this.eagerPagination = new EagerPagination(20, 100, props.onFetchData)
   }
 
-  handleOnFetchData = (state, instance) => {
-    this.setState({ loading: true })
-    this.eagerPagination.getPage(state.page + 1).then(({ records, pages }) => {
-      // console.log(JSON.stringify(records))
-
+  loadPage = (page, options) => {
+    // console.log('loadPage')
+    // console.log(page)
+    this.setState({ loading: true, page: page })
+    this.eagerPagination.getPage(page, options).then(({ records, pages }) => {
       this.setState({ applications: records, loading: false, pages: pages })
     })
   }
 
+  handleOnFetchData = (state, instance) => {
+    const { filters } = this.state
+    const page = state.page
+    this.loadPage(page, { filters })
+  }
+
+  handleOnFilter = (filters) => {
+    // console.log('handleOnFilter')
+    // console.log(filters)
+    this.setState({ filters })
+
+    const page = 0
+    this.setState({ loading: true, page: page })
+    this.eagerPagination.reset()
+    this.loadPage(page, { filters })
+  }
+
   render() {
+    const { listings } = this.props
     const { loading, applications, pages } = this.state
-    return <ApplicationsTable
-              applications={applications}
-              onFetchData={this.handleOnFetchData}
-              pages={pages}
-              loading={loading} />
+
+    return (
+      <React.Fragment>
+        <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings}/>
+        <ApplicationsTable
+          applications={applications}
+          onFetchData={this.handleOnFetchData}
+          pages={pages}
+          loading={loading} />
+      </React.Fragment>
+    )
   }
 }
 

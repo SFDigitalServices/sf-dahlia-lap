@@ -4,6 +4,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
+    @listings = listing_service.listings
   end
 
   def show

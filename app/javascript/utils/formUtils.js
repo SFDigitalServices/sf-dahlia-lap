@@ -1,7 +1,9 @@
-import { reduce, mapValues, isObjectLike } from 'lodash'
+import { reduce, mapValues, isObjectLike, isArray } from 'lodash'
 
 const toOption = (item) =>  {
-  if (isObjectLike(item))
+  if (isArray(item))
+    return { value: item[0], label: item[1] }
+  else if (isObjectLike(item))
     return item
   else
     return { value: item, label: item }
