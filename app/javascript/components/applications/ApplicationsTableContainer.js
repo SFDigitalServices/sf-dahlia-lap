@@ -39,7 +39,7 @@ class ApplicationsTableContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings}/>
+        <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings} loading={loading}/>
         <ApplicationsTable
           applications={applications}
           onFetchData={this.handleOnFetchData}
