@@ -1,5 +1,5 @@
 import React from 'react'
-import ExpandableTable from '../molecules/ExpandableTable'
+// import ExpandableTable from '../molecules/ExpandableTable'
 
 const FormGridTable = ({ header, value, headerB, valueB, label, id, name, placeholder, describeId, note, error }) => {
   return (

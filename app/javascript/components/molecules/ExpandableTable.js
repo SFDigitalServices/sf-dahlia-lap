@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 class ExpandableTable extends React.Component {
   render() {
-    const { columns, data } = this.props
+    const { columns, rows, expanderRenderer, expandedRowRenderer, expandedRowToggler } = this.props
+
+    const numColumns = columns.length
 
     return (
       <table className="td-light td-plain th-plain" role="grid">
         <thead>
           <tr>
-            {columns.map((column) => (
-              <th scope="col" className="{column.classes ? column.classes.join(' ') : ''}">
+            {columns.map((column, i) => (
+              <th key={i} scope="col" className={column.classes ? column.classes.join(' ') : ''}>
                 {column.content}
               </th>
             ))}
@@ -17,52 +19,32 @@ class ExpandableTable extends React.Component {
         </thead>
 
         <tbody>
-          {data.map((row) => (
-            // row = [
-            //   'dthp',
-            //   'bob',
-            //   'smith',
-            //   () => {
-            //
-            //   }
-            // ]
-            //render for row
-            <tr className="tr-expand is-expanded" aria-expanded="true">
-              <td scope="row">
-                {value}
-              </td>
-              <td className="text-right">
-                <button className='button button-link action-link'>{valueB}</button>
-              </td>
-            </tr>
-            <tr className="tr-expand-content is-expanded" aria-hidden="false">
-              <td colSpan="7" className="td-expand-nested no-padding">
-                <EditablePanel label={label} id={id} name={name} placeholder={placeholder} describeId={describeId} note={note} error={error} />
-              </td>
-            </tr>
-
-            // always call expandedRowRenderer(row)
-            //   if row[indexOfExpander]
-            // render for datum.expandableRow
-            <tr className="tr-expand is-expanded" aria-expanded="true">
-              <td scope="row">
-                {value}
-              </td>
-              <td className="text-right">
-                <button className='button button-link action-link'>{valueB}</button>
-              </td>
-            </tr>
-            <tr className="tr-expand-content is-expanded" aria-hidden="false">
-              <td colSpan="7" className="td-expand-nested no-padding">
-                <EditablePanel label={label} id={id} name={name} placeholder={placeholder} describeId={describeId} note={note} error={error} />
-              </td>
-            </tr>
+          {rows.map((row, i) => (
+            <Fragment>
+              <tr key={i} className="tr-expand" aria-expanded="false">
+                {row.data.map((datum, j) => (
+                  <td key={j}>
+                    {datum}
+                  </td>
+                ))}
+                <td key="expander">
+                  {expanderRenderer(row, i, expandedRowToggler)}
+                </td>
+              </tr>
+              {
+                row.expanded &&
+                <tr key="expanded-row" className="tr-expand-content" aria-expanded="true">
+                  <td colSpan={numColumns}>
+                     {expandedRowRenderer(row, i, expandedRowToggler)}
+                  </td>
+                </tr>
+              }
+            </Fragment>
           ))}
         </tbody>
       </table>
     )
   }
 }
-
 
 export default ExpandableTable

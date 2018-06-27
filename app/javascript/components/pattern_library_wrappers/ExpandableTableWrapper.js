@@ -1,58 +1,47 @@
 import React from 'react'
-import { includes } from 'lodash'
 
 import ExpandableTable from '../molecules/ExpandableTable'
 
 class ExpandableTableWrapper extends React.Component {
-  mapColumns = () => (
-    this.props.columns.map((column) => {
-      if (column.expander) {
-        column.expander = (isExpanded) => (
-          isExpanded ? 'edit' : 'nope'
-        )
+  constructor (props) {
+    super(props)
+    this.state = {
+      rows: this.props.rows
+    }
+  }
+
+  expanderRenderer = (row, i, expandedRowToggler) => {
+    if (row.expanded) return
+
+    return <button className="button button-link action-link" onClick={(e) => expandedRowToggler(i, 'expand')}>Expand</button>
+  }
+
+  expandedRowRenderer = (row, i, expandedRowToggler) => (
+    <div className="app-editable expand-wide scrollable-table-nested">
+      <div>Hello</div>
+      <br/>
+      <button className="button" onClick={(e) => (expandedRowToggler(i, 'close'))}>Close</button>
+    </div>
+  )
+
+  toggleExpandedRow = (i, expansionState) => {
+    this.setState((prevState) => {
+      var updatedRows = prevState.rows.slice()
+      updatedRows[i].expanded = expansionState === 'expand' ? true : false
+      return {
+        rows: updatedRows
       }
-
-      return column
     })
-  )
-
-  mapData = () => (
-    // return [{}, {}]
-    // this.props.data.map((datum) => {
-    //   var rowPair = {
-    //     row: {...datum}
-    //   }
-    //
-    //   if (_.includes(datum, 'expandable')) {
-    //
-    //   }
-    //
-    //   return row
-    // })
-  )
-
-  expandedRowRenderer = () => (
-    // return [{}, {}]
-    // this.props.data.map((datum) => {
-    //   var rowPair = {
-    //     row: {...datum}
-    //   }
-    //
-    //   if (_.includes(datum, 'expandable')) {
-    //
-    //   }
-    //
-    //   return row
-    // })
-  )
+  }
 
   render() {
-    console.log(this.props.columns)
-    console.log(this.mapColumns())
-    console.log(this.props.data)
-
     return (
-      <ExpandableTable columns={this.mapColumns()} data={this.props.data} expandedRowRenderer={this.expandedRowRenderer}/>
+      <ExpandableTable
+        columns={this.props.columns}
+        rows={this.state.rows}
+        expanderRenderer={this.expanderRenderer}
+        expandedRowRenderer={this.expandedRowRenderer}
+        expandedRowToggler={this.toggleExpandedRow} />
     )
   }
 }
