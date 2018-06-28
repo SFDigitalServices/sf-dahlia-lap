@@ -31,6 +31,7 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
         autofillPreferences.push(editPreference)
       }
     })
+
     formApi.values.shortFormPreferences = autofillPreferences
   }
 
