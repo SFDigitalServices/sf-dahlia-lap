@@ -20,24 +20,26 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
       <Form onSubmit={onSubmit}>
         { formApi => (
           <form onSubmit={formApi.submitForm} >
-            <div className='row'>
-              <div className='column large-2'>
-                <Text field="application_number" placeholder='Application Number'/>
-              </div>
-              <div className='column large-2'>
-                <Select field="listing" options={listingOptions}  placeholder="Listing"/>
-              </div>
-              <div className='column large-2'>
-                <Text field="first_name" placeholder="First Name"/>
-              </div>
-              <div className='column large-2'>
-                <Text field="last_name" placeholder="Last Name"/>
-              </div>
-              <div className='column large-2'>
-                <Select field="submission_type" options={submissionTypeOptions} placeholder="Submission Type"/>
-              </div>
-              <div className='column large-2'>
-                <button className='small'>Filter</button>
+            <div className='filter-row'>
+              <div className='filter-group'>
+                <div className='filter-group_item'>
+                  <Text field="application_number" placeholder='Application Number'/>
+                </div>
+                <div className='filter-group_item'>
+                  <Select field="listing" options={listingOptions}  placeholder="Any Listing"/>
+                </div>
+                <div className='filter-group_item'>
+                  <Text field="first_name" placeholder="First Name"/>
+                </div>
+                <div className='filter-group_item'>
+                  <Text field="last_name" placeholder="Last Name"/>
+                </div>
+                <div className='filter-group_item'>
+                  <Select field="submission_type" options={submissionTypeOptions} placeholder="Submission Type"/>
+                </div>
+                <div className='filter-group_action'>
+                  <button className='small'>Filter</button>
+                </div>
               </div>
             </div>
           </form>
