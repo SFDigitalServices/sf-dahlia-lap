@@ -25,7 +25,6 @@ import Dropdown from 'components/molecules/Dropdown'
 import Loading from 'components/molecules/Loading'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
-import EditablePanel from 'components/molecules/EditablePanel'
 import TabsMenu from 'components/molecules/TabsMenu'
 import TablePagination from 'components/molecules/TablePagination'
 import TableSimple from 'components/molecules/TableSimple'
@@ -66,7 +65,6 @@ WebpackerReact.setup({ Dropdown })
 WebpackerReact.setup({ Loading })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
-WebpackerReact.setup({ EditablePanel })
 WebpackerReact.setup({ TabsMenu })
 WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ TableSimple })

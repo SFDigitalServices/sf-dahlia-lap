@@ -26,8 +26,7 @@
   == pl_component 'DropdownWrapper', { text: 'status', size: 'tiny', icon: '#i-arrow-down', items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ]}, { title: 'Dropdown' }
   == pl_component 'Loading', { }
   == pl_component 'FormGridRow', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
-  == pl_component 'FormGridTable', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Edit', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
-  == pl_component 'EditablePanel', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
+  == pl_component 'FormGridTable', { columns: @expandable_table_columns, rows: @expandable_table_rows }
   == pl_component 'ContentSectionWrapper', { title: 'Title', subtitle: 'Sub', titleDesc: 'Some description', subtitleDesc: 'Some description'}, { title: 'ContentSection' }
 
   == pl_component 'ContentSectionBordered', { title: 'Title', subtitle: 'Sub', titleDescription: 'Some description', subtitleDescription: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }

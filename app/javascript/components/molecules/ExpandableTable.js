@@ -23,7 +23,7 @@ class ExpandableTableRow extends React.Component {
 
     return (
       <Fragment>
-        <tr className="tr-expand" aria-expanded="false">
+        <tr className="tr-expand" aria-expanded={row.expanded}>
           {row.data.map((datum, j) => (
             <td key={j}>
               {datum}
@@ -33,14 +33,11 @@ class ExpandableTableRow extends React.Component {
             {expanderRenderer(row, this.toggleExpandedRow)}
           </td>
         </tr>
-        {
-          row.expanded &&
-          <tr className="tr-expand-content" aria-expanded="true">
-            <td colSpan={numColumns}>
-               {expandedRowRenderer(row, this.toggleExpandedRow)}
-            </td>
-          </tr>
-        }
+        <tr className="tr-expand-content" aria-hidden={!row.expanded}>
+          <td colSpan={numColumns} className="td-expand-nested no-padding">
+             {expandedRowRenderer(row, this.toggleExpandedRow)}
+          </td>
+        </tr>
       </Fragment>
     )
   }
