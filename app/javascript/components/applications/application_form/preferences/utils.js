@@ -11,3 +11,7 @@ export const naturalKeyFromPreference = (p) => join(
 export const naturalKeyFromMember = (member) => {
   return `${member.firstName},${member.lastName},${member.DOB}`
 }
+
+export const FIELD_NAME = 'shortFormPreferences'
+
+export const buildFieldId = (i, field) => `${FIELD_NAME}.${i}.${field}`
