@@ -41,7 +41,6 @@ class EagerPagination {
   async getPage(eagerPage, options = {}) {
     this.eager.currentPage = eagerPage
     const newServerPage = this.getServerPageForEagerPage(eagerPage)
-    // console.log(eagerPage, this.server.currentPage, newServerPage)
     if (newServerPage !== this.server.currentPage) {
       this.server.currentPage = newServerPage
       const result = await this.fetchPage(this.server.currentPage, options)
