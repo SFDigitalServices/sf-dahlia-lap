@@ -100,36 +100,348 @@ Array [
     <div
       className="app-card form-card tabs-card max-width expand-on-small"
     >
-      <form
-        onSubmit={[Function]}
-        style={
-          Object {
-            "margin": "0px",
-          }
-        }
+      <div
+        className="loading-panel"
       >
-        <div
-          className="app-inner inset-wide padding-bottom-none margin-top"
+        <form
+          onSubmit={[Function]}
+          style={
+            Object {
+              "margin": "0px",
+            }
+          }
         >
-          <h2
-            className="sr-only"
-          >
-            Status Update
-          </h2>
           <div
-            className="status-update expand-wide is-processing"
+            className="app-inner inset-wide padding-bottom-none margin-top"
+          >
+            <h2
+              className="sr-only"
+            >
+              Status Update
+            </h2>
+            <div
+              className="status-update expand-wide is-processing"
+            >
+              <h3
+                className="status-update_title"
+              >
+                Update Status
+              </h3>
+              <div
+                className="status-update_action"
+              >
+                <button
+                  aria-expanded="false"
+                  className="button dropdown-button has-icon--right text-align-left small is-processing"
+                  href="#"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="ui-icon ui-small"
+                  >
+                    <svg>
+                      <use
+                        xlinkHref="#i-arrow-down"
+                      />
+                    </svg>
+                  </span>
+                  Processing
+                </button>
+              </div>
+              <div
+                className="status-update_message"
+              >
+                <div
+                  className="status-update_comment"
+                >
+                  <p
+                    className="status-update_note"
+                  >
+                    Some comment
+                  </p>
+                  <span
+                    className="status-update_date"
+                  >
+                    03/12/18 
+                  </span>
+                </div>
+                <div
+                  className="status-update_footer"
+                >
+                  <button
+                    className="button tiny tertiary"
+                    data-event=""
+                    type="button"
+                  >
+                    Add a comment
+                  </button>
+                  <a
+                    className="t-small right"
+                    href="/see_status_history"
+                  >
+                    See Status History
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Current Contact Information
+            </h2>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Lease Information
+            </h2>
+          </div>
+          <div
+            className="app-inner subheader-wide"
           >
             <h3
-              className="status-update_title"
+              className="app-card_h3 t-sans"
             >
-              Update Status
+              Demographics
             </h3>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
             <div
-              className="status-update_action"
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Number of Dependents
+                  </label>
+                  <select
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      0
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={2}
+                    >
+                      1
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={3}
+                    >
+                      2
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={4}
+                    >
+                      3
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={5}
+                    >
+                      4
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={6}
+                    >
+                      5
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={7}
+                    >
+                      6
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={8}
+                    >
+                      7
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={9}
+                    >
+                      8
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={10}
+                    >
+                      9
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Primary Applicant Marital Status
+                  </label>
+                  <select
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      Single
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={2}
+                    >
+                      Married
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={3}
+                    >
+                      Domestic Partner
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner subheader-wide"
+          >
+            <h3
+              className="app-card_h3 t-sans"
+            >
+              Status History
+            </h3>
+          </div>
+          <div
+            className="app-inner inset-wide"
+          >
+            <div
+              className="status-list"
+            >
+              <ul>
+                <li
+                  className="status-list_item"
+                >
+                  <div
+                    className="status-list_tag is-approved"
+                  >
+                    Approved
+                  </div>
+                  <div
+                    className="status-list_comment"
+                  >
+                    <p
+                      className="status-list_note"
+                    >
+                      xxxx1
+                    </p>
+                    <span
+                      className="status-list_date"
+                    >
+                      <div>
+                        5/10/18
+                      </div>
+                    </span>
+                  </div>
+                </li>
+                <li
+                  className="status-list_item"
+                >
+                  <div
+                    className="status-list_tag is-pending"
+                  >
+                    Pending
+                  </div>
+                  <div
+                    className="status-list_comment"
+                  >
+                    <p
+                      className="status-list_note"
+                    >
+                      xxxx2
+                    </p>
+                    <span
+                      className="status-list_date"
+                    >
+                      <div>
+                        5/10/18
+                      </div>
+                    </span>
+                  </div>
+                </li>
+              </ul>
+              <div
+                className="status-list_footer"
+              >
+                <button
+                  className="button tertiary tiny margin-bottom-none"
+                  data-event=""
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Add a comment
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="padding-bottom--2x margin-bottom--2x"
+          />
+          <div
+            className="button-pager"
+          >
+            <div
+              className="button-pager_row align-buttons-left primary inset-wide"
             >
               <button
                 aria-expanded="false"
-                className="button dropdown-button has-icon--right text-align-left small is-processing"
+                className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
+                disabled={false}
                 href="#"
               >
                 <span
@@ -142,373 +454,65 @@ Array [
                     />
                   </svg>
                 </span>
-                Processing
+                Approved
               </button>
-            </div>
-            <div
-              className="status-update_message"
-            >
-              <div
-                className="status-update_comment"
-              >
-                <p
-                  className="status-update_note"
-                >
-                  Some comment
-                </p>
-                <span
-                  className="status-update_date"
-                >
-                  03/12/18 
-                </span>
-              </div>
-              <div
-                className="status-update_footer"
-              >
-                <button
-                  className="button tiny tertiary"
-                  data-event=""
-                  type="button"
-                >
-                  Add a comment
-                </button>
-                <a
-                  className="t-small right"
-                  href="/see_status_history"
-                >
-                  See Status History
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Current Contact Information
-          </h2>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Lease Information
-          </h2>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Demographics
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Number of Dependents
-                </label>
-                <select
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  value={0}
-                >
-                  <option
-                    disabled={true}
-                    value={0}
-                  >
-                    Select One
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={1}
-                  >
-                    0
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={2}
-                  >
-                    1
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={3}
-                  >
-                    2
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={4}
-                  >
-                    3
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={5}
-                  >
-                    4
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={6}
-                  >
-                    5
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={7}
-                  >
-                    6
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={8}
-                  >
-                    7
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={9}
-                  >
-                    8
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={10}
-                  >
-                    9
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Primary Applicant Marital Status
-                </label>
-                <select
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  value={0}
-                >
-                  <option
-                    disabled={true}
-                    value={0}
-                  >
-                    Select One
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={1}
-                  >
-                    Single
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={2}
-                  >
-                    Married
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={3}
-                  >
-                    Domestic Partner
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Status History
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide"
-        >
-          <div
-            className="status-list"
-          >
-            <ul>
-              <li
-                className="status-list_item"
-              >
-                <div
-                  className="status-list_tag is-approved"
-                >
-                  Approved
-                </div>
-                <div
-                  className="status-list_comment"
-                >
-                  <p
-                    className="status-list_note"
-                  >
-                    xxxx1
-                  </p>
-                  <span
-                    className="status-list_date"
-                  >
-                    <div>
-                      5/10/18
-                    </div>
-                  </span>
-                </div>
-              </li>
-              <li
-                className="status-list_item"
-              >
-                <div
-                  className="status-list_tag is-pending"
-                >
-                  Pending
-                </div>
-                <div
-                  className="status-list_comment"
-                >
-                  <p
-                    className="status-list_note"
-                  >
-                    xxxx2
-                  </p>
-                  <span
-                    className="status-list_date"
-                  >
-                    <div>
-                      5/10/18
-                    </div>
-                  </span>
-                </div>
-              </li>
-            </ul>
-            <div
-              className="status-list_footer"
-            >
-              <button
-                className="button tertiary tiny margin-bottom-none"
-                data-event=""
-                onClick={[Function]}
-                type="button"
-              >
-                Add a comment
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          className="padding-bottom--2x margin-bottom--2x"
-        />
-        <div
-          className="button-pager"
-        >
-          <div
-            className="button-pager_row align-buttons-left primary inset-wide"
-          >
-            <button
-              aria-expanded="false"
-              className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
-              disabled={false}
-              href="#"
-            >
-              <span
+              <ul
+                aria-activedescendant=""
                 aria-hidden="true"
-                className="ui-icon ui-small"
-              >
-                <svg>
-                  <use
-                    xlinkHref="#i-arrow-down"
-                  />
-                </svg>
-              </span>
-              Approved
-            </button>
-            <ul
-              aria-activedescendant=""
-              aria-hidden="true"
-              className="dropdown-menu"
-              role="listbox"
-              style={
-                Object {
-                  "display": "none",
+                className="dropdown-menu"
+                role="listbox"
+                style={
+                  Object {
+                    "display": "none",
+                  }
                 }
-              }
-              tabIndex="-1"
-            >
-              <li
-                aria-selected="false"
-                className="dropdown-menu_item"
-                role="option"
+                tabIndex="-1"
               >
-                <a
-                  href="#"
+                <li
+                  aria-selected="false"
+                  className="dropdown-menu_item"
+                  role="option"
                 >
-                  This is a link
-                </a>
-              </li>
-              <li
-                aria-selected="false"
-                className="dropdown-menu_item"
-                role="option"
+                  <a
+                    href="#"
+                  >
+                    This is a link
+                  </a>
+                </li>
+                <li
+                  aria-selected="false"
+                  className="dropdown-menu_item"
+                  role="option"
+                >
+                  <a
+                    href="#"
+                  >
+                    This is another
+                  </a>
+                </li>
+                <li
+                  aria-selected="true"
+                  className="dropdown-menu_item is-selected"
+                  role="option"
+                >
+                  <a
+                    href="#"
+                  >
+                    Yet another
+                  </a>
+                </li>
+              </ul>
+              <button
+                className="button primary small"
+                disabled={false}
+                type="submit"
               >
-                <a
-                  href="#"
-                >
-                  This is another
-                </a>
-              </li>
-              <li
-                aria-selected="true"
-                className="dropdown-menu_item is-selected"
-                role="option"
-              >
-                <a
-                  href="#"
-                >
-                  Yet another
-                </a>
-              </li>
-            </ul>
-            <button
-              className="button primary small"
-              disabled={false}
-              type="submit"
-            >
-              Save
-            </button>
+                Save
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </section>,
 ]
@@ -614,36 +618,267 @@ Array [
     <div
       className="app-card form-card tabs-card max-width expand-on-small"
     >
-      <form
-        onSubmit={[Function]}
-        style={
-          Object {
-            "margin": "0px",
-          }
-        }
+      <div
+        className="loading-panel"
       >
-        <div
-          className="app-inner inset-wide padding-bottom-none margin-top"
+        <form
+          onSubmit={[Function]}
+          style={
+            Object {
+              "margin": "0px",
+            }
+          }
         >
-          <h2
-            className="sr-only"
-          >
-            Status Update
-          </h2>
           <div
-            className="status-update expand-wide is-processing"
+            className="app-inner inset-wide padding-bottom-none margin-top"
+          >
+            <h2
+              className="sr-only"
+            >
+              Status Update
+            </h2>
+            <div
+              className="status-update expand-wide is-processing"
+            >
+              <h3
+                className="status-update_title"
+              >
+                Update Status
+              </h3>
+              <div
+                className="status-update_action"
+              >
+                <button
+                  aria-expanded="false"
+                  className="button dropdown-button has-icon--right text-align-left small is-processing"
+                  href="#"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="ui-icon ui-small"
+                  >
+                    <svg>
+                      <use
+                        xlinkHref="#i-arrow-down"
+                      />
+                    </svg>
+                  </span>
+                  Processing
+                </button>
+              </div>
+              <div
+                className="status-update_message"
+              >
+                <div
+                  className="status-update_comment"
+                >
+                  <p
+                    className="status-update_note"
+                  >
+                    Some comment
+                  </p>
+                  <span
+                    className="status-update_date"
+                  >
+                    03/12/18 
+                  </span>
+                </div>
+                <div
+                  className="status-update_footer"
+                >
+                  <button
+                    className="button tiny tertiary"
+                    data-event=""
+                    type="button"
+                  >
+                    Add a comment
+                  </button>
+                  <a
+                    className="t-small right"
+                    href="/see_status_history"
+                  >
+                    See Status History
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Current Contact Information
+            </h2>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Lease Information
+            </h2>
+          </div>
+          <div
+            className="app-inner subheader-wide"
           >
             <h3
-              className="status-update_title"
+              className="app-card_h3 t-sans"
             >
-              Update Status
+              Demographics
             </h3>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
             <div
-              className="status-update_action"
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Number of Dependents
+                  </label>
+                  <select
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      0
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={2}
+                    >
+                      1
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={3}
+                    >
+                      2
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={4}
+                    >
+                      3
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={5}
+                    >
+                      4
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={6}
+                    >
+                      5
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={7}
+                    >
+                      6
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={8}
+                    >
+                      7
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={9}
+                    >
+                      8
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={10}
+                    >
+                      9
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Primary Applicant Marital Status
+                  </label>
+                  <select
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      Single
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={2}
+                    >
+                      Married
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={3}
+                    >
+                      Domestic Partner
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="padding-bottom--2x margin-bottom--2x"
+          />
+          <div
+            className="button-pager"
+          >
+            <div
+              className="button-pager_row align-buttons-left primary inset-wide"
             >
               <button
                 aria-expanded="false"
-                className="button dropdown-button has-icon--right text-align-left small is-processing"
+                className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
+                disabled={false}
                 href="#"
               >
                 <span
@@ -656,292 +891,65 @@ Array [
                     />
                   </svg>
                 </span>
-                Processing
+                Approved
+              </button>
+              <ul
+                aria-activedescendant=""
+                aria-hidden="true"
+                className="dropdown-menu"
+                role="listbox"
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                tabIndex="-1"
+              >
+                <li
+                  aria-selected="false"
+                  className="dropdown-menu_item"
+                  role="option"
+                >
+                  <a
+                    href="#"
+                  >
+                    This is a link
+                  </a>
+                </li>
+                <li
+                  aria-selected="false"
+                  className="dropdown-menu_item"
+                  role="option"
+                >
+                  <a
+                    href="#"
+                  >
+                    This is another
+                  </a>
+                </li>
+                <li
+                  aria-selected="true"
+                  className="dropdown-menu_item is-selected"
+                  role="option"
+                >
+                  <a
+                    href="#"
+                  >
+                    Yet another
+                  </a>
+                </li>
+              </ul>
+              <button
+                className="button primary small"
+                disabled={false}
+                type="submit"
+              >
+                Save
               </button>
             </div>
-            <div
-              className="status-update_message"
-            >
-              <div
-                className="status-update_comment"
-              >
-                <p
-                  className="status-update_note"
-                >
-                  Some comment
-                </p>
-                <span
-                  className="status-update_date"
-                >
-                  03/12/18 
-                </span>
-              </div>
-              <div
-                className="status-update_footer"
-              >
-                <button
-                  className="button tiny tertiary"
-                  data-event=""
-                  type="button"
-                >
-                  Add a comment
-                </button>
-                <a
-                  className="t-small right"
-                  href="/see_status_history"
-                >
-                  See Status History
-                </a>
-              </div>
-            </div>
           </div>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Current Contact Information
-          </h2>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Lease Information
-          </h2>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Demographics
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Number of Dependents
-                </label>
-                <select
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  value={0}
-                >
-                  <option
-                    disabled={true}
-                    value={0}
-                  >
-                    Select One
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={1}
-                  >
-                    0
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={2}
-                  >
-                    1
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={3}
-                  >
-                    2
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={4}
-                  >
-                    3
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={5}
-                  >
-                    4
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={6}
-                  >
-                    5
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={7}
-                  >
-                    6
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={8}
-                  >
-                    7
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={9}
-                  >
-                    8
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={10}
-                  >
-                    9
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Primary Applicant Marital Status
-                </label>
-                <select
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  value={0}
-                >
-                  <option
-                    disabled={true}
-                    value={0}
-                  >
-                    Select One
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={1}
-                  >
-                    Single
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={2}
-                  >
-                    Married
-                  </option>
-                  <option
-                    disabled={undefined}
-                    value={3}
-                  >
-                    Domestic Partner
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="padding-bottom--2x margin-bottom--2x"
-        />
-        <div
-          className="button-pager"
-        >
-          <div
-            className="button-pager_row align-buttons-left primary inset-wide"
-          >
-            <button
-              aria-expanded="false"
-              className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
-              disabled={false}
-              href="#"
-            >
-              <span
-                aria-hidden="true"
-                className="ui-icon ui-small"
-              >
-                <svg>
-                  <use
-                    xlinkHref="#i-arrow-down"
-                  />
-                </svg>
-              </span>
-              Approved
-            </button>
-            <ul
-              aria-activedescendant=""
-              aria-hidden="true"
-              className="dropdown-menu"
-              role="listbox"
-              style={
-                Object {
-                  "display": "none",
-                }
-              }
-              tabIndex="-1"
-            >
-              <li
-                aria-selected="false"
-                className="dropdown-menu_item"
-                role="option"
-              >
-                <a
-                  href="#"
-                >
-                  This is a link
-                </a>
-              </li>
-              <li
-                aria-selected="false"
-                className="dropdown-menu_item"
-                role="option"
-              >
-                <a
-                  href="#"
-                >
-                  This is another
-                </a>
-              </li>
-              <li
-                aria-selected="true"
-                className="dropdown-menu_item is-selected"
-                role="option"
-              >
-                <a
-                  href="#"
-                >
-                  Yet another
-                </a>
-              </li>
-            </ul>
-            <button
-              className="button primary small"
-              disabled={false}
-              type="submit"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </section>,
 ]
