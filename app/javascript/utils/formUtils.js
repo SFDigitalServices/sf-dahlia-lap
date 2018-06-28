@@ -6,6 +6,7 @@ const toOption = (item) =>  {
   else
     return { value: item, label: item }
 }
+
 const toOptions = (items) => {
   return items.map(toOption)
 }
