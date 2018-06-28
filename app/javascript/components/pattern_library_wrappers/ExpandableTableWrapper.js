@@ -3,45 +3,29 @@ import React from 'react'
 import ExpandableTable from '../molecules/ExpandableTable'
 
 class ExpandableTableWrapper extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      rows: this.props.rows
-    }
-  }
-
-  expanderRenderer = (row, i, expandedRowToggler) => {
+  expanderRenderer = (row, expandedRowToggler) => {
     if (row.expanded) return
 
-    return <button className="button button-link action-link" onClick={(e) => expandedRowToggler(i, 'expand')}>Expand</button>
+    return <button className="button button-link action-link" onClick={(e) => expandedRowToggler()}>Expand</button>
   }
 
-  expandedRowRenderer = (row, i, expandedRowToggler) => (
+  expandedRowRenderer = (row, expandedRowToggler) => (
     <div className="app-editable expand-wide scrollable-table-nested">
       <div>Hello</div>
       <br/>
-      <button className="button" onClick={(e) => (expandedRowToggler(i, 'close'))}>Close</button>
+      <button className="button" onClick={(e) => (expandedRowToggler())}>Close</button>
     </div>
   )
 
-  toggleExpandedRow = (i, expansionState) => {
-    this.setState((prevState) => {
-      var updatedRows = prevState.rows.slice()
-      updatedRows[i].expanded = expansionState === 'expand' ? true : false
-      return {
-        rows: updatedRows
-      }
-    })
-  }
-
   render() {
+    const { columns, rows } = this.props
+
     return (
       <ExpandableTable
-        columns={this.props.columns}
-        rows={this.state.rows}
+        columns={columns}
+        rows={rows}
         expanderRenderer={this.expanderRenderer}
-        expandedRowRenderer={this.expandedRowRenderer}
-        expandedRowToggler={this.toggleExpandedRow} />
+        expandedRowRenderer={this.expandedRowRenderer} />
     )
   }
 }
