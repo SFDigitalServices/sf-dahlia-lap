@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import { startCase } from 'lodash'
 
 import Alert from '../organisms/Alert'
-import stringUtils from '~/utils/stringUtils'
 
 const styleTypes = {
   small: {
@@ -61,7 +61,7 @@ Modal.Body = ({ children, handleClose, hidden }) => (
 
 Modal.Header = ({ title }) => (
   <header className="modal-inner margin-top">
-    <h1 className="modal-title t-gamma no-margin">{stringUtils.titleize(title)}</h1>
+    <h1 className="modal-title t-gamma no-margin">{startCase(title)}</h1>
   </header>
 )
 
