@@ -85,7 +85,6 @@ class SupplementalApplicationContainer extends React.Component {
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
-              <p>{formApi.values.has_military_service}</p>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
               <ConfirmedHoushold />

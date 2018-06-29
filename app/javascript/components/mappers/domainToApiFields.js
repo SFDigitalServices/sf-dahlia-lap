@@ -1,4 +1,20 @@
+import { toPairs, filter, map, join, compact } from 'lodash'
 import { shapeMapper, listMapper } from '~/utils/objectUtils'
+
+const checkListToString = (list) => {
+  return join(compact(list),';')
+}
+
+const adaPrioritiesMapValues = {
+  'vision_impaired': 'Vision Impaired',
+  'mobility_impaired': 'Mobility Impaired',
+  'hearing_impaired': 'Hearing Impaired'
+}
+
+const mapAdaPrioritiesMap = (list) => {
+  const selectedPriorities = filter(toPairs(list), ([a, b]) => b)
+  return map(selectedPriorities, ([a, b]) => adaPrioritiesMapValues[a])
+}
 
 export const applicantFieldMapper = {
   date_of_birth: 'DOB',
@@ -44,7 +60,8 @@ export const applicationFieldMapper = {
   annual_income: 'annualIncome',
   housing_voucher_or_subsidy: 'householdVouchersSubsidies',
   terms_acknowledged: 'agreeToTerms',
-  number_of_dependents: 'numberOfDependents'
+  number_of_dependents: 'numberOfDependents',
+  adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected))
 }
 
 export const householdMembersFieldMapper = {
