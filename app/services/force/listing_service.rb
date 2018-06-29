@@ -3,7 +3,7 @@ module Force
   class ListingService < Force::Base
     # FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['listings'].freeze
     FIELD_NAME = :listings
-    FIELDS = load_fields(FIELD_NAME).freeze
+    # FIELDS = load_fields(FIELD_NAME).freeze
 
     def listings
       parsed_index_query(%(

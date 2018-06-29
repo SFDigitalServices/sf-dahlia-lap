@@ -37,7 +37,6 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
 }
 
 const mapProperties = ({application, statusHistory}) => {
-  console.log(application)
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
