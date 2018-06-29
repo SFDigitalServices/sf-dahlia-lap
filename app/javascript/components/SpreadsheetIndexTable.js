@@ -122,7 +122,6 @@ class SpreadsheetIndexTable extends React.Component {
     }
 
     const flaggedApplicationRow = (row) => {
-      console.log(row.original)
       // let lotteryStatus = row.original['Flagged_Record_Set.Listing.Lottery_Status']
       let lotteryStatus = row.original.flagged_record.listing.lottery_status
       let viewApplicationLink = (
