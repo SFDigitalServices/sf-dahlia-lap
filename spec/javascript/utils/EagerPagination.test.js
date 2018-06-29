@@ -4,8 +4,7 @@ import { each, range} from 'lodash'
 describe('EagerPagination', () => {
   describe('getServerPageForEagerPage', () => {
     test('it should return the right server page for the eager page', () => {
-      const fetchPage = (page) => range(100)
-      const eagerPagination = new EagerPagination(20, 100, fetchPage)
+      const eagerPagination = new EagerPagination(20, 100)
 
       each(range(0,5), (v) => {
         expect(eagerPagination.getServerPageForEagerPage(v)).toEqual(0)
@@ -28,21 +27,20 @@ describe('EagerPagination', () => {
         return mockFetchPage(page)
       }
 
-      const eagerPagination = new EagerPagination(5, 20, fetchData)
-      // const pages = await Promise.all(map(range(1,10), (p) => eagerPagination.getPage(p)))
+      const eagerPagination = new EagerPagination(5, 20)
 
       let pages = []
-      pages.push(await eagerPagination.getPage(0))
-      pages.push(await eagerPagination.getPage(1))
-      pages.push(await eagerPagination.getPage(2))
-      pages.push(await eagerPagination.getPage(3))
-      pages.push(await eagerPagination.getPage(4))
-      pages.push(await eagerPagination.getPage(5))
-      pages.push(await eagerPagination.getPage(6))
-      pages.push(await eagerPagination.getPage(7))
-      pages.push(await eagerPagination.getPage(8))
-      pages.push(await eagerPagination.getPage(9))
-      pages.push(await eagerPagination.getPage(10))
+      pages.push(await eagerPagination.getPage(0, fetchData))
+      pages.push(await eagerPagination.getPage(1, fetchData))
+      pages.push(await eagerPagination.getPage(2, fetchData))
+      pages.push(await eagerPagination.getPage(3, fetchData))
+      pages.push(await eagerPagination.getPage(4, fetchData))
+      pages.push(await eagerPagination.getPage(5, fetchData))
+      pages.push(await eagerPagination.getPage(6, fetchData))
+      pages.push(await eagerPagination.getPage(7, fetchData))
+      pages.push(await eagerPagination.getPage(8, fetchData))
+      pages.push(await eagerPagination.getPage(9, fetchData))
+      pages.push(await eagerPagination.getPage(10, fetchData))
 
       expect(mockFetchPage.mock.calls.length).toBe(3);
       expect(mockFetchPage.mock.calls[0][0]).toBe(0);

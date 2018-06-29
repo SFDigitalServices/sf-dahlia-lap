@@ -37,9 +37,6 @@ const submitApplication = async (data) => {
 }
 
 const fetchApplications = async ({ page, filters }) => {
-  console.log('api fetch')
-  console.log(page)
-  console.log(filters)
   return apiCall('get', '/applications', {
     params: {
       page,

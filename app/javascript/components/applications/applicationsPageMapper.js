@@ -43,11 +43,9 @@ const mapListingsOptions = (value) => {
 }
 
 const mapProperties = ({ listings }) => {
-  // console.log(listings)
   return {
     onFetchData: onFetchData,
     listings: map(listings, mapListingsOptions)
-    // applications: applications.map(mapApplication)
   }
 }
 
