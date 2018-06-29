@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore package-lock.json - use yarn.lock instead
+/package-lock.json
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

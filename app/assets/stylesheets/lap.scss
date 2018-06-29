@@ -3,12 +3,6 @@
   .name-logo a {
     background: url(logo.png) no-repeat;
   }
-
-  .top-bar-section {
-    @media screen and (min-width: 75rem) {
-      float: none;
-    }
-  }
 }
 
 .segmented-radios {
