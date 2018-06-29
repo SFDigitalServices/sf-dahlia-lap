@@ -1,3 +1,4 @@
+import { split, snakeCase, fromPairs } from 'lodash'
 import { mapShape, mapList } from '../utils'
 import { mapApplicationMember } from './application_member'
 import { mapFlaggedApplication } from './flagged_application'
@@ -5,6 +6,9 @@ import { mapUser } from './user'
 import { mapListing } from './listing'
 import { mapApplicationPreference } from './application_preference'
 import { mapAttachment } from './attachment'
+
+const parseList = text => split(text, ';')
+const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {
   return {
@@ -36,7 +40,7 @@ export const mapApplication = (a) => {
     answered_community_screening: a.Answered_Community_Screening,
     has_military_service: a.Has_Military_Service,
     has_developmentaldisability: a.Has_DevelopmentalDisability,
-    has_ada_priorities_selected: a.Has_ADA_Priorities_Selected,
+    has_ada_priorities_selected: toChecklist(parseList(a.Has_ADA_Priorities_Selected)),
     terms_acknowledged: a.Terms_Acknowledged,
     number_of_dependents: a.Number_of_Dependents,
     processing_status: a.Processing_Status,

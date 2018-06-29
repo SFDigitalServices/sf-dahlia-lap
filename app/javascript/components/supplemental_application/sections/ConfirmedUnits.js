@@ -24,6 +24,15 @@ const YesNoRadioGroup = ({field}) => {
   )
 }
 
+const CheckboxBlock = ({ id, field, label }) => (
+  <div className="checkbox-block">
+    <Checkbox id={id || field} field={field} />
+    <label className="checkbox-block_label" htmlFor={id || field}>
+      {label}
+    </label>
+  </div>
+)
+
 const ConfirmedUnits = () => {
   return (
     <FormGrid.Row paddingBottom>
@@ -45,18 +54,15 @@ const ConfirmedUnits = () => {
       <FormGrid.Item>
         <FormGrid.Group label="Household ADA Priorities">
           <div className="checkbox-group form-checkbox-item" role="group">
-            <div className="checkbox-block">
-              <Checkbox id="preferences-displaced" field="household_ada_priorities.displaced_tenants_preference"/>
-              <label className="checkbox-block_label" htmlFor="preferences-displaced">
-                Displaced Tenants Preference
-              </label>
-            </div>
-            <div className="checkbox-block">
-              <Checkbox id="preferences-cop" field="household_ada_priorities.certificate_of_preferences"/>
-              <label className="checkbox-block_label" htmlFor="preferences-cop">
-                Certificate of Preference
-              </label>
-            </div>
+            <CheckboxBlock
+              field="has_ada_priorities_selected.mobility_impaired"
+              label="Mobility Impaired"/>
+            <CheckboxBlock
+              field="has_ada_priorities_selected.vision_impaired"
+              label="Vision Impaired"/>
+            <CheckboxBlock
+              field="has_ada_priorities_selected.hearing_impaired"
+              label="Hearing Impaired"/>
           </div>
         </FormGrid.Group>
       </FormGrid.Item>
