@@ -10,6 +10,10 @@ module Force
       @api = Force::Api.new(@client)
     end
 
+    def revoke_token
+      @client.get("/services/oauth2/revoke?token=#{@client.options[:oauth_token]}")
+    end
+
     # cache a Salesforce SOQL query
     # NOTE: because we are also performing updates, we can either:
     # -- clear cache upon update

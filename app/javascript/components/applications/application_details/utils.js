@@ -1,4 +1,4 @@
-import { each , startCase, upperFirst, isPlainObject, includes, last, replace } from 'lodash'
+import { each , startCase, isPlainObject, includes, last, replace } from 'lodash'
 import utils from '~/utils/utils'
 
 const cleanupWords = (value) => {
@@ -13,9 +13,6 @@ const cleanupWords = (value) => {
     ['Ada', 'ADA'],
     [' To ', ' to '],
     ['Claimed', 'claimed'],
-    ['Proof', 'proof'],
-    ['Proof', 'proof'],
-    ['Proof', 'proof'],
   ], ([a, b]) => {
     value = replace(value, a, b)
   })

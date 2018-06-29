@@ -3,6 +3,7 @@ import { Form } from 'react-form';
 import { isEmpty } from 'lodash'
 
 import ContentSection from '../molecules/ContentSection'
+import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
@@ -80,6 +81,7 @@ class SupplementalApplicationContainer extends React.Component {
     console.log(application)
     // application.confirmedUnits = null
     return (
+      <Loading isLoading={loading}>
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
@@ -93,6 +95,7 @@ class SupplementalApplicationContainer extends React.Component {
             </form>
           )}
         </Form>
+      </Loading>
     )
   }
 }
