@@ -25,6 +25,7 @@ export const applicationFieldMapper = {
   housing_voucher_or_subsidy: 'householdVouchersSubsidies',
   terms_acknowledged: 'agreeToTerms',
   number_of_dependents: 'numberOfDependents',
+  reserved_senior: 'hasSenior',
   adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected))
 }
 

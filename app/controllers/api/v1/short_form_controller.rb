@@ -37,6 +37,7 @@ class Api::V1::ShortFormController < ApiController
             :status,
             :numberOfDependents,
             :formMetadata,
+            :hasSenior,
             {
               primaryApplicant: %i[
                 contactId
