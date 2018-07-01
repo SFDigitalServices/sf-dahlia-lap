@@ -9,13 +9,13 @@ const YesNoRadioGroup = ({field}) => {
       <RadioGroup field={field}>
         {(group) => (
           <React.Fragment>
-            <p class="radio-inline">
+            <p className="radio-inline">
               <Radio group={group} value={`Yes`} id={`${field}-yes`}/>
-              <label class="radio-inline_label" htmlFor={`${field}-yes`}>Yes</label>
+              <label className="radio-inline_label" htmlFor={`${field}-yes`}>Yes</label>
             </p>
-            <p class="radio-inline">
+            <p className="radio-inline">
               <Radio group={group} value={`No`} id={`${field}-no`}/>
-              <label class="radio-inline_label" htmlFor={`${field}-no`}>No</label>
+              <label className="radio-inline_label" htmlFor={`${field}-no`}>No</label>
             </p>
           </React.Fragment>
         )}
