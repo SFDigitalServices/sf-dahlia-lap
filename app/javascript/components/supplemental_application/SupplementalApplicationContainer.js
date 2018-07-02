@@ -67,8 +67,6 @@ class SupplementalApplicationContainer extends React.Component {
 
   handleOnSubmit = (value) => {
     this.setState({loading: true})
-    console.log('fields')
-    console.log(value)
     this.props.onSubmit(value).then(() => {
       this.setState({loading: false})
     })
@@ -78,8 +76,6 @@ class SupplementalApplicationContainer extends React.Component {
     const { statusHistory, application } = this.props
     const { loading } = this.state
 
-    console.log(application)
-    // application.confirmedUnits = null
     return (
       <Loading isLoading={loading}>
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>

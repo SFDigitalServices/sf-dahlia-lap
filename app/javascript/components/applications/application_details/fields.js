@@ -1,3 +1,6 @@
+import { keys, map, join} from 'lodash'
+import formOptions from '../application_form/formOptions'
+
 export const applicationDataFields = [
   'lottery_number',
   'application_submission_type',
@@ -7,7 +10,7 @@ export const applicationDataFields = [
   'total_monthly_rent',
   'status',
   'referral_source',
-  'createdby.name'
+  { field: 'createdby.name', label: 'Created By' }
 ]
 
 export const primaryApplicantFields = [
@@ -41,10 +44,20 @@ export const householdMembersFields = [
   'zip_code'
 ]
 
+// const adaPriorityValueToLabelMap = {
+//   mobility_impaired: 'Mobility impaired',
+//   vision_impaired: 'Vision impaired',
+//   hearing_impaired: 'Hearing impaired'
+// }
+
+const adaPrioritiesToString = (list) => {
+  return join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]),';')
+}
+
 export const reservedAndPriorityFields = [
   'has_military_service',
-  'has_developmentaldisability',
-  'has_ada_priorities_selected',
+  { field: 'has_developmentaldisability', label: 'Has Developmental Disability' },
+  { field: 'has_ada_priorities_selected', value: (v) => adaPrioritiesToString(v) },
   'answered_community_screening'
 ]
 

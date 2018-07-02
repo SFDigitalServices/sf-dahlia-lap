@@ -6,7 +6,7 @@ const FormGrid = {}
 
 FormGrid.Row = ({children, paddingBottom}) => {
   const divClassNames = classNames(
-    'form-gird',
+    'form-grid',
     'row',
     'expand',
     {
