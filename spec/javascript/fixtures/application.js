@@ -108,7 +108,9 @@ const application = {
       "State": null,
       "Zip_Code": null,
       "Street": null,
-      "RecordType.DeveloperName": "AG"
+      "RecordType": {
+        "DeveloperName": "AG"
+      }
     }
   ],
   "proof_files": [
@@ -131,7 +133,7 @@ const application = {
     }
   ],
   "flagged_applications": [
-    
+
   ]
 }
 // { 'Flagged_Record_Set': { Id:1, Rule_Name: 'record1', 'Total_Number_of_Pending_Review': 1 }, 'View Record Set': true },

@@ -1,11 +1,11 @@
 import React from 'react'
 import { map } from 'lodash'
-import { buildFieldSpecs, buildFieldEntry } from './fieldSpecs'
+import { buildFieldSpecs, buildFieldEntry } from '~/utils/fieldSpecs'
 
 const getRow = (row, entries) => map(entries, (entry, idx) => (
   <td key={idx}>
     {entry.value}
-  </td>
+  </td> 
 ))
 
 const getRows = (items, fieldSpecs) => map(items, (row, idx) => {
@@ -24,9 +24,9 @@ const getColums = (entries) => map(entries, (entry, idx) => {
 
 const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
   const fieldSpecs = map(fields, buildFieldSpecs)
-
   const columns = getColums(fieldSpecs)
   const rows = getRows(listing[table], fieldSpecs)
+
   return (
     <div className="content-card">
       <h4 className="content-card_title t-serif">{title}</h4>
