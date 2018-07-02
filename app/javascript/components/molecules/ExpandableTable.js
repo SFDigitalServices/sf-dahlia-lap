@@ -3,39 +3,33 @@ import React, { Fragment } from 'react'
 class ExpandableTableRow extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {row: this.props.row}
+    this.state = {expanded: false}
   }
 
   toggleExpandedRow = () => {
     this.setState((prevState) => {
-      return {
-        row: {
-          ...prevState.row,
-          expanded: !prevState.row.expanded
-        }
-      }
+      return {expanded: !prevState.expanded}
     })
   }
 
   render() {
-    const { numColumns, expanderRenderer, expandedRowRenderer } = this.props
-    const { row } = this.state
+    const { row, numColumns, expanderRenderer, expandedRowRenderer } = this.props
 
     return (
       <Fragment>
-        <tr className="tr-expand" aria-expanded={row.expanded}>
-          {row.data.map((datum, j) => (
+        <tr className="tr-expand" aria-expanded={this.state.expanded}>
+          {row.map((datum, j) => (
             <td key={j}>
               {datum}
             </td>
           ))}
           <td key="expander">
-            {expanderRenderer(row, this.toggleExpandedRow)}
+            {expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
           </td>
         </tr>
-        <tr className="tr-expand-content" aria-hidden={!row.expanded}>
+        <tr className="tr-expand-content" aria-hidden={!this.state.expanded}>
           <td colSpan={numColumns} className="td-expand-nested no-padding">
-             {expandedRowRenderer(row, this.toggleExpandedRow)}
+            {expandedRowRenderer(row, this.toggleExpandedRow)}
           </td>
         </tr>
       </Fragment>

@@ -10,26 +10,20 @@ columns:
 
 rows:
   -
-    expanded: false
-    data:
-      - Displaced Tenant Housing Preference
-      - Jason Holmes
-      - 12
-      - ""
-      - Confirmed
+    - Displaced Tenant Housing Preference
+    - Jason Holmes
+    - 12
+    - ""
+    - Confirmed
   -
-    expanded: true
-    data:
-      - Neighborhood Resident Housing Preference
-      - Jason Holmes
-      - 25
-      - Cable Bill
-      - Invalid
+    - Neighborhood Resident Housing Preference
+    - Jason Holmes
+    - 25
+    - Cable Bill
+    - Invalid
   -
-    expanded: false
-    data:
-      - Live or Work Housing Preference
-      - Jason Holmes
-      - 112
-      - Cable Bill
-      - Unconfirmed
+    - Live or Work Housing Preference
+    - Jason Holmes
+    - 112
+    - Cable Bill
+    - Unconfirmed

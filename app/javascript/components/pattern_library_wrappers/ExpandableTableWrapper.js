@@ -3,8 +3,8 @@ import React from 'react'
 import ExpandableTable from '../molecules/ExpandableTable'
 
 class ExpandableTableWrapper extends React.Component {
-  expanderRenderer = (row, expandedRowToggler) => {
-    if (row.expanded) return
+  expanderRenderer = (row, expanded, expandedRowToggler) => {
+    if (expanded) return
 
     return <button className="button button-link action-link" onClick={(e) => expandedRowToggler()}>Expand</button>
   }
