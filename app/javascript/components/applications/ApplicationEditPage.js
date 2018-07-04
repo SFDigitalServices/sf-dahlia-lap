@@ -17,7 +17,6 @@ const ApplicationEditPageForm = ({ listing, application, editPage }) => {
 }
 
 const ApplicationEditPage = ({ listing, application, editPage }) => {
-  // console.log(application)
   const pageHeader = {
     title: 'Edit Application',
     content: `Application lottery number: ${application.lottery_number}. For listing: ${listing.name}`
