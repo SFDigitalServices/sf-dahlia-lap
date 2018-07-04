@@ -14,8 +14,6 @@ const PreferenceAdditionalOptions = ({i, householdMembers, listingPreferences, l
   const preference = find(listingPreferences, { id: listingPreferenceID })
   const propsFields = {i, householdMembers}
 
-  // console.log('preference', preference)
-
   if (preference) {
     switch (preference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
