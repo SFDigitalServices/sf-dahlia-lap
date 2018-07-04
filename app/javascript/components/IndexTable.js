@@ -145,7 +145,6 @@ class IndexTable extends React.Component {
             } else if (link === 'View Application') {
               href = `/applications/${originalId}`
             } else if (link === 'View Flagged Applications') {
-              // href = `/flagged_record_sets/${originalId}/flagged_applications`
               href = appPaths.toApplicationsFlagged(originalId)
             }
             if (href) {
