@@ -23,7 +23,6 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    console.log("submittedValues",submittedValues)
     const { listing, application, onSubmit } = this.props
     const { submitType } = this.state
 
@@ -33,11 +32,11 @@ class PaperApplicationForm extends React.Component {
       alert('There was an error on submit. Please check values and try again.')
     }
     this.setState({ loading: false })
-    // if (submitType === 'Save') {
-    //   window.location.href = '/applications/' + response.application.id
-    // } else {
-    //   window.location.href = '/listings/' + listing.id + '/applications/new'
-    // }
+    if (submitType === 'Save') {
+      window.location.href = '/applications/' + response.application.id
+    } else {
+      window.location.href = '/listings/' + listing.id + '/applications/new'
+    }
   }
 
   saveSubmitType = (type) => {
@@ -51,8 +50,6 @@ class PaperApplicationForm extends React.Component {
     if (application)
       autofillValues = domainToApi.mapApplication(application)
 
-    // console.log('application', application)
-    // console.log('autofillValues', autofillValues)
     return (
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>
