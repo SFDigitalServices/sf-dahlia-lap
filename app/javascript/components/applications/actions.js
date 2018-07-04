@@ -6,7 +6,7 @@ import domainToApi from '~/components/mappers/domainToApi'
 const { adaPriorityValueToLabelMap } = formOptions
 
 const assignDemographicData = (applicationData) => {
-  merge(applicationData.primaryApplicant, applicationData.demographics)
+  merge(applicationData.primary_applicant, applicationData.demographics)
   return applicationData
 }
 

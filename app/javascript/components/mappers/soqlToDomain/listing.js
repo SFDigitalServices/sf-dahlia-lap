@@ -62,7 +62,7 @@ export const mapListing = (l) => {
     application_postal_code: l.Application_Postal_Code,
     in_lottery: l.In_Lottery,
     leasing_agent_name: l.Leasing_Agent_Name,
-    Leasing_Agent_title: l.Leasing_Agent_Title,
+    leasing_Agent_title: l.Leasing_Agent_Title,
     leasing_agent_email: l.Leasing_Agent_Email,
     leasing_agent_phone: l.Leasing_Agent_Phone,
     legal_disclaimers: l.Legal_Disclaimers,

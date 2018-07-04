@@ -44,6 +44,8 @@ class PaperApplicationForm extends React.Component {
 
     // console.log(application)
 
+    console.log(listing)
+
     return (
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={application}>

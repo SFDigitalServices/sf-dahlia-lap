@@ -11,28 +11,29 @@ import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
 
 const PreferenceAdditionalOptions = ({i, householdMembers, listingPreferences, listingPreferenceID }) => {
-  let preference = find(listingPreferences, { id: listingPreferenceID })
+  const preference = find(listingPreferences, { id: listingPreferenceID })
+  const propsFields = {i, householdMembers}
 
-  const fieldProps = {i, householdMembers}
+  // console.log('preference', preference)
 
   if (preference) {
     switch (preference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
-        return <CertOfPreferenceFields {...fieldProps} />
+        return <CertOfPreferenceFields {...propsFields} />
       case 'Neighborhood Resident Housing Preference (NRHP)':
-        return <NeighborhoodResidentFields {...fieldProps} />
+        return <NeighborhoodResidentFields {...propsFields} />
       case 'Displaced Tenant Housing Preference (DTHP)':
-        return <DisplacedFields {...fieldProps} />
+        return <DisplacedFields {...propsFields} />
       case 'Live or Work in San Francisco Preference':
-        return <LiveWorkFields {...fieldProps} />
+        return <LiveWorkFields {...propsFields} />
       case 'Anti-Displacement Housing Preference (ADHP)':
-        return <AntiDisplacementFields {...fieldProps} />
+        return <AntiDisplacementFields {...propsFields} />
       case 'Rent Burdened / Assisted Housing Preference':
-        return <RentBurdenedAssistedHousingFields {...fieldProps} />
+        return <RentBurdenedAssistedHousingFields {...propsFields} />
       case 'Alice Griffith Housing Development Resident':
-        return <AliceGriffithFields {...fieldProps} />
+        return <AliceGriffithFields {...propsFields} />
       default:
-        return <DefaultPreferenceFields {...fieldProps} />
+        return <DefaultPreferenceFields {...propsFields}  />
     }
   } else {
     return null

@@ -12,18 +12,21 @@ const allPreferencesSelected = (formApi, listingPreferences) => {
 }
 
 const hasHouseholdMembers = (formApi) => {
-  let hasPrimaryApplicant = formApi.values.primary_applicant && formApi.values.primary_applicant.first_name
+  let hasPrimaryApplicant = formApi.values.applicant && formApi.values.applicant.first_name
   let hasHouseholdMembers = formApi.values.household_members && formApi.values.household_members.length
   return (hasHouseholdMembers || hasPrimaryApplicant)
 }
 
 const disableAddPreference = (formApi, listingPreferences) => {
-  return (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
+  const a = (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
+
+  // console.log('disabled', a)
+  return a
 }
 
 const getFullHousehold = (application) => {
-  const { household_members, primary_applicant } = application
-  const fullHousehold = concat([primary_applicant], household_members || [])
+  const { household_members, applicant } = application
+  const fullHousehold = concat([applicant], household_members || [])
   return  pickBy(fullHousehold, m => (
     // can only select someone for preference if they have name + DOB
     m && m.first_name && m.last_name && m.date_of_birth
@@ -31,6 +34,7 @@ const getFullHousehold = (application) => {
 }
 
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
+  console.log('listingPreferences', listingPreferences)
   // let autofillPreferences = []
   // if (editValues && editValues.preferences && !formApi.values.shortFormPreferences) {
   //   forEach(editValues.preferences, (preference) => {
@@ -43,8 +47,8 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
   //
   //   formApi.values.shortFormPreferences = autofillPreferences
   // }
-  console.log('formApi.values.preferences',formApi.values.preferences)
-  console.log('editValues.preferencess', editValues.preferences)
+  // console.log('formApi.values.preferences',formApi.values.preferences)
+  // console.log('editValues.preferencess', editValues.preferences)
   let autofillPreferences = []
   forEach(editValues.preferences, (preference) => {
     if (preference.application_member) {
@@ -65,7 +69,7 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
   const preferences = autofillPreferences
 
   // console.log(formApi.values.preferences)
-  console.log('preferences',preferences)
+  // console.log('preferences',preferences)
 
   return (
     <div className="border-bottom margin-bottom--2x">

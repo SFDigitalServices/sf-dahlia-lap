@@ -18,7 +18,7 @@ const setRecordTypeDevName = (i, formApi, matched) => {
 
 const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
   let selected = formApi.values.preferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.id === selected.listing_preference_id)
+  let matched = find(listingPreferences, pref => pref.id === selected.listingPreferenceID)
   setRecordTypeDevName(i, formApi, matched)
   return selected
 }
@@ -43,8 +43,8 @@ const buildListingPreferencesOptions = (preferencesNotSelected) => {
 const buildHouseholdMembersOptions = (fullHousehold) => {
   return map(fullHousehold, (member) => {
     return {
-      value: `${member.firstName},${member.lastName},${member.DOB}`,
-      label: `${member.firstName} ${member.lastName}`
+      value: `${member.first_name},${member.last_name},${member.date_of_birth}`,
+      label: `${member.first_name} ${member.last_name}`
     }
   })
 }
@@ -55,9 +55,6 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
 
   const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
-
-  // console.log('listingPreferences',listingPreferences)
-  // console.log('listingPreferencesOptions',listingPreferencesOptions)
 
   return (
       <Row>
