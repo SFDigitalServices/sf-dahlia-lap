@@ -22,10 +22,10 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
   //   formApi.values.primaryApplicant = autofillValues
   // }
 
-  formApi.values.primaryApplicant = editValues.applicant
+  // formApi.values.primaryApplicant = editValues.applicant
 
   return (
-    <NestedForm field="primaryApplicant">
+    <NestedForm field="applicant">
       <Form defaultValues={editValues.applicant}>
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
