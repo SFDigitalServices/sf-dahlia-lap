@@ -10,8 +10,6 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 
-// import domainToApi from '~/components/mappers/domainToApi'
-
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
@@ -38,13 +36,6 @@ class PaperApplicationForm extends React.Component {
   render() {
     const { loading } = this.state
     const { listing, application, editPage } = this.props
-    // let autofillValues = {}
-    // if (application)
-    //   autofillValues = domainToApi.mapApplication(application)
-
-    // console.log(application)
-
-    console.log(listing)
 
     return (
       <div>

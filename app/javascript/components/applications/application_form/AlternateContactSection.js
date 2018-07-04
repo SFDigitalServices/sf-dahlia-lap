@@ -11,12 +11,15 @@ const {
 } = formOptions
 
 const AlternateContactSection = ({editValues}) => {
-  let autofillValues = editValues.alternate_contact
+  let autofillValues = {}
+  if (editValues && editValues.alternate_contact) {
+    autofillValues = editValues.alternate_contact
+  }
   // if (editValues && editValues.alternate_contact) {
   //   autofillValues = domainToApi.mapAlternateContact(editValues.alternate_contact)
   // }
   return (
-    <NestedForm field="alternateContact">
+    <NestedForm field="alternate_contact">
       <Form defaultValues={autofillValues}>
         { formApi => (
           <div className="border-bottom margin-bottom--2x">

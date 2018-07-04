@@ -16,8 +16,10 @@ let mailingAddressFieldMap = {
 }
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
-  // let autofillValues = {}
-  // if (editValues && !formApi.values.primaryApplicant) {
+  let autofillValues = {}
+  if (editValues && !formApi.values.primaryApplicant) {
+    autofillValues = editValues.applicant
+  }
   //   autofillValues = domainToApi.mapApplicant(editValues.applicant)
   //   formApi.values.primaryApplicant = autofillValues
   // }
@@ -26,7 +28,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
 
   return (
     <NestedForm field="applicant">
-      <Form defaultValues={editValues.applicant}>
+      <Form defaultValues={autofillValues}>
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
             <div className="row">
@@ -67,7 +69,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                 <label>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
                 <DatePickerText
                   required={true}
-                  prefilledDate={editValues.applicant.date_of_birth}
+                  prefilledDate={autofillValues.date_of_birth}
                   dateFormat="YYYY-MM-DD"
                   showYearDropdown
                   dropdownMode="select"

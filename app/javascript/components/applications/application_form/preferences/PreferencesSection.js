@@ -1,13 +1,11 @@
 import React from 'react'
-import { concat, pickBy, forEach, filter} from 'lodash'
+import { concat, pickBy, forEach } from 'lodash'
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference } from './utils'
 
-// import domainToApi from '~/components/mappers/domainToApi'
-
 const allPreferencesSelected = (formApi, listingPreferences) => {
-  if (formApi.values && formApi.values.lottery_preference && listingPreferences) {
-    return formApi.values.lottery_preference.length === listingPreferences.length
+  if (formApi.values && formApi.values.preferences && listingPreferences) {
+    return formApi.values.preferences.length === listingPreferences.length
   }
 }
 
@@ -18,10 +16,7 @@ const hasHouseholdMembers = (formApi) => {
 }
 
 const disableAddPreference = (formApi, listingPreferences) => {
-  const a = (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
-
-  // console.log('disabled', a)
-  return a
+  return (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
 }
 
 const getFullHousehold = (application) => {
@@ -34,42 +29,21 @@ const getFullHousehold = (application) => {
 }
 
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
-  console.log('listingPreferences', listingPreferences)
-  // let autofillPreferences = []
-  // if (editValues && editValues.preferences && !formApi.values.shortFormPreferences) {
-  //   forEach(editValues.preferences, (preference) => {
-  //     if (preference.application_member) {
-  //       let editPreference = domainToApi.mapPreference(preference)
-  //       editPreference["naturalKey"] = naturalKeyFromPreference(preference)
-  //       autofillPreferences.push(editPreference)
-  //     }
-  //   })
-  //
-  //   formApi.values.shortFormPreferences = autofillPreferences
-  // }
-  // console.log('formApi.values.preferences',formApi.values.preferences)
-  // console.log('editValues.preferencess', editValues.preferences)
   let autofillPreferences = []
-  forEach(editValues.preferences, (preference) => {
-    if (preference.application_member) {
-      // let editPreference = domainToApi.mapPreference(preference)
-      let editPreference = preference
-      // console.log('preference', preference)
-      editPreference["naturalKey"] = naturalKeyFromPreference(preference)
-      autofillPreferences.push(editPreference)
-    }
-  })
-  formApi.values.preferences = autofillPreferences
 
+  if (editValues && editValues.preferences) {
+    forEach(editValues.preferences, (preference) => {
+      if (preference.application_member) {
+        let editPreference = preference
+        editPreference["naturalKey"] = naturalKeyFromPreference(preference)
+        autofillPreferences.push(editPreference)
+      }
+    })
+    formApi.values.preferences = autofillPreferences
+  }
 
   const fullHousehold = getFullHousehold(formApi.values)
-  // const preferences = filter(formApi.values.preferences, (pref)=> (
-  //   pref.receives_preference || pref === ''
-  // ))
   const preferences = autofillPreferences
-
-  // console.log(formApi.values.preferences)
-  // console.log('preferences',preferences)
 
   return (
     <div className="border-bottom margin-bottom--2x">
@@ -95,7 +69,6 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
         </div>
       </div>
     </div>
-
   )
 }
 
