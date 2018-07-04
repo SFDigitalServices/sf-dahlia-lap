@@ -10,15 +10,15 @@ import { recordTypeMap } from './values'
 import { FIELD_NAME, buildFieldId } from './utils'
 
 const setRecordTypeDevName = (i, formApi, matched) => {
-  if (!!matched && matched.Lottery_Preference) {
-    let prefName = matched.Lottery_Preference.Name
+  if (!!matched && matched.lottery_preference) {
+    let prefName = matched.lottery_preference.name
     formApi.values.shortFormPreferences[i].recordTypeDevName = recordTypeMap[prefName] || 'Custom'
   }
 }
 
 const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
   let selected = formApi.values.shortFormPreferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.Id === selected.listingPreferenceID)
+  let matched = find(listingPreferences, pref => pref.id === selected.listingPreferenceID)
   setRecordTypeDevName(i, formApi, matched)
   return selected
 }
@@ -26,7 +26,7 @@ const findSelectedPreference = (i, formApi, listingPreferences, selectedPreferen
 // omit any listingPreferences that are already selected, excluding the current one
 const findPreferencesNotSelected = (formApi, listingPreferences, selectedPreference) => {
   return omitBy(listingPreferences, (listingPref) => {
-    let isSelected = find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.Id })
+    let isSelected = find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.id })
     return (isSelected && isSelected !== selectedPreference)
   })
 }
@@ -34,8 +34,8 @@ const findPreferencesNotSelected = (formApi, listingPreferences, selectedPrefere
 const buildListingPreferencesOptions = (preferencesNotSelected) => {
   return map(preferencesNotSelected, (listingPref) => {
     return {
-      value: listingPref.Id,
-      label: listingPref.Lottery_Preference.Name
+      value: listingPref.id,
+      label: listingPref.lottery_preference.name
     }
   })
 }

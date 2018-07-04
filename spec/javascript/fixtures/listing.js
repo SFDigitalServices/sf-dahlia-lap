@@ -107,6 +107,18 @@ const listing = {
         "Id": "a0m0P00000yuzO0QAI",
         "Name": "Alice Griffith Housing Development Resident"
       }
+    },
+    {
+      "Available_Units":null,
+      "Description":"Households in which one member holds a Certificate of Preference from the former San Francisco Redevelopment Agency. COP holders were displaced by Agency action generally during the 1960s and 1970s.",
+      "Id":"a0l0P00001JEWXZQA5",
+      "Lottery_Preference":{
+        "Id": "a0m0P00000wwi3IQAQ",
+        "Name": "Certificate of Preference (COP)"
+      },
+      "Order":1,
+      "PDF_URL":null,
+      "Total_Submitted_Apps":7
     }
   ],
   "Units": [
