@@ -5,7 +5,7 @@ const AgreeToTerms = () => (
     <div className="checkbox-group" role="group">
       <div className="form-item" >
         <div className="checkbox">
-          <Checkbox field="agreeToTerms" id="agreeToTerms" name="agreeToTerms" />
+          <Checkbox field="terms_acknowledged" id="agreeToTerms" name="agreeToTerms" />
           <label htmlFor="agreeToTerms">Signature on Terms of Agreement</label>
         </div>
       </div>

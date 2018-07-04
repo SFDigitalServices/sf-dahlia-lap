@@ -17,6 +17,7 @@ const ApplicationEditPageForm = ({ listing, application, editPage }) => {
 }
 
 const ApplicationEditPage = ({ listing, application, editPage }) => {
+  console.log('domain', application)
   const pageHeader = {
     title: 'Edit Application',
     content: `Application lottery number: ${application.lottery_number}. For listing: ${listing.name}`
@@ -33,6 +34,7 @@ const ApplicationEditPage = ({ listing, application, editPage }) => {
 }
 
 const mapProperties = ({ listing, application, editPage }) => {
+  console.log('soql', application)
   return {
     listing: mapListing(listing),
     application: mapApplication(application),

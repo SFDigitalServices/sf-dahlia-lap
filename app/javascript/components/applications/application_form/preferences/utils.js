@@ -12,6 +12,7 @@ export const naturalKeyFromMember = (member) => {
   return `${member.firstName},${member.lastName},${member.DOB}`
 }
 
-export const FIELD_NAME = 'shortFormPreferences'
+// export const FIELD_NAME = 'shortFormPreferences'
+export const FIELD_NAME = 'preferences'
 
 export const buildFieldId = (i, field) => `${FIELD_NAME}.${i}.${field}`
