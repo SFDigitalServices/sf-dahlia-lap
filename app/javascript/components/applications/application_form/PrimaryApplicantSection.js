@@ -4,26 +4,29 @@ import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-import domainToApi from '~/components/mappers/domainToApi'
+// import domainToApi from '~/components/mappers/domainToApi'
 
 let { phone_type_options } = formOptions
 
 let mailingAddressFieldMap = {
-  address: 'mailingAddress',
-  city: 'mailingCity',
-  state: 'mailingState',
-  zip: 'mailingZip',
+  address: 'mailing_street',
+  city: 'mailing_city',
+  state: 'mailing_state',
+  zip: 'mailing_zip_code',
 }
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
-  let autofillValues = {}
-  if (editValues && !formApi.values.primaryApplicant) {
-    autofillValues = domainToApi.mapApplicant(editValues.applicant)
-    formApi.values.primaryApplicant = autofillValues
-  }
+  // let autofillValues = {}
+  // if (editValues && !formApi.values.primaryApplicant) {
+  //   autofillValues = domainToApi.mapApplicant(editValues.applicant)
+  //   formApi.values.primaryApplicant = autofillValues
+  // }
+
+  formApi.values.primaryApplicant = editValues.applicant
+
   return (
     <NestedForm field="primaryApplicant">
-      <Form defaultValues={autofillValues}>
+      <Form defaultValues={editValues.applicant}>
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
             <div className="row">
@@ -33,15 +36,15 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               <div className="form-group">
                 <div className="small-4 columns">
                   <label>First Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text required="true" field="firstName" />
+                  <Text required="true" field="first_name" />
                 </div>
                 <div className="small-4 columns">
                   <label>Middle Name</label>
-                  <Text field="middleName" />
+                  <Text field="middle_name" />
                 </div>
                 <div className="small-4 columns">
                   <label>Last Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text required="true" field="lastName" />
+                  <Text required="true" field="last_name" />
                 </div>
               </div>
             </div>
@@ -56,7 +59,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               </div>
               <div className="small-4 columns">
                 <label>Phone Type</label>
-                <Select field="phoneType" options={phone_type_options} />
+                <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
             <div className="row">
@@ -64,17 +67,15 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                 <label>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
                 <DatePickerText
                   required={true}
-                  prefilledDate={autofillValues['DOB']}
+                  prefilledDate={editValues.applicant.date_of_birth}
                   dateFormat="YYYY-MM-DD"
                   showYearDropdown
                   dropdownMode="select"
-                  field="DOB" />
+                  field="date_of_birth" />
               </div>
             </div>
-
             <AddressForm title="Home Address" memberType="primaryApplicant" />
-            <AddressForm title="Mailing Address" memberType="primaryApplicant"  fieldMap={mailingAddressFieldMap} />
-
+            <AddressForm title="Mailing Address" memberType="primaryApplicant" fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>

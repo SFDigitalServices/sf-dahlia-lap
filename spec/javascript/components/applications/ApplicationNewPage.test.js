@@ -1,8 +1,7 @@
 import React from 'react'
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 
 import ApplicationNewPage from 'components/applications/ApplicationNewPage'
-// import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
 
 import listing from '../../fixtures/listing'

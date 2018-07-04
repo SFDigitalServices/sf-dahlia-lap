@@ -13,7 +13,8 @@ export const preferenceFieldMapper = {
   state: 'state',
   street: 'address',
   zip_code: 'zipCode',
-  listing_preference_id: 'listingPreferenceID'
+  listing_preference_id: 'listingPreferenceID',
+  naturalKey:'naturalKey'
 }
 
 export const mapPreference = createFieldMapper(preferenceFieldMapper)
