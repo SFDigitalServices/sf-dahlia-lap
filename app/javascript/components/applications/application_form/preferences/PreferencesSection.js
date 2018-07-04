@@ -22,6 +22,7 @@ const disableAddPreference = (formApi, listingPreferences) => {
 }
 
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
+  // console.log(listingPreferences)
   let autofillPreferences = []
   if (editValues && editValues.preferences && !formApi.values.shortFormPreferences) {
     forEach(editValues.preferences, (preference) => {
