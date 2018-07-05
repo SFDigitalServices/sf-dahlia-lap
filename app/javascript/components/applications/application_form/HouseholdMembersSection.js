@@ -1,19 +1,7 @@
 import React from 'react'
-import { forEach } from 'lodash'
 import HouseholdMemberForm from './HouseholdMemberForm'
 
-import domainToApi from '~/components/mappers/domainToApi'
-
 const HouseholdMembersSection = ({ formApi, editValues }) => {
-  // let autofillHouseholdMembers = []
-  // if (editValues && editValues.household_members && !formApi.values.householdMembers) {
-  //   forEach(editValues.household_members, (member) => {
-  //     let editMember = domainToApi.mapHouseholdMembers(member)
-  //     autofillHouseholdMembers.push(editMember)
-  //   })
-  //   formApi.values.householdMembers = autofillHouseholdMembers
-  // }
-
   return (
     <div className="border-bottom margin-bottom--2x">
       <div className="row">

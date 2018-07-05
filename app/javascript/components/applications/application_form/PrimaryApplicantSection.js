@@ -4,8 +4,6 @@ import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-// import domainToApi from '~/components/mappers/domainToApi'
-
 let { phone_type_options } = formOptions
 
 let mailingAddressFieldMap = {
@@ -20,12 +18,6 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
-  //   autofillValues = domainToApi.mapApplicant(editValues.applicant)
-  //   formApi.values.primaryApplicant = autofillValues
-  // }
-
-  // formApi.values.primaryApplicant = editValues.applicant
-
   return (
     <NestedForm field="applicant">
       <Form defaultValues={autofillValues}>
