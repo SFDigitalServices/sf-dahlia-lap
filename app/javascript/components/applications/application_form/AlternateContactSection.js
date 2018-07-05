@@ -1,9 +1,6 @@
 import React from 'react'
-import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
-
-// import domainToApi from '~/components/mappers/domainToApi'
 
 const {
   alternate_contact_options,
@@ -15,9 +12,6 @@ const AlternateContactSection = ({editValues}) => {
   if (editValues && editValues.alternate_contact) {
     autofillValues = editValues.alternate_contact
   }
-  // if (editValues && editValues.alternate_contact) {
-  //   autofillValues = domainToApi.mapAlternateContact(editValues.alternate_contact)
-  // }
   return (
     <NestedForm field="alternate_contact">
       <Form defaultValues={autofillValues}>
