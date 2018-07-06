@@ -214,7 +214,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th td-min-narrow rt-resizable-header -sort-asc -cursor-pointer"
+              className="rt-th td-min-narrow rt-resizable-header -sort-asc"
               onClick={[Function]}
               role="heading"
               style={
@@ -237,7 +237,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
@@ -260,7 +260,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
@@ -283,7 +283,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
@@ -306,7 +306,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
@@ -329,7 +329,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
@@ -352,7 +352,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
@@ -375,7 +375,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header -cursor-pointer"
+              className="rt-th  rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
