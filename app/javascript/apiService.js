@@ -36,6 +36,18 @@ const submitApplication = async (data) => {
   return await apiCall('post', '/short-form/submit', postData)
 }
 
+const fetchApplications = async ({ page }) => {
+  return apiCall('get', '/applications', {
+    params: {
+      page: page
+    }
+  })
+}
+
+// NOTE: This is used in Lease Ups Table
+// const updateLeaseUpStatus = async (applicationNumer, status) => {
+//   console.log(`Updating lease up status for ${applicationNumer} to ${status}`)
+// }
 // Creates a new Field Update Comment Salesforce record
 const createLeaseUpStatus = async (data) => {
   let postData = {
@@ -52,5 +64,6 @@ export default {
   updateApplication,
   updateFlaggedApplication,
   submitApplication,
-  createLeaseUpStatus,
+  fetchApplications,
+  createLeaseUpStatus
 }

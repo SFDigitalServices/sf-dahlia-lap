@@ -1,0 +1,70 @@
+import EagerPagination from 'utils/EagerPagination'
+import { each, map, range} from 'lodash'
+
+describe('EagerPagination', () => {
+  describe('getServerPageForEagerPage', () => {
+    test('it should return the right server page for the eager page', () => {
+      const fetchPage = (page) => range(100)
+      const eagerPagination = new EagerPagination(20, 100, fetchPage)
+
+      each(range(1,6), (v) => {
+        expect(eagerPagination.getServerPageForEagerPage(v)).toEqual(1)
+      })
+      each(range(6,11), (v) => {
+        expect(eagerPagination.getServerPageForEagerPage(v)).toEqual(2)
+      })
+      expect(eagerPagination.getServerPageForEagerPage(11)).toEqual(3)
+    })
+
+
+    test('it should fetch when needed', async () => {
+      const mockFetchPage = jest.fn();
+      mockFetchPage
+        .mockReturnValueOnce({ records: range(0, 20),   pages: 4 })
+        .mockReturnValueOnce({ records: range(20, 40),  pages: 4 })
+        .mockReturnValueOnce({ records: range(40, 60),  pages: 4 })
+
+      const fetchData = async (page) => {
+        return mockFetchPage(page)
+      }
+
+      const eagerPagination = new EagerPagination(5, 20, fetchData)
+      // const pages = await Promise.all(map(range(1,10), (p) => eagerPagination.getPage(p)))
+
+      let pages = []
+      pages.push(await eagerPagination.getPage(1))
+      pages.push(await eagerPagination.getPage(2))
+      pages.push(await eagerPagination.getPage(3))
+      pages.push(await eagerPagination.getPage(4))
+      pages.push(await eagerPagination.getPage(5))
+      pages.push(await eagerPagination.getPage(6))
+      pages.push(await eagerPagination.getPage(7))
+      pages.push(await eagerPagination.getPage(8))
+      pages.push(await eagerPagination.getPage(9))
+      pages.push(await eagerPagination.getPage(10))
+      pages.push(await eagerPagination.getPage(11))
+
+      // console.log(pages)
+
+      expect(mockFetchPage.mock.calls.length).toBe(3);
+      expect(mockFetchPage.mock.calls[0][0]).toBe(1);
+      expect(mockFetchPage.mock.calls[1][0]).toBe(2);
+
+      each(pages, (p) => {
+        expect(p.records.length).toEqual(5)
+      })
+
+      expect(pages[0].records).toEqual(range(0,5))
+      expect(pages[1].records).toEqual(range(5,10))
+      expect(pages[2].records).toEqual(range(10,15))
+      expect(pages[3].records).toEqual(range(15,20))
+      expect(pages[4].records).toEqual(range(20,25))
+      expect(pages[5].records).toEqual(range(25,30))
+      expect(pages[6].records).toEqual(range(30,35))
+      expect(pages[7].records).toEqual(range(35,40))
+      expect(pages[8].records).toEqual(range(40,45))
+      expect(pages[9].records).toEqual(range(45,50))
+      expect(pages[10].records).toEqual(range(50,55))
+    })
+  })
+})

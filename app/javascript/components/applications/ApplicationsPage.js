@@ -1,16 +1,10 @@
 import React from 'react'
 
+import mapProps from '~/utils/mapProps'
 import TableLayout from '../layouts/TableLayout'
-import IndexTable from '../IndexTable'
-
-const ApplicationsPageTable = ({ applications, fields }) => {
-  return (
-    <IndexTable
-      results={applications}
-      fields= {fields}
-      links={['View Application'] } />
-  )
-}
+import ApplicationsTable from './ApplicationsTable'
+import ApplicationsTableContainer from './ApplicationsTableContainer'
+import mapProperties from './applicationsPageMapper'
 
 const ApplicationsPage = (props) => {
   const pageHeader = {
@@ -19,9 +13,9 @@ const ApplicationsPage = (props) => {
 
   return (
     <TableLayout pageHeader={pageHeader} >
-      <ApplicationsPageTable {...props} />
+      <ApplicationsTableContainer {...props} />
     </TableLayout>
   )
 }
 
-export default ApplicationsPage
+export default mapProps(mapProperties)(ApplicationsPage)
