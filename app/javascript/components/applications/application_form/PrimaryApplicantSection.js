@@ -86,7 +86,10 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                     dropdownMode="select"
                     className={classNames({ error: formApi.errors.date_of_birth })}
                     field="date_of_birth" />
-                  <span className="small error">{formApi.errors.date_of_birth}</span>
+                  {
+                    formApi.errors.date_of_birth &&
+                    <span className="small error">{formApi.errors.date_of_birth}</span>
+                  }
                 </div>
               </div>
             </div>
