@@ -24,23 +24,23 @@ const buildListingNameList = (applications) => {
   return sortedUniqListings
 }
 
-const ListingNameFilter = ({ applications, filter, onChange }) => {
-  const listingNames = buildListingNameList(applications)
-  const listingOptions = map(listingNames, (listing, idx) => {
-    return <option value={listing.name} key={idx}>{listing.name}</option>
-  })
-  const selectFilterValue = filter ? filter.value : (listingNames[0] ? listingNames[0].name : undefined)
-
-  return (
-    <select
-      onChange={event => onChange(event.target.value)}
-      style={{ width: "100%" }}
-      value={selectFilterValue}>
-      <option value="all">Show All</option>
-      {listingOptions}
-    </select>
-  )
-}
+// const ListingNameFilter = ({ applications, filter, onChange }) => {
+//   const listingNames = buildListingNameList(applications)
+//   const listingOptions = map(listingNames, (listing, idx) => {
+//     return <option value={listing.name} key={idx}>{listing.name}</option>
+//   })
+//   const selectFilterValue = filter ? filter.value : (listingNames[0] ? listingNames[0].name : undefined)
+//
+//   return (
+//     <select
+//       onChange={event => onChange(event.target.value)}
+//       style={{ width: "100%" }}
+//       value={selectFilterValue}>
+//       <option value="all">Show All</option>
+//       {listingOptions}
+//     </select>
+//   )
+// }
 
 const SubComponent = (row) => (
   <TableSubComponent items={
@@ -81,6 +81,7 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
       data={applications}
       pages={pages}
       columns={columns}
+      sortable={false}
       defaultSorted={sortBy}
       loading={loading}
       defaultPageSize={PAGE_SIZE}
