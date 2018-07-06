@@ -3,6 +3,8 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
+import classNames from 'classnames'
+import moment from 'moment'
 
 let { phone_type_options } = formOptions
 
@@ -13,6 +15,15 @@ let mailingAddressFieldMap = {
   zip: 'mailing_zip_code',
 }
 
+const validates = (fun, message) => (value) => {
+  return fun(value) ? null : message
+}
+
+const isOldEnough = (dateOfBirth) => {
+  const years = moment().diff(dateOfBirth,'years')
+  return years >= 18
+}
+
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
@@ -21,7 +32,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
 
   const validateError = (values) => {
     return  {
-      'date_of_birth': "wrong date buddy"
+      'date_of_birth': validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.date_of_birth)
     }
   }
 
@@ -65,7 +76,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <div className="form-group error">
+                <div className={classNames('form-group', { 'error': formApi.errors.date_of_birth })}>
                   <label className='form-label'>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
                   <DatePickerText
                     required={true}
@@ -73,9 +84,9 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                     dateFormat="YYYY-MM-DD"
                     showYearDropdown
                     dropdownMode="select"
-                    className='error'
+                    className={classNames({ error: formApi.errors.date_of_birth })}
                     field="date_of_birth" />
-                  <span className="small error"> This is wrong dude </span>
+                  <span className="small error">{formApi.errors.date_of_birth}</span>
                 </div>
               </div>
             </div>

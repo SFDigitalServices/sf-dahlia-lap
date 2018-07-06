@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Form } from 'react-form'
+import { some, isObjectLike, isNil } from 'lodash'
+
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -9,6 +11,8 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
+
+import AlertBox from '~/components/molecules/AlertBox'
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -25,27 +29,47 @@ class PaperApplicationForm extends React.Component {
     const { listing, application, onSubmit } = this.props
     const { submitType } = this.state
 
-    this.setState({ submittedValues, loading: true })
-    // await onSubmit(submitType, submittedValues, application, listing)
+    this.setState({ submittedValues, loading: true, failed: false })
+    await onSubmit(submitType, submittedValues, application, listing)
     this.setState({ loading: false })
   }
 
-  saveSubmitType = (type) => {
-    this.setState({submitType: type})
+  onSubmitFailure = () => {
+    console.log('onSubmitFailure')
+    this.setState({ failed: true })
+  }
+
+  hasErrors = (errors) => {
+    return some(errors, (value, key) => {
+      if (isObjectLike(value)){
+        return this.hasErrors(value)
+      } else {
+        return !isNil(value)
+      }
+    })
+  }
+
+  saveSubmitType = (type, formApi) => {
+    this.setState({submitType: type, failed: this.hasErrors(formApi.errors) })
   }
 
   render() {
-    const { loading } = this.state
+    const { loading, failed } = this.state
     const { listing, application, editPage } = this.props
 
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application} >
+        <Form onSubmit={this.submitShortForm} defaultValues={application}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
-              {JSON.stringify(formApi.errors)}
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
+                  <AlertBox
+                    invert
+                    dismiss={!failed}
+                    onCloseClick={() => this.setState({failed: false})}
+                    message="Please resolve any errors before saving the application." />
+
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
@@ -61,10 +85,10 @@ class PaperApplicationForm extends React.Component {
                 </div>
                 <div className="button-pager">
                   <div className="button-pager_row primary">
-                    <button className="primary radius margin-right save-btn" type="submit" onClick={() => this.saveSubmitType('Save')} disabled={loading}>
+                    <button className="primary radius margin-right save-btn" type="submit" onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
                       Save
                     </button>
-                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew')}  disabled={loading}>
+                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew', formApi)}  disabled={loading}>
                       Save and New
                     </button>
                   </div>
