@@ -18,9 +18,16 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
+
+  const validateError = (values) => {
+    return  {
+      'date_of_birth': "wrong date buddy"
+    }
+  }
+
   return (
     <NestedForm field="applicant">
-      <Form defaultValues={autofillValues}>
+      <Form defaultValues={autofillValues} validateError={validateError}>
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
             <div className="row">
@@ -49,23 +56,27 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               </div>
               <div className="small-4 columns">
                 <label>Phone</label>
-                <Text field="phone" />
+                <Text field="phone"/>
               </div>
               <div className="small-4 columns">
                 <label>Phone Type</label>
-                <Select field="phone_type" options={phone_type_options} />
+                <Select field="phone_type" options={phone_type_options}  />
               </div>
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <label>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
-                <DatePickerText
-                  required={true}
-                  prefilledDate={autofillValues.date_of_birth}
-                  dateFormat="YYYY-MM-DD"
-                  showYearDropdown
-                  dropdownMode="select"
-                  field="date_of_birth" />
+                <div className="form-group error">
+                  <label className='form-label'>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
+                  <DatePickerText
+                    required={true}
+                    prefilledDate={autofillValues.date_of_birth}
+                    dateFormat="YYYY-MM-DD"
+                    showYearDropdown
+                    dropdownMode="select"
+                    className='error'
+                    field="date_of_birth" />
+                  <span className="small error"> This is wrong dude </span>
+                </div>
               </div>
             </div>
             <AddressForm title="Home Address" memberType="primaryApplicant" />

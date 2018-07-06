@@ -21,11 +21,12 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
+    console.log('submitting...')
     const { listing, application, onSubmit } = this.props
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true })
-    await onSubmit(submitType, submittedValues, application, listing)
+    // await onSubmit(submitType, submittedValues, application, listing)
     this.setState({ loading: false })
   }
 
@@ -39,9 +40,10 @@ class PaperApplicationForm extends React.Component {
 
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application}>
+        <Form onSubmit={this.submitShortForm} defaultValues={application} >
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
+              {JSON.stringify(formApi.errors)}
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
