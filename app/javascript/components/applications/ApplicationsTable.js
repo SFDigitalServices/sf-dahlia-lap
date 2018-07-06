@@ -10,38 +10,6 @@ import appPaths  from '~/utils/appPaths'
 
 const PAGE_SIZE = 20
 
-const buildListingNameList = (applications) => {
-  const uniqListings = uniqBy(map(applications, (result) => {
-    return {
-      name: result.listing.name,
-      lotteryDate: moment(result.listing.lottery_date)
-    }
-  }), 'name')
-  const sortedUniqListings = sortBy(uniqListings, (listing) => {
-    return listing.lotteryDate
-  })
-
-  return sortedUniqListings
-}
-
-// const ListingNameFilter = ({ applications, filter, onChange }) => {
-//   const listingNames = buildListingNameList(applications)
-//   const listingOptions = map(listingNames, (listing, idx) => {
-//     return <option value={listing.name} key={idx}>{listing.name}</option>
-//   })
-//   const selectFilterValue = filter ? filter.value : (listingNames[0] ? listingNames[0].name : undefined)
-//
-//   return (
-//     <select
-//       onChange={event => onChange(event.target.value)}
-//       style={{ width: "100%" }}
-//       value={selectFilterValue}>
-//       <option value="all">Show All</option>
-//       {listingOptions}
-//     </select>
-//   )
-// }
-
 const SubComponent = (row) => (
   <TableSubComponent items={
     [{
