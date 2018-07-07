@@ -1,29 +1,28 @@
 import React from 'react'
-import _ from 'lodash'
+import { map, each, includes, keys, toPairs } from 'lodash'
 import { NestedForm, Form, Checkbox, Select } from 'react-form'
 import formOptions from './formOptions'
 
 let {
   yes_no_options,
   priority_options,
+  adaPriorityValueToLabelMap
 } = formOptions
 
 const ReservedPrioritySection = ({editValues, listing}) => {
   let autofillValues = {}
 
-  if (editValues && editValues.Has_ADA_Priorities_Selected) {
-    let selected = editValues.Has_ADA_Priorities_Selected.split(";")
-    _.each(selected, (value) => {
-      autofillValues[value] = true
-    })
+  const adaPriorities = toPairs(adaPriorityValueToLabelMap)
+
+  if (editValues && editValues.has_ada_priorities_selected) {
+    let selected = keys(editValues.has_ada_priorities_selected)
+    each(selected, value => autofillValues[value] = true )
   }
 
-  let reservedTypes = _.map(listing.Units, (unit) => {
-    return unit.Reserved_Type
-  })
+  let reservedTypes = map(listing.units, unit => unit.reserved_type)
 
   const developmentalDisabilityMarkup = () => {
-    if (_.includes(reservedTypes, 'Developmental disabilities')) {
+    if (includes(reservedTypes, 'Developmental disabilities')) {
       return (
         <div className="small-6 columns">
           <label>Developmentally Disabled</label>
@@ -35,7 +34,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
   }
 
   const militaryServiceMarkup = () => {
-    if (_.includes(reservedTypes, 'Veteran')) {
+    if (includes(reservedTypes, 'Veteran')) {
       return (
         <div className="small-6 columns">
           <label>U.S. Military</label>
@@ -47,13 +46,15 @@ const ReservedPrioritySection = ({editValues, listing}) => {
   }
 
   const reservedCommunityMarkup = () => {
-    if (!!listing.Reserved_community_type) {
+    if (!!listing.reserved_community_type) {
       return (
         <div className="margin-bottom--2x small-12 columns">
           <h4>Qualifying Information for the Building Community Type</h4>
           <div className="margin-bottom--2x small-6 columns">
             <label>Meets Community Requirements</label>
-            <p className="form-note margin-bottom">This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.</p>
+            <p className="form-note margin-bottom">
+              This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.
+            </p>
             <Select field="answeredCommunityScreening" options={yes_no_options} />
           </div>
         </div>
@@ -77,11 +78,11 @@ const ReservedPrioritySection = ({editValues, listing}) => {
                 <div className="small-6 columns">
                   <label>ADA Priorities Selected</label>
                   <div className="checkbox-group" role="group">
-                    { priority_options.map( ( option, i ) => (
+                    { adaPriorities.map(([field, label], i ) => (
                       <div className="form-item" key={i} >
                         <div className="checkbox">
-                          <Checkbox field={option} id={`adaPrioritiesSelected-${i}`} name="adaPrioritiesSelected" />
-                          <label htmlFor={`adaPrioritiesSelected-${i}`}>{option}</label>
+                          <Checkbox field={field} id={`adaPrioritiesSelected-${i}`} name="adaPrioritiesSelected" />
+                          <label htmlFor={`adaPrioritiesSelected-${i}`}>{label}</label>
                         </div>
                       </div>
                     ))}

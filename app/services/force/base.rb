@@ -6,23 +6,8 @@ module Force
   class Base
     def initialize(user)
       @user = user
-
-      if Rails.env.test?
-        @client = Restforce.new(
-          username: ENV['SALESFORCE_USERNAME'],
-          password: ENV['SALESFORCE_PASSWORD'],
-          security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
-          client_id: ENV['SALESFORCE_CLIENT_ID'],
-          client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
-          api_version: '41.0',
-        )
-      else
-        @client = Restforce.new(
-          authentication_retries: 1,
-          oauth_token: user.oauth_token,
-          instance_url: ENV['SALESFORCE_INSTANCE_URL'],
-        )
-      end
+      @client = ClientFactory.instance.new_for_user(user)
+      @api = Force::Api.new(@client)
     end
 
     def revoke_token
@@ -78,58 +63,24 @@ module Force
     end
 
     def parsed_index_query(q, type = :index)
-      parse_results(query(q), self.class::FIELDS["#{type}_fields"])
+      # parse_results(query(q), self.class.fields["#{type}_fields"])
+      massage(query(q))
     end
 
     def index_fields
       # cleaned index fields
-      massage(self.class::FIELDS[:index_fields])
+      massage(self.class.fields[:index_fields])
     end
 
     def show_fields
-      massage(self.class::FIELDS[:show_fields])
-    end
-
-    def api_call(method, endpoint, params)
-      apex_endpoint = "/services/apexrest#{endpoint}"
-      response = @client.send(method, apex_endpoint, params.as_json)
-      response.body
+      massage(self.class.fields[:show_fields])
     end
 
     def api_post(endpoint, params)
-      api_call('post', endpoint, params)
+      @api.post(endpoint, params)
     end
 
     private
-
-    def parse_results(results, fields)
-      results.map do |result|
-        parsed_object(result, fields)
-      end
-    end
-
-    def parsed_object(result, fields)
-      obj = {}
-      fields.each do |field, attrs|
-        val = nil
-        if field.include? '.'
-          parts = field.split('.')
-          if parts.count == 3
-            val = result[parts[0]].try(:[], parts[1]).try(:[], parts[2])
-          else
-            val = result[parts.first] ? result[parts.first][parts.last] : nil
-          end
-        elsif result[field]
-          if attrs && attrs.type == 'date' && result[field]
-            val = Date.parse(result[field]).strftime('%D')
-          else
-            val = result[field]
-          end
-        end
-        obj[field] = val
-      end
-      Hashie::Mash.new(massage(obj))
-    end
 
     def user_can_access
       if @user.admin?
@@ -143,35 +94,36 @@ module Force
 
     def query_fields(type = :index)
       # FIELDS should get defined in child class
-      self.class::FIELDS["#{type}_fields"].keys.join(', ')
+      self.class.fields["#{type}_fields"].keys.join(', ')
     end
 
-    # recursively remove "__c" and "__r" from all keys
+    # Extracted out for clarity
+    # This is being used in services. should be refactored
+    def parse_results(results, fields)
+      Force::Responses.parse_results(results, fields)
+    end
+
+    # Extracted out for clarity
+    # This is being used in services. should be refactored
     def massage(h)
-      if h.is_a?(Hash)
-        hash_massage(h)
-      elsif h.is_a?(Array) or h.is_a?(Restforce::Collection)
-        h.map { |i| massage(i) }
-      elsif h.is_a?(Symbol) or h.is_a?(String)
-        string_massage(h)
+      Force::Responses.massage(h)
+    end
+
+    def self.load_fields(name, file_path = nil)
+      path = "#{Rails.root}/config/salesforce/fields/#{name}.yml"
+
+      @fields_fields ||= {}
+      # Hashie::Mash.load(path)[name.to_s]
+      if Rails.env.development?
+        YAML.load_file(path)[name.to_s]
       else
-        h
+        @fields_fields[name] ||= YAML.load_file(path)[name.to_s]
       end
     end
 
-    def hash_massage(h)
-      return h['records'].map { |i| massage(i) } if h.include?('records')
-      # massage each hash value
-      h.each { |k, v| h[k] = massage(v) }
-      # massage each hash key
-      h.rekey do |key|
-        massage(key)
-      end
-    end
-
-    def string_massage(str)
-      # calls .to_s so it works for symbols too
-      str.to_s.gsub('__c', '').gsub('__r', '')
+    def self.fields
+      load_fields(self::FIELD_NAME)
+      # self::FIELDS
     end
   end
 end

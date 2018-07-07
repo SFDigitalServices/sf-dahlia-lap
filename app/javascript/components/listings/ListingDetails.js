@@ -2,187 +2,52 @@ import React from 'react'
 import ListingDetailsContentCard from './ListingDetailsContentCard'
 import ListingDetailsContentTable from './ListingDetailsContentTable'
 
+import {
+  detailsFields,
+  buildingInformationFields,
+  lotteryPreferencesFields,
+  aafFields,
+  lotteryInfoFields,
+  appInfoFields,
+  agentDevInfoFields,
+  eligibilityRulesFields,
+  additionalInfoFields,
+  openHousesFields,
+  infoSessionsFields
+} from './fields'
+
 const ListingDetails = ({ listing }) => {
-  // to do: move fields into own file to import and map
-  let detailsFields = [
-    'Owner.Name',
-    'Name',
-    'Account.Name',
-    'Application_Due_Date',
-    'In_Lottery',
-    'Status',
-    'Lottery_Winners',
-    'Lottery_Results',
-  ]
-
-  let buildingInformationFields = [
-    'Building_Name',
-    'Building_Street_Address',
-    'Building_City',
-    'Building_State',
-    'Building_Zip_Code',
-    'Neighborhood',
-    'Developer',
-    'Building_URL',
-    'Year_Built',
-    'Description',
-    'Lottery_Preferences'
-  ]
-
-  let lotteryPreferencesFields = [
-    'Lottery_Preference.Name',
-    'Description',
-    'PDF_URL',
-    'Order',
-    'Available_Units'
-  ]
-
-  let aafFields = [
-    'Accessibility',
-    'Fee',
-    'Amenities',
-    'Deposit_Min',
-    'Deposit_Max',
-    'Costs_Not_Included'
-  ]
-
-  let lotteryInfoFields = [
-    'Lottery_Date',
-    'Lottery_Results_Date',
-    'Lottery_Venue',
-    'Lottery_Status',
-    'Lottery_Street_Address',
-    'Lottery_Summary',
-    'Lottery_City'
-  ]
-
-  let appInfoFields = [
-    'Application_Phone',
-    'Office_Hours',
-    'Application_Organization',
-    'Application_Street_Address',
-    'Application_City',
-    'Application_State',
-    'Application_Postal_Code',
-    'Organization_URL',
-    'Download_URL'
-  ]
-
-  let agentDevInfoFields= [
-    'Leasing_Agent_Name',
-    'Leasing_Agent_Title',
-    'Leasing_Agent_Email',
-    'Leasing_Agent_Phone',
-    'Preference_Detail'
-  ]
-
-  let eligibilityRulesFields = [
-    'Building_Selection_Criteria',
-    'Eviction_History',
-    'Criminal_History',
-    'Credit_Rating'
-  ]
-
-  let additionalInfoFields = [
-    'Required_Documents',
-    'Smoking_Policy',
-    'Legal_Disclaimers',
-    'Pet_Policy'
-  ]
-
-  let openHousesFields = [
-    'Date',
-    'Start_Time',
-    'End_Time'
-  ]
-
-  let infoSessionsFields = [
-    'Date',
-    'Start_Time',
-    'End_Time',
-    'Venue',
-    'Street_Address',
-    'City'
-  ]
+  const Card = (cardProps) =>  <ListingDetailsContentCard listing={listing} {...cardProps} />
+  const Table = (tableProps) => <ListingDetailsContentTable listing={listing} {...tableProps} />
 
   return (
     <div>
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Details'
-        fields={detailsFields}
-      />
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Building Information'
-        fields={buildingInformationFields}
-      />
-      {(() => {
-        if (listing.Listing_Lottery_Preferences) {
-          return (
-            <ListingDetailsContentTable
-              listing={listing}
-              title='Listing Preferences'
-              table='Listing_Lottery_Preferences'
-              fields={lotteryPreferencesFields}
-            />
+      <Card title='Details' fields={detailsFields} />
+      <Card title='Building Information' fields={buildingInformationFields} />
+      { listing.listing_lottery_preferences && (
+          <Table  title='Listing Preferences'
+                  table='listing_lottery_preferences'
+                  fields={lotteryPreferencesFields} />
           )
-        }
-      })()}
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Accessibility, Amenities, Fees'
-        fields={aafFields}
-      />
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Lottery Information'
-        fields={lotteryInfoFields}
-      />
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Application Information'
-        fields={appInfoFields}
-      />
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Leasing Agent and Developer Information'
-        fields={agentDevInfoFields}
-      />
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Additional Eligibility Rules'
-        fields={eligibilityRulesFields}
-      />
-      <ListingDetailsContentCard
-        listing={listing}
-        title='Additional Information'
-        fields={additionalInfoFields}
-      />
-      {(() => {
-        if (listing.Open_Houses) {
-          return (
-            <ListingDetailsContentTable
-              listing={listing}
-              title='Open Houses'
-              table='Open_Houses'
-              fields={openHousesFields}
-            />
+      }
+      <Card title='Accessibility, Amenities, Fees' fields={aafFields} />
+      <Card title='Lottery Information' fields={lotteryInfoFields} />
+      <Card title='Application Information' fields={appInfoFields} />
+      <Card title='Leasing Agent and Developer Information' fields={agentDevInfoFields} />
+      <Card title='Additional Eligibility Rules' fields={eligibilityRulesFields} />
+      <Card title='Additional Information' fields={additionalInfoFields} />
+      { listing.open_houses && (
+          <Table  title='Open Houses'
+                  table='open_houses'
+                  fields={openHousesFields} />
           )
-        }
-      })()}
-      {(() => {
-        if (listing.Information_Sessions) {
-          return (
-            <ListingDetailsContentTable
-              listing={listing}
-              title='Information Sessions'
-              table='Information_Sessions'
-              fields={infoSessionsFields}
-            />
-          )
-        }
-      })()}
+      }
+      { listing.information_sessions && (
+          <Table  title='Information Sessions'
+                  table='information_sessions'
+                  fields={infoSessionsFields} />
+        )
+      }
     </div>
   )
 }

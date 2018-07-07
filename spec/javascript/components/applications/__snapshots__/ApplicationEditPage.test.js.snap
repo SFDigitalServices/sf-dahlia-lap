@@ -23,7 +23,7 @@ Array [
             className="medium-8 columns no-padding"
           >
             <p>
-              Application lottery number: undefined. For listing: xxx2
+              Application lottery number: 00191270. For listing: Test 5/30
             </p>
           </div>
         </hgroup>
@@ -78,7 +78,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         required="true"
-                        value="xxxx3"
+                        value="karen"
                       />
                     </div>
                     <div
@@ -90,7 +90,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value="middleName"
+                        value=""
                       />
                     </div>
                     <div
@@ -108,7 +108,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         required="true"
-                        value="lastName"
+                        value="jones"
                       />
                     </div>
                   </div>
@@ -125,7 +125,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value="xxxx2"
+                      value="eee@eeee.com"
                     />
                   </div>
                   <div
@@ -137,7 +137,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value="phone"
+                      value="9548883321"
                     />
                   </div>
                   <div
@@ -149,7 +149,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={2}
                     >
                       <option
                         disabled={true}
@@ -218,7 +218,7 @@ Array [
                               tabIndex={undefined}
                               title={undefined}
                               type="text"
-                              value="2018-04-23"
+                              value="1950-01-01"
                             />
                           </div>
                         </div>
@@ -249,7 +249,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="address"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -261,7 +261,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="city"
+                          value="SAN FRANCISCO"
                         />
                       </div>
                       <div
@@ -274,7 +274,7 @@ Array [
                           maxLength="2"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="state"
+                          value="CA"
                         />
                       </div>
                       <div
@@ -286,7 +286,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="zip"
+                          value="94105-1804"
                         />
                       </div>
                     </div>
@@ -315,7 +315,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingAddress"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -327,7 +327,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingCity"
+                          value="SAN FRANCISCO"
                         />
                       </div>
                       <div
@@ -340,7 +340,7 @@ Array [
                           maxLength="2"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingState"
+                          value="CA"
                         />
                       </div>
                       <div
@@ -352,7 +352,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="mailingZip"
+                          value="94105-1804"
                         />
                       </div>
                     </div>
@@ -384,7 +384,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="Federic"
                       />
                     </div>
                     <div
@@ -396,7 +396,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="Daaaa"
                       />
                     </div>
                     <div
@@ -408,7 +408,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="dayan"
                       />
                     </div>
                   </div>
@@ -425,7 +425,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={2}
                     >
                       <option
                         disabled={true}
@@ -496,7 +496,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value="fede@eee.com"
                     />
                   </div>
                   <div
@@ -508,7 +508,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value="9954449943"
                     />
                   </div>
                   <div
@@ -520,7 +520,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={2}
                     >
                       <option
                         disabled={true}
@@ -559,6 +559,191 @@ Array [
                   <h3>
                     Household Members
                   </h3>
+                </div>
+                <div
+                  className="border-bottom margin-bottom--2x"
+                >
+                  <div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="form-group"
+                      >
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            First Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="diego"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Middle Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="m"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Last Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="maradona"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Date of Birth 
+                            <span
+                              className="checkbox-block_note no-margin"
+                            >
+                              YYYY-MM-DD (required)
+                            </span>
+                          </label>
+                          <div>
+                            <div>
+                              <div
+                                className="react-datepicker-wrapper"
+                              >
+                                <div
+                                  className="react-datepicker__input-container"
+                                >
+                                  <input
+                                    autoComplete={undefined}
+                                    autoFocus={undefined}
+                                    className=""
+                                    disabled={false}
+                                    id={undefined}
+                                    name={undefined}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    placeholder={undefined}
+                                    readOnly={undefined}
+                                    required={true}
+                                    tabIndex={undefined}
+                                    title={undefined}
+                                    type="text"
+                                    value="2018-04-23"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="small-12 columns"
+                      >
+                        <div>
+                          <div
+                            className="row"
+                          >
+                            <h4 />
+                          </div>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  Street Address
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="9 de julio"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  City
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="buenos aires"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  State
+                                </label>
+                                <input
+                                  maxLength="2"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="fl"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  Zip
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="33026"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <div
+                        className="small-4 columns"
+                      >
+                        <button
+                          className="mb-4 btn btn-danger"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div
                   className="row"
@@ -616,7 +801,7 @@ Array [
                             className="checkbox"
                           >
                             <input
-                              checked={false}
+                              checked={true}
                               id="adaPrioritiesSelected-0"
                               name="adaPrioritiesSelected"
                               onBlur={[Function]}
@@ -637,7 +822,7 @@ Array [
                             className="checkbox"
                           >
                             <input
-                              checked={false}
+                              checked={true}
                               id="adaPrioritiesSelected-1"
                               name="adaPrioritiesSelected"
                               onBlur={[Function]}
@@ -658,7 +843,7 @@ Array [
                             className="checkbox"
                           >
                             <input
-                              checked={false}
+                              checked={true}
                               id="adaPrioritiesSelected-2"
                               name="adaPrioritiesSelected"
                               onBlur={[Function]}
@@ -722,7 +907,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value={110000}
                     />
                   </div>
                   <div
@@ -734,7 +919,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={1}
                     >
                       <option
                         disabled={true}
@@ -775,7 +960,7 @@ Array [
                     className="checkbox"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       id="agreeToTerms"
                       name="agreeToTerms"
                       onBlur={[Function]}
@@ -798,7 +983,1287 @@ Array [
                 className="button-pager_row primary"
               >
                 <button
-                  className="primary radius margin-right"
+                  className="primary radius margin-right save-btn"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Save
+                </button>
+                <button
+                  className="primary radius"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Save and New
+                </button>
+              </div>
+              <div
+                className="button-pager_row primary"
+              >
+                <a
+                  className="primary radius"
+                  href="/listings"
+                >
+                  Cancel
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>,
+]
+`;
+
+exports[`ApplicationNewPage should render succesfully with preferences 1`] = `
+Array [
+  <header
+    className="lead-header short  bg-snow"
+  >
+    <div
+      className="row full-width inner--3x"
+    >
+      <div
+        className="large-12 columns"
+      >
+        <hgroup
+          className="lead-header_group"
+        >
+          <h1
+            className="lead-header_title small-serif c-oil"
+          >
+            Edit Application
+          </h1>
+          <div
+            className="medium-8 columns no-padding"
+          >
+            <p>
+              Application lottery number: 00191270. For listing: Test 5/30
+            </p>
+          </div>
+        </hgroup>
+      </div>
+    </div>
+  </header>,
+  <section
+    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
+  >
+    <div
+      className="app-card form-card tabs-card max-width expand-on-small"
+    >
+      <div>
+        <form
+          id="shortForm"
+          onSubmit={[Function]}
+        >
+          <div
+            className="app-card form-card medium-centered"
+          >
+            <div
+              className="app-inner inset"
+            >
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <div
+                  className="row"
+                >
+                  <h3>
+                    Primary Applicant
+                  </h3>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <div
+                      className="small-4 columns"
+                    >
+                      <label>
+                        First Name 
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          (required)
+                        </span>
+                      </label>
+                      <input
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        required="true"
+                        value="karen"
+                      />
+                    </div>
+                    <div
+                      className="small-4 columns"
+                    >
+                      <label>
+                        Middle Name
+                      </label>
+                      <input
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value=""
+                      />
+                    </div>
+                    <div
+                      className="small-4 columns"
+                    >
+                      <label>
+                        Last Name 
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          (required)
+                        </span>
+                      </label>
+                      <input
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        required="true"
+                        value="jones"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Email
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="eee@eeee.com"
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Phone
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="9548883321"
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Phone Type
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={2}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Home
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Cell
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Work
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      DOB 
+                      <span
+                        className="checkbox-block_note no-margin"
+                      >
+                        - YYYY-MM-DD (required)
+                      </span>
+                    </label>
+                    <div>
+                      <div>
+                        <div
+                          className="react-datepicker-wrapper"
+                        >
+                          <div
+                            className="react-datepicker__input-container"
+                          >
+                            <input
+                              autoComplete={undefined}
+                              autoFocus={undefined}
+                              className=""
+                              disabled={false}
+                              id={undefined}
+                              name={undefined}
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onClick={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
+                              placeholder={undefined}
+                              readOnly={undefined}
+                              required={true}
+                              tabIndex={undefined}
+                              title={undefined}
+                              type="text"
+                              value="1950-01-01"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="row"
+                  >
+                    <h4>
+                      Home Address
+                    </h4>
+                  </div>
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          Street Address
+                        </label>
+                        <input
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="123 MAIN ST"
+                        />
+                      </div>
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          City
+                        </label>
+                        <input
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="SAN FRANCISCO"
+                        />
+                      </div>
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          State
+                        </label>
+                        <input
+                          maxLength="2"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="CA"
+                        />
+                      </div>
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          Zip
+                        </label>
+                        <input
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="94105-1804"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="row"
+                  >
+                    <h4>
+                      Mailing Address
+                    </h4>
+                  </div>
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          Street Address
+                        </label>
+                        <input
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="123 MAIN ST"
+                        />
+                      </div>
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          City
+                        </label>
+                        <input
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="SAN FRANCISCO"
+                        />
+                      </div>
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          State
+                        </label>
+                        <input
+                          maxLength="2"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="CA"
+                        />
+                      </div>
+                      <div
+                        className="small-6 columns"
+                      >
+                        <label>
+                          Zip
+                        </label>
+                        <input
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="94105-1804"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <div
+                  className="row"
+                >
+                  <h3>
+                    Alternate Contact
+                  </h3>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <div
+                      className="small-4 columns"
+                    >
+                      <label>
+                        First Name
+                      </label>
+                      <input
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="Federic"
+                      />
+                    </div>
+                    <div
+                      className="small-4 columns"
+                    >
+                      <label>
+                        Middle Name
+                      </label>
+                      <input
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="Daaaa"
+                      />
+                    </div>
+                    <div
+                      className="small-4 columns"
+                    >
+                      <label>
+                        Last Name
+                      </label>
+                      <input
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="dayan"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Alternate Contact Type
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={2}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Family Member
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Friend
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Social Worker or Housing Counselor
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Other
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Alternate Contact Type Other
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Agency (if applicable)
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Email
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="fede@eee.com"
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Phone
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="9954449943"
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Phone Type
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={2}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Home
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Cell
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Work
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <div
+                  className="row"
+                >
+                  <h3>
+                    Household Members
+                  </h3>
+                </div>
+                <div
+                  className="border-bottom margin-bottom--2x"
+                >
+                  <div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="form-group"
+                      >
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            First Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="diego"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Middle Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="m"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Last Name
+                          </label>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="maradona"
+                          />
+                        </div>
+                        <div
+                          className="small-3 columns"
+                        >
+                          <label>
+                            Date of Birth 
+                            <span
+                              className="checkbox-block_note no-margin"
+                            >
+                              YYYY-MM-DD (required)
+                            </span>
+                          </label>
+                          <div>
+                            <div>
+                              <div
+                                className="react-datepicker-wrapper"
+                              >
+                                <div
+                                  className="react-datepicker__input-container"
+                                >
+                                  <input
+                                    autoComplete={undefined}
+                                    autoFocus={undefined}
+                                    className=""
+                                    disabled={false}
+                                    id={undefined}
+                                    name={undefined}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    placeholder={undefined}
+                                    readOnly={undefined}
+                                    required={true}
+                                    tabIndex={undefined}
+                                    title={undefined}
+                                    type="text"
+                                    value="2018-04-23"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="small-12 columns"
+                      >
+                        <div>
+                          <div
+                            className="row"
+                          >
+                            <h4 />
+                          </div>
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  Street Address
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="9 de julio"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  City
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="buenos aires"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  State
+                                </label>
+                                <input
+                                  maxLength="2"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="fl"
+                                />
+                              </div>
+                              <div
+                                className="small-6 columns"
+                              >
+                                <label>
+                                  Zip
+                                </label>
+                                <input
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="33026"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <div
+                        className="small-4 columns"
+                      >
+                        <button
+                          className="mb-4 btn btn-danger"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <div
+                      className="small-4 columns"
+                    >
+                      <button
+                        className="mb-4 mr-4 btn btn-success"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        + Additional Member
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-12 columns"
+                  >
+                    <h3>
+                      Reserved and Priority Qualifying Information
+                    </h3>
+                    <h4>
+                      Qualifying Information For a Reserved Unit
+                    </h4>
+                  </div>
+                  <div
+                    className="small-12 columns margin-bottom--2x"
+                  >
+                    <div
+                      className="small-6 columns"
+                    >
+                      <label>
+                        ADA Priorities Selected
+                      </label>
+                      <div
+                        className="checkbox-group"
+                        role="group"
+                      >
+                        <div
+                          className="form-item"
+                        >
+                          <div
+                            className="checkbox"
+                          >
+                            <input
+                              checked={true}
+                              id="adaPrioritiesSelected-0"
+                              name="adaPrioritiesSelected"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <label
+                              htmlFor="adaPrioritiesSelected-0"
+                            >
+                              Mobility impaired
+                            </label>
+                          </div>
+                        </div>
+                        <div
+                          className="form-item"
+                        >
+                          <div
+                            className="checkbox"
+                          >
+                            <input
+                              checked={true}
+                              id="adaPrioritiesSelected-1"
+                              name="adaPrioritiesSelected"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <label
+                              htmlFor="adaPrioritiesSelected-1"
+                            >
+                              Vision impaired
+                            </label>
+                          </div>
+                        </div>
+                        <div
+                          className="form-item"
+                        >
+                          <div
+                            className="checkbox"
+                          >
+                            <input
+                              checked={true}
+                              id="adaPrioritiesSelected-2"
+                              name="adaPrioritiesSelected"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <label
+                              htmlFor="adaPrioritiesSelected-2"
+                            >
+                              Hearing impaired
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <h3>
+                  Preferences
+                </h3>
+                <div
+                  className="border-bottom margin-bottom--2x"
+                >
+                  <div
+                    className="row "
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <div
+                        className="row "
+                      >
+                        <div
+                          className="columns small-6  "
+                        >
+                          <label>
+                            Preference
+                          </label>
+                          <select
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value={1}
+                          >
+                            <option
+                              disabled={true}
+                              value={0}
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={1}
+                            >
+                              Alice Griffith Housing Development Resident
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={2}
+                            >
+                              Certificate of Preference (COP)
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div
+                        className="row form-grid"
+                      >
+                        <div
+                          className="columns small-3  form-grid_item"
+                        >
+                          <label
+                            htmlFor="alice-griffith-hh-member-on-proof"
+                          >
+                            HH Member on Proof
+                          </label>
+                          <select
+                            id="alice-griffith-hh-member-on-proof"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value={0}
+                          >
+                            <option
+                              disabled={true}
+                              value={0}
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={1}
+                            >
+                              karen jones
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={2}
+                            >
+                              diego maradona
+                            </option>
+                          </select>
+                        </div>
+                        <div
+                          className="columns small-3 end form-grid_item"
+                        >
+                          <label
+                            htmlFor="alice-griffith-type-of-proof"
+                          >
+                            Type of Proof
+                          </label>
+                          <select
+                            id="alice-griffith-type-of-proof"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value={0}
+                          >
+                            <option
+                              disabled={true}
+                              value={0}
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={1}
+                            >
+                              Letter from SFHA verifying address
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={2}
+                            >
+                              CA ID or Driver's License
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={3}
+                            >
+                              Telephone bill (landline only)
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={4}
+                            >
+                              Cable and internet bill
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={5}
+                            >
+                              Paystub (listing home address)
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={6}
+                            >
+                              Public benefits record
+                            </option>
+                            <option
+                              disabled={undefined}
+                              value={7}
+                            >
+                              School record
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div
+                        className="row form-grid"
+                      >
+                        <div
+                          className="columns small-6  form-grid_item"
+                        >
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              htmlFor="alice-griffith-address"
+                            >
+                              Alice Griffith Address
+                            </label>
+                            <input
+                              id="alice-griffith-address"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value=""
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="row form-grid"
+                      >
+                        <div
+                          className="columns small-3  form-grid_item"
+                        >
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              htmlFor="alice-griffith-city"
+                            >
+                              City
+                            </label>
+                            <input
+                              id="alice-griffith-city"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          className="columns small-3 end form-grid_item"
+                        >
+                          <div
+                            className="row "
+                          >
+                            <div
+                              className="columns small-6  "
+                            >
+                              <div
+                                className="form-group"
+                              >
+                                <label
+                                  htmlFor="alice-griffith-state"
+                                >
+                                  State
+                                </label>
+                                <input
+                                  id="alice-griffith-state"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="columns small-6 end "
+                            >
+                              <div
+                                className="form-group"
+                              >
+                                <label
+                                  htmlFor="alice-griffith-zip-code"
+                                >
+                                  Zip
+                                </label>
+                                <input
+                                  id="alice-griffith-zip-code"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        Please check to make sure that a document proving the preference address was attached to the application. If no proof document was attached, do not select this preference.
+                      </p>
+                      <p>
+                        MOHCD will verify that the applicant provided a valid address.
+                      </p>
+                      <div
+                        className="row "
+                      >
+                        <div
+                          className="columns small-4  "
+                        >
+                          <button
+                            className="mb-4 btn btn-danger"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <div
+                      className="small-4 columns"
+                    >
+                      <button
+                        className="mb-4 mr-4 btn btn-success"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        + Add Preference
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <h3>
+                  Declared Household Income
+                </h3>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Annual Income
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={110000}
+                    />
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Housing Voucher/ Subsidy
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={1}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        true
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        false
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Left Blank
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="checkbox-group"
+                role="group"
+              >
+                <div
+                  className="form-item"
+                >
+                  <div
+                    className="checkbox"
+                  >
+                    <input
+                      checked={true}
+                      id="agreeToTerms"
+                      name="agreeToTerms"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="checkbox"
+                    />
+                    <label
+                      htmlFor="agreeToTerms"
+                    >
+                      Signature on Terms of Agreement
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="button-pager"
+            >
+              <div
+                className="button-pager_row primary"
+              >
+                <button
+                  className="primary radius margin-right save-btn"
                   disabled={false}
                   onClick={[Function]}
                   type="submit"

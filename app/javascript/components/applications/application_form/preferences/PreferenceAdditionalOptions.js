@@ -11,26 +11,27 @@ import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
 
 const PreferenceAdditionalOptions = ({i, householdMembers, listingPreferences, listingPreferenceID }) => {
-  let preference = find(listingPreferences, { Id: listingPreferenceID })
+  const preference = find(listingPreferences, { id: listingPreferenceID })
+  const propsFields = {i, householdMembers}
 
   if (preference) {
-    switch (preference.Lottery_Preference.Name) {
+    switch (preference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
-        return <CertOfPreferenceFields {...{i, householdMembers}} />
+        return <CertOfPreferenceFields {...propsFields} />
       case 'Neighborhood Resident Housing Preference (NRHP)':
-        return <NeighborhoodResidentFields {...{i, householdMembers}} />
+        return <NeighborhoodResidentFields {...propsFields} />
       case 'Displaced Tenant Housing Preference (DTHP)':
-        return <DisplacedFields {...{i, householdMembers}} />
+        return <DisplacedFields {...propsFields} />
       case 'Live or Work in San Francisco Preference':
-        return <LiveWorkFields {...{i, householdMembers}} />
+        return <LiveWorkFields {...propsFields} />
       case 'Anti-Displacement Housing Preference (ADHP)':
-        return <AntiDisplacementFields {...{i, householdMembers}} />
+        return <AntiDisplacementFields {...propsFields} />
       case 'Rent Burdened / Assisted Housing Preference':
-        return <RentBurdenedAssistedHousingFields {...{i, householdMembers}} />
+        return <RentBurdenedAssistedHousingFields {...propsFields} />
       case 'Alice Griffith Housing Development Resident':
-        return <AliceGriffithFields {...{i, householdMembers}} />
+        return <AliceGriffithFields {...propsFields} />
       default:
-        return <DefaultPreferenceFields {...{i, householdMembers}}  />
+        return <DefaultPreferenceFields {...propsFields}  />
     }
   } else {
     return null

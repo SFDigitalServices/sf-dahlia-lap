@@ -12,6 +12,8 @@ const toListingLeaseUps = (listingId) => `/listings/lease_ups/${listingId}/appli
 
 const toListing = (listingId) => `/listings/${listingId}`
 
+const toLeaseUpApplications = (listingId) => `/listings/lease_ups/${listingId}/applications`
+
 export default {
   toApplicationSupplementals,
   toApplication,
@@ -20,4 +22,5 @@ export default {
   toListingLeaseUps,
   toApplicationEdit,
   toListing,
+  toLeaseUpApplications
 }

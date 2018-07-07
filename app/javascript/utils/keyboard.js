@@ -8,7 +8,7 @@ const isKeyword = (keyCode, code) => {
   const keyCodeMapped = keyCodeMapping[code]
 
   if (keyCode == null)
-    throw `Keyboard code mapping '${code}' not found.`
+    throw new Error(`Keyboard code mapping '${code}' not found.`)
 
   return keyCode === keyCodeMapped
 }

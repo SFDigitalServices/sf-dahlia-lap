@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SupplementalApplicationPage it should render correctly with status history 1`] = `
+exports[`SupplementalApplicationPage it should render correctly without status history 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-snow"
@@ -26,9 +26,9 @@ Array [
             </li>
             <li>
               <a
-                href="/listings/lease_ups/listing1/applications"
+                href="/listings/lease_ups/a0W0x000000GhJUEA0/applications"
               >
-                listingName
+                Test 5/30
               </a>
             </li>
             <li
@@ -38,7 +38,7 @@ Array [
                 aria-current="page"
                 href="#"
               >
-                name
+                APP-00191270
               </a>
             </li>
           </ol>
@@ -49,7 +49,7 @@ Array [
           <h1
             className="lead-header_title small c-oil"
           >
-            name: applicant name
+            APP-00191270: karen jones
           </h1>
         </hgroup>
       </div>
@@ -68,7 +68,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/applications/xxx1"
+          href="/applications/a0o0x000000OcOzAAK"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -83,7 +83,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/applications/xxx1/supplementals"
+          href="/applications/a0o0x000000OcOzAAK/supplementals"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -200,6 +200,254 @@ Array [
             <h2
               className="app-card_h2"
             >
+              Confirmed Household
+            </h2>
+          </div>
+          <div
+            className="app-inner subheader-wide"
+          >
+            <h3
+              className="app-card_h3 t-sans"
+            >
+              Confirmed Reserved and Priority Units
+            </h3>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Senior in Household
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="reserved_senior-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="reserved_senior-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="reserved_senior-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="reserved_senior-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Veteran in Household
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_military_service-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_military_service-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_military_service-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_military_service-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Person with Developmental Disability in House
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_developmentaldisability-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_developmentaldisability-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_developmentaldisability-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_developmentaldisability-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Household ADA Priorities
+                  </label>
+                  <div
+                    className="checkbox-group form-checkbox-item"
+                    role="group"
+                  >
+                    <div
+                      className="checkbox-block"
+                    >
+                      <input
+                        checked={false}
+                        id="has_ada_priorities_selected.mobility_impaired"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="checkbox-block_label"
+                        htmlFor="has_ada_priorities_selected.mobility_impaired"
+                      >
+                        Mobility Impaired
+                      </label>
+                    </div>
+                    <div
+                      className="checkbox-block"
+                    >
+                      <input
+                        checked={false}
+                        id="has_ada_priorities_selected.vision_impaired"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="checkbox-block_label"
+                        htmlFor="has_ada_priorities_selected.vision_impaired"
+                      >
+                        Vision Impaired
+                      </label>
+                    </div>
+                    <div
+                      className="checkbox-block"
+                    >
+                      <input
+                        checked={false}
+                        id="has_ada_priorities_selected.hearing_impaired"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="checkbox-block_label"
+                        htmlFor="has_ada_priorities_selected.hearing_impaired"
+                      >
+                        Hearing Impaired
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
               Lease Information
             </h2>
           </div>
@@ -230,9 +478,10 @@ Array [
                     Number of Dependents
                   </label>
                   <select
+                    id="demographics-dependents"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    value={0}
+                    value={3}
                   >
                     <option
                       disabled={true}
@@ -315,9 +564,10 @@ Array [
                     Primary Applicant Marital Status
                   </label>
                   <select
+                    id="demographics-marital-status"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    value={0}
+                    value={2}
                   >
                     <option
                       disabled={true}
@@ -503,444 +753,7 @@ Array [
                 </li>
               </ul>
               <button
-                className="button primary small"
-                disabled={false}
-                type="submit"
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>,
-]
-`;
-
-exports[`SupplementalApplicationPage it should render correctly without status history 1`] = `
-Array [
-  <header
-    className="lead-header short has-breadcrumbs bg-snow"
-  >
-    <div
-      className="row full-width inner--3x"
-    >
-      <div
-        className="large-12 columns"
-      >
-        <nav
-          aria-label="breadcrumb"
-        >
-          <ol
-            className="breadcrumbs"
-          >
-            <li>
-              <a
-                href="/lease_ups"
-              >
-                Lease Ups
-              </a>
-            </li>
-            <li>
-              <a
-                href="/listings/lease_ups/listing1/applications"
-              >
-                listingName
-              </a>
-            </li>
-            <li
-              className="current"
-            >
-              <a
-                aria-current="page"
-                href="#"
-              >
-                name
-              </a>
-            </li>
-          </ol>
-        </nav>
-        <hgroup
-          className="lead-header_group"
-        >
-          <h1
-            className="lead-header_title small c-oil"
-          >
-            name: applicant name
-          </h1>
-        </hgroup>
-      </div>
-    </div>
-  </header>,
-  <div
-    className="tabs-section tabs-row row full-width inner--3x bg-snow"
-  >
-    <ul
-      className="tabs full-width-small-only"
-      role="menubar"
-    >
-      <li
-        className="tab-title"
-        role="none"
-      >
-        <a
-          aria-selected={false}
-          href="/applications/xxx1"
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="0"
-        >
-          Short Form Application
-        </a>
-      </li>
-      <li
-        className="tab-title"
-        role="none"
-      >
-        <a
-          aria-selected={false}
-          href="/applications/xxx1/supplementals"
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="0"
-        >
-          Supplemental Information
-        </a>
-      </li>
-    </ul>
-  </div>,
-  <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x"
-  >
-    <div
-      className="app-card form-card tabs-card max-width expand-on-small"
-    >
-      <div
-        className="loading-panel"
-      >
-        <form
-          onSubmit={[Function]}
-          style={
-            Object {
-              "margin": "0px",
-            }
-          }
-        >
-          <div
-            className="app-inner inset-wide padding-bottom-none margin-top"
-          >
-            <h2
-              className="sr-only"
-            >
-              Status Update
-            </h2>
-            <div
-              className="status-update expand-wide is-processing"
-            >
-              <h3
-                className="status-update_title"
-              >
-                Update Status
-              </h3>
-              <div
-                className="status-update_action"
-              >
-                <button
-                  aria-expanded="false"
-                  className="button dropdown-button has-icon--right text-align-left small is-processing"
-                  href="#"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="ui-icon ui-small"
-                  >
-                    <svg>
-                      <use
-                        xlinkHref="#i-arrow-down"
-                      />
-                    </svg>
-                  </span>
-                  Processing
-                </button>
-              </div>
-              <div
-                className="status-update_message"
-              >
-                <div
-                  className="status-update_comment"
-                >
-                  <p
-                    className="status-update_note"
-                  >
-                    Some comment
-                  </p>
-                  <span
-                    className="status-update_date"
-                  >
-                    03/12/18 
-                  </span>
-                </div>
-                <div
-                  className="status-update_footer"
-                >
-                  <button
-                    className="button tiny tertiary"
-                    data-event=""
-                    type="button"
-                  >
-                    Add a comment
-                  </button>
-                  <a
-                    className="t-small right"
-                    href="/see_status_history"
-                  >
-                    See Status History
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="app-inner header-wide"
-          >
-            <h2
-              className="app-card_h2"
-            >
-              Current Contact Information
-            </h2>
-          </div>
-          <div
-            className="app-inner header-wide"
-          >
-            <h2
-              className="app-card_h2"
-            >
-              Lease Information
-            </h2>
-          </div>
-          <div
-            className="app-inner subheader-wide"
-          >
-            <h3
-              className="app-card_h3 t-sans"
-            >
-              Demographics
-            </h3>
-          </div>
-          <div
-            className="app-inner inset-wide border-bottom"
-          >
-            <div
-              className="form-grid row expand padding-bottom"
-            >
-              <div
-                className="form-grid_item small-12 medium-6 large-3 column"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    htmlFor=""
-                  >
-                    Number of Dependents
-                  </label>
-                  <select
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    value={0}
-                  >
-                    <option
-                      disabled={true}
-                      value={0}
-                    >
-                      Select One
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={1}
-                    >
-                      0
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={2}
-                    >
-                      1
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={3}
-                    >
-                      2
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={4}
-                    >
-                      3
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={5}
-                    >
-                      4
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={6}
-                    >
-                      5
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={7}
-                    >
-                      6
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={8}
-                    >
-                      7
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={9}
-                    >
-                      8
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={10}
-                    >
-                      9
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div
-                className="form-grid_item small-12 medium-6 large-3 column"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    htmlFor=""
-                  >
-                    Primary Applicant Marital Status
-                  </label>
-                  <select
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    value={0}
-                  >
-                    <option
-                      disabled={true}
-                      value={0}
-                    >
-                      Select One
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={1}
-                    >
-                      Single
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={2}
-                    >
-                      Married
-                    </option>
-                    <option
-                      disabled={undefined}
-                      value={3}
-                    >
-                      Domestic Partner
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="padding-bottom--2x margin-bottom--2x"
-          />
-          <div
-            className="button-pager"
-          >
-            <div
-              className="button-pager_row align-buttons-left primary inset-wide"
-            >
-              <button
-                aria-expanded="false"
-                className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
-                disabled={false}
-                href="#"
-              >
-                <span
-                  aria-hidden="true"
-                  className="ui-icon ui-small"
-                >
-                  <svg>
-                    <use
-                      xlinkHref="#i-arrow-down"
-                    />
-                  </svg>
-                </span>
-                Approved
-              </button>
-              <ul
-                aria-activedescendant=""
-                aria-hidden="true"
-                className="dropdown-menu"
-                role="listbox"
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                tabIndex="-1"
-              >
-                <li
-                  aria-selected="false"
-                  className="dropdown-menu_item"
-                  role="option"
-                >
-                  <a
-                    href="#"
-                  >
-                    This is a link
-                  </a>
-                </li>
-                <li
-                  aria-selected="false"
-                  className="dropdown-menu_item"
-                  role="option"
-                >
-                  <a
-                    href="#"
-                  >
-                    This is another
-                  </a>
-                </li>
-                <li
-                  aria-selected="true"
-                  className="dropdown-menu_item is-selected"
-                  role="option"
-                >
-                  <a
-                    href="#"
-                  >
-                    Yet another
-                  </a>
-                </li>
-              </ul>
-              <button
-                className="button primary small"
+                className="button primary small save-btn"
                 disabled={false}
                 type="submit"
               >

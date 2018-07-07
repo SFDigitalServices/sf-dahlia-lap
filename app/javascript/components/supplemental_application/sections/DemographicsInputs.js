@@ -11,16 +11,16 @@ const DemographicsInputs = ({onChange}) => {
 
   return (
     <React.Fragment>
-      <FormGrid.Row>
+      <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group label='Number of Dependents'>
-            <Select field='dependents' options={numberOfDependentsOptions} placeholder='Select One'/>
+            <Select id='demographics-dependents' field='number_of_dependents' options={numberOfDependentsOptions} placeholder='Select One'/>
           </FormGrid.Group>
         </FormGrid.Item>
 
         <FormGrid.Item>
           <FormGrid.Group label='Primary Applicant Marital Status'>
-            <Select field='maritalStatus' options={martialStatusOptions} placeholder='Select One' />
+            <Select id='demographics-marital-status' field='applicant.marital_status' options={martialStatusOptions} placeholder='Select One' />
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>

@@ -1,31 +1,31 @@
 import React from 'react'
-import { map, includes, last } from 'lodash'
-import utils from '~/utils/utils'
+import { map } from 'lodash'
+import { buildFieldSpecs, buildFieldEntry } from '~/utils/fieldSpecs'
+
+const getRow = (row, entries) => map(entries, (entry, idx) => (
+  <td key={idx}>
+    {entry.value}
+  </td> 
+))
+
+const getRows = (items, fieldSpecs) => map(items, (row, idx) => {
+  const entries = map(fieldSpecs, (f) => buildFieldEntry(row, f))
+
+  return <tr key={idx}>{getRow(row, entries)}</tr>
+})
+
+const getColums = (entries) => map(entries, (entry, idx) => {
+  return (
+    <th key={idx}>
+      {entry.label}
+    </th>
+  )
+})
 
 const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
-  let i = 0
-  let columns = map(fields, (field) => {
-    if (includes(field, '.')) {
-      field = last(field.split('.'))
-    }
-    return <th key={field}>{utils.cleanField(field)}</th>
-  })
-  let rows = map(listing[table], (row) => {
-    let tableData = map(fields, (field) => {
-      let value = row[field]
-      if (includes(field, '.')) {
-        let parts = field.split('.')
-        // e.g. Lottery_Preference.Name, grab from nested object
-        value = row[parts[0]][parts[1]]
-      }
-      return <td key={field}>{value}</td>
-    })
-    return (
-      <tr key={i++}>
-        {tableData}
-      </tr>
-    )
-  })
+  const fieldSpecs = map(fields, buildFieldSpecs)
+  const columns = getColums(fieldSpecs)
+  const rows = getRows(listing[table], fieldSpecs)
 
   return (
     <div className="content-card">

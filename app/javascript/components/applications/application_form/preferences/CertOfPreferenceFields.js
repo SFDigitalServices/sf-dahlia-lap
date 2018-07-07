@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select, Text } from 'react-form'
+import { buildFieldId } from './utils'
 
 const CertOfPreferenceFields = ({ householdMembers, i }) => {
   return (
@@ -7,15 +8,15 @@ const CertOfPreferenceFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <label>Name of COP Holder</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
-          value={`shortFormPreferences.${i}.naturalKey`}
+          value={buildFieldId(i,'naturalKey')}
         />
       </div>
       <div className="small-6 columns">
         <label>COP Certificate Number</label>
         <Text
-          field={`shortFormPreferences.${i}.certificateNumber`}
+          field={buildFieldId(i,'certificate_number')}
         />
       </div>
       <div className="small-12 columns">

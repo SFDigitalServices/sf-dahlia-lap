@@ -7,8 +7,8 @@ import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
+import ConfirmedUnits from './sections/ConfirmedUnits'
 
-//TODO: refactor. this is a placeholder
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -20,8 +20,7 @@ const LeaseInformationSection = ({statusHistory}) => (
     <ContentSection.Sub title="Demographics">
       <DemographicsInputs />
     </ContentSection.Sub>
-    {!isEmpty(statusHistory) &&
-      (
+    {!isEmpty(statusHistory) &&(
         <ContentSection.Sub title="Status History" borderBottom={false}>
           <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')}/>
         </ContentSection.Sub>
@@ -29,6 +28,16 @@ const LeaseInformationSection = ({statusHistory}) => (
     }
   </ContentSection>
 )
+
+const ConfirmedHoushold = () => {
+  return (
+    <ContentSection title="Confirmed Household">
+      <ContentSection.Sub title="Confirmed Reserved and Priority Units">
+        <ConfirmedUnits />
+      </ContentSection.Sub>
+    </ContentSection>
+  )
+}
 
 const ButtonPager = ({ disabled }) => (
   <div className="button-pager">
@@ -46,7 +55,7 @@ const ButtonPager = ({ disabled }) => (
         <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
         <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
       </ul>
-      <button className="button primary small" type="submit" disabled={disabled}>Save</button>
+      <button className="button primary small save-btn" type="submit" disabled={disabled}>Save</button>
     </div>
   </div>
 )
@@ -64,16 +73,17 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, formFields } = this.props
+    const { statusHistory, application } = this.props
     const { loading } = this.state
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={formFields}	>
+        <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
+              <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>

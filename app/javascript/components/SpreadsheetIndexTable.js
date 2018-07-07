@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { each, includes, last, cloneDeep } from 'lodash'
+import { each, includes, last, cloneDeep, toLower } from 'lodash'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
 import apiService from '~/apiService'
@@ -25,8 +25,8 @@ class SpreadsheetIndexTable extends React.Component {
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       // don't show Id column
-      if (field === 'Id') return
-      if (field === 'Application') return
+      if (toLower(field) === 'id') return
+      if (toLower(field) === 'application') return
       let column = {
         id: field,
         accessor: (row) => (
@@ -122,11 +122,11 @@ class SpreadsheetIndexTable extends React.Component {
     }
 
     const flaggedApplicationRow = (row) => {
-      // console.log(row.original)
-      let lotteryStatus = row.original['Flagged_Record_Set.Listing.Lottery_Status']
+      // let lotteryStatus = row.original['Flagged_Record_Set.Listing.Lottery_Status']
+      let lotteryStatus = row.original.flagged_record.listing.lottery_status
       let viewApplicationLink = (
         <li>
-          <a className="button secondary tiny" href={`/applications/${row.original.Application}`}>
+          <a className="button secondary tiny" href={`/applications/${row.original.application}`}>
             View Application
           </a>
         </li>

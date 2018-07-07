@@ -13,10 +13,10 @@ const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
 const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
   if (!fieldMap) {
     fieldMap = {
-      address: 'address',
+      address: 'street',
       city: 'city',
       state: 'state',
-      zip: 'zip',
+      zip: 'zip_code',
     }
   }
 
