@@ -16,3 +16,12 @@ lease_ups:
     LastModifiedDate:
       label: 'Status Updated'
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
+  lease_ups_listings_fields:
+    Id:
+    Name:
+    Lottery_Date__c:
+    Lottery_Results_Date__c:
+    In_Lottery__c:
+    Units_Available__c:
+    Lease_Signed_Application__c:
+    LastModifiedDate:

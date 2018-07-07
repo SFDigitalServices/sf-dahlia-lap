@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :listings, only: %w[index show] do
     resources :applications, only: %w[new index], module: 'listings'
     collection do
-      resources :lease_ups, only: %w[], module: 'listings' do
+      resources :lease_ups, only: %w[index], module: 'listings' do
         resources :applications, module: 'lease_ups', only: %w[index]
       end
     end
