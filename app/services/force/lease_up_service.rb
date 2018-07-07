@@ -5,6 +5,14 @@ module Force
     FIELD_NAME = :lease_ups
     FIELDS = load_fields(FIELD_NAME).freeze
 
+    def lease_ups_listings
+      massage(query(%(
+        SELECT #{query_fields(:lease_ups_listings)}
+        FROM Listing__c
+        WHERE Status__c = 'Lease Up'
+      )))
+    end
+
     def lease_ups(listing_id)
       # application_data = parsed_index_query(%(
       application_data = massage(query(%(
