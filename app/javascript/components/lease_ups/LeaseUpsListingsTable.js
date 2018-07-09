@@ -2,6 +2,8 @@ import React from 'react'
 import ReactTable from 'react-table'
 import { cellFormat } from '~/utils/reactTableUtils'
 
+const PAGE_SIZE = 20
+
 const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
   const columns = [
     { Header: 'Listing Name', accessor: 'name' },
@@ -22,9 +24,9 @@ const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
   return (
     <ReactTable
       getTdProps={getTdProps}
-      className="rt-table-status"
       data={listings}
       columns={columns}
+      showPagination={listings.length >= PAGE_SIZE}
     />
   )
 }
