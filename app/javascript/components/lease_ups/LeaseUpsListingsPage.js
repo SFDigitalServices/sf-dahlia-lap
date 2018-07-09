@@ -9,13 +9,11 @@ import TableLayout from '../layouts/TableLayout'
 import LeaseUpsListingsTable from './LeaseUpsListingsTable'
 
 const LeaseUpsListingsPage = ({listings}) => {
-  console.log('domain', listings)
   const pageHeader = {
     title: 'Lease Ups'
   }
 
   const onCellClick = (rowInfo) => {
-    console.log(rowInfo)
     window.location.href = appPaths.toLeaseUpApplications(rowInfo.original.id)
   }
 
@@ -30,7 +28,6 @@ const LeaseUpsListingsPage = ({listings}) => {
 }
 
 const mapProperties = ({listings}) => {
-  console.log('soql', listings)
   return {
     listings: map(listings, mapListing)
   }

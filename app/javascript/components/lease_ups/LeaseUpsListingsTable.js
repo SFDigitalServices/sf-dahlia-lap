@@ -1,8 +1,5 @@
 import React from 'react'
 import ReactTable from 'react-table'
-// import { map } from 'lodash'
-// import PrettyTime from '../atoms/PrettyTime'
-// import utils from '~/utils/utils'
 import { cellFormat } from '~/utils/reactTableUtils'
 
 const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
