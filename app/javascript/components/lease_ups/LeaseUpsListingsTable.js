@@ -2,7 +2,7 @@ import React from 'react'
 import ReactTable from 'react-table'
 import { cellFormat } from '~/utils/reactTableUtils'
 
-const PAGE_SIZE = 20
+const PAGE_SIZE = 5
 
 const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
   const columns = [
@@ -32,6 +32,7 @@ const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
       getTdProps={getTdProps}
       data={listings}
       columns={columns}
+      defaultPageSize={PAGE_SIZE}
       showPagination={listings.length >= PAGE_SIZE}
     />
   )
