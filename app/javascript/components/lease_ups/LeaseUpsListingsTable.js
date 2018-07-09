@@ -6,7 +6,7 @@ const PAGE_SIZE = 20
 
 const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
   const columns = [
-    { Header: 'Listing Name', accessor: 'name' },
+    { Header: 'Listing Name', accessor: 'name', headerClassName: 'td-min-wide' },
     { Header: 'Lottery Date', accessor: 'lottery_date', Cell: cellFormat.date },
     { Header: 'Lottery Results Date', accessor: 'lottery_results_date', Cell: cellFormat.date },
     { Header: 'Applications in Lottery', accessor: 'in_lottery' },
@@ -16,9 +16,15 @@ const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
-    return {
+    let attributes = {
       onClick: (e, handleOriginal) => onCellClick(rowInfo)
     }
+
+    if (column.id === 'name') {
+      attributes.className = "td-bold td-min-wide"
+    }
+
+    return attributes
   }
 
   return (
