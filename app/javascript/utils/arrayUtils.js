@@ -1,3 +1,5 @@
+import { take, takeRight } from 'lodash'
+
 class Cycle {
 
   constructor(values) {
@@ -38,6 +40,15 @@ class Cycle {
 
 const cycle = (value) => new Cycle(value)
 
+const splitInHalf = (array) => {
+  let halfLength = array.length / 2
+  let firstHalf = take(array, Math.floor(halfLength))
+  let secondHalf = takeRight(array, Math.ceil(halfLength))
+
+  return { firstHalf, secondHalf }
+}
+
 export default {
-  cycle
+  cycle,
+  splitInHalf
 }

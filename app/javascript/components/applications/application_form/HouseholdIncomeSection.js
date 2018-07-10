@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Text, Select } from 'react-form'
+import { Text, Select } from 'react-form'
 
 const HouseholdIncomeSection = () => {
   return (

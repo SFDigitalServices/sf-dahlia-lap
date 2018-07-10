@@ -1,12 +1,12 @@
 import React from 'react'
-import TableExpandable from '../molecules/TableExpandable'
+import ExpandableTableWrapper from '../pattern_library_wrappers/ExpandableTableWrapper'
 
-const FormGridTable = ({ header, value, headerB, valueB, label, id, name, placeholder, describeId, note, error }) => {
+const FormGridTable = ({ columns, rows }) => {
   return (
     <div className="form-grid row expand">
       <div className="small-12 column">
         <div className="scrollable-table-container">
-          <TableExpandable header={header} value={value} headerB={headerB} valueB={valueB} label={label} id={id} name={name} placeholder={placeholder} describeId={describeId} note={note} error={error} />
+          <ExpandableTableWrapper columns={columns} rows={rows} />
         </div>
       </div>
     </div>

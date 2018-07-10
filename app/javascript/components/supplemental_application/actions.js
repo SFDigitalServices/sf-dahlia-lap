@@ -1,21 +1,12 @@
-import { merge } from 'lodash'
 import apiService from '~/apiService'
-import SOQLToApi from '~/components/soqlToApiMappers'
+import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 
-export const updateApplicationAction = async (application, values) => {
-  const shortFormApplication = SOQLToApi.buildApplicationShape(application)
-  const updatedApplication = merge(shortFormApplication, {
-    primaryApplicant: {
-      maritalStatus: values.maritalStatus
-    },
-    numberOfDependents: values.dependents
-  })
-
-  let response = await apiService.submitApplication(updatedApplication)
+export const updateApplicationAction = async (application) => {
+  const applicationApi = domainToApi.buildApplicationShape(application)
+  const response = await apiService.submitApplication(applicationApi)
   if (response === false) {
     Alerts.error()
   }
-
   return response
 }

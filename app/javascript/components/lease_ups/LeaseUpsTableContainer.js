@@ -1,5 +1,5 @@
 import React from 'react'
-import { set, clone, trim, findIndex, map } from 'lodash'
+import { set, clone, trim, findIndex, map, cloneDeep } from 'lodash'
 import moment from 'moment'
 
 import apiService from '~/apiService'
@@ -19,7 +19,7 @@ class LeaseUpTableContainer extends React.Component {
         showAlert: null,
         loading: false,
       },
-      results: this.props.results
+      applications: this.props.applications
     }
   }
 
@@ -34,7 +34,7 @@ class LeaseUpTableContainer extends React.Component {
   updateResults = (path, value) => {
     this.setState(prevState => {
       return {
-        results: set(clone(prevState.results), path, value)
+        applications: set(clone(prevState.applications), path, value)
       }
     })
   }
@@ -82,9 +82,9 @@ class LeaseUpTableContainer extends React.Component {
         // find the application in question in the applications table data
         // and update its lease up status value and status updated date
         // in the table
-        var applicationIndex = findIndex(this.state.results, {Application: applicationId})
-        this.updateResults(`[${applicationIndex}]['Application.Processing_Status']`, status)
-        this.updateResults(`[${applicationIndex}]['Status_Last_Updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+        var applicationIndex = findIndex(this.state.applications, { id: applicationId })
+        this.updateResults(`[${applicationIndex}]['lease_up_status']`, status)
+        this.updateResults(`[${applicationIndex}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
 
         this.setStatusModalLoading(false)
         this.setStatusModalStatus(null)
@@ -99,29 +99,17 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   buildRowData(result) {
-    // if we are going to use Mobx this mapping logic could be extracted to a Model
-    // this should be moved out to propmappers
-    let rowData = {
-      id:                 result['Application'],
-      application_number: result['Application.Name'],
-      first_name:         result['Application.First_Name'],
-      last_name:          result['Application.Last_Name'],
-      phone:              result['Application.Phone'],
-      email:              result['Application.Email'],
-      status_updated:     result['Status_Last_Updated'],
-      lease_up_status:    result['Application.Processing_Status'],
-      preference_order:   result['Preference_Order'],
-    }
+    let rowData = cloneDeep(result)
 
-    if (!!trim(result['Application.Mailing_Address'])) {
-      rowData.address = result['Application.Mailing_Address']
+    if (!!trim(result.mailing_address)) {
+      rowData.address = result.mailing_address
     } else {
-      rowData.address = result['Application.Residence_Address']
+      rowData.address = result.residence_address
     }
 
-    rowData.preference_rank = `${result['Listing_Preference_ID.Record_Type_For_App_Preferences']} ${result['Preference_Lottery_Rank']}`
-    var prefNum = parseFloat(result['Preference_Order'])
-    var rankNum = parseFloat(result['Preference_Lottery_Rank'])
+    rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank}`
+    var prefNum = parseFloat(result.preference_order)
+    var rankNum = parseFloat(result.preference_lottery_rank)
     rowData.rankOrder = prefNum + (rankNum * 0.0001)
     return rowData
   }
@@ -131,7 +119,7 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   rowsData() {
-    return map(this.state.results, result => this.buildRowData(result))
+    return map(this.state.applications, result => this.buildRowData(result))
   }
 
   render() {
@@ -141,7 +129,7 @@ class LeaseUpTableContainer extends React.Component {
       <div>
         <LeaseUpsTable
             dataSet={this.rowsData()}
-            listingId={listing.Id}
+            listingId={listing.id}
             onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
             onCellClick={this.goToSupplementaryInfo} />
         <LeaseUpsStatusModalWrapper

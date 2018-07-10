@@ -5,16 +5,19 @@ import {
   preferenceFieldMapper,
   applicationFieldMapper,
   householdMembersFieldMapper,
-  applicationShape
-} from './soqlFieldMappers'
+  applicationShape,
+  alternateContactFieldMapper
+} from './domainToApiFields'
 
 const mapApplicant = createFieldMapper(applicantFieldMapper)
 
 const mapApplication = createFieldMapper(applicationFieldMapper)
 
-const mapPreferences = createFieldMapper(preferenceFieldMapper)
+const mapPreference = createFieldMapper(preferenceFieldMapper)
 
 const mapHouseholdMembers = createFieldMapper(householdMembersFieldMapper)
+
+const mapAlternateContact = createFieldMapper(alternateContactFieldMapper)
 
 const buildApplicationShape = soqlObject => {
   return mapFields(applicationShape, {}, soqlObject)
@@ -24,6 +27,7 @@ export default {
   mapApplicant,
   mapApplication,
   mapHouseholdMembers,
-  mapPreferences,
-  buildApplicationShape
+  mapPreference,
+  buildApplicationShape,
+  mapAlternateContact
 }
