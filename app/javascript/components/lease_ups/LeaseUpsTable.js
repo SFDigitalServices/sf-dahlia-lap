@@ -36,9 +36,8 @@ const NoData = ({ children, className, ...rest }) => {
   )
 }
 
-const isInvalid = (row) => {
-  // return row.post_lottery_validation === 'Invalid'
-  return true
+const isInvalid = (original) => {
+  return original.post_lottery_validation === 'Invalid'
 }
 
 const PreferenceRankCell = ({cell}) => {
@@ -91,9 +90,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
                             ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
                             : ''
 
-    const trClassName = classNames(
-      'rt-tr-status',
-      statusClassName,
+    const trClassName = classNames('rt-tr-status', statusClassName,
       {
         'is-invalid': rowInfo && isInvalid(rowInfo.original)
       }
