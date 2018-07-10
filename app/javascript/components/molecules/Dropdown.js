@@ -102,7 +102,7 @@ class Dropdown extends React.Component {
       <button
         aria-expanded={this.state.expanded ? 'true' : 'false' }
         onClick={this.toggleExpand} ref={(node) => this.buttonRef = node }
-        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses.join(' ')}`}
+        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
         type="button">
           <span className="ui-icon ui-small">
             <svg>
