@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-import { Form, Checkbox } from 'react-form'
+import { Form } from 'react-form'
 import apiService from '~/apiService'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
@@ -10,6 +10,9 @@ import PreferencesSection from './preferences/PreferencesSection'
 import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
+import AgreeToTerms from './AgreeToTerms'
+
+import domainToApi from '~/components/mappers/domainToApi'
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -61,72 +64,39 @@ class PaperApplicationForm extends React.Component {
     this.setState({ submittedValues })
     this.setState({ loading: true })
     let applicationData = submittedValues
-    applicationData.listingID = this.props.listing.Id
+    applicationData.listingID = this.props.listing.id
     applicationData = this.assignDemographicData(applicationData)
     applicationData = this.removeEmptyData(applicationData)
     applicationData = this.formatAdaPriorities(applicationData)
 
     if (this.props.application) {
-      applicationData["id"] = this.props.application.Id
-      applicationData["applicationSubmissionType"] = this.props.application.Application_Submission_Type
+      applicationData["id"] = this.props.application.id
+      applicationData["applicationSubmissionType"] = this.props.application.application_submission_type
     }
 
     let response = await apiService.submitApplication(applicationData)
-    if (response == false) {
+    if (response === false) {
       alert('There was an error on submit. Please check values and try again.')
     }
 
     this.setState({ loading: false })
-    if (this.state.submitType == 'Save') {
+    if (this.state.submitType === 'Save') {
       window.location.href = '/applications/' + response.application.id
     }
     else {
-      window.location.href = '/listings/' + this.props.listing.Id + '/applications/new'
+      window.location.href = '/listings/' + this.props.listing.id + '/applications/new'
     }
   }
 
   saveSubmitType = (type) => {
-    this.state.submitType = type
-  }
-
-  get agreeToTermsMarkup () {
-    return (
-      <div className="checkbox-group" role="group">
-        <div className="form-item" >
-          <div className="checkbox">
-            <Checkbox field="agreeToTerms" id="agreeToTerms" name="agreeToTerms" />
-            <label htmlFor="agreeToTerms">Signature on Terms of Agreement</label>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  get demographicsSection () {
-    if (!this.props.editPage) {
-      return (
-        <DemographicInfoSection />
-      )
-    }
+    this.setState({submitType: type})
   }
 
   render() {
-    let { listing } = this.props
-    let fieldMapper = {
-      Has_Military_Service: 'hasMilitaryService',
-      Has_DevelopmentalDisability: 'hasDevelopmentalDisability',
-      Answered_Community_Screening: 'answeredCommunityScreening',
-      Annual_Income: 'annualIncome',
-      Housing_Voucher_or_Subsidy: 'householdVouchersSubsidies',
-      Terms_Acknowledged: 'agreeToTerms'
-    }
-
+    let { listing, application, editPage } = this.props
     let autofillValues = {}
-    if (this.props.application) {
-      _.forEach(fieldMapper, (shortFormField, salesforceField) => {
-        autofillValues[shortFormField] = this.props.application[salesforceField]
-      })
-    }
+    if (application)
+      autofillValues = domainToApi.mapApplication(application)
 
     return (
       <div>
@@ -135,18 +105,20 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
-                  <PrimaryApplicantSection formApi={formApi} editValues={this.props.application}/>
-                  <AlternateContactSection editValues={this.props.application} />
-                  <HouseholdMembersSection formApi={formApi} editValues={this.props.application} />
-                  <ReservedPrioritySection editValues={this.props.application} listing={this.props.listing}/>
+                  <PrimaryApplicantSection editValues={application} formApi={formApi} />
+                  <AlternateContactSection editValues={application} />
+                  <HouseholdMembersSection editValues={application} formApi={formApi}  />
+                  <ReservedPrioritySection editValues={application} listing={listing}/>
                   <PreferencesSection
                     formApi={formApi}
-                    listingPreferences={listing.Listing_Lottery_Preferences}
-                    editValues={this.props.application}
+                    listingPreferences={listing.listing_lottery_preferences}
+                    editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  {this.demographicsSection}
-                  {this.agreeToTermsMarkup}
+                  {!editPage &&
+                      <DemographicInfoSection />
+                  }
+                  <AgreeToTerms/>
                 </div>
                 <div className="button-pager">
                   <div className="button-pager_row primary">

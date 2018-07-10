@@ -1,9 +1,10 @@
 import React from 'react'
-import _ from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
+
+import domainToApi from '~/components/mappers/domainToApi'
 
 let { phone_type_options } = formOptions
 
@@ -14,30 +15,10 @@ let mailingAddressFieldMap = {
   zip: 'mailingZip',
 }
 
-let fieldMapper = {
-  Date_of_Birth: 'DOB',
-  First_Name: 'firstName',
-  Last_Name: 'lastName',
-  Middle_Name: 'middleName',
-  Street: 'address',
-  City: 'city',
-  State: 'state',
-  Zip_Code: 'zip',
-  Mailing_Street: 'mailingAddress',
-  Mailing_City: 'mailingCity',
-  Mailing_State: 'mailingState',
-  Mailing_Zip_Code: 'mailingZip',
-  Phone: 'phone',
-  Phone_Type: 'phoneType',
-  Email: 'email'
-}
-
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
-    _.forEach(fieldMapper, (shortFormField, salesforceField) => {
-      autofillValues[shortFormField] = editValues.Applicant[salesforceField]
-    })
+    autofillValues = domainToApi.mapApplicant(editValues.applicant)
     formApi.values.primaryApplicant = autofillValues
   }
   return (

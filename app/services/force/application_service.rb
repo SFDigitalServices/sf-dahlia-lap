@@ -33,14 +33,14 @@ module Force
       # NOTE: most listings are <5000 but a couple have been in the 5000-7000 range
       # pro of doing mega-query: can do client side searching/sorting
       # con: loading a JSON of 7500 on the page, performance?
-      parsed_index_query(%(
+      massage(query(%(
         SELECT #{query_fields(:index)}
         FROM Application__c
         WHERE #{user_can_access}
         AND Status__c != '#{DRAFT}'
         AND Listing__r.Id='#{listing_id}'
         LIMIT 10000
-      ))
+      )))
     end
 
     def update(data)

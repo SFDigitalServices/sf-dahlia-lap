@@ -17,7 +17,7 @@ Array [
           <h1
             className="lead-header_title small-serif c-oil"
           >
-            Application undefined
+            Application APP-00191270
           </h1>
           <div
             className="medium-8 columns no-padding"
@@ -26,8 +26,10 @@ Array [
               <span>
                 Name of Listing: 
                 <a
-                  href="/listings/1"
-                />
+                  href="/listings/a0W0x000000GhJUEA0"
+                >
+                  Test 5/30
+                </a>
               </span>
             </p>
           </div>
@@ -68,7 +70,7 @@ Array [
                     Lottery Number
                   </h4>
                   <p>
-                    None
+                    00191270
                   </p>
                 </div>
                 <div
@@ -80,7 +82,7 @@ Array [
                     Application Submission Type
                   </h4>
                   <p>
-                    None
+                    Electronic
                   </p>
                 </div>
                 <div
@@ -92,7 +94,7 @@ Array [
                     Application Submitted Date
                   </h4>
                   <p>
-                    04/23/2018
+                    06/19/2018
                   </p>
                 </div>
                 <div
@@ -104,7 +106,7 @@ Array [
                     Application Language
                   </h4>
                   <p>
-                    None
+                    English
                   </p>
                 </div>
                 <div
@@ -116,7 +118,7 @@ Array [
                     Total Household Size
                   </h4>
                   <p>
-                    None
+                    1
                   </p>
                 </div>
               </div>
@@ -148,7 +150,7 @@ Array [
                     Status
                   </h4>
                   <p>
-                    None
+                    Submitted
                   </p>
                 </div>
                 <div
@@ -169,10 +171,10 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
-                    CreatedBy
+                    Created By
                   </h4>
                   <p>
-                    None
+                    Prod Vertiba
                   </p>
                 </div>
               </div>
@@ -195,14 +197,112 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    First Name
+                  </h4>
+                  <p>
+                    karen
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Last Name
+                  </h4>
+                  <p>
+                    jones
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Date of Birth
+                  </h4>
+                  <p>
+                    01/01/1950
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Phone
+                  </h4>
+                  <p>
+                    9548883321
+                  </p>
+                </div>
+              </div>
             </li>
             <li
               className="content-item"
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Second Phone
+                  </h4>
+                  <p>
+                    None
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Email
+                  </h4>
+                  <p>
+                    eee@eeee.com
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Residence Address
+                  </h4>
+                  <p>
+                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Mailing Address
+                  </h4>
+                  <p>
+                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -222,16 +322,161 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    First Name
+                  </h4>
+                  <p>
+                    Federic
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Last Name
+                  </h4>
+                  <p>
+                    dayan
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Phone
+                  </h4>
+                  <p>
+                    9954449943
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Agency Name
+                  </h4>
+                  <p>
+                    None
+                  </p>
+                </div>
+              </div>
             </li>
             <li
               className="content-item"
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Email
+                  </h4>
+                  <p>
+                    fede@eee.com
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Alternate Contact Type
+                  </h4>
+                  <p>
+                    Friend
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Alternate Contact Type Other
+                  </h4>
+                  <p>
+                    None
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
+        </div>
+        <div
+          className="content-card"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Household Members
+          </h4>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Relationship to Applicant
+                </th>
+                <th>
+                  Date of Birth
+                </th>
+                <th>
+                  Street
+                </th>
+                <th>
+                  City
+                </th>
+                <th>
+                  State
+                </th>
+                <th>
+                  Zip Code
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  diego m maradona
+                </td>
+                <td />
+                <td>
+                  1976-06-11
+                </td>
+                <td>
+                  9 de julio
+                </td>
+                <td>
+                  buenos aires
+                </td>
+                <td>
+                  fl
+                </td>
+                <td>
+                  33026
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div
           className="content-card padding-bottom-none margin-bottom--half bg-trans"
@@ -268,7 +513,7 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
-                    Has DevelopmentalDisability
+                    Has Developmental Disability
                   </h4>
                   <p>
                     None
@@ -291,7 +536,7 @@ Array [
                     Has ADA Priorities Selected
                   </h4>
                   <p>
-                    None
+                    Vision impaired;Mobility impaired;Hearing impaired
                   </p>
                 </div>
                 <div
@@ -309,6 +554,57 @@ Array [
               </div>
             </li>
           </ul>
+        </div>
+        <div
+          className="content-card"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Application Preferences
+          </h4>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Receives Preference
+                </th>
+                <th>
+                  Preference Name
+                </th>
+                <th>
+                  Lottery Status
+                </th>
+                <th>
+                  Person who claimed Name
+                </th>
+                <th>
+                  Type of proof
+                </th>
+                <th>
+                  Preference Lottery Rank
+                </th>
+                <th>
+                  Opt Out
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td />
+                <td>
+                  Alice Griffith Housing Development Resident
+                </td>
+                <td>
+                  None
+                </td>
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div
           className="content-card padding-bottom-none margin-bottom--half bg-trans"
@@ -336,7 +632,7 @@ Array [
                     Annual Income
                   </h4>
                   <p>
-                    None
+                    110000
                   </p>
                 </div>
                 <div
@@ -368,7 +664,7 @@ Array [
                     Housing Voucher or Subsidy
                   </h4>
                   <p>
-                    None
+                    true
                   </p>
                 </div>
               </div>
@@ -381,9 +677,51 @@ Array [
           <h4
             className="content-card_title t-serif"
           >
+            Flagged Applications
+          </h4>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Rule Name
+                </th>
+                <th>
+                  Total Number of Pending Review
+                </th>
+                <th>
+                  View Record Set
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+        <div
+          className="content-card"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
             Attachments
           </h4>
-          <ul />
+          <ul>
+            <li>
+              <a
+                href="undefined/servlet/servlet.FileDownload?file=xxxx1"
+                target="_blank"
+              >
+                Namexxx1
+              </a>
+            </li>
+            <li>
+              <a
+                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
+                target="_blank"
+              >
+                Namexxx1
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

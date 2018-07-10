@@ -4,15 +4,17 @@ import SupplementalApplicationContainer from './SupplementalApplicationContainer
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
-import mapProperties from './mapProperties'
+import { mapApplication, mapFieldUpdateComment } from '~/components/mappers/soqlToDomain'
+import { updateApplicationAction } from './actions'
+import { mapList } from '~/components/mappers/utils'
 
 const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit }) => {
   const pageHeader = {
-    title: `${application.number}: ${application.name}`,
+    title: `${application.name}: ${application.applicant.name}`,
     breadcrumbs: [
       { title: 'Lease Ups', link: '/lease_ups' },
       { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
-      { title: application.number, link: '#' }
+      { title: application.name, link: '#' }
     ]
   }
 
@@ -26,9 +28,21 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
 
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      <SupplementalApplicationContainer application={application}  statusHistory={statusHistory} formFields={formFields} onSubmit={onSubmit}/>
+      <SupplementalApplicationContainer
+        application={application}
+        statusHistory={statusHistory}
+        formFields={formFields}
+        onSubmit={onSubmit}/>
     </CardLayout>
   )
+}
+
+const mapProperties = ({application, statusHistory}) => {
+  return {
+    application: mapApplication(application),
+    statusHistory: mapList(mapFieldUpdateComment,statusHistory),
+    onSubmit:  (values) => updateApplicationAction(values)
+  }
 }
 
 export default mapProps(mapProperties)(SupplementalApplicationPage)

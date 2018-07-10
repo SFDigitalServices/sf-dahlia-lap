@@ -1,6 +1,9 @@
 import React from 'react'
-import _ from 'lodash'
+import { concat, pickBy, forEach } from 'lodash'
 import PreferenceForm from './PreferenceForm'
+import { naturalKeyFromPreference } from './utils'
+
+import domainToApi from '~/components/mappers/domainToApi'
 
 const allPreferencesSelected = (formApi, listingPreferences) => {
   if (formApi.values && formApi.values.shortFormPreferences && listingPreferences) {
@@ -18,31 +21,13 @@ const disableAddPreference = (formApi, listingPreferences) => {
   return (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
 }
 
-let fieldMapper = {
-  Id: 'shortformPreferenceID',
-  Listing_Preference_ID: "listingPreferenceID",
-  Individual_preference: "individualPreference",
-  Certificate_Number: "certificateNumber",
-  Type_of_proof: "preferenceProof",
-  Preference_Name: "preferenceName",
-  State: "state",
-  Zip_Code: "zipCode",
-  City: 'city',
-  Street: 'address',
-  'RecordType.DeveloperName': 'recordTypeDevName'
-}
-
 const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
   let autofillPreferences = []
   if (editValues && editValues.preferences && !formApi.values.shortFormPreferences) {
-    _.forEach(editValues.preferences, (preference) => {
-      if (preference.Application_Member) {
-        let editPreference = {}
-        _.forEach(fieldMapper, (shortFormField, salesforceField) => {
-          editPreference[shortFormField] = preference[salesforceField]
-        })
-        let naturalKey = `${preference["Application_Member.First_Name"]},${preference["Application_Member.Last_Name"]},${preference["Application_Member.Date_of_Birth"]}`
-        editPreference["naturalKey"] = naturalKey
+    forEach(editValues.preferences, (preference) => {
+      if (preference.application_member) {
+        let editPreference = domainToApi.mapPreference(preference)
+        editPreference["naturalKey"] = naturalKeyFromPreference(preference)
         autofillPreferences.push(editPreference)
       }
     })
@@ -51,8 +36,8 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
   }
 
   let { householdMembers, primaryApplicant } = formApi.values
-  let fullHousehold = _.concat([primaryApplicant], householdMembers || [])
-  fullHousehold = _.pickBy(fullHousehold, (m) => (
+  let fullHousehold = concat([primaryApplicant], householdMembers || [])
+  fullHousehold = pickBy(fullHousehold, (m) => (
     // can only select someone for preference if they have name + DOB
     m && m.firstName && m.lastName && m.DOB
   ))
