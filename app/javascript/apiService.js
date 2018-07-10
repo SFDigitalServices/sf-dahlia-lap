@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 const apiCall = async (method, path, data) => {
+  if (process.env.NODE_ENV === 'test')
+    throw new Error("API should not be called in TEST")
   try {
     const request = await axios[method](`/api/v1${path}`, data)
     return request.data

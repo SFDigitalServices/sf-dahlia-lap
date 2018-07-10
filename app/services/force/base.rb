@@ -78,7 +78,7 @@ module Force
     end
 
     def parsed_index_query(q, type = :index)
-      parse_results(query(q), self.class::FIELDS["#{type}_fields"])
+      massage(query(q))
     end
 
     def index_fields

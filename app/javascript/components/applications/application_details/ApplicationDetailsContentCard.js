@@ -1,12 +1,10 @@
 import React from 'react'
-import { includes, take, takeRight, map } from 'lodash'
+import { includes, take, takeRight, map, toLower } from 'lodash'
 import moment from 'moment'
 import utils from '~/utils/utils'
+import { titleizeLabel } from './utils'
 
-var generateContent = (dataCollection, field, labelMapper, i) => {
-  if (dataCollection == null) {
-    return
-  }
+const getValueAndLabel = (dataCollection, field, labelMapper) => {
   let value = dataCollection[field]
   let label = utils.cleanField(field)
   if (includes(field, '.')) {
@@ -19,15 +17,27 @@ var generateContent = (dataCollection, field, labelMapper, i) => {
   if (labelMapper && labelMapper[field]) {
     label = labelMapper[field].label
   }
-  if (includes(field, 'Date')) {
+  if (includes(toLower(field), 'date')) {
     // cheap way of knowing when to parse date fields
     value = moment(value).format('L')
   }
-  if (includes(field, 'URL')) {
+  if (includes(toLower(field), 'url')) {
     // cheap way of knowing when to parse URL fields
     value = <a target='_blank' href={value}>{value}</a>
   }
   if (!value) { value = 'None'}
+
+  label = titleizeLabel(label)
+
+  return { value, label }
+}
+
+var generateContent = (dataCollection, field, labelMapper, i) => {
+  if (dataCollection == null)
+    return
+    
+  const { value, label } = getValueAndLabel(dataCollection, field, labelMapper)
+
   return (
     <div className="margin-bottom--half" key={i}>
       <h4 className="t-sans t-small t-bold no-margin">

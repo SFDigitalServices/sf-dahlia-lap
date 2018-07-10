@@ -46,7 +46,7 @@ const ButtonPager = ({ disabled }) => (
         <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
         <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
       </ul>
-      <button className="button primary small" type="submit" disabled={disabled}>Save</button>
+      <button className="button primary small save-btn" type="submit" disabled={disabled}>Save</button>
     </div>
   </div>
 )
@@ -64,12 +64,12 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, formFields } = this.props
+    const { statusHistory, application } = this.props
     const { loading } = this.state
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={formFields}	>
+        <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>

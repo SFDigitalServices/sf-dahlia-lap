@@ -1,43 +1,46 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { mount } from 'enzyme';
+import apiService from '~/apiService'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
+import supplementalApplication from '../../fixtures/supplemental_application'
+import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
+
+jest.mock('apiService', () => {
+  const mockSubmitApplication = async (data) => {
+    expect(data).toEqual(mockShortFormSubmitPayload)
+  }
+  return { submitApplication: mockSubmitApplication }
+})
+
+const statusHistory = [
+  { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' },
+  { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' }
+]
 
 describe('SupplementalApplicationPage', () => {
-  const application = {
-    Id: 'xxx1',
-    Name: 'name',
-    Applicant: {
-      Name: 'applicant name'
-    },
-    Listing: {
-      Id: 'listing1',
-      Name: 'listingName'
-    }
-  }
-
-  const statusHistory = [
-    { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' },
-    { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' }
-  ]
-
   test('it should render correctly without status history', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
-        application={application}/>
-    );
+        statusHistory={statusHistory}
+        application={supplementalApplication}/>
+    )
 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
-  test('it should render correctly with status history', () => {
-    const component = renderer.create(
+  test('it saves correctly', () => {
+    mockShortFormSubmitPayload.numberOfDependents = 1
+    mockShortFormSubmitPayload.primaryApplicant.maritalStatus = 'Domestic Partner'
+    const wrapper = mount(
       <SupplementalApplicationPage
-        application={application}
+        application={supplementalApplication}
         statusHistory={statusHistory}/>
-    );
+    )
 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
+    wrapper.find('#demographics-marital-status select option[value=3]').simulate('change')
+    wrapper.find('form').first().simulate('submit')
   })
 })

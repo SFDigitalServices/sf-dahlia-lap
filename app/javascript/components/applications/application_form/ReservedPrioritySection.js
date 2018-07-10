@@ -1,5 +1,5 @@
 import React from 'react'
-import _ from 'lodash'
+import { map, each, includes } from 'lodash'
 import { NestedForm, Form, Checkbox, Select } from 'react-form'
 import formOptions from './formOptions'
 
@@ -11,19 +11,17 @@ let {
 const ReservedPrioritySection = ({editValues, listing}) => {
   let autofillValues = {}
 
-  if (editValues && editValues.Has_ADA_Priorities_Selected) {
-    let selected = editValues.Has_ADA_Priorities_Selected.split(";")
-    _.each(selected, (value) => {
+  if (editValues && editValues.has_ada_priorities_selected) {
+    let selected = editValues.has_ada_priorities_selected.split(";")
+    each(selected, (value) => {
       autofillValues[value] = true
     })
   }
 
-  let reservedTypes = _.map(listing.Units, (unit) => {
-    return unit.Reserved_Type
-  })
+  let reservedTypes = map(listing.units, unit => unit.reserved_type)
 
   const developmentalDisabilityMarkup = () => {
-    if (_.includes(reservedTypes, 'Developmental disabilities')) {
+    if (includes(reservedTypes, 'Developmental disabilities')) {
       return (
         <div className="small-6 columns">
           <label>Developmentally Disabled</label>
@@ -35,7 +33,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
   }
 
   const militaryServiceMarkup = () => {
-    if (_.includes(reservedTypes, 'Veteran')) {
+    if (includes(reservedTypes, 'Veteran')) {
       return (
         <div className="small-6 columns">
           <label>U.S. Military</label>
@@ -47,13 +45,15 @@ const ReservedPrioritySection = ({editValues, listing}) => {
   }
 
   const reservedCommunityMarkup = () => {
-    if (!!listing.Reserved_community_type) {
+    if (!!listing.reserved_community_type) {
       return (
         <div className="margin-bottom--2x small-12 columns">
           <h4>Qualifying Information for the Building Community Type</h4>
           <div className="margin-bottom--2x small-6 columns">
             <label>Meets Community Requirements</label>
-            <p className="form-note margin-bottom">This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.</p>
+            <p className="form-note margin-bottom">
+              This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.
+            </p>
             <Select field="answeredCommunityScreening" options={yes_no_options} />
           </div>
         </div>

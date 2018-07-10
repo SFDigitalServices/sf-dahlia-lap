@@ -3,31 +3,17 @@ import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 
+import domainToApi from '~/components/mappers/domainToApi'
+
 const {
   alternate_contact_options,
   phone_type_options,
 } = formOptions
 
-// To do: possibly refactor to massage these values to be purely camelcase
-// issue: they don't map out one-to-one e.g. Agency_Name vs agency
-let fieldMapper = {
-  First_Name: 'firstName',
-  Last_Name: 'lastName',
-  Middle_Name: 'middleName',
-  Alternate_Contact_Type: 'alternateContactType',
-  Alternate_Contact_Type_Other: 'alternateContactTypeOther',
-  Agency_Name: 'agency',
-  Email: 'email',
-  Phone: 'phone',
-  Phone_Type: 'phoneType'
-}
-
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
-  if (editValues && editValues.Alternate_Contact) {
-    forEach(fieldMapper, (shortFormField, salesforceField) => {
-      autofillValues[shortFormField] = editValues.Alternate_Contact[salesforceField]
-    })
+  if (editValues && editValues.alternate_contact) {
+    autofillValues = domainToApi.mapAlternateContact(editValues.alternate_contact)
   }
   return (
     <NestedForm field="alternateContact">

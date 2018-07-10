@@ -7,10 +7,10 @@ module Applications
       case params[:type]
       when 'pending'
         @title = "Flagged Applications - Pending Review"
-        @results, @fields = pending_data
+        @flagged_records, @fields = pending_data
       when 'duplicated'
         @title = "Marked Duplicate Apps"
-        @results, @fields = duplicated_data
+        @flagged_records, @fields = duplicated_data
       end
     end
 

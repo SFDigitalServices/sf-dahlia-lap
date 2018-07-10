@@ -9,7 +9,9 @@ describe('ApplicationsPage', () => {
     const fields = {}
 
     const wrapper = renderer.create(
-      <ApplicationsPage applications={applications} fields={fields} />,
+      <ApplicationsPage
+        applications={applications}
+        fields={fields} />,
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot();
