@@ -6,6 +6,7 @@ import Dropdown from '../molecules/Dropdown'
 import PrettyTime from '../atoms/PrettyTime'
 import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
+import classNames from 'classnames'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
@@ -35,9 +36,27 @@ const NoData = ({ children, className, ...rest }) => {
   )
 }
 
+const isInvalid = (row) => {
+  // return row.post_lottery_validation === 'Invalid'
+  return true
+}
+
+const PreferenceRankCell = ({cell}) => {
+  if (isInvalid(cell.original)){
+    return (
+      <div>
+        <span className="rt-td-label-rank t-semis">{cell.original.preference_rank}</span>
+        <span className="rt-td-label-invalid t-semis">Invalid</span>
+      </div>
+    )
+  } else {
+    return <div>{cell.original.preference_rank}</div>
+  }
+}
+
 const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
-      { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: (cell) => ( <div>{cell.original.preference_rank}</div>) },
+      { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
       { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.id)} className="has-border">{cell.value}</a>) },
       { Header: 'First Name',         accessor: 'first_name' ,        Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Last Name',          accessor: 'last_name' ,         Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
@@ -45,7 +64,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} parseFormat={utils.SALESFORCE_DATE_FORMAT} /> : <i>none</i> ) },
-      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
+      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> }
     ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
@@ -72,8 +91,16 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
                             ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
                             : ''
 
+    const trClassName = classNames(
+      'rt-tr-status',
+      statusClassName,
+      {
+        'is-invalid': isInvalid(rowInfo.original)
+      }
+    )
+
     return {
-      className: `rt-tr-status ${statusClassName}`,
+      className: trClassName,
       tabIndex: "0"
     }
   }
