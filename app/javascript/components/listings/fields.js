@@ -1,4 +1,3 @@
-// { field, label, renderType, formatType }
 export const detailsFields = [
   { field: 'Owner.Name', label: 'Owner' },
   'Name',

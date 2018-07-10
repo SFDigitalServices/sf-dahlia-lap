@@ -1,4 +1,3 @@
-// TODO: this is not being mapped in the Component
 export const mapUnit = (unit) => {
   return {
     unit_type: unit.Unit_Type,
