@@ -18,7 +18,7 @@ class DropdownMenu extends React.Component {
 
     return (
       <ul
-        className={`dropdown-menu ${classes.join(' ')}`}
+        className={`dropdown-menu ${classes ? classes.join(' ') : ''}`}
         style={style}
         role="listbox"
         tabIndex="-1"
