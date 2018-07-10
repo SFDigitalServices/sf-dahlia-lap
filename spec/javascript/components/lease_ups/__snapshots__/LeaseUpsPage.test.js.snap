@@ -314,7 +314,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status is-invalid -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -330,7 +330,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 1
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 1
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -501,7 +510,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -even"
+                className="rt-tr rt-tr-status is-invalid -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -517,7 +526,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 1
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 1
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -688,7 +706,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -830,7 +848,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -even rt-tr-status "
+                className="rt-tr -padRow -even rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -972,7 +990,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -1554,7 +1572,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status is-invalid -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -1570,7 +1588,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 1
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 1
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -1741,7 +1768,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -even rt-tr-status "
+                className="rt-tr -padRow -even rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -1883,7 +1910,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -2025,7 +2052,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -even rt-tr-status "
+                className="rt-tr -padRow -even rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -2167,7 +2194,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -2749,7 +2776,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status is-invalid -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -2765,7 +2792,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 1
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 1
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -2936,7 +2972,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -even"
+                className="rt-tr rt-tr-status is-invalid -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -2952,7 +2988,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 2
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 2
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -3123,7 +3168,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status is-invalid -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3139,7 +3184,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 1
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 1
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -3310,7 +3364,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -even"
+                className="rt-tr rt-tr-status is-invalid -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3326,7 +3380,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 2
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 2
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div
@@ -3497,7 +3560,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status is-invalid -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3513,7 +3576,16 @@ Array [
                   }
                 >
                   <div>
-                    CAP 1
+                    <span
+                      className="rt-td-label-rank t-semis"
+                    >
+                      CAP 1
+                    </span>
+                    <span
+                      className="rt-td-label-invalid t-semis"
+                    >
+                      Invalid
+                    </span>
                   </div>
                 </div>
                 <div

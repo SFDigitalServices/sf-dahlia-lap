@@ -95,7 +95,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       'rt-tr-status',
       statusClassName,
       {
-        'is-invalid': isInvalid(rowInfo.original)
+        'is-invalid': rowInfo && isInvalid(rowInfo.original)
       }
     )
 
