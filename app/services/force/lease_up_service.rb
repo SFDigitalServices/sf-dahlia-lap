@@ -19,7 +19,6 @@ module Force
       # find the last time the status was updated on these applications,
       # i.e. what is the most recently-dated Field Update Comment, if
       # any, for each application
-      # application_ids = application_data.map { |data| "'#{data[:Application]}'" }
       application_ids = application_data.map { |data| "'#{data[:Application]['Id']}'" }
       if application_ids.present?
         status_last_updated_dates = find_status_last_updated_dates(application_ids)

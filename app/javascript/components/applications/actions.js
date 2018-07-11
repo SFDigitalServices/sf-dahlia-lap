@@ -2,7 +2,6 @@ import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 
 export const saveApplication = async (submitType, submittedValues, application, listing) => {
-  // const applicationData = prepareApplicationData(submittedValues, application, listing)
   const applicationData = domainToApi.buildApplicationShape(submittedValues)
   const response = await apiService.submitApplication(applicationData)
 
