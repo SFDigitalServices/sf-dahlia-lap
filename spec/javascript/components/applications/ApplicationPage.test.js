@@ -2,7 +2,6 @@ import React from 'react'
 import renderer from 'react-test-renderer';
 
 import ApplicationPage from 'components/applications/ApplicationPage'
-// import modelsFactory from '../../factories/models'
 import sharedHooks from '../../support/sharedHooks'
 import application from '../../fixtures/application'
 

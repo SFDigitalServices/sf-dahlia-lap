@@ -89,7 +89,6 @@ class SpreadsheetIndexTable extends React.Component {
       let persistedData = [...this.state.persistedData]
 
       if (save) {
-        // console.log(`saving ${rowInfo.index}.....`)
         loading = {...loading}
         loading[rowInfo.index] = false
         persistedData[rowInfo.index] = cloneDeep(editData[rowInfo.index])
@@ -97,7 +96,6 @@ class SpreadsheetIndexTable extends React.Component {
         // ^^ await means that the setState won't happen until the call is made
         this.setState({ expanded, loading, persistedData })
       } else {
-        // console.log(`canceling ${rowInfo.index}.....`)
         loading = {...loading}
         loading[rowInfo.index] = false
         editData = [...persistedData]
@@ -122,7 +120,6 @@ class SpreadsheetIndexTable extends React.Component {
     }
 
     const flaggedApplicationRow = (row) => {
-      // let lotteryStatus = row.original['Flagged_Record_Set.Listing.Lottery_Status']
       let lotteryStatus = row.original.flagged_record.listing.lottery_status
       let viewApplicationLink = (
         <li>
