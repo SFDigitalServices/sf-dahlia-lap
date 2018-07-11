@@ -26,7 +26,7 @@ const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
   const fieldSpecs = map(fields, buildFieldSpecs)
   const columns = getColums(fieldSpecs)
   const rows = getRows(listing[table], fieldSpecs)
-  
+
   return (
     <div className="content-card">
       <h4 className="content-card_title t-serif">{title}</h4>
