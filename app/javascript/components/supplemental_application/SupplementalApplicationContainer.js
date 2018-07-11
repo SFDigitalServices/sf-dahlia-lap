@@ -69,7 +69,7 @@ class SupplementalApplicationContainer extends React.Component {
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={application}	>
+        <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
