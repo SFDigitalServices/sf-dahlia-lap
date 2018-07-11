@@ -1,13 +1,7 @@
 // modifications to toolkit styles
 .top-bar {
   .name-logo a {
-    background: url(logo.png) no-repeat;
-  }
-
-  .top-bar-section {
-    @media screen and (min-width: 75rem) {
-      float: none;
-    }
+    background: url(asset-path('logo.png')) no-repeat;
   }
 }
 

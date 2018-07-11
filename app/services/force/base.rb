@@ -28,6 +28,10 @@ module Force
 
     # run a Salesforce SOQL query
     def query(q)
+      if Rails.env.development?
+        puts "SOQL>"
+        puts q
+      end
       @client.query(q)
     end
 
