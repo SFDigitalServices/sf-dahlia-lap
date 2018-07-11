@@ -77,6 +77,10 @@ module Force
       massage(@client.query(q)).first
     end
 
+    def builder
+      Force::SoqlQueryBuilder.new(@client)
+    end
+
     def parsed_index_query(q, type = :index)
       massage(query(q))
     end
@@ -101,6 +105,10 @@ module Force
     end
 
     private
+
+    def parse_results_for_fields(results, type)
+      parse_results(results, self.class::FIELDS["#{type}_fields"])
+    end
 
     def parse_results(results, fields)
       results.map do |result|
@@ -157,6 +165,16 @@ module Force
       else
         h
       end
+    end
+
+    def count(query)
+      query("Select Count() #{query}")
+    end
+
+    def page(options)
+      limit = 25
+      offset = options[:page].to_i * limit
+      "LIMIT #{limit} OFFSET #{offset}"
     end
 
     def hash_massage(h)
