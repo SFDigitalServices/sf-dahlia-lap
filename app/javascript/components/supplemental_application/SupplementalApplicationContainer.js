@@ -8,6 +8,7 @@ import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
+import PreferencesTable from './sections/PreferencesTable'
 
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
@@ -35,6 +36,18 @@ const ConfirmedHoushold = () => {
       <ContentSection.Sub title="Confirmed Reserved and Priority Units">
         <ConfirmedUnits />
       </ContentSection.Sub>
+    </ContentSection>
+  )
+}
+
+const ConfirmedPreferencesSection = ({preferences}) => {
+  return (
+    <ContentSection
+      title="Confirmed Preferences"
+      description="Please allow the applicant 24hs to provide appropiate preference proof if not previously supplied">
+      <ContentSection.Content>
+        <PreferencesTable preferences={preferences} />
+      </ContentSection.Content>
     </ContentSection>
   )
 }
@@ -83,6 +96,7 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
+              <ConfirmedPreferencesSection preferences={application.preferences}/>
               <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>

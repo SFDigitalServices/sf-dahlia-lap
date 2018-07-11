@@ -24,12 +24,12 @@ class ExpandableTableRow extends React.Component {
             </td>
           ))}
           <td key="expander">
-            {expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
+            {expanderRenderer &&  expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
           </td>
         </tr>
         <tr className="tr-expand-content" aria-hidden={!this.state.expanded}>
           <td colSpan={numColumns} className="td-expand-nested no-padding">
-            {expandedRowRenderer(row, this.toggleExpandedRow)}
+            {expandedRowRenderer && expandedRowRenderer(row, this.toggleExpandedRow)}
           </td>
         </tr>
       </Fragment>
@@ -68,6 +68,17 @@ class ExpandableTable extends React.Component {
       </table>
     )
   }
+}
+
+ExpandableTable.ExpanderButton = ({ onClick }) => {
+  return (
+    <button
+      type='button'
+      className="button button-link action-link"
+      onClick={onClick}>
+      Expand
+    </button>
+  )
 }
 
 export default ExpandableTable
