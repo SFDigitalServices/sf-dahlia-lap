@@ -2,7 +2,6 @@ import React from 'react'
 
 import mapProps from '~/utils/mapProps'
 import TableLayout from '../layouts/TableLayout'
-// import ApplicationsTable from './ApplicationsTable'
 import ApplicationsTableContainer from './ApplicationsTableContainer'
 import mapProperties from './applicationsPageMapper'
 

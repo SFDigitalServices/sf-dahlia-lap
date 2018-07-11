@@ -1,9 +1,5 @@
 import React from 'react'
 import ReactTable from 'react-table'
-import { uniqBy, map, sortBy } from 'lodash'
-import moment from 'moment'
-
-// import IndexTable from '../IndexTable'
 import TableSubComponent from '~/components/atoms/TableSubComponent'
 import PrettyTime from '../atoms/PrettyTime'
 import appPaths  from '~/utils/appPaths'
