@@ -50,3 +50,7 @@
   max-width: none;
   top: 54px !important;
 }
+
+.tr-expand-content[aria-hidden='true'] {
+  display: none;
+}

@@ -5,7 +5,7 @@ import { buildFieldSpecs, buildFieldEntry } from '~/utils/fieldSpecs'
 const getRow = (row, entries) => map(entries, (entry, idx) => (
   <td key={idx}>
     {entry.value}
-  </td> 
+  </td>
 ))
 
 const getRows = (items, fieldSpecs) => map(items, (row, idx) => {
