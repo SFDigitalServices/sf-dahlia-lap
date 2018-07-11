@@ -19,7 +19,7 @@ export const mapApplicationPreference = (value) => {
     preference_lottery_rank:value.Preference_Lottery_Rank,
     listing_preference_id:value.Listing_Preference_ID,
     receives_preference:value.Receives_Preference,
-    application_member_first_name:value['Application_Member.First_Name'], // TODO: we should not use formula values anymore
+    application_member_first_name:value['Application_Member.First_Name'],
     application_member_last_name:value['Application_Member.Last_Name'],
     application_member_date_of_birth:value['Application_Member.Date_of_Birth'],
     individual_preference:value.Individual_preference,

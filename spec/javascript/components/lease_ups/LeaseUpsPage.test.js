@@ -7,7 +7,6 @@ import sharedHooks from '../../support/sharedHooks'
 import applicationPreferences from '../../fixtures/application_preferences_for_lease_ups'
 
 const buildApplicationPreference = (uniqId, attributes = {}) => {
-  // return modelsFactory.application(uniqId, attributes)
   return merge({
     "Id": uniqId,
     "Processing_Status": 'processing',

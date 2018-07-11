@@ -2,8 +2,6 @@ import React from 'react'
 import renderer from 'react-test-renderer';
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 
-// import listingApplications from '../../fixtures/listing_application'
-
 const applications = [
   {
     "Id":"a0o0x000000OcOzAAK",
