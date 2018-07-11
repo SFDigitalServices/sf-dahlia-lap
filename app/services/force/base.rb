@@ -62,8 +62,11 @@ module Force
       massage(@client.query(q)).first
     end
 
+    def builder
+      Force::SoqlQueryBuilder.new(@client)
+    end
+
     def parsed_index_query(q, type = :index)
-      # parse_results(query(q), self.class.fields["#{type}_fields"])
       massage(query(q))
     end
 

@@ -136,7 +136,5 @@ const application = {
 
   ]
 }
-// { 'Flagged_Record_Set': { Id:1, Rule_Name: 'record1', 'Total_Number_of_Pending_Review': 1 }, 'View Record Set': true },
-// { 'Flagged_Record_Set': { Id:2, Rule_Name: 'record2', 'Total_Number_of_Pending_Review': 1 }, 'View Record Set': true },
 
 export default application
