@@ -16,10 +16,11 @@ export const mapApplicationPreference = (value) => {
     type_of_proof:value.Type_of_proof,
     opt_out:value.Opt_Out,
     lottery_status:value.Lottery_Status,
+    post_lottery_validation: value.Post_Lottery_Validation,
     preference_lottery_rank:value.Preference_Lottery_Rank,
     listing_preference_id:value.Listing_Preference_ID,
     receives_preference:value.Receives_Preference,
-    application_member_first_name:value['Application_Member.First_Name'],
+    application_member_first_name:value['Application_Member.First_Name'], // TODO: remove this in favor of nested object already present.
     application_member_last_name:value['Application_Member.Last_Name'],
     application_member_date_of_birth:value['Application_Member.Date_of_Birth'],
     individual_preference:value.Individual_preference,
