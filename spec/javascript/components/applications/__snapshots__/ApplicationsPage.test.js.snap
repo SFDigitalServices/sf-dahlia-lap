@@ -214,7 +214,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th td-min-narrow rt-resizable-header -sort-asc"
+              className="rt-th td-min-narrow rt-resizable-header"
               onClick={[Function]}
               role="heading"
               style={
