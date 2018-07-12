@@ -45,6 +45,7 @@ applications:
     State__c:
     Street__c:
     Zip_Code__c:
+    Post_Lottery_Validation__c:  
   show_flagged_records_fields:
     Flagged_Record_Set__c:
     Flagged_Record_Set__r.Id:
