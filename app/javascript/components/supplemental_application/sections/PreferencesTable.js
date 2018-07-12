@@ -2,29 +2,39 @@ import React from 'react'
 
 import { map } from 'lodash'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
-import Icon from '~/components/atoms/Icon'
 
 const { ExpanderButton } = ExpandableTable
 
-const TableIcon = ({status}) => {
+const columns = [
+  { content: '' },
+  { content: 'Preference Name' },
+  { content: 'Person who claimed' },
+  { content: 'Preference Rank' },
+  { content: 'Type of proof' },
+  { content: 'Status' },
+  { content: 'Actions' }
+]
+
+const Icon = ({status}) => {
   if (status === "Invalid") {
-    return <Icon icon="close" type="medium" alert />
+    return <Icon type="close" size="medium" alert />
   } else {
-    return <Icon icon="check" type="medium" success />
+    return <Icon type="close" size="check" success />
   }
 }
 
-const columns = [
-  { Header: '', accessor: 'post_lottery_validation', Cell: ({row}) => <TableIcon status={row.post_lottery_validation} />},
-  { Header: 'Preference Name', accessor: 'preference_name'},
-  { Header: 'Person who claimed', accessor: 'person_who_claimed_name' },
-  { Header: 'Preference Rank', accessor: 'preference_lottery_rank' },
-  { Header: 'Type of proof', accessor: 'type_of_proof' },
-  { Header: 'Status', accessor: 'post_lottery_validation' },
-  { Header: 'Actions' }
-]
+// <Icon status={preference.lottery_status} />,
+const buildRow = (preference) => {
+  return [
+    preference.preference_name,
+    preference.person_who_claimed_name,
+    preference.preference_lottery_rank,
+    preference.type_of_proof,
+    preference.post_lottery_validation
+  ]
+}
 
-const Expanded = ({ onClose }) => {
+const ExpandedPanel = ({ onClose }) => {
   return (
     <div className="app-editable expand-wide scrollable-table-nested">
       <div>Hello</div>
@@ -39,12 +49,15 @@ const ExpanderAction = (row, expanded, expandedRowToggler) => {
 }
 
 const PreferencesTable = ({preferences}) => {
+  const rows = map(preferences, buildRow)
+
   return (<ExpandableTable
             columns={columns}
-            rows={preferences}
+            rows={rows}
             expanderRenderer={ExpanderAction}
-            expandedRowRenderer={(row, toggle) => <Expanded onClose={toggle} /> }
+            expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} /> }
           />)
+  // return null
 }
 
 export default PreferencesTable
