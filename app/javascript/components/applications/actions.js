@@ -1,8 +1,8 @@
 import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
+import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 export const saveApplication = async (submitType, submittedValues, application, listing) => {
-  // const applicationData = prepareApplicationData(submittedValues, application, listing)
   const applicationData = domainToApi.buildApplicationShape(submittedValues)
   const response = await apiService.submitApplication(applicationData)
 
@@ -20,4 +20,13 @@ export const saveApplication = async (submitType, submittedValues, application, 
   }
 
   return response
+}
+
+
+export const fetchApplications = async (page, { filters} ) => {
+  const response = await apiService.fetchApplications({ page, filters })
+  return {
+    records: response.records.map(mapApplication),
+    pages: response.pages
+  }
 }
