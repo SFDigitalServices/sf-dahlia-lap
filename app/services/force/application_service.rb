@@ -31,7 +31,7 @@ module Force
         AND #{user_can_access}
       ))
       application['preferences'] = app_preferences(id)
-      application['proof_files'] = app_proof_files(id)
+      application['proof_files'] = [] # app_proof_files(id)
       application['household_members'] = app_household_members(application)
       application['flagged_applications'] = flagged_record_set(id)
       application
