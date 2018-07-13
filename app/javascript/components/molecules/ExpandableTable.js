@@ -12,13 +12,8 @@ class ExpandableTableRow extends React.Component {
     })
   }
 
-  // {row.map((datum, j) => <td key={j}>{datum}</td>)}
-
   render() {
     const { row, numColumns, expanderRenderer, expandedRowRenderer } = this.props
-
-    console.log(row)
-
     const cells = row.map((datum, j) => <td key={j}>{datum}</td>)
 
     return (

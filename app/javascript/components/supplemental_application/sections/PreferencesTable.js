@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { map } from 'lodash'
+import { map, reject } from 'lodash'
+import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 
 const { ExpanderButton } = ExpandableTable
@@ -15,21 +16,23 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const Icon = ({status}) => {
+const PreferenceIcon = ({status}) => {
   if (status === "Invalid") {
-    return <Icon type="close" size="medium" alert />
+    return <Icon icon="close" size="medium" alert />
   } else {
-    return <Icon type="close" size="check" success />
+    return <Icon icon="check" size="medium" success />
   }
 }
 
-// <Icon status={preference.lottery_status} />,
+const isCOPorDHCP = value => value.match(/COP|DTHP/)
+
 const buildRow = (preference) => {
   return [
+    <PreferenceIcon status={preference.post_lottery_validation} />,
     preference.preference_name,
     preference.person_who_claimed_name,
     preference.preference_lottery_rank,
-    preference.type_of_proof,
+    isCOPorDHCP(preference.preference_name) ? preference.certificate_number : preference.type_of_proof,
     preference.post_lottery_validation
   ]
 }
@@ -45,11 +48,16 @@ const ExpandedPanel = ({ onClose }) => {
 }
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
-  return <ExpanderButton onClick={expandedRowToggler}/>
+  return (!isCOPorDHCP(row[1]) &&
+          <ExpanderButton onClick={expandedRowToggler}/>)
+}
+
+const onlyValid = (preferences) => {
+  return reject(preferences, { lottery_status: 'Invalid for lottery' } )
 }
 
 const PreferencesTable = ({preferences}) => {
-  const rows = map(preferences, buildRow)
+  const rows = map(onlyValid(preferences), buildRow)
 
   return (<ExpandableTable
             columns={columns}
@@ -57,7 +65,6 @@ const PreferencesTable = ({preferences}) => {
             expanderRenderer={ExpanderAction}
             expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} /> }
           />)
-  // return null
 }
 
 export default PreferencesTable
