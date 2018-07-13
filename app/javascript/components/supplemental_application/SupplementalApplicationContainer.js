@@ -19,7 +19,7 @@ const StatusUpdateSection = () => (
 const LeaseInformationSection = ({statusHistory}) => (
   <ContentSection title="Lease Information">
     <ContentSection.Sub title="Demographics">
-      <DemographicsInputs />
+      <DemographicsInputs/>
     </ContentSection.Sub>
     {!isEmpty(statusHistory) &&(
         <ContentSection.Sub title="Status History" borderBottom={false}>
@@ -40,13 +40,13 @@ const ConfirmedHoushold = () => {
   )
 }
 
-const ConfirmedPreferencesSection = ({preferences}) => {
+const ConfirmedPreferencesSection = ({preferences, proofFiles}) => {
   return (
     <ContentSection
       title="Confirmed Preferences"
       description="Please allow the applicant 24hs to provide appropiate preference proof if not previously supplied">
       <ContentSection.Content>
-        <PreferencesTable preferences={preferences} />
+        <PreferencesTable preferences={preferences} proofFiles={proofFiles} />
       </ContentSection.Content>
     </ContentSection>
   )
@@ -96,7 +96,7 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
-              <ConfirmedPreferencesSection preferences={application.preferences}/>
+              <ConfirmedPreferencesSection preferences={application.preferences} proofFiles={application.proof_files}/>
               <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>

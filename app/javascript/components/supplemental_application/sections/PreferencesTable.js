@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { map, reject } from 'lodash'
+import { map, reject, filter, isEmpty } from 'lodash'
 import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 
@@ -28,19 +28,28 @@ const getPreferenceName = ({ preference_name, individual_preference }) => {
   }
 }
 
-const getTypeOfProof = (p) => {
+const getAttachments = (preference, proofFiles) => {
+  const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
+  return (!isEmpty(selectedProofFiles) &&
+          <ProofFilesList proofFiles={selectedProofFiles} />)
+}
+
+const getTypeOfProof = (preference, proofFiles) => {
   ///p.type_of_proof
-  return isCOPorDHCP(p.preference_name) ? p.certificate_number : p.lw_type_of_proof
+  if (isCOPorDHCP(preference.preference_name))
+    return preference.certificate_number
+  else
+    return getAttachments(preference, proofFiles)
 }
 
 
-const buildRow = (preference) => {
+const buildRow = proofFiles => preference => {
   return [
     <PreferenceIcon status={preference.post_lottery_validation} />,
     getPreferenceName(preference),
     preference.person_who_claimed_name,
     preference.preference_lottery_rank,
-    getTypeOfProof(preference),
+    getTypeOfProof(preference, proofFiles),
     preference.post_lottery_validation
   ]
 }
@@ -48,7 +57,6 @@ const buildRow = (preference) => {
 const onlyValid = (preferences) => {
   return reject(preferences, { lottery_status: 'Invalid for lottery' } )
 }
-
 
 /** Presenter **/
 
@@ -85,8 +93,22 @@ const ExpanderAction = (row, expanded, expandedRowToggler) => {
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
 
-const PreferencesTable = ({preferences}) => {
-  const rows = map(onlyValid(preferences), buildRow)
+const ProofFilesList = ({proofFiles}) => {
+  return (
+    <ul>
+      {
+        proofFiles.map(file => (
+          <li key={file.id}>
+            <a href="#">{file.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  )
+}
+
+const PreferencesTable = ({preferences, proofFiles }) => {
+  const rows = map(onlyValid(preferences), buildRow(proofFiles))
 
   return (<ExpandableTable
             columns={columns}

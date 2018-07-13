@@ -56,6 +56,8 @@ applications:
   show_proof_files_fields:
     Id:
     Name:
+    Related_Application__c:
+    Related_Application_Preference__c:
   show_household_members_fields:
     Id:
     Name__c:

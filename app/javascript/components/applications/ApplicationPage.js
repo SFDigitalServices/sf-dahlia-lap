@@ -30,10 +30,11 @@ const ApplicationPage = (props) => {
   )
 }
 
-const mapProperties = ({ application }) => {
+const mapProperties = ({ application, file_base_url }) => {
   return {
     application: mapApplication(application),
     fields: labelMapperFields,
+    fileBaseUrl: file_base_url
   }
 }
 

@@ -31,7 +31,7 @@ module Force
         AND #{user_can_access}
       ))
       application['preferences'] = app_preferences(id)
-      application['proof_files'] = [] # app_proof_files(id)
+      application['proof_files'] = app_proof_files(id)
       application['household_members'] = app_household_members(application)
       application['flagged_applications'] = flagged_record_set(id)
       application
@@ -94,7 +94,12 @@ module Force
           FROM Attachment
           WHERE ParentId = '#{attachment.Id}'
         ))
-        { Id: file.Id, Name: attachment.Name }
+        {
+          Id: file.Id,
+          Name: attachment.Name,
+          Related_Application: attachment.Related_Application,
+          Related_Application_Preference: attachment.Related_Application_Preference
+        }
       end
     end
 
