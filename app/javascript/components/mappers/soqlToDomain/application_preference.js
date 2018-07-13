@@ -14,6 +14,7 @@ export const mapApplicationPreference = (value) => {
     preference_name:value.Preference_Name,
     person_who_claimed_name:value.Person_who_claimed_Name,
     type_of_proof:value.Type_of_proof,
+    lw_type_of_proof: value.LW_Type_of_Proof,
     opt_out:value.Opt_Out,
     lottery_status:value.Lottery_Status,
     post_lottery_validation:value.Post_Lottery_Validation,
