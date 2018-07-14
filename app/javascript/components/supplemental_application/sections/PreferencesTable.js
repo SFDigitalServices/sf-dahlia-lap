@@ -3,6 +3,7 @@ import React from 'react'
 import { map, reject, filter, isEmpty } from 'lodash'
 import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
+import appPaths from '~/utils/appPaths'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -28,28 +29,27 @@ const getPreferenceName = ({ preference_name, individual_preference }) => {
   }
 }
 
-const getAttachments = (preference, proofFiles) => {
+const getAttachments = (preference, proofFiles, fileBaseUrl) => {
   const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
   return (!isEmpty(selectedProofFiles) &&
-          <ProofFilesList proofFiles={selectedProofFiles} />)
+          <ProofFilesList proofFiles={selectedProofFiles} fileBaseUrl={fileBaseUrl} />)
 }
 
-const getTypeOfProof = (preference, proofFiles) => {
-  ///p.type_of_proof
+const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
   if (isCOPorDHCP(preference.preference_name))
     return preference.certificate_number
   else
-    return getAttachments(preference, proofFiles)
+    return getAttachments(preference, proofFiles, fileBaseUrl)
 }
 
 
-const buildRow = proofFiles => preference => {
+const buildRow = (proofFiles, fileBaseUrl) => preference => {
   return [
     <PreferenceIcon status={preference.post_lottery_validation} />,
     getPreferenceName(preference),
     preference.person_who_claimed_name,
     preference.preference_lottery_rank,
-    getTypeOfProof(preference, proofFiles),
+    getTypeOfProof(preference, proofFiles, fileBaseUrl),
     preference.post_lottery_validation
   ]
 }
@@ -93,13 +93,18 @@ const ExpanderAction = (row, expanded, expandedRowToggler) => {
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
 
-const ProofFilesList = ({proofFiles}) => {
+const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
   return (
     <ul>
       {
         proofFiles.map(file => (
           <li key={file.id}>
-            <a href="#">{file.name}</a>
+            <a
+              href={appPaths.toAttachmentDownload(fileBaseUrl, file.id)}
+              target="_blank"
+            >
+              {file.name}
+            </a>
           </li>
         ))
       }
@@ -107,8 +112,8 @@ const ProofFilesList = ({proofFiles}) => {
   )
 }
 
-const PreferencesTable = ({preferences, proofFiles }) => {
-  const rows = map(onlyValid(preferences), buildRow(proofFiles))
+const PreferencesTable = ({preferences, proofFiles, fileBaseUrl }) => {
+  const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 
   return (<ExpandableTable
             columns={columns}
