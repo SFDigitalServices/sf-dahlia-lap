@@ -62,8 +62,11 @@ module Force
       massage(@client.query(q)).first
     end
 
+    def builder
+      Force::SoqlQueryBuilder.new(@client)
+    end
+
     def parsed_index_query(q, type = :index)
-      # parse_results(query(q), self.class.fields["#{type}_fields"])
       massage(query(q))
     end
 
@@ -97,6 +100,10 @@ module Force
       self.class.fields["#{type}_fields"].keys.join(', ')
     end
 
+    def parse_results_for_fields(results, type)
+      parse_results(results, self.class.fields["#{type}_fields"])
+    end
+
     # Extracted out for clarity
     # This is being used in services. should be refactored
     def parse_results(results, fields)
@@ -123,7 +130,6 @@ module Force
 
     def self.fields
       load_fields(self::FIELD_NAME)
-      # self::FIELDS
     end
   end
 end

@@ -44,12 +44,6 @@ export const householdMembersFields = [
   'zip_code'
 ]
 
-// const adaPriorityValueToLabelMap = {
-//   mobility_impaired: 'Mobility impaired',
-//   vision_impaired: 'Vision impaired',
-//   hearing_impaired: 'Hearing impaired'
-// }
-
 const adaPrioritiesToString = (list) => {
   return join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]),';')
 }

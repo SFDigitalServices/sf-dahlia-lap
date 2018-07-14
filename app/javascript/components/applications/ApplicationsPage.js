@@ -1,16 +1,12 @@
 import React from 'react'
 
+import { map } from 'lodash'
+import mapProps from '~/utils/mapProps'
 import TableLayout from '../layouts/TableLayout'
-import IndexTable from '../IndexTable'
-
-const ApplicationsPageTable = ({ applications, fields }) => {
-  return (
-    <IndexTable
-      results={applications}
-      fields= {fields}
-      links={['View Application'] } />
-  )
-}
+import ApplicationsTableContainer from './ApplicationsTableContainer'
+// import mapProperties from './applicationsPageMapper'
+import { fetchApplications } from './actions'
+import { mapListing } from '~/components/mappers/soqlToDomain'
 
 const ApplicationsPage = (props) => {
   const pageHeader = {
@@ -19,9 +15,16 @@ const ApplicationsPage = (props) => {
 
   return (
     <TableLayout pageHeader={pageHeader} >
-      <ApplicationsPageTable {...props} />
+      <ApplicationsTableContainer {...props} />
     </TableLayout>
   )
 }
 
-export default ApplicationsPage
+const mapProperties = ({ listings }) => {
+  return {
+    onFetchData: fetchApplications,
+    listings: map(listings, mapListing)
+  }
+}
+
+export default mapProps(mapProperties)(ApplicationsPage)
