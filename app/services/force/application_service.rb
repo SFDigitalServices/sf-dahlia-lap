@@ -12,7 +12,6 @@ module Force
       .where("Status__c != '#{DRAFT}'")
       .paginate(opts)
       .transform_results { |results| massage(results) }
-      # .transform_results { |results| parse_results_for_fields(results, :index) }
 
       query_scope.whereContains(:Name, opts[:application_number]) if opts[:application_number].present?
       query_scope.whereEq('Listing__r.Id', "'#{opts[:listing]}'") if opts[:listing].present?
