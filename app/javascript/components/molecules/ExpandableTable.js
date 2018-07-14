@@ -41,7 +41,6 @@ class ExpandableTable extends React.Component {
 
     const numColumns = columns.length
 
-    // return null
     return (
       <table className="td-light td-plain th-plain" role="grid">
         <thead>
