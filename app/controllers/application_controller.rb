@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     listings_url
   end
+
+  private
+
+  def file_base_url
+    current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']
+  end
 end
