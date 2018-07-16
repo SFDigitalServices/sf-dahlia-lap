@@ -68,7 +68,6 @@ const listing = {
   "Application_City": null,
   "Download_URL": null,
   "Application_State": "CA",
-  "Organization_URL": null,
   "Application_Postal_Code": null,
   "In_Lottery": 2,
   "Leasing_Agent_Name": "Cullen McCaffrey",
