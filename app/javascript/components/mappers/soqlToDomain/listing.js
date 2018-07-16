@@ -58,7 +58,6 @@ export const mapListing = (l) => {
     application_city: l.Application_City,
     download_url: l.Download_URL,
     application_state: l.Application_State,
-    organization_url: l.Organization_URL,
     application_postal_code: l.Application_Postal_Code,
     in_lottery: l.In_Lottery,
     leasing_agent_name: l.Leasing_Agent_Name,
