@@ -28,48 +28,56 @@ const getFullHousehold = (application) => {
   ))
 }
 
-const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
-  let autofillPreferences = []
+class PreferencesSection extends React.Component {
 
-  if (editValues && editValues.preferences) {
-    forEach(editValues.preferences, (preference) => {
-      if (preference.application_member) {
-        let editPreference = preference
-        editPreference["naturalKey"] = naturalKeyFromPreference(preference)
-        autofillPreferences.push(editPreference)
-      }
-    })
-    formApi.values.preferences = autofillPreferences
+  componentDidMount() {
+    const { formApi, editValues } = this.props
+
+    let autofillPreferences = []
+
+    if (editValues && editValues.preferences) {
+      forEach(editValues.preferences, (preference) => {
+        if (preference.application_member) {
+          let editPreference = preference
+          editPreference["naturalKey"] = naturalKeyFromPreference(preference)
+          autofillPreferences.push(editPreference)
+        }
+      })
+      formApi.values.preferences = autofillPreferences
+    }
   }
 
-  const fullHousehold = getFullHousehold(formApi.values)
-  const preferences = autofillPreferences
+  render() {
+    const { formApi, listingPreferences } = this.props
+    const fullHousehold = getFullHousehold(formApi.values)
+    const preferences = formApi.values.preferences
 
-  return (
-    <div className="border-bottom margin-bottom--2x">
-      <h3>Preferences</h3>
-      {
-        preferences && preferences.map(( pref, i ) => (
-          <div className="border-bottom margin-bottom--2x" key={i}>
-            <PreferenceForm {...{i, formApi, listingPreferences, fullHousehold}} />
-          </div>
-        ))
-      }
-      <div className="row">
-        <div className="form-group">
-          <div className="small-4 columns">
-            <button
-              onClick={() => formApi.addValue('preferences', '')}
-              disabled={ disableAddPreference(formApi, listingPreferences) }
-              type="button"
-              className="mb-4 mr-4 btn btn-success">
-                + Add Preference
-            </button>
+    return (
+      <div className="border-bottom margin-bottom--2x">
+        <h3>Preferences</h3>
+        {
+          preferences && preferences.map(( pref, i ) => (
+            <div className="border-bottom margin-bottom--2x" key={i}>
+              <PreferenceForm {...{i, formApi, listingPreferences, fullHousehold}} />
+            </div>
+          ))
+        }
+        <div className="row">
+          <div className="form-group">
+            <div className="small-4 columns">
+              <button
+                onClick={() => formApi.addValue('preferences', '')}
+                disabled={ disableAddPreference(formApi, listingPreferences) }
+                type="button"
+                className="mb-4 mr-4 btn btn-success">
+                  + Add Preference
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default PreferencesSection
