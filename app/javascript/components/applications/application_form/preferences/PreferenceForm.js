@@ -11,14 +11,14 @@ import { FIELD_NAME, buildFieldId } from './utils'
 
 const setRecordTypeDevName = (i, formApi, matched) => {
   if (!!matched && matched.lottery_preference) {
-    let prefName = matched.lottery_preference.name
+    const prefName = matched.lottery_preference.name
     formApi.values.preferences[i].recordtype_developername = recordTypeMap[prefName] || 'Custom'
   }
 }
 
 const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
   let selected = formApi.values.preferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.id === selected.listingPreferenceID)
+  let matched = find(listingPreferences, pref => pref.id === selected.listing_preference_id)
   setRecordTypeDevName(i, formApi, matched)
   return selected
 }
