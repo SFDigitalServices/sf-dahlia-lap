@@ -30,7 +30,7 @@ describe('ApplicationNewPage', () => {
     expect(wrapper.toJSON()).toMatchSnapshot();
   })
 
-  test.only('it should save correctly', () => {
+  test('it should save correctly', () => {
     const wrapper = mount(
         <ApplicationEditPage
           listing={listing}
