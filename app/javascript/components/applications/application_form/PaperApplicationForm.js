@@ -44,7 +44,11 @@ class PaperApplicationForm extends React.Component {
   }
 
   saveSubmitType = (type, formApi) => {
-    this.setState({submitType: type, failed: this.hasErrors(formApi.errors) })
+    const failed = this.hasErrors(formApi.errors)
+
+    this.setState({submitType: type, failed })
+    if (failed)
+      window.scrollTo(0, 0)
   }
 
   render() {
