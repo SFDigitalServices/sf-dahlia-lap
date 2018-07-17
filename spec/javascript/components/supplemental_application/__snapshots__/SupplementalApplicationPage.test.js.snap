@@ -284,15 +284,7 @@ Array [
                   <td />
                   <td />
                   <td />
-                  <td>
-                    <button
-                      className="button button-link action-link"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Expand
-                    </button>
-                  </td>
+                  <td />
                 </tr>
                 <tr
                   aria-hidden={true}
