@@ -1,7 +1,9 @@
 module Force
   # encapsulate all Salesforce Listing querying functions
   class FlaggedRecordSetService < Force::Base
-    FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['flagged_record_sets'].freeze
+    # FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['flagged_record_sets'].freeze
+    FIELD_NAME = :flagged_record_sets
+    FIELDS = load_fields(FIELD_NAME).freeze
 
     # Two types of flagged:
     # pending review - need review -> duplicate or resolved/OK

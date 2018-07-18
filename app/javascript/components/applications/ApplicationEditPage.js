@@ -4,13 +4,15 @@ import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
 import mapProps from '~/utils/mapProps'
 import { mapListing, mapApplication } from '~/components/mappers/soqlToDomain'
+import { saveApplication } from './actions'
 
 const ApplicationEditPageForm = ({ listing, application, editPage }) => {
   return (
     <PaperApplicationForm
       listing={listing}
       application={application}
-      editPage={editPage} />
+      editPage={editPage}
+      onSubmit={saveApplication} />
   )
 }
 

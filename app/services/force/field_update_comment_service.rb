@@ -1,7 +1,9 @@
 module Force
   # encapsulate all Salesforce Field Update Comment querying functions
   class FieldUpdateCommentService < Force::Base
-    FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['field_update_comment'].freeze
+    # FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['field_update_comment'].freeze
+    FIELD_NAME = :field_update_comment
+    FIELDS = load_fields(FIELD_NAME).freeze
 
     def create(data)
       formatted_datetime = Time.now.strftime('%Y-%m-%dT%H:%M:%S%z')

@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
 import { Form } from 'react-form'
-import apiService from '~/apiService'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -24,67 +22,20 @@ class PaperApplicationForm extends React.Component {
     }
   }
 
-  submitFormTest = (submittedValues) => {
-    this.setState({ submittedValues })
-  }
-
-  removeEmptyData = (applicationData) => {
-    let oldAppData = applicationData
-    let fieldMap = ['alternateContact', 'adaPrioritiesSelected', 'demographics']
-    _.forEach(fieldMap, (field) => {
-      if (_.isEmpty(applicationData[field])) {
-        applicationData = _.omit(applicationData, field)
-      }
-    })
-    return applicationData
-  }
-
-  assignDemographicData = (applicationData) => {
-    _.merge(applicationData.primaryApplicant, applicationData.demographics)
-    return applicationData
-  }
-
-  formatPickList = (listData) => {
-    let resultStr = "";
-    _.each(listData, (value, key) => {
-      if (value) {
-        resultStr += key + ";";
-      }
-    })
-    return resultStr;
-  }
-
-  formatAdaPriorities = (appData) => {
-    let selected = appData.adaPrioritiesSelected
-    appData.adaPrioritiesSelected = this.formatPickList(selected)
-    return appData
-  }
-
   submitShortForm = async (submittedValues) => {
-    this.setState({ submittedValues })
-    this.setState({ loading: true })
-    let applicationData = submittedValues
-    applicationData.listingID = this.props.listing.id
-    applicationData = this.assignDemographicData(applicationData)
-    applicationData = this.removeEmptyData(applicationData)
-    applicationData = this.formatAdaPriorities(applicationData)
+    const { listing, application, onSubmit } = this.props
+    const { submitType } = this.state
 
-    if (this.props.application) {
-      applicationData["id"] = this.props.application.id
-      applicationData["applicationSubmissionType"] = this.props.application.application_submission_type
-    }
-
-    let response = await apiService.submitApplication(applicationData)
+    this.setState({ submittedValues, loading: true })
+    const response = await onSubmit(submittedValues, application, listing)
     if (response === false) {
       alert('There was an error on submit. Please check values and try again.')
     }
-
     this.setState({ loading: false })
-    if (this.state.submitType === 'Save') {
+    if (submitType === 'Save') {
       window.location.href = '/applications/' + response.application.id
-    }
-    else {
-      window.location.href = '/listings/' + this.props.listing.id + '/applications/new'
+    } else {
+      window.location.href = '/listings/' + listing.id + '/applications/new'
     }
   }
 
@@ -93,7 +44,8 @@ class PaperApplicationForm extends React.Component {
   }
 
   render() {
-    let { listing, application, editPage } = this.props
+    const { loading } = this.state
+    const { listing, application, editPage } = this.props
     let autofillValues = {}
     if (application)
       autofillValues = domainToApi.mapApplication(application)
@@ -107,25 +59,23 @@ class PaperApplicationForm extends React.Component {
               <div className="app-inner inset">
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
-                  <HouseholdMembersSection editValues={application} formApi={formApi}  />
-                  <ReservedPrioritySection editValues={application} listing={listing}/>
+                  <HouseholdMembersSection editValues={application} formApi={formApi} />
+                  <ReservedPrioritySection editValues={application} listing={listing} />
                   <PreferencesSection
                     formApi={formApi}
                     listingPreferences={listing.listing_lottery_preferences}
                     editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  {!editPage &&
-                      <DemographicInfoSection />
-                  }
+                  {!editPage && <DemographicInfoSection />}
                   <AgreeToTerms/>
                 </div>
                 <div className="button-pager">
                   <div className="button-pager_row primary">
-                    <button className="primary radius margin-right" type="submit" onClick={() => this.saveSubmitType('Save')} disabled={this.state.loading}>
+                    <button className="primary radius margin-right" type="submit" onClick={() => this.saveSubmitType('Save')} disabled={loading}>
                       Save
                     </button>
-                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew')}  disabled={this.state.loading}>
+                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew')}  disabled={loading}>
                       Save and New
                     </button>
                   </div>

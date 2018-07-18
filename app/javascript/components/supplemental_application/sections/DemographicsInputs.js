@@ -11,7 +11,7 @@ const DemographicsInputs = ({onChange}) => {
 
   return (
     <React.Fragment>
-      <FormGrid.Row>
+      <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group label='Number of Dependents'>
             <Select id='demographics-dependents' field='number_of_dependents' options={numberOfDependentsOptions} placeholder='Select One'/>

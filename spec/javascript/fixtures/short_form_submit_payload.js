@@ -8,6 +8,8 @@ const payload = {
     agreeToTerms: true,
     numberOfDependents: 2,
     listingID: 'a0W0x000000GhJUEA0',
+    adaPrioritiesSelected: "",
+    hasSenior: undefined,
     primaryApplicant:
      { DOB: '1950-01-01',
        email: 'eee@eeee.com',
