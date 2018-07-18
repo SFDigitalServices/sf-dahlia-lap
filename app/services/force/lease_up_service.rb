@@ -1,21 +1,20 @@
 module Force
   # encapsulate all Salesforce lease up querying functions
   class LeaseUpService < Force::Base
-    # FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['lease_ups'].freeze
     FIELD_NAME = :lease_ups
     FIELDS = load_fields(FIELD_NAME).freeze
 
-    def lease_ups_listings
+    def lease_up_listings
       massage(query(%(
-        SELECT #{query_fields(:lease_ups_listings)}
+        SELECT #{query_fields(:lease_up_listing)}
         FROM Listing__c
         WHERE Status__c = 'Lease Up'
       )))
     end
 
-    def lease_ups(listing_id)
+    def lease_up_listing_applications(listing_id)
       application_data = massage(query(%(
-        SELECT #{query_fields(:index)}
+        SELECT #{query_fields(:lease_up_listing_application)}
         FROM Application_Preference__c
         WHERE Listing_Preference_ID__c IN
         (SELECT Id FROM Listing_Lottery_Preference__c WHERE Listing__c = '#{listing_id}')

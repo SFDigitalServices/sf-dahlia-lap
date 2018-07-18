@@ -8,11 +8,11 @@ const toApplicationsFlagged = (id) => `/applications/flagged/${id}`
 
 const toApplicationsFlaggedIndex = (type) => `/applications/flagged?type=${type}`
 
-const toListingLeaseUps = (listingId) => `/listings/lease_ups/${listingId}/applications`
+const toListingLeaseUps = (listingId) => `/listings/lease-ups/${listingId}/applications`
 
 const toListing = (listingId) => `/listings/${listingId}`
 
-const toLeaseUpApplications = (listingId) => `/listings/lease_ups/${listingId}/applications`
+const toLeaseUpApplications = (listingId) => `/listings/lease-ups/${listingId}/applications`
 
 export default {
   toApplicationSupplementals,

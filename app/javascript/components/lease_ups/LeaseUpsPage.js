@@ -13,11 +13,11 @@ const LeaseUpsPage = ({ listing, applications }) => {
     content: listing.building_street_address,
     action: {
       title: 'Export',
-      link: `/listings/${listing.id}/lease_ups/export`
+      link: `/listings/${listing.id}/lease-ups/export`
     },
     breadcrumbs:[
-      {title: 'Lease Ups',  link: '/lease_ups'},
-      {title: listing.name, link: `/listings/${listing.id}/lease_ups`}
+      {title: 'Lease Ups',  link: '/lease-ups'},
+      {title: listing.name, link: `/listings/${listing.id}/lease-ups`}
     ]
   }
 
