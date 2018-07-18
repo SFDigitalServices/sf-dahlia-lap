@@ -4,7 +4,6 @@ import { map } from 'lodash'
 import mapProps from '~/utils/mapProps'
 import TableLayout from '../layouts/TableLayout'
 import ApplicationsTableContainer from './ApplicationsTableContainer'
-// import mapProperties from './applicationsPageMapper'
 import { fetchApplications } from './actions'
 import { mapListing } from '~/components/mappers/soqlToDomain'
 
