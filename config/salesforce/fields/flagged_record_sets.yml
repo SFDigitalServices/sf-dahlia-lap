@@ -1,0 +1,34 @@
+flagged_record_sets:
+  pending_review_fields:
+    Id:
+    Listing__r.Name:
+      label: 'Listing Name'
+    Rule_Name__c:
+    Total_Number_of_Pending_Review__c:
+    Total_Number_of_Appealed__c:
+  marked_duplicate_fields:
+    Id:
+    Listing__r.Name:
+      label: 'Listing Name'
+    Rule_Name__c:
+    Total_Number_of_Duplicates__c:
+  flagged_applications_fields:
+    Id:
+    Application__c:
+    Application__r.Id:
+    Application__r.Name:
+      label: 'App Number'
+    Flagged_Record_Set__r.Rule_Name__c:
+    Primary_Application_Applicant_Name__c:
+      label: 'Primary Applicant Name'
+    Flagged_Record_Set__r.Listing__r.Lottery_Status__c:
+      label: 'Lottery Status'
+    Review_Status__c:
+      editable: true
+      editable_options:
+        - Pending Review
+        - Reviewed - Keep in Lottery
+        - Reviewed - Remove from Lottery
+        - Appealed
+    Comments__c:
+      editable: true

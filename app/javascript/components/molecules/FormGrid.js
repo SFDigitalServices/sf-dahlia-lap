@@ -1,13 +1,26 @@
 import React from 'react'
 
+import classNames from 'classnames'
+
 const FormGrid = {}
 
-FormGrid.Row = ({children}) => (
-  <div className="form-grid row expand padding-bottom">
-    {children}
-  </div>
-)
+FormGrid.Row = ({children, paddingBottom}) => {
+  const divClassNames = classNames(
+    'form-grid',
+    'row',
+    'expand',
+    {
+      'padding-bottom': paddingBottom
+    }
+  )
+  return (
+    <div className={divClassNames}>
+      {children}
+    </div>
+  )
+}
 
+// NOTE: Grid is hardcoded. This should not be generic element
 FormGrid.Item = ({children}) => (
   <div className="form-grid_item small-12 medium-6 large-3 column">
     {children}

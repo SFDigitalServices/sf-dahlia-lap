@@ -22,8 +22,7 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
     items: [
       { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
       { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
-    ],
-    currentUrl:window.location.pathname
+    ]
   }
 
   return (

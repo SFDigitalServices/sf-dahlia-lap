@@ -108,7 +108,9 @@ const application = {
       "State": null,
       "Zip_Code": null,
       "Street": null,
-      "RecordType.DeveloperName": "AG"
+      "RecordType": {
+        "DeveloperName": "AG"
+      }
     }
   ],
   "proof_files": [

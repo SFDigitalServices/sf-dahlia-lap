@@ -1,42 +1,13 @@
 import React from 'react'
-import { includes, take, takeRight, map, toLower } from 'lodash'
-import moment from 'moment'
-import utils from '~/utils/utils'
-import { titleizeLabel } from './utils'
+import { map } from 'lodash'
+import { buildFields } from '~/utils/fieldSpecs'
+import arrayUtils from '~/utils/arrayUtils'
 
-const getValueAndLabel = (dataCollection, field, labelMapper) => {
-  let value = dataCollection[field]
-  let label = utils.cleanField(field)
-  if (includes(field, '.')) {
-    let parts = field.split('.')
-    label = utils.cleanField(parts[0])
-    if (dataCollection[label]) {
-      value = dataCollection[label][parts[1]]
-    }
-  }
-  if (labelMapper && labelMapper[field]) {
-    label = labelMapper[field].label
-  }
-  if (includes(toLower(field), 'date')) {
-    // cheap way of knowing when to parse date fields
-    value = moment(value).format('L')
-  }
-  if (includes(toLower(field), 'url')) {
-    // cheap way of knowing when to parse URL fields
-    value = <a target='_blank' href={value}>{value}</a>
-  }
-  if (!value) { value = 'None'}
-
-  label = titleizeLabel(label)
-
-  return { value, label }
-}
-
-var generateContent = (dataCollection, field, labelMapper, i) => {
+var generateContent = (dataCollection, entry, i) => {
   if (dataCollection == null)
     return
-    
-  const { value, label } = getValueAndLabel(dataCollection, field, labelMapper)
+
+  const { value, label } = entry
 
   return (
     <div className="margin-bottom--half" key={i}>
@@ -49,25 +20,22 @@ var generateContent = (dataCollection, field, labelMapper, i) => {
 }
 
 const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMapper }) => {
-  let firstHalf = Math.ceil(fields.length / 2)
-  let lastHalf = fields.length  - firstHalf
-  let firstFields = take(fields, firstHalf)
-  let lastFields = takeRight(fields, lastHalf)
-  let i = 0
-  let firstFieldsContent = map(firstFields, field => generateContent(dataCollection, field, labelMapper, i++))
-  let lastFieldsContent = map(lastFields, field => generateContent(dataCollection, field, labelMapper, i++))
+  const entries = buildFields(dataCollection, fields, { defaultValue: 'None' })
+  const contents = map(entries, (entry, idx) => generateContent(dataCollection, entry, idx))
+  const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
+
   return (
     <div className="content-card padding-bottom-none margin-bottom--half bg-trans">
       <h4 className="content-card_title t-serif">{title}</h4>
       <ul className="content-grid">
         <li className="content-item">
           <div className="content-card">
-            {firstFieldsContent}
+            {firstHalf}
           </div>
         </li>
         <li className="content-item">
           <div className="content-card">
-            {lastFieldsContent}
+            {secondHalf}
           </div>
         </li>
       </ul>

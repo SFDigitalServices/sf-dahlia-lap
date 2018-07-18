@@ -1,21 +1,22 @@
 import React from 'react'
-import { map, each, includes } from 'lodash'
+import { map, each, includes, keys, toPairs } from 'lodash'
 import { NestedForm, Form, Checkbox, Select } from 'react-form'
 import formOptions from './formOptions'
 
 let {
   yes_no_options,
   priority_options,
+  adaPriorityValueToLabelMap
 } = formOptions
 
 const ReservedPrioritySection = ({editValues, listing}) => {
   let autofillValues = {}
 
+  const adaPriorities = toPairs(adaPriorityValueToLabelMap)
+
   if (editValues && editValues.has_ada_priorities_selected) {
-    let selected = editValues.has_ada_priorities_selected.split(";")
-    each(selected, (value) => {
-      autofillValues[value] = true
-    })
+    let selected = keys(editValues.has_ada_priorities_selected)
+    each(selected, value => autofillValues[value] = true )
   }
 
   let reservedTypes = map(listing.units, unit => unit.reserved_type)
@@ -77,11 +78,11 @@ const ReservedPrioritySection = ({editValues, listing}) => {
                 <div className="small-6 columns">
                   <label>ADA Priorities Selected</label>
                   <div className="checkbox-group" role="group">
-                    { priority_options.map( ( option, i ) => (
+                    { adaPriorities.map(([field, label], i ) => (
                       <div className="form-item" key={i} >
                         <div className="checkbox">
-                          <Checkbox field={option} id={`adaPrioritiesSelected-${i}`} name="adaPrioritiesSelected" />
-                          <label htmlFor={`adaPrioritiesSelected-${i}`}>{option}</label>
+                          <Checkbox field={field} id={`adaPrioritiesSelected-${i}`} name="adaPrioritiesSelected" />
+                          <label htmlFor={`adaPrioritiesSelected-${i}`}>{label}</label>
                         </div>
                       </div>
                     ))}
