@@ -120,15 +120,28 @@ const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
   )
 }
 
+//TODO: This could be extract and re use in following tables. x-large might need to be an attribute
+const TableWrapper = ({children}) => (
+  <div className="form-grid row expand">
+    <div className="small-12 column">
+      <div className="scrollable-table-container-under-xlarge">
+        {children}
+      </div>
+    </div>
+  </div>
+)
+
 const PreferencesTable = ({preferences, proofFiles, fileBaseUrl }) => {
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 
-  return (<ExpandableTable
-            columns={columns}
-            rows={rows}
-            expanderRenderer={ExpanderAction}
-            expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} /> }
-          />)
+  return (<TableWrapper>
+            <ExpandableTable
+              columns={columns}
+              rows={rows}
+              expanderRenderer={ExpanderAction}
+              expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} /> }
+            />
+          </TableWrapper>)
 }
 
 export default PreferencesTable
