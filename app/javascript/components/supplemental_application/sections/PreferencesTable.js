@@ -87,18 +87,8 @@ const PreferenceIcon = ({status}) => {
   }
 }
 
-// const ExpandedPanel = ({ onClose }) => {
-//   return (
-//     <div className="app-editable expand-wide scrollable-table-nested">
-//       <div>Hello</div>
-//       <br/>
-//       <button type='button' className="button" onClick={(e) => (onClose())}>Close</button>
-//     </div>
-//   )
-// }
-
 const expandedRowRenderer = (row, toggle) => {
-  return <Panel onClose={toggle} />
+  return <Panel data={row} onClose={toggle} />
 }
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {

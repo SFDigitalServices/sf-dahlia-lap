@@ -4,12 +4,12 @@ import classNames from 'classnames'
 
 const FormGrid = {}
 
-FormGrid.Row = ({children, paddingBottom}) => {
+FormGrid.Row = ({children, paddingBottom, expand}) => {
   const divClassNames = classNames(
     'form-grid',
     'row',
-    'expand',
     {
+      'expand': expand,
       'padding-bottom': paddingBottom
     }
   )
@@ -18,6 +18,10 @@ FormGrid.Row = ({children, paddingBottom}) => {
       {children}
     </div>
   )
+}
+
+FormGrid.Row.defaultProps = {
+  expand: true
 }
 
 // NOTE: Grid is hardcoded. This should not be generic element
