@@ -4,6 +4,7 @@ import { map, reject, filter, isEmpty, overSome } from 'lodash'
 import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 import appPaths from '~/utils/appPaths'
+import Panel from './preferences/Panel'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -86,14 +87,18 @@ const PreferenceIcon = ({status}) => {
   }
 }
 
-const ExpandedPanel = ({ onClose }) => {
-  return (
-    <div className="app-editable expand-wide scrollable-table-nested">
-      <div>Hello</div>
-      <br/>
-      <button type='button' className="button" onClick={(e) => (onClose())}>Close</button>
-    </div>
-  )
+// const ExpandedPanel = ({ onClose }) => {
+//   return (
+//     <div className="app-editable expand-wide scrollable-table-nested">
+//       <div>Hello</div>
+//       <br/>
+//       <button type='button' className="button" onClick={(e) => (onClose())}>Close</button>
+//     </div>
+//   )
+// }
+
+const expandedRowRenderer = (row, toggle) => {
+  return <Panel onClose={toggle} />
 }
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
@@ -139,7 +144,7 @@ const PreferencesTable = ({preferences, proofFiles, fileBaseUrl }) => {
               columns={columns}
               rows={rows}
               expanderRenderer={ExpanderAction}
-              expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} /> }
+              expandedRowRenderer={expandedRowRenderer}
             />
           </TableWrapper>)
 }
