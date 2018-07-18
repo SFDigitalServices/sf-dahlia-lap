@@ -17,7 +17,6 @@ export const applicationShape = {
 }
 
 export const buildApplicationShape = soqlObject => {
-  // return mapFields(applicationShape, {}, soqlObject)
   return omitEmpty(
           mapFields(applicationShape, {}, soqlObject),
           [
