@@ -1,13 +1,13 @@
 import React from 'react'
 import { flow } from 'lodash'
 
-import LeaseUpsTableContainer from './LeaseUpsTableContainer'
+import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 import { mapListing, mapApplicationPreference } from '~/components/mappers/soqlToDomain'
 import { buildLeaseUpModel } from './leaseUpModel'
 
-const LeaseUpsPage = ({ listing, applications }) => {
+const LeaseUpApplicationsPage = ({ listing, applications }) => {
   const pageHeader = {
     title: listing.name,
     content: listing.building_street_address,
@@ -23,7 +23,7 @@ const LeaseUpsPage = ({ listing, applications }) => {
 
   return (
     <TableLayout pageHeader={pageHeader}>
-      <LeaseUpsTableContainer listing={listing} applications={applications} />
+      <LeaseUpApplicationsTableContainer listing={listing} applications={applications} />
     </TableLayout>
   )
 }
@@ -35,4 +35,4 @@ const mapProperties = ({ listing, applications }) => {
   }
 }
 
-export default mapProps(mapProperties)(LeaseUpsPage)
+export default mapProps(mapProperties)(LeaseUpApplicationsPage)

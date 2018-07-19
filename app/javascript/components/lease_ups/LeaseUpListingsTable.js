@@ -4,7 +4,7 @@ import { cellFormat } from '~/utils/reactTableUtils'
 
 const PAGE_SIZE = 5
 
-const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
+const LeaseUpListingsTable = ({ listings, onCellClick }) => {
   const columns = [
     { Header: 'Listing Name', accessor: 'name', headerClassName: 'td-min-wide' },
     { Header: 'Lottery Date', accessor: 'lottery_date', Cell: cellFormat.date },
@@ -38,4 +38,4 @@ const LeaseUpsListingsTable = ({ listings, onCellClick }) => {
   )
 }
 
-export default LeaseUpsListingsTable
+export default LeaseUpListingsTable

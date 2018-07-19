@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
+exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
@@ -1240,7 +1240,7 @@ Array [
 ]
 `;
 
-exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
+exports[`LeaseUpApplicationsPage Should render Mailing_Address when present 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
@@ -2435,7 +2435,7 @@ Array [
 ]
 `;
 
-exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lottery_Rank 1`] = `
+exports[`LeaseUpApplicationsPage Should render order by Prefrence_Order and Preference_Lottery_Rank 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"

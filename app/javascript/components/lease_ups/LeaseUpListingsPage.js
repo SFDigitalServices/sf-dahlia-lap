@@ -6,9 +6,9 @@ import { mapListing } from '~/components/mappers/soqlToDomain'
 import appPaths from '~/utils/appPaths'
 
 import TableLayout from '../layouts/TableLayout'
-import LeaseUpsListingsTable from './LeaseUpsListingsTable'
+import LeaseUpListingsTable from './LeaseUpListingsTable'
 
-const LeaseUpsListingsPage = ({listings}) => {
+const LeaseUpListingsPage = ({listings}) => {
   const pageHeader = {
     title: 'Lease Ups'
   }
@@ -19,7 +19,7 @@ const LeaseUpsListingsPage = ({listings}) => {
 
   return (
     <TableLayout pageHeader={pageHeader} >
-      <LeaseUpsListingsTable
+      <LeaseUpListingsTable
         listings={listings}
         onCellClick={onCellClick}
       />
@@ -33,4 +33,4 @@ const mapProperties = ({listings}) => {
   }
 }
 
-export default mapProps(mapProperties)(LeaseUpsListingsPage)
+export default mapProps(mapProperties)(LeaseUpListingsPage)

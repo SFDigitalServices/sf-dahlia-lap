@@ -35,7 +35,7 @@ const NoData = ({ children, className, ...rest }) => {
   )
 }
 
-const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
+const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
       { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: (cell) => (<div>{cell.original.preference_rank}</div>) },
       { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.id)} className="has-border">{cell.value}</a>) },
@@ -94,4 +94,4 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
 }
 
 
-export default LeaseUpsTable
+export default LeaseUpApplicationsTable
