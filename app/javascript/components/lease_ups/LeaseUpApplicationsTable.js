@@ -6,6 +6,7 @@ import Dropdown from '../molecules/Dropdown'
 import PrettyTime from '../atoms/PrettyTime'
 import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
+import { cellFormat } from '~/utils/reactTableUtils'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
@@ -35,17 +36,21 @@ const NoData = ({ children, className, ...rest }) => {
   )
 }
 
+const resizableCell = (cell) => (
+   <span className="rt-resizable-td-content">{cell.value}</span>
+)
+
 const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
       { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: (cell) => (<div>{cell.original.preference_rank}</div>) },
-      { Header: 'Application Number', accessor: 'application_number', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.id)} className="has-border">{cell.value}</a>) },
-      { Header: 'First Name',         accessor: 'first_name' ,        Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Last Name',          accessor: 'last_name' ,         Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Phone',              accessor: 'phone' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
-      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} parseFormat={utils.SALESFORCE_DATE_FORMAT} /> : <i>none</i> ) },
-      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
+      { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.id)} className="has-border">{cell.value}</a>) },
+      { Header: 'First Name',         accessor: 'first_name' ,        Cell: resizableCell, className: 'text-left' },
+      { Header: 'Last Name',          accessor: 'last_name' ,         Cell: resizableCell, className: 'text-left' },
+      { Header: 'Phone',              accessor: 'phone' ,             Cell: resizableCell, className: 'text-left' },
+      { Header: 'Email',              accessor: 'email' ,             Cell: resizableCell, className: 'text-left' },
+      { Header: 'Address',            accessor: 'address',            Cell: resizableCell, className: 'text-left' },
+      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: cellFormat.date },
+      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> )}
     ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
