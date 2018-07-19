@@ -41,7 +41,7 @@ const isInvalid = (original) => {
 }
 
 const PreferenceRankCell = ({cell}) => {
-  if (isInvalid(cell.original)){
+  if (isInvalid(cell.original)) {
     return (
       <div>
         <span className="rt-td-label-rank t-semis">{cell.original.preference_rank}</span>
@@ -90,10 +90,10 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
                             ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
                             : ''
 
-    const trClassName = classNames('rt-tr-status', statusClassName,
-      {
-        'is-invalid': rowInfo && isInvalid(rowInfo.original)
-      }
+    const trClassName = classNames(
+      'rt-tr-status',
+      statusClassName,
+      { 'is-invalid': rowInfo && isInvalid(rowInfo.original) }
     )
 
     return {
@@ -102,7 +102,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
     }
   }
 
-  const sortBy = [ { id:'rankOrder', desc:false } ]
+  const sortBy = [{ id:'rankOrder', desc:false }]
 
   return (
     <ReactTable
