@@ -27,6 +27,12 @@ const FormItem = ({label, children}) => (
   </FormGrid.Item>
 )
 
+const Comment = ({children}) => (
+  <p className='t-base c-steel'>
+    {children}
+  </p>
+)
+
 export const DefaultPanel = () => {
   return (<div></div>)
 }
@@ -50,18 +56,20 @@ export const AssistedHousingPanel = ({ data, applicationMembers }) => {
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
-      <div className="form-grid_item large-12 column  padding-bottom">
-        Do not give this preference unless applicant has provided a lease.
-        If the person who lives in assisted housing is not the primary applicant,
-        their address must have been provided at the time of the original application.
-      </div>
-    </FormGrid.Row>
-    <FormGrid.Row expand={false}>
-      <div className="form-grid_item large-12 column padding-bottom">
-        <Checkbox/>
-        <label>
-          Did applicant provide a lease showing this household member's name?
-        </label>
+      <div className='form-group'>
+        <div className="form-grid_item large-12 column  padding-bottom">
+          <Comment>
+            Do not give this preference unless applicant has provided a lease.
+            If the person who lives in assisted housing is not the primary applicant,
+            their address must have been provided at the time of the original application.
+          </Comment>
+          <div className="margin-bottom--2x">
+            <Checkbox/>
+            <label>
+              Did applicant provide a lease showing this household member's name?
+            </label>
+          </div>
+        </div>
       </div>
     </FormGrid.Row>
     </React.Fragment>
@@ -110,6 +118,16 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
         <Select field='blabla' options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
+    <FormGrid.Row expand={false}>
+      <div className='form-group'>
+        <div className="form-grid_item large-12 column  padding-bottom">
+          <Comment>
+            Please check to make sure that a document proving the preference address is provided.
+            if no proof document is provided, do not select this preference.
+          </Comment>
+        </div>
+      </div>
+    </FormGrid.Row>
   </React.Fragment>)
 }
 
@@ -133,6 +151,21 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
       <FormItem label="Status">
         <Select field='blabla' options={statusOptions}/>
       </FormItem>
+    </FormGrid.Row>
+    <FormGrid.Row expand={false}>
+      <div className='form-group'>
+        <div className="form-grid_item large-12 column  padding-bottom">
+          <Comment>
+            Please check to make sure that a document proving the preference address is provided.
+            if no proof document is provided, do not select this preference.
+          </Comment>
+          <Comment>
+            if the HH member name on the proof is not the primary applicant,
+            their residence address must have beein provided at time of the original application.
+            MOHD will verify that their address qualifies for this preference.
+          </Comment>
+        </div>
+      </div>
     </FormGrid.Row>
   </React.Fragment>)
 }

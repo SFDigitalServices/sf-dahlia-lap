@@ -306,17 +306,30 @@ Array [
                           <div
                             className="app-editable expand-wide scrollable-table-nested"
                           >
-                            <div>
-                              Hello
-                            </div>
-                            <br />
-                            <button
-                              className="button"
-                              onClick={[Function]}
-                              type="button"
+                            <div />
+                            <div
+                              className="form-grid row"
                             >
-                              Close
-                            </button>
+                              <div
+                                className="form-grid_item column"
+                              >
+                                <button
+                                  className="button primary tiny margin-right margin-bottom-none"
+                                  data-event=""
+                                  type="button"
+                                >
+                                  Save
+                                </button>
+                                <button
+                                  className="button secondary tiny margin-bottom-none"
+                                  data-event=""
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         </td>
                       </tr>
