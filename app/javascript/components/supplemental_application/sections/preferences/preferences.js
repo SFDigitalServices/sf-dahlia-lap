@@ -4,8 +4,20 @@ import { Form, NestedForm, Text, Select, Checkbox } from 'react-form'
 import { map } from 'lodash'
 import formUtils from '~/utils/formUtils'
 import FormGrid  from '~/components/molecules/FormGrid'
+import { typeOfProofValues } from '~/components/applications/application_form/preferences/values.js'
 
 const statusOptions = formUtils.toOptions(['Confirmed', 'Unconfirmed', 'Invalid'])
+
+const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
+
+const buildApplicationMembersOptions = (applicationMembers) => {
+  return formUtils.toOptions(map(applicationMembers, (applicationMember) => {
+    return [
+      applicationMember.id,
+      `${applicationMember.last_name}, ${applicationMember.first_name}`
+    ]
+  }))
+}
 
 const FormItem = ({label, children}) => (
   <FormGrid.Item>
@@ -20,12 +32,7 @@ export const DefaultPanel = () => {
 }
 
 export const AssistedHousingPanel = ({ data, applicationMembers }) => {
-  const applicationMembersOptions = formUtils.toOptions(map(applicationMembers, (applicationMember) => {
-    return [
-      applicationMember.id,
-      `${applicationMember.last_name}, ${applicationMember.first_name}`
-    ]
-  }))
+  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
 
   return (
     <React.Fragment>
@@ -77,22 +84,25 @@ export const RentBurdenedPanel = ({ data }) => (
   </FormGrid.Row>
 )
 
-export const LiveOrWorkInSanFranciscoPanel = ({ data }) => (
-  <React.Fragment>
+export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
+  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
+  return (
+    <React.Fragment>
     <FormGrid.Row expand={false}>
       <FormItem label="Preference Name">
         <div className="text-value">
           Live or Work in San Francisco
         </div>
       </FormItem>
-      <FormItem label="Total Household Monthly Rent">
-        <Select field='blabla' options={statusOptions}/>
+      <FormItem label="Individual Preference Name">
+        <Select field='blabla' options={individualPreferenceOptions}/>
       </FormItem>
-      <FormItem label="Status">
-        <Text field='blabla'/>
+      <FormItem label="HH Member on Proof">
+        <Select field='blabla' options={applicationMembersOptions}/>
       </FormItem>
-      <FormItem label="Status">
-        <Select field='blabla' options={statusOptions}/>
+      <FormItem label="Type of Proof">
+        <Select field='blabla' options={typeOfProofOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
@@ -100,5 +110,5 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data }) => (
         <Select field='blabla' options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
-  </React.Fragment>
-)
+  </React.Fragment>)
+}
