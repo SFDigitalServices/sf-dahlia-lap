@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select, Checkbox } from 'react-form'
 
+import { map } from 'lodash'
 import formUtils from '~/utils/formUtils'
 import FormGrid  from '~/components/molecules/FormGrid'
 
@@ -18,36 +19,49 @@ export const DefaultPanel = () => {
   return (<div></div>)
 }
 
-export const AssistedHousingPanel = ({data}) => (
-  <React.Fragment>
-  <FormGrid.Row expand={false}>
-    <FormItem label="Preference Name">
-      <div className="text-value">
-        Assisted Housing Preference
-      </div>
-    </FormItem>
-    <FormItem label="Total Household Monthly Rent">
-      <Text field='blabla'/>
-    </FormItem>
-    <FormItem label="Status">
-      <Select field='blabla' options={statusOptions}/>
-    </FormItem>
-  </FormGrid.Row>
-  <FormGrid.Row expand={false}>
-    <div className="form-grid_item large-12 column">
-      Do not give this preference unless applicant has provided a lease.
-      If the person who lives in assisted housing is not the primary applicant,
-      their address must have been provided at the time of the original application.
-    </div>
-    <Checkbox/>    
-    <label>
-      Did applicant provide a lease showing this household member's name?
-    </label>
-  </FormGrid.Row>
-  </React.Fragment>
-)
+export const AssistedHousingPanel = ({ data, applicationMembers }) => {
+  const applicationMembersOptions = formUtils.toOptions(map(applicationMembers, (applicationMember) => {
+    return [
+      applicationMember.id,
+      `${applicationMember.last_name}, ${applicationMember.first_name}`
+    ]
+  }))
 
-export const RentBurdenedPanel = ({data}) => (
+  return (
+    <React.Fragment>
+    <FormGrid.Row expand={false}>
+      <FormItem label="Preference Name">
+        <div className="text-value">
+          Assisted Housing Preference
+        </div>
+      </FormItem>
+      <FormItem label="Name on Lease">
+        <Select field='blabla' options={applicationMembersOptions}/>
+      </FormItem>
+      <FormItem label="Status">
+        <Select field='blabla' options={statusOptions}/>
+      </FormItem>
+    </FormGrid.Row>
+    <FormGrid.Row expand={false}>
+      <div className="form-grid_item large-12 column  padding-bottom">
+        Do not give this preference unless applicant has provided a lease.
+        If the person who lives in assisted housing is not the primary applicant,
+        their address must have been provided at the time of the original application.
+      </div>
+    </FormGrid.Row>
+    <FormGrid.Row expand={false}>
+      <div className="form-grid_item large-12 column padding-bottom">
+        <Checkbox/>
+        <label>
+          Did applicant provide a lease showing this household member's name?
+        </label>
+      </div>
+    </FormGrid.Row>
+    </React.Fragment>
+  )
+}
+
+export const RentBurdenedPanel = ({ data }) => (
   <FormGrid.Row expand={false}>
     <FormItem label="Preference Name">
       <div className="text-value">
@@ -63,7 +77,7 @@ export const RentBurdenedPanel = ({data}) => (
   </FormGrid.Row>
 )
 
-export const LiveOrWorkInSanFranciscoPanel = ({data}) => (
+export const LiveOrWorkInSanFranciscoPanel = ({ data }) => (
   <React.Fragment>
     <FormGrid.Row expand={false}>
       <FormItem label="Preference Name">
