@@ -1,19 +1,25 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
+import { find, last, defaultTo } from 'lodash'
 
 import FormGrid  from '~/components/molecules/FormGrid'
 import {
-  RentBurdenedPreference,
-  LiveOrWorkInSanFrancisco
+  RentBurdenedPanel,
+  LiveOrWorkInSanFranciscoPanel,
+  AssistedHousingPanel,
+  DefaultPanel
 } from './preferences'
 
+
+const namePanelsMap = [
+  ['Rent Burdened', RentBurdenedPanel],
+  ['Assisted Housing', AssistedHousingPanel],
+  ['in San Francisco', LiveOrWorkInSanFranciscoPanel]
+]
+
 const getPreferencePanel = (name) => {
-  if (name.match('Rent Burdened'))
-    return RentBurdenedPreference
-  else if (name.match('in San Francisco'))
-    return LiveOrWorkInSanFrancisco
-  else
-    return () => <div></div>
+  const panel = last(find(namePanelsMap, ([n, p]) =>  name.match(n) ))
+  return defaultTo(panel, DefaultPanel)
 }
 
 const Panel = ({ data, onClose }) => {

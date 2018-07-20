@@ -28,8 +28,10 @@ const getPreferenceName = ({ preference_name, individual_preference }) => {
   } else if (preference_name === 'Rent Burdened / Assisted Housing Preference') {
     if (individual_preference === 'Assisted Housing') {
       return "Assisted Housing Preference"
-    } else {
+    } else if (individual_preference === 'Rent Burdened') {
       return "Rent Burdened Preference"
+    } else {
+      return preference_name
     }
   } else {
     return preference_name
