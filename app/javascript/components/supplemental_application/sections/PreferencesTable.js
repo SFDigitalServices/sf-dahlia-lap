@@ -89,11 +89,15 @@ const PreferenceIcon = ({status}) => {
   }
 }
 
-const expandedRowRenderer = (row, toggle) => {
-  return <Panel data={row} onClose={toggle} />
+const expandedRowRenderer = (applicationMembers) => (row, toggle) => {
+  return <Panel
+            data={row}
+            applicationMembers={applicationMembers}
+            onClose={toggle}
+          />
 }
 
-const ExpanderAction = (row, expanded, expandedRowToggler) => {
+const expanderRenderer = (row, expanded, expandedRowToggler) => {
   return (!hasExpanderButton(row[1]) &&
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
@@ -128,15 +132,15 @@ const TableWrapper = ({children}) => (
   </div>
 )
 
-const PreferencesTable = ({preferences, proofFiles, fileBaseUrl }) => {
+const PreferencesTable = ({preferences, applicationMembers, proofFiles, fileBaseUrl }) => {
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 
   return (<TableWrapper>
             <ExpandableTable
               columns={columns}
               rows={rows}
-              expanderRenderer={ExpanderAction}
-              expandedRowRenderer={expandedRowRenderer}
+              expanderRenderer={expanderRenderer}
+              expandedRowRenderer={expandedRowRenderer(applicationMembers)}
             />
           </TableWrapper>)
 }

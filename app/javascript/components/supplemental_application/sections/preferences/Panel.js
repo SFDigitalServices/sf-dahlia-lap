@@ -22,11 +22,11 @@ const getPreferencePanel = (name) => {
   return defaultTo(panel, DefaultPanel)
 }
 
-const Panel = ({ data, onClose }) => {
+const Panel = ({ data, applicationMembers, onClose }) => {
   const PreferencePanel = getPreferencePanel(data[1])
   return (
     <div className="app-editable expand-wide scrollable-table-nested">
-      <PreferencePanel data={data}/>
+      <PreferencePanel data={data} applicationMembers={applicationMembers}/>
       <FormGrid.Row expand={false}>
         <div className="form-grid_item column">
       		<button className="button primary tiny margin-right margin-bottom-none" type="button" data-event="">Save</button>
