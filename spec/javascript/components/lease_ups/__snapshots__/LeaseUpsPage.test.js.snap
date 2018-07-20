@@ -255,7 +255,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
                 onClick={[Function]}
                 role="heading"
                 style={
@@ -437,7 +437,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -624,7 +624,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -796,7 +796,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -938,7 +938,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1080,7 +1080,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1495,7 +1495,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
                 onClick={[Function]}
                 role="heading"
                 style={
@@ -1677,7 +1677,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1849,7 +1849,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1991,7 +1991,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2133,7 +2133,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2275,7 +2275,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2690,7 +2690,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
                 onClick={[Function]}
                 role="heading"
                 style={
@@ -2872,7 +2872,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3059,7 +3059,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3246,7 +3246,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3433,7 +3433,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3620,7 +3620,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
