@@ -112,3 +112,27 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
     </FormGrid.Row>
   </React.Fragment>)
 }
+
+export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) => {
+  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
+  return (
+    <React.Fragment>
+    <FormGrid.Row expand={false}>
+      <FormItem label="Preference Name">
+        <div className="text-value">
+          Neighborhood Resident Housing Preference (NRHP)
+        </div>
+      </FormItem>
+      <FormItem label="HH Member on Proof">
+        <Select field='blabla' options={applicationMembersOptions}/>
+      </FormItem>
+      <FormItem label="Type of Proof">
+        <Select field='blabla' options={typeOfProofOptions}/>
+      </FormItem>
+      <FormItem label="Status">
+        <Select field='blabla' options={statusOptions}/>
+      </FormItem>
+    </FormGrid.Row>
+  </React.Fragment>)
+}

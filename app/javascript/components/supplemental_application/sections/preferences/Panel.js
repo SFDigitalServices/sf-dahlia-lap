@@ -7,14 +7,15 @@ import {
   RentBurdenedPanel,
   LiveOrWorkInSanFranciscoPanel,
   AssistedHousingPanel,
+  NeighborhoodResidentHousingPanel,
   DefaultPanel
 } from './preferences'
-
 
 const namePanelsMap = [
   ['Rent Burdened', RentBurdenedPanel],
   ['Assisted Housing', AssistedHousingPanel],
-  ['in San Francisco', LiveOrWorkInSanFranciscoPanel]
+  ['in San Francisco', LiveOrWorkInSanFranciscoPanel],
+  ['NRHP', NeighborhoodResidentHousingPanel]
 ]
 
 const getPreferencePanel = (name) => {
