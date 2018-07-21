@@ -5,30 +5,25 @@ import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 import appPaths from '~/utils/appPaths'
 import Panel from './preferences/Panel'
+import { isCOP, isDTHP, isGriffith, isLWinSF, isLiveInSF,
+         isBurdenedAssistedHousing, isAssistedHousing, isRentBurdened
+  } from './preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
-
-/** Helpers **/
-
-const isCOP = value => value.match(/COP/)
-
-const isDTHP = value => value.match(/DTHP/)
-
-const isGriffith = value => value.match(/Griffith/)
 
 const hasExpanderButton = overSome(isCOP, isDTHP, isGriffith)
 
 const getPreferenceName = ({ preference_name, individual_preference }) => {
-  if (preference_name === 'Live or Work in San Francisco Preference') {
-    if (individual_preference === 'Live in SF') {
+  if (isLWinSF(preference_name)) {
+    if (isLiveInSF(individual_preference)) {
       return "Live in San Francisco Preference"
     } else {
       return "Work in San Francisco Preference"
     }
-  } else if (preference_name === 'Rent Burdened / Assisted Housing Preference') {
-    if (individual_preference === 'Assisted Housing') {
+  } else if (isBurdenedAssistedHousing(preference_name)) {
+    if (isAssistedHousing(individual_preference)) {
       return "Assisted Housing Preference"
-    } else if (individual_preference === 'Rent Burdened') {
+    } else if (isRentBurdened(individual_preference)) {
       return "Rent Burdened Preference"
     } else {
       return preference_name
@@ -52,7 +47,6 @@ const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
   else
     return getAttachments(preference, proofFiles, fileBaseUrl)
 }
-
 
 const buildRow = (proofFiles, fileBaseUrl) => preference => {
   return [

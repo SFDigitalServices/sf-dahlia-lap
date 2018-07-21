@@ -169,3 +169,42 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
     </FormGrid.Row>
   </React.Fragment>)
 }
+
+export const AntiDisplacementHousingPanel = ({ data, applicationMembers }) => {
+  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
+  return (
+    <React.Fragment>
+    <FormGrid.Row expand={false}>
+      <FormItem label="Preference Name">
+        <div className="text-value">
+          Anti-Displacement Housing Preference
+        </div>
+      </FormItem>
+      <FormItem label="HH Member on Proof">
+        <Select field='blabla' options={applicationMembersOptions}/>
+      </FormItem>
+      <FormItem label="Type of Proof">
+        <Select field='blabla' options={typeOfProofOptions}/>
+      </FormItem>
+      <FormItem label="Status">
+        <Select field='blabla' options={statusOptions}/>
+      </FormItem>
+    </FormGrid.Row>
+    <FormGrid.Row expand={false}>
+      <div className='form-group'>
+        <div className="form-grid_item large-12 column  padding-bottom">
+          <Comment>
+            Please check to make sure that a document proving the preference address is provided.
+            if no proof document is provided, do not select this preference.
+          </Comment>
+          <Comment>
+            if the HH member name on the proof is not the primary applicant,
+            their residence address must have beein provided at time of the original application.
+            MOHD will verify that their address qualifies for this preference.
+          </Comment>
+        </div>
+      </div>
+    </FormGrid.Row>
+  </React.Fragment>)
+}
