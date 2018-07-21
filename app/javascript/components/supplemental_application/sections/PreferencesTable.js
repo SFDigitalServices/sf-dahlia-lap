@@ -92,7 +92,7 @@ const expandedRowRenderer = (applicationMembers) => (row, toggle) => {
 }
 
 const expanderRenderer = (row, expanded, expandedRowToggler) => {
-  return (!hasExpanderButton(row[1]) &&
+  return (!hasExpanderButton(row[1]) && !expanded &&
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
 
