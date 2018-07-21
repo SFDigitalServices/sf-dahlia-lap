@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, NestedForm, Text, Select } from 'react-form'
+// import { Form, NestedForm, Text, Select } from 'react-form'
 import { find, last, defaultTo } from 'lodash'
 
 import FormGrid  from '~/components/molecules/FormGrid'
@@ -8,6 +8,7 @@ import {
   LiveOrWorkInSanFranciscoPanel,
   AssistedHousingPanel,
   NeighborhoodResidentHousingPanel,
+  AntiDisplacementHousingPanel,
   DefaultPanel
 } from './preferences'
 
@@ -15,11 +16,12 @@ const namePanelsMap = [
   ['Rent Burdened', RentBurdenedPanel],
   ['Assisted Housing', AssistedHousingPanel],
   ['in San Francisco', LiveOrWorkInSanFranciscoPanel],
-  ['NRHP', NeighborhoodResidentHousingPanel]
+  ['NRHP', NeighborhoodResidentHousingPanel],
+  ['ADHP', AntiDisplacementHousingPanel]
 ]
 
 const getPreferencePanel = (name) => {
-  const panel = last(find(namePanelsMap, ([n, p]) =>  name.match(n) ))
+  const panel = last(find(namePanelsMap, ([n, p]) => name && name.match(n) ))
   return defaultTo(panel, DefaultPanel)
 }
 
