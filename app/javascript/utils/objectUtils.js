@@ -11,7 +11,6 @@ const isNotPresent = (value, key) => {
     return isUndefined(value)
 }
 
-
 export const mapFields = (fieldMapper, to, from ) => {
   if (isNil(from))
     return to
@@ -20,7 +19,6 @@ export const mapFields = (fieldMapper, to, from ) => {
     if (isFunction(toField)) {
       to[fromField] = toField(from)
     } else {
-      console.log(`${toField} - ${fromField} -${from[fromField]}`)
       to[toField] = from[fromField]
     }
   })
