@@ -10,6 +10,8 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 
+import { getFullHousehold } from '~/components/applications/application_form/preferences/utils.js'
+
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -49,7 +51,7 @@ const ConfirmedPreferencesSection = ({application, fileBaseUrl}) => {
         <PreferencesTable
           preferences={application.preferences}
           proofFiles={application.proof_files}
-          applicationMembers={application.household_members}
+          applicationMembers={getFullHousehold(application)}
           fileBaseUrl={fileBaseUrl}
         />
       </ContentSection.Content>

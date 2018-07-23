@@ -20,6 +20,7 @@ export const mapFields = (fieldMapper, to, from ) => {
     if (isFunction(toField)) {
       to[fromField] = toField(from)
     } else {
+      console.log(`${toField} - ${fromField} -${from[fromField]}`)
       to[toField] = from[fromField]
     }
   })

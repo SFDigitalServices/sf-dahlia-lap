@@ -2,6 +2,8 @@ import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import { find, last, defaultTo } from 'lodash'
 
+import { addNaturalKeyToPreference } from '~/components/applications/application_form/preferences/utils.js'
+
 import FormGrid  from '~/components/molecules/FormGrid'
 import {
   RentBurdenedPanel,
@@ -26,10 +28,11 @@ const getPreferencePanel = (name) => {
 }
 
 const Panel = ({ preference, row, applicationMembers, onClose }) => {
+  addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(row[1])
   return (
     <div className="app-editable expand-wide scrollable-table-nested">
-        <Form onSubmit={() => console.log('submitted')}>
+        <Form onSubmit={() => console.log('submitted')} defaultValues={preference}>
           { formApi => (
               <React.Fragment>
               <PreferencePanel preference={preference} applicationMembers={applicationMembers}/>

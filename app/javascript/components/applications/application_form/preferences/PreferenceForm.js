@@ -7,7 +7,7 @@ import FormGroup from '~/components/atoms/FormGroup'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap } from './values'
-import { FIELD_NAME, buildFieldId } from './utils'
+import { FIELD_NAME, buildFieldId, buildHouseholdMembersOptions} from './utils'
 
 const setRecordTypeDevName = (i, formApi, matched) => {
   if (!!matched && matched.lottery_preference) {
@@ -36,15 +36,6 @@ const buildListingPreferencesOptions = (preferencesNotSelected) => {
     return {
       value: listingPref.id,
       label: listingPref.lottery_preference.name
-    }
-  })
-}
-
-const buildHouseholdMembersOptions = (fullHousehold) => {
-  return map(fullHousehold, (member) => {
-    return {
-      value: `${member.first_name},${member.last_name},${member.date_of_birth}`,
-      label: `${member.first_name} ${member.last_name}`
     }
   })
 }
