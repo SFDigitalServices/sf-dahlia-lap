@@ -104,18 +104,18 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
         </div>
       </FormItem>
       <FormItem label="Individual Preference Name">
-        <Select field='blabla' options={individualPreferenceOptions}/>
+        <Select field='individual_preference' options={individualPreferenceOptions}/>
       </FormItem>
       <FormItem label="HH Member on Proof">
-        <Select field='blabla' options={applicationMembersOptions}/>
+        <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='blabla' options={typeOfProofOptions}/>
+        <Select field='type_of_proof' options={typeOfProofOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
       <FormItem label="Status">
-        <Select field='blabla' options={statusOptions}/>
+        <Select field='post_lottery_validation' options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
