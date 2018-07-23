@@ -1,37 +1,20 @@
 import React from 'react'
 
-import { map, reject, filter, isEmpty, overSome } from 'lodash'
+import { map, reject, filter, isEmpty, overSome, find } from 'lodash'
 import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 import appPaths from '~/utils/appPaths'
 import Panel from './preferences/Panel'
-import { isCOP, isDTHP, isGriffith, isLWinSF, isLiveInSF,
-         isBurdenedAssistedHousing, isAssistedHousing, isRentBurdened
-  } from './preferences/utils'
+import {
+  isCOP,
+  isDTHP,
+  isGriffith,
+  getPreferenceName
+} from './preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
 const hasExpanderButton = overSome(isCOP, isDTHP, isGriffith)
-
-const getPreferenceName = ({ preference_name, individual_preference }) => {
-  if (isLWinSF(preference_name)) {
-    if (isLiveInSF(individual_preference)) {
-      return "Live in San Francisco Preference"
-    } else {
-      return "Work in San Francisco Preference"
-    }
-  } else if (isBurdenedAssistedHousing(preference_name)) {
-    if (isAssistedHousing(individual_preference)) {
-      return "Assisted Housing Preference"
-    } else if (isRentBurdened(individual_preference)) {
-      return "Rent Burdened Preference"
-    } else {
-      return preference_name
-    }
-  } else {
-    return preference_name
-  }
-}
 
 const getAttachments = (preference, proofFiles, fileBaseUrl) => {
   const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
@@ -83,9 +66,15 @@ const PreferenceIcon = ({status}) => {
   }
 }
 
-const expandedRowRenderer = (applicationMembers) => (row, toggle) => {
+const matchingPreference = (row) => (preference) => {
+  return getPreferenceName(preference) === row[1]
+}
+
+const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) => {
+  const preference = find(preferences, matchingPreference(row))
   return <Panel
-            data={row}
+            preference={preference}
+            row={row}
             applicationMembers={applicationMembers}
             onClose={toggle}
           />
@@ -126,7 +115,7 @@ const TableWrapper = ({children}) => (
   </div>
 )
 
-const PreferencesTable = ({preferences, applicationMembers, proofFiles, fileBaseUrl }) => {
+const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBaseUrl }) => {
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 
   return (<TableWrapper>
@@ -134,7 +123,7 @@ const PreferencesTable = ({preferences, applicationMembers, proofFiles, fileBase
               columns={columns}
               rows={rows}
               expanderRenderer={expanderRenderer}
-              expandedRowRenderer={expandedRowRenderer(applicationMembers)}
+              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)}
             />
           </TableWrapper>)
 }
