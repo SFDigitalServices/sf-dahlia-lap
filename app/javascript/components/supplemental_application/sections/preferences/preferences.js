@@ -1,23 +1,16 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select, Checkbox } from 'react-form'
 
-import { map } from 'lodash'
+// import { map } from 'lodash'
 import formUtils from '~/utils/formUtils'
 import FormGrid  from '~/components/molecules/FormGrid'
 import { typeOfProofValues } from '~/components/applications/application_form/preferences/values.js'
+import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
+
 
 const statusOptions = formUtils.toOptions(['Confirmed', 'Unconfirmed', 'Invalid'])
 
 const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
-
-const buildApplicationMembersOptions = (applicationMembers) => {
-  return formUtils.toOptions(map(applicationMembers, (applicationMember) => {
-    return [
-      applicationMember.id,
-      `${applicationMember.last_name}, ${applicationMember.first_name}`
-    ]
-  }))
-}
 
 const FormItem = ({label, children}) => (
   <FormGrid.Item>
@@ -38,7 +31,7 @@ export const DefaultPanel = () => {
 }
 
 export const AssistedHousingPanel = ({ data, applicationMembers }) => {
-  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
 
   return (
     <React.Fragment>
@@ -93,7 +86,7 @@ export const RentBurdenedPanel = ({ data }) => (
 )
 
 export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
-  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
   const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
   return (
     <React.Fragment>
@@ -110,7 +103,7 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
         <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='type_of_proof' options={typeOfProofOptions}/>
+        <Select field='lw_type_of_proof' options={typeOfProofOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
@@ -132,7 +125,7 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
 }
 
 export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) => {
-  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
   const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
   return (
     <React.Fragment>
@@ -171,7 +164,7 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
 }
 
 export const AntiDisplacementHousingPanel = ({ data, applicationMembers }) => {
-  const applicationMembersOptions = buildApplicationMembersOptions(applicationMembers)
+  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
   const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
   return (
     <React.Fragment>
@@ -182,7 +175,7 @@ export const AntiDisplacementHousingPanel = ({ data, applicationMembers }) => {
         </div>
       </FormItem>
       <FormItem label="HH Member on Proof">
-        <Select field='blabla' options={applicationMembersOptions}/>
+        <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
         <Select field='blabla' options={typeOfProofOptions}/>

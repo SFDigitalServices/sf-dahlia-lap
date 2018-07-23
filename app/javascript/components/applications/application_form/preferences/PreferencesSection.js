@@ -1,7 +1,7 @@
 import React from 'react'
 import { concat, pickBy, forEach } from 'lodash'
 import PreferenceForm from './PreferenceForm'
-import { naturalKeyFromPreference } from './utils'
+import { naturalKeyFromPreference, getFullHousehold } from './utils'
 
 const allPreferencesSelected = (formApi, listingPreferences) => {
   if (formApi.values && formApi.values.preferences && listingPreferences) {
@@ -17,15 +17,6 @@ const hasHouseholdMembers = (formApi) => {
 
 const disableAddPreference = (formApi, listingPreferences) => {
   return (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
-}
-
-const getFullHousehold = (application) => {
-  const { household_members, applicant } = application
-  const fullHousehold = concat([applicant], household_members || [])
-  return  pickBy(fullHousehold, m => (
-    // can only select someone for preference if they have name + DOB
-    m && m.first_name && m.last_name && m.date_of_birth
-  ))
 }
 
 class PreferencesSection extends React.Component {
