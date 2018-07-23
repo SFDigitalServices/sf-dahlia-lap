@@ -46,10 +46,10 @@ export const AssistedHousingPanel = ({ data, applicationMembers }) => {
         </div>
       </FormItem>
       <FormItem label="Name on Lease">
-        <Select field='blabla' options={applicationMembersOptions}/>
+        <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Status">
-        <Select field='blabla' options={statusOptions}/>
+        <Select field='post_lottery_validation' options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
