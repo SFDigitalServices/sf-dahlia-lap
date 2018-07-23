@@ -19,7 +19,7 @@ const ProofListItems = ({ fileBaseUrl, files }) => map(files, (file) => {
     <li key={file.id}>
       <a target='_blank'
         href={`${fileBaseUrl}/servlet/servlet.FileDownload?file=${file.id}`}>
-        {file.name}
+        {file.document_type}
       </a>
     </li>)
 })
