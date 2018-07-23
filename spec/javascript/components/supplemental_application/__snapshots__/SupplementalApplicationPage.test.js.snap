@@ -315,14 +315,13 @@ Array [
                               >
                                 <button
                                   className="button primary tiny margin-right margin-bottom-none"
-                                  data-event=""
+                                  onClick={[Function]}
                                   type="button"
                                 >
                                   Save
                                 </button>
                                 <button
                                   className="button secondary tiny margin-bottom-none"
-                                  data-event=""
                                   onClick={[Function]}
                                   type="button"
                                 >
