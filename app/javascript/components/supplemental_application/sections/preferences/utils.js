@@ -1,14 +1,21 @@
+const test = (regex) => (value) => regex.test(value)
+
 /* Preference name */
 
-export const isCOP = value => /COP/.test(value)
+export const isCOP = test(/COP/)
 
-export const isDTHP = value => /DTHP/.test(value)
+export const isDTHP = test(/DTHP/)
 
-export const isGriffith = value => /Griffith/.test(value)
+export const isGriffith = test(/Griffith/)
 
 export const isLWinSF = value => value === 'Live or Work in San Francisco Preference'
 
+export const isADHP = test(/ADHP/)
+
+export const isNRHP = test(/NRHP/)
+
 export const isBurdenedAssistedHousing = value => value === 'Rent Burdened / Assisted Housing Preference'
+
 
 /* Individual Prefrence */
 
