@@ -96,7 +96,7 @@ const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
               href={appPaths.toAttachmentDownload(fileBaseUrl, file.id)}
               target="_blank"
             >
-              {file.name}
+              {file.document_type}
             </a>
           </li>
         ))
