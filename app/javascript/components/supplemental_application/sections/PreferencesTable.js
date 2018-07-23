@@ -23,10 +23,11 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (isCOP(preference.preference_name) || isDTHP(preference.preference_name))
+  // else if (overSome(isGriffith, isBurdenedAssistedHousing, isADHP, isNRHP)(preference.preference_name))
+  //   return preference.type_of_proof
+
+  if (overSome(isCOP, isDTHP)(preference.preference_name))
     return preference.certificate_number
-  else if (isGriffith(preference.preference_name))
-    return preference.type_of_proof
   else
     return getAttachments(preference, proofFiles, fileBaseUrl)
 }

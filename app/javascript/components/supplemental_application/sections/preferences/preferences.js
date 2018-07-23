@@ -4,9 +4,14 @@ import { Form, NestedForm, Text, Select, Checkbox } from 'react-form'
 // import { map } from 'lodash'
 import formUtils from '~/utils/formUtils'
 import FormGrid  from '~/components/molecules/FormGrid'
-import { typeOfProofValues } from '~/components/applications/application_form/preferences/values.js'
+// import { typeOfProofValues } from '~/components/applications/application_form/preferences/values.js'
 import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
 
+import formOptions from '~/components/applications/application_form/formOptions'
+
+const {
+  preference_proof_options_default
+} = formOptions
 
 const statusOptions = formUtils.toOptions(['Confirmed', 'Unconfirmed', 'Invalid'])
 
@@ -32,7 +37,6 @@ export const DefaultPanel = () => {
 
 export const AssistedHousingPanel = ({ data, applicationMembers }) => {
   const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
-
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -77,17 +81,16 @@ export const RentBurdenedPanel = ({ data }) => (
       </div>
     </FormItem>
     <FormItem label="Total Household Monthly Rent">
-      <Text field='blabla'/>
+      <Text field='total_household_rent'/>
     </FormItem>
     <FormItem label="Status">
-      <Select field='blabla' options={statusOptions}/>
+      <Select field='post_lottery_validation' options={statusOptions}/>
     </FormItem>
   </FormGrid.Row>
 )
 
 export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
   const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
-  const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -103,7 +106,7 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
         <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='lw_type_of_proof' options={typeOfProofOptions}/>
+        <Select field='lw_type_of_proof' options={preference_proof_options_default}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
@@ -126,7 +129,6 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
 
 export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) => {
   const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
-  const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -136,13 +138,13 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
         </div>
       </FormItem>
       <FormItem label="HH Member on Proof">
-        <Select field='blabla' options={applicationMembersOptions}/>
+        <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='blabla' options={typeOfProofOptions}/>
+        <Select field='type_of_proof' options={preference_proof_options_default}/>
       </FormItem>
       <FormItem label="Status">
-        <Select field='blabla' options={statusOptions}/>
+        <Select field='post_lottery_validation' options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
@@ -165,7 +167,6 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
 
 export const AntiDisplacementHousingPanel = ({ data, applicationMembers }) => {
   const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
-  const typeOfProofOptions = formUtils.toOptions(typeOfProofValues)
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -178,10 +179,10 @@ export const AntiDisplacementHousingPanel = ({ data, applicationMembers }) => {
         <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='blabla' options={typeOfProofOptions}/>
+        <Select field='type_of_proof' options={preference_proof_options_default}/>
       </FormItem>
       <FormItem label="Status">
-        <Select field='blabla' options={statusOptions}/>
+        <Select field='post_lottery_validation' options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
