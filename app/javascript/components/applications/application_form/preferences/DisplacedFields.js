@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select, Text } from 'react-form'
+import { buildFieldId } from './utils'
 
 const DisplacedFields = ({ householdMembers, i }) => {
   return (
@@ -7,14 +8,14 @@ const DisplacedFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <label>Person Who Claimed</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
       </div>
       <div className="small-6 columns">
         <label>DTHP Certificate Number</label>
         <Text
-          field={`shortFormPreferences.${i}.certificateNumber`}
+          field={buildFieldId(i,'certificate_number')}
         />
       </div>
       <div className="small-12 columns">

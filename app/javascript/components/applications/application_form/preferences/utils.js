@@ -8,9 +8,9 @@ export const naturalKeyFromPreference = (p) => join(
   ], ',')
 
 export const naturalKeyFromMember = (member) => {
-  return `${member.firstName},${member.lastName},${member.DOB}`
+  return `${member.first_name},${member.last_name},${member.date_of_birth}`
 }
 
-export const FIELD_NAME = 'shortFormPreferences'
+export const FIELD_NAME = 'preferences'
 
 export const buildFieldId = (i, field) => `${FIELD_NAME}.${i}.${field}`

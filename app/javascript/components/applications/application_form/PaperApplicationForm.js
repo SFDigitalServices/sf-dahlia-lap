@@ -10,8 +10,6 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 
-import domainToApi from '~/components/mappers/domainToApi'
-
 class PaperApplicationForm extends React.Component {
   constructor(props) {
     super(props)
@@ -27,16 +25,8 @@ class PaperApplicationForm extends React.Component {
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true })
-    const response = await onSubmit(submittedValues, application, listing)
-    if (response === false) {
-      alert('There was an error on submit. Please check values and try again.')
-    }
+    await onSubmit(submitType, submittedValues, application, listing)
     this.setState({ loading: false })
-    if (submitType === 'Save') {
-      window.location.href = '/applications/' + response.application.id
-    } else {
-      window.location.href = '/listings/' + listing.id + '/applications/new'
-    }
   }
 
   saveSubmitType = (type) => {
@@ -46,13 +36,10 @@ class PaperApplicationForm extends React.Component {
   render() {
     const { loading } = this.state
     const { listing, application, editPage } = this.props
-    let autofillValues = {}
-    if (application)
-      autofillValues = domainToApi.mapApplication(application)
 
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>
+        <Form onSubmit={this.submitShortForm} defaultValues={application}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
@@ -72,7 +59,7 @@ class PaperApplicationForm extends React.Component {
                 </div>
                 <div className="button-pager">
                   <div className="button-pager_row primary">
-                    <button className="primary radius margin-right" type="submit" onClick={() => this.saveSubmitType('Save')} disabled={loading}>
+                    <button className="primary radius margin-right save-btn" type="submit" onClick={() => this.saveSubmitType('Save')} disabled={loading}>
                       Save
                     </button>
                     <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew')}  disabled={loading}>

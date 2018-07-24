@@ -6,9 +6,9 @@ const checkListToString = (list) => {
 }
 
 const adaPrioritiesMapValues = {
-  'vision_impaired': 'Vision Impaired',
-  'mobility_impaired': 'Mobility Impaired',
-  'hearing_impaired': 'Hearing Impaired'
+  'vision_impaired': 'Vision impaired',
+  'mobility_impaired': 'Mobility impaired',
+  'hearing_impaired': 'Hearing impaired'
 }
 
 const mapAdaPrioritiesMap = (list) => {
@@ -26,6 +26,7 @@ export const applicationFieldMapper = {
   terms_acknowledged: 'agreeToTerms',
   number_of_dependents: 'numberOfDependents',
   reserved_senior: 'hasSenior',
+  application_submission_type: 'applicationSubmissionType',
   adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected))
 }
 

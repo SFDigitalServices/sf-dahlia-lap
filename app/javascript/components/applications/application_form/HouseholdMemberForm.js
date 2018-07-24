@@ -11,15 +11,15 @@ const HouseholdMemberForm = ({ i }) => {
         <div className="form-group">
           <div className="small-3 columns">
             <label>First Name</label>
-            <Text field={`householdMembers.${i}.firstName`} />
+            <Text field={`household_members.${i}.first_name`} />
           </div>
           <div className="small-3 columns">
             <label>Middle Name</label>
-            <Text field={`householdMembers.${i}.middleName`} />
+            <Text field={`household_members.${i}.middle_name`} />
           </div>
           <div className="small-3 columns">
             <label>Last Name</label>
-            <Text field={`householdMembers.${i}.lastName`} />
+            <Text field={`household_members.${i}.last_name`} />
           </div>
           <div className="small-3 columns">
             <label>Date of Birth <span className="checkbox-block_note no-margin">YYYY-MM-DD (required)</span></label>
@@ -28,7 +28,7 @@ const HouseholdMemberForm = ({ i }) => {
               dateFormat="YYYY-MM-DD"
               showYearDropdown
               dropdownMode="select"
-              field={`householdMembers.${i}.DOB`} />
+              field={`household_members.${i}.date_of_birth`} />
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@ const HouseholdMemberForm = ({ i }) => {
         <div className="small-12 columns">
           <AddressForm
             memberType="householdMember"
-            nestedField={`householdMembers.${i}`}  />
+            nestedField={`household_members.${i}`}  />
         </div>
       </div>
     </div>
