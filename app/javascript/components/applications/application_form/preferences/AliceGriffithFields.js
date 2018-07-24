@@ -20,7 +20,7 @@ const AddressRow = ({fieldId}) => (
       <Column span={6} form>
         <FormGroup>
           <label htmlFor='alice-griffith-address'>Alice Griffith Address</label>
-          <Text id='alice-griffith-address' field={fieldId('address')}/>
+          <Text id='alice-griffith-address' field={fieldId('street')}/>
         </FormGroup>
       </Column>
     </Row>
@@ -43,7 +43,7 @@ const AddressRow = ({fieldId}) => (
           <Column span={6} end>
             <FormGroup>
               <label htmlFor='alice-griffith-zip-code'>Zip</label>
-              <Text id='alice-griffith-zip-code' field={fieldId('zipCode')}/>
+              <Text id='alice-griffith-zip-code' field={fieldId('zip_code')}/>
             </FormGroup>
           </Column>
         </Row>
@@ -72,9 +72,9 @@ const AliceGriffithFields = ({i, householdMembers}) => {
           <label htmlFor='alice-griffith-type-of-proof'>Type of Proof</label>
           <Select
             id='alice-griffith-type-of-proof'
-            field={fieldId('preferenceProof')}
+            field={fieldId('type_of_proof')}
             options={typeOfProofOptions}
-            value={fieldId('preferenceProof')}
+            value={fieldId('type_of_proof')}
           />
         </Column>
       </Row>

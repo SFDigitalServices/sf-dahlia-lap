@@ -1,6 +1,7 @@
 import React from 'react'
 import { Select } from 'react-form'
 import formOptions from '../formOptions'
+import { buildFieldId } from './utils'
 
 const {
   preference_proof_options_nrhp
@@ -12,12 +13,12 @@ const NeighborhoodResidentFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <label>Household Member with Proof</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
         <label>Type of Proof</label>
         <Select
-          field={`shortFormPreferences.${i}.preferenceProof`}
+          field={buildFieldId(i,'type_of_proof')}
           options={preference_proof_options_nrhp}
         />
       </div>

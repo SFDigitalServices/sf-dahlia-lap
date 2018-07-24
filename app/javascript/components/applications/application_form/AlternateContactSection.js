@@ -1,9 +1,6 @@
 import React from 'react'
-import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
-
-import domainToApi from '~/components/mappers/domainToApi'
 
 const {
   alternate_contact_options,
@@ -13,10 +10,10 @@ const {
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
   if (editValues && editValues.alternate_contact) {
-    autofillValues = domainToApi.mapAlternateContact(editValues.alternate_contact)
+    autofillValues = editValues.alternate_contact
   }
   return (
-    <NestedForm field="alternateContact">
+    <NestedForm field="alternate_contact">
       <Form defaultValues={autofillValues}>
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
@@ -27,26 +24,26 @@ const AlternateContactSection = ({editValues}) => {
               <div className="form-group">
                 <div className="small-4 columns">
                   <label>First Name</label>
-                  <Text field="firstName" />
+                  <Text field="first_name" />
                 </div>
                 <div className="small-4 columns">
                   <label>Middle Name</label>
-                  <Text field="middleName" />
+                  <Text field="middle_name" />
                 </div>
                 <div className="small-4 columns">
                   <label>Last Name</label>
-                  <Text field="lastName" />
+                  <Text field="last_name" />
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="small-4 columns">
                 <label>Alternate Contact Type</label>
-                <Select field="alternateContactType" options={alternate_contact_options} />
+                <Select field="alternate_contact_type" options={alternate_contact_options} />
               </div>
               <div className="small-4 columns">
                 <label>Alternate Contact Type Other</label>
-                <Text field="alternateContactTypeOther" />
+                <Text field="alternate_contact_type_other" />
               </div>
               <div className="small-4 columns">
                 <label>Agency (if applicable)</label>
@@ -64,7 +61,7 @@ const AlternateContactSection = ({editValues}) => {
               </div>
               <div className="small-4 columns">
                 <label>Phone Type</label>
-                <Select field="phoneType" options={phone_type_options} />
+                <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
           </div>

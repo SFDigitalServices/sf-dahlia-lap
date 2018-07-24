@@ -13,7 +13,7 @@ import AliceGriffithFields from './AliceGriffithFields'
 const PreferenceAdditionalOptions = ({i, householdMembers, listingPreferences, listingPreferenceID }) => {
   const preference = find(listingPreferences, { id: listingPreferenceID })
   const propsFields = {i, householdMembers}
-  
+
   if (preference) {
     switch (preference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':

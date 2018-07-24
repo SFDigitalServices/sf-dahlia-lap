@@ -21,14 +21,14 @@ const SubComponent = (row) => (
 
 const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
   const columns = [
-      { Header: 'Application Number', accessor: 'number', headerClassName: 'td-min-narrow' },
+      { Header: 'Application Number', accessor: 'name', headerClassName: 'td-min-narrow' },
       { Header: 'Listing Name', accessor: 'listing.name' },
       { Header: 'Lottery Date', accessor: 'listing.lottery_date', Cell: (cell) => ( <PrettyTime time={cell.value} /> ) },
       { Header: 'First Name', accessor: 'applicant.first_name' },
       { Header: 'Last Name', accessor: 'applicant.last_name' },
-      { Header: 'Application Submitted Date', accessor: 'submitted_date' },
-      { Header: 'Total Household size', accessor: 'total_house_hold_size' },
-      { Header: 'Application Submission Type', accessor: 'submission_type' }
+      { Header: 'Application Submitted Date', accessor: 'application_submitted_date' },
+      { Header: 'Total Household size', accessor: 'total_household_size' },
+      { Header: 'Application Submission Type', accessor: 'application_submission_type' }
     ]
 
   const sortBy = [ { id:'number', desc:false } ]
