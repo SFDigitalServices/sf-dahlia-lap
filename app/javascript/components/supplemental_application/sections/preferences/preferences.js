@@ -1,10 +1,8 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select, Checkbox } from 'react-form'
 
-// import { map } from 'lodash'
 import formUtils from '~/utils/formUtils'
 import FormGrid  from '~/components/molecules/FormGrid'
-// import { typeOfProofValues } from '~/components/applications/application_form/preferences/values.js'
 import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
 
 import formOptions from '~/components/applications/application_form/formOptions'

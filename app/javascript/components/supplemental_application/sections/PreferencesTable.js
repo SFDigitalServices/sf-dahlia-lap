@@ -23,9 +23,6 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  // else if (overSome(isGriffith, isBurdenedAssistedHousing, isADHP, isNRHP)(preference.preference_name))
-  //   return preference.type_of_proof
-
   if (overSome(isCOP, isDTHP)(preference.preference_name))
     return preference.certificate_number
   else
@@ -71,12 +68,13 @@ const matchingPreference = (row) => (preference) => {
   return getPreferenceName(preference) === row[1]
 }
 
-const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) => {
+const expandedRowRenderer = (preferences, applicationMembers, onSave) => (row, toggle) => {
   const preference = find(preferences, matchingPreference(row))
   return <Panel
             preference={preference}
             row={row}
             applicationMembers={applicationMembers}
+            onSave={onSave}
             onClose={toggle}
           />
 }
@@ -116,15 +114,14 @@ const TableWrapper = ({children}) => (
   </div>
 )
 
-const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBaseUrl }) => {
+const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBaseUrl, onSave }) => {
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
-
   return (<TableWrapper>
             <ExpandableTable
               columns={columns}
               rows={rows}
               expanderRenderer={expanderRenderer}
-              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)}
+              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers, onSave)}
             />
           </TableWrapper>)
 }
