@@ -69,7 +69,6 @@ listings:
     Application_City__c:
     Download_URL__c:
     Application_State__c:
-    Organization_URL__c:
     Application_Postal_Code__c:
     In_Lottery__c:
       label: 'Applications in Lottery'
