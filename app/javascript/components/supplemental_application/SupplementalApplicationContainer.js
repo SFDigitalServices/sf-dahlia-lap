@@ -42,7 +42,7 @@ const ConfirmedHoushold = () => {
   )
 }
 
-const ConfirmedPreferencesSection = ({application, fileBaseUrl}) => {
+const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
   return (
     <ContentSection
       title="Confirmed Preferences"
@@ -52,6 +52,7 @@ const ConfirmedPreferencesSection = ({application, fileBaseUrl}) => {
           preferences={application.preferences}
           proofFiles={application.proof_files}
           applicationMembers={getFullHousehold(application)}
+          onSave={onSave}
           fileBaseUrl={fileBaseUrl}
         />
       </ContentSection.Content>
@@ -92,6 +93,10 @@ class SupplementalApplicationContainer extends React.Component {
     })
   }
 
+  handleSavePreference = (values) => {
+
+  }
+
   render() {
     const { statusHistory, application, fileBaseUrl } = this.props
     const { loading } = this.state
@@ -103,7 +108,11 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
-              <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
+              <ConfirmedPreferencesSection
+                application={application}
+                fileBaseUrl={fileBaseUrl}
+                onSave={this.handleSavePreference}
+              />
               <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
