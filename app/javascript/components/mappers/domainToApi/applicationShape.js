@@ -16,9 +16,9 @@ export const applicationShape = {
   }
 }
 
-export const buildApplicationShape = soqlObject => {
+export const buildApplicationShape = application => {
   return omitEmpty(
-          mapFields(applicationShape, {}, soqlObject),
+          mapFields(applicationShape, {}, application),
           [
             'alternateContact',
             'adaPrioritiesSelected',
