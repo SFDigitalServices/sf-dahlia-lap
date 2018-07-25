@@ -23,9 +23,6 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  // else if (overSome(isGriffith, isBurdenedAssistedHousing, isADHP, isNRHP)(preference.preference_name))
-  //   return preference.type_of_proof
-
   if (overSome(isCOP, isDTHP)(preference.preference_name))
     return preference.certificate_number
   else
@@ -60,11 +57,10 @@ const columns = [
 ]
 
 const PreferenceIcon = ({status}) => {
-  if (status === "Invalid") {
-    return <Icon icon="close" size="medium" alert />
-  } else {
-    return <Icon icon="check" size="medium" success />
-  }
+  return (status === "Invalid" ?
+  <Icon icon="close" size="medium" alert />
+  :
+  <Icon icon="check" size="medium" success />)
 }
 
 const matchingPreference = (row) => (preference) => {
@@ -82,7 +78,8 @@ const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) =
 }
 
 const expanderRenderer = (row, expanded, expandedRowToggler) => {
-  return (!hasExpanderButton(row[1]) && !expanded &&
+  return (!hasExpanderButton(row[1]) &&
+          !expanded &&
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
 

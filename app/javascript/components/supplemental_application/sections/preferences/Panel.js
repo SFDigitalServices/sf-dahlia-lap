@@ -1,20 +1,30 @@
 import React from 'react'
-import { Form, NestedForm, Text, Select } from 'react-form'
-import { find, last, defaultTo } from 'lodash'
+import { Form } from 'react-form'
+import { find, last, defaultTo, map, cond, matches, overEvery, stubTrue, constant } from 'lodash'
 
 import { addNaturalKeyToPreference } from '~/components/applications/application_form/preferences/utils.js'
-
 import FormGrid  from '~/components/molecules/FormGrid'
-import {
-  RentBurdenedPanel,
-  LiveOrWorkInSanFranciscoPanel,
-  AssistedHousingPanel,
-  NeighborhoodResidentHousingPanel,
-  AntiDisplacementHousingPanel,
-  DefaultPanel
-} from './preferences'
+import DefaultPanel from './DefaultPanel'
+import RentBurdenedPanel from './RentBurdenedPanel'
+import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
+import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
+import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
+import AssistedHousingPanel from './AssistedHousingPanel'
+import Custom from './Custom'
 
 const namePanelsMap = [
+  // COP
+  // L_W
+  // DTHP
+  // NRHP
+  // ADHP
+  // RB_AHP
+
+  // ['L_W', LiveOrWorkInSanFranciscoPanel],
+  // ['NRHP', NeighborhoodResidentHousingPanel],
+  // ['ADHP', AntiDisplacementHousingPanel],
+  // ['Custom', Custom]
+
   ['Rent Burdened', RentBurdenedPanel],
   ['Assisted Housing', AssistedHousingPanel],
   ['in San Francisco', LiveOrWorkInSanFranciscoPanel],
@@ -22,14 +32,27 @@ const namePanelsMap = [
   ['ADHP', AntiDisplacementHousingPanel]
 ]
 
-const getPreferencePanel = (name) => {
-  const panel = last(find(namePanelsMap, ([n, p]) => name && name.match(n) ))
-  return defaultTo(panel, DefaultPanel)
+const isPreference = (record, individualPreference) => ({recordtype_developername, individual_preference}) => {
+  return recordtype_developername === record
+    && (
+      !individualPreference ||
+      individual_preference === individualPreference
+    )
 }
+
+const getPreferencePanel = cond([
+  [isPreference('RB_AHP', 'Rent Burdened'),     constant(RentBurdenedPanel)],
+  [isPreference('RB_AHP', 'Assisted Housing'),  constant(AssistedHousingPanel)],
+  [isPreference('L_W'),                         constant(LiveOrWorkInSanFranciscoPanel)],
+  [isPreference('NRHP'),                        constant(NeighborhoodResidentHousingPanel)],
+  [isPreference('ADHP'),                        constant(AntiDisplacementHousingPanel)],
+  [isPreference('Custom'),                      constant(Custom)],
+  [stubTrue,                                    constant(DefaultPanel)]
+])
 
 const Panel = ({ preference, row, applicationMembers, onClose }) => {
   addNaturalKeyToPreference(preference)
-  const PreferencePanel = getPreferencePanel(row[1])
+  const PreferencePanel = getPreferencePanel(preference)
   return (
     <div className="app-editable expand-wide scrollable-table-nested">
         <Form onSubmit={() => console.log('submitted')} defaultValues={preference}>

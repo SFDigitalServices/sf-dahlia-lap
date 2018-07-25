@@ -1,3 +1,8 @@
+import React from 'react'
+import FormGrid  from '~/components/molecules/FormGrid'
+
+import formUtils from '~/utils/formUtils'
+
 const test = (regex) => (value) => regex.test(value)
 
 /* Preference name */
@@ -44,3 +49,21 @@ export const getPreferenceName = ({ preference_name, individual_preference }) =>
     return preference_name
   }
 }
+
+export const statusOptions = formUtils.toOptions(['Confirmed', 'Unconfirmed', 'Invalid'])
+
+export const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
+
+export const FormItem = ({label, children}) => (
+  <FormGrid.Item>
+    <FormGrid.Group label={label}>
+      {children}
+    </FormGrid.Group>
+  </FormGrid.Item>
+)
+
+export const Comment = ({children}) => (
+  <p className='t-base c-steel'>
+    {children}
+  </p>
+)
