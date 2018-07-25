@@ -241,6 +241,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
                             </p>
                             <button
                               className="button button-link close text"
+                              type="button"
                             >
                               Close
                             </button>
@@ -580,6 +581,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
                             </p>
                             <button
                               className="button button-link close text"
+                              type="button"
                             >
                               Close
                             </button>
