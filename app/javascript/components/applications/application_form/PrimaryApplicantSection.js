@@ -71,7 +71,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               </div>
               <div className="small-4 columns">
                 <label>Phone Type</label>
-                <Select field="phone_type" options={phone_type_options}  />
+                <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
             <div className="row">
