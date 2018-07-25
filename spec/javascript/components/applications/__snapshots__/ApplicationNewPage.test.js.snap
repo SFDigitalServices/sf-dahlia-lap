@@ -177,45 +177,56 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      DOB 
-                      <span
-                        className="checkbox-block_note no-margin"
+                    <div
+                      className="form-group error"
+                    >
+                      <label
+                        className="form-label"
                       >
-                        - YYYY-MM-DD (required)
-                      </span>
-                    </label>
-                    <div>
-                      <div>
-                        <div
-                          className="react-datepicker-wrapper"
+                        DOB 
+                        <span
+                          className="checkbox-block_note no-margin"
                         >
+                          - YYYY-MM-DD (required)
+                        </span>
+                      </label>
+                      <div>
+                        <div>
                           <div
-                            className="react-datepicker__input-container"
+                            className="react-datepicker-wrapper"
                           >
-                            <input
-                              autoComplete={undefined}
-                              autoFocus={undefined}
-                              className=""
-                              disabled={false}
-                              id={undefined}
-                              name={undefined}
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onKeyDown={[Function]}
-                              placeholder={undefined}
-                              readOnly={undefined}
-                              required={true}
-                              tabIndex={undefined}
-                              title={undefined}
-                              type="text"
-                              value="2018-04-23"
-                            />
+                            <div
+                              className="react-datepicker__input-container"
+                            >
+                              <input
+                                autoComplete={undefined}
+                                autoFocus={undefined}
+                                className="error"
+                                disabled={false}
+                                id={undefined}
+                                name={undefined}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder={undefined}
+                                readOnly={undefined}
+                                required={true}
+                                tabIndex={undefined}
+                                title={undefined}
+                                type="text"
+                                value="2018-04-23"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
+                      <span
+                        className="small error"
+                      >
+                        The primary applicant must be 18 years of age or older
+                      </span>
                     </div>
                   </div>
                 </div>
