@@ -184,42 +184,48 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      DOB 
-                      <span
-                        className="checkbox-block_note no-margin"
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
                       >
-                        - YYYY-MM-DD (required)
-                      </span>
-                    </label>
-                    <div>
-                      <div>
-                        <div
-                          className="react-datepicker-wrapper"
+                        DOB 
+                        <span
+                          className="checkbox-block_note no-margin"
                         >
+                          - YYYY-MM-DD (required)
+                        </span>
+                      </label>
+                      <div>
+                        <div>
                           <div
-                            className="react-datepicker__input-container"
+                            className="react-datepicker-wrapper"
                           >
-                            <input
-                              autoComplete={undefined}
-                              autoFocus={undefined}
-                              className=""
-                              disabled={false}
-                              id={undefined}
-                              name={undefined}
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onKeyDown={[Function]}
-                              placeholder={undefined}
-                              readOnly={undefined}
-                              required={true}
-                              tabIndex={undefined}
-                              title={undefined}
-                              type="text"
-                              value="1950-01-01"
-                            />
+                            <div
+                              className="react-datepicker__input-container"
+                            >
+                              <input
+                                autoComplete={undefined}
+                                autoFocus={undefined}
+                                className=""
+                                disabled={false}
+                                id={undefined}
+                                name={undefined}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder={undefined}
+                                readOnly={undefined}
+                                required={true}
+                                tabIndex={undefined}
+                                title={undefined}
+                                type="text"
+                                value="1950-01-01"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1202,42 +1208,48 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      DOB 
-                      <span
-                        className="checkbox-block_note no-margin"
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
                       >
-                        - YYYY-MM-DD (required)
-                      </span>
-                    </label>
-                    <div>
-                      <div>
-                        <div
-                          className="react-datepicker-wrapper"
+                        DOB 
+                        <span
+                          className="checkbox-block_note no-margin"
                         >
+                          - YYYY-MM-DD (required)
+                        </span>
+                      </label>
+                      <div>
+                        <div>
                           <div
-                            className="react-datepicker__input-container"
+                            className="react-datepicker-wrapper"
                           >
-                            <input
-                              autoComplete={undefined}
-                              autoFocus={undefined}
-                              className=""
-                              disabled={false}
-                              id={undefined}
-                              name={undefined}
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onKeyDown={[Function]}
-                              placeholder={undefined}
-                              readOnly={undefined}
-                              required={true}
-                              tabIndex={undefined}
-                              title={undefined}
-                              type="text"
-                              value="1950-01-01"
-                            />
+                            <div
+                              className="react-datepicker__input-container"
+                            >
+                              <input
+                                autoComplete={undefined}
+                                autoFocus={undefined}
+                                className=""
+                                disabled={false}
+                                id={undefined}
+                                name={undefined}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder={undefined}
+                                readOnly={undefined}
+                                required={true}
+                                tabIndex={undefined}
+                                title={undefined}
+                                type="text"
+                                value="1950-01-01"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
