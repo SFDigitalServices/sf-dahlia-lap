@@ -1,7 +1,7 @@
 import {
   forEach, isFunction, omitBy,
   isEmpty, map, isUndefined, isObjectLike, includes,
-  isNil
+  isNil, keys
 } from 'lodash'
 
 const isNotPresent = (value, key) => {
@@ -12,8 +12,12 @@ const isNotPresent = (value, key) => {
 }
 
 export const mapFields = (fieldMapper, to, from ) => {
+  if (isUndefined(from))
+    return undefined
   if (isNil(from))
-    return to
+    return null
+  if (isEmpty(keys(from)))
+    return undefined
 
   forEach(fieldMapper, (toField, fromField) => {
     if (isFunction(toField)) {
