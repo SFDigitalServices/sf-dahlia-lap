@@ -47,7 +47,7 @@ const ConfirmedUnits = () => {
         </FormGrid.Group>
       </FormGrid.Item>
       <FormGrid.Item>
-        <FormGrid.Group label="Person with Developmental Disability in House">
+        <FormGrid.Group label="Person with Developmental Disability in Household">
           <YesNoRadioGroup field="has_developmentaldisability" />
         </FormGrid.Group>
       </FormGrid.Item>
