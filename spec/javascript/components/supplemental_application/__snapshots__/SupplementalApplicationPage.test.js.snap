@@ -275,17 +275,7 @@ Array [
                         aria-expanded={false}
                         className="tr-expand"
                       >
-                        <td>
-                          <span
-                            className="ui-icon ui-medium i-success"
-                          >
-                            <svg>
-                              <use
-                                xlinkHref="#i-check"
-                              />
-                            </svg>
-                          </span>
-                        </td>
+                        <td />
                         <td>
                           Alice Griffith Housing Development Resident
                         </td>
@@ -473,7 +463,7 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Person with Developmental Disability in House
+                    Person with Developmental Disability in Household
                   </label>
                   <div
                     className="radio-group-inline"
