@@ -93,12 +93,8 @@ class SupplementalApplicationContainer extends React.Component {
     })
   }
 
-  handleSavePreference = (values) => {
-
-  }
-
   render() {
-    const { statusHistory, application, fileBaseUrl } = this.props
+    const { statusHistory, application, fileBaseUrl, onSavePreference } = this.props
     const { loading } = this.state
 
     return (
@@ -111,7 +107,7 @@ class SupplementalApplicationContainer extends React.Component {
               <ConfirmedPreferencesSection
                 application={application}
                 fileBaseUrl={fileBaseUrl}
-                onSave={this.handleSavePreference}
+                onSave={onSavePreference}
               />
               <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />

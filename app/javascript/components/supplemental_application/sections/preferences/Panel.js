@@ -34,6 +34,7 @@ const Panel = ({ preference, row, applicationMembers, onClose, onSave }) => {
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
   return (
+
     <div className="app-editable expand-wide scrollable-table-nested">
         <Form onSubmit={onSave} defaultValues={preference}>
           { formApi => (
