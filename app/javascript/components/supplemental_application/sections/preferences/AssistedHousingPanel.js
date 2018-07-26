@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select, Checkbox } from 'react-form'
+import { Select } from 'react-form'
 
 import FormGrid  from '~/components/molecules/FormGrid'
 import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
@@ -30,12 +30,6 @@ export const AssistedHousingPanel = ({ data, applicationMembers }) => {
             If the person who lives in assisted housing is not the primary applicant,
             their address must have been provided at the time of the original application.
           </Comment>
-          <div className="margin-bottom--2x">
-            <Checkbox/>
-            <label>
-              Did applicant provide a lease showing this household member's name?
-            </label>
-          </div>
         </div>
       </div>
     </FormGrid.Row>
