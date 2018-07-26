@@ -9,7 +9,7 @@ const { ExpanderButton } = ExpandableTable
 
 /** Helpers **/
 
-const isCOPorDHCP = value => value.match(/COP|DTHP/)
+const isCOPorDTHP = value => value.match(/COP|DTHP/)
 
 const getPreferenceName = ({ preference_name, individual_preference }) => {
   if (preference_name === 'Live or Work in San Francisco Preference') {
@@ -36,21 +36,20 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (isCOPorDHCP(preference.preference_name))
+  if (isCOPorDTHP(preference.preference_name))
     return preference.certificate_number
   else
     return getAttachments(preference, proofFiles, fileBaseUrl)
 }
 
-
 const buildRow = (proofFiles, fileBaseUrl) => preference => {
   return [
-    <PreferenceIcon status={preference.post_lottery_validation} />,
-    getPreferenceName(preference),
-    preference.person_who_claimed_name,
-    preference.preference_lottery_rank,
-    getTypeOfProof(preference, proofFiles, fileBaseUrl),
-    preference.post_lottery_validation
+    { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
+    { content: getPreferenceName(preference) },
+    { content: preference.person_who_claimed_name },
+    { content: preference.preference_lottery_rank, classes: ['text-right'] },
+    { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
+    { content: preference.post_lottery_validation },
   ]
 }
 
@@ -63,18 +62,20 @@ const onlyValid = (preferences) => {
 const columns = [
   { content: '' },
   { content: 'Preference Name' },
-  { content: 'Person who claimed' },
-  { content: 'Preference Rank' },
+  { content: 'Person Who Claimed' },
+  { content: 'Preference Rank', classes: ['text-right'] },
   { content: 'Type of proof' },
   { content: 'Status' },
   { content: 'Actions' }
 ]
 
-const PreferenceIcon = ({status}) => {
+const PreferenceIcon = ({ status }) => {
   if (status === "Invalid") {
     return <Icon icon="close" size="medium" alert />
-  } else {
+  } else if (status === 'Confirmed') {
     return <Icon icon="check" size="medium" success />
+  } else {
+    return null
   }
 }
 
@@ -89,11 +90,12 @@ const ExpandedPanel = ({ onClose }) => {
 }
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
-  return (!isCOPorDHCP(row[1]) &&
+  const prefName = row[1].content
+  return (!isCOPorDTHP(prefName) &&
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
 
-const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
+const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
   return (
     <ul>
       {
@@ -113,7 +115,7 @@ const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
 }
 
 //TODO: This could be extract and re use in following tables. x-large might need to be an attribute
-const TableWrapper = ({children}) => (
+const TableWrapper = ({ children }) => (
   <div className="form-grid row expand">
     <div className="small-12 column">
       <div className="scrollable-table-container-under-xlarge">
@@ -123,7 +125,7 @@ const TableWrapper = ({children}) => (
   </div>
 )
 
-const PreferencesTable = ({preferences, proofFiles, fileBaseUrl }) => {
+const PreferencesTable = ({ preferences, proofFiles, fileBaseUrl }) => {
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 
   return (<TableWrapper>
@@ -131,7 +133,7 @@ const PreferencesTable = ({preferences, proofFiles, fileBaseUrl }) => {
               columns={columns}
               rows={rows}
               expanderRenderer={ExpanderAction}
-              expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} /> }
+              expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} />}
             />
           </TableWrapper>)
 }
