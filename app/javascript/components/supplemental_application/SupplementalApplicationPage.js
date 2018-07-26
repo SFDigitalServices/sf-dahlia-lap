@@ -1,14 +1,21 @@
 import React from 'react'
 
-import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment } from '~/components/mappers/soqlToDomain'
 import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
+import CardLayout from '../layouts/CardLayout'
+import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 
-const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit, fileBaseUrl }) => {
+const SupplementalApplicationPage = ({
+  application,
+  statusHistory,
+  formFields,
+  onSubmit,
+  fileBaseUrl,
+  onSavePreference,
+}) => {
   const pageHeader = {
     title: `${application.name}: ${application.applicant.name}`,
     breadcrumbs: [
@@ -32,6 +39,7 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
         statusHistory={statusHistory}
         formFields={formFields}
         onSubmit={onSubmit}
+        onSavePreference={onSavePreference}
         fileBaseUrl={fileBaseUrl}
       />
     </CardLayout>
@@ -42,8 +50,9 @@ const mapProperties = ({application, statusHistory, file_base_url}) => {
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
+    fileBaseUrl: file_base_url,
     onSubmit:  (values) => updateApplicationAction(values),
-    fileBaseUrl: file_base_url
+    onSavePreference: (values) => (console.log('xxxx'))
   }
 }
 
