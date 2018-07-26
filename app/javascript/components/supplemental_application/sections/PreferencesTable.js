@@ -57,10 +57,12 @@ const columns = [
 ]
 
 const PreferenceIcon = ({status}) => {
-  return (status === "Invalid" ?
-  <Icon icon="close" size="medium" alert />
-  :
-  <Icon icon="check" size="medium" success />)
+  if (status === "Invalid")
+    return <Icon icon="close" size="medium" alert />
+  else if (status === "Confirmed")
+    return <Icon icon="check" size="medium" success />
+  else
+    return null
 }
 
 const matchingPreference = (row) => (preference) => {
@@ -81,7 +83,7 @@ const expandedRowRenderer = (preferences, applicationMembers, onSave) => (row, t
 const expanderRenderer = (row, expanded, expandedRowToggler) => {
   return (!hasExpanderButton(row[1]) &&
           !expanded &&
-          <ExpanderButton onClick={expandedRowToggler}/>)
+          <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
 const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
