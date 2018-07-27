@@ -18,7 +18,7 @@ const StatusUpdateSection = () => (
   </ContentSection.Content>
 )
 
-const LeaseInformationSection = ({statusHistory}) => (
+const LeaseInformationSection = ({ statusHistory }) => (
   <ContentSection title="Lease Information">
     <ContentSection.Sub title="Demographics">
       <DemographicsInputs/>
@@ -46,7 +46,7 @@ const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
   return (
     <ContentSection
       title="Confirmed Preferences"
-      description="Please allow the applicant 24hs to provide appropiate preference proof if not previously supplied">
+      description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.">
       <ContentSection.Content>
         <PreferencesTable
           preferences={application.preferences}
