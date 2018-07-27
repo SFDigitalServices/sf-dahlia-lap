@@ -1,3 +1,4 @@
+import { get } from 'lodash'
 import { mapShape } from '../utils'
 import { mapListingPreference } from './listing_preference'
 import { mapApplication } from './application'
@@ -28,7 +29,7 @@ export const mapApplicationPreference = (value) => {
     state:value.State,
     zip_code:value.Zip_Code,
     street:value.Street,
-    recordtype_developername:value['RecordType.DeveloperName'],
+    recordtype_developername: get(value,'RecordType.DeveloperName'),
     last_modified_date: value.LastModifiedDate
   }
 }
