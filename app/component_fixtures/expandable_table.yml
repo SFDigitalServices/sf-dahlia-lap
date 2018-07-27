@@ -2,6 +2,8 @@ columns:
   - content: Preference Name
   - content: Person Who Claimed
   - content: Preference Rank
+    classes:
+      - text-right
   - content: Type of Proof
   - content: Status
   - content: Actions
@@ -10,20 +12,26 @@ columns:
 
 rows:
   -
-    - Displaced Tenant Housing Preference
-    - Jason Holmes
-    - 12
-    - ""
-    - Confirmed
+    - content: Displaced Tenant Housing Preference
+    - content: Jason Holmes
+    - content: 12
+      classes:
+        - text-right
+    - content: ""
+    - content: Confirmed
   -
-    - Neighborhood Resident Housing Preference
-    - Jason Holmes
-    - 25
-    - Cable Bill
-    - Invalid
+    - content: Neighborhood Resident Housing Preference
+    - content: Jason Holmes
+    - content: 25
+      classes:
+        - text-right
+    - content: Cable Bill
+    - content: Invalid
   -
-    - Live or Work Housing Preference
-    - Jason Holmes
-    - 112
-    - Cable Bill
-    - Unconfirmed
+    - content: Live or Work Housing Preference
+    - content: Jason Holmes
+    - content: 112
+      classes:
+        - text-right
+    - content: Cable Bill
+    - content: Unconfirmed
