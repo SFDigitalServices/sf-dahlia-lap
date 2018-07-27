@@ -107,6 +107,7 @@ const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
           <li key={file.id}>
             <a
               href={appPaths.toAttachmentDownload(fileBaseUrl, file.id)}
+              className="block-link"
               target="_blank"
             >
               {file.document_type}
