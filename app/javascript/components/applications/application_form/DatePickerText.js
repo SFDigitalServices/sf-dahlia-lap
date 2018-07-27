@@ -10,7 +10,10 @@ class DatePickerTextWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      dateValue: moment(this.props.prefilledDate)
+      dateValue: null
+    }
+    if (this.props.prefilledDate) {
+      this.state.dateValue = moment(this.props.prefilledDate)
     }
   }
 
@@ -28,13 +31,12 @@ class DatePickerTextWrapper extends React.Component {
       // getError,
       // getWarning,
       // getSuccess,
-      // setTouched,
+      setTouched,
     } = fieldApi;
 
     // const error = getError();
     // const warning = getWarning();
     // const success = getSuccess();
-
     return (
       <div>
         <DatePicker
@@ -43,6 +45,7 @@ class DatePickerTextWrapper extends React.Component {
           onChange={( date ) => {
             this.setState({ dateValue: date })
             setValue(moment(date).format(this.props.dateFormat))
+            setTouched(true)
           }}
           {...rest}
         />
