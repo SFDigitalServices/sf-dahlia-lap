@@ -26,8 +26,28 @@ module Force
       # find the last time the status was updated on these applications,
       # i.e. what is the most recently-dated Field Update Comment, if
       # any, for each application
-      # application_ids = application_data.map { |data| "'#{data[:Application]}'" }
       application_ids = application_data.map { |data| "'#{data[:Application]['Id']}'" }
+      if application_ids.present?
+        status_last_updated_dates = find_status_last_updated_dates(application_ids)
+        set_status_last_updated(status_last_updated_dates, application_data)
+      end
+      application_data
+    end
+
+    private
+
+    def set_status_last_updated(status_last_updated_dates, application_data)
+      status_last_updated_dates.each do |status_date|
+        application_data.each do |app_data|
+          if app_data[:Application] == status_date[:Application]
+            app_data[:Status_Last_Updated] = status_date[:Status_Last_Updated]
+            break
+          end
+        end
+      end
+    end
+
+    def find_status_last_updated_dates(application_ids)
       status_last_updated_dates = parse_results(
         query(%(
           SELECT MAX(Processing_Date_Updated__c) Status_Last_Updated, Application__c
@@ -37,20 +57,7 @@ module Force
         )),
         Hashie::Mash.new(Application__c: nil, Status_Last_Updated: nil),
       )
-
-      status_last_updated_dates.each do |status_date|
-        application_data.each do |app_data|
-          if app_data[:Application] == status_date[:Application]
-            app_data[:Status_Last_Updated] = status_date[:Status_Last_Updated]
-            break
-          end
-        end
-      end
-
-      application_data
     end
-
-    private
 
     def user_can_access
       if @user.admin?
