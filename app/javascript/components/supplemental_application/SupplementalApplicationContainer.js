@@ -40,10 +40,10 @@ const ButtonPager = ({ disabled }) => (
         </span>
         Approved
       </button>
-      <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-activedescendant="" tabIndex="-1" style={{display: "none"}}>
-        <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is a link</a></li>
-        <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="#">This is another</a></li>
-        <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="#">Yet another</a></li>
+      <ul className="dropdown-menu" role="listbox" aria-hidden="true" aria-activedescendant="" tabIndex={0} style={{display: "none"}}>
+        <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="/some/valid/uri">This is a link</a></li>
+        <li className="dropdown-menu_item" role="option" aria-selected="false"><a href="/some/valid/uri">This is another</a></li>
+        <li className="dropdown-menu_item is-selected" role="option" aria-selected="true"><a href="/some/valid/uri">Yet another</a></li>
       </ul>
       <button className="button primary small save-btn" type="submit" disabled={disabled}>Save</button>
     </div>
@@ -73,7 +73,7 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               {/* TODO: Uncomment when features are ready to display
               <StatusUpdateSection/>
-              <ContentSection title="Current Contact Information"/>
+              <ContentSection title="Current Contact Informations"/>
               */}
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
