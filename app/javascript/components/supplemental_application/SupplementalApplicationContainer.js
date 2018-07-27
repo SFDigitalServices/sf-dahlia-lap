@@ -6,14 +6,13 @@ import ContentSection from '../molecules/ContentSection'
 import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
-import StatusUpdateForm from './sections/StatusUpdateForm'
 
 //TODO: refactor. this is a placeholder
-const StatusUpdateSection = () => (
-  <ContentSection.Content paddingBottomNone marginTop>
-    <StatusUpdateForm />
-  </ContentSection.Content>
-)
+// const StatusUpdateSection = () => (
+//   <ContentSection.Content paddingBottomNone marginTop>
+//     <StatusUpdateForm />
+//   </ContentSection.Content>
+// )
 
 const LeaseInformationSection = ({statusHistory}) => (
   <ContentSection title="Lease Information">
@@ -72,8 +71,10 @@ class SupplementalApplicationContainer extends React.Component {
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
+              {/* TODO: Uncomment when features are ready to display
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
+              */}
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>
