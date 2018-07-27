@@ -31,17 +31,21 @@ const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
 
 const buildRow = (proofFiles, fileBaseUrl) => preference => {
   return [
-    <PreferenceIcon status={preference.post_lottery_validation} />,
-    getPreferenceName(preference),
-    preference.person_who_claimed_name,
-    preference.preference_lottery_rank,
-    getTypeOfProof(preference, proofFiles, fileBaseUrl),
-    preference.post_lottery_validation
+    { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
+    { content: getPreferenceName(preference) },
+    { content: preference.person_who_claimed_name },
+    { content: preference.preference_lottery_rank, classes: ['text-right'] },
+    { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
+    { content: preference.post_lottery_validation },
   ]
 }
 
 const onlyValid = (preferences) => {
-  return reject(preferences, { lottery_status: 'Invalid for lottery' } )
+  return reject(preferences, (pref) => {
+    return !pref.receives_preference ||
+           pref.lottery_status === 'Invalid for lottery' ||
+           isEmpty(pref.application_member)
+  })
 }
 
 /** Presenter **/
@@ -49,14 +53,14 @@ const onlyValid = (preferences) => {
 const columns = [
   { content: '' },
   { content: 'Preference Name' },
-  { content: 'Person who claimed' },
-  { content: 'Preference Rank' },
+  { content: 'Person Who Claimed' },
+  { content: 'Preference Rank', classes: ['text-right'] },
   { content: 'Type of proof' },
   { content: 'Status' },
   { content: 'Actions' }
 ]
 
-const PreferenceIcon = ({status}) => {
+const PreferenceIcon = ({ status }) => {
   if (status === "Invalid")
     return <Icon icon="close" size="medium" alert />
   else if (status === "Confirmed")
@@ -79,13 +83,13 @@ const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) =
           />
 }
 
-const expanderRenderer = (row, expanded, expandedRowToggler) => {
-  return (!hasExpanderButton(row[1]) &&
-          !expanded &&
+const ExpanderAction = (row, expanded, expandedRowToggler) => {
+  const prefName = row[1].content
+  return (!hasExpanderButton(prefName) &&
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
-const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
+const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
   return (
     <ul>
       {
@@ -93,6 +97,7 @@ const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
           <li key={file.id}>
             <a
               href={appPaths.toAttachmentDownload(fileBaseUrl, file.id)}
+              className="block-link"
               target="_blank"
             >
               {file.document_type}
@@ -105,7 +110,7 @@ const ProofFilesList = ({proofFiles, fileBaseUrl}) => {
 }
 
 //TODO: This could be extract and re use in following tables. x-large might need to be an attribute
-const TableWrapper = ({children}) => (
+const TableWrapper = ({ children }) => (
   <div className="form-grid row expand">
     <div className="small-12 column">
       <div className="scrollable-table-container-under-xlarge">
@@ -122,8 +127,8 @@ const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBas
             <ExpandableTable
               columns={columns}
               rows={rows}
-              expanderRenderer={expanderRenderer}
-              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)}
+              expanderRenderer={ExpanderAction}
+              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)} />}
             />
           </TableWrapper>)
 }
