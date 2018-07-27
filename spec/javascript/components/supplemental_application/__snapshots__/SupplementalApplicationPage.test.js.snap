@@ -205,7 +205,7 @@ Array [
             <p
               className="form-note max-width"
             >
-              Please allow the applicant 24hs to provide appropiate preference proof if not previously supplied
+              Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
             </p>
           </div>
           <div
@@ -242,10 +242,10 @@ Array [
                           className=""
                           scope="col"
                         >
-                          Person who claimed
+                          Person Who Claimed
                         </th>
                         <th
-                          className=""
+                          className="text-right"
                           scope="col"
                         >
                           Preference Rank
@@ -270,57 +270,7 @@ Array [
                         </th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr
-                        aria-expanded={false}
-                        className="tr-expand"
-                      >
-                        <td>
-                          <span
-                            className="ui-icon ui-medium i-success"
-                          >
-                            <svg>
-                              <use
-                                xlinkHref="#i-check"
-                              />
-                            </svg>
-                          </span>
-                        </td>
-                        <td>
-                          Alice Griffith Housing Development Resident
-                        </td>
-                        <td />
-                        <td />
-                        <td />
-                        <td />
-                        <td />
-                      </tr>
-                      <tr
-                        aria-hidden={true}
-                        className="tr-expand-content"
-                      >
-                        <td
-                          className="td-expand-nested no-padding"
-                          colSpan={7}
-                        >
-                          <div
-                            className="app-editable expand-wide scrollable-table-nested"
-                          >
-                            <div>
-                              Hello
-                            </div>
-                            <br />
-                            <button
-                              className="button"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Close
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
+                    <tbody />
                   </table>
                 </div>
               </div>
