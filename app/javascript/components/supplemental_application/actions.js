@@ -11,4 +11,6 @@ export const updateApplicationAction = async (application) => {
   return response
 }
 
-// export const updateApplicationPreferenceAction = async 
+export const updateApplicationPreferenceAction = async (preference) => {
+  console.log(preference)
+}

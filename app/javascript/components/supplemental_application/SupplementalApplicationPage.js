@@ -16,12 +16,15 @@ class SupplementalApplicationPage extends React.Component {
     this.state = { application: props.application }
   }
 
-  handleSavePreference =  async(preference) => {
+  handleOnSubmit = async (application) => {
+    await updateApplicationAction(application)
+  }
+
+  handleSavePreference =  async (preference) => {
     console.log('handleSavePreference')
-    const { onSavePreference } = this.props
     const { application } = this.state
 
-    await onSavePreference(preference)
+    // await updateApplicationPreferenceAction(preference)
 
     const prefIdx = findIndex(application.preferences, { id: preference.id })
     const updatedApplication = cloneDeep(application)
@@ -31,12 +34,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render() {
-    const {
-      statusHistory,
-      formFields,
-      onSubmit,
-      fileBaseUrl
-    } = this.props
+    const { statusHistory, formFields, fileBaseUrl } = this.props
     const { application } = this.state
 
     const pageHeader = {
@@ -61,7 +59,7 @@ class SupplementalApplicationPage extends React.Component {
           application={application}
           statusHistory={statusHistory}
           formFields={formFields}
-          onSubmit={onSubmit}
+          onSubmit={this.handleOnSubmit}
           onSavePreference={this.handleSavePreference}
           fileBaseUrl={fileBaseUrl}
         />
@@ -70,13 +68,13 @@ class SupplementalApplicationPage extends React.Component {
   }
 }
 
-const mapProperties = ({application, statusHistory, file_base_url}) => {
+const mapProperties = ({ application, statusHistory, file_base_url }) => {
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
     fileBaseUrl: file_base_url,
-    onSubmit:  (values) => updateApplicationAction(values),
-    onSavePreference: (values) => (console.log('xxxx'))
+    // onSubmit:  (values) => updateApplicationAction(values),
+    // onSavePreference: updateApplicationPreferenceAction
   }
 }
 
