@@ -54,7 +54,11 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
 }
 
 const onlyValid = (preferences) => {
-  return reject(preferences, { lottery_status: 'Invalid for lottery' } )
+  return reject(preferences, (pref) => {
+    return !pref.receives_preference ||
+           pref.lottery_status === 'Invalid for lottery' ||
+           isEmpty(pref.application_member)
+  })
 }
 
 /** Presenter **/
