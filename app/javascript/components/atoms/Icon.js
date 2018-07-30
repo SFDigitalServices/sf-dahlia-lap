@@ -1,10 +1,21 @@
 import React from 'react'
 
-const Icon = ({ icon }) => {
+import classNames from 'classnames'
+
+const Icon = ({ icon, size = 'small', alert, success }) => {
+  const spanClassName = classNames(
+    "ui-icon",
+    `ui-${size}`,
+    {
+      'i-alert': alert,
+      'i-success': success
+    }
+  )
+
   return (
-    <span className="ui-icon ui-small">
+    <span className={spanClassName}>
       <svg>
-        <use xlinkHref={icon}></use>
+        <use xlinkHref={`#i-${icon}`}></use>
       </svg>
     </span>
   )

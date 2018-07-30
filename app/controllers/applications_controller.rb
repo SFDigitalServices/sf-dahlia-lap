@@ -10,7 +10,7 @@ class ApplicationsController < ApplicationController
   def show
     @application = application_service.application(params[:id])
     @fields = application_service.show_fields
-    @file_base_url = current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']
+    @file_base_url = file_base_url
   end
 
   def edit

@@ -14,17 +14,17 @@ import {
   reservedAndPriorityFields
 } from './fields'
 
-const ProofListItems = ({ file_base_url, files }) => map(files, (file) => {
+const ProofListItems = ({ fileBaseUrl, files }) => map(files, (file) => {
   return (
     <li key={file.id}>
       <a target='_blank'
-        href={`${file_base_url}/servlet/servlet.FileDownload?file=${file.id}`}>
-        {file.name}
+        href={`${fileBaseUrl}/servlet/servlet.FileDownload?file=${file.id}`}>
+        {file.document_type}
       </a>
     </li>)
 })
 
-const ApplicationDetails = ({ application, fields, file_base_url }) => {
+const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   const ApplicationCard = (props) => (
     <ApplicationDetailsContentCard dataCollection={application} {...props} />
   )
@@ -79,7 +79,7 @@ const ApplicationDetails = ({ application, fields, file_base_url }) => {
       <div className="content-card">
         <h4 className="content-card_title t-serif">Attachments</h4>
         <ul>
-          <ProofListItems files={application.proof_files} file_base_url={file_base_url} />
+          <ProofListItems files={application.proof_files} fileBaseUrl={fileBaseUrl} />
         </ul>
       </div>
     </div>

@@ -8,6 +8,7 @@ import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
+import PreferencesTable from './sections/PreferencesTable'
 
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
@@ -15,10 +16,10 @@ const StatusUpdateSection = () => (
   </ContentSection.Content>
 )
 
-const LeaseInformationSection = ({statusHistory}) => (
+const LeaseInformationSection = ({ statusHistory }) => (
   <ContentSection title="Lease Information">
     <ContentSection.Sub title="Demographics">
-      <DemographicsInputs />
+      <DemographicsInputs/>
     </ContentSection.Sub>
     {!isEmpty(statusHistory) &&(
         <ContentSection.Sub title="Status History" borderBottom={false}>
@@ -35,6 +36,18 @@ const ConfirmedHoushold = () => {
       <ContentSection.Sub title="Confirmed Reserved and Priority Units">
         <ConfirmedUnits />
       </ContentSection.Sub>
+    </ContentSection>
+  )
+}
+
+const ConfirmedPreferencesSection = ({ preferences, proofFiles, fileBaseUrl }) => {
+  return (
+    <ContentSection
+      title="Confirmed Preferences"
+      description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.">
+      <ContentSection.Content>
+        <PreferencesTable preferences={preferences} proofFiles={proofFiles} fileBaseUrl={fileBaseUrl} />
+      </ContentSection.Content>
     </ContentSection>
   )
 }
@@ -73,7 +86,7 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, application } = this.props
+    const { statusHistory, application, fileBaseUrl } = this.props
     const { loading } = this.state
 
     return (
@@ -83,6 +96,7 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
+              <ConfirmedPreferencesSection preferences={application.preferences} proofFiles={application.proof_files} fileBaseUrl={fileBaseUrl}/>
               <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
