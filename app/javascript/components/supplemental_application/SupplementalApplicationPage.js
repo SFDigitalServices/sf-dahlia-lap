@@ -8,7 +8,7 @@ import { mapApplication, mapFieldUpdateComment } from '~/components/mappers/soql
 import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
 
-const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit }) => {
+const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit, fileBaseUrl }) => {
   const pageHeader = {
     title: `${application.name}: ${application.applicant.name}`,
     breadcrumbs: [
@@ -31,16 +31,19 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
         application={application}
         statusHistory={statusHistory}
         formFields={formFields}
-        onSubmit={onSubmit}/>
+        onSubmit={onSubmit}
+        fileBaseUrl={fileBaseUrl}
+      />
     </CardLayout>
   )
 }
 
-const mapProperties = ({application, statusHistory}) => {
+const mapProperties = ({application, statusHistory, file_base_url}) => {
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
-    onSubmit:  (values) => updateApplicationAction(values)
+    onSubmit:  (values) => updateApplicationAction(values),
+    fileBaseUrl: file_base_url
   }
 }
 
