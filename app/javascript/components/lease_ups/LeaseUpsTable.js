@@ -9,14 +9,17 @@ import appPaths from '~/utils/appPaths'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
-const LeaseUpStatusCell = ({ cell, onChange, applicationId }) => {
+const LeaseUpStatusCell = ({ cell, onChange }) => {
+  const  applicationPreferenceId = cell.original.id
+  const  applicationId = cell.original.application_id
+
   const value = cell.value || ''
   return (
     <Dropdown
       items={LEASE_UP_STATUS_OPTIONS}
       value={value}
       prompt='Status'
-      onChange={onChange.bind(null, applicationId)}
+      onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
       styles={{position: 'absolute'}}
       buttonClasses={[getLeaseUpStatusStyle(value), 'tiny']} />
   )
@@ -45,7 +48,7 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       { Header: 'Email',              accessor: 'email' ,             Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Address',            accessor: 'address',            Cell: (cell) => ( <span className="rt-resizable-td-content">{cell.value}</span> ) },
       { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} parseFormat={utils.SALESFORCE_DATE_FORMAT} /> : <i>none</i> ) },
-      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> ) }
+      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: (cell) => ( <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> ) }
     ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
@@ -87,8 +90,8 @@ const LeaseUpsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick 
       columns={columns}
       getTdProps={getTdProps}
       getTrProps={getTrProps}
-      defaultSorted={sortBy}
       defaultPageSize={PAGE_SIZE}
+      defaultSorted={sortBy}
       NoDataComponent={NoData} />
   )
 }

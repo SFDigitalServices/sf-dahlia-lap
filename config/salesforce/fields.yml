@@ -96,6 +96,7 @@ listings:
 
 lease_ups:
   index_fields:
+    Id:
     Application__c:
     Application__r.Id:
     Application__r.Name:

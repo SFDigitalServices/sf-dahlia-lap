@@ -48,6 +48,8 @@ class LeaseUpTableContainer extends React.Component {
 
   setStatusModalStatus = (value) => this.updateStatusModal('status', value)
 
+  setStatusModalApplicationPreferenceId = (value) => this.updateStatusModal('applicationPreferenceId', value)
+
   setStatusModalAppId = (value) => this.updateStatusModal('applicationId', value)
 
   setStatusModalLoading = (loading) => this.updateStatusModal('loading', loading)
@@ -56,8 +58,11 @@ class LeaseUpTableContainer extends React.Component {
 
   hideStatusModalAlert = () => this.updateStatusModal('showAlert', false)
 
-  leaseUpStatusChangeHandler = (applicationId, status) => {
+  leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
+    console.log('leaseUpStatusChangeHandler', applicationPreferenceId, applicationId, status)
+
     this.setStatusModalStatus(status)
+    this.setStatusModalApplicationPreferenceId(applicationPreferenceId)
     this.setStatusModalAppId(applicationId)
     this.openStatusModal()
   }
@@ -65,24 +70,24 @@ class LeaseUpTableContainer extends React.Component {
   createStatusUpdate = async (submittedValues) => {
     this.setStatusModalLoading(true)
 
-    var status = this.state.statusModal.status
+    const { status, applicationId, applicationPreferenceId } = this.state.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
-    var applicationId = this.state.statusModal.applicationId
 
     if (status && comment) {
-      var data = {
+      const data = {
         status: status,
         comment: comment,
         applicationId: applicationId
       }
 
-      var response = await apiService.createLeaseUpStatus(data)
+      const response = await apiService.createLeaseUpStatus(data)
 
       if (response) {
         // find the application in question in the applications table data
         // and update its lease up status value and status updated date
         // in the table
-        var applicationIndex = findIndex(this.state.applications, { id: applicationId })
+        const applicationIndex = findIndex(this.state.applications, { id: applicationPreferenceId })
+
         this.updateResults(`[${applicationIndex}]['lease_up_status']`, status)
         this.updateResults(`[${applicationIndex}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
 
