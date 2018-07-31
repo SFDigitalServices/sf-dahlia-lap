@@ -59,8 +59,6 @@ class LeaseUpTableContainer extends React.Component {
   hideStatusModalAlert = () => this.updateStatusModal('showAlert', false)
 
   leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
-    console.log('leaseUpStatusChangeHandler', applicationPreferenceId, applicationId, status)
-
     this.setStatusModalStatus(status)
     this.setStatusModalApplicationPreferenceId(applicationPreferenceId)
     this.setStatusModalAppId(applicationId)
