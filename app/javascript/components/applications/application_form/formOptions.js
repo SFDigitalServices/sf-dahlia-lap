@@ -112,8 +112,6 @@ const preference_proof_options_work_sf = labelize([
   'Paystub with employer address',
 ])
 
-
-
 const preference_proof_options_rent_burden = labelize([
   'Money order',
   'Cancelled check',
