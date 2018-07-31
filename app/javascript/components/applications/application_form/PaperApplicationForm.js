@@ -29,7 +29,6 @@ class PaperApplicationForm extends React.Component {
   }
 
   removeEmptyData = (applicationData) => {
-    let oldAppData = applicationData
     let fieldMap = ['alternateContact', 'adaPrioritiesSelected', 'demographics']
     _.forEach(fieldMap, (field) => {
       if (_.isEmpty(applicationData[field])) {
@@ -80,11 +79,14 @@ class PaperApplicationForm extends React.Component {
     }
 
     this.setState({ loading: false })
-    if (this.state.submitType === 'Save') {
-      window.location.href = '/applications/' + response.application.id
-    }
-    else {
-      window.location.href = '/listings/' + this.props.listing.id + '/applications/new'
+
+    if (response) {
+      if (this.state.submitType === 'Save') {
+        window.location.href = '/applications/' + response.application.id
+      }
+      else {
+        window.location.href = '/listings/' + this.props.listing.id + '/applications/new'
+      }
     }
   }
 
