@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
-import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import classNames from 'classnames'
