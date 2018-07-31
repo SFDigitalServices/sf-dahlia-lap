@@ -20,7 +20,6 @@ const updateApplication = async (data) => {
 }
 
 const updateFlaggedApplication = async (data) => {
-  console.log(data)
   let putData = {
     flagged_application: {
       // these are the only fields we're interested in for the update method
