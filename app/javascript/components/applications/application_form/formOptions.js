@@ -94,6 +94,26 @@ const preference_proof_options_default = labelize([
   'School record',
 ])
 
+const preference_proof_options_live_sf = labelize([
+  'Telephone bill',
+  'Cable and internet bill',
+  'Gas bill',
+  'Electric bill',
+  'Garbage bill',
+  'Water bill',
+  'Paystub',
+  'Public benefits record',
+  'School record',
+  'Letter documenting homelessness'
+])
+
+const preference_proof_options_work_sf = labelize([
+  'Letter from employer',
+  'Paystub with employer address',
+])
+
+
+
 const preference_proof_options_rent_burden = labelize([
   'Money order',
   'Cancelled check',
@@ -149,6 +169,8 @@ export default {
   race_options,
   sexual_orientation_options,
   preference_proof_options_default,
+  preference_proof_options_live_sf,
+  preference_proof_options_work_sf,
   preference_proof_options_rent_burden,
   preference_proof_options_nrhp,
   priority_options,

@@ -49,7 +49,7 @@ const PreferencesSection = ({ formApi, listingPreferences, editValues }) => {
       { shortFormPrefValues && shortFormPrefValues.map( ( pref, i ) => (
         <div className="border-bottom margin-bottom--2x" key={i}>
           <PreferenceForm
-            {...{i, formApi, listingPreferences, fullHousehold}}
+            {...{i, pref, formApi, listingPreferences, fullHousehold}}
           />
         </div>
       ))}
