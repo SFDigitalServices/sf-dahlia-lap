@@ -29,7 +29,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/lease_ups?/1/applications"
+                href="/listings/lease_ups/1/applications"
               >
                 xxxx
               </a>
@@ -59,7 +59,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/lease_ups/1/export"
+                href="/listings/1/lease_ups/export"
               >
                 Export
               </a>
@@ -1299,7 +1299,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/lease_ups/1/export"
+                href="/listings/1/lease_ups/export"
               >
                 Export
               </a>
@@ -2494,7 +2494,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/lease_ups/1/export"
+                href="/listings/1/lease_ups/export"
               >
                 Export
               </a>
