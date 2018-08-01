@@ -19,7 +19,7 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/lease-ups"
               >
                 Lease Ups
               </a>
@@ -29,7 +29,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/lease_ups/1/applications"
+                href="/listings/lease-ups/1/applications"
               >
                 xxxx
               </a>
@@ -1259,7 +1259,7 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/lease-ups"
               >
                 Lease Ups
               </a>
@@ -1269,7 +1269,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/lease_ups/1/applications"
+                href="/listings/lease-ups/1/applications"
               >
                 xxxx
               </a>
@@ -2454,7 +2454,7 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/lease-ups"
               >
                 Lease Ups
               </a>
@@ -2464,7 +2464,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/lease_ups/1/applications"
+                href="/listings/lease-ups/1/applications"
               >
                 xxxx
               </a>
