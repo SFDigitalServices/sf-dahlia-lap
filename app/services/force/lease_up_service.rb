@@ -48,7 +48,7 @@ module Force
     end
 
     def find_status_last_updated_dates(application_ids)
-      status_last_updated_dates = parse_results(
+      parse_results(
         query(%(
           SELECT MAX(Processing_Date_Updated__c) Status_Last_Updated, Application__c
           FROM Field_Update_Comment__c

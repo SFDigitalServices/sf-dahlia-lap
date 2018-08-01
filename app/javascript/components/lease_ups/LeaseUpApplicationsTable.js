@@ -3,8 +3,6 @@ import ReactTable from 'react-table'
 import { trim } from 'lodash'
 
 import Dropdown from '../molecules/Dropdown'
-import PrettyTime from '../atoms/PrettyTime'
-import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
@@ -67,7 +65,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       { Header: 'Phone',              accessor: 'phone' ,             Cell: resizableCell, className: 'text-left' },
       { Header: 'Email',              accessor: 'email' ,             Cell: resizableCell, className: 'text-left' },
       { Header: 'Address',            accessor: 'address',            Cell: resizableCell, className: 'text-left' },
-      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right text-right', Cell: (cell) => ( cell.value ? <PrettyTime time={cell.value} parseFormat={utils.SALESFORCE_DATE_FORMAT} /> : <i>none</i> ) },
+      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
       { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> }
     ]
 
