@@ -11,6 +11,7 @@ const DefaultPreferenceFields = ({ householdMembers, i }) => {
           options={householdMembers}
         />
       </div>
+      <div className="small-12 columns"></div>
     </div>
   )
 }
