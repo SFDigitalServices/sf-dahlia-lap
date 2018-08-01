@@ -53,7 +53,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
 
   return (
     <NestedForm field="applicant">
-      <Form defaultValues={autofillValues} validateError={validateError} onSubmit={() => console.log('onSubmit')}>
+      <Form defaultValues={autofillValues} validateError={validateError} >
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
             <div className="row">
