@@ -1,4 +1,3 @@
-/*global mount*/
 import React from 'react'
 import { merge } from 'lodash'
 import renderer from 'react-test-renderer'
@@ -16,7 +15,7 @@ const buildApplicationPreference = (uniqId, attributes = {}) => {
       'Record_Type_For_App_Preferences': 'CAP'
     },
     "Application" : {
-      "Id": uniqId,
+      "Id": 1000 + uniqId,
       "Name": `Application Name ${uniqId}`,
       "Applicant": {
         "Id": '1',

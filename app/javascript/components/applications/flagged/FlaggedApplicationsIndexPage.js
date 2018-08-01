@@ -1,4 +1,5 @@
 import React from 'react'
+import { get, defaultTo } from 'lodash'
 
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
@@ -65,7 +66,7 @@ const FlaggedApplicationsIndexPage = ({title, flaggedRecords, type}) => {
 const buildFlaggedRecordModel = (flaggedRecord) => {
   return {
     ...flaggedRecord,
-    listing_name: flaggedRecord.listing.name
+    listing_name: defaultTo(get(flaggedRecord,'listing.name'), null)
   }
 }
 
