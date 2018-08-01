@@ -707,7 +707,7 @@ Array [
           <ul>
             <li>
               <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx1"
+                href="http:/www.someurl.com/servlet/servlet.FileDownload?file=xxxx1"
                 target="_blank"
               >
                 Namexxx1
@@ -715,10 +715,10 @@ Array [
             </li>
             <li>
               <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
+                href="http:/www.someurl.com/servlet/servlet.FileDownload?file=xxxx2"
                 target="_blank"
               >
-                Namexxx1
+                Namexxx2
               </a>
             </li>
           </ul>

@@ -45,6 +45,7 @@ applications:
     State__c:
     Street__c:
     Zip_Code__c:
+    Post_Lottery_Validation__c:
   show_flagged_records_fields:
     Flagged_Record_Set__c:
     Flagged_Record_Set__r.Id:
@@ -54,7 +55,9 @@ applications:
       label: 'Applications Pending Review'
   show_proof_files_fields:
     Id:
-    Name:
+    Document_Type__c:
+    Related_Application__c:
+    Related_Application_Preference__c:
   show_household_members_fields:
     Id:
     Name__c:
