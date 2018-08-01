@@ -6,7 +6,7 @@ import { TextArea } from 'react-form'
 import formUtils from '~/utils/formUtils'
 import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
-class LeaseUpsStatusModalWrapper extends React.Component {
+class StatusModalWrapper extends React.Component {
   formValidator = (values) => {
     return {
       comment: !values.comment || values.comment.trim() === '' ? 'Please provide a comment.' : null,
@@ -69,4 +69,4 @@ class LeaseUpsStatusModalWrapper extends React.Component {
   }
 }
 
-export default LeaseUpsStatusModalWrapper
+export default StatusModalWrapper

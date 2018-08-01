@@ -45,3 +45,14 @@
     word-wrap: break-word;
   }
 }
+
+.td-bold {
+  font-weight: bold !important;
+}
+
+
+.rt-th.text-right {
+  .rt-resizable-header-content {
+    width: 100%;
+  }
+}

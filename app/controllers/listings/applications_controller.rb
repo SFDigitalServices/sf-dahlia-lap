@@ -1,4 +1,5 @@
 module Listings
+  # Rails controller for views/actions related to applications for a listing
   class ApplicationsController < ApplicationController
     before_action :authenticate_user!
     before_action :load_listing
@@ -8,8 +9,7 @@ module Listings
       @fields = application_service.index_fields
     end
 
-    def new
-    end
+    def new; end
 
     private
 

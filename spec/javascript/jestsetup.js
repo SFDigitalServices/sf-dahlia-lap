@@ -6,3 +6,5 @@ Enzyme.configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+
+global.wait = ms => new Promise((r, j)=>setTimeout(r, ms))
