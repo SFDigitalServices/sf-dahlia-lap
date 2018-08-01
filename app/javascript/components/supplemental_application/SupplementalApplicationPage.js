@@ -12,7 +12,7 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
   const pageHeader = {
     title: `${application.name}: ${application.applicant.name}`,
     breadcrumbs: [
-      { title: 'Lease Ups', link: '/lease_ups' },
+      { title: 'Lease Ups', link: '/lease-ups' },
       { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
       { title: application.name, link: '#' }
     ]
