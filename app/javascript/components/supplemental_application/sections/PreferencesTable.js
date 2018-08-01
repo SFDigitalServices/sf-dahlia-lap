@@ -8,13 +8,13 @@ import Panel from './preferences/Panel'
 import {
   isCOP,
   isDTHP,
-  isGriffith,
+  isAliceGriffith,
   getPreferenceName
 } from './preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
-const hasExpanderButton = overSome(isCOP, isDTHP, isGriffith)
+const hasExpanderButton = overSome(isCOP, isDTHP, isAliceGriffith)
 
 const getAttachments = (preference, proofFiles, fileBaseUrl) => {
   const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })

@@ -11,7 +11,7 @@ export const isCOP = test(/COP/)
 
 export const isDTHP = test(/DTHP/)
 
-export const isGriffith = test(/Griffith/)
+export const isAliceGriffith = test(/Griffith/)
 
 export const isLWinSF = value => value === 'Live or Work in San Francisco Preference'
 

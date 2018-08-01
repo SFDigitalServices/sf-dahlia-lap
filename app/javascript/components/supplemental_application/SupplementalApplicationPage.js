@@ -22,16 +22,16 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveApplication = async (application) => {
-    const { persistedPrefrences } = this.state
-
-    // We set the persisted preferences that we might have updated in the preference panel
-    application.preferences = persistedPrefrences
-
-    // We update
+    // const { persistedPrefrences } = this.state
+    //
+    // // We set the persisted preferences that we might have updated in the preference panel
+    // application.preferences = persistedPrefrences
+    //
+    // // We update
     await updateApplicationAction(application)
-
-    // We set the new persistedApplication to be used in handleSavePreference
-    this.setStatus({ persistedApplication: application })
+    //
+    // // We set the new persistedApplication to be used in handleSavePreference
+    // this.setStatus({ persistedApplication: application })
   }
 
   setApplicationPreference = (application, applicationPreference) => {
