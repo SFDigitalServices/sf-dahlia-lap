@@ -14,22 +14,21 @@ class ExpandableTableRow extends React.Component {
 
   render() {
     const { row, numColumns, expanderRenderer, expandedRowRenderer } = this.props
+    const cells = row.map((datum, j) =>
+      <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>{datum.content}</td>
+    )
 
     return (
       <Fragment>
         <tr className="tr-expand" aria-expanded={this.state.expanded}>
-          {row.map((datum, j) => (
-            <td key={j}>
-              {datum}
-            </td>
-          ))}
+          {cells}
           <td key="expander">
-            {expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
+            {expanderRenderer && expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
           </td>
         </tr>
         <tr className="tr-expand-content" aria-hidden={!this.state.expanded}>
           <td colSpan={numColumns} className="td-expand-nested no-padding">
-            {expandedRowRenderer(row, this.toggleExpandedRow)}
+            {expandedRowRenderer && expandedRowRenderer(row, this.toggleExpandedRow)}
           </td>
         </tr>
       </Fragment>
@@ -54,7 +53,6 @@ class ExpandableTable extends React.Component {
             ))}
           </tr>
         </thead>
-
         <tbody>
           {rows.map((row, i) => (
             <ExpandableTableRow
@@ -68,6 +66,17 @@ class ExpandableTable extends React.Component {
       </table>
     )
   }
+}
+
+ExpandableTable.ExpanderButton = ({ onClick }) => {
+  return (
+    <button
+      type='button'
+      className="button button-link action-link"
+      onClick={onClick}>
+      Expand
+    </button>
+  )
 }
 
 export default ExpandableTable

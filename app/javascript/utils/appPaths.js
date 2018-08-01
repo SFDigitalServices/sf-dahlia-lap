@@ -14,6 +14,8 @@ const toListing = (listingId) => `/listings/${listingId}`
 
 const toLeaseUpApplications = (listingId) => `/listings/lease-ups/${listingId}/applications`
 
+const toAttachmentDownload = (fileBaseUrl, fileId) => `${fileBaseUrl}/servlet/servlet.FileDownload?file=${fileId}`
+
 export default {
   toApplicationSupplementals,
   toApplication,
@@ -22,5 +24,6 @@ export default {
   toListingLeaseUps,
   toApplicationEdit,
   toListing,
-  toLeaseUpApplications
+  toLeaseUpApplications,
+  toAttachmentDownload
 }
