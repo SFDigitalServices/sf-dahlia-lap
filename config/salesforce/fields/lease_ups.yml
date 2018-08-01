@@ -1,5 +1,5 @@
 lease_ups:
-  index_fields:
+  lease_up_listing_application_fields:
     Application__c:
     Application__r.Id:
     Application__r.Name:
@@ -17,3 +17,12 @@ lease_ups:
     LastModifiedDate:
       label: 'Status Updated'
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
+  lease_up_listing_fields:
+    Id:
+    Name:
+    Lottery_Date__c:
+    Lottery_Results_Date__c:
+    In_Lottery__c:
+    Units_Available__c:
+    Lease_Signed_Application__c:
+    LastModifiedDate:

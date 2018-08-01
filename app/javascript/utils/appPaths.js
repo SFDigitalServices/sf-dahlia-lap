@@ -8,9 +8,11 @@ const toApplicationsFlagged = (id) => `/applications/flagged/${id}`
 
 const toApplicationsFlaggedIndex = (type) => `/applications/flagged?type=${type}`
 
-const toListingLeaseUps = (listingId) => `/listings/lease_ups/${listingId}/applications`
+const toListingLeaseUps = (listingId) => `/listings/lease-ups/${listingId}/applications`
 
 const toListing = (listingId) => `/listings/${listingId}`
+
+const toLeaseUpApplications = (listingId) => `/listings/lease-ups/${listingId}/applications`
 
 const toAttachmentDownload = (fileBaseUrl, fileId) => `${fileBaseUrl}/servlet/servlet.FileDownload?file=${fileId}`
 
@@ -22,5 +24,6 @@ export default {
   toListingLeaseUps,
   toApplicationEdit,
   toListing,
+  toLeaseUpApplications,
   toAttachmentDownload
 }

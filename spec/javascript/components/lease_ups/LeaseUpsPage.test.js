@@ -1,10 +1,8 @@
-/*global mount*/
 import React from 'react'
 import { merge } from 'lodash'
 import renderer from 'react-test-renderer'
-import LeaseUpsPage from 'components/lease_ups/LeaseUpsPage'
+import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import sharedHooks from '../../support/sharedHooks'
-import applicationPreferences from '../../fixtures/application_preferences_for_lease_ups'
 
 const buildApplicationPreference = (uniqId, attributes = {}) => {
   return merge({
@@ -31,7 +29,7 @@ const buildApplicationPreference = (uniqId, attributes = {}) => {
   }, attributes)
 }
 
-describe('LeaseUpsPage', () => {
+describe('LeaseUpApplicationsPage', () => {
   const listings = {
     Id: '1',
     Name: 'xxxx',
@@ -44,7 +42,7 @@ describe('LeaseUpsPage', () => {
     const applications = [ buildApplicationPreference(1), buildApplicationPreference(2) ]
 
     const wrapper = renderer.create(
-      <LeaseUpsPage listing={listings} applications={applications} />,
+      <LeaseUpApplicationsPage listing={listings} applications={applications} />,
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot();
@@ -63,7 +61,7 @@ describe('LeaseUpsPage', () => {
     ]
 
     const wrapper = renderer.create(
-      <LeaseUpsPage listing={listings} applications={applications} />,
+      <LeaseUpApplicationsPage listing={listings} applications={applications} />,
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot();
@@ -94,7 +92,7 @@ describe('LeaseUpsPage', () => {
     ]
 
     const wrapper =  renderer.create(
-      <LeaseUpsPage listing={listings} applications={applications} />,
+      <LeaseUpApplicationsPage listing={listings} applications={applications} />,
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot();
