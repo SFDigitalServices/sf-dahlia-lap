@@ -7,12 +7,11 @@ module Force
 
     def applications(opts = { page: 0 })
       query_scope = builder.from(:Application__c)
-      .select(query_fields(:index))
-      .where(user_can_access)
-      .where("Status__c != '#{DRAFT}'")
-      .paginate(opts)
-      .transform_results { |results| massage(results) }
-      # .transform_results { |results| parse_results_for_fields(results, :index) }
+                           .select(query_fields(:index))
+                           .where(user_can_access)
+                           .where("Status__c != '#{DRAFT}'")
+                           .paginate(opts)
+                           .transform_results { |results| massage(results) }
 
       query_scope.whereContains(:Name, opts[:application_number]) if opts[:application_number].present?
       query_scope.whereEq('Listing__r.Id', "'#{opts[:listing]}'") if opts[:listing].present?
@@ -95,7 +94,12 @@ module Force
           FROM Attachment
           WHERE ParentId = '#{attachment.Id}'
         ))
-        { Id: file.Id, Name: attachment.Name }
+        {
+          Id: file.Id,
+          Document_Type: attachment.Document_Type,
+          Related_Application: attachment.Related_Application,
+          Related_Application_Preference: attachment.Related_Application_Preference,
+        }
       end
     end
 

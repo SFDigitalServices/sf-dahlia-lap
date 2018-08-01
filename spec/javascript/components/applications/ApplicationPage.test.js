@@ -9,7 +9,7 @@ describe('ApplicationPage', () => {
   sharedHooks.useFakeTimers()
 
   test('should render succesfully', () => {
-    const fileBaseUrl = ''
+    const fileBaseUrl = 'http:/www.someurl.com'
 
     const wrapper = renderer.create(
       <ApplicationPage
