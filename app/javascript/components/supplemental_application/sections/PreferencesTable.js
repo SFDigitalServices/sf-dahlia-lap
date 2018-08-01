@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { map, reject, filter, isEmpty } from 'lodash'
+import { map, reject, filter, isEmpty, overSome } from 'lodash'
 import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 import appPaths from '~/utils/appPaths'
@@ -9,7 +9,13 @@ const { ExpanderButton } = ExpandableTable
 
 /** Helpers **/
 
-const isCOPorDTHP = value => value.match(/COP|DTHP/)
+const isCOP = value => value.match(/COP/)
+
+const isDTHP = value => value.match(/DTHP/)
+
+const isAliceGriffith = value => value.match(/Griffith/)
+
+const hasExpanderButton = overSome(isCOP, isDTHP, isAliceGriffith)
 
 const getPreferenceName = ({ preference_name, individual_preference }) => {
   if (preference_name === 'Live or Work in San Francisco Preference') {
@@ -36,8 +42,10 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (isCOPorDTHP(preference.preference_name))
+  if (isCOP(preference.preference_name) || isDTHP(preference.preference_name))
     return preference.certificate_number
+  else if (isAliceGriffith(preference.preference_name))
+    return preference.type_of_proof
   else
     return getAttachments(preference, proofFiles, fileBaseUrl)
 }
@@ -95,7 +103,7 @@ const ExpandedPanel = ({ onClose }) => {
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
-  return (!isCOPorDTHP(prefName) &&
+  return (!hasExpanderButton(prefName) &&
           <ExpanderButton onClick={expandedRowToggler}/>)
 }
 
