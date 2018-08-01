@@ -13,9 +13,9 @@ const isCOP = value => value.match(/COP/)
 
 const isDTHP = value => value.match(/DTHP/)
 
-const isGriffith = value => value.match(/Griffith/)
+const isAliceGriffith = value => value.match(/Griffith/)
 
-const hasExpanderButton = overSome(isCOP, isDTHP, isGriffith)
+const hasExpanderButton = overSome(isCOP, isDTHP, isAliceGriffith)
 
 const getPreferenceName = ({ preference_name, individual_preference }) => {
   if (preference_name === 'Live or Work in San Francisco Preference') {
@@ -44,7 +44,7 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
   if (isCOP(preference.preference_name) || isDTHP(preference.preference_name))
     return preference.certificate_number
-  else if (isGriffith(preference.preference_name))
+  else if (isAliceGriffith(preference.preference_name))
     return preference.type_of_proof
   else
     return getAttachments(preference, proofFiles, fileBaseUrl)
