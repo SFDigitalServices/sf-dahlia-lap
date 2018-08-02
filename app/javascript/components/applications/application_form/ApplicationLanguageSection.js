@@ -2,19 +2,12 @@ import React from 'react'
 import { Select } from 'react-form'
 import formOptions from './formOptions'
 
-import domainToApi from '~/components/mappers/domainToApi'
-
 const {
   application_language_options
 } = formOptions
 
 
 const ApplicationLanguageSection = ({formApi, editValues }) => {
-  let autofillValues = {}
-  if (editValues && !formApi.values.applicationLanguage) {
-    autofillValues = domainToApi.mapApplication(editValues.applicationLanguage)
-    formApi.values.applicationLanguage = autofillValues
-  }
   return (
     <div className="border-bottom margin-bottom--2x">
       <div className="row">
