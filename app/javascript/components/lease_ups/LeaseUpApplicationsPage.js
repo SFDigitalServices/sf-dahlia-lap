@@ -18,7 +18,7 @@ const LeaseUpApplicationsPage = ({ listing, applications }) => {
     },
     breadcrumbs:[
       {title: 'Lease Ups',  link: '/listings/lease-ups'},
-      {title: listing.name, link: appPaths.toListingLeaseUps(listing.id)}
+      {title: listing.name, link: appPaths.toLeaseUpApplications(listing.id)}
     ]
   }
 
