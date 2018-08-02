@@ -6,6 +6,13 @@ const labelize = (options) => (
   ))
 )
 
+const application_language_options = labelize([
+  'English',
+  'Chinese',
+  'Spanish',
+  'Tagalog',
+])
+
 const phone_type_options = labelize([
   'Home',
   'Cell',
@@ -140,6 +147,7 @@ const yes_no_options = labelize([
 ])
 
 export default {
+  application_language_options,
   phone_type_options,
   alternate_contact_options,
   gender_options,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { Form } from 'react-form'
 import apiService from '~/apiService'
+import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -107,10 +108,11 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
+                  <ApplicationLanguageSection editValues={application} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
-                  <HouseholdMembersSection editValues={application} formApi={formApi}  />
-                  <ReservedPrioritySection editValues={application} listing={listing}/>
+                  <HouseholdMembersSection editValues={application} formApi={formApi} />
+                  <ReservedPrioritySection editValues={application} listing={listing} />
                   <PreferencesSection
                     formApi={formApi}
                     listingPreferences={listing.listing_lottery_preferences}
