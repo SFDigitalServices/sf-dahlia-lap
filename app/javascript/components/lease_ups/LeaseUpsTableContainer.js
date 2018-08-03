@@ -118,7 +118,7 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.id)
+    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
 
   rowsData() {
