@@ -4,7 +4,7 @@ module Force
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['lease_ups'].freeze
 
     def lease_ups(listing_id)
-      # TO DO - Temp fix limit to 500, will paginate in #159530254
+      # TO DO: Temp fix limit to 500, will paginate in #159530254
       application_data = massage(query(%(
         SELECT #{query_fields(:index)}
         FROM Application_Preference__c
@@ -12,7 +12,7 @@ module Force
         (SELECT Id FROM Listing_Lottery_Preference__c WHERE Listing__c = '#{listing_id}')
         AND Preference_Lottery_Rank__c != NULL
         ORDER BY Preference_Order__c, Preference_Lottery_Rank__c
-        ASC NULLS LAST LIMIT 500 OFFSET 1
+        ASC NULLS LAST LIMIT 500
       )))
 
       # find the last time the status was updated on these applications,
