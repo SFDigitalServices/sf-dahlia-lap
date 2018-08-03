@@ -1,5 +1,5 @@
 import React from 'react'
-import { findIndex, cloneDeep } from 'lodash'
+import { findIndex, cloneDeep, map } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
@@ -9,34 +9,35 @@ import { mapList } from '~/components/mappers/utils'
 import CardLayout from '../layouts/CardLayout'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 
+
+const setApplicationPreference = (application, applicationPreference) => {
+  const prefIdx = findIndex(application.preferences, { id: applicationPreference.id })
+  application.preferences[prefIdx] = applicationPreference
+}
+
 class SupplementalApplicationPage extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
       persistedApplication: cloneDeep(props.application),
-      persistedPrefrences: cloneDeep(props.application.prefrences),
       application: props.application,
-      preferences: cloneDeep(props.application.prefrences),
+      persistedPrefrences: map(props.application.preferences, cloneDeep),
+      preferences: map(props.application.preferences, cloneDeep),
     }
   }
 
   handleSaveApplication = async (application) => {
-    // const { persistedPrefrences } = this.state
-    //
-    // // We set the persisted preferences that we might have updated in the preference panel
-    // application.preferences = persistedPrefrences
-    //
-    // // We update
-    await updateApplicationAction(application)
-    //
-    // // We set the new persistedApplication to be used in handleSavePreference
-    // this.setStatus({ persistedApplication: application })
-  }
+    const { persistedPrefrences } = this.state
 
-  setApplicationPreference = (application, applicationPreference) => {
-    const prefIdx = findIndex(application.preferences, { id: applicationPreference.id })
-    application.preferences[prefIdx] = applicationPreference
+    // We set the persisted preferences that we might have updated in the preference panel
+    application.preferences = persistedPrefrences
+
+    // We update
+    await updateApplicationAction(application)
+
+    // We set the new persistedApplication to be used in handleSavePreference
+    this.setState({ persistedApplication: application })
   }
 
   handleSavePreference =  async (preference) => {
@@ -49,14 +50,13 @@ class SupplementalApplicationPage extends React.Component {
     application.preferences = cloneDeep(persistedPrefrences)
 
     // We merge the preference to update with the persisted preferences in the new application
-    this.setApplicationPreference(application, preference)
+    setApplicationPreference(application, preference)
 
     // We update
     await updateApplicationAction(application)
 
-    // We set the new persisted preference that we just save for later use by
-    // this method and handleSaveApplication
-    this.setStatus({ persistedPrefrences: application.preferences })
+    // We set the new persisted preference that so it can be used by this method and handleSaveApplication
+    this.setState({ persistedPrefrences: application.preferences, preferences: cloneDeep(application.preferences) })
   }
 
   render() {

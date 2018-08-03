@@ -24,13 +24,13 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
         </div>
       </FormItem>
       <FormItem label="Individual Preference Name">
-        <Select field='individual_preference' options={individualPreferenceOptions}/>
+        <Select field='individual_preference' options={individualPreferenceOptions} className='individual-preference-select'/>
       </FormItem>
       <FormItem label="HH Member on Proof">
         <Select field='naturalKey' options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='lw_type_of_proof' options={preference_proof_options_default}/>
+        <Select field='type_of_proof' options={preference_proof_options_default}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>

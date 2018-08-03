@@ -30,11 +30,10 @@ const getPreferencePanel = cond([
   [stubTrue,                                    constant(DefaultPanel)]
 ])
 
-const Panel = ({ preference, row, applicationMembers, onClose, onSave }) => {
+const Panel = ({ preference, row, applicationMembers, onClose, onSave, loading }) => {
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
   return (
-
     <div className="app-editable expand-wide scrollable-table-nested">
         <Form onSubmit={onSave} defaultValues={preference}>
           { formApi => (
@@ -42,8 +41,8 @@ const Panel = ({ preference, row, applicationMembers, onClose, onSave }) => {
               <PreferencePanel preference={preference} applicationMembers={applicationMembers}/>
               <FormGrid.Row expand={false}>
                 <div className="form-grid_item column">
-              		<button className="button primary tiny margin-right margin-bottom-none" type="button" onClick={formApi.submitForm}>Save</button>
-                  <button className="button secondary tiny margin-bottom-none" type="button" onClick={onClose}>Cancel</button>
+              		<button className="button primary tiny margin-right margin-bottom-none save-panel-btn" type="button" onClick={formApi.submitForm} disabled={loading}>Save</button>
+                  <button className="button secondary tiny margin-bottom-none" type="button" onClick={onClose} disabled={loading}>Cancel</button>
               	</div>
               </FormGrid.Row>
               </React.Fragment>
@@ -54,4 +53,23 @@ const Panel = ({ preference, row, applicationMembers, onClose, onSave }) => {
   )
 }
 
-export default Panel
+class PanelContainer extends React.Component {
+  state = { loading: false }
+
+  handleOnSave = async (values) => {
+    const { onSave } = this.props
+
+    this.setState({ loading: true })
+    await onSave(values)
+    this.setState({ loading: false })
+  }
+
+  render() {
+    const { onSave, ...rest } = this.props
+    const { loading } = this.state
+
+    return <Panel {...rest} onSave={this.handleOnSave} loading={loading} />
+  }
+}
+
+export default PanelContainer
