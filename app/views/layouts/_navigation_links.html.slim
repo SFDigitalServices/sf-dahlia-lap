@@ -5,5 +5,5 @@
   li= menu_link 'Pending Flagged Apps',  flagged_index_path(type: :pending)
   li= menu_link 'Marked Duplicate Apps', flagged_index_path(type: :duplicated)
   - unless ENV['HIDE_LEASE_UPS_NAV_ITEM'] == 'true'
-    li= menu_link 'Lease Ups', '#'
+    li= menu_link 'Lease Ups', '/listings/lease-ups'
   / li= link_to 'Spreadsheet Prototype', spreadsheet_applications_path, class: active_path(spreadsheet_applications_path)
