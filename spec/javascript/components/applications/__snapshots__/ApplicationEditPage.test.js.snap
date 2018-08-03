@@ -77,7 +77,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="karen"
                       />
                     </div>
@@ -107,7 +106,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="jones"
                       />
                     </div>
@@ -219,7 +217,7 @@ Array [
                                 onKeyDown={[Function]}
                                 placeholder={undefined}
                                 readOnly={undefined}
-                                required={true}
+                                required={false}
                                 tabIndex={undefined}
                                 title={undefined}
                                 type="text"
@@ -649,7 +647,7 @@ Array [
                                     tabIndex={undefined}
                                     title={undefined}
                                     type="text"
-                                    value="2018-04-23"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -1101,7 +1099,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="karen"
                       />
                     </div>
@@ -1131,7 +1128,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="jones"
                       />
                     </div>
@@ -1243,7 +1239,7 @@ Array [
                                 onKeyDown={[Function]}
                                 placeholder={undefined}
                                 readOnly={undefined}
-                                required={true}
+                                required={false}
                                 tabIndex={undefined}
                                 title={undefined}
                                 type="text"
@@ -1673,7 +1669,7 @@ Array [
                                     tabIndex={undefined}
                                     title={undefined}
                                     type="text"
-                                    value="2018-04-23"
+                                    value=""
                                   />
                                 </div>
                               </div>

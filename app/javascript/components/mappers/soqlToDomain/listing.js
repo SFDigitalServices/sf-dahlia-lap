@@ -1,4 +1,4 @@
-import { mapList, mapShape } from '../utils'
+import { mapList, mapShape, compactShape } from '../utils'
 import { mapOpenHouse } from './open_house'
 import { mapUnit } from './unit'
 import { mapListingLotteryPreference } from './listing_lottery_preference'
@@ -7,7 +7,7 @@ import { mapAccount } from './account'
 import { mapBuilding } from './building'
 
 export const mapListing = (l) => {
-  return {
+  return compactShape({
     owner: mapShape(mapUser, l.Owner),
     account: mapShape(mapAccount, l.Account),
     open_houses: mapList(mapOpenHouse, l.Open_Houses),
@@ -75,6 +75,9 @@ export const mapListing = (l) => {
     lottery_status: l.Lottery_Status,
     office_hours: l.Office_Hours,
     information_sessions: l.Information_Sessions,
-    nflagged_applications: l.nFlagged_Applications
-  }
+    nflagged_applications: l.nFlagged_Applications,
+    units_available: l.Units_Available,
+    lease_signed_application: l.Lease_Signed_Application,
+    last_modified_date: l.LastModifiedDate
+  })
 }
