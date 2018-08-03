@@ -4,6 +4,7 @@ module Force
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['lease_ups'].freeze
 
     def lease_ups(listing_id)
+      # TO DO - Temp fix limit to 500, will paginate in #159530254
       application_data = massage(query(%(
         SELECT #{query_fields(:index)}
         FROM Application_Preference__c

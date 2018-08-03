@@ -81,7 +81,7 @@ class LeaseUpTableContainer extends React.Component {
       const response = await apiService.createLeaseUpStatus(data)
 
       if (response) {
-        // find the rows with the application id whos status is being updated
+        // find the rows with the application id whose status is being updated
         // and update their lease up status value and status updated date
         // in the table
         each(this.state.applications, (app, index) => {
