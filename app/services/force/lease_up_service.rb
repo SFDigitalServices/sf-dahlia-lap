@@ -11,7 +11,7 @@ module Force
         (SELECT Id FROM Listing_Lottery_Preference__c WHERE Listing__c = '#{listing_id}')
         AND Preference_Lottery_Rank__c != NULL
         ORDER BY Preference_Order__c, Preference_Lottery_Rank__c
-        ASC NULLS LAST LIMIT 50 OFFSET 1
+        ASC NULLS LAST LIMIT 500 OFFSET 1
       )))
 
       # find the last time the status was updated on these applications,
