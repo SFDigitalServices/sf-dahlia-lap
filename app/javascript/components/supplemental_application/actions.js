@@ -3,14 +3,20 @@ import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 
 export const updateApplicationAction = async (application) => {
+  // debugger
+
   const applicationApi = domainToApi.buildApplicationShape(application)
+
+  console.log('updateApplicationAction')
+  console.log(application.preferences[1])
+  console.log(applicationApi.shortFormPreferences[1])
   const response = await apiService.submitApplication(applicationApi)
   if (response === false) {
     Alerts.error()
   }
   return response
 
-  // console.log('updateApplicationAction')
+  // console.log('updateApplicationAction:', application)
   // return true
 }
 
