@@ -27,6 +27,10 @@ const statusHistory = [
 ]
 
 describe('SupplementalApplicationPage', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   test('it should render correctly without status history', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
@@ -39,8 +43,9 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves demographics correctly', async () => {
-    mockShortFormSubmitPayload.numberOfDependents = 1
-    mockShortFormSubmitPayload.primaryApplicant.maritalStatus = 'Domestic Partner'
+    const payload = cloneDeep(mockShortFormSubmitPayload)
+    payload.numberOfDependents = 1
+    payload.primaryApplicant.maritalStatus = 'Domestic Partner'
     const wrapper = mount(
       <SupplementalApplicationPage
         application={supplementalApplication}
@@ -54,7 +59,7 @@ describe('SupplementalApplicationPage', () => {
     await wait(100)
 
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(mockShortFormSubmitPayload)
+    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
   })
 
 
