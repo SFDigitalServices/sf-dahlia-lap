@@ -128,8 +128,7 @@ const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBas
               columns={columns}
               rows={rows}
               expanderRenderer={ExpanderAction}
-              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)} />}
-            />
+              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)} />
           </TableWrapper>)
 }
 
