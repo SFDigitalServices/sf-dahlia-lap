@@ -70,7 +70,7 @@ const PreferenceIcon = ({ status }) => {
 }
 
 const matchingPreference = (row) => (preference) => {
-  return getPreferenceName(preference) === row[1]
+  return getPreferenceName(preference) === row[1].content
 }
 
 const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) => {

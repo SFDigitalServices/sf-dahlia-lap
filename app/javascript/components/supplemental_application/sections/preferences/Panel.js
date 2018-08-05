@@ -31,6 +31,7 @@ const getPreferencePanel = cond([
 ])
 
 const Panel = ({ preference, row, applicationMembers, onClose }) => {
+  // debugger
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
   return (
