@@ -66,7 +66,7 @@ class SupplementalApplicationPage extends React.Component {
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
-        { title: 'Lease Ups', link: '/lease_ups' },
+        { title: 'Lease Ups', link: '/lease-ups' },
         { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
         { title: application.name, link: '#' }
       ]
@@ -99,9 +99,7 @@ const mapProperties = ({ application, statusHistory, file_base_url }) => {
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
-    fileBaseUrl: file_base_url,
-    // onSubmit:  (values) => updateApplicationAction(values),
-    // onSavePreference: updateApplicationPreferenceAction
+    fileBaseUrl: file_base_url
   }
 }
 
