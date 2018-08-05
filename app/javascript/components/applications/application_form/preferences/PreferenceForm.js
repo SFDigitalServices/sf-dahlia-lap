@@ -7,7 +7,7 @@ import FormGroup from '~/components/atoms/FormGroup'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap } from './values'
-import { FIELD_NAME, buildFieldId, buildHouseholdMembersOptions} from './utils'
+import { FIELD_NAME, buildFieldId, buildHouseholdMembersOptions } from './utils'
 
 const setRecordTypeDevName = (i, formApi, matched) => {
   if (!!matched && matched.lottery_preference) {
