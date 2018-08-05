@@ -3,7 +3,6 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme';
-// import apiService from '~/apiService'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
@@ -11,9 +10,6 @@ import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload
 const mockSubmitApplication = jest.fn()
 
 jest.mock('apiService', () => {
-  // const mockSubmitApplication = async (data) => {
-  //   expect(data).toEqual(mockShortFormSubmitPayload)
-  // }
   return { submitApplication: async (data) => {
       mockSubmitApplication(data)
       return true
@@ -86,26 +82,12 @@ describe('SupplementalApplicationPage', () => {
       />
     )
 
-    // expect(wrapper).toMatchSnapshot()
-    // console.log(wrapper.find('TableWrapper .action-link').debug())
-
     wrapper.find('TableWrapper .action-link').simulate('click')
-
-    // wrapper.find('.individual-preference-select').first().simulate('change', { target: {value: '2' } });
-
     wrapper.find('TableWrapper .save-panel-btn').simulate('click')
 
     await wait(100)
 
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
-
-    // console.log(wrapper.find('TableWrapper').props())
-    // console.log(wrapper.find('TableWrapper').debug())
-    // wrapper.find('form').first().simulate('submit')
-    // wrapper.find('form').first().simulate('submit')
-    // await wait(100)
-    // expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    // expect(mockSubmitApplication.mock.calls[0][0]).toEqual(mockShortFormSubmitPayload)
   })
 })
