@@ -85,7 +85,7 @@ const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) =
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
-  return (!hasExpanderButton(prefName) &&
+  return (!expanded && !hasExpanderButton(prefName) &&
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
