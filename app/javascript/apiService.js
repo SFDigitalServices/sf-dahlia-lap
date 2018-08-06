@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 const apiCall = async (method, path, data) => {
+  if (process.env.NODE_ENV === 'test')
+    throw new Error("API should not be called in TEST")
   try {
     const request = await axios[method](`/api/v1${path}`, data)
     return request.data
@@ -22,9 +24,9 @@ const updateFlaggedApplication = async (data) => {
     flagged_application: {
       // these are the only fields we're interested in for the update method
       // have to reformat them back into salesforce-friendly terms
-      Id: data.Id,
-      Review_Status__c: data.Review_Status,
-      Comments__c: data.Comments,
+      Id: data.id,
+      Review_Status__c: data.review_status,
+      Comments__c: data.comments,
     }
   }
   let response = await apiCall('put', '/flagged-applications/update', putData)
@@ -36,8 +38,35 @@ const submitApplication = async (data) => {
   return await apiCall('post', '/short-form/submit', postData)
 }
 
+const fetchApplications = async ({ page, filters }) => {
+  return apiCall('get', '/applications', {
+    params: {
+      page,
+      ...filters
+    }
+  })
+}
+
+// NOTE: This is used in Lease Ups Table
+// const updateLeaseUpStatus = async (applicationNumer, status) => {
+//   console.log(`Updating lease up status for ${applicationNumer} to ${status}`)
+// }
+// Creates a new Field Update Comment Salesforce record
+const createLeaseUpStatus = async (data) => {
+  let postData = {
+    field_update_comment: {
+      Processing_Status__c: data.status,
+      Processing_Comment__c: data.comment,
+      Application__c: data.applicationId,
+    }
+  }
+  return await apiCall('post', '/field-update-comments/create', postData)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
-  submitApplication
+  submitApplication,
+  fetchApplications,
+  createLeaseUpStatus
 }

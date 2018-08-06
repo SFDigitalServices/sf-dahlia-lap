@@ -1,8 +1,0 @@
-header.lead-header
-  h1
-    = "New Application: #{@listing.Name}"
-
-/ for the "edit" view, we would also find + pass in @application,
-/ include webpacked react-table CSS
-== stylesheet_pack_tag 'react-datepicker'
-== react_component 'PaperApplicationForm', { listing: @listing }

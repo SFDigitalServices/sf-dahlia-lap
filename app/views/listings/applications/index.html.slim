@@ -1,0 +1,5 @@
+/ == render 'listings/listing_details_nav'
+
+/ include webpacked react-table CSS
+== stylesheet_pack_tag 'react-table'
+== react_component 'ListingApplicationsPage', { listing: @listing, applications: @applications, fields: @fields }

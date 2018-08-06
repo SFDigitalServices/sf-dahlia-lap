@@ -1,0 +1,61 @@
+verify_signatures: false
+
+# We ignore the following git hooks provided by overcommit for now
+PostCheckout:
+  ALL:
+    enabled: false
+CommitMsg:
+  ALL:
+    enabled: false
+
+# Custom options for DAHLIA LAP repository
+PreCommit:
+
+  BundleCheck:
+    enabled: true
+
+  # Ignore all Overcommit default options
+  ALL:
+    enabled: false
+    on_warn: fail
+
+  # Enable explicitly each desired pre commit check
+  RuboCop:
+    enabled: true
+    description: 'Analyzing with Rubocop'
+    required_executable: 'rubocop'
+
+  RailsSchemaUpToDate:
+    enabled: true
+    description: 'Checking if database schema is up to date'
+    include:
+      - 'db/migrate/*.rb'
+      - 'db/schema.rb'
+
+  YamlSyntax:
+    enabled: true
+    description: 'Checking YAML syntax'
+
+  RailsBestPractices:
+    enabled: true
+    description: 'Checking Rails best practices'
+    exclude:
+      - 'spec/javascript/**/*.snap'
+
+  TrailingWhitespace:
+    enabled: true
+    description: 'Checking for trailing whitespace'
+    exclude:
+      - 'spec/vcr/**/*.yml'
+      - 'spec/javascript/**/*.snap'
+      - 'app/assets/**/*.svg'
+      - 'public/**/*.svg'
+
+  EsLint:
+    enabled: true
+    description: 'Linting JavaScript'
+    required_executable: './node_modules/.bin/eslint'
+
+  CustomScript:
+    enabled: true
+    required_executable: './bin/overcommit-pre-commit'

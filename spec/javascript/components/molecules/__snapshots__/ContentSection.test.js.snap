@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentSection should render correctly 1`] = `
+Array [
+  <div
+    className="app-inner header-wide"
+  >
+    <h2
+      className="app-card_h2"
+    >
+      main title
+    </h2>
+    <p
+      className="form-note max-width"
+    >
+      main desc
+    </p>
+  </div>,
+  <div
+    className="app-inner subheader-wide"
+  >
+    <h3
+      className="app-card_h3 t-sans"
+    >
+      sub title
+    </h3>
+    <p
+      className="form-note max-width"
+    >
+      sub desc
+    </p>
+  </div>,
+  <div
+    className="app-inner inset-wide border-bottom"
+  >
+    content
+  </div>,
+]
+`;

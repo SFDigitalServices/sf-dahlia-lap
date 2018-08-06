@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def active_path(test_path)
-    request.path == test_path ? 'active' : ''
+    request.fullpath == test_path ? 'active' : ''
   end
 end

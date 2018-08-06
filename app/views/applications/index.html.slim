@@ -1,6 +1,3 @@
-header.lead-header
-  h1 Applications
-
 / include webpacked react-table CSS
 == stylesheet_pack_tag 'react-table'
-== react_component 'IndexTable', { results: @applications, fields: @fields, links: ['View Application'] }
+== react_component 'ApplicationsPage', { listings: @listings }

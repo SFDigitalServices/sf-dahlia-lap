@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader should render succesfully 1`] = `
+<header
+  className="lead-header short has-breadcrumbs bg-vapor"
+>
+  <div
+    className="row full-width inner--3x"
+  >
+    <div
+      className="large-12 columns"
+    >
+      <nav
+        aria-label="breadcrumb"
+      >
+        <ol
+          className="breadcrumbs"
+        >
+          <li>
+            <a
+              href="/alpah"
+            >
+              Alpha
+            </a>
+          </li>
+          <li>
+            <a
+              href="/beta"
+            >
+              Beta
+            </a>
+          </li>
+          <li>
+            <a
+              href="/gama"
+            >
+              Gama
+            </a>
+          </li>
+          <li
+            className="current"
+          >
+            <a
+              aria-current="page"
+              href="/pi"
+            >
+              Pi
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <hgroup
+        className="lead-header_group"
+      >
+        <h1
+          className="lead-header_title small c-oil"
+        >
+          title1
+        </h1>
+        <div
+          className="medium-8 columns no-padding"
+        >
+          <p>
+            content1
+          </p>
+        </div>
+        <div
+          className="medium-4 columns no-padding"
+        >
+          <span
+            className="lead-header_secondary-action"
+          >
+            <a
+              className="alt-caps"
+              href="/export"
+            >
+              Export
+            </a>
+          </span>
+        </div>
+      </hgroup>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`PageHeader should render succesfully without BreadCrumbs 1`] = `
+<header
+  className="lead-header short  bg-vapor"
+>
+  <div
+    className="row full-width inner--3x"
+  >
+    <div
+      className="large-12 columns"
+    >
+      <hgroup
+        className="lead-header_group"
+      >
+        <h1
+          className="lead-header_title small-serif c-oil"
+        >
+          title1
+        </h1>
+        <div
+          className="medium-8 columns no-padding"
+        >
+          <p>
+            content1
+          </p>
+        </div>
+        <div
+          className="medium-4 columns no-padding"
+        >
+          <span
+            className="lead-header_secondary-action"
+          >
+            <a
+              className="alt-caps"
+              href="/export"
+            >
+              Export
+            </a>
+          </span>
+        </div>
+      </hgroup>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`PageHeader should render succesfully without action 1`] = `
+<header
+  className="lead-header short has-breadcrumbs bg-vapor"
+>
+  <div
+    className="row full-width inner--3x"
+  >
+    <div
+      className="large-12 columns"
+    >
+      <nav
+        aria-label="breadcrumb"
+      >
+        <ol
+          className="breadcrumbs"
+        >
+          <li>
+            <a
+              href="/alpah"
+            >
+              Alpha
+            </a>
+          </li>
+          <li>
+            <a
+              href="/beta"
+            >
+              Beta
+            </a>
+          </li>
+          <li>
+            <a
+              href="/gama"
+            >
+              Gama
+            </a>
+          </li>
+          <li
+            className="current"
+          >
+            <a
+              aria-current="page"
+              href="/pi"
+            >
+              Pi
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <hgroup
+        className="lead-header_group"
+      >
+        <h1
+          className="lead-header_title small c-oil"
+        >
+          title1
+        </h1>
+        <div
+          className="medium-8 columns no-padding"
+        >
+          <p>
+            content1
+          </p>
+        </div>
+      </hgroup>
+    </div>
+  </div>
+</header>
+`;

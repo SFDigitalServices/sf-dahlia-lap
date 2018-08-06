@@ -5,28 +5,26 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   as :user do
     root to: 'pages#home'
-    delete '/users/sign_out' => 'devise/sessions#destroy'
+    delete '/users/sign_out' => 'overrides/sessions#destroy'
   end
 
   # salesforce resources
   resources :listings, only: %w[index show] do
-    resources :applications, only: %w[new] do
-      collection do
-        get '/' => 'applications#listing_index'
+    resources :applications, only: %w[new index], module: 'listings'
+    collection do
+      resources :lease_ups, only: %w[], module: 'listings' do
+        resources :applications, module: 'lease_ups', only: %w[index]
       end
     end
   end
+
   resources :applications, only: %w[index show edit] do
     collection do
-      get 'spreadsheet'
+      resources :flagged, module: 'applications', only: %w[index show]
     end
+    resources :supplementals, only: %w[index], module: 'applications'
   end
-
-  scope '/flagged_record_sets' do
-    get ':id/flagged_applications' => 'flagged_record_sets#flagged_applications', as: :flagged_applications
-    get 'pending_review_index' => 'flagged_record_sets#pending_review_index'
-    get 'marked_duplicate_index' => 'flagged_record_sets#marked_duplicate_index'
-  end
+  resources :lease_ups, only: %w[index]
 
   resources :pattern_library, only: %w[index]
 
@@ -39,6 +37,11 @@ Rails.application.routes.draw do
       end
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
+      end
+
+      resources :applications
+      scope '/field-update-comments' do
+        post 'create' => 'field_update_comments#create'
       end
     end
   end

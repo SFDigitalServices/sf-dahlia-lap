@@ -4,8 +4,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @applications = application_service.applications
-    @fields = application_service.index_fields
+    @listings = listing_service.listings
   end
 
   def show
@@ -16,30 +15,13 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = application_service.application(params[:id])
-    @listing = listing_service.listing(@application.Listing.Id, current_user.admin)
-  end
-
-  def listing_index
-    @applications = application_service.listing_applications(params[:listing_id])
-    @fields = application_service.index_fields
-  end
-
-  # PROTOTYPE for editable "spreadsheet" table
-  def spreadsheet
-    # TODO: repurpose this whole method to pull in applications matching a certain flagged set
-    # @applications = service.flagged_apps
-    # just call same index method for now, but with a diff view
-    index
-  end
-
-  def new
-    # grabs @listing and renders form
+    @listing = listing_service.listing(@application.Listing.Id)
   end
 
   private
 
   def application_listing
-    @listing = listing_service.listing(params[:listing_id], current_user.admin)
+    @listing = listing_service.listing(params[:listing_id])
   end
 
   def application_service
