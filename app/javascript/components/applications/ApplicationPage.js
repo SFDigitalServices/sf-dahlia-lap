@@ -15,6 +15,12 @@ const buildActionLinkIfNecessary = (app) => {
   }
 }
 
+const Toolbar = ({listingId}) => (
+  <div className='row clearfix inner--3x' style={{paddingRight:'1rem'}}>
+    <a href={appPaths.toApplicationNew(listingId)} className='button tiny right'>add new application</a>
+  </div>
+)
+
 const ApplicationPage = (props) => {
   const { application } = props
   const pageHeader = {
@@ -24,7 +30,7 @@ const ApplicationPage = (props) => {
   }
 
   return (
-    <CardLayout pageHeader={pageHeader} >
+    <CardLayout pageHeader={pageHeader} toolbar={() => <Toolbar listingId={application.listing.id} /> }>
       <ApplicationDetails {...props} />
     </CardLayout>
   )
