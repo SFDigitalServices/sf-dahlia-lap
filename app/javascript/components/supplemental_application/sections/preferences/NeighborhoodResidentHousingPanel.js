@@ -32,7 +32,7 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
       <div className='form-group'>
-        <div className="form-grid_item large-12 column  padding-bottom">
+        <div className="form-grid_item large-12 column padding-bottom">
           <Comment>
             Please check to make sure that a document proving the preference address is provided.
             if no proof document is provided, do not confirm this preference.

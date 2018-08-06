@@ -5,7 +5,7 @@ import formUtils from '~/utils/formUtils'
 
 const test = (regex) => (value) => regex.test(value)
 
-/* Preference name */
+/* Preference Name */
 
 export const isCOP = test(/COP/)
 
@@ -19,10 +19,9 @@ export const isADHP = test(/ADHP/)
 
 export const isNRHP = test(/NRHP/)
 
-export const isBurdenedAssistedHousing = value => value === 'Rent Burdened / Assisted Housing Preference'
+export const isRentBurdenedAssistedHousing = value => value === 'Rent Burdened / Assisted Housing Preference'
 
-
-/* Individual Prefrence */
+/* Individual Preference */
 
 export const isLiveInSF = value => value === 'Live in SF'
 
@@ -37,7 +36,7 @@ export const getPreferenceName = ({ preference_name, individual_preference }) =>
     } else {
       return "Work in San Francisco Preference"
     }
-  } else if (isBurdenedAssistedHousing(preference_name)) {
+  } else if (isRentBurdenedAssistedHousing(preference_name)) {
     if (isAssistedHousing(individual_preference)) {
       return "Assisted Housing Preference"
     } else if (isRentBurdened(individual_preference)) {
