@@ -35,12 +35,12 @@ export const NeighborhoodResidentHousingPanel = ({ data, applicationMembers }) =
         <div className="form-grid_item large-12 column  padding-bottom">
           <Comment>
             Please check to make sure that a document proving the preference address is provided.
-            if no proof document is provided, do not select this preference.
+            if no proof document is provided, do not confirm this preference.
           </Comment>
           <Comment>
-            if the HH member name on the proof is not the primary applicant,
-            their residence address must have beein provided at time of the original application.
-            MOHD will verify that their address qualifies for this preference.
+            If the HH member name on the proof is not the primary applicant,
+            their residence address must have been provided at time of the original application.
+            MOHCD will verify that their address qualifies for this preference.
           </Comment>
         </div>
       </div>

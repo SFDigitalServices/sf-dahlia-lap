@@ -20,7 +20,7 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
     <FormGrid.Row expand={false}>
       <FormItem label="Preference Name">
         <div className="text-value">
-          Live or Work in San Francisco
+          Live or Work in San Francisco Preference
         </div>
       </FormItem>
       <FormItem label="Individual Preference Name">
@@ -40,10 +40,10 @@ export const LiveOrWorkInSanFranciscoPanel = ({ data, applicationMembers }) => {
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
       <div className='form-group'>
-        <div className="form-grid_item large-12 column  padding-bottom">
+        <div className="form-grid_item large-12 column padding-bottom">
           <Comment>
             Please check to make sure that a document proving the preference address is provided.
-            if no proof document is provided, do not select this preference.
+            If no proof document is provided, do not confirm this preference.
           </Comment>
         </div>
       </div>

@@ -31,7 +31,6 @@ const getPreferencePanel = cond([
 ])
 
 const Panel = ({ preference, row, applicationMembers, onClose }) => {
-  // debugger
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
   return (
@@ -42,9 +41,9 @@ const Panel = ({ preference, row, applicationMembers, onClose }) => {
               <PreferencePanel preference={preference} applicationMembers={applicationMembers}/>
               <FormGrid.Row expand={false}>
                 <div className="form-grid_item column">
-              		<button className="button primary tiny margin-right margin-bottom-none" type="button" onClick={formApi.submitForm}>Save</button>
+                  <button className="button primary tiny margin-right margin-bottom-none" type="button" onClick={formApi.submitForm}>Save</button>
                   <button className="button secondary tiny margin-bottom-none" type="button" onClick={onClose}>Cancel</button>
-              	</div>
+                </div>
               </FormGrid.Row>
               </React.Fragment>
             )
