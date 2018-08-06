@@ -1,11 +1,20 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
+
 import formOptions from './formOptions'
+import AddressForm from './AddressForm'
 
 const {
   alternate_contact_options,
   phone_type_options,
 } = formOptions
+
+let mailingAddressFieldMap = {
+  address: 'mailing_street',
+  city: 'mailing_city',
+  state: 'mailing_state',
+  zip: 'mailing_zip_code',
+}
 
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
@@ -64,6 +73,8 @@ const AlternateContactSection = ({editValues}) => {
                 <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
+            <AddressForm title="Home Address" memberType="alternateContact" />
+            <AddressForm title="Mailing Address" memberType="alternateContact" fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>
