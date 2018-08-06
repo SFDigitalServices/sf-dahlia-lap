@@ -1,4 +1,5 @@
 import React from 'react'
+import { isNil } from 'lodash'
 
 import PageHeader from '../organisms/PageHeader'
 import TabsSection from '../organisms/TabsSection'
@@ -27,7 +28,7 @@ class CardLayout extends React.Component {
           (
             <React.Fragment>
               { toolbar && toolbar() }
-              <TabCard padding={true}>
+              <TabCard padding={isNil(toolbar)}>
                 <AppCard>{children}</AppCard>
               </TabCard>
             </React.Fragment>
