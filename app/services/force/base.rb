@@ -4,13 +4,29 @@ require 'facets/hash/rekey'
 module Force
   # encapsulate all Salesforce querying functions in one handy service
   class Base
-    def initialize(user, opts= {})
+    def initialize(user)
       @user = user
-      @client = Restforce.new(
-        authentication_retries: 1,
-        oauth_token: user.oauth_token,
-        instance_url: ENV['SALESFORCE_INSTANCE_URL'],
-      )
+
+      if Rails.env.test?
+        @client = Restforce.new(
+          username: ENV['SALESFORCE_USERNAME'],
+          password: ENV['SALESFORCE_PASSWORD'],
+          security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
+          client_id: ENV['SALESFORCE_CLIENT_ID'],
+          client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
+          api_version: '41.0',
+        )
+      else
+        @client = Restforce.new(
+          authentication_retries: 1,
+          oauth_token: user.oauth_token,
+          instance_url: ENV['SALESFORCE_INSTANCE_URL'],
+        )
+      end
+    end
+
+    def revoke_token
+      @client.get("/services/oauth2/revoke?token=#{@client.options[:oauth_token]}")
     end
 
     # cache a Salesforce SOQL query
@@ -26,21 +42,47 @@ module Force
       result.map { |i| Hashie::Mash.new(i) }
     end
 
+    def debug(q)
+      puts "[SOQL]> #{q}" if Rails.env.development? # HACK: make this better
+    end
     # run a Salesforce SOQL query
-    def query(q)
-      if Rails.env.development?
-        puts "SOQL>"
-        puts q
+
+    # This method was added to help developers debug/code faster.
+    # because some queries take way too long (like Applications)
+    # It's not designed to be used in prod.
+    # it can be enable by setting CACHE_SALESFORCE_REQUESTS=yes
+    # I'm not using cache_query since the logic it's different. cache_query should be removed. Also, it's not being used.
+    # Fed
+    def query_with_cache(q)
+      puts 'Using caching for query....'
+      key = Digest::MD5.hexdigest(q)
+      result = Rails.cache.fetch(key) do
+        puts '...not hitting cache'
+        @client.query(q).as_json.take(50) # we do not need all the results..for example in applications
       end
-      @client.query(q)
+      result.map { |i| Hashie::Mash.new(i) }
+    end
+
+    def query(q)
+      debug(q)
+      if Rails.env.development? && ENV['CACHE_SALESFORCE_REQUESTS']
+        query_with_cache(q)
+      else
+        @client.query(q)
+      end
     end
 
     def query_first(q)
+      debug(q)
       massage(@client.query(q)).first
     end
 
+    def builder
+      Force::SoqlQueryBuilder.new(@client)
+    end
+
     def parsed_index_query(q, type = :index)
-      parse_results(query(q), self.class::FIELDS["#{type}_fields"])
+      massage(query(q))
     end
 
     def index_fields
@@ -54,7 +96,6 @@ module Force
 
     def api_call(method, endpoint, params)
       apex_endpoint = "/services/apexrest#{endpoint}"
-      # puts "api_call :: #{apex_endpoint} :: #{params.as_json}"
       response = @client.send(method, apex_endpoint, params.as_json)
       response.body
     end
@@ -64,6 +105,10 @@ module Force
     end
 
     private
+
+    def parse_results_for_fields(results, type)
+      parse_results(results, self.class::FIELDS["#{type}_fields"])
+    end
 
     def parse_results(results, fields)
       results.map do |result|
@@ -78,7 +123,6 @@ module Force
         if field.include? '.'
           parts = field.split('.')
           if parts.count == 3
-            # e.g. Flagged_Record_Set__r.Listing__r.Lottery_Status__c
             val = result[parts[0]].try(:[], parts[1]).try(:[], parts[2])
           else
             val = result[parts.first] ? result[parts.first][parts.last] : nil
@@ -121,6 +165,16 @@ module Force
       else
         h
       end
+    end
+
+    def count(query)
+      query("Select Count() #{query}")
+    end
+
+    def page(options)
+      limit = 25
+      offset = options[:page].to_i * limit
+      "LIMIT #{limit} OFFSET #{offset}"
     end
 
     def hash_massage(h)

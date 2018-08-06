@@ -2,61 +2,27 @@
 
 A portal for leasing agents to manage listings and applications.
 
-## To setup:
-* Use ruby 2.2.5
-* Use node v8.9.1 (npm v5.5.1)
-* install yarn (if you have homebrew you can run `brew install yarn`)
-* run `yarn install`
-* run `bundle install`
-* run `./bin/rails webpacker:install`
+## Setup
+* Use Ruby 2.2.5 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
+* Install [Bundler](https://github.com/bundler/bundler) for this version of Ruby `gem install bundler -v 1.16.2`
+* Use Node v8.10.x (npm v5.5.x)
+* Install Yarn (if you have Homebrew you can run `brew install yarn`)
+* Run `yarn install`
+* Run `bundle install`
+  - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
+* Run `overcommit --install`
+* Create a `.env` file in the root directory and ask a team member for access to the local development secrets
+* Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
 
-Ensure you have .babelrc containing the following:
-```
-{
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": {
-          "browsers": "> 1%",
-          "uglify": true
-        },
-        "useBuiltIns": true
-      }
-    ],
-    "react"
-  ],
-  "plugins": [
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    "transform-async-to-generator",
-    ["babel-plugin-root-import", {
-      "rootPathSuffix": "app/javascript"
-    }],
-    ["transform-runtime", {
-      "polyfill": false,
-      "regenerator": true
-    }],
-    [
-      "transform-class-properties",
-      {
-        "spec": true
-      }
-    ]
-  ]
-}
-
-```
-
-## To run server:
+## To run server
 * `bin/webpack-dev-server --hot`
 * `rails s`
+* Access the app at [http://localhost:3000/](http://localhost:3000/)
 
-## To update css from Pattern Library:
-* `npm run import-styles`
+## To update css from Pattern Library
+* `grunt`
 
-# To run tests
+## To run tests
 
 Rails tests:
 

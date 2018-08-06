@@ -1,3 +1,10 @@
+field_update_comment:
+  index_fields:
+    Application__c:
+    Processing_Comment__c:
+    Processing_Date_Updated__c:
+    Processing_Status__c:
+
 listings:
   index_fields:
     Id:
@@ -69,7 +76,6 @@ listings:
     Application_City__c:
     Download_URL__c:
     Application_State__c:
-    Organization_URL__c:
     Application_Postal_Code__c:
     In_Lottery__c:
       label: 'Applications in Lottery'
@@ -87,6 +93,26 @@ listings:
     Credit_Rating__c:
     Lottery_Status__c:
     Office_Hours__c:
+
+lease_ups:
+  index_fields:
+    Id:
+    Application__c:
+    Application__r.Id:
+    Application__r.Name:
+    Application__r.Applicant__r.First_Name__c:
+    Application__r.Applicant__r.Last_Name__c:
+    Application__r.Applicant__r.Email__c:
+    Application__r.Applicant__r.Phone__c:
+    Application__r.Applicant__r.Residence_Address__c:
+    Application__r.Applicant__r.Mailing_Address__c:
+    Preference_Order__c:
+    Preference_Lottery_Rank__c:
+    Application__r.Processing_Status__c:
+      label: 'Lease Up Status'
+    LastModifiedDate:
+      label: 'Status Updated'
+    Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
 
 applications:
   index_fields:
@@ -125,16 +151,19 @@ applications:
     Application_Member__r.First_Name__c:
     Application_Member__r.Last_Name__c:
     Application_Member__r.Date_of_Birth__c:
+    Application_Member__r.Id:
     Individual_preference__c:
     Certificate_Number__c:
     Preference_Order__c:
+    RecordType.DeveloperName:
+    LW_Type_of_Proof__c:
     City__c:
     State__c:
-    Zip_Code__c:
     Street__c:
-    RecordType.DeveloperName:
+    Zip_Code__c:
   show_flagged_records_fields:
     Flagged_Record_Set__c:
+    Flagged_Record_Set__r.Id:
     Flagged_Record_Set__r.Rule_Name__c:
       label: 'Flagged Fields'
     Flagged_Record_Set__r.Total_Number_of_Pending_Review__c:
@@ -210,6 +239,7 @@ applications:
     Applicant__r.Mailing_City__c:
     Applicant__r.Mailing_State__c:
     Applicant__r.Mailing_Zip_Code__c:
+    Applicant__r.Marital_Status__c:
     Alternate_Contact__r.Id:
     Alternate_Contact__r.First_Name__c:
     Alternate_Contact__r.Middle_Name__c:
@@ -222,6 +252,7 @@ applications:
       label: 'Relationship'
     Alternate_Contact__r.Alternate_Contact_Type_Other__c:
       label: 'Relationship - Other'
+    Number_of_Dependents__c:
 
 flagged_record_sets:
   pending_review_fields:
@@ -240,6 +271,7 @@ flagged_record_sets:
   flagged_applications_fields:
     Id:
     Application__c:
+    Application__r.Id:
     Application__r.Name:
       label: 'App Number'
     Flagged_Record_Set__r.Rule_Name__c:

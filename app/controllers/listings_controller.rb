@@ -1,4 +1,3 @@
-# Rails controller for Listings related views/actions
 class ListingsController < ApplicationController
   before_action :authenticate_user!
 
@@ -8,7 +7,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = service.listing(params[:id], current_user.admin)
+    @listing = service.listing(params[:id])
   end
 
   private

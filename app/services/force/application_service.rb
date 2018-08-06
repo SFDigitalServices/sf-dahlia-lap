@@ -4,14 +4,21 @@ module Force
     DRAFT = 'Draft'.freeze
     FIELDS = Hashie::Mash.load("#{Rails.root}/config/salesforce/fields.yml")['applications'].freeze
 
-    def applications
-      # TO DO: Cache this request
-      parsed_index_query(%(
-        SELECT #{query_fields(:index)}
-        FROM Application__c
-        WHERE #{user_can_access}
-        AND Status__c != '#{DRAFT}'
-      ))
+    def applications(opts = { page: 0 })
+      query_scope = builder.from(:Application__c)
+      .select(query_fields(:index))
+      .where(user_can_access)
+      .where("Status__c != '#{DRAFT}'")
+      .paginate(opts)
+      .transform_results { |results| parse_results_for_fields(results, :index) }
+
+      query_scope.whereContains(:Name, opts[:application_number]) if opts[:application_number].present?
+      query_scope.whereEq('Listing__r.Id', "'#{opts[:listing]}'") if opts[:listing].present?
+      query_scope.whereEq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
+      query_scope.whereEq('Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
+      query_scope.whereEq('Application_Submission_Type__c', "'#{opts[:submission_type]}'") if opts[:submission_type].present?
+
+      query_scope.query
     end
 
     def application(id)
@@ -33,14 +40,14 @@ module Force
       # NOTE: most listings are <5000 but a couple have been in the 5000-7000 range
       # pro of doing mega-query: can do client side searching/sorting
       # con: loading a JSON of 7500 on the page, performance?
-      parsed_index_query(%(
+      massage(query(%(
         SELECT #{query_fields(:index)}
         FROM Application__c
         WHERE #{user_can_access}
         AND Status__c != '#{DRAFT}'
         AND Listing__r.Id='#{listing_id}'
         LIMIT 10000
-      ))
+      )))
     end
 
     def update(data)
@@ -51,7 +58,7 @@ module Force
     end
 
     def submit(data)
-      api_post('/shortForm', application_defaults.merge(data))
+      api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
     end
 
     private

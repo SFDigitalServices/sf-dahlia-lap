@@ -1,0 +1,1185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingPage individual fields Accessibility, Amenities, Fees fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Accessibility, Amenities, Fees
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Additional Eligibility Rules fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Additional Eligibility Rules
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Additional Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Additional Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Legal Disclaimers
+          </h4>
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "some disclaimer",
+              }
+            }
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Application Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Application Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      />
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application State
+          </h4>
+          <p>
+            CA
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Building Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Building Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Name
+          </h4>
+          <p>
+            77 Bluxome
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Street Address
+          </h4>
+          <p>
+            77 Bluxome Street
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building City
+          </h4>
+          <p>
+            San Francisco
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building State
+          </h4>
+          <p>
+            CA
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Zip Code
+          </h4>
+          <p>
+            94107
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Neighborhood
+          </h4>
+          <p>
+            South of Market
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Developer
+          </h4>
+          <p>
+            Equity Residential
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building URL
+          </h4>
+          <a
+            href="https://i.imgur.com/Jh8OHJY.jpg"
+            target="_blank"
+          >
+            https://i.imgur.com/Jh8OHJY.jpg
+          </a>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Year Built
+          </h4>
+          <p>
+            2008
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Details fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Details
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Owner
+          </h4>
+          <p>
+            Prod Vertiba
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Name
+          </h4>
+          <p>
+            Test 5/30
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Account
+          </h4>
+          <p>
+            Equity Residential
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application Due Date
+          </h4>
+          <p>
+            05/31/2018
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Applications in Lottery
+          </h4>
+          <p>
+            2
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Status
+          </h4>
+          <p>
+            Active
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Leasing Agent and Developer Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Leasing Agent and Developer Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Name
+          </h4>
+          <p>
+            Cullen McCaffrey
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Email
+          </h4>
+          <p>
+            77bluxome@eqr.com
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Phone
+          </h4>
+          <p>
+            (415) 957-5887
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage individual fields Lottery Information fields 1`] = `
+<div
+  className="content-card padding-bottom-none margin-bottom--half bg-trans"
+>
+  <h4
+    className="content-card_title t-serif"
+  >
+    Lottery Information
+  </h4>
+  <ul
+    className="content-grid"
+  >
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Date
+          </h4>
+          <p>
+            Invalid date
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Results Date
+          </h4>
+          <p>
+            Invalid date
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      className="content-item"
+    >
+      <div
+        className="content-card"
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Status
+          </h4>
+          <p>
+            Not Yet Run
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery City
+          </h4>
+          <p>
+            San Francisco
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListingPage should render succesfully 1`] = `
+Array [
+  <header
+    className="lead-header short  bg-snow"
+  >
+    <div
+      className="row full-width inner--3x"
+    >
+      <div
+        className="large-12 columns"
+      >
+        <hgroup
+          className="lead-header_group"
+        >
+          <h1
+            className="lead-header_title small-serif c-oil"
+          >
+            Test 5/30
+          </h1>
+        </hgroup>
+      </div>
+    </div>
+  </header>,
+  <div
+    className="tabs-section tabs-row row full-width inner--3x bg-snow"
+  >
+    <ul
+      className="tabs full-width-small-only"
+      role="menubar"
+    >
+      <li
+        className="tab-title"
+        role="none"
+      >
+        <a
+          aria-selected={false}
+          href="/listings/a0W0x000000GhJUEA0"
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="0"
+        >
+          Listing Details
+        </a>
+      </li>
+      <li
+        className="tab-title"
+        role="none"
+      >
+        <a
+          aria-selected={false}
+          href="/listings/a0W0x000000GhJUEA0/applications"
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="0"
+        >
+          Applications
+        </a>
+      </li>
+    </ul>
+  </div>,
+  <section
+    className="tabs-card-row row full-width inner--3x margin-bottom--2x"
+  >
+    <div
+      className="app-card form-card tabs-card max-width expand-on-small"
+    >
+      <div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Details
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Owner
+                  </h4>
+                  <p>
+                    Prod Vertiba
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Name
+                  </h4>
+                  <p>
+                    Test 5/30
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Account
+                  </h4>
+                  <p>
+                    Equity Residential
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application Due Date
+                  </h4>
+                  <p>
+                    05/31/2018
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Applications in Lottery
+                  </h4>
+                  <p>
+                    2
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Status
+                  </h4>
+                  <p>
+                    Active
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Building Information
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Name
+                  </h4>
+                  <p>
+                    77 Bluxome
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Street Address
+                  </h4>
+                  <p>
+                    77 Bluxome Street
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building City
+                  </h4>
+                  <p>
+                    San Francisco
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building State
+                  </h4>
+                  <p>
+                    CA
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Zip Code
+                  </h4>
+                  <p>
+                    94107
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Neighborhood
+                  </h4>
+                  <p>
+                    South of Market
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Developer
+                  </h4>
+                  <p>
+                    Equity Residential
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building URL
+                  </h4>
+                  <a
+                    href="https://i.imgur.com/Jh8OHJY.jpg"
+                    target="_blank"
+                  >
+                    https://i.imgur.com/Jh8OHJY.jpg
+                  </a>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Year Built
+                  </h4>
+                  <p>
+                    2008
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Listing Preferences
+          </h4>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Description
+                </th>
+                <th>
+                  PDF URL
+                </th>
+                <th>
+                  Order
+                </th>
+                <th>
+                  Available Units
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Alice Griffith Housing Development Resident
+                </td>
+                <td>
+                  For households in which at least one member was a resident of the Alice Griffith housing development. This includes baseline and current residents that lived in the targeted redevelopment site on or after the time of application for Choice Neighborhoods of October 26, 2010.
+                </td>
+                <td />
+                <td />
+                <td />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Accessibility, Amenities, Fees
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              />
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              />
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Lottery Information
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery Date
+                  </h4>
+                  <p>
+                    Invalid date
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery Results Date
+                  </h4>
+                  <p>
+                    Invalid date
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery Status
+                  </h4>
+                  <p>
+                    Not Yet Run
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery City
+                  </h4>
+                  <p>
+                    San Francisco
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Application Information
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              />
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application State
+                  </h4>
+                  <p>
+                    CA
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Leasing Agent and Developer Information
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Leasing Agent Name
+                  </h4>
+                  <p>
+                    Cullen McCaffrey
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Leasing Agent Email
+                  </h4>
+                  <p>
+                    77bluxome@eqr.com
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Leasing Agent Phone
+                  </h4>
+                  <p>
+                    (415) 957-5887
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Additional Eligibility Rules
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              />
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              />
+            </li>
+          </ul>
+        </div>
+        <div
+          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Additional Information
+          </h4>
+          <ul
+            className="content-grid"
+          >
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              />
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Legal Disclaimers
+                  </h4>
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "some disclaimer",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>,
+]
+`;

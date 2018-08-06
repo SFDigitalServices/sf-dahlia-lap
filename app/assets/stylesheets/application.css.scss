@@ -4,8 +4,53 @@
  * - LAP includes some leasing agent portal styles and overrides.
  * - note: react-table.css default style is included via webpack in application.html
  *
- *= require toolkit
+ *= require toolkit-lap
  *= require lap
- *= require pattern_libraries
+ *= require pattern-library
  *= require_self
  */
+
+// TODO: move these styles into the PL - we have an upcoming story to do this
+.ReactModal__Overlay {
+  z-index: 1000;
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
+@media(max-width:600px) {
+  .ReactModal__Content {
+    width: 90% !important;
+  }
+}
+
+.ReactModal__Content {
+  .dropdown {
+    position: relative;
+  }
+}
+
+.form-modal_form_wrapper {
+  position: relative;
+
+  .form-modal_loading {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    .loading {
+      height: 100%;
+    }
+  }
+}
+
+.form-modal_dropdown-menu {
+  max-width: none;
+  top: 54px !important;
+}
+
+.tr-expand-content[aria-hidden='true'] {
+  display: none;
+}
