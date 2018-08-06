@@ -1,5 +1,4 @@
 import React from 'react'
-import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 

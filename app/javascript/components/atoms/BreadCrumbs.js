@@ -10,7 +10,7 @@ const Item = ({ item, current }) => {
 }
 
 const BreadCrumbs = ({ items }) => {
-  if (!items || items.length == 0) return null
+  if (!items || items.length === 0) return null
 
   const lastItem = items[items.length-1]
   return (
