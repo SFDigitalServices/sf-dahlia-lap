@@ -4,7 +4,7 @@ import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import classNames from 'classnames'
-import moment from 'moment'
+import { validate, isOldEnough, isPresent } from '~/utils/validations'
 
 let { phone_type_options } = formOptions
 
@@ -13,15 +13,6 @@ let mailingAddressFieldMap = {
   city: 'mailing_city',
   state: 'mailing_state',
   zip: 'mailing_zip_code',
-}
-
-const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
-}
-
-const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth,'years')
-  return years >= 18
 }
 
 const FormError = ({formApi, field }) => {
@@ -38,17 +29,15 @@ const errorClassName = (formApi, field) => {
     return null
 }
 
+const validateError = validate({
+  date_of_birth: [ isOldEnough, "The primary applicant must be 18 years of age or older" ],
+  first_name: [ isPresent, "Input must contain name" ]
+})
+
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
-  }
-
-  const validateError = (values) => {
-    return  {
-      'date_of_birth': validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.date_of_birth),
-      'first_name': !values.first_name ? "Input must contain name" : null
-    }
   }
 
   return (

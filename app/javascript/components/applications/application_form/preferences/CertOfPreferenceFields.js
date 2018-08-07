@@ -2,9 +2,11 @@ import React from 'react'
 import { Select, Text } from 'react-form'
 import { buildFieldId } from './utils'
 
-const CertOfPreferenceFields = ({ householdMembers, i }) => {
+const CertOfPreferenceFields = ({ formApi, i, householdMembers }) => {
+  const errors =  formApi.errors && formApi.errors.preferences[i]
   return (
     <div>
+      <div>Errors: {JSON.stringify(errors)}</div>
       <div className="small-6 columns">
         <label>Name of COP Holder</label>
         <Select

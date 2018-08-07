@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Form } from 'react-form'
-import { some, isObjectLike, isNil } from 'lodash'
+import { some, isObjectLike, isNil, map } from 'lodash'
 
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
@@ -11,8 +11,20 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
-
 import AlertBox from '~/components/molecules/AlertBox'
+
+const validatePreference = (preference) => {
+  return {
+    naturalKey: 'Some nasty error'
+  }
+}
+
+const validateError = (values) => {
+  console.log(values)
+  return  {
+    preferences: map(values.preferences, validatePreference)
+  }
+}
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -33,15 +45,9 @@ class PaperApplicationForm extends React.Component {
     this.setState({ loading: false })
   }
 
-  hasErrors = (errors) => {
-    return some(errors, (value, key) => {
-      if (isObjectLike(value)){
-        return this.hasErrors(value)
-      } else {
-        return !isNil(value)
-      }
-    })
-  }
+  hasErrors = (errors) => some(errors, (value, key) => (
+    isObjectLike(value) ? this.hasErrors(value) : !isNil(value)
+  ))
 
   saveSubmitType = (type, formApi) => {
     const failed = this.hasErrors(formApi.errors)
@@ -57,9 +63,13 @@ class PaperApplicationForm extends React.Component {
 
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application}>
+        <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
+              <pre>
+              <div>{JSON.stringify(formApi.errors)}</div>
+              </pre>
+
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <AlertBox
