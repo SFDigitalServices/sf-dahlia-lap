@@ -1,5 +1,5 @@
 import React from 'react'
-import { set, clone, trim, findIndex, map, cloneDeep } from 'lodash'
+import { set, clone, trim, findIndex, map, each, cloneDeep } from 'lodash'
 import moment from 'moment'
 
 import apiService from '~/apiService'
@@ -68,7 +68,7 @@ class LeaseUpTableContainer extends React.Component {
   createStatusUpdate = async (submittedValues) => {
     this.setStatusModalLoading(true)
 
-    const { status, applicationId, applicationPreferenceId } = this.state.statusModal
+    const { status, applicationId } = this.state.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
 
     if (status && comment) {
@@ -81,13 +81,15 @@ class LeaseUpTableContainer extends React.Component {
       const response = await apiService.createLeaseUpStatus(data)
 
       if (response) {
-        // find the application in question in the applications table data
-        // and update its lease up status value and status updated date
+        // find the rows with the application id whose status is being updated
+        // and update their lease up status value and status updated date
         // in the table
-        const applicationIndex = findIndex(this.state.applications, { id: applicationPreferenceId })
-
-        this.updateResults(`[${applicationIndex}]['lease_up_status']`, status)
-        this.updateResults(`[${applicationIndex}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+        each(this.state.applications, (app, index) => {
+          if (app.application_id == applicationId) {
+            this.updateResults(`[${index}]['lease_up_status']`, status)
+            this.updateResults(`[${index}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+          }
+        })
 
         this.setStatusModalLoading(false)
         this.setStatusModalStatus(null)
@@ -118,7 +120,7 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.id)
+    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
 
   rowsData() {
