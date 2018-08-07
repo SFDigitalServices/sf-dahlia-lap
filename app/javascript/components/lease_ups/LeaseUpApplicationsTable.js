@@ -9,14 +9,17 @@ import classNames from 'classnames'
 
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
-const LeaseUpStatusCell = ({ cell, onChange, applicationId }) => {
+const LeaseUpStatusCell = ({ cell, onChange }) => {
+  const  applicationPreferenceId = cell.original.id
+  const  applicationId = cell.original.application_id
+
   const value = cell.value || ''
   return (
     <Dropdown
       items={LEASE_UP_STATUS_OPTIONS}
       value={value}
       prompt='Status'
-      onChange={onChange.bind(null, applicationId)}
+      onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
       styles={{position: 'absolute'}}
       buttonClasses={[getLeaseUpStatusStyle(value), 'tiny']} />
   )
@@ -59,7 +62,7 @@ const PreferenceRankCell = ({cell}) => {
 const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
       { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
-      { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.id)} className="has-border">{cell.value}</a>) },
+      { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className="has-border">{cell.value}</a>) },
       { Header: 'First Name',         accessor: 'first_name' ,        Cell: resizableCell, className: 'text-left' },
       { Header: 'Last Name',          accessor: 'last_name' ,         Cell: resizableCell, className: 'text-left' },
       { Header: 'Phone',              accessor: 'phone' ,             Cell: resizableCell, className: 'text-left' },
@@ -114,8 +117,8 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       columns={columns}
       getTdProps={getTdProps}
       getTrProps={getTrProps}
-      defaultSorted={sortBy}
       defaultPageSize={PAGE_SIZE}
+      defaultSorted={sortBy}
       NoDataComponent={NoData} />
   )
 }
