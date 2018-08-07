@@ -112,89 +112,6 @@ Array [
           }
         >
           <div
-            className="app-inner inset-wide padding-bottom-none margin-top"
-          >
-            <h2
-              className="sr-only"
-            >
-              Status Update
-            </h2>
-            <div
-              className="status-update expand-wide is-processing"
-            >
-              <h3
-                className="status-update_title"
-              >
-                Update Status
-              </h3>
-              <div
-                className="status-update_action"
-              >
-                <button
-                  aria-expanded="false"
-                  className="button dropdown-button has-icon--right text-align-left small is-processing"
-                  href="#"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="ui-icon ui-small"
-                  >
-                    <svg>
-                      <use
-                        xlinkHref="#i-arrow-down"
-                      />
-                    </svg>
-                  </span>
-                  Processing
-                </button>
-              </div>
-              <div
-                className="status-update_message"
-              >
-                <div
-                  className="status-update_comment"
-                >
-                  <p
-                    className="status-update_note"
-                  >
-                    Some comment
-                  </p>
-                  <span
-                    className="status-update_date"
-                  >
-                    03/12/18 
-                  </span>
-                </div>
-                <div
-                  className="status-update_footer"
-                >
-                  <button
-                    className="button tiny tertiary"
-                    data-event=""
-                    type="button"
-                  >
-                    Add a comment
-                  </button>
-                  <a
-                    className="t-small right"
-                    href="/see_status_history"
-                  >
-                    See Status History
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="app-inner header-wide"
-          >
-            <h2
-              className="app-card_h2"
-            >
-              Current Contact Information
-            </h2>
-          </div>
-          <div
             className="app-inner header-wide"
           >
             <h2
@@ -798,7 +715,7 @@ Array [
                     "display": "none",
                   }
                 }
-                tabIndex="-1"
+                tabIndex={0}
               >
                 <li
                   aria-selected="false"
@@ -806,7 +723,7 @@ Array [
                   role="option"
                 >
                   <a
-                    href="#"
+                    href="/some/valid/uri"
                   >
                     This is a link
                   </a>
@@ -817,7 +734,7 @@ Array [
                   role="option"
                 >
                   <a
-                    href="#"
+                    href="/some/valid/uri"
                   >
                     This is another
                   </a>
@@ -828,7 +745,7 @@ Array [
                   role="option"
                 >
                   <a
-                    href="#"
+                    href="/some/valid/uri"
                   >
                     Yet another
                   </a>

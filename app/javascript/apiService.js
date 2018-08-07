@@ -24,9 +24,9 @@ const updateFlaggedApplication = async (data) => {
     flagged_application: {
       // these are the only fields we're interested in for the update method
       // have to reformat them back into salesforce-friendly terms
-      Id: data.Id,
-      Review_Status__c: data.Review_Status,
-      Comments__c: data.Comments,
+      Id: data.id,
+      Review_Status__c: data.review_status,
+      Comments__c: data.comments,
     }
   }
   let response = await apiCall('put', '/flagged-applications/update', putData)
