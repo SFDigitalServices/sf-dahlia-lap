@@ -24,7 +24,7 @@ export const AssistedHousingPanel = ({ data, applicationMembers }) => {
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
       <div className='form-group'>
-        <div className="form-grid_item large-12 column  padding-bottom">
+        <div className="form-grid_item large-12 column padding-bottom">
           <Comment>
             Do not give this preference unless applicant has provided a lease.
             If the person who lives in assisted housing is not the primary applicant,

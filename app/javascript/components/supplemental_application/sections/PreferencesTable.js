@@ -14,7 +14,8 @@ import {
 
 const { ExpanderButton } = ExpandableTable
 
-const hasExpanderButton = overSome(isCOP, isDTHP, isGriffith)
+const hasExpanderButton = (prefName) =>
+  !(isCOP(prefName) || isDTHP(prefName) || isGriffith(prefName))
 
 const getAttachments = (preference, proofFiles, fileBaseUrl) => {
   const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
@@ -85,7 +86,7 @@ const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) =
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
-  return (!expanded && !hasExpanderButton(prefName) &&
+  return (!expanded && hasExpanderButton(prefName) &&
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
