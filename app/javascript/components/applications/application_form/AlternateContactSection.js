@@ -73,7 +73,6 @@ const AlternateContactSection = ({editValues}) => {
                 <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
-            <AddressForm title="Home Address" memberType="alternateContact" />
             <AddressForm title="Mailing Address" memberType="alternateContact" fieldMap={mailingAddressFieldMap} />
           </div>
         )}
