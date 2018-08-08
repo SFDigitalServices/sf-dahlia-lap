@@ -7,7 +7,7 @@ const {
 } = formOptions
 
 
-const ApplicationLanguageSection = ({formApi, editValues }) => {
+const ApplicationLanguageSection = ({ formApi, editValues }) => {
   return (
     <div className="border-bottom margin-bottom--2x">
       <div className="row">
