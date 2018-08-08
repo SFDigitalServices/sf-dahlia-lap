@@ -6,6 +6,7 @@ import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 import { mapListing, mapApplicationPreference } from '~/components/mappers/soqlToDomain'
 import { buildLeaseUpModel } from './leaseUpModel'
+import appPaths from '~/utils/appPaths'
 
 const LeaseUpApplicationsPage = ({ listing, applications }) => {
   const pageHeader = {
@@ -16,8 +17,8 @@ const LeaseUpApplicationsPage = ({ listing, applications }) => {
       link: `/listings/${listing.id}/lease-ups/export`
     },
     breadcrumbs:[
-      {title: 'Lease Ups',  link: '/lease-ups'},
-      {title: listing.name, link: `/listings/${listing.id}/lease-ups`}
+      {title: 'Lease Ups',  link: '/listings/lease-ups'},
+      {title: listing.name, link: appPaths.toLeaseUpApplications(listing.id)}
     ]
   }
 
