@@ -9,6 +9,7 @@ const {
 } = formOptions
 
 const getProofTypes = (pref) => {
+  console.log(pref)
   if (pref === 'Live in SF') {
     return preference_proof_options_live_sf
   } else if (pref === 'Work in SF') {
@@ -19,6 +20,7 @@ const getProofTypes = (pref) => {
 }
 
 const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
+  console.log(shortFormPreference)
   return (
     <div>
       <div className="small-6 columns">
@@ -40,7 +42,7 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
         <label>Type of Proof</label>
         <Select
           field={buildFieldId(i,'type_of_proof')}
-          options={getProofTypes(shortFormPreference.individualPreference)}
+          options={getProofTypes(shortFormPreference.individual_preference)}
         />
       </div>
       <div className="small-12 columns">
