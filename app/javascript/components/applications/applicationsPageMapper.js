@@ -19,6 +19,7 @@ const mapApplication = (application) => {
   return {
     id: application.Id,
     number: application.Name,
+    application_language: application.Application_Language,
     applicant: mapApplicant(application),
     total_house_hold_size: application.Total_Household_Size,
     submitted_date: application.Application_Submitted_Date,

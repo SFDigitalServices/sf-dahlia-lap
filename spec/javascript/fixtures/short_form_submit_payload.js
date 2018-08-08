@@ -1,5 +1,6 @@
 const payload = {
     id: 'a0o0x000000OcOzAAK',
+    applicationLanguage: 'English',
     hasMilitaryService: null,
     hasDevelopmentalDisability: null,
     answeredCommunityScreening: null,
