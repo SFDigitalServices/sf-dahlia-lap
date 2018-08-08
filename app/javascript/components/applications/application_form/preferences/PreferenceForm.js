@@ -49,7 +49,7 @@ const buildHouseholdMembersOptions = (fullHousehold) => {
   })
 }
 
-const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
+const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold }) => {
   const selectedPreference = findSelectedPreference(i, formApi, listingPreferences)
   const preferencesNotSelected = findPreferencesNotSelected(formApi, listingPreferences, selectedPreference)
 
@@ -74,9 +74,9 @@ const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
           <PreferenceAdditionalOptions
             i={i}
             listingPreferenceID={selectedPreference.listing_preference_id}
+            shortFormPreference={pref}
             listingPreferences={listingPreferences}
             householdMembers={householdMembersOptions} />
-
           <Row>
             <Column span={4}>
               <button

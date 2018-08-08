@@ -58,7 +58,7 @@ class PreferencesSection extends React.Component {
         {
           preferences && preferences.map(( pref, i ) => (
             <div className="border-bottom margin-bottom--2x" key={i}>
-              <PreferenceForm {...{i, formApi, listingPreferences, fullHousehold}} />
+              <PreferenceForm {...{i, pref, formApi, listingPreferences, fullHousehold}} />
             </div>
           ))
         }
