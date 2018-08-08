@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Form } from 'react-form'
 import { some, isObjectLike, isNil, map } from 'lodash'
 
+import { validate, isPresent } from '~/utils/validations'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -13,11 +14,15 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 
-const validatePreference = (preference) => {
-  return {
-    naturalKey: 'Some nasty error'
-  }
-}
+// const validatePreference = (preference) => {
+//   return {
+//     naturalKey: 'Some nasty error'
+//   }
+// }
+
+const validatePreference = validate({
+  naturalKey: [ isPresent, "Natural key must be present" ]
+})
 
 const validateError = (values) => {
   console.log(values)
