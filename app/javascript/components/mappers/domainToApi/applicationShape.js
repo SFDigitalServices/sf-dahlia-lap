@@ -3,7 +3,6 @@ import { applicantFieldMapper } from './applicant'
 import { applicationFieldMapper } from './application'
 import { preferenceFieldMapper } from './preference'
 import { householdMembersFieldMapper } from './householdMember'
-// import { alternateContactFieldMapper } from './alternateContact'
 
 export const applicationShape = {
   ...applicationFieldMapper,
