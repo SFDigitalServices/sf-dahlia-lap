@@ -1,6 +1,7 @@
 import React from 'react'
 import { Select, Text } from 'react-form'
 import { buildFieldId } from './utils'
+import { Field } from '~/utils/errors'
 
 const CertOfPreferenceFields = ({ formApi, i, householdMembers }) => {
   const errors =  formApi.errors && formApi.errors.preferences[i]
@@ -8,12 +9,19 @@ const CertOfPreferenceFields = ({ formApi, i, householdMembers }) => {
     <div>
       <div>Errors: {JSON.stringify(errors)}</div>
       <div className="small-6 columns">
-        <label>Name of COP Holder</label>
-        <Select
+        <Field
+          formApi={formApi}
           field={buildFieldId(i,'naturalKey')}
-          options={householdMembers}
-          value={buildFieldId(i,'naturalKey')}
-        />
+          label="Name of COP Holder" >
+        {(field, classNames) => (
+          <Select
+            field={buildFieldId(i,'naturalKey')}
+            options={householdMembers}
+            value={buildFieldId(i,'naturalKey')}
+          />
+        )}
+        </Field>
+
       </div>
       <div className="small-6 columns">
         <label>COP Certificate Number</label>

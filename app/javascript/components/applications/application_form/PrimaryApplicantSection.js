@@ -3,8 +3,8 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import classNames from 'classnames'
 import { validate, isOldEnough, isPresent } from '~/utils/validations'
+import { Field } from '~/utils/errors'
 
 let { phone_type_options } = formOptions
 
@@ -13,20 +13,6 @@ let mailingAddressFieldMap = {
   city: 'mailing_city',
   state: 'mailing_state',
   zip: 'mailing_zip_code',
-}
-
-const FormError = ({formApi, field }) => {
-  if ((formApi.touched[field] || formApi.submitted) && formApi.errors[field])
-    return <span className="small error">{formApi.errors[field]}</span>
-  else
-    return null
-}
-
-const errorClassName = (formApi, field) => {
-  if (formApi.touched[field] || formApi.submitted)
-    return { error: !!formApi.errors[field] }
-  else
-    return null
 }
 
 const validateError = validate({
@@ -80,18 +66,19 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <div className={classNames('form-group', errorClassName(formApi,'date_of_birth'))}>
-                  <label className='form-label'>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
-                  <DatePickerText
-                    required={false}
-                    prefilledDate={autofillValues.date_of_birth}
-                    dateFormat="YYYY-MM-DD"
-                    showYearDropdown
-                    dropdownMode="select"
-                    className={classNames(errorClassName(formApi, 'date_of_birth'))}
-                    field="date_of_birth" />
-                  <FormError formApi={formApi} field='date_of_birth'/>
-                </div>
+
+                <Field formApi={formApi} field='date_of_birth' label='DOB' blockNote='- YYYY-MM-DD (required)' >
+                  {(field, classNames) => (
+                    <DatePickerText
+                      required={false}
+                      prefilledDate={autofillValues.date_of_birth}
+                      dateFormat="YYYY-MM-DD"
+                      showYearDropdown
+                      dropdownMode="select"
+                      className={classNames}
+                      field={field} />
+                  )}
+                </Field>
               </div>
             </div>
             <AddressForm title="Home Address" memberType="primaryApplicant" />
