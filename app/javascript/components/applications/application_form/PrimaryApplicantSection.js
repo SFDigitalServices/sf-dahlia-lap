@@ -5,15 +5,9 @@ import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import classNames from 'classnames'
 import moment from 'moment'
+import { mailingAddressFieldMap } from './utils'
 
 let { phone_type_options } = formOptions
-
-let mailingAddressFieldMap = {
-  address: 'mailing_street',
-  city: 'mailing_city',
-  state: 'mailing_state',
-  zip: 'mailing_zip_code',
-}
 
 const validates = (fun, message) => (value) => {
   return fun(value) ? null : message
