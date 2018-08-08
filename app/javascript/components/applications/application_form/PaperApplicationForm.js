@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { some, isObjectLike, isNil } from 'lodash'
 import { Form } from 'react-form'
 import apiService from '~/apiService'
+import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -127,10 +128,11 @@ class PaperApplicationForm extends React.Component {
                    dismiss={!failed}
                    onCloseClick={() => this.setState({failed: false})}
                    message="Please resolve any errors before saving the application." />
+                  <ApplicationLanguageSection editValues={application} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
-                  <HouseholdMembersSection editValues={application} formApi={formApi}  />
-                  <ReservedPrioritySection editValues={application} listing={listing}/>
+                  <HouseholdMembersSection editValues={application} formApi={formApi} />
+                  <ReservedPrioritySection editValues={application} listing={listing} />
                   <PreferencesSection
                     formApi={formApi}
                     listingPreferences={listing.listing_lottery_preferences}
