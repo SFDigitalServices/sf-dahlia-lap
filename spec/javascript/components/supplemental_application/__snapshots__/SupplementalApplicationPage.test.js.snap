@@ -328,7 +328,7 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Person with Developmental Disability in House
+                    Person with Developmental Disability in Household
                   </label>
                   <div
                     className="radio-group-inline"

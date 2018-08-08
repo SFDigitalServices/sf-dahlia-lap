@@ -68,13 +68,13 @@ class ExpandableTable extends React.Component {
   }
 }
 
-ExpandableTable.ExpanderButton = ({ onClick }) => {
+ExpandableTable.ExpanderButton = ({ onClick, label = "Expand" }) => {
   return (
     <button
       type='button'
       className="button button-link action-link"
       onClick={onClick}>
-      Expand
+      {label}
     </button>
   )
 }
