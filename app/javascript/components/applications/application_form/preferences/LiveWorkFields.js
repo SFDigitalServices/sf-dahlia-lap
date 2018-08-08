@@ -4,10 +4,21 @@ import formOptions from '../formOptions'
 import { buildFieldId } from './utils'
 
 const {
-  preference_proof_options_default
+  preference_proof_options_live_sf,
+  preference_proof_options_work_sf
 } = formOptions
 
-const LiveWorkFields = ({ householdMembers, i }) => {
+const getProofTypes = (pref) => {
+  if (pref === 'Live in SF') {
+    return preference_proof_options_live_sf
+  } else if (pref === 'Work in SF') {
+    return preference_proof_options_work_sf
+  } else {
+    return []
+  }
+}
+
+const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
   return (
     <div>
       <div className="small-6 columns">
@@ -29,7 +40,7 @@ const LiveWorkFields = ({ householdMembers, i }) => {
         <label>Type of Proof</label>
         <Select
           field={buildFieldId(i,'type_of_proof')}
-          options={preference_proof_options_default}
+          options={getProofTypes(shortFormPreference.individualPreference)}
         />
       </div>
       <div className="small-12 columns">
