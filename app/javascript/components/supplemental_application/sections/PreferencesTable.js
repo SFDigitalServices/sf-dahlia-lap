@@ -1,39 +1,21 @@
 import React from 'react'
 
-import { map, reject, filter, isEmpty, overSome } from 'lodash'
+import { map, reject, filter, isEmpty, overSome, find } from 'lodash'
 import Icon from '~/components/atoms/Icon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 import appPaths from '~/utils/appPaths'
+import Panel from './preferences/Panel'
+import {
+  isCOP,
+  isDTHP,
+  isGriffith,
+  getPreferenceName
+} from './preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
-/** Helpers **/
-
-const isCOP = value => value.match(/COP/)
-
-const isDTHP = value => value.match(/DTHP/)
-
-const isAliceGriffith = value => value.match(/Griffith/)
-
-const hasExpanderButton = overSome(isCOP, isDTHP, isAliceGriffith)
-
-const getPreferenceName = ({ preference_name, individual_preference }) => {
-  if (preference_name === 'Live or Work in San Francisco Preference') {
-    if (individual_preference === 'Live in SF') {
-      return "Live in San Francisco Preference"
-    } else {
-      return "Work in San Francisco Preference"
-    }
-  } else if (preference_name === 'Rent Burdened / Assisted Housing Preference') {
-    if (individual_preference === 'Assisted Housing') {
-      return "Assisted Housing Preference"
-    } else {
-      return "Rent Burdened Preference"
-    }
-  } else {
-    return preference_name
-  }
-}
+const hasExpanderButton = (prefName) =>
+  !(isCOP(prefName) || isDTHP(prefName) || isGriffith(prefName))
 
 const getAttachments = (preference, proofFiles, fileBaseUrl) => {
   const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
@@ -42,10 +24,8 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (isCOP(preference.preference_name) || isDTHP(preference.preference_name))
+  if (overSome(isCOP, isDTHP)(preference.preference_name))
     return preference.certificate_number
-  else if (isAliceGriffith(preference.preference_name))
-    return preference.type_of_proof
   else
     return getAttachments(preference, proofFiles, fileBaseUrl)
 }
@@ -82,29 +62,32 @@ const columns = [
 ]
 
 const PreferenceIcon = ({ status }) => {
-  if (status === "Invalid") {
+  if (status === "Invalid")
     return <Icon icon="close" size="medium" alert />
-  } else if (status === 'Confirmed') {
+  else if (status === "Confirmed")
     return <Icon icon="check" size="medium" success />
-  } else {
+  else
     return null
-  }
 }
 
-const ExpandedPanel = ({ onClose }) => {
-  return (
-    <div className="app-editable expand-wide scrollable-table-nested">
-      <div>Hello</div>
-      <br/>
-      <button type='button' className="button" onClick={(e) => (onClose())}>Close</button>
-    </div>
-  )
+const matchingPreference = (row) => (preference) => {
+  return getPreferenceName(preference) === row[1].content
+}
+
+const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) => {
+  const preference = find(preferences, matchingPreference(row))
+  return <Panel
+            preference={preference}
+            row={row}
+            applicationMembers={applicationMembers}
+            onClose={toggle}
+          />
 }
 
 const ExpanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
-  return (!hasExpanderButton(prefName) &&
-          <ExpanderButton onClick={expandedRowToggler}/>)
+  return (!expanded && hasExpanderButton(prefName) &&
+          <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
 const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
@@ -138,7 +121,7 @@ const TableWrapper = ({ children }) => (
   </div>
 )
 
-const PreferencesTable = ({ preferences, proofFiles, fileBaseUrl }) => {
+const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBaseUrl }) => {
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 
   return (<TableWrapper>
@@ -146,8 +129,7 @@ const PreferencesTable = ({ preferences, proofFiles, fileBaseUrl }) => {
               columns={columns}
               rows={rows}
               expanderRenderer={ExpanderAction}
-              expandedRowRenderer={(row, toggle) => <ExpandedPanel onClose={toggle} />}
-            />
+              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)} />
           </TableWrapper>)
 }
 

@@ -10,6 +10,8 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 
+import { getFullHousehold } from '~/components/applications/application_form/preferences/utils.js'
+
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -40,13 +42,18 @@ const ConfirmedHoushold = () => {
   )
 }
 
-const ConfirmedPreferencesSection = ({ preferences, proofFiles, fileBaseUrl }) => {
+const ConfirmedPreferencesSection = ({ application,  proofFiles, fileBaseUrl }) => {
   return (
     <ContentSection
       title="Confirmed Preferences"
       description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.">
       <ContentSection.Content>
-        <PreferencesTable preferences={preferences} proofFiles={proofFiles} fileBaseUrl={fileBaseUrl} />
+        <PreferencesTable
+          preferences={application.preferences}
+          proofFiles={application.proof_files}
+          applicationMembers={getFullHousehold(application)}
+          fileBaseUrl={fileBaseUrl}
+        />
       </ContentSection.Content>
     </ContentSection>
   )
@@ -96,7 +103,7 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
-              <ConfirmedPreferencesSection preferences={application.preferences} proofFiles={application.proof_files} fileBaseUrl={fileBaseUrl}/>
+              <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
               <ConfirmedHoushold />
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>

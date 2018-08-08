@@ -1,5 +1,7 @@
 import React from 'react'
+import { map } from 'lodash'
 import { Form, Text, Select } from 'react-form'
+
 import formUtils from '~/utils/formUtils'
 import Loading from '~/components/molecules/Loading'
 
@@ -8,7 +10,7 @@ const submissionTypeOptions = formUtils.toOptions(["Paper", "Electronic", [null,
 const buildListingOptions = (listings) => {
   return formUtils.toOptions([
     [null, 'Any Listing'],
-    ...listings.map(i => [i.id, i.name])
+    ...map(listings, i => [i.id, i.name])
   ])
 }
 

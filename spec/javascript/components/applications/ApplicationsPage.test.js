@@ -14,12 +14,16 @@ jest.mock('apiService', () => {
   }
 })
 
-describe('ApplicationsPage', async () => {
-  test('should render succesfully', () => {
+var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
+
+describe('ApplicationsPage', () => {
+  test('should render succesfully', (done) => {
     const wrapper = renderer.create(
       <ApplicationsPage />,
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot();
+    wait(2000)
+    done()
   })
 })
