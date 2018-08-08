@@ -1,5 +1,5 @@
 import React from 'react'
-
+import classNames from 'classnames'
 import { Text } from 'react-form'
 import DatePickerText from './DatePickerText'
 import AddressForm from './AddressForm'
@@ -22,13 +22,10 @@ const HouseholdMemberForm = ({ i }) => {
             <Text field={`householdMembers.${i}.lastName`} />
           </div>
           <div className="small-3 columns">
-            <label>Date of Birth <span className="checkbox-block_note no-margin">YYYY-MM-DD (required)</span></label>
-            <DatePickerText
-              required={true}
-              dateFormat="YYYY-MM-DD"
-              showYearDropdown
-              dropdownMode="select"
-              field={`householdMembers.${i}.DOB`} />
+            <label>Date of Birth</label>
+            <Text
+              field={`householdMembers.${i}.DOB`}
+              type="date" />
           </div>
         </div>
       </div>
