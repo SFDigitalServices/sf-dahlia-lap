@@ -38,13 +38,13 @@ const Panel = ({ preference, row, applicationMembers, onClose, onSave, loading }
         <Form onSubmit={onSave} defaultValues={preference}>
           { formApi => (
               <React.Fragment>
-              <PreferencePanel preference={preference} applicationMembers={applicationMembers}/>
-              <FormGrid.Row expand={false}>
-                <div className="form-grid_item column">
-              		<button className="button primary tiny margin-right margin-bottom-none save-panel-btn" type="button" onClick={formApi.submitForm} disabled={loading}>Save</button>
-                  <button className="button secondary tiny margin-bottom-none" type="button" onClick={onClose} disabled={loading}>Cancel</button>
-              	</div>
-              </FormGrid.Row>
+                <PreferencePanel preference={preference} applicationMembers={applicationMembers}/>
+                <FormGrid.Row expand={false}>
+                  <div className="form-grid_item column">
+                		<button className="button primary tiny margin-right margin-bottom-none save-panel-btn" type="button" onClick={formApi.submitForm} disabled={loading}>Save</button>
+                    <button className="button secondary tiny margin-bottom-none" type="button" onClick={onClose} disabled={loading}>Cancel</button>
+                	</div>
+                </FormGrid.Row>
               </React.Fragment>
             )
           }
