@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import { Text } from 'react-form'
 import AddressForm from './AddressForm'
 
@@ -24,7 +23,9 @@ const HouseholdMemberForm = ({ i }) => {
             <label>Date of Birth</label>
             <Text
               field={`householdMembers.${i}.DOB`}
-              type="date" />
+              type="date"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              placeholder="YYYY-MM-DD" />
           </div>
         </div>
       </div>

@@ -97,6 +97,8 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                   <Text
                     field="DOB"
                     type="date"
+                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                    placeholder="YYYY-MM-DD"
                     className={classNames(errorClassName(formApi, 'DOB'))} />
                   <FormError formApi={formApi} field='DOB'/>
                 </div>

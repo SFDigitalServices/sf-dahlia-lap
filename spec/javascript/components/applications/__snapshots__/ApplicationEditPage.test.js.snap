@@ -245,6 +245,8 @@ Array [
                         className=""
                         onBlur={[Function]}
                         onChange={[Function]}
+                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                        placeholder="YYYY-MM-DD"
                         type="date"
                         value="1950-01-01"
                       />
@@ -640,6 +642,8 @@ Array [
                           <input
                             onBlur={[Function]}
                             onChange={[Function]}
+                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                            placeholder="YYYY-MM-DD"
                             type="date"
                             value="1976-06-11"
                           />
@@ -901,7 +905,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value={110000}
                     />
                   </div>
                   <div
@@ -913,7 +917,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={1}
                     >
                       <option
                         disabled={true}
@@ -954,7 +958,7 @@ Array [
                     className="checkbox"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       id="agreeToTerms"
                       name="agreeToTerms"
                       onBlur={[Function]}
@@ -1257,6 +1261,8 @@ Array [
                         className=""
                         onBlur={[Function]}
                         onChange={[Function]}
+                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                        placeholder="YYYY-MM-DD"
                         type="date"
                         value="1950-01-01"
                       />
@@ -1652,6 +1658,8 @@ Array [
                           <input
                             onBlur={[Function]}
                             onChange={[Function]}
+                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                            placeholder="YYYY-MM-DD"
                             type="date"
                             value="1976-06-11"
                           />
@@ -2175,7 +2183,7 @@ Array [
                     <input
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value=""
+                      value={110000}
                     />
                   </div>
                   <div
@@ -2187,7 +2195,7 @@ Array [
                     <select
                       onBlur={[Function]}
                       onChange={[Function]}
-                      value={0}
+                      value={1}
                     >
                       <option
                         disabled={true}
@@ -2228,7 +2236,7 @@ Array [
                     className="checkbox"
                   >
                     <input
-                      checked={false}
+                      checked={true}
                       id="agreeToTerms"
                       name="agreeToTerms"
                       onBlur={[Function]}

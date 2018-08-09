@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { some, isObjectLike, isNil } from 'lodash'
+import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
 import { Form } from 'react-form'
 import apiService from '~/apiService'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
@@ -31,22 +31,22 @@ class PaperApplicationForm extends React.Component {
 
   removeEmptyData = (applicationData) => {
     let fieldMap = ['alternateContact', 'adaPrioritiesSelected', 'demographics']
-    _.forEach(fieldMap, (field) => {
-      if (_.isEmpty(applicationData[field])) {
-        applicationData = _.omit(applicationData, field)
+    forEach(fieldMap, (field) => {
+      if (isEmpty(applicationData[field])) {
+        applicationData = omit(applicationData, field)
       }
     })
     return applicationData
   }
 
   assignDemographicData = (applicationData) => {
-    _.merge(applicationData.primaryApplicant, applicationData.demographics)
+    merge(applicationData.primaryApplicant, applicationData.demographics)
     return applicationData
   }
 
   formatPickList = (listData) => {
     let resultStr = "";
-    _.each(listData, (value, key) => {
+    each(listData, (value, key) => {
       if (value) {
         resultStr += key + ";";
       }
@@ -72,7 +72,6 @@ class PaperApplicationForm extends React.Component {
       applicationData["id"] = this.props.application.id
       applicationData["applicationSubmissionType"] = this.props.application.application_submission_type
     }
-
 
     let response = await apiService.submitApplication(applicationData)
     if (response === false) {
@@ -110,11 +109,12 @@ class PaperApplicationForm extends React.Component {
   }
 
   render() {
+    const { listing, application, editPage } = this.props
+    const { failed } = this.state
+
     let autofillValues = {}
     if (application)
       autofillValues = domainToApi.mapApplication(application)
-    const { listing, application, editPage } = this.props
-    const { loading, failed } = this.state
 
     return (
       <div>
