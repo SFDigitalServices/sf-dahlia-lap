@@ -26,9 +26,9 @@ const isOldEnough = (dateOfBirth) => {
 }
 
 const isValidDate = (dateOfBirth) => {
-  console.log(dateOfBirth)
   if (dateOfBirth) {
-    return dateOfBirth.match("[0-9]{4}-[0-9]{2}-[0-9]{2}")
+    // Check that the date is valid and not in the future
+    return moment(dateOfBirth).isValid() && (moment().diff(dateOfBirth, 'days') > 0)
   }
 }
 
