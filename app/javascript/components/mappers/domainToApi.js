@@ -1,4 +1,4 @@
-import { mapFields, createFieldMapper} from '~/utils/objectUtils'
+import { mapFields, createFieldMapper, omitEmpty} from '~/utils/objectUtils'
 
 import {
   applicantFieldMapper,
@@ -20,7 +20,14 @@ const mapHouseholdMembers = createFieldMapper(householdMembersFieldMapper)
 const mapAlternateContact = createFieldMapper(alternateContactFieldMapper)
 
 const buildApplicationShape = soqlObject => {
-  return mapFields(applicationShape, {}, soqlObject)
+  return omitEmpty(
+          mapFields(applicationShape, {}, soqlObject),
+          [
+            'alternateContact',
+            'adaPrioritiesSelected',
+            'demographics'
+          ]
+        )
 }
 
 export default {
