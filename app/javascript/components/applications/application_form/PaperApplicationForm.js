@@ -28,11 +28,6 @@ class PaperApplicationForm extends React.Component {
     const { listing, application, onSubmit } = this.props
     const { submitType } = this.state
 
-    if (this.props.application) {
-      applicationData["id"] = this.props.application.id
-      applicationData["applicationSubmissionType"] = this.props.application.application_submission_type
-    }
-
     this.setState({ submittedValues, loading: true, failed: false })
     await onSubmit(submitType, submittedValues, application, listing)
     this.setState({ loading: false })
