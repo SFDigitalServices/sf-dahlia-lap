@@ -7,6 +7,8 @@ const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
     return fieldMap[fieldKey]
   } else if (memberType === 'householdMember') {
     return `${nestedField}.${fieldMap[fieldKey]}`
+  } else if (memberType === 'alternateContact') {
+    return fieldMap[fieldKey]
   }
 }
 
