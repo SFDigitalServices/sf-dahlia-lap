@@ -31,7 +31,7 @@ export const buildHouseholdMembersOptions = (applicationMembers) => {
 export const getFullHousehold = (application) => {
   const { household_members, applicant } = application
   const fullHousehold = concat([applicant], household_members || [])
-  return  pickBy(fullHousehold, m => (
+  return pickBy(fullHousehold, m => (
     // can only select someone for preference if they have name + DOB
     m && m.first_name && m.last_name && m.date_of_birth
   ))

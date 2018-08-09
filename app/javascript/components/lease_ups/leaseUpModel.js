@@ -4,7 +4,8 @@ export const buildLeaseUpModel = (applicationPreference) => {
   const listingPreference = applicationPreference.listing_preference
 
   return {
-    id: application.id,
+    id: applicationPreference.id,
+    application_id: application.id,
     application_number: application.name,
     first_name: applicant.first_name,
     last_name: applicant.last_name,
