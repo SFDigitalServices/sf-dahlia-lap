@@ -26,7 +26,6 @@ const isOldEnough = (dateOfBirth) => {
 }
 
 const isValidDate = (dateOfBirth) => {
-  console.log(dateOfBirth)
   if (dateOfBirth) {
     return dateOfBirth.match("[0-9]{4}-[0-9]{2}-[0-9]{2}")
   }
