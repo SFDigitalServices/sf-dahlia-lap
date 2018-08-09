@@ -12,7 +12,7 @@ export const RentBurdenedPanel = ({ data }) => (
       </div>
     </FormItem>
     <FormItem label="Total Household Monthly Rent">
-      <Text field='total_household_rent'/>
+      <Text field='total_household_rent' type='number'/>
     </FormItem>
     <FormItem label="Status">
       <Select field='post_lottery_validation' options={statusOptions}/>

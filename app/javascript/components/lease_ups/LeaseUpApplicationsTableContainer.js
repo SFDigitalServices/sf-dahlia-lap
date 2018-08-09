@@ -1,5 +1,5 @@
 import React from 'react'
-import { set, clone, trim, findIndex, map, cloneDeep } from 'lodash'
+import { set, clone, trim, map, each, cloneDeep } from 'lodash'
 import moment from 'moment'
 
 import apiService from '~/apiService'
@@ -48,6 +48,8 @@ class LeaseUpTableContainer extends React.Component {
 
   setStatusModalStatus = (value) => this.updateStatusModal('status', value)
 
+  setStatusModalApplicationPreferenceId = (value) => this.updateStatusModal('applicationPreferenceId', value)
+
   setStatusModalAppId = (value) => this.updateStatusModal('applicationId', value)
 
   setStatusModalLoading = (loading) => this.updateStatusModal('loading', loading)
@@ -56,8 +58,9 @@ class LeaseUpTableContainer extends React.Component {
 
   hideStatusModalAlert = () => this.updateStatusModal('showAlert', false)
 
-  leaseUpStatusChangeHandler = (applicationId, status) => {
+  leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
     this.setStatusModalStatus(status)
+    this.setStatusModalApplicationPreferenceId(applicationPreferenceId)
     this.setStatusModalAppId(applicationId)
     this.openStatusModal()
   }
@@ -65,26 +68,28 @@ class LeaseUpTableContainer extends React.Component {
   createStatusUpdate = async (submittedValues) => {
     this.setStatusModalLoading(true)
 
-    var status = this.state.statusModal.status
+    const { status, applicationId } = this.state.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
-    var applicationId = this.state.statusModal.applicationId
 
     if (status && comment) {
-      var data = {
+      const data = {
         status: status,
         comment: comment,
         applicationId: applicationId
       }
 
-      var response = await apiService.createLeaseUpStatus(data)
+      const response = await apiService.createLeaseUpStatus(data)
 
       if (response) {
-        // find the application in question in the applications table data
-        // and update its lease up status value and status updated date
+        // find the rows with the application id whose status is being updated
+        // and update their lease up status value and status updated date
         // in the table
-        var applicationIndex = findIndex(this.state.applications, { id: applicationId })
-        this.updateResults(`[${applicationIndex}]['lease_up_status']`, status)
-        this.updateResults(`[${applicationIndex}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+        each(this.state.applications, (app, index) => {
+          if (app.application_id === applicationId) {
+            this.updateResults(`[${index}]['lease_up_status']`, status)
+            this.updateResults(`[${index}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+          }
+        })
 
         this.setStatusModalLoading(false)
         this.setStatusModalStatus(null)
@@ -115,7 +120,7 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.id)
+    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
 
   rowsData() {
