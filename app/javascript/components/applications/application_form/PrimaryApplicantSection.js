@@ -25,6 +25,13 @@ const isOldEnough = (dateOfBirth) => {
   return years >= 18
 }
 
+const isValidDate = (dateOfBirth) => {
+  console.log(dateOfBirth)
+  if (dateOfBirth) {
+    return dateOfBirth.match("[0-9]{4}-[0-9]{2}-[0-9]{2}")
+  }
+}
+
 const FormError = ({formApi, field }) => {
   if ((formApi.touched[field] || formApi.submitted) && formApi.errors[field])
     return <span className="small error">{formApi.errors[field]}</span>
@@ -48,7 +55,10 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
 
   const validateError = (values) => {
     return  {
-      'DOB': validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.DOB)
+      'DOB': (
+        validates(isValidDate, "Please enter a valid date")(values.DOB) ||
+        validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.DOB)
+      ),
     }
   }
 
