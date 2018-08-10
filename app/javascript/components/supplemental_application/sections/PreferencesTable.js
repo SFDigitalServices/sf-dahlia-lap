@@ -12,6 +12,7 @@ import {
   getPreferenceName
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
+import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -23,6 +24,10 @@ const onlyValid = (preferences) => {
            pref.lottery_status === 'Invalid for lottery' ||
            isEmpty(pref.application_member)
   })
+}
+
+const matchingPreference = (row) => (preference) => {
+  return getPreferenceName(preference) === row[1].content
 }
 
 /** Presenter **/
@@ -48,16 +53,11 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const matchingPreference = (row) => (preference) => {
-  return getPreferenceName(preference) === row[1].content
-}
-
-const expandedRowRenderer = (application, preferences, applicationMembers, onSave) => (row, toggle) => {
+const expandedRowRenderer = (application, applicationMembers, onSave) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
   return <Panel
             application={application}
             preferenceIndex={preferenceIndex}
-            row={row}
             applicationMembers={applicationMembers}
             onSave={onSave}
             onClose={toggle}
@@ -70,14 +70,16 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
-const PreferencesTable = ({ application, preferences, applicationMembers, proofFiles, fileBaseUrl, onSave }) => {
+const PreferencesTable = ({ application, fileBaseUrl, onSave }) => {
+  const { preferences, proofFiles } = application
+  const applicationMembers = getFullHousehold(application)
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
   return (<TableWrapper>
             <ExpandableTable
               columns={columns}
               rows={rows}
               expanderRenderer={expanderAction}
-              expandedRowRenderer={expandedRowRenderer(application, preferences, applicationMembers, onSave)}
+              expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave)}
             />
           </TableWrapper>)
 }

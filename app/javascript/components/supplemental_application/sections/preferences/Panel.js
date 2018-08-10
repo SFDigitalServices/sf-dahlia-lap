@@ -30,7 +30,7 @@ const getPreferencePanel = cond([
   [stubTrue,                                    constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, preferenceIndex, row, applicationMembers, onClose, onSave, loading }) => {
+const Panel = ({ application, preferenceIndex, applicationMembers, onClose, onSave, loading }) => {
   const preference = application.preferences[preferenceIndex]
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)

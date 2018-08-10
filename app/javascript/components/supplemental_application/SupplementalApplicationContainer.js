@@ -10,8 +10,6 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 
-import { getFullHousehold } from '~/components/applications/application_form/preferences/utils.js'
-
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -50,9 +48,6 @@ const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
       <ContentSection.Content>
         <PreferencesTable
           application={application}
-          preferences={application.preferences}
-          proofFiles={application.proof_files}
-          applicationMembers={getFullHousehold(application)}
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
         />
