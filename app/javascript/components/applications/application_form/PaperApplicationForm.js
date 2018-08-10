@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
 import { Form } from 'react-form'
 import apiService from '~/apiService'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
@@ -12,7 +12,7 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
-
+import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
 
 class PaperApplicationForm extends React.Component {
@@ -31,22 +31,22 @@ class PaperApplicationForm extends React.Component {
 
   removeEmptyData = (applicationData) => {
     let fieldMap = ['alternateContact', 'adaPrioritiesSelected', 'demographics']
-    _.forEach(fieldMap, (field) => {
-      if (_.isEmpty(applicationData[field])) {
-        applicationData = _.omit(applicationData, field)
+    forEach(fieldMap, (field) => {
+      if (isEmpty(applicationData[field])) {
+        applicationData = omit(applicationData, field)
       }
     })
     return applicationData
   }
 
   assignDemographicData = (applicationData) => {
-    _.merge(applicationData.primaryApplicant, applicationData.demographics)
+    merge(applicationData.primaryApplicant, applicationData.demographics)
     return applicationData
   }
 
   formatPickList = (listData) => {
     let resultStr = "";
-    _.each(listData, (value, key) => {
+    each(listData, (value, key) => {
       if (value) {
         resultStr += key + ";";
       }
@@ -61,8 +61,7 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    this.setState({ submittedValues })
-    this.setState({ loading: true })
+    this.setState({ submittedValues, loading: true, failed: false })
     let applicationData = submittedValues
     applicationData.listingID = this.props.listing.id
     applicationData = this.assignDemographicData(applicationData)
@@ -91,12 +90,28 @@ class PaperApplicationForm extends React.Component {
     }
   }
 
-  saveSubmitType = (type) => {
-    this.setState({submitType: type})
+  hasErrors = (errors) => {
+      return some(errors, (value, key) => {
+        if (isObjectLike(value)){
+          return this.hasErrors(value)
+        } else {
+          return !isNil(value)
+        }
+      })
+    }
+
+  saveSubmitType = (type, formApi) => {
+    const failed = this.hasErrors(formApi.errors)
+
+    this.setState({submitType: type, failed })
+    if (failed)
+      window.scrollTo(0, 0)
   }
 
   render() {
-    let { listing, application, editPage } = this.props
+    const { listing, application, editPage } = this.props
+    const { failed } = this.state
+
     let autofillValues = {}
     if (application)
       autofillValues = domainToApi.mapApplication(application)
@@ -108,6 +123,11 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
+                  <AlertBox
+                   invert
+                   dismiss={!failed}
+                   onCloseClick={() => this.setState({failed: false})}
+                   message="Please resolve any errors before saving the application." />
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
@@ -126,10 +146,10 @@ class PaperApplicationForm extends React.Component {
                 </div>
                 <div className="button-pager">
                   <div className="button-pager_row primary">
-                    <button className="primary radius margin-right" type="submit" onClick={() => this.saveSubmitType('Save')} disabled={this.state.loading}>
+                    <button className="primary radius margin-right" type="submit" onClick={() => this.saveSubmitType('Save', formApi)} disabled={this.state.loading}>
                       Save
                     </button>
-                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew')}  disabled={this.state.loading}>
+                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew', formApi)}  disabled={this.state.loading}>
                       Save and New
                     </button>
                   </div>
