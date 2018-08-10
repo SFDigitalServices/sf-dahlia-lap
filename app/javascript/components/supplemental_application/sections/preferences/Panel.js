@@ -12,7 +12,7 @@ import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
 
-const isPreference = (record, individualPreference) => ({recordtype_developername, individual_preference}) => {
+const isPreference = (record, individualPreference) => ({ recordtype_developername, individual_preference }) => {
   return recordtype_developername === record
     && (
       !individualPreference ||
@@ -30,15 +30,25 @@ const getPreferencePanel = cond([
   [stubTrue,                                    constant(DefaultPanel)]
 ])
 
-const Panel = ({ preference, row, applicationMembers, onClose, onSave, loading }) => {
+const Panel = ({ application, preferenceIndex, row, applicationMembers, onClose, onSave, loading }) => {
+  const preference = application.preferences[preferenceIndex]
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
+
+  const onSaveWithPreferenceIndex = (application) => {
+    onSave(preferenceIndex, application)
+  }
   return (
     <div className="app-editable expand-wide scrollable-table-nested">
-        <Form onSubmit={onSave} defaultValues={preference}>
+        <Form onSubmit={onSaveWithPreferenceIndex} defaultValues={application}>
           { formApi => (
               <React.Fragment>
-                <PreferencePanel preference={preference} applicationMembers={applicationMembers}/>
+                <PreferencePanel
+                  application={application}
+                  preferenceIndex={preferenceIndex}
+                  preference={preference}
+                  applicationMembers={applicationMembers}
+                />
                 <FormGrid.Row expand={false}>
                   <div className="form-grid_item column">
                 		<button className="button primary tiny margin-right margin-bottom-none save-panel-btn" type="button" onClick={formApi.submitForm} disabled={loading}>Save</button>
@@ -56,11 +66,11 @@ const Panel = ({ preference, row, applicationMembers, onClose, onSave, loading }
 class PanelContainer extends React.Component {
   state = { loading: false }
 
-  handleOnSave = async (values) => {
+  handleOnSave = async (preferenceIndex, application) => {
     const { onSave } = this.props
 
     this.setState({ loading: true })
-    await onSave(values)
+    await onSave(preferenceIndex, application)
     this.setState({ loading: false })
   }
 

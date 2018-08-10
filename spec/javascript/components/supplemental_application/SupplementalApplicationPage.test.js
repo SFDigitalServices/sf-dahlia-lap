@@ -59,7 +59,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
 
-  test('it save an application preference panel', async () => {
+  test('it saves an application preference panel', async () => {
     const withValidPreferences = cloneDeep(supplementalApplication)
     const payload = cloneDeep(mockShortFormSubmitPayload)
 

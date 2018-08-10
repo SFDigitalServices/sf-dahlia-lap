@@ -1,5 +1,5 @@
 import React from 'react'
-import { findIndex, cloneDeep, map } from 'lodash'
+import { cloneDeep, map } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
@@ -8,12 +8,6 @@ import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import CardLayout from '../layouts/CardLayout'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-
-
-const setApplicationPreference = (application, applicationPreference) => {
-  const prefIdx = findIndex(application.preferences, { id: applicationPreference.id })
-  application.preferences[prefIdx] = applicationPreference
-}
 
 class SupplementalApplicationPage extends React.Component {
 
@@ -28,35 +22,26 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveApplication = async (application) => {
-    const { persistedPrefrences } = this.state
+    const { persistedApplication } = this.state
+    const synchedApplication = cloneDeep(application)
 
-    // We set the persisted preferences that we might have updated in the preference panel
-    application.preferences = persistedPrefrences
+    synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
+    synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
 
-    // We update
-    await updateApplicationAction(application)
-
-    // We set the new persistedApplication to be used in handleSavePreference
-    this.setState({ persistedApplication: application })
+    await updateApplicationAction(synchedApplication)
+    this.setState({ persistedApplication: synchedApplication })
   }
 
-  handleSavePreference =  async (preference) => {
-    const { persistedApplication, persistedPrefrences } = this.state
+  handleSavePreference =  async (preferenceIndex, application) => {
+    debugger
+    const { persistedApplication } = this.state
+    const synchedApplication = cloneDeep(persistedApplication)
 
-    // We make a copy of the persisted application, so we do not modfy it
-    const application = cloneDeep(persistedApplication)
+    synchedApplication.total_monthly_rent = application.total_monthly_rent
+    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
 
-    // We copy the current persisted preferences. We make a copy, so we do not modfy it
-    application.preferences = cloneDeep(persistedPrefrences)
-
-    // We merge the preference to update with the persisted preferences in the new application
-    setApplicationPreference(application, preference)
-
-    // We update
-    await updateApplicationAction(application)
-
-    // We set the new persisted preference that so it can be used by this method and handleSaveApplication
-    this.setState({ persistedPrefrences: application.preferences, preferences: cloneDeep(application.preferences) })
+    await updateApplicationAction(synchedApplication)
+    this.setState({ persistedApplication: synchedApplication })
   }
 
   render() {
