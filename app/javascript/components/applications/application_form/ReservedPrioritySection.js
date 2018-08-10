@@ -5,7 +5,6 @@ import formOptions from './formOptions'
 
 let {
   yes_no_options,
-  priority_options,
   adaPriorityValueToLabelMap
 } = formOptions
 
@@ -27,7 +26,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         <div className="small-6 columns">
           <label>Developmentally Disabled</label>
           <p className="form-note margin-bottom">One or more units is reserved for applicants who are developmentally disabled. Select "Yes" below if a household member is developmentally disabled.</p>
-          <Select field="hasDevelopmentalDisability" options={yes_no_options} />
+          <Select field="has_developmentaldisability" options={yes_no_options} />
         </div>
       )
     }
@@ -39,7 +38,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         <div className="small-6 columns">
           <label>U.S. Military</label>
           <p className="form-note margin-bottom">One or more units is reserved for applicants who are U.S. Military. Select "Yes" below if a household member is U.S. Military.</p>
-          <Select field="hasMilitaryService" options={yes_no_options} />
+          <Select field="has_military_service" options={yes_no_options} />
         </div>
       )
     }
@@ -55,7 +54,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
             <p className="form-note margin-bottom">
               This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.
             </p>
-            <Select field="answeredCommunityScreening" options={yes_no_options} />
+            <Select field="answered_community_screening" options={yes_no_options} />
           </div>
         </div>
       )
@@ -72,7 +71,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         {developmentalDisabilityMarkup()}
         {militaryServiceMarkup()}
         <div className="small-12 columns margin-bottom--2x">
-          <NestedForm field="adaPrioritiesSelected">
+          <NestedForm field="has_ada_priorities_selected">
             <Form defaultValues={autofillValues}>
               { formApi => (
                 <div className="small-6 columns">
