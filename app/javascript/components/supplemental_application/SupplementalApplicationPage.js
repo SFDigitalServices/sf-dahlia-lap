@@ -1,5 +1,5 @@
 import React from 'react'
-import { cloneDeep, map } from 'lodash'
+import { cloneDeep } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
@@ -15,9 +15,7 @@ class SupplementalApplicationPage extends React.Component {
     super(props)
     this.state = {
       persistedApplication: cloneDeep(props.application),
-      application: props.application,
-      persistedPrefrences: map(props.application.preferences, cloneDeep),
-      preferences: map(props.application.preferences, cloneDeep),
+      application: props.application
     }
   }
 
@@ -33,7 +31,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference =  async (preferenceIndex, application) => {
-    debugger
     const { persistedApplication } = this.state
     const synchedApplication = cloneDeep(persistedApplication)
 
@@ -45,7 +42,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render() {
-    const { preferences, statusHistory, formFields, fileBaseUrl } = this.props
+    const { statusHistory, fileBaseUrl } = this.props
     const { application } = this.state
 
     const pageHeader = {
@@ -68,9 +65,7 @@ class SupplementalApplicationPage extends React.Component {
       <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
         <SupplementalApplicationContainer
           application={application}
-          preferences={preferences}
           statusHistory={statusHistory}
-          formFields={formFields}
           onSubmit={this.handleSaveApplication}
           onSavePreference={this.handleSavePreference}
           fileBaseUrl={fileBaseUrl}
