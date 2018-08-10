@@ -13,9 +13,6 @@ import mockApplicationApiEditPayload from '../../fixtures/application_api_edit_p
 const mockSubmitApplication = jest.fn()
 
 jest.mock('apiService', () => {
-  // const mockSubmitApplication = (data) => {
-  //   expect(data).toEqual(mockApplicationApiEditPayload)
-  // }
   return {
     submitApplication: async (data) => {
       mockSubmitApplication(data)
