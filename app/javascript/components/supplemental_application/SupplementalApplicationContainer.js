@@ -49,6 +49,7 @@ const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
       description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.">
       <ContentSection.Content>
         <PreferencesTable
+          application={application}
           preferences={application.preferences}
           proofFiles={application.proof_files}
           applicationMembers={getFullHousehold(application)}

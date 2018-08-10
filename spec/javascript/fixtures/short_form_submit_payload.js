@@ -10,6 +10,7 @@ const payload = {
     numberOfDependents: 2,
     listingID: 'a0W0x000000GhJUEA0',
     hasSenior: undefined,
+    totalMonthlyRent: null,
     primaryApplicant:
      { DOB: '1950-01-01',
        email: 'eee@eeee.com',

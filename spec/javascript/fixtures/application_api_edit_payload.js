@@ -1,6 +1,7 @@
 export default {
     id: 'a0o0x000000OcOzAAK',
    hasMilitaryService: null,
+   hasSenior: undefined,
    hasDevelopmentalDisability: null,
    answeredCommunityScreening: null,
    annualIncome: 110000,
@@ -21,6 +22,7 @@ export default {
       mailingCity: 'SAN FRANCISCO',
       mailingState: 'CA',
       mailingZip: '94105-1804',
+      maritalStatus: undefined,
       phone: '9548883321',
       phoneType: 'Cell',
       applicationId: 'a0n0x000000AbE6AAK' },
@@ -45,4 +47,6 @@ export default {
       phone: '9954449943',
       phoneType: 'Cell' },
    listingID: 'a0W0x000000GhJUEA0',
+   numberOfDependents: undefined,
+   totalMonthlyRent: null,
    applicationSubmissionType: 'Electronic' }

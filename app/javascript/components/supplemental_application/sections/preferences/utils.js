@@ -66,3 +66,7 @@ export const Comment = ({children}) => (
     {children}
   </p>
 )
+
+export const fieldName = (idx, name) => (
+  `preferences.${idx}.post_lottery_validation`
+)
