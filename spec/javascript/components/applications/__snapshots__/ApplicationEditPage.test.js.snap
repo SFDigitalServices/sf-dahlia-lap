@@ -53,6 +53,57 @@ Array [
                 <div
                   className="row"
                 >
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Language Submitted In
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={1}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        English
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Chinese
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Spanish
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Tagalog
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <div
+                  className="row"
+                >
                   <h3>
                     Primary Applicant
                   </h3>
@@ -77,7 +128,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="karen"
                       />
                     </div>
@@ -107,7 +157,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="jones"
                       />
                     </div>
@@ -184,45 +233,23 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      DOB 
-                      <span
-                        className="checkbox-block_note no-margin"
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
                       >
-                        - YYYY-MM-DD (required)
-                      </span>
-                    </label>
-                    <div>
-                      <div>
-                        <div
-                          className="react-datepicker-wrapper"
-                        >
-                          <div
-                            className="react-datepicker__input-container"
-                          >
-                            <input
-                              autoComplete={undefined}
-                              autoFocus={undefined}
-                              className=""
-                              disabled={false}
-                              id={undefined}
-                              name={undefined}
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onKeyDown={[Function]}
-                              placeholder={undefined}
-                              readOnly={undefined}
-                              required={true}
-                              tabIndex={undefined}
-                              title={undefined}
-                              type="text"
-                              value="1950-01-01"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                        Date of Birth
+                      </label>
+                      <input
+                        className=""
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                        placeholder="YYYY-MM-DD"
+                        type="date"
+                        value="1950-01-01"
+                      />
                     </div>
                   </div>
                 </div>
@@ -676,45 +703,16 @@ Array [
                           className="small-3 columns"
                         >
                           <label>
-                            Date of Birth 
-                            <span
-                              className="checkbox-block_note no-margin"
-                            >
-                              YYYY-MM-DD (required)
-                            </span>
+                            Date of Birth
                           </label>
-                          <div>
-                            <div>
-                              <div
-                                className="react-datepicker-wrapper"
-                              >
-                                <div
-                                  className="react-datepicker__input-container"
-                                >
-                                  <input
-                                    autoComplete={undefined}
-                                    autoFocus={undefined}
-                                    className=""
-                                    disabled={false}
-                                    id={undefined}
-                                    name={undefined}
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onKeyDown={[Function]}
-                                    placeholder={undefined}
-                                    readOnly={undefined}
-                                    required={true}
-                                    tabIndex={undefined}
-                                    title={undefined}
-                                    type="text"
-                                    value="2018-04-23"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                            placeholder="YYYY-MM-DD"
+                            type="date"
+                            value="1976-06-11"
+                          />
                         </div>
                       </div>
                     </div>
@@ -1137,6 +1135,57 @@ Array [
                 <div
                   className="row"
                 >
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Language Submitted In
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={1}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        English
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Chinese
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Spanish
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Tagalog
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <div
+                  className="row"
+                >
                   <h3>
                     Primary Applicant
                   </h3>
@@ -1161,7 +1210,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="karen"
                       />
                     </div>
@@ -1191,7 +1239,6 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        required="true"
                         value="jones"
                       />
                     </div>
@@ -1268,45 +1315,23 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      DOB 
-                      <span
-                        className="checkbox-block_note no-margin"
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
                       >
-                        - YYYY-MM-DD (required)
-                      </span>
-                    </label>
-                    <div>
-                      <div>
-                        <div
-                          className="react-datepicker-wrapper"
-                        >
-                          <div
-                            className="react-datepicker__input-container"
-                          >
-                            <input
-                              autoComplete={undefined}
-                              autoFocus={undefined}
-                              className=""
-                              disabled={false}
-                              id={undefined}
-                              name={undefined}
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onClick={[Function]}
-                              onFocus={[Function]}
-                              onKeyDown={[Function]}
-                              placeholder={undefined}
-                              readOnly={undefined}
-                              required={true}
-                              tabIndex={undefined}
-                              title={undefined}
-                              type="text"
-                              value="1950-01-01"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                        Date of Birth
+                      </label>
+                      <input
+                        className=""
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                        placeholder="YYYY-MM-DD"
+                        type="date"
+                        value="1950-01-01"
+                      />
                     </div>
                   </div>
                 </div>
@@ -1760,45 +1785,16 @@ Array [
                           className="small-3 columns"
                         >
                           <label>
-                            Date of Birth 
-                            <span
-                              className="checkbox-block_note no-margin"
-                            >
-                              YYYY-MM-DD (required)
-                            </span>
+                            Date of Birth
                           </label>
-                          <div>
-                            <div>
-                              <div
-                                className="react-datepicker-wrapper"
-                              >
-                                <div
-                                  className="react-datepicker__input-container"
-                                >
-                                  <input
-                                    autoComplete={undefined}
-                                    autoFocus={undefined}
-                                    className=""
-                                    disabled={false}
-                                    id={undefined}
-                                    name={undefined}
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onClick={[Function]}
-                                    onFocus={[Function]}
-                                    onKeyDown={[Function]}
-                                    placeholder={undefined}
-                                    readOnly={undefined}
-                                    required={true}
-                                    tabIndex={undefined}
-                                    title={undefined}
-                                    type="text"
-                                    value="2018-04-23"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <input
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                            placeholder="YYYY-MM-DD"
+                            type="date"
+                            value="1976-06-11"
+                          />
                         </div>
                       </div>
                     </div>

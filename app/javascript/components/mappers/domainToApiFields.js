@@ -38,6 +38,7 @@ export const preferenceFieldMapper = {
 
 export const applicationFieldMapper = {
   id: 'id',
+  application_language: 'applicationLanguage',
   has_military_service: 'hasMilitaryService',
   has_developmentaldisability: 'hasDevelopmentalDisability',
   answered_community_screening: 'answeredCommunityScreening',
