@@ -50,7 +50,7 @@ const adaPrioritiesToString = (list) => {
 
 export const reservedAndPriorityFields = [
   'has_military_service',
-  { field: 'has_developmentaldisability', label: 'Has Developmental Disability' },
+  { field: 'has_developmental_disability', label: 'Has Developmental Disability' },
   { field: 'has_ada_priorities_selected', value: (v) => adaPrioritiesToString(v) },
   'answered_community_screening'
 ]

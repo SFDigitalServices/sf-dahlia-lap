@@ -26,7 +26,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         <div className="small-6 columns">
           <label>Developmentally Disabled</label>
           <p className="form-note margin-bottom">One or more units is reserved for applicants who are developmentally disabled. Select "Yes" below if a household member is developmentally disabled.</p>
-          <Select field="has_developmentaldisability" options={yes_no_options} />
+          <Select field="has_developmental_disability" options={yes_no_options} />
         </div>
       )
     }
