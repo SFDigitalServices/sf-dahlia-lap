@@ -16,7 +16,7 @@ const buildActionLinkIfNecessary = (app) => {
 }
 
 const Toolbar = ({listingId}) => (
-  <div className='row clearfix inner--3x' style={{ paddingRight:'1rem' }}>
+  <div className='row clearfix inner--3x no-padding-right'>
     <a href={appPaths.toApplicationNew(listingId)} className='button tiny right'>add new application</a>
   </div>
 )
