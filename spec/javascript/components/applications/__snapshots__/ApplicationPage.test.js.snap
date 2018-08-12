@@ -38,12 +38,7 @@ Array [
     </div>
   </header>,
   <div
-    className="row clearfix inner--3x"
-    style={
-      Object {
-        "paddingRight": "1rem",
-      }
-    }
+    className="row clearfix inner--3x no-padding-right"
   >
     <a
       className="button tiny right"
