@@ -3,8 +3,8 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import classNames from 'classnames'
-import moment from 'moment'
+import { validate, isOldEnough, isPresent } from '~/utils/validations'
+import { Field } from '~/utils/errors'
 
 let { phone_type_options } = formOptions
 
@@ -15,40 +15,15 @@ let mailingAddressFieldMap = {
   zip: 'mailing_zip_code',
 }
 
-const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
-}
-
-const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth,'years')
-  return years >= 18
-}
-
-const FormError = ({formApi, field }) => {
-  if ((formApi.touched[field] || formApi.submitted) && formApi.errors[field])
-    return <span className="small error">{formApi.errors[field]}</span>
-  else
-    return null
-}
-
-const errorClassName = (formApi, field) => {
-  if (formApi.touched[field] || formApi.submitted)
-    return { error: !!formApi.errors[field] }
-  else
-    return null
-}
+const validateError = validate({
+  date_of_birth: [ isOldEnough, "The primary applicant must be 18 years of age or older" ],
+  first_name: [ isPresent, "Input must contain name" ]
+})
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
-  }
-
-  const validateError = (values) => {
-    return  {
-      'date_of_birth': validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.date_of_birth),
-      'first_name': !values.first_name ? "Input must contain name" : null
-    }
   }
 
   return (
@@ -91,18 +66,19 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <div className={classNames('form-group', errorClassName(formApi,'date_of_birth'))}>
-                  <label className='form-label'>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
-                  <DatePickerText
-                    required={false}
-                    prefilledDate={autofillValues.date_of_birth}
-                    dateFormat="YYYY-MM-DD"
-                    showYearDropdown
-                    dropdownMode="select"
-                    className={classNames(errorClassName(formApi, 'date_of_birth'))}
-                    field="date_of_birth" />
-                  <FormError formApi={formApi} field='date_of_birth'/>
-                </div>
+
+                <Field formApi={formApi} field='date_of_birth' label='DOB' blockNote='- YYYY-MM-DD (required)' >
+                  {(field, classNames) => (
+                    <DatePickerText
+                      required={false}
+                      prefilledDate={autofillValues.date_of_birth}
+                      dateFormat="YYYY-MM-DD"
+                      showYearDropdown
+                      dropdownMode="select"
+                      className={classNames}
+                      field={field} />
+                  )}
+                </Field>
               </div>
             </div>
             <AddressForm title="Home Address" memberType="primaryApplicant" />
