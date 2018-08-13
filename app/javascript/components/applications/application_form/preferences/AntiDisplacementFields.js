@@ -1,6 +1,8 @@
 import React from 'react'
-import { Select } from 'react-form'
 import formOptions from '../formOptions'
+
+import { buildFieldId } from './utils'
+import { Field } from '~/utils/errors'
 
 const {
   preference_proof_options_nrhp
@@ -10,14 +12,14 @@ const AntiDisplacementFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className="small-6 columns">
-        <label>Household Member with Proof</label>
-        <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+        <Field.Select
+          label="Household Member with Proof"
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
         <label>Type of Proof</label>
-        <Select
-          field={`shortFormPreferences.${i}.preferenceProof`}
+        <Field.Select
+          field={buildFieldId(i,'preferenceProof')}
           options={preference_proof_options_nrhp}
         />
       </div>

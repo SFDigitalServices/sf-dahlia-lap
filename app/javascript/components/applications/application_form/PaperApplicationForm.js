@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil, map } from 'lodash'
+import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
 import { Form } from 'react-form'
 
-import { validate, isPresent } from '~/utils/validations'
 import apiService from '~/apiService'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -16,17 +15,7 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
-
-const validatePreference = validate({
-  naturalKey: [ isPresent, "Natural key must be present" ]
-})
-
-const validateError = (values) => {
-  console.log(values)
-  return  {
-    shortFormPreferences: map(values.shortFormPreferences, validatePreference)
-  }
-}
+import { validateError } from './validations'
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {

@@ -1,12 +1,11 @@
 import React from 'react'
 import { map } from 'lodash'
-import { Select, Text } from 'react-form'
 
 import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
-import FormGroup from '~/components/atoms/FormGroup'
+import { Field } from '~/utils/errors'
 
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => (
@@ -18,33 +17,33 @@ const AddressRow = ({fieldId}) => (
   <React.Fragment>
     <Row form>
       <Column span={6} form>
-        <FormGroup>
-          <label htmlFor='alice-griffith-address'>Alice Griffith Address</label>
-          <Text id='alice-griffith-address' field={fieldId('address')}/>
-        </FormGroup>
+        <Field.Text
+          label="Alice Griffith Address"
+          field={fieldId('address')}
+        />
       </Column>
     </Row>
 
     <Row form>
       <Column span={3} form>
-        <FormGroup>
-          <label htmlFor='alice-griffith-city'>City</label>
-          <Text id='alice-griffith-city' field={fieldId('city')}/>
-        </FormGroup>
+        <Field.Text
+          label="City"
+          field={fieldId('city')}
+        />
       </Column>
       <Column span={3} end form>
         <Row>
           <Column span={6}>
-            <FormGroup>
-              <label htmlFor='alice-griffith-state'>State</label>
-              <Text id='alice-griffith-state' field={fieldId('state')} />
-            </FormGroup>
+            <Field.Text
+              label="State"
+              field={fieldId('state')}
+            />
           </Column>
           <Column span={6} end>
-            <FormGroup>
-              <label htmlFor='alice-griffith-zip-code'>Zip</label>
-              <Text id='alice-griffith-zip-code' field={fieldId('zipCode')}/>
-            </FormGroup>
+            <Field.Text
+              label="zip"
+              field={fieldId('zipCode')}
+            />
           </Column>
         </Row>
       </Column>
@@ -60,8 +59,8 @@ const AliceGriffithFields = ({i, householdMembers}) => {
     <React.Fragment>
       <Row form>
         <Column span={3} form>
-          <label htmlFor='alice-griffith-hh-member-on-proof'>HH Member on Proof</label>
-          <Select
+          <Field.Select
+            label="HH Member on Proof"
             id='alice-griffith-hh-member-on-proof'
             field={fieldId('naturalKey')}
             options={householdMembers}
@@ -69,8 +68,8 @@ const AliceGriffithFields = ({i, householdMembers}) => {
           />
         </Column>
         <Column span={3} form end>
-          <label htmlFor='alice-griffith-type-of-proof'>Type of Proof</label>
-          <Select
+          <Field.Select
+            label="Type of Proof"
             id='alice-griffith-type-of-proof'
             field={fieldId('preferenceProof')}
             options={typeOfProofOptions}

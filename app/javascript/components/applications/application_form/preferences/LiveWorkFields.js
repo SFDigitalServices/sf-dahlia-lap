@@ -1,6 +1,7 @@
 import React from 'react'
-import { Select } from 'react-form'
 import formOptions from '../formOptions'
+import { buildFieldId } from './utils'
+import { Field } from '~/utils/errors'
 
 const {
   preference_proof_options_live_sf,
@@ -17,28 +18,32 @@ const getProofTypes = (pref) => {
   }
 }
 
+const individualPreferenceOptions = [
+  {value: 'Live in SF', label: 'Live in SF'},
+  {value: 'Work in SF', label: 'Work in SF'}
+]
+
 const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
   return (
     <div>
       <div className="small-6 columns">
-        <label>Household Member with Proof</label>
-        <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+        <Field.Select
+          label="Household Member with Proof"
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
       </div>
       <div className="small-6 columns">
-        <label>Individual Preference</label>
-        <Select
-          field={`shortFormPreferences.${i}.individualPreference`}
-          options={[{value: 'Live in SF', label: 'Live in SF'},
-            {value: 'Work in SF', label: 'Work in SF'}]}
+        <Field.Select
+          label="Individual Preference"
+          field={buildFieldId(i,'individualPreference')}
+          options={individualPreferenceOptions}
         />
       </div>
       <div className="small-6 columns">
-        <label>Type of Proof</label>
-        <Select
-          field={`shortFormPreferences.${i}.preferenceProof`}
+        <Field.Select
+          label="Type of Proof"
+          field={buildFieldId(i,'preferenceProof')}
           options={getProofTypes(shortFormPreference.individualPreference)}
         />
       </div>

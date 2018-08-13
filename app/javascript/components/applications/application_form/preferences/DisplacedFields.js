@@ -1,20 +1,22 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
 
-const DisplacedFields = ({ householdMembers, i }) => {
+import { buildFieldId } from './utils'
+import { Field } from '~/utils/errors'
+
+const DisplacedFields = ({ formApi, householdMembers, i }) => {
   return (
     <div>
       <div className="small-6 columns">
-        <label>Person Who Claimed</label>
-        <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+        <Field.Select
+          field={buildFieldId(i,'naturalKey')}
+          label="Person Who Claimed"
           options={householdMembers}
         />
       </div>
       <div className="small-6 columns">
-        <label>DTHP Certificate Number</label>
-        <Text
-          field={`shortFormPreferences.${i}.certificateNumber`}
+        <Field.Text
+          field={buildFieldId(i,'certificateNumber')}
+          label="COP Certificate Number"
         />
       </div>
       <div className="small-12 columns">
