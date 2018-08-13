@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
+import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil, map } from 'lodash'
 import { Form } from 'react-form'
+
+import { validate, isPresent } from '~/utils/validations'
 import apiService from '~/apiService'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -14,6 +16,17 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
+
+const validatePreference = validate({
+  naturalKey: [ isPresent, "Natural key must be present" ]
+})
+
+const validateError = (values) => {
+  console.log(values)
+  return  {
+    shortFormPreferences: map(values.shortFormPreferences, validatePreference)
+  }
+}
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -118,9 +131,12 @@ class PaperApplicationForm extends React.Component {
 
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>
+        <Form onSubmit={this.submitShortForm} defaultValues={autofillValues} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
+              <pre>
+              <div>{JSON.stringify(formApi.errors)}</div>
+              </pre>
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <AlertBox

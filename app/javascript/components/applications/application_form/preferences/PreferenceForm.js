@@ -73,6 +73,7 @@ const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold })
 
           <PreferenceAdditionalOptions
             i={i}
+            formApi={formApi}
             shortFormPreference={pref}
             listingPreferenceID={selectedPreference.listingPreferenceID}
             listingPreferences={listingPreferences}

@@ -2,9 +2,9 @@ import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import classNames from 'classnames'
-import moment from 'moment'
 
+import { validate, isOldEnough, isPresent } from '~/utils/validations'
+import { Field } from '~/utils/errors'
 import domainToApi from '~/components/mappers/domainToApi'
 
 let { phone_type_options } = formOptions
@@ -16,35 +16,10 @@ let mailingAddressFieldMap = {
   zip: 'mailingZip',
 }
 
-const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
-}
-
-const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth,'years')
-  return years >= 18
-}
-
-const isValidDate = (dateOfBirth) => {
-  if (dateOfBirth) {
-    // Check that the date is valid and not in the future
-    return moment(dateOfBirth).isValid() && (moment().diff(dateOfBirth, 'days') > 0)
-  }
-}
-
-const FormError = ({formApi, field }) => {
-  if ((formApi.touched[field] || formApi.submitted) && formApi.errors[field])
-    return <span className="small error">{formApi.errors[field]}</span>
-  else
-    return null
-}
-
-const errorClassName = (formApi, field) => {
-  if (formApi.touched[field] || formApi.submitted)
-    return { error: !!formApi.errors[field] }
-  else
-    return null
-}
+const validateError = validate({
+  date_of_birth: [ isOldEnough, "The primary applicant must be 18 years of age or older" ],
+  first_name: [ isPresent, "Input must contain name" ]
+})
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
@@ -53,14 +28,9 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
     formApi.values.primaryApplicant = autofillValues
   }
 
-  const validateError = (values) => {
-    return  {
-      'DOB': (
-        validates(isValidDate, "Please enter a valid date")(values.DOB) ||
-        validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.DOB)
-      ),
-    }
-  }
+  autofillValues.firstName = "Federico"
+  autofillValues.lastName = "Dayan"
+  autofillValues.DOB = "1983-03-03"
 
   return (
     <NestedForm field="primaryApplicant">
@@ -102,22 +72,20 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <div className={classNames('form-group', errorClassName(formApi,'DOB'))}>
-                  <label className='form-label'>Date of Birth</label>
-                  <Text
-                    field="DOB"
-                    type="date"
-                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                    placeholder="YYYY-MM-DD"
-                    className={classNames(errorClassName(formApi, 'DOB'))} />
-                  <FormError formApi={formApi} field='DOB'/>
-                </div>
+                <Field formApi={formApi} field='DOB' label='DOB' blockNote='- YYYY-MM-DD (required)' >
+                  {(field, classNames) => (
+                    <Text
+                      field="DOB"
+                      type="date"
+                      pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                      placeholder="YYYY-MM-DD"
+                      className={classNames} />
+                  )}
+                </Field>
               </div>
             </div>
-
             <AddressForm title="Home Address" memberType="primaryApplicant" />
             <AddressForm title="Mailing Address" memberType="primaryApplicant"  fieldMap={mailingAddressFieldMap} />
-
           </div>
         )}
       </Form>
