@@ -82,7 +82,7 @@ class PaperApplicationForm extends React.Component {
 
     if (response) {
       if (this.state.submitType === 'Save') {
-        window.location.href = '/applications/' + response.application.id
+        window.location.href = '/applications/' + response.application.id + '?from=new'
       }
       else {
         window.location.href = '/listings/' + this.props.listing.id + '/applications/new'

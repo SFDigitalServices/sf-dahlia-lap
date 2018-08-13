@@ -7,39 +7,38 @@ import mapProps from '~/utils/mapProps'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
-const buildActionLinkIfNecessary = (app) => {
-  if (!app.isLotterComplete && app.submissionType === 'Paper') {
-    return { title: 'Edit Application', link: appPaths.toApplicationEdit(app.id) }
-  } else {
-    return undefined
-  }
+const buildActionLinkIfNecessary = (app, fromPage) => {
+  const actions = []
+
+  if (!app.isLotterComplete && app.submissionType === 'Paper')
+    actions.push(<a href={appPaths.toApplicationEdit(app.id)} className='button tiny '>Edit Application</a>)
+
+  if (fromPage === 'new')
+    actions.push(<a href={appPaths.toApplicationNew(app.listing.id)} className='button tiny margin-left--half'>Add new application</a>)
+
+  return actions
 }
 
-const Toolbar = ({listingId}) => (
-  <div className='row clearfix inner--3x no-padding-right'>
-    <a href={appPaths.toApplicationNew(listingId)} className='button tiny right'>add new application</a>
-  </div>
-)
-
 const ApplicationPage = (props) => {
-  const { application } = props
+  const { application, fromPage} = props
   const pageHeader = {
     title: `Application ${application.name}`,
     content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
-    action: buildActionLinkIfNecessary(application)
+    action: buildActionLinkIfNecessary(application, fromPage)
   }
 
   return (
-    <CardLayout pageHeader={pageHeader} toolbar={() => <Toolbar listingId={application.listing.id} />}>
+    <CardLayout pageHeader={pageHeader}>
       <ApplicationDetails {...props} />
     </CardLayout>
   )
 }
 
-const mapProperties = ({ application }) => {
+const mapProperties = ({ application, fromPage }) => {
   return {
     application: mapApplication(application),
     fields: labelMapperFields,
+    fromPage: fromPage
   }
 }
 
