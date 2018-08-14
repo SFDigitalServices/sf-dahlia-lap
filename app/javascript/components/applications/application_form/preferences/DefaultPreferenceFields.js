@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select } from 'react-form'
+import { buildFieldId } from './utils'
 
 const DefaultPreferenceFields = ({ householdMembers, i }) => {
   return (
@@ -7,7 +8,7 @@ const DefaultPreferenceFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <label>Household Member with Proof</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
       </div>
