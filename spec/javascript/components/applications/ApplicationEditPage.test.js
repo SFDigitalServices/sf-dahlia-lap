@@ -38,10 +38,10 @@ describe('ApplicationNewPage', () => {
       expect(mockSubmitApplication.mock.calls[0][0]).toEqual(mockApplicationApiEditPayload)
   })
 
-  describe('renders', () => {
+  describe('should render', () => {
     sharedHooks.useFakeTimers()
 
-    test('should render succesfully', () => {
+    test('succesfully', () => {
       const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
@@ -53,7 +53,7 @@ describe('ApplicationNewPage', () => {
     })
 
 
-    test('should render succesfully with preferences', () => {
+    test('succesfully with preferences', () => {
       const applicationWithPreferences = clone(application)
 
       applicationWithPreferences.preferences[0].Application_Member = {
