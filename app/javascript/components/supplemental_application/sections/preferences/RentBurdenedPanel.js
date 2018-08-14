@@ -2,7 +2,8 @@ import React from 'react'
 import { Select, Text } from 'react-form'
 
 import FormGrid  from '~/components/molecules/FormGrid'
-import { FormItem, statusOptions, fieldName } from './utils'
+import { FormItem, statusOptions } from './utils'
+import { buildFieldId } from '~/components/applications/application_form/preferences/utils.js'
 
 export const RentBurdenedPanel = ({ preferenceIndex }) => (
   <FormGrid.Row expand={false}>
@@ -15,7 +16,7 @@ export const RentBurdenedPanel = ({ preferenceIndex }) => (
       <Text field='total_monthly_rent' type='number'/>
     </FormItem>
     <FormItem label="Status">
-      <Select field={fieldName(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
+      <Select field={buildFieldId(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
     </FormItem>
   </FormGrid.Row>
 )
