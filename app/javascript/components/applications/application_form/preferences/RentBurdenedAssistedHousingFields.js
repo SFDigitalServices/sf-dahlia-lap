@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select } from 'react-form'
+import { buildFieldId } from './utils'
 
 const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
   return (
@@ -7,14 +8,14 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <label>Name on Lease</label>
         <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+          field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
       </div>
       <div className="small-6 columns">
         <label>Individual Preference</label>
         <Select
-          field={`shortFormPreferences.${i}.individualPreference`}
+          field={buildFieldId(i,'individual_preference')}
           options={[{value: 'Assisted Housing', label: 'Assisted Housing'},
             {value: 'Rent Burdened', label: 'Rent Burdened'}]}
         />

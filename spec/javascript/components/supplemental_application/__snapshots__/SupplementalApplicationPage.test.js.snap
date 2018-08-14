@@ -421,14 +421,14 @@ Array [
                     >
                       <input
                         checked={false}
-                        id="has_developmentaldisability-yes"
+                        id="has_developmental_disability-yes"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="radio"
                       />
                       <label
                         className="radio-inline_label"
-                        htmlFor="has_developmentaldisability-yes"
+                        htmlFor="has_developmental_disability-yes"
                       >
                         Yes
                       </label>
@@ -438,14 +438,14 @@ Array [
                     >
                       <input
                         checked={false}
-                        id="has_developmentaldisability-no"
+                        id="has_developmental_disability-no"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="radio"
                       />
                       <label
                         className="radio-inline_label"
-                        htmlFor="has_developmentaldisability-no"
+                        htmlFor="has_developmental_disability-no"
                       >
                         No
                       </label>

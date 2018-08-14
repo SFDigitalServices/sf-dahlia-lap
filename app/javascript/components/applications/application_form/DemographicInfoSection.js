@@ -32,19 +32,19 @@ const DemographicInfoSection = () => {
               </div>
               <div className="small-3 columns">
                 <label>Gender Specify (if not listed)</label>
-                <Text field="genderOther" />
+                <Text field="gender_other" />
               </div>
               <div className="small-6 columns">
                 <label>Sex at birth</label>
-                <Select field="sexAtBirth" options={sex_at_birth_options} />
+                <Select field="sex_at_birth" options={sex_at_birth_options} />
               </div>
               <div className="small-6 columns">
                 <label>Sexual Orientation</label>
-                <Select field="sexualOrientation" options={sexual_orientation_options} />
+                <Select field="sexual_orientation" options={sexual_orientation_options} />
               </div>
               <div className="small-6 columns">
                 <label>Sexual Orientation (if not listed)</label>
-                <Text field="sexualOrientationOther" />
+                <Text field="sexual_orientation_other" />
               </div>
             </div>
             <div className="row">
