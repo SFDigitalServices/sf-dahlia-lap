@@ -10,11 +10,11 @@ import labelMapperFields from './application_details/applicationDetailsFieldsDes
 const buildActionLinkIfNecessary = (app, fromPage) => {
   const actions = []
 
-  if (!app.isLotterComplete && app.submissionType === 'Paper')
-    actions.push(<a href={appPaths.toApplicationEdit(app.id)} className='button tiny '>Edit Application</a>)
+  if (!app.is_lottery_complete && app.application_submission_type === 'Paper')
+    actions.push(<a key='edit-application' href={appPaths.toApplicationEdit(app.id)} className='primary button tiny '>Edit Application</a>)
 
   if (fromPage === 'new')
-    actions.push(<a href={appPaths.toApplicationNew(app.listing.id)} className='button tiny margin-left--half'>Add new application</a>)
+    actions.push(<a key='add-new-application' href={appPaths.toApplicationNew(app.listing.id)} className='button tiny margin-left--half'>Add new application</a>)
 
   return actions
 }
