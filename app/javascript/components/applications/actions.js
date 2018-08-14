@@ -10,6 +10,7 @@ export const saveApplication = async (submitType, submittedValues, application, 
   if (response === false) {
     alert('There was an error on submit. Please check values and try again.')
   }
+
   try {
     if (submitType === 'Save') {
       window.location.href = '/applications/' + response.application.id

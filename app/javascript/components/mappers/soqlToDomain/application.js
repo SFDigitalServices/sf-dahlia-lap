@@ -41,7 +41,7 @@ export const mapApplication = (a) => {
     general_lottery_rank: a.General_Lottery_Rank,
     answered_community_screening: a.Answered_Community_Screening,
     has_military_service: a.Has_Military_Service,
-    has_developmentaldisability: a.Has_DevelopmentalDisability,
+    has_developmental_disability: a.Has_DevelopmentalDisability,
     has_ada_priorities_selected: toChecklist(parseList(a.Has_ADA_Priorities_Selected)),
     terms_acknowledged: a.Terms_Acknowledged,
     number_of_dependents: a.Number_of_Dependents,
