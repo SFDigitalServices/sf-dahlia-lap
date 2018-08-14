@@ -15,7 +15,21 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
-import { validateError } from './validations'
+import validate from '~/utils/validations'
+
+const validatePreference = validate({
+  naturalKey: validate.isPresent("is required"),
+  individualPreference: validate.isPresent("is required"),
+  preferenceProof: validate.isPresent("is required"),
+  address: validate.isPresent("is required"),
+  city: validate.isPresent("is required"),
+  state: validate.isPresent("is required"),
+  zipCode: validate.isPresent("is required")
+})
+
+const validateError = validate({
+  shortFormPreferences: validate.all(validatePreference)
+})
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -123,9 +137,6 @@ class PaperApplicationForm extends React.Component {
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
-              <pre>
-              <div>{JSON.stringify(formApi.errors)}</div>
-              </pre>
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <AlertBox

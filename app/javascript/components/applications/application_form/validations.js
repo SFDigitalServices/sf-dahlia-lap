@@ -1,19 +1,15 @@
-import { map } from 'lodash'
-
-import { validate, isPresent } from '~/utils/validations'
+import { validate } from '~/utils/validations'
 
 const validatePreference = validate({
-  naturalKey: [ isPresent, "is required" ],
-  individualPreference: [ isPresent, "is required"],
-  preferenceProof: [ isPresent, "is required"],
-  address: [ isPresent, "is required"],
-  city: [ isPresent, "is required"],
-  state: [ isPresent, "is required"],
-  zipCode: [ isPresent, "is required"]
+  naturalKey: validate.isPresent("is required"),
+  individualPreference: validate.isPresent("is required"),
+  preferenceProof: validate.isPresent("is required"),
+  address: validate.isPresent("is required"),
+  city: validate.isPresent("is required"),
+  state: validate.isPresent("is required"),
+  zipCode: validate.isPresent("is required")
 })
 
-export const validateError = (values) => {
-  return  {
-    shortFormPreferences: map(values.shortFormPreferences, validatePreference)
-  }
-}
+export const validateError = validate({
+  shortFormPreferences: validate.all(validatePreference)
+})

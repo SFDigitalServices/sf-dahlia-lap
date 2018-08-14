@@ -231,8 +231,14 @@ Array [
                     >
                       <label
                         className="form-label"
+                        htmlFor="DOB"
                       >
-                        Date of Birth
+                        DOB
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          - YYYY-MM-DD (required)
+                        </span>
                       </label>
                       <input
                         className=""

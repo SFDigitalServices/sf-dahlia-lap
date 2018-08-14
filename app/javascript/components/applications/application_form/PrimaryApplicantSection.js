@@ -3,7 +3,7 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-import { validate, isOldEnough, isPresent } from '~/utils/validations'
+import validate from '~/utils/validations'
 import { Field } from '~/utils/errors'
 import domainToApi from '~/components/mappers/domainToApi'
 
@@ -17,8 +17,8 @@ let mailingAddressFieldMap = {
 }
 
 const validateError = validate({
-  date_of_birth: [ isOldEnough, "The primary applicant must be 18 years of age or older" ],
-  first_name: [ isPresent, "Input must contain name" ]
+  date_of_birth: validate.isOldEnough("The primary applicant must be 18 years of age or older"),
+  first_name: validate.isPresent("Input must contain name")
 })
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
@@ -27,10 +27,6 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
     autofillValues = domainToApi.mapApplicant(editValues.applicant)
     formApi.values.primaryApplicant = autofillValues
   }
-
-  autofillValues.firstName = "Federico"
-  autofillValues.lastName = "Dayan"
-  autofillValues.DOB = "1983-03-03"
 
   return (
     <NestedForm field="primaryApplicant">

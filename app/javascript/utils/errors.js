@@ -4,15 +4,18 @@ import classNames from 'classnames'
 import { Select, Text } from 'react-form'
 
 export const hasError = (formApi, field) => {
-  // if (formApi.getTouched(field) || formApi.submits > 0)
+  if (formApi.getTouched(field) || formApi.submits > 0)
     return !!formApi.getError(field)
-  // else
-    // return null
+  else
+    return null
 }
 
-export const FormError = ({ formApi, field }) => {
+export const FormError = ({ formApi, label, field }) => {
   if (hasError(formApi, field))
-    return <span className="small error">{formApi.getError(field)}</span>
+    return (
+      <span className="small error">
+        {label} {formApi.getError(field)}
+      </span>)
   else
     return null
 }
@@ -30,12 +33,12 @@ export const Field = ({ formApi, field, label, blockNote, children }) => {
 
   return (
     <div className={classNames('form-group', className)}>
-      <label className='form-label'>
+      <label className='form-label' htmlFor={field}>
         {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
       { children(field, classNames(className)) }
-      <FormError formApi={formApi} field={field}/>
+      <FormError formApi={formApi} label={label} field={field}/>
     </div>
   )
 }
@@ -47,13 +50,14 @@ const withField = (input) => {
       const { formApi } = this.context // Old context API used by react-form
 
       return (
-        <Field formApi={formApi} field={field} label={label} >
+        <Field formApi={formApi} field={field} label={label}>
           {(f, classNames) => (input(f, classNames, rest))}
         </Field>
       )
     }
   }
 
+  // Old context API used by react-form
   Wrapper.contextTypes = {
     formApi: PropTypes.object
   }
@@ -63,7 +67,7 @@ const withField = (input) => {
 
 const decorateInput = (Comp) => (
   withField((field, classNames, rest) => {
-    return <Comp field={field} className={classNames} {...rest} />
+    return <Comp id={field} field={field} className={classNames} {...rest} />
   })
 )
 

@@ -238,8 +238,14 @@ Array [
                     >
                       <label
                         className="form-label"
+                        htmlFor="DOB"
                       >
-                        Date of Birth
+                        DOB
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          - YYYY-MM-DD (required)
+                        </span>
                       </label>
                       <input
                         className=""
@@ -1254,8 +1260,14 @@ Array [
                     >
                       <label
                         className="form-label"
+                        htmlFor="DOB"
                       >
-                        Date of Birth
+                        DOB
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          - YYYY-MM-DD (required)
+                        </span>
                       </label>
                       <input
                         className=""
@@ -1932,100 +1944,112 @@ Array [
                         <div
                           className="columns small-3  form-grid_item"
                         >
-                          <label
-                            htmlFor="alice-griffith-hh-member-on-proof"
+                          <div
+                            className="form-group"
                           >
-                            HH Member on Proof
-                          </label>
-                          <select
-                            id="alice-griffith-hh-member-on-proof"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={0}
-                          >
-                            <option
-                              disabled={true}
+                            <label
+                              className="form-label"
+                              htmlFor="shortFormPreferences.0.naturalKey"
+                            >
+                              HH Member on Proof
+                            </label>
+                            <select
+                              className=""
+                              id="alice-griffith-hh-member-on-proof"
+                              onBlur={[Function]}
+                              onChange={[Function]}
                               value={0}
                             >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              karen jones
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={2}
-                            >
-                              diego maradona
-                            </option>
-                          </select>
+                              <option
+                                disabled={true}
+                                value={0}
+                              >
+                                Select One...
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={1}
+                              >
+                                karen jones
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={2}
+                              >
+                                diego maradona
+                              </option>
+                            </select>
+                          </div>
                         </div>
                         <div
                           className="columns small-3 end form-grid_item"
                         >
-                          <label
-                            htmlFor="alice-griffith-type-of-proof"
+                          <div
+                            className="form-group"
                           >
-                            Type of Proof
-                          </label>
-                          <select
-                            id="alice-griffith-type-of-proof"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={0}
-                          >
-                            <option
-                              disabled={true}
+                            <label
+                              className="form-label"
+                              htmlFor="shortFormPreferences.0.preferenceProof"
+                            >
+                              Type of Proof
+                            </label>
+                            <select
+                              className=""
+                              id="alice-griffith-type-of-proof"
+                              onBlur={[Function]}
+                              onChange={[Function]}
                               value={0}
                             >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Letter from SFHA verifying address
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={2}
-                            >
-                              CA ID or Driver's License
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={3}
-                            >
-                              Telephone bill (landline only)
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={4}
-                            >
-                              Cable and internet bill
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={5}
-                            >
-                              Paystub (listing home address)
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={6}
-                            >
-                              Public benefits record
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={7}
-                            >
-                              School record
-                            </option>
-                          </select>
+                              <option
+                                disabled={true}
+                                value={0}
+                              >
+                                Select One...
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={1}
+                              >
+                                Letter from SFHA verifying address
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={2}
+                              >
+                                CA ID or Driver's License
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={3}
+                              >
+                                Telephone bill (landline only)
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={4}
+                              >
+                                Cable and internet bill
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={5}
+                              >
+                                Paystub (listing home address)
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={6}
+                              >
+                                Public benefits record
+                              </option>
+                              <option
+                                disabled={undefined}
+                                value={7}
+                              >
+                                School record
+                              </option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -2038,12 +2062,14 @@ Array [
                             className="form-group"
                           >
                             <label
-                              htmlFor="alice-griffith-address"
+                              className="form-label"
+                              htmlFor="shortFormPreferences.0.address"
                             >
                               Alice Griffith Address
                             </label>
                             <input
-                              id="alice-griffith-address"
+                              className=""
+                              id="shortFormPreferences.0.address"
                               onBlur={[Function]}
                               onChange={[Function]}
                               value=""
@@ -2061,12 +2087,14 @@ Array [
                             className="form-group"
                           >
                             <label
-                              htmlFor="alice-griffith-city"
+                              className="form-label"
+                              htmlFor="shortFormPreferences.0.city"
                             >
                               City
                             </label>
                             <input
-                              id="alice-griffith-city"
+                              className=""
+                              id="shortFormPreferences.0.city"
                               onBlur={[Function]}
                               onChange={[Function]}
                               value=""
@@ -2086,12 +2114,14 @@ Array [
                                 className="form-group"
                               >
                                 <label
-                                  htmlFor="alice-griffith-state"
+                                  className="form-label"
+                                  htmlFor="shortFormPreferences.0.state"
                                 >
                                   State
                                 </label>
                                 <input
-                                  id="alice-griffith-state"
+                                  className=""
+                                  id="shortFormPreferences.0.state"
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value=""
@@ -2105,12 +2135,14 @@ Array [
                                 className="form-group"
                               >
                                 <label
-                                  htmlFor="alice-griffith-zip-code"
+                                  className="form-label"
+                                  htmlFor="shortFormPreferences.0.zipCode"
                                 >
-                                  Zip
+                                  zip
                                 </label>
                                 <input
-                                  id="alice-griffith-zip-code"
+                                  className=""
+                                  id="shortFormPreferences.0.zipCode"
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value=""

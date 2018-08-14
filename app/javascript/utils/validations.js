@@ -1,28 +1,33 @@
 import moment from 'moment'
-import { map, fromPairs} from 'lodash'
+import { mapValues, map } from 'lodash'
 
-export const validates = (fun, message) => (value) => {
+const run = (rules, values) =>  {
+  return mapValues(rules, (valFn, key) => valFn(values[key]))
+}
+
+const validate = (rules) => {
+  return (values) => run(rules, values)
+}
+
+/* Validations */
+
+const validates = (fun, message) => (value) => {
   return fun(value) ? null : message
 }
 
-export const isOldEnough = (dateOfBirth) => {
+const decorateValidator = (fn) => {
+  return message => validates(fn, message)
+}
+
+const isOldEnough = (dateOfBirth) => {
   const years = moment().diff(dateOfBirth,'years')
   return years >= 18
 }
 
-export const isPresent = (value) => !!value
+const isPresent = (value) => !!value
 
-export const runValidations = (validateErrors, values) =>  {
-  return fromPairs(
-    map(validateErrors, (valFn, key) => [key, valFn(values[key])])
-  )
-}
+validate.isOldEnough = decorateValidator(isOldEnough)
+validate.isPresent = decorateValidator(isPresent)
+validate.all = (fn) => (list) => map(list, fn)
 
-export const toValidateErrors = (validationsMap) =>  fromPairs(
-  map(validationsMap, ([fn, msg], key) => [key, validates(fn, msg)])
-)
-
-export const validate = (validationsMap) => {
-  const validateErrors = toValidateErrors(validationsMap)
-  return (values) => runValidations(validateErrors, values)
-}
+export default validate
