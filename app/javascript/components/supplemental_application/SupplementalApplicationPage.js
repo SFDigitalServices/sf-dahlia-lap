@@ -14,10 +14,10 @@ class SupplementalApplicationPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      persistedApplication: cloneDeep(props.application),
-      application: props.application
+      persistedApplication: cloneDeep(props.application) // salefroce current perssited data, frozen copy. latest saved copy.
     }
   }
+
 
   handleSaveApplication = async (application) => {
     const { persistedApplication } = this.state
@@ -42,8 +42,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render() {
-    const { statusHistory, fileBaseUrl } = this.props
-    const { application } = this.state
+    const { statusHistory, fileBaseUrl, application } = this.props
 
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
