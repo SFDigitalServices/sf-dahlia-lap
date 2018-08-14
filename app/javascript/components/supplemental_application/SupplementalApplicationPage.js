@@ -39,6 +39,7 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
 }
 
 const mapProperties = ({application, statusHistory, file_base_url}) => {
+  console.log(mapApplication(application))
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
