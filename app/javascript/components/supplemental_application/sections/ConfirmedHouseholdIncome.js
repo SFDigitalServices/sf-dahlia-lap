@@ -45,13 +45,13 @@ class ConfirmedHouseholdIncome extends React.Component {
   }
 
   componentDidMount() {
+    console.log('ConfirmedHouseholdIncome did mount', this.props.formApi.values)
     // Display a calculated annual income if applicant only provided monthly income
-    if (isNil(this.props.application.annual_income)) {
-      let annualIncome = this.props.application.monthly_income * 12
+    if (isNil(this.props.formApi.values.annual_income) && !isNil(this.props.formApi.values.monthly_income)) {
+      let annualIncome = this.props.formApi.values.monthly_income * 12
       this.props.formApi.setValue('annual_income', annualIncome)
     }
 
-    console.log('ConfirmedHouseholdIncome did mount')
     // Fetch initial AMI values based on household size.
     this.setState({hudAMI: 5})
     this.setState({stateAMI: 5})
@@ -59,11 +59,12 @@ class ConfirmedHouseholdIncome extends React.Component {
 
   componentDidUpdate() {
     // Check if household size has changed, if it has, re-fetch AMIs
-    console.log('income component did update')
-    console.log(this.props.formApi.values)
+    console.log('income component did update: ', this.props.formApi.values)
   }
 
   render() {
+    const { formApi } = this.props
+
     return (
       <React.Fragment>
       <FormGrid.Row>
@@ -103,7 +104,7 @@ class ConfirmedHouseholdIncome extends React.Component {
                               name="ami-hud"
                               describeId="ami-hud"
                               note="Based on Final Household Income"
-                              value={getAMIPercent(this.props.formApi.values.hh_total_income_with_assets_annual, this.state.hudAMI)}/>
+                              value={getAMIPercent(formApi.values.hh_total_income_with_assets_annual, this.state.hudAMI)}/>
         </FormGrid.Item>
         <FormGrid.Item>
           <FormGroupTextValue label="Calculated % of AMI - State"
@@ -111,7 +112,7 @@ class ConfirmedHouseholdIncome extends React.Component {
                               name="ami-state"
                               describeId="ami-hud"
                               note="Based on Final Household Income"
-                              value={getAMIPercent(this.props.formApi.values.hh_total_income_with_assets_annual, this.state.stateAMI)}/>
+                              value={getAMIPercent(formApi.values.hh_total_income_with_assets_annual, this.state.stateAMI)}/>
         </FormGrid.Item>
       </FormGrid.Row>
       </React.Fragment>

@@ -91,6 +91,7 @@ class SupplementalApplicationContainer extends React.Component {
 
   handleOnSubmit = (value) => {
     this.setState({loading: true})
+    console.log('Handling on submit, heres the value', value)
     this.props.onSubmit(value).then(() => {
       this.setState({loading: false})
     })
