@@ -14,15 +14,20 @@ class SupplementalApplicationPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      persistedApplication: cloneDeep(props.application) // salefroce current perssited data, frozen copy. latest saved copy.
+      // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
+      persistedApplication: cloneDeep(props.application)
     }
   }
 
 
   handleSaveApplication = async (application) => {
     const { persistedApplication } = this.state
+
+    // We clone the modified application in the UI since those are the fields we want to update
     const synchedApplication = cloneDeep(application)
 
+    // Monthly rent and preferences are only updated in handleSavePreference below.
+    // We set this values so we keep whaterver we save in the panels
     synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
     synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
 
@@ -32,8 +37,11 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSavePreference =  async (preferenceIndex, application) => {
     const { persistedApplication } = this.state
+
+    // We clone the lates saved copy, so we can use the latest saved fields.
     const synchedApplication = cloneDeep(persistedApplication)
 
+    // We use the persisted copy and set only the fields updated in the panel
     synchedApplication.total_monthly_rent = application.total_monthly_rent
     synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
 
