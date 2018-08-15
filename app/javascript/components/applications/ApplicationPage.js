@@ -20,7 +20,7 @@ const buildActionLinkIfNecessary = (app, fromPage) => {
 }
 
 const ApplicationPage = (props) => {
-  const { application, fromPage} = props
+  const { application, fromPage } = props
   const pageHeader = {
     title: `Application ${application.name}`,
     content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
@@ -34,11 +34,12 @@ const ApplicationPage = (props) => {
   )
 }
 
-const mapProperties = ({ application, fromPage }) => {
+const mapProperties = ({ application, fromPage, fileBaseUrl }) => {
   return {
     application: mapApplication(application),
     fields: labelMapperFields,
-    fromPage: fromPage
+    fromPage: fromPage,
+    fileBaseUrl: fileBaseUrl
   }
 }
 
