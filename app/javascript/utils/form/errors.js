@@ -1,7 +1,9 @@
 import React from 'react'
 
+import reactFormUtils from '~/utils/reactFormUtils'
+
 export const hasError = (formApi, field) => {
-  if (formApi.getTouched(field) || formApi.submits > 0)
+  if (reactFormUtils.get(formApi.touched, field) || formApi.submits > 0)
     return !!formApi.getError(field)
   else
     return null
