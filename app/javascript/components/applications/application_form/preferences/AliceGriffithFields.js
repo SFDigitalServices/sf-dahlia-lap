@@ -5,7 +5,7 @@ import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
-import { Field } from '~/utils/errors'
+import { Field } from '~/utils/form/Field'
 
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => (

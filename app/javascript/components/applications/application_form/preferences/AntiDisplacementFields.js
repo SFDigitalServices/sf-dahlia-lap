@@ -2,7 +2,7 @@ import React from 'react'
 import formOptions from '../formOptions'
 
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/errors'
+import { Field } from '~/utils/form/Field'
 
 const {
   preference_proof_options_nrhp

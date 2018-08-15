@@ -15,7 +15,7 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
-import validate from '~/utils/validations'
+import validate from '~/utils/form/validations'
 
 const validatePreference = validate({
   naturalKey: validate.isPresent("is required"),
@@ -28,7 +28,7 @@ const validatePreference = validate({
 })
 
 const validateError = validate({
-  shortFormPreferences: validate.all(validatePreference)
+  shortFormPreferences: validate.list(validatePreference)
 })
 
 class PaperApplicationForm extends React.Component {

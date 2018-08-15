@@ -117,19 +117,28 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        First Name 
-                        <span
-                          className="checkbox-block_note no-margin"
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="firstName"
                         >
-                          (required)
-                        </span>
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="karen"
-                      />
+                          First name 
+                          <span
+                            className="checkbox-block_note no-margin"
+                          >
+                            (required)
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="firstName"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="karen"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
@@ -240,15 +249,16 @@ Array [
                         className="form-label"
                         htmlFor="DOB"
                       >
-                        DOB
+                        DOB 
                         <span
                           className="checkbox-block_note no-margin"
                         >
-                          - YYYY-MM-DD (required)
+                          (required)
                         </span>
                       </label>
                       <input
                         className=""
+                        id="DOB"
                         onBlur={[Function]}
                         onChange={[Function]}
                         pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
@@ -1139,19 +1149,28 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        First Name 
-                        <span
-                          className="checkbox-block_note no-margin"
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="firstName"
                         >
-                          (required)
-                        </span>
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="karen"
-                      />
+                          First name 
+                          <span
+                            className="checkbox-block_note no-margin"
+                          >
+                            (required)
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="firstName"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="karen"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
@@ -1262,15 +1281,16 @@ Array [
                         className="form-label"
                         htmlFor="DOB"
                       >
-                        DOB
+                        DOB 
                         <span
                           className="checkbox-block_note no-margin"
                         >
-                          - YYYY-MM-DD (required)
+                          (required)
                         </span>
                       </label>
                       <input
                         className=""
+                        id="DOB"
                         onBlur={[Function]}
                         onChange={[Function]}
                         pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
@@ -1951,7 +1971,7 @@ Array [
                               className="form-label"
                               htmlFor="shortFormPreferences.0.naturalKey"
                             >
-                              HH Member on Proof
+                              HH Member on Proof 
                             </label>
                             <select
                               className=""
@@ -1991,7 +2011,7 @@ Array [
                               className="form-label"
                               htmlFor="shortFormPreferences.0.preferenceProof"
                             >
-                              Type of Proof
+                              Type of Proof 
                             </label>
                             <select
                               className=""
@@ -2065,7 +2085,7 @@ Array [
                               className="form-label"
                               htmlFor="shortFormPreferences.0.address"
                             >
-                              Alice Griffith Address
+                              Alice Griffith Address 
                             </label>
                             <input
                               className=""
@@ -2090,7 +2110,7 @@ Array [
                               className="form-label"
                               htmlFor="shortFormPreferences.0.city"
                             >
-                              City
+                              City 
                             </label>
                             <input
                               className=""
@@ -2117,7 +2137,7 @@ Array [
                                   className="form-label"
                                   htmlFor="shortFormPreferences.0.state"
                                 >
-                                  State
+                                  State 
                                 </label>
                                 <input
                                   className=""
@@ -2138,7 +2158,7 @@ Array [
                                   className="form-label"
                                   htmlFor="shortFormPreferences.0.zipCode"
                                 >
-                                  zip
+                                  zip 
                                 </label>
                                 <input
                                   className=""

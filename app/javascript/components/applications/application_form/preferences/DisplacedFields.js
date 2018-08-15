@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/errors'
+import { Field } from '~/utils/form/Field'
 
 const DisplacedFields = ({ formApi, householdMembers, i }) => {
   return (

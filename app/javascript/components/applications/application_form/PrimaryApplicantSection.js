@@ -3,8 +3,8 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 
-import validate from '~/utils/validations'
-import { Field } from '~/utils/errors'
+import validate from '~/utils/form/validations'
+import { Field } from '~/utils/form/Field'
 import domainToApi from '~/components/mappers/domainToApi'
 
 let { phone_type_options } = formOptions
@@ -17,8 +17,11 @@ let mailingAddressFieldMap = {
 }
 
 const validateError = validate({
-  date_of_birth: validate.isOldEnough("The primary applicant must be 18 years of age or older"),
-  first_name: validate.isPresent("Input must contain name")
+  DOB: validate.any(
+    validate.isValidDate("Please enter a valid date"),
+    validate.isOldEnough("The primary applicant must be 18 years of age or older")
+  ),
+  firstName: validate.isPresent("Input must contain name")
 })
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
@@ -39,8 +42,12 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             <div className="row">
               <div className="form-group">
                 <div className="small-4 columns">
-                  <label>First Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="firstName" />
+                  <Field.Text
+                    label="First name"
+                    blockNote="(required)"
+                    field="firstName"
+                    errorMessage={(label, error) => error }
+                  />
                 </div>
                 <div className="small-4 columns">
                   <label>Middle Name</label>
@@ -68,16 +75,15 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <Field formApi={formApi} field='DOB' label='DOB' blockNote='- YYYY-MM-DD (required)' >
-                  {(field, classNames) => (
-                    <Text
-                      field="DOB"
-                      type="date"
-                      pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                      placeholder="YYYY-MM-DD"
-                      className={classNames} />
-                  )}
-                </Field>
+                <Field.Text
+                   field='DOB'
+                   label='DOB'
+                   blockNote='(required)'
+                   type="date"
+                   pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                   placeholder="YYYY-MM-DD"
+                   errorMessage={(label, error) => error }
+                />
               </div>
             </div>
             <AddressForm title="Home Address" memberType="primaryApplicant" />
