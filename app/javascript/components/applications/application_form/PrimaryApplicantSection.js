@@ -77,7 +77,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               <div className="small-4 columns">
                 <Field.Text
                    field='DOB'
-                   label='DOB'
+                   label='Date of Birth'
                    blockNote='(required)'
                    type="date"
                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
