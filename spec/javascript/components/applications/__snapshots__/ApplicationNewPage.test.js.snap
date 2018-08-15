@@ -117,7 +117,7 @@ Array [
                           className="form-label"
                           htmlFor="firstName"
                         >
-                          First name 
+                          First Name 
                           <span
                             className="checkbox-block_note no-margin"
                           >
@@ -148,19 +148,28 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Last Name 
-                        <span
-                          className="checkbox-block_note no-margin"
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="lastName"
                         >
-                          (required)
-                        </span>
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value=""
-                      />
+                          Last Name 
+                          <span
+                            className="checkbox-block_note no-margin"
+                          >
+                            (required)
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="lastName"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value=""
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

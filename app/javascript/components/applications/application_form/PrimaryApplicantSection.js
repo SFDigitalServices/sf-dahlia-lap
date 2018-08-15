@@ -12,10 +12,11 @@ let { phone_type_options } = formOptions
 
 const validateError = validate({
   DOB: validate.any(
-    validate.isValidDate("Please enter a valid date"),
+    validate.isValidDate("Please enter a valid Date of Birth"),
     validate.isOldEnough("The primary applicant must be 18 years of age or older")
   ),
-  firstName: validate.isPresent("Input must contain name")
+  firstName: validate.isPresent("Please enter a First Name"),
+  lastName: validate.isPresent("Please enter a Last Name")
 })
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
@@ -37,7 +38,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               <div className="form-group">
                 <div className="small-4 columns">
                   <Field.Text
-                    label="First name"
+                    label="First Name"
                     blockNote="(required)"
                     field="firstName"
                     errorMessage={(label, error) => error }
@@ -48,8 +49,12 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                   <Text field="middleName" />
                 </div>
                 <div className="small-4 columns">
-                  <label>Last Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="lastName" />
+                  <Field.Text
+                    label="Last Name"
+                    blockNote="(required)"
+                    field="lastName"
+                    errorMessage={(label, error) => error }
+                  />
                 </div>
               </div>
             </div>
