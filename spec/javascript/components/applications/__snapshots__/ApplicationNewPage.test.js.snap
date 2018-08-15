@@ -242,7 +242,7 @@ Array [
                         className="form-label"
                         htmlFor="DOB"
                       >
-                        DOB 
+                        Date of Birth 
                         <span
                           className="checkbox-block_note no-margin"
                         >
