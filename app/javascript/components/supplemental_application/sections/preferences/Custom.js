@@ -2,7 +2,7 @@ import React from 'react'
 import { Select } from 'react-form'
 
 import FormGrid  from '~/components/molecules/FormGrid'
-import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
+import { buildHouseholdMembersOptions, buildFieldId } from '~/components/applications/application_form/preferences/utils'
 import { FormItem, Comment, statusOptions } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 
@@ -10,7 +10,8 @@ const {
   preference_proof_options_default
 } = formOptions
 
-export const Custom = ({ preference, applicationMembers }) => {
+export const Custom = ({ preferenceIndex, application, applicationMembers }) => {
+  const preference = application.preferences[preferenceIndex]
   const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
   return (
     <React.Fragment>
@@ -21,13 +22,13 @@ export const Custom = ({ preference, applicationMembers }) => {
         </div>
       </FormItem>
       <FormItem label="HH Member on Proof">
-        <Select field='naturalKey' options={applicationMembersOptions}/>
+        <Select field={buildFieldId(preferenceIndex,'naturalKey')} options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Type of Proof">
-        <Select field='type_of_proof' options={preference_proof_options_default}/>
+        <Select field={buildFieldId(preferenceIndex,'type_of_proof')} options={preference_proof_options_default}/>
       </FormItem>
       <FormItem label="Status">
-        <Select field='post_lottery_validation' options={statusOptions}/>
+        <Select field={buildFieldId(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>

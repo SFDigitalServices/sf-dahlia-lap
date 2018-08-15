@@ -3,7 +3,7 @@ import { Select, Text } from 'react-form'
 
 import FormGrid  from '~/components/molecules/FormGrid'
 import { FormItem, statusOptions } from './utils'
-import { buildFieldId } from '~/components/applications/application_form/preferences/utils.js'
+import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 
 export const RentBurdenedPanel = ({ preferenceIndex }) => (
   <FormGrid.Row expand={false}>

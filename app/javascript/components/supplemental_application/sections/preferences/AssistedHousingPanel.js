@@ -2,10 +2,10 @@ import React from 'react'
 import { Select } from 'react-form'
 
 import FormGrid  from '~/components/molecules/FormGrid'
-import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
+import { buildHouseholdMembersOptions, buildFieldId } from '~/components/applications/application_form/preferences/utils'
 import { FormItem, Comment, statusOptions } from './utils'
 
-export const AssistedHousingPanel = ({ data, applicationMembers }) => {
+export const AssistedHousingPanel = ({ preferenceIndex, applicationMembers }) => {
   const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
   return (
     <React.Fragment>
@@ -16,10 +16,10 @@ export const AssistedHousingPanel = ({ data, applicationMembers }) => {
         </div>
       </FormItem>
       <FormItem label="Name on Lease">
-        <Select field='naturalKey' options={applicationMembersOptions}/>
+        <Select field={buildFieldId(preferenceIndex,'naturalKey')} options={applicationMembersOptions}/>
       </FormItem>
       <FormItem label="Status">
-        <Select field='post_lottery_validation' options={statusOptions}/>
+        <Select field={buildFieldId(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
