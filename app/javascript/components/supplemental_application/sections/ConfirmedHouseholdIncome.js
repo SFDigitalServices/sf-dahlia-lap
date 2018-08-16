@@ -1,9 +1,11 @@
 import React from 'react'
-import { isNil } from 'lodash'
+import { find, isNil } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { RadioGroup, Radio, Text } from 'react-form';
+import { getAMIAction } from '~/components/supplemental_application/actions'
+
 
 const YesNoRadioGroup = ({field}) => {
   return (
@@ -26,13 +28,19 @@ const YesNoRadioGroup = ({field}) => {
   )
 }
 
-const getAMIPercent = (income, ami) => {
-  console.log('Calculating the ami percent', income)
-  if (isNil(income))
-    return "Enter HH Income"
-  if (isNil(ami))
+const getAMIPercent = ({chart, applicationValues, amis}) => {
+  if (isNil(amis))
     return "Error: AMI unknown"
-  return income / ami
+  console.log('Calculating the ami percent', chart, applicationValues, amis)
+
+  let ami = find(amis, {'chartType': chart.name, 'year': chart.year, 'numOfHousehold': applicationValues.total_household_size})
+  console.log(ami)
+  let amiIncome = ami.amount
+  if (isNil(applicationValues.annual_income))
+    return "Enter HH Income"
+  if (isNil(amiIncome))
+    return "Error: AMI unknown"
+  return applicationValues.annual_income / Number(amiIncome)
 }
 
 
@@ -40,8 +48,8 @@ const getAMIPercent = (income, ami) => {
 class ConfirmedHouseholdIncome extends React.Component {
 
   state = {
-    hudAMI: null,
-    stateAMI: null
+    amis: null,
+    amiCharts: [{"name": 'HUD Unadjusted', 'year': 2018}]
   }
 
   componentDidMount() {
@@ -52,14 +60,9 @@ class ConfirmedHouseholdIncome extends React.Component {
       this.props.formApi.setValue('annual_income', annualIncome)
     }
 
-    // Fetch initial AMI values based on household size.
-    this.setState({hudAMI: 5})
-    this.setState({stateAMI: 5})
-  }
-
-  componentDidUpdate() {
-    // Check if household size has changed, if it has, re-fetch AMIs
-    console.log('income component did update: ', this.props.formApi.values)
+    getAMIAction({chartType: this.state.amiCharts[0].name, chartYear: this.state.amiCharts[0].year}).then(response =>
+      this.setState({amis: response})
+    )
   }
 
   render() {
@@ -98,22 +101,16 @@ class ConfirmedHouseholdIncome extends React.Component {
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
-        <FormGrid.Item>
-          <FormGroupTextValue label="Calculated % of AMI - HUD"
-                              id="ami-hud"
-                              name="ami-hud"
-                              describeId="ami-hud"
-                              note="Based on Final Household Income"
-                              value={getAMIPercent(formApi.values.hh_total_income_with_assets_annual, this.state.hudAMI)}/>
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <FormGroupTextValue label="Calculated % of AMI - State"
-                              id="ami-state"
-                              name="ami-state"
-                              describeId="ami-hud"
-                              note="Based on Final Household Income"
-                              value={getAMIPercent(formApi.values.hh_total_income_with_assets_annual, this.state.stateAMI)}/>
-        </FormGrid.Item>
+        {this.state.amiCharts.map((chart) =>
+          <FormGrid.Item>
+            <FormGroupTextValue label={chart.name}
+                                id="ami-hud"
+                                name="ami-hud"
+                                describeId="ami-hud"
+                                note="Based on Final Household Income"
+                                value={getAMIPercent({applicationValues: formApi.values, chart: chart, amis: this.state.amis})}/>
+          </FormGrid.Item>
+        )}
       </FormGrid.Row>
       </React.Fragment>
     )

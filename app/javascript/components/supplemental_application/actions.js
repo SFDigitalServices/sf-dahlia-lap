@@ -10,3 +10,12 @@ export const updateApplicationAction = async (application) => {
   }
   return response
 }
+
+export const getAMIAction = async ({chartType, chartYear}) => {
+	const response = await apiService.getAMI({chartType, chartYear})
+	console.log('AMI action response', response)
+  if (response === false) {
+    Alerts.error()
+  }
+  return response['ami']
+}

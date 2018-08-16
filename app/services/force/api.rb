@@ -1,6 +1,6 @@
 module Force
+  # Requests to Salesforce API
   class Api
-
     def initialize(client)
       @client = client
     end
@@ -13,6 +13,10 @@ module Force
 
     def post(endpoint, params)
       api_call('post', endpoint, params)
+    end
+
+    def get(endpoint, params)
+      api_call('get', endpoint, params)
     end
   end
 end
