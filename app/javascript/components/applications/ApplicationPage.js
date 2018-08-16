@@ -8,7 +8,7 @@ import { mapApplication } from '~/components/mappers/soqlToDomain'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
 const buildActionLinkIfNecessary = (app) => {
-  if (!app.isLotterComplete && app.submissionType === 'Paper') {
+  if (!app.is_lottery_complete && app.application_submission_type === 'Paper') {
     return { title: 'Edit Application', link: appPaths.toApplicationEdit(app.id) }
   } else {
     return undefined
