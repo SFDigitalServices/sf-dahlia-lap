@@ -33,14 +33,14 @@ const LeaseInformationSection = ({ statusHistory }) => (
   </ContentSection>
 )
 
-const ConfirmedHoushold = ({ application, formApi }) => {
+const ConfirmedHoushold = ({ application, formApi, units }) => {
   return (
     <ContentSection title="Confirmed Household">
       <ContentSection.Sub title="Confirmed Reserved and Priority Units">
         <ConfirmedUnits />
       </ContentSection.Sub>
       <ContentSection.Sub title="Confirmed Houshold Income">
-        <ConfirmedHouseholdIncome application={application} formApi={formApi}/>
+        <ConfirmedHouseholdIncome application={application} formApi={formApi} units={units}/>
       </ContentSection.Sub>
     </ContentSection>
   )
@@ -91,14 +91,13 @@ class SupplementalApplicationContainer extends React.Component {
 
   handleOnSubmit = (value) => {
     this.setState({loading: true})
-    console.log('Handling on submit, heres the value', value)
     this.props.onSubmit(value).then(() => {
       this.setState({loading: false})
     })
   }
 
   render() {
-    const { statusHistory, application, fileBaseUrl } = this.props
+    const { statusHistory, application, fileBaseUrl, units } = this.props
     const { loading } = this.state
 
     return (
@@ -109,7 +108,7 @@ class SupplementalApplicationContainer extends React.Component {
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
               <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
-              <ConfirmedHoushold application={application} formApi={formApi}/>
+              <ConfirmedHoushold application={application} formApi={formApi} units={units}/>
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>

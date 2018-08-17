@@ -1,5 +1,5 @@
 import React from 'react'
-import { find, isNil } from 'lodash'
+import { find, isNil, uniqBy } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
@@ -28,19 +28,22 @@ const YesNoRadioGroup = ({field}) => {
   )
 }
 
-const getAMIPercent = ({chart, applicationValues, amis}) => {
-  if (isNil(amis))
-    return "Error: AMI unknown"
-  console.log('Calculating the ami percent', chart, applicationValues, amis)
+const getAMI = ({numHousehold, chartName, chartYear, amis}) => {
+  let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'householdSize': numHousehold})
 
-  let ami = find(amis, {'chartType': chart.name, 'year': chart.year, 'numOfHousehold': applicationValues.total_household_size})
-  console.log(ami)
-  let amiIncome = ami.amount
-  if (isNil(applicationValues.annual_income))
+  if (!isNil(ami)) {
+    return ami.amount
+  }
+}
+
+const getAMIPercent = ({income, ami}) => {
+  if (!income) {
     return "Enter HH Income"
-  if (isNil(amiIncome))
+  }
+  if (isNil(ami)) {
     return "Error: AMI unknown"
-  return applicationValues.annual_income / Number(amiIncome)
+  }
+  return income / Number(ami)
 }
 
 
@@ -48,26 +51,37 @@ const getAMIPercent = ({chart, applicationValues, amis}) => {
 class ConfirmedHouseholdIncome extends React.Component {
 
   state = {
-    amis: null,
-    amiCharts: [{"name": 'HUD Unadjusted', 'year': 2018}]
+    amis: {},
+    amiCharts: []
   }
 
   componentDidMount() {
-    console.log('ConfirmedHouseholdIncome did mount', this.props.formApi.values)
     // Display a calculated annual income if applicant only provided monthly income
     if (isNil(this.props.formApi.values.annual_income) && !isNil(this.props.formApi.values.monthly_income)) {
       let annualIncome = this.props.formApi.values.monthly_income * 12
       this.props.formApi.setValue('annual_income', annualIncome)
     }
 
-    getAMIAction({chartType: this.state.amiCharts[0].name, chartYear: this.state.amiCharts[0].year}).then(response =>
-      this.setState({amis: response})
-    )
+    // Determine which unique AMI charts are associated with units on the listing
+    let chartsToLoad = uniqBy(this.props.units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
+
+    this.setState({'amiCharts': chartsToLoad.map((chart) => {
+      return {"name": chart.ami_chart_type, "year": chart.ami_chart_year}}
+      )
+    })
+
+    // Load the state with ami values for each chart associated with the listing.
+    chartsToLoad.forEach( (chart) =>
+      getAMIAction({chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year}).then(response => {
+        this.setState({amis: [...this.state.amis, ...response]})
+      }
+    ))
+
   }
 
   render() {
     const { formApi } = this.props
-
+    const { amis } = this.state
     return (
       <React.Fragment>
       <FormGrid.Row>
@@ -101,15 +115,18 @@ class ConfirmedHouseholdIncome extends React.Component {
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
-        {this.state.amiCharts.map((chart) =>
-          <FormGrid.Item>
-            <FormGroupTextValue label={chart.name}
+        {this.state.amiCharts.map((chart) => {
+          let ami = getAMI({numHousehold: formApi.values.total_household_size, chartName: chart.name, chartYear: chart.year, amis: amis})
+          return (
+            <FormGrid.Item key={chart.name + chart.year}>
+            <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}
                                 id="ami-hud"
                                 name="ami-hud"
                                 describeId="ami-hud"
                                 note="Based on Final Household Income"
-                                value={getAMIPercent({applicationValues: formApi.values, chart: chart, amis: this.state.amis})}/>
+                                value={getAMIPercent({income: formApi.values.hh_total_income_with_assets_annual, ami: ami})}/>
           </FormGrid.Item>
+          )}
         )}
       </FormGrid.Row>
       </React.Fragment>

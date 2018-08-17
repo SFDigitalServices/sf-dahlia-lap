@@ -4,11 +4,11 @@ import SupplementalApplicationContainer from './SupplementalApplicationContainer
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
-import { mapApplication, mapFieldUpdateComment } from '~/components/mappers/soqlToDomain'
+import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
 import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
 
-const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit, fileBaseUrl }) => {
+const SupplementalApplicationPage = ({ application, statusHistory, formFields, onSubmit, fileBaseUrl, units }) => {
   const pageHeader = {
     title: `${application.name}: ${application.applicant.name}`,
     breadcrumbs: [
@@ -33,18 +33,19 @@ const SupplementalApplicationPage = ({ application, statusHistory, formFields, o
         formFields={formFields}
         onSubmit={onSubmit}
         fileBaseUrl={fileBaseUrl}
+        units={units}
       />
     </CardLayout>
   )
 }
 
-const mapProperties = ({application, statusHistory, file_base_url}) => {
-  console.log(mapApplication(application))
+const mapProperties = ({application, statusHistory, file_base_url, units}) => {
   return {
     application: mapApplication(application),
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
     onSubmit:  (values) => updateApplicationAction(values),
-    fileBaseUrl: file_base_url
+    fileBaseUrl: file_base_url,
+    units: units.map(unit => mapUnit(unit))
   }
 }
 

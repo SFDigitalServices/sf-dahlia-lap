@@ -49,7 +49,6 @@ const fetchApplications = async ({ page, filters }) => {
 }
 
 const getAMI = async ({ chartType, chartYear }) => {
-  console.log(chartType, chartYear)
   return apiCall('get', '/ami', {
     params: {
       chartType: chartType,
