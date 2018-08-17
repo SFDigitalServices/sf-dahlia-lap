@@ -9,6 +9,7 @@ const getCloseLink = (type, onCloseClick) => {
 }
 
 const AlertBox = ({ message, invert, noMargin, onCloseClick, dismiss, closeType }) => {
+  //TODO: dismiss seems to be useless here, you can handle show or not showing this component from outside + callback, Fed
   if (dismiss)
     return null
 

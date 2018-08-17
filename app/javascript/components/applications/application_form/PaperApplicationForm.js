@@ -11,7 +11,6 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
-
 import AlertBox from '~/components/molecules/AlertBox'
 
 class PaperApplicationForm extends React.Component {

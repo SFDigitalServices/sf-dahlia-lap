@@ -11,6 +11,7 @@ import {
   isAliceGriffith,
   getPreferenceName
 } from './preferences/utils'
+import AlertBox from '~/components/molecules/AlertBox'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
 
@@ -43,6 +44,11 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
   ]
 }
 
+const buildRows = (application, fileBaseUrl) => {
+  const { preferences, proofFiles } = application
+  return map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
+}
+
 const columns = [
   { content: '' },
   { content: 'Preference Name' },
@@ -70,18 +76,41 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onSave }) => {
-  const { preferences, proofFiles } = application
-  const applicationMembers = getFullHousehold(application)
-  const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
-  return (<TableWrapper>
-            <ExpandableTable
-              columns={columns}
-              rows={rows}
-              expanderRenderer={expanderAction}
-              expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave)}
-            />
-          </TableWrapper>)
+class PreferencesTable extends React.Component {
+  state = { failed: true }
+
+  handleOnSave = async (preferenceIndex, application) => {
+    const { onSave } = this.props
+
+    await onSave(preferenceIndex, application)
+    this.setState({ failed: true })
+  }
+
+  render() {
+    const { application, fileBaseUrl } = this.props
+    const { failed } = this.state
+    const applicationMembers = getFullHousehold(application)
+    const rows = buildRows(application, fileBaseUrl)
+    return (
+            <React.Fragment>
+              { failed && (
+                <AlertBox
+                  invert
+                  onCloseClick={() => this.setState({ failed: false })}
+                  message="We weren't able to save your updates. Please try again" />
+                )
+              }
+              <TableWrapper>
+                <ExpandableTable
+                  columns={columns}
+                  rows={rows}
+                  expanderRenderer={expanderAction}
+                  expandedRowRenderer={expandedRowRenderer(application, applicationMembers, this.handleOnSave)}
+                />
+              </TableWrapper>
+            </React.Fragment>
+          )
+  }
 }
 
 export default PreferencesTable
