@@ -33,6 +33,13 @@ Array [
               </span>
             </p>
           </div>
+          <div
+            className="medium-4 columns no-padding"
+          >
+            <span
+              className="lead-header_secondary-action"
+            />
+          </div>
         </hgroup>
       </div>
     </div>

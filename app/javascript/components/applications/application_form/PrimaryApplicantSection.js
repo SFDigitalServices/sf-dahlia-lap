@@ -6,15 +6,9 @@ import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
 import domainToApi from '~/components/mappers/domainToApi'
+import { mailingAddressFieldMap } from './utils'
 
 let { phone_type_options } = formOptions
-
-let mailingAddressFieldMap = {
-  address: 'mailingAddress',
-  city: 'mailingCity',
-  state: 'mailingState',
-  zip: 'mailingZip',
-}
 
 const validateError = validate({
   DOB: validate.any(

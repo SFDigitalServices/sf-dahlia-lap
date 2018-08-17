@@ -77,6 +77,8 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
+    const { editPage } = this.props
+
     this.setState({ submittedValues, loading: true, failed: false })
     let applicationData = submittedValues
     applicationData.listingID = this.props.listing.id
@@ -98,7 +100,8 @@ class PaperApplicationForm extends React.Component {
 
     if (response) {
       if (this.state.submitType === 'Save') {
-        window.location.href = '/applications/' + response.application.id
+        const showAddBtn  = editPage ? '' : '?showAddBtn=true'
+        window.location.href = '/applications/' + response.application.id + showAddBtn
       }
       else {
         window.location.href = '/listings/' + this.props.listing.id + '/applications/new'
