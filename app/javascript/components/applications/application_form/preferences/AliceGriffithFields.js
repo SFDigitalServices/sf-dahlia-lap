@@ -41,7 +41,7 @@ const AddressRow = ({fieldId}) => (
           </Column>
           <Column span={6} end>
             <Field.Text
-              label="zip"
+              label="Zip"
               field={fieldId('zipCode')}
             />
           </Column>
@@ -56,7 +56,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
   const fieldId = (field) => buildFieldId(i, field)
 
   return (
-    <React.Fragment>
+    <Column>
       <Row form>
         <Column span={3} form>
           <Field.Select
@@ -79,8 +79,8 @@ const AliceGriffithFields = ({i, householdMembers}) => {
       </Row>
       <AddressRow fieldId={fieldId}/>
       <p>Please check to make sure that a document proving the preference address was attached to the application. If no proof document was attached, do not select this preference.</p>
-						<p>MOHCD will verify that the applicant provided a valid address.</p>
-    </React.Fragment>
+      <p>MOHCD will verify that the applicant provided a valid address.</p>
+    </Column>
   )
 }
 

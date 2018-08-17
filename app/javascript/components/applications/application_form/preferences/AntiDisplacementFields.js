@@ -17,8 +17,8 @@ const AntiDisplacementFields = ({ householdMembers, i }) => {
           field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
-        <label>Type of Proof</label>
         <Field.Select
+          label="Type of Proof"
           field={buildFieldId(i,'preferenceProof')}
           options={preference_proof_options_nrhp}
         />
