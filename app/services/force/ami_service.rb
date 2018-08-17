@@ -5,7 +5,7 @@ module Force
       response = api_get('/ami', params)
       amis = []
       response.each do |ami|
-        amis.push(chartType: ami[:chartType], year: ami[:year], householdSize: ami[:numOfHousehold], amount: ami[:amount])
+        amis.push(ami.slice(:chartType, :year, :numOfHousehold, :amount))
       end
       amis
     end

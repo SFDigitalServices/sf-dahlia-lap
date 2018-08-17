@@ -29,8 +29,9 @@ const YesNoRadioGroup = ({field}) => {
 }
 
 const getAMI = ({numHousehold, chartName, chartYear, amis}) => {
-  let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'householdSize': numHousehold})
-
+  console.log(amis, numHousehold, chartName, chartYear)
+  let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'numOfHousehold': numHousehold})
+  console.log(ami)
   if (!isNil(ami)) {
     return ami.amount
   }
@@ -57,13 +58,14 @@ class ConfirmedHouseholdIncome extends React.Component {
 
   componentDidMount() {
     // Display a calculated annual income if applicant only provided monthly income
-    if (isNil(this.props.formApi.values.annual_income) && !isNil(this.props.formApi.values.monthly_income)) {
-      let annualIncome = this.props.formApi.values.monthly_income * 12
+    const { monthly_income, annual_income } = this.props.formApi.values
+    if (isNil(annual_income) && !isNil(monthly_income)) {
+      let annualIncome = monthly_income * 12
       this.props.formApi.setValue('annual_income', annualIncome)
     }
 
     // Determine which unique AMI charts are associated with units on the listing
-    let chartsToLoad = uniqBy(this.props.units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
+    const chartsToLoad = uniqBy(this.props.units, u => [u.ami_chart_type, u.ami_chart_year].join())
 
     this.setState({'amiCharts': chartsToLoad.map((chart) => {
       return {"name": chart.ami_chart_type, "year": chart.ami_chart_year}}
@@ -80,7 +82,7 @@ class ConfirmedHouseholdIncome extends React.Component {
   }
 
   render() {
-    const { formApi } = this.props
+    const { total_household_size, hh_total_income_with_assets_annual } = this.props.formApi.values
     const { amis } = this.state
     return (
       <React.Fragment>
@@ -116,15 +118,16 @@ class ConfirmedHouseholdIncome extends React.Component {
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         {this.state.amiCharts.map((chart) => {
-          let ami = getAMI({numHousehold: formApi.values.total_household_size, chartName: chart.name, chartYear: chart.year, amis: amis})
+          let ami = getAMI({numHousehold: total_household_size, chartName: chart.name, chartYear: chart.year, amis: amis})
+          let id = `ami-${chart.name}`
           return (
             <FormGrid.Item key={chart.name + chart.year}>
             <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}
-                                id={`ami-${chart.name}`}
-                                name={`ami-${chart.name}`}
-                                describeId={`ami-${chart.name}`}
+                                id={id}
+                                name={id}
+                                describeId={id}
                                 note="Based on Final Household Income"
-                                value={getAMIPercent({income: formApi.values.hh_total_income_with_assets_annual, ami: ami})}/>
+                                value={getAMIPercent({income: hh_total_income_with_assets_annual, ami: ami})}/>
           </FormGrid.Item>
           )}
         )}

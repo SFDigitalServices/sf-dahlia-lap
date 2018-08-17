@@ -45,7 +45,7 @@ const mapProperties = ({application, statusHistory, file_base_url, units}) => {
     statusHistory: mapList(mapFieldUpdateComment,statusHistory),
     onSubmit:  (values) => updateApplicationAction(values),
     fileBaseUrl: file_base_url,
-    units: units.map(unit => mapUnit(unit))
+    units: mapList(mapUnit, units)
   }
 }
 
