@@ -1,4 +1,9 @@
 // Shamles copy paste from react-form/redux/utils, Fed
+
+// NOTE: I tried to use lodash methods here for isArray, isObject, and flattenDeep
+//       but for some reason using lodash methods broke the validation.
+//       We are going to keep this methods until we can figure out why lodash does not work.
+// TODO: Replace lodash method if possible.
 function isArray(a) {
   return Array.isArray(a);
 }
