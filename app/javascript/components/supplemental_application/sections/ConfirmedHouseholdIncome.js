@@ -100,7 +100,7 @@ class ConfirmedHouseholdIncome extends React.Component {
         <FormGrid.Item>
           <FormGrid.Group label="Household Annual Income">
             <Text field="annual_income"
-                  placeholder="$45,000"
+                  placeholder="Enter Amount"
             />
             <span className="form-note shift-up" id="household-annual-income">Not Including % of Assets</span>
           </FormGrid.Group>
