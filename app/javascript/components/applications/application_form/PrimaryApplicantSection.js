@@ -6,15 +6,9 @@ import classNames from 'classnames'
 import moment from 'moment'
 
 import domainToApi from '~/components/mappers/domainToApi'
+import { mailingAddressFieldMap } from './utils'
 
 let { phone_type_options } = formOptions
-
-let mailingAddressFieldMap = {
-  address: 'mailingAddress',
-  city: 'mailingCity',
-  state: 'mailingState',
-  zip: 'mailingZip',
-}
 
 const validates = (fun, message) => (value) => {
   return fun(value) ? null : message
