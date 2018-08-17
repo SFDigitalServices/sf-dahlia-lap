@@ -37,12 +37,11 @@ Rails.application.routes.draw do
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
       end
+
+      resources :applications
       scope '/field-update-comments' do
         post 'create' => 'field_update_comments#create'
       end
-
-      resources :applications
-
       get 'ami' => 'ami#get'
     end
   end
