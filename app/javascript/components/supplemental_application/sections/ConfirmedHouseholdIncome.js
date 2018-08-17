@@ -120,9 +120,9 @@ class ConfirmedHouseholdIncome extends React.Component {
           return (
             <FormGrid.Item key={chart.name + chart.year}>
             <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}
-                                id="ami-hud"
-                                name="ami-hud"
-                                describeId="ami-hud"
+                                id={`ami-${chart.name}`}
+                                name={`ami-${chart.name}`}
+                                describeId={`ami-${chart.name}`}
                                 note="Based on Final Household Income"
                                 value={getAMIPercent({income: formApi.values.hh_total_income_with_assets_annual, ami: ami})}/>
           </FormGrid.Item>
