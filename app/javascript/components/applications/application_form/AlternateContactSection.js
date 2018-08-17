@@ -1,9 +1,10 @@
 import React from 'react'
-import { forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 
 import domainToApi from '~/components/mappers/domainToApi'
+import AddressForm from './AddressForm'
+import { mailingAddressFieldMap } from './utils'
 
 const {
   alternate_contact_options,
@@ -67,6 +68,7 @@ const AlternateContactSection = ({editValues}) => {
                 <Select field="phoneType" options={phone_type_options} />
               </div>
             </div>
+            <AddressForm title="Mailing Address" memberType="alternateContact" fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>
