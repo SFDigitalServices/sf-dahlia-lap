@@ -5,7 +5,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { RadioGroup, Radio, Text } from 'react-form';
 import { getAMIAction } from '~/components/supplemental_application/actions'
-
+import { formatPercent } from '~/utils/utils'
 
 const YesNoRadioGroup = ({field}) => {
   return (
@@ -43,7 +43,7 @@ const getAMIPercent = ({income, ami}) => {
   if (isNil(ami)) {
     return "Error: AMI unknown"
   }
-  return income / Number(ami)
+  return formatPercent(income / Number(ami))
 }
 
 

@@ -8,3 +8,8 @@ export default {
   cleanField,
   SALESFORCE_DATE_FORMAT,
 }
+
+
+export const formatPercent = (value) => {
+  return ((value * 100).toFixed(0) + '%')
+}
