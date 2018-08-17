@@ -2,58 +2,27 @@ import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import classNames from 'classnames'
-import moment from 'moment'
 
+import validate from '~/utils/form/validations'
+import { Field } from '~/utils/form/Field'
 import domainToApi from '~/components/mappers/domainToApi'
 import { mailingAddressFieldMap } from './utils'
 
 let { phone_type_options } = formOptions
 
-const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
-}
-
-const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth,'years')
-  return years >= 18
-}
-
-const isValidDate = (dateOfBirth) => {
-  if (dateOfBirth) {
-    // Check that the date is valid and not in the future
-    return moment(dateOfBirth).isValid() && (moment().diff(dateOfBirth, 'days') > 0)
-  }
-}
-
-const FormError = ({formApi, field }) => {
-  if ((formApi.touched[field] || formApi.submitted) && formApi.errors[field])
-    return <span className="small error">{formApi.errors[field]}</span>
-  else
-    return null
-}
-
-const errorClassName = (formApi, field) => {
-  if (formApi.touched[field] || formApi.submitted)
-    return { error: !!formApi.errors[field] }
-  else
-    return null
-}
+const validateError = validate({
+  DOB: validate.any(
+    validate.isValidDate("Please enter a valid date"),
+    validate.isOldEnough("The primary applicant must be 18 years of age or older")
+  ),
+  firstName: validate.isPresent("Input must contain name")
+})
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = domainToApi.mapApplicant(editValues.applicant)
     formApi.values.primaryApplicant = autofillValues
-  }
-
-  const validateError = (values) => {
-    return  {
-      'DOB': (
-        validates(isValidDate, "Please enter a valid date")(values.DOB) ||
-        validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.DOB)
-      ),
-    }
   }
 
   return (
@@ -67,8 +36,12 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             <div className="row">
               <div className="form-group">
                 <div className="small-4 columns">
-                  <label>First Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="firstName" />
+                  <Field.Text
+                    label="First name"
+                    blockNote="(required)"
+                    field="firstName"
+                    errorMessage={(label, error) => error }
+                  />
                 </div>
                 <div className="small-4 columns">
                   <label>Middle Name</label>
@@ -96,22 +69,19 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             </div>
             <div className="row">
               <div className="small-4 columns">
-                <div className={classNames('form-group', errorClassName(formApi,'DOB'))}>
-                  <label className='form-label'>Date of Birth</label>
-                  <Text
-                    field="DOB"
-                    type="date"
-                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                    placeholder="YYYY-MM-DD"
-                    className={classNames(errorClassName(formApi, 'DOB'))} />
-                  <FormError formApi={formApi} field='DOB'/>
-                </div>
+                <Field.Text
+                   field='DOB'
+                   label='Date of Birth'
+                   blockNote='(required)'
+                   type="date"
+                   pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                   placeholder="YYYY-MM-DD"
+                   errorMessage={(label, error) => error }
+                />
               </div>
             </div>
-
             <AddressForm title="Home Address" memberType="primaryApplicant" />
             <AddressForm title="Mailing Address" memberType="primaryApplicant"  fieldMap={mailingAddressFieldMap} />
-
           </div>
         )}
       </Form>

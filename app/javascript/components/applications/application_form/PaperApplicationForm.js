@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
 import { Form } from 'react-form'
+
 import apiService from '~/apiService'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -14,6 +15,21 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
+import validate from '~/utils/form/validations'
+
+const validatePreference = validate({
+  naturalKey: validate.isPresent("is required"),
+  individualPreference: validate.isPresent("is required"),
+  preferenceProof: validate.isPresent("is required"),
+  address: validate.isPresent("is required"),
+  city: validate.isPresent("is required"),
+  state: validate.isPresent("is required"),
+  zipCode: validate.isPresent("is required")
+})
+
+const validateError = validate({
+  shortFormPreferences: validate.list(validatePreference)
+})
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -121,7 +137,7 @@ class PaperApplicationForm extends React.Component {
 
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={autofillValues}>
+        <Form onSubmit={this.submitShortForm} defaultValues={autofillValues} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">

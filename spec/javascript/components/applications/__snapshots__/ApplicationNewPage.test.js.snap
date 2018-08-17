@@ -110,19 +110,28 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        First Name 
-                        <span
-                          className="checkbox-block_note no-margin"
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="firstName"
                         >
-                          (required)
-                        </span>
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value=""
-                      />
+                          First name 
+                          <span
+                            className="checkbox-block_note no-margin"
+                          >
+                            (required)
+                          </span>
+                        </label>
+                        <input
+                          className=""
+                          id="firstName"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value=""
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
@@ -231,11 +240,18 @@ Array [
                     >
                       <label
                         className="form-label"
+                        htmlFor="DOB"
                       >
-                        Date of Birth
+                        Date of Birth 
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <input
                         className=""
+                        id="DOB"
                         onBlur={[Function]}
                         onChange={[Function]}
                         pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
