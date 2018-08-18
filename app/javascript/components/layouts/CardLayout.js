@@ -12,7 +12,7 @@ class CardLayout extends React.Component {
   }
 
   render() {
-    const { children, pageHeader, tabSection } = this.props
+    const { children, pageHeader, tabSection, toolbar } = this.props
 
     return (
       <React.Fragment>
@@ -25,9 +25,12 @@ class CardLayout extends React.Component {
           )
           :
           (
-            <TabCard padding={true}>
-              <AppCard>{children}</AppCard>
-            </TabCard>
+            <React.Fragment>
+              { toolbar && toolbar() }
+              <TabCard padding={true}>
+                <AppCard>{children}</AppCard>
+              </TabCard>
+            </React.Fragment>
           )
         }
       </React.Fragment>
