@@ -1,16 +1,23 @@
 # RESTful JSON API to query for short form actions
+# rubocop:disable Style/BracesAroundHashParameters
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
   def submit
-    logger.debug "application_api_params: #{application_api_params}"
-    short_form_validator = ShortFormValidator.new(application_api_params)
-    if short_form_validator.valid?
-      application = application_service.submit(application_api_params)
-      logger.debug "application submit response: #{application}"
-      render json: { application: application }
+    # logger.debug "application_api_params: #{application_api_params}"
+    # short_form_validator = ShortFormValidator.new(application_api_params)
+    # if short_form_validator.valid?
+    #   application = application_service.submit(application_api_params)
+    #   logger.debug "application submit response: #{application}"
+    #   render json: { application: application }
+    # else
+    #   render status: 422, json: { errors: short_form_validator.errors.full_messages }
+    # end
+
+    if [true, false].sample
+      render json: { application: application_api_params }
     else
-      render status: 422, json: { errors: short_form_validator.errors.full_messages }
+      render status: 422, json: { errors: [] }
     end
   end
 

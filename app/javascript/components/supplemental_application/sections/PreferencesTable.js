@@ -11,7 +11,6 @@ import {
   isAliceGriffith,
   getPreferenceName
 } from './preferences/utils'
-import AlertBox from '~/components/molecules/AlertBox'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
 
@@ -59,14 +58,18 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave) => (row, toggle) => {
+const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
+  const onClose = () => {
+    toggle()
+    onPanelClose && onPanelClose()
+  }
   return <Panel
             application={application}
             preferenceIndex={preferenceIndex}
             applicationMembers={applicationMembers}
             onSave={onSave}
-            onClose={toggle}
+            onClose={onClose}
           />
 }
 
@@ -76,41 +79,21 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
-class PreferencesTable extends React.Component {
-  state = { failed: true }
-
-  handleOnSave = async (preferenceIndex, application) => {
-    const { onSave } = this.props
-
-    await onSave(preferenceIndex, application)
-    this.setState({ failed: true })
-  }
-
-  render() {
-    const { application, fileBaseUrl } = this.props
-    const { failed } = this.state
+const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, onPanelClose }) => {
     const applicationMembers = getFullHousehold(application)
     const rows = buildRows(application, fileBaseUrl)
     return (
             <React.Fragment>
-              { failed && (
-                <AlertBox
-                  invert
-                  onCloseClick={() => this.setState({ failed: false })}
-                  message="We weren't able to save your updates. Please try again" />
-                )
-              }
               <TableWrapper>
                 <ExpandableTable
                   columns={columns}
                   rows={rows}
                   expanderRenderer={expanderAction}
-                  expandedRowRenderer={expandedRowRenderer(application, applicationMembers, this.handleOnSave)}
+                  expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
                 />
               </TableWrapper>
             </React.Fragment>
           )
-  }
 }
 
 export default PreferencesTable
