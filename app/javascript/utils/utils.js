@@ -1,3 +1,5 @@
+// FIXME Rename to a more useful filename.
+
 const SALESFORCE_DATE_FORMAT = "YYYY-MM-DDTHH:mm:ss.SSSZZ"
 
 const cleanField = (field) => {
