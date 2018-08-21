@@ -1,4 +1,5 @@
 module Force
+  # Helper class for builiding and executing SOQL queries. Also provieds pagination.
   class SoqlQueryBuilder
     DEFAULT_PAGE_SIZE = 100
 
@@ -27,13 +28,18 @@ module Force
       self
     end
 
-    def whereContains(field, value)
+    def where_contains(field, value)
       where("#{field} like '%#{value}%'")
       self
     end
 
-    def whereEq(field, value)
-      where("#{field} = #{value}")
+    def where_eq(field, value, type = nil)
+      where("#{field} = #{_format_value(type, value)}")
+      self
+    end
+
+    def where_not_in(field, list)
+      where("#{field} NOT IN (#{list.join(',')})")
       self
     end
 
@@ -89,9 +95,8 @@ module Force
 
     def query
       soql = _query_soql
-      if Rails.env.development?
-        puts "[SOQL] #{soql}"
-      end
+
+      puts "[SOQL] #{soql}" if Rails.env.development?
 
       records = @client.query(soql)
       if paginate?
@@ -120,7 +125,7 @@ module Force
     end
 
     def _query_soql
-      query_str = ""
+      query_str = ''
       query_str += "SELECT #{@select} #{_from_soql}"
       query_str += " #{_paginate_soql}" if paginate?
       query_str
@@ -138,16 +143,24 @@ module Force
       @where.map { |a| "(#{a})" }.join(' AND ')
     end
 
-    def _result(records, pages = nil, page = nil )
+    def _result(records, pages = nil, page = nil)
       records = @transform_results.call(records) if @transform_results.present?
 
-      Hashie::Mash.new({
+      Hashie::Mash.new(
         records: records,
         pages: pages,
         page: page,
-        total_size: total_size
-      })
+        total_size: total_size,
+      )
     end
 
+    def _format_value(type, value)
+      case type.to_sym
+      when :string
+        "'#{value}'"
+      else
+        value
+      end
+    end
   end
 end

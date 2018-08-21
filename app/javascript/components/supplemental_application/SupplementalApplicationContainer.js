@@ -9,6 +9,7 @@ import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
+import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
 
 import { getFullHousehold } from '~/components/applications/application_form/preferences/utils.js'
 
@@ -18,12 +19,15 @@ const StatusUpdateSection = () => (
   </ContentSection.Content>
 )
 
-const LeaseInformationSection = ({ statusHistory }) => (
+const LeaseInformationSection = ({ statusHistory, availableUnits }) => (
   <ContentSection title="Lease Information">
+    <ContentSection.Content borderBottom>
+      <LeaseInformatonInputs availableUnits={availableUnits} />
+    </ContentSection.Content>
     <ContentSection.Sub title="Demographics">
       <DemographicsInputs/>
     </ContentSection.Sub>
-    {!isEmpty(statusHistory) &&(
+    {!isEmpty(statusHistory) && (
         <ContentSection.Sub title="Status History" borderBottom={false}>
           <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')}/>
         </ContentSection.Sub>
@@ -93,7 +97,7 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, application, fileBaseUrl } = this.props
+    const { statusHistory, application, fileBaseUrl, availableUnits } = this.props
     const { loading } = this.state
 
     return (
@@ -105,7 +109,7 @@ class SupplementalApplicationContainer extends React.Component {
               <ContentSection title="Current Contact Information"/>
               <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
               <ConfirmedHoushold />
-              <LeaseInformationSection statusHistory={statusHistory} />
+              <LeaseInformationSection statusHistory={statusHistory} availableUnits={availableUnits} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>
             </form>

@@ -10,14 +10,14 @@ const ContentSection = ({title, description, children}) => (
 
 ContentSection.Header = ({title, description}) => (
   <div className='app-inner header-wide'>
-    <h2 className="app-card_h2">{title}</h2>
+    {title && <h2 className="app-card_h2">{title}</h2>}
     {description && <p className="form-note max-width">{description}</p>}
   </div>
 )
 
 ContentSection.SubHeader = ({title , description}) => (
   <div className="app-inner subheader-wide">
-    <h3 className="app-card_h3 t-sans">{title}</h3>
+    {title && <h3 className="app-card_h3 t-sans">{title}</h3>}
     {description && <p className="form-note max-width">{description}</p>}
   </div>
 )
