@@ -1,10 +1,9 @@
 import React from 'react'
-import { find, isNil, uniqBy } from 'lodash'
+import { find, isNil } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { RadioGroup, Radio, Text } from 'react-form';
-import { getAMIAction } from '~/components/supplemental_application/actions'
 import { formatPercent } from '~/utils/utils'
 
 const YesNoRadioGroup = ({field}) => {
@@ -51,39 +50,9 @@ const getAMIPercent = ({income, ami}) => {
 
 class ConfirmedHouseholdIncome extends React.Component {
 
-  state = {
-    amis: {},
-    amiCharts: []
-  }
-
-  componentDidMount() {
-    // Display a calculated annual income if applicant only provided monthly income
-    const { monthly_income, annual_income } = this.props.formApi.values
-    if (isNil(annual_income) && !isNil(monthly_income)) {
-      let annualIncome = monthly_income * 12
-      this.props.formApi.setValue('annual_income', annualIncome)
-    }
-
-    // Determine which unique AMI charts are associated with units on the listing
-    const chartsToLoad = uniqBy(this.props.units, u => [u.ami_chart_type, u.ami_chart_year].join())
-
-    this.setState({'amiCharts': chartsToLoad.map((chart) => {
-      return {"name": chart.ami_chart_type, "year": chart.ami_chart_year}}
-      )
-    })
-
-    // Load the state with ami values for each chart associated with the listing.
-    chartsToLoad.forEach( (chart) =>
-      getAMIAction({chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year}).then(response => {
-        this.setState({amis: [...this.state.amis, ...response]})
-      }
-    ))
-
-  }
-
   render() {
     const { total_household_size, hh_total_income_with_assets_annual } = this.props.formApi.values
-    const { amis } = this.state
+    const { amis, amiCharts } = this.props
     return (
       <React.Fragment>
       <FormGrid.Row>
@@ -117,7 +86,7 @@ class ConfirmedHouseholdIncome extends React.Component {
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
-        {this.state.amiCharts.map((chart) => {
+        {amiCharts.map((chart) => {
           let ami = getAMI({numHousehold: total_household_size, chartName: chart.name, chartYear: chart.year, amis: amis})
           let id = `ami-${chart.name}`
           return (
