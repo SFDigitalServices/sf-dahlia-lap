@@ -23,8 +23,7 @@ const getAmis = async (chartsToLoad) => {
     return getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year })
   })
   const amis = await Promise.all(promises)
-
-  return amis
+  return [].concat.apply([], amis)
 }
 
 class SupplementalApplicationPage extends React.Component {
@@ -42,33 +41,9 @@ class SupplementalApplicationPage extends React.Component {
     getAmis(chartsToLoad).then(amis => this.setState({ amis }))
   }
 
-  // OLD__componentDidMount() {
-  //   // Display a calculated annual income if applicant only provided monthly income
-  //   const { monthly_income, annual_income } = this.props.formApi.values
-  //   if (isNil(annual_income) && !isNil(monthly_income)) {
-  //     let annualIncome = monthly_income * 12
-  //     this.props.formApi.setValue('annual_income', annualIncome)
-  //   }
-  //
-  //   // Determine which unique AMI charts are associated with units on the listing
-  //   const chartsToLoad = uniqBy(this.props.units, u => [u.ami_chart_type, u.ami_chart_year].join())
-  //
-  //   this.setState({'amiCharts': chartsToLoad.map((chart) => {
-  //     return {"name": chart.ami_chart_type, "year": chart.ami_chart_year}}
-  //     )
-  //   })
-  //
-  //   // Load the state with ami values for each chart associated with the listing.
-  //   chartsToLoad.forEach( (chart) =>
-  //     getAMIAction({chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year}).then(response => {
-  //       this.setState({amis: [...this.state.amis, ...response]})
-  //     }
-  //   ))
-  //
-  // }
-
   render() {
-    const { application, statusHistory, fileBaseUrl, units, onSubmit } = this.props
+    const { application, statusHistory, fileBaseUrl, onSubmit } = this.props
+    const { amis, amiCharts } = this.state
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -91,16 +66,15 @@ class SupplementalApplicationPage extends React.Component {
           statusHistory={statusHistory}
           onSubmit={onSubmit}
           fileBaseUrl={fileBaseUrl}
-          units={units}
+          amiCharts={amiCharts}
+          amis={amis}
         />
       </CardLayout>
     )
   }
 }
 
-
-// OPTIONS 1
-const getAnualIncome = ({ monthly_income, annual_income }) => {
+const getAnnualIncome = ({ monthly_income, annual_income }) => {
   if (isNil(annual_income) && !isNil(monthly_income)) {
     return monthly_income * 12
   } else {
@@ -111,11 +85,10 @@ const getAnualIncome = ({ monthly_income, annual_income }) => {
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
 
-  applicationWithDefaults.annual_income = getAnualIncome(application)
+  applicationWithDefaults.annual_income = getAnnualIncome(application)
 
   return applicationWithDefaults
 }
-//
 
 const mapProperties = ({ application, statusHistory, file_base_url, units }) => {
   return {
