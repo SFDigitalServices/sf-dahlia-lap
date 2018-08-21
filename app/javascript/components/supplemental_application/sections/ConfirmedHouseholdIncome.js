@@ -50,6 +50,16 @@ const getAMIPercent = ({income, ami}) => {
 
 class ConfirmedHouseholdIncome extends React.Component {
 
+  // OPTIONS 2
+  componentDidMount() {
+    // Display a calculated annual income if applicant only provided monthly income
+    const { monthly_income, annual_income } = this.props.formApi.values
+    if (isNil(annual_income) && !isNil(monthly_income)) {
+      let annualIncome = monthly_income * 12
+      this.props.formApi.setValue('annual_income', annualIncome)
+    }
+  }
+
   render() {
     const { total_household_size, hh_total_income_with_assets_annual } = this.props.formApi.values
     const { amis, amiCharts } = this.props
