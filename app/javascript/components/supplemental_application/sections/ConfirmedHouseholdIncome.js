@@ -49,6 +49,7 @@ const getAMIPercent = ({income, ami}) => {
 const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi}) => {
 
   const { total_household_size, hh_total_income_with_assets_annual } = formApi.values
+
   return (
     <React.Fragment>
     <FormGrid.Row>
