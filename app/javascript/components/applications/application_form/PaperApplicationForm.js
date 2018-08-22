@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
+import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil, includes } from 'lodash'
 import { Form } from 'react-form'
 
 import apiService from '~/apiService'
@@ -17,6 +17,10 @@ import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
 import validate from '~/utils/form/validations'
 
+const isRecordType = (...record_types) => (values) => {
+  return includes(record_types, values.recordTypeDevName)
+}
+
 const validatePreference = validate({
   naturalKey: validate.isPresent("is required"),
   individualPreference: validate.isPresent("is required"),
@@ -25,6 +29,14 @@ const validatePreference = validate({
   city: validate.isPresent("is required"),
   state: validate.isPresent("is required"),
   zipCode: validate.isPresent("is required")
+},
+{ // If this applies, run the above validation on that field.
+  individualPreference: isRecordType('RB_AHP', 'L_W'),
+  preferenceProof: isRecordType('NRHP','L_W', 'AG'),
+  address: isRecordType('AG'),
+  city: isRecordType('AG'),
+  state: isRecordType('AG'),
+  zipCode: isRecordType('AG'),
 })
 
 const validateError = validate({
@@ -140,6 +152,7 @@ class PaperApplicationForm extends React.Component {
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
+              <div>{JSON.stringify(formApi.errors)}</div>
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <AlertBox
