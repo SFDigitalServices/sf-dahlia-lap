@@ -13,8 +13,8 @@ module Force
     # BUILDER
     ################################
 
-    def select(select)
-      @select = select
+    def select(*select)
+      @select = Array(select).join(', ')
       self
     end
 
