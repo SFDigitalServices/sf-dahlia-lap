@@ -52,8 +52,5 @@ validate.any = (...fns) => (value) => {
           compact(
             map(fns, fn => fn(value))))
 }
-// validate.if = fn => values => {
-//   return values
-// }
 
 export default validate

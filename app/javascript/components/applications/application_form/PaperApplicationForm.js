@@ -152,7 +152,6 @@ class PaperApplicationForm extends React.Component {
         <Form onSubmit={this.submitShortForm} defaultValues={autofillValues} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
-              <div>{JSON.stringify(formApi.errors)}</div>
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <AlertBox
