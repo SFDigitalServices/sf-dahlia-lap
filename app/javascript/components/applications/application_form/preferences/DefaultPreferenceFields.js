@@ -9,6 +9,7 @@ const DefaultPreferenceFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Household Member with Proof"
+          blockNote="(required)"
           field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />

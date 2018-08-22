@@ -14,11 +14,13 @@ const AntiDisplacementFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Household Member with Proof"
+          blockNote="(required)"
           field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
         <Field.Select
           label="Type of Proof"
+          blockNote="(required)"
           field={buildFieldId(i,'preferenceProof')}
           options={preference_proof_options_nrhp}
         />

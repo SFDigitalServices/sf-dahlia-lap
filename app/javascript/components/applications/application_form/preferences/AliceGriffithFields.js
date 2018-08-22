@@ -19,6 +19,7 @@ const AddressRow = ({fieldId}) => (
       <Column span={6} form>
         <Field.Text
           label="Alice Griffith Address"
+          blockNote="(required)"
           field={fieldId('address')}
         />
       </Column>
@@ -28,6 +29,7 @@ const AddressRow = ({fieldId}) => (
       <Column span={3} form>
         <Field.Text
           label="City"
+          blockNote="(required)"
           field={fieldId('city')}
         />
       </Column>
@@ -36,12 +38,14 @@ const AddressRow = ({fieldId}) => (
           <Column span={6}>
             <Field.Text
               label="State"
+              blockNote="(required)"
               field={fieldId('state')}
             />
           </Column>
           <Column span={6} end>
             <Field.Text
               label="Zip"
+              blockNote="(required)"
               field={fieldId('zipCode')}
             />
           </Column>
@@ -61,6 +65,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
         <Column span={3} form>
           <Field.Select
             label="HH Member on Proof"
+            blockNote="(required)"
             id='alice-griffith-hh-member-on-proof'
             field={fieldId('naturalKey')}
             options={householdMembers}
@@ -70,6 +75,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
         <Column span={3} form end>
           <Field.Select
             label="Type of Proof"
+            blockNote="(required)"
             id='alice-griffith-type-of-proof'
             field={fieldId('preferenceProof')}
             options={typeOfProofOptions}

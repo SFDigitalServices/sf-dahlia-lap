@@ -10,6 +10,7 @@ const DisplacedFields = ({ formApi, householdMembers, i }) => {
         <Field.Select
           field={buildFieldId(i,'naturalKey')}
           label="Person Who Claimed"
+          blockNote="(required)"
           options={householdMembers}
         />
       </div>
