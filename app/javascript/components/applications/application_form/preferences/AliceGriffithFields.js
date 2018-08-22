@@ -29,7 +29,6 @@ const AddressRow = ({fieldId}) => (
       <Column span={3} form>
         <Field.Text
           label="City"
-          blockNote="(required)"
           field={fieldId('city')}
         />
       </Column>
@@ -38,14 +37,12 @@ const AddressRow = ({fieldId}) => (
           <Column span={6}>
             <Field.Text
               label="State"
-              blockNote="(required)"
               field={fieldId('state')}
             />
           </Column>
           <Column span={6} end>
             <Field.Text
               label="Zip"
-              blockNote="(required)"
               field={fieldId('zipCode')}
             />
           </Column>

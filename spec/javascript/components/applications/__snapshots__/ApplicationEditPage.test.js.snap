@@ -2279,11 +2279,6 @@ Array [
                                 htmlFor="shortFormPreferences.0.city"
                               >
                                 City 
-                                <span
-                                  className="checkbox-block_note no-margin"
-                                >
-                                  (required)
-                                </span>
                               </label>
                               <input
                                 className=""
@@ -2311,11 +2306,6 @@ Array [
                                     htmlFor="shortFormPreferences.0.state"
                                   >
                                     State 
-                                    <span
-                                      className="checkbox-block_note no-margin"
-                                    >
-                                      (required)
-                                    </span>
                                   </label>
                                   <input
                                     className=""
@@ -2337,11 +2327,6 @@ Array [
                                     htmlFor="shortFormPreferences.0.zipCode"
                                   >
                                     Zip 
-                                    <span
-                                      className="checkbox-block_note no-margin"
-                                    >
-                                      (required)
-                                    </span>
                                   </label>
                                   <input
                                     className=""
