@@ -10,6 +10,7 @@ const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
         <Field.Select
           field={buildFieldId(i,'naturalKey')}
           label="Name of COP Holder"
+          blockNote="(required)"
           options={householdMembers}
         />
       </div>

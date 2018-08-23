@@ -2125,6 +2125,11 @@ Array [
                                 htmlFor="shortFormPreferences.0.naturalKey"
                               >
                                 HH Member on Proof 
+                                <span
+                                  className="checkbox-block_note no-margin"
+                                >
+                                  (required)
+                                </span>
                               </label>
                               <select
                                 className=""
@@ -2165,6 +2170,11 @@ Array [
                                 htmlFor="shortFormPreferences.0.preferenceProof"
                               >
                                 Type of Proof 
+                                <span
+                                  className="checkbox-block_note no-margin"
+                                >
+                                  (required)
+                                </span>
                               </label>
                               <select
                                 className=""
@@ -2239,6 +2249,11 @@ Array [
                                 htmlFor="shortFormPreferences.0.address"
                               >
                                 Alice Griffith Address 
+                                <span
+                                  className="checkbox-block_note no-margin"
+                                >
+                                  (required)
+                                </span>
                               </label>
                               <input
                                 className=""
