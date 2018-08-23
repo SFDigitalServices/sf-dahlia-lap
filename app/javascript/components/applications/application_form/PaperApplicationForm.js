@@ -22,6 +22,9 @@ const preferenceRequiredFields = {
   individualPreference: ['RB_AHP', 'L_W'],
   preferenceProof: ['NRHP','L_W', 'AG'],
   address: ['AG'],
+  city: ['AG'],
+  state: ['AG'],
+  zip: ['AG'],
 }
 
 const preferenceRequiresField = (prefName, fieldName) => {
@@ -51,6 +54,9 @@ const buildPrefValidations = (prefs) => {
       individualPreference: getPrefFieldValidation(pref, 'individualPreference'),
       preferenceProof: getPrefFieldValidation(pref, 'preferenceProof'),
       address: getPrefFieldValidation(pref, 'address'),
+      city: getPrefFieldValidation(pref, 'city'),
+      state: getPrefFieldValidation(pref, 'state'),
+      zip: getPrefFieldValidation(pref, 'zip'),
     }
   })
   return prefValidations
