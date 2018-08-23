@@ -10,6 +10,8 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 
+import { withContext } from './context'
+
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -84,37 +86,38 @@ class SupplementalApplicationContainer extends React.Component {
 
   handleOnSubmit = (value) => {
     this.setState({loading: true})
-    this.props.onSubmit(value).then(() => {
+    this.props.store.onSubmit(value).then(() => {
       this.setState({loading: false})
     })
   }
 
   render() {
-    const { statusHistory, application, fileBaseUrl, onSavePreference } = this.props
+    const { store } = this.props
+    const { statusHistory, application, fileBaseUrl, onSavePreference } = store
     const { loading } = this.state
 
     return (
-      <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
-          {formApi => (
-            <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
-              <StatusUpdateSection/>
-              <ContentSection title="Current Contact Information"/>
-              <ConfirmedPreferencesSection
-                application={application}
-                fileBaseUrl={fileBaseUrl}
-                onSave={onSavePreference}
-              />
-              <ConfirmedHoushold />
-              <LeaseInformationSection statusHistory={statusHistory} />
-              <div className="padding-bottom--2x margin-bottom--2x"></div>
-              <ButtonPager disabled={loading}/>
-            </form>
-          )}
-        </Form>
-      </Loading>
-    )
+            <Loading isLoading={loading}>
+              <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
+                {formApi => (
+                  <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
+                    <StatusUpdateSection/>
+                    <ContentSection title="Current Contact Information"/>
+                    <ConfirmedPreferencesSection
+                      application={application}
+                      fileBaseUrl={fileBaseUrl}
+                      onSave={onSavePreference}
+                    />
+                    <ConfirmedHoushold />
+                    <LeaseInformationSection statusHistory={statusHistory} />
+                    <div className="padding-bottom--2x margin-bottom--2x"></div>
+                    <ButtonPager disabled={loading}/>
+                  </form>
+                )}
+              </Form>
+            </Loading>
+          )
   }
 }
 
-export default SupplementalApplicationContainer
+export default withContext(SupplementalApplicationContainer)

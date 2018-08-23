@@ -8,6 +8,7 @@ import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import CardLayout from '../layouts/CardLayout'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
+import Context from './context'
 
 class SupplementalApplicationPage extends React.Component {
 
@@ -68,16 +69,20 @@ class SupplementalApplicationPage extends React.Component {
       ]
     }
 
+    const context = {
+      application:application,
+      statusHistory:statusHistory,
+      onSubmit:this.handleSaveApplication,
+      onSavePreference:this.handleSavePreference,
+      fileBaseUrl:fileBaseUrl
+    }
+
     return (
-      <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-        <SupplementalApplicationContainer
-          application={application}
-          statusHistory={statusHistory}
-          onSubmit={this.handleSaveApplication}
-          onSavePreference={this.handleSavePreference}
-          fileBaseUrl={fileBaseUrl}
-        />
-      </CardLayout>
+      <Context.Provider value={context}>
+        <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+            <SupplementalApplicationContainer/>
+        </CardLayout>
+      </Context.Provider>
     )
   }
 }
