@@ -23,11 +23,7 @@ const validates = (fun, message) => (value) => {
   return fun(value) ? null : message
 }
 
-const decorateValidator = (fn) => {
-  const validatesDecorated = message => validates(fn, message)
-
-  return validatesDecorated
-}
+const decorateValidator = fn => message => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
   const years = moment().diff(dateOfBirth,'years')
