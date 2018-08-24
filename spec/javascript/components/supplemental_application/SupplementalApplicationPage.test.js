@@ -64,6 +64,7 @@ describe('SupplementalApplicationPage', () => {
     const payload = cloneDeep(mockShortFormSubmitPayload)
 
     merge(payload.shortFormPreferences[0], {
+      appMemberID: "xxx",
       naturalKey: "Bla,Ble,",
       individualPreference: "Live in SF"
     })
