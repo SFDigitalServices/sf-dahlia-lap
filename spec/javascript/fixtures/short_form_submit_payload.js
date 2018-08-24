@@ -35,7 +35,7 @@ const payload = {
          appMemberID: undefined,
          certificateNumber: null,
          individualPreference: null,
-         lwPreferenceProof: undefined,
+         lwPreferenceProof: null,
          naturalKey: undefined,
          optOut: null,
          preferenceProof: null,
