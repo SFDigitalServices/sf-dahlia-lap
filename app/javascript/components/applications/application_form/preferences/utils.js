@@ -11,6 +11,11 @@ export const naturalKeyFromMember = (member) => {
   return `${member.first_name},${member.last_name},${member.date_of_birth}`
 }
 
+export const memberNameFromPref = (p) => {
+  console.log(`${p.application_member.first_name} ${p.application_member.last_name}`)
+  return `${p.application_member.first_name} ${p.application_member.last_name}`
+}
+
 export const FIELD_NAME = 'preferences'
 
 export const buildFieldId = (i, field) => `${FIELD_NAME}.${i}.${field}`

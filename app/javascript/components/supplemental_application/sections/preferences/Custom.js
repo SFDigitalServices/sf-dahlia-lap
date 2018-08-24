@@ -1,18 +1,17 @@
 import React from 'react'
 import { Select } from 'react-form'
 
-import FormGrid  from '~/components/molecules/FormGrid'
-import { buildHouseholdMembersOptions, buildFieldId } from '~/components/applications/application_form/preferences/utils'
+import FormGrid from '~/components/molecules/FormGrid'
 import { FormItem, Comment, statusOptions } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
+import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 const {
   preference_proof_options_default
 } = formOptions
 
-export const Custom = ({ preferenceIndex, application, applicationMembers }) => {
+export const Custom = ({ preferenceIndex, application }) => {
   const preference = application.preferences[preferenceIndex]
-  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -22,7 +21,11 @@ export const Custom = ({ preferenceIndex, application, applicationMembers }) => 
         </div>
       </FormItem>
       <FormItem label="HH Member on Proof">
-        <Select field={buildFieldId(preferenceIndex,'naturalKey')} options={applicationMembersOptions}/>
+        {/*
+          TODO: Add ability for users to change application member on pref.
+          For now, we just show the current app member in a read-only field.
+        */}
+        <input value={memberNameFromPref(preference)} disabled="true"/>
       </FormItem>
       <FormItem label="Type of Proof">
         <Select field={buildFieldId(preferenceIndex,'type_of_proof')} options={preference_proof_options_default}/>
