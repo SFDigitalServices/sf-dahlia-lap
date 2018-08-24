@@ -24,7 +24,7 @@ const preferenceRequiredFields = {
   address: ['AG'],
   city: ['AG'],
   state: ['AG'],
-  zip: ['AG'],
+  zipCode: ['AG'],
 }
 
 const preferenceRequiresField = (prefName, fieldName) => {
@@ -56,7 +56,7 @@ const buildPrefValidations = (prefs) => {
       address: getPrefFieldValidation(pref, 'address'),
       city: getPrefFieldValidation(pref, 'city'),
       state: getPrefFieldValidation(pref, 'state'),
-      zip: getPrefFieldValidation(pref, 'zip'),
+      zipCode: getPrefFieldValidation(pref, 'zipCode'),
     }
   })
   return prefValidations
