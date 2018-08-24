@@ -12,7 +12,6 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (p) => {
-  console.log(`${p.application_member.first_name} ${p.application_member.last_name}`)
   return `${p.application_member.first_name} ${p.application_member.last_name}`
 }
 
