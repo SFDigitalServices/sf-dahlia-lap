@@ -1,12 +1,13 @@
+import { get } from 'lodash'
 import { createFieldMapper } from '~/utils/objectUtils'
 
 export const preferenceFieldMapper = {
   'recordtype_developername': 'recordTypeDevName',
   id: 'shortformPreferenceID',
-  'application_member__r.id': 'appMemberID',
+  appMemberID: (preference) => get(preference,'application_member.id'),
   certificate_number: 'certificateNumber',
   individual_preference: 'individualPreference',
-  lw_type_of_proof__c: 'lwPreferenceProof',
+  lw_type_of_proof: 'lwPreferenceProof',
   opt_out: 'optOut',
   type_of_proof: "preferenceProof",
   city: 'city',
