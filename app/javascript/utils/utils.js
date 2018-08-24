@@ -1,3 +1,5 @@
+// FIXME Rename to a more useful filename.
+
 const SALESFORCE_DATE_FORMAT = "YYYY-MM-DDTHH:mm:ss.SSSZZ"
 
 const cleanField = (field) => {
@@ -7,4 +9,9 @@ const cleanField = (field) => {
 export default {
   cleanField,
   SALESFORCE_DATE_FORMAT,
+}
+
+
+export const formatPercent = (value) => {
+  return ((value * 100).toFixed(0) + '%')
 }

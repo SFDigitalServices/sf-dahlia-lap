@@ -7,6 +7,7 @@ import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
+import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 
@@ -32,11 +33,14 @@ const LeaseInformationSection = ({ statusHistory }) => (
   </ContentSection>
 )
 
-const ConfirmedHoushold = () => {
+const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   return (
     <ContentSection title="Confirmed Household">
       <ContentSection.Sub title="Confirmed Reserved and Priority Units">
         <ConfirmedUnits />
+      </ContentSection.Sub>
+      <ContentSection.Sub title="Confirmed Household Income">
+        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi}/>
       </ContentSection.Sub>
     </ContentSection>
   )
@@ -93,7 +97,7 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, application, fileBaseUrl } = this.props
+    const { statusHistory, application, fileBaseUrl, amis, amiCharts } = this.props
     const { loading } = this.state
 
     return (
@@ -104,7 +108,7 @@ class SupplementalApplicationContainer extends React.Component {
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
               <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
-              <ConfirmedHoushold />
+              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts}/>
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>
