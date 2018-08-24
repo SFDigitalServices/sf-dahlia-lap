@@ -29,6 +29,7 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Household Member with Proof"
+          blockNote="(required)"
           field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
@@ -36,6 +37,7 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Individual Preference"
+          blockNote="(required)"
           field={buildFieldId(i,'individualPreference')}
           options={individualPreferenceOptions}
         />
@@ -43,6 +45,7 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Type of Proof"
+          blockNote="(required)"
           field={buildFieldId(i,'preferenceProof')}
           options={getProofTypes(shortFormPreference.individualPreference)}
         />

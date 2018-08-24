@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil } from 'lodash'
+import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil, includes } from 'lodash'
 import { Form } from 'react-form'
 
 import apiService from '~/apiService'
@@ -15,21 +15,58 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import domainToApi from '~/components/mappers/domainToApi'
-import validate from '~/utils/form/validations'
 
-const validatePreference = validate({
-  naturalKey: validate.isPresent("is required"),
-  individualPreference: validate.isPresent("is required"),
-  preferenceProof: validate.isPresent("is required"),
-  address: validate.isPresent("is required"),
-  city: validate.isPresent("is required"),
-  state: validate.isPresent("is required"),
-  zipCode: validate.isPresent("is required")
-})
+const fieldRequiredMsg = 'is required'
 
-const validateError = validate({
-  shortFormPreferences: validate.list(validatePreference)
-})
+const preferenceRequiredFields = {
+  individualPreference: ['RB_AHP', 'L_W'],
+  preferenceProof: ['NRHP','L_W', 'AG'],
+  address: ['AG'],
+  city: ['AG'],
+  state: ['AG'],
+  zipCode: ['AG'],
+}
+
+const preferenceRequiresField = (prefName, fieldName) => {
+  if (fieldName === 'naturalKey') {
+    return true
+  } else {
+    return includes(preferenceRequiredFields[fieldName], prefName)
+  }
+}
+
+// In react-form v2, a validation value of null indicates no
+// error, and a validation value of anything other than null
+// indicates an error.
+const getPrefFieldValidation = (pref, fieldName) => {
+  if (preferenceRequiresField(pref.recordTypeDevName, fieldName)) {
+    return pref[fieldName] ? null : fieldRequiredMsg
+  } else {
+    return null
+  }
+}
+
+const buildPrefValidations = (prefs) => {
+  let prefValidations = {}
+  forEach(prefs, (pref, index) => {
+    prefValidations[index] = {
+      naturalKey: getPrefFieldValidation(pref, 'naturalKey'),
+      individualPreference: getPrefFieldValidation(pref, 'individualPreference'),
+      preferenceProof: getPrefFieldValidation(pref, 'preferenceProof'),
+      address: getPrefFieldValidation(pref, 'address'),
+      city: getPrefFieldValidation(pref, 'city'),
+      state: getPrefFieldValidation(pref, 'state'),
+      zipCode: getPrefFieldValidation(pref, 'zipCode'),
+    }
+  })
+  return prefValidations
+}
+
+const validateError = (values) => {
+  return {
+    shortFormPreferences: buildPrefValidations(values.shortFormPreferences)
+  }
+}
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
