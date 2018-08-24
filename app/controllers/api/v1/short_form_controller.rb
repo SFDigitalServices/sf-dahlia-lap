@@ -21,6 +21,7 @@ class Api::V1::ShortFormController < ApiController
           .permit(
             :id,
             :listingID,
+            :applicationLanguage,
             :answeredCommunityScreening,
             :adaPrioritiesSelected,
             :householdVouchersSubsidies,
@@ -37,112 +38,104 @@ class Api::V1::ShortFormController < ApiController
             :status,
             :numberOfDependents,
             :formMetadata,
-            {
-              primaryApplicant: %i[
-                contactId
-                appMemberId
-                language
-                phone
-                firstName
-                lastName
-                middleName
-                noPhone
-                phoneType
-                additionalPhone
-                alternatePhone
-                alternatePhoneType
-                email
-                noEmail
-                noAddress
-                hasAltMailingAddress
-                workInSf
-                languageOther
-                gender
-                genderOther
-                ethnicity
-                race
-                sexAtBirth
-                sexualOrientation
-                sexualOrientationOther
-                hiv
-                DOB
-                address
-                city
-                state
-                zip
-                mailingAddress
-                mailingCity
-                mailingState
-                mailingZip
-                preferenceAddressMatch
-                xCoordinate
-                yCoordinate
-                whichComponentOfLocatorWasUsed
-                candidateScore
-                maritalStatus
-              ],
-            },
-            {
-              alternateContact: %i[
-                appMemberId
-                alternateContactType
-                alternateContactTypeOther
-                firstName
-                middleName
-                lastName
-                agency
-                phone
-                phoneType
-                email
-                languageOther
-                mailingAddress
-                mailingCity
-                mailingState
-                mailingZip
-              ],
-            },
-            {
-              householdMembers: %i[
-                appMemberId
-                firstName
-                lastName
-                middleName
-                hasSameAddressAsApplicant
-                noAddress
-                workInSf
-                relationship
-                DOB
-                address
-                city
-                state
-                zip
-                preferenceAddressMatch
-                xCoordinate
-                yCoordinate
-                whichComponentOfLocatorWasUsed
-                candidateScore
-              ],
-            },
-            {
-              shortFormPreferences: %i[
-                applicationId
-                listingPreferenceID
-                appMemberID
-                certificateNumber
-                naturalKey
-                preferenceProof
-                preferenceName
-                individualPreference
-                optOut
-                recordTypeDevName
-                ifCombinedIndividualPreference
-                shortformPreferenceID
-                city
-                state
-                address
-                zipCode
-              ],
-            },
+            primaryApplicant: %i[
+              contactId
+              appMemberId
+              language
+              phone
+              firstName
+              lastName
+              middleName
+              noPhone
+              phoneType
+              additionalPhone
+              alternatePhone
+              alternatePhoneType
+              email
+              noEmail
+              noAddress
+              hasAltMailingAddress
+              workInSf
+              languageOther
+              gender
+              genderOther
+              ethnicity
+              race
+              sexAtBirth
+              sexualOrientation
+              sexualOrientationOther
+              hiv
+              DOB
+              address
+              city
+              state
+              zip
+              mailingAddress
+              mailingCity
+              mailingState
+              mailingZip
+              preferenceAddressMatch
+              xCoordinate
+              yCoordinate
+              whichComponentOfLocatorWasUsed
+              candidateScore
+              maritalStatus
+            ],
+            alternateContact: %i[
+              appMemberId
+              alternateContactType
+              alternateContactTypeOther
+              firstName
+              middleName
+              lastName
+              agency
+              phone
+              phoneType
+              email
+              languageOther
+              mailingAddress
+              mailingCity
+              mailingState
+              mailingZip
+            ],
+            householdMembers: %i[
+              appMemberId
+              firstName
+              lastName
+              middleName
+              hasSameAddressAsApplicant
+              noAddress
+              workInSf
+              relationship
+              DOB
+              address
+              city
+              state
+              zip
+              preferenceAddressMatch
+              xCoordinate
+              yCoordinate
+              whichComponentOfLocatorWasUsed
+              candidateScore
+            ],
+            shortFormPreferences: %i[
+              applicationId
+              listingPreferenceID
+              appMemberID
+              certificateNumber
+              naturalKey
+              preferenceProof
+              preferenceName
+              individualPreference
+              optOut
+              recordTypeDevName
+              ifCombinedIndividualPreference
+              shortformPreferenceID
+              city
+              state
+              address
+              zipCode
+            ],
           )
   end
 

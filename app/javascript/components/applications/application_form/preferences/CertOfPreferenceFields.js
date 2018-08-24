@@ -1,21 +1,23 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
 
-const CertOfPreferenceFields = ({ householdMembers, i }) => {
+import { buildFieldId } from './utils'
+import { Field } from '~/utils/form/Field'
+
+const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
   return (
     <div>
       <div className="small-6 columns">
-        <label>Name of COP Holder</label>
-        <Select
-          field={`shortFormPreferences.${i}.naturalKey`}
+        <Field.Select
+          field={buildFieldId(i,'naturalKey')}
+          label="Name of COP Holder"
+          blockNote="(required)"
           options={householdMembers}
-          value={`shortFormPreferences.${i}.naturalKey`}
         />
       </div>
       <div className="small-6 columns">
-        <label>COP Certificate Number</label>
-        <Text
-          field={`shortFormPreferences.${i}.certificateNumber`}
+        <Field.Text
+          field={buildFieldId(i,'certificateNumber')}
+          label="COP Certificate Number"
         />
       </div>
       <div className="small-12 columns">

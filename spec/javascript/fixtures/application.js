@@ -1,14 +1,14 @@
 const application = {
   "attributes": {
     "type": "Application",
-    "url": "\/services\/data\/v26.0\/sobjects\/Application\/a0o0x000000OcOzAAK"
+    "url": "/services/data/v26.0/sobjects/Application/a0o0x000000OcOzAAK"
   },
   "Id": "a0o0x000000OcOzAAK",
   "Name": "APP-00191270",
   "Applicant": {
     "attributes": {
       "type": "Application_Member",
-      "url": "\/services\/data\/v26.0\/sobjects\/Application_Member\/a0n0x000000AbE6AAK"
+      "url": "/services/data/v26.0/sobjects/Application_Member/a0n0x000000AbE6AAK"
     },
     "Id": "a0n0x000000AbE6AAK",
     "First_Name": "karen",
@@ -36,7 +36,7 @@ const application = {
   "Alternate_Contact": {
     "attributes": {
       "type": "Application_Member",
-      "url": "\/services\/data\/v26.0\/sobjects\/Application_Member\/a0n0x000000XzcIAAS"
+      "url": "/services/data/v26.0/sobjects/Application_Member/a0n0x000000XzcIAAS"
     },
     "Id": "a0n0x000000XzcIAAS",
     "First_Name": "Federic",
@@ -47,14 +47,15 @@ const application = {
     "Email": "fede@eee.com",
     "Agency_Name": null,
     "Alternate_Contact_Type": "Friend",
-    "Alternate_Contact_Type_Other": null
+    "Alternate_Contact_Type_Other": null,
+    "Mailing_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
   },
   "Listing": {
     "attributes": {
       "type": "Listing",
-      "url": "\/services\/data\/v26.0\/sobjects\/Listing\/a0W0x000000GhJUEA0"
+      "url": "/services/data/v26.0/sobjects/Listing/a0W0x000000GhJUEA0"
     },
-    "Name": "Test 5\/30",
+    "Name": "Test 5/30",
     "Id": "a0W0x000000GhJUEA0",
     "Reserved_community_type": null
   },
@@ -65,7 +66,7 @@ const application = {
   "CreatedBy": {
     "attributes": {
       "type": "User",
-      "url": "\/services\/data\/v26.0\/sobjects\/User\/0050P000007H5XsQAK"
+      "url": "/services/data/v26.0/sobjects/User/0050P000007H5XsQAK"
     },
     "Name": "Prod Vertiba"
   },
