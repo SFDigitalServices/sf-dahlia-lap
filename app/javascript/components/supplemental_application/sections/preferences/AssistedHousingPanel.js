@@ -1,12 +1,11 @@
 import React from 'react'
 import { Select } from 'react-form'
 
-import FormGrid  from '~/components/molecules/FormGrid'
-import { buildHouseholdMembersOptions, buildFieldId } from '~/components/applications/application_form/preferences/utils'
+import FormGrid from '~/components/molecules/FormGrid'
 import { FormItem, Comment, statusOptions } from './utils'
+import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
-export const AssistedHousingPanel = ({ preferenceIndex, applicationMembers }) => {
-  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
+export const AssistedHousingPanel = ({ preferenceIndex, preference }) => {
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -16,7 +15,11 @@ export const AssistedHousingPanel = ({ preferenceIndex, applicationMembers }) =>
         </div>
       </FormItem>
       <FormItem label="Name on Lease">
-        <Select field={buildFieldId(preferenceIndex,'naturalKey')} options={applicationMembersOptions}/>
+        {/*
+          TODO: Add ability for users to change application member on pref.
+          For now, we just show the current app member in a read-only field.
+        */}
+        <input value={memberNameFromPref(preference)} disabled="true"/>
       </FormItem>
       <FormItem label="Status">
         <Select field={buildFieldId(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
