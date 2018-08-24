@@ -10,8 +10,7 @@ const {
   preference_proof_options_default
 } = formOptions
 
-export const Custom = ({ preferenceIndex, application }) => {
-  const preference = application.preferences[preferenceIndex]
+export const Custom = ({ preferenceIndex, preference, application }) => {
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
