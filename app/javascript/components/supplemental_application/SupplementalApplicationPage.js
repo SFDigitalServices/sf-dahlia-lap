@@ -70,11 +70,11 @@ class SupplementalApplicationPage extends React.Component {
     }
 
     const context = {
-      application:application,
-      statusHistory:statusHistory,
-      onSubmit:this.handleSaveApplication,
-      onSavePreference:this.handleSavePreference,
-      fileBaseUrl:fileBaseUrl
+      application: application,
+      statusHistory: statusHistory,
+      onSubmit: this.handleSaveApplication,
+      onSavePreference: this.handleSavePreference,
+      fileBaseUrl: fileBaseUrl
     }
 
     return (
