@@ -16,7 +16,7 @@ jest.mock('apiService', () => {
   return { submitApplication: mockSubmitApplication }
 })
 
-describe('ApplicationNewPage', () => {
+describe('ApplicationEditPage', () => {
   sharedHooks.useFakeTimers()
 
   test('should render succesfully', () => {
@@ -30,7 +30,7 @@ describe('ApplicationNewPage', () => {
     expect(wrapper.toJSON()).toMatchSnapshot();
   })
 
-  test('it should save correctly', () => {
+  test('should save correctly', () => {
     const wrapper = mount(
         <ApplicationEditPage
           listing={listing}

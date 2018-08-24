@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationNewPage should render succesfully 1`] = `
+exports[`ApplicationEditPage should render succesfully 1`] = `
 Array [
   <header
     className="lead-header short  bg-snow"
@@ -1022,7 +1022,7 @@ Array [
 ]
 `;
 
-exports[`ApplicationNewPage should render succesfully with preferences 1`] = `
+exports[`ApplicationEditPage should render succesfully with preferences 1`] = `
 Array [
   <header
     className="lead-header short  bg-snow"

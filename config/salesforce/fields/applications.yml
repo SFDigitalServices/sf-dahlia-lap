@@ -89,6 +89,8 @@ applications:
     CreatedBy.Name:
       label: 'Created By'
     Annual_Income__c:
+    Household_Assets__c:
+    HH_Total_Income_with_Assets_Annual__c:
     Monthly_Income__c:
     Is_Lottery_Complete__c:
     Housing_Voucher_or_Subsidy__c:

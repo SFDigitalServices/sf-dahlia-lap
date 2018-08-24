@@ -525,6 +525,203 @@ Array [
             </div>
           </div>
           <div
+            className="app-inner subheader-wide"
+          >
+            <h3
+              className="app-card_h3 t-sans"
+            >
+              Confirmed Household Income
+            </h3>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
+            <div
+              className="form-grid row expand"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Recurring Voucher/Subsidy
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={true}
+                        id="housing_voucher_or_subsidy-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="housing_voucher_or_subsidy-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="housing_voucher_or_subsidy-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="housing_voucher_or_subsidy-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Household Assets
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Household Annual Income
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    value={110000}
+                  />
+                  <span
+                    className="form-note shift-up"
+                    id="household-annual-income"
+                  >
+                    Not Including % of Assets
+                  </span>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Final Household Annual Income
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                  <span
+                    className="form-note shift-up"
+                    id="final-household-annual-income"
+                  >
+                    Includes % of assets if applicable
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className=""
+                    htmlFor="ami-HUD Unadjusted"
+                  >
+                    Calculated % of AMI - HUD Unadjusted
+                  </label>
+                  <div
+                    aria-describedby="ami-HUD Unadjusted"
+                    className="text-value"
+                    id="ami-HUD Unadjusted"
+                    tabIndex={undefined}
+                  >
+                    Enter HH Income
+                  </div>
+                  <span
+                    className="form-note shift-up"
+                    id="ami-HUD Unadjusted"
+                  >
+                    Based on Final Household Income
+                  </span>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className=""
+                    htmlFor="ami-Non-Hera"
+                  >
+                    Calculated % of AMI - Non-Hera
+                  </label>
+                  <div
+                    aria-describedby="ami-Non-Hera"
+                    className="text-value"
+                    id="ami-Non-Hera"
+                    tabIndex={undefined}
+                  >
+                    Enter HH Income
+                  </div>
+                  <span
+                    className="form-note shift-up"
+                    id="ami-Non-Hera"
+                  >
+                    Based on Final Household Income
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
             className="app-inner header-wide"
           >
             <h2

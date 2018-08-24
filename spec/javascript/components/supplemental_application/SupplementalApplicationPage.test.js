@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme';
-import apiService from '~/apiService'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
+import units from '../../fixtures/units'
 import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
 
 jest.mock('apiService', () => {
@@ -23,7 +23,8 @@ describe('SupplementalApplicationPage', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
         statusHistory={statusHistory}
-        application={supplementalApplication}/>
+        application={supplementalApplication}
+        units={units}/>
     )
 
     let tree = component.toJSON()
@@ -36,7 +37,8 @@ describe('SupplementalApplicationPage', () => {
     const wrapper = mount(
       <SupplementalApplicationPage
         application={supplementalApplication}
-        statusHistory={statusHistory}/>
+        statusHistory={statusHistory}
+        units={units}/>
     )
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
