@@ -13,6 +13,7 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Name on Lease"
+          blockNote="(required)"
           field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
@@ -20,6 +21,7 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
       <div className="small-6 columns">
         <Field.Select
           label="Individual Preference"
+          blockNote="(required)"
           field={buildFieldId(i,'individualPreference')}
           options={individualPreferenceOptions}
         />
