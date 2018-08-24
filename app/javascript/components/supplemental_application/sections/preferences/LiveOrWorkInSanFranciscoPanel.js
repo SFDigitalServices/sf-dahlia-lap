@@ -1,9 +1,9 @@
 import React from 'react'
-import { Select } from 'react-form'
+import { Select, Text } from 'react-form'
 
 import formUtils from '~/utils/formUtils'
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment, statusOptions } from './utils'
+import { FormItem, Comment } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
@@ -38,7 +38,11 @@ export const LiveOrWorkInSanFranciscoPanel = ({ preferenceIndex, preference }) =
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
       <FormItem label="Status">
-        <Select field={buildFieldId(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
+        {/*
+          TODO: Add ability for users to change status on pref.
+          For now, we just show the current status in a read-only field.
+        */}
+        <Text field={buildFieldId(preferenceIndex, 'post_lottery_validation')} disabled="true"/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
