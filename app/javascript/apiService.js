@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 const apiCall = async (method, path, data) => {
-  if (process.env.NODE_ENV === 'test')
-    throw new Error("API should not be called in TEST")
+  if (process.env.NODE_ENV === 'test') { throw new Error('API should not be called in TEST') }
 
   try {
     const request = await axios[method](`/api/v1${path}`, data)
@@ -27,7 +26,7 @@ const updateFlaggedApplication = async (data) => {
       // have to reformat them back into salesforce-friendly terms
       Id: data.id,
       Review_Status__c: data.review_status,
-      Comments__c: data.comments,
+      Comments__c: data.comments
     }
   }
   let response = await apiCall('put', '/flagged-applications/update', putData)
@@ -68,7 +67,7 @@ const createLeaseUpStatus = async (data) => {
     field_update_comment: {
       Processing_Status__c: data.status,
       Processing_Comment__c: data.comment,
-      Application__c: data.applicationId,
+      Application__c: data.applicationId
     }
   }
   return await apiCall('post', '/field-update-comments/create', postData)

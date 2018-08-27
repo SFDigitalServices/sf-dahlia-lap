@@ -24,6 +24,11 @@ A portal for leasing agents to manage listings and applications.
 
 ## To run tests
 
+Linting:
+To lint Ruby code run: `rubocop`
+
+To lint the react code run: `yarn lint`
+
 Rails tests:
 
 `bundle exec rake spec`

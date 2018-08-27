@@ -53,10 +53,10 @@ PreCommit:
       - 'app/assets/**/*.svg'
       - 'public/**/*.svg'
 
-  EsLint:
+  Standard:
     enabled: true
     description: 'Linting JavaScript'
-    required_executable: './node_modules/.bin/eslint'
+    required_executable: './node_modules/.bin/standard'
 
   CustomScript:
     enabled: true
