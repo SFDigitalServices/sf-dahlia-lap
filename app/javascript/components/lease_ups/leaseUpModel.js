@@ -17,6 +17,7 @@ export const buildLeaseUpModel = (applicationPreference) => {
     status_updated: applicationPreference.last_modified_date,
     preference_order: applicationPreference.preference_order,
     preference_record_type: listingPreference.record_type_for_app_preferences,
-    preference_lottery_rank: applicationPreference.preference_lottery_rank
+    preference_lottery_rank: applicationPreference.preference_lottery_rank,
+    post_lottery_validation: applicationPreference.post_lottery_validation
   }
 }

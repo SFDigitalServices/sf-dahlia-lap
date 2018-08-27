@@ -2,10 +2,8 @@ import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
-import domainToApi from '~/components/mappers/domainToApi'
 import { mailingAddressFieldMap } from './utils'
 
 let { phone_type_options } = formOptions
@@ -22,13 +20,12 @@ const validateError = validate({
 const PrimaryApplicantSection = ({formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
-    autofillValues = domainToApi.mapApplicant(editValues.applicant)
-    formApi.values.primaryApplicant = autofillValues
+    autofillValues = editValues.applicant
   }
 
   return (
-    <NestedForm field="primaryApplicant">
-      <Form defaultValues={autofillValues} validateError={validateError}>
+    <NestedForm field="applicant">
+      <Form defaultValues={autofillValues} validateError={validateError} >
         { formApi => (
           <div className="border-bottom margin-bottom--2x">
             <div className="row">
@@ -46,7 +43,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                 </div>
                 <div className="small-4 columns">
                   <label>Middle Name</label>
-                  <Text field="middleName" />
+                  <Text field="middle_name" />
                 </div>
                 <div className="small-4 columns">
                   <Field.Text
@@ -65,11 +62,11 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               </div>
               <div className="small-4 columns">
                 <label>Phone</label>
-                <Text field="phone" />
+                <Text field="phone"/>
               </div>
               <div className="small-4 columns">
                 <label>Phone Type</label>
-                <Select field="phoneType" options={phone_type_options} />
+                <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
             <div className="row">
@@ -86,7 +83,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               </div>
             </div>
             <AddressForm title="Home Address" memberType="primaryApplicant" />
-            <AddressForm title="Mailing Address" memberType="primaryApplicant"  fieldMap={mailingAddressFieldMap} />
+            <AddressForm title="Mailing Address" memberType="primaryApplicant" fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>

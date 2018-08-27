@@ -3,8 +3,8 @@ import { set, clone, trim, findIndex, map, each, cloneDeep } from 'lodash'
 import moment from 'moment'
 
 import apiService from '~/apiService'
-import LeaseUpsTable from './LeaseUpsTable'
-import LeaseUpsStatusModalWrapper from './LeaseUpsStatusModalWrapper'
+import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
+import StatusModalWrapper from './StatusModalWrapper'
 import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 
@@ -132,12 +132,12 @@ class LeaseUpTableContainer extends React.Component {
 
     return (
       <div>
-        <LeaseUpsTable
+        <LeaseUpApplicationsTable
             dataSet={this.rowsData()}
             listingId={listing.id}
             onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
             onCellClick={this.goToSupplementaryInfo} />
-        <LeaseUpsStatusModalWrapper
+        <StatusModalWrapper
             isOpen={this.state.statusModal.isOpen}
             status={this.state.statusModal.status}
             applicationId={this.state.statusModal.applicationId}

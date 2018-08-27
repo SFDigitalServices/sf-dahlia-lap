@@ -1,6 +1,5 @@
 import React from 'react'
 import { map } from 'lodash'
-
 import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
@@ -74,9 +73,9 @@ const AliceGriffithFields = ({i, householdMembers}) => {
             label="Type of Proof"
             blockNote="(required)"
             id='alice-griffith-type-of-proof'
-            field={fieldId('preferenceProof')}
+            field={fieldId('type_of_proof')}
             options={typeOfProofOptions}
-            value={fieldId('preferenceProof')}
+            value={fieldId('type_of_proof')}
           />
         </Column>
       </Row>

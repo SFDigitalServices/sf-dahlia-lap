@@ -19,14 +19,14 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/lease-ups"
               >
                 Lease Ups
               </a>
             </li>
             <li>
               <a
-                href="/listings/lease_ups/a0W0x000000GhJUEA0/applications"
+                href="/listings/lease-ups/a0W0x000000GhJUEA0/applications"
               >
                 Test 5/30
               </a>
@@ -111,6 +111,616 @@ Array [
             }
           }
         >
+          <div
+            className="app-inner inset-wide padding-bottom-none margin-top"
+          >
+            <h2
+              className="sr-only"
+            >
+              Status Update
+            </h2>
+            <div
+              className="status-update expand-wide is-processing"
+            >
+              <h3
+                className="status-update_title"
+              >
+                Update Status
+              </h3>
+              <div
+                className="status-update_action"
+              >
+                <button
+                  aria-expanded="false"
+                  className="button dropdown-button has-icon--right text-align-left small is-processing"
+                  href="#"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="ui-icon ui-small"
+                  >
+                    <svg>
+                      <use
+                        xlinkHref="#i-arrow-down"
+                      />
+                    </svg>
+                  </span>
+                  Processing
+                </button>
+              </div>
+              <div
+                className="status-update_message"
+              >
+                <div
+                  className="status-update_comment"
+                >
+                  <p
+                    className="status-update_note"
+                  >
+                    Some comment
+                  </p>
+                  <span
+                    className="status-update_date"
+                  >
+                    03/12/18 
+                  </span>
+                </div>
+                <div
+                  className="status-update_footer"
+                >
+                  <button
+                    className="button tiny tertiary"
+                    data-event=""
+                    type="button"
+                  >
+                    Add a comment
+                  </button>
+                  <a
+                    className="t-small right"
+                    href="/see_status_history"
+                  >
+                    See Status History
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Current Contact Information
+            </h2>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Confirmed Preferences
+            </h2>
+            <p
+              className="form-note max-width"
+            >
+              Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+            </p>
+          </div>
+          <div
+            className="app-inner inset-wide"
+          >
+            <div
+              className="form-grid row expand"
+            >
+              <div
+                className="small-12 column"
+              >
+                <div
+                  className="scrollable-table-container-under-xlarge"
+                >
+                  <table
+                    className="td-light td-plain th-plain"
+                    role="grid"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Preference Name
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Person Who Claimed
+                        </th>
+                        <th
+                          className="text-right"
+                          scope="col"
+                        >
+                          Preference Rank
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Type of proof
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Status
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody />
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner header-wide"
+          >
+            <h2
+              className="app-card_h2"
+            >
+              Confirmed Household
+            </h2>
+          </div>
+          <div
+            className="app-inner subheader-wide"
+          >
+            <h3
+              className="app-card_h3 t-sans"
+            >
+              Confirmed Reserved and Priority Units
+            </h3>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Senior in Household
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="reserved_senior-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="reserved_senior-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="reserved_senior-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="reserved_senior-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Veteran in Household
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_military_service-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_military_service-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_military_service-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_military_service-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Person with Developmental Disability in Household
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_developmental_disability-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_developmental_disability-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="has_developmental_disability-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="has_developmental_disability-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Household ADA Priorities
+                  </label>
+                  <div
+                    className="checkbox-group form-checkbox-item"
+                    role="group"
+                  >
+                    <div
+                      className="checkbox-block"
+                    >
+                      <input
+                        checked={false}
+                        id="has_ada_priorities_selected.mobility_impaired"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="checkbox-block_label"
+                        htmlFor="has_ada_priorities_selected.mobility_impaired"
+                      >
+                        Mobility Impaired
+                      </label>
+                    </div>
+                    <div
+                      className="checkbox-block"
+                    >
+                      <input
+                        checked={false}
+                        id="has_ada_priorities_selected.vision_impaired"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="checkbox-block_label"
+                        htmlFor="has_ada_priorities_selected.vision_impaired"
+                      >
+                        Vision Impaired
+                      </label>
+                    </div>
+                    <div
+                      className="checkbox-block"
+                    >
+                      <input
+                        checked={false}
+                        id="has_ada_priorities_selected.hearing_impaired"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="checkbox-block_label"
+                        htmlFor="has_ada_priorities_selected.hearing_impaired"
+                      >
+                        Hearing Impaired
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="app-inner subheader-wide"
+          >
+            <h3
+              className="app-card_h3 t-sans"
+            >
+              Confirmed Household Income
+            </h3>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
+            <div
+              className="form-grid row expand"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Recurring Voucher/Subsidy
+                  </label>
+                  <div
+                    className="radio-group-inline"
+                  >
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={true}
+                        id="housing_voucher_or_subsidy-yes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="housing_voucher_or_subsidy-yes"
+                      >
+                        Yes
+                      </label>
+                    </p>
+                    <p
+                      className="radio-inline"
+                    >
+                      <input
+                        checked={false}
+                        id="housing_voucher_or_subsidy-no"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        type="radio"
+                      />
+                      <label
+                        className="radio-inline_label"
+                        htmlFor="housing_voucher_or_subsidy-no"
+                      >
+                        No
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Household Assets
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Household Annual Income
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    value={110000}
+                  />
+                  <span
+                    className="form-note shift-up"
+                    id="household-annual-income"
+                  >
+                    Not Including % of Assets
+                  </span>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Final Household Annual Income
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                  <span
+                    className="form-note shift-up"
+                    id="final-household-annual-income"
+                  >
+                    Includes % of assets if applicable
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className=""
+                    htmlFor="ami-HUD Unadjusted"
+                  >
+                    Calculated % of AMI - HUD Unadjusted
+                  </label>
+                  <div
+                    aria-describedby="ami-HUD Unadjusted"
+                    className="text-value"
+                    id="ami-HUD Unadjusted"
+                    tabIndex={undefined}
+                  >
+                    Enter HH Income
+                  </div>
+                  <span
+                    className="form-note shift-up"
+                    id="ami-HUD Unadjusted"
+                  >
+                    Based on Final Household Income
+                  </span>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className=""
+                    htmlFor="ami-Non-Hera"
+                  >
+                    Calculated % of AMI - Non-Hera
+                  </label>
+                  <div
+                    aria-describedby="ami-Non-Hera"
+                    className="text-value"
+                    id="ami-Non-Hera"
+                    tabIndex={undefined}
+                  >
+                    Enter HH Income
+                  </div>
+                  <span
+                    className="form-note shift-up"
+                    id="ami-Non-Hera"
+                  >
+                    Based on Final Household Income
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             className="app-inner header-wide"
           >

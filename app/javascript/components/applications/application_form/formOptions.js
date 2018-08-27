@@ -158,6 +158,12 @@ const listing_referral_options = labelize([
   'Other',
 ])
 
+const adaPriorityValueToLabelMap = {
+  mobility_impaired: 'Mobility impaired',
+  vision_impaired: 'Vision impaired',
+  hearing_impaired: 'Hearing impaired'
+}
+
 const yes_no_options = labelize([
   'Yes',
   'No',
@@ -182,4 +188,5 @@ export default {
   priority_options,
   listing_referral_options,
   yes_no_options,
+  adaPriorityValueToLabelMap
 }

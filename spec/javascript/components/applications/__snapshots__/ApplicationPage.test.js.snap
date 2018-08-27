@@ -116,6 +116,14 @@ Array [
                     English
                   </p>
                 </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
                 <div
                   className="margin-bottom--half"
                 >
@@ -128,14 +136,6 @@ Array [
                     1
                   </p>
                 </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
                 <div
                   className="margin-bottom--half"
                 >
@@ -654,6 +654,14 @@ Array [
                     110000
                   </p>
                 </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
                 <div
                   className="margin-bottom--half"
                 >
@@ -666,14 +674,6 @@ Array [
                     None
                   </p>
                 </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
                 <div
                   className="margin-bottom--half"
                 >
@@ -737,7 +737,7 @@ Array [
                 href="undefined/servlet/servlet.FileDownload?file=xxxx2"
                 target="_blank"
               >
-                Namexxx1
+                Namexxx2
               </a>
             </li>
           </ul>

@@ -40,7 +40,7 @@ export const applicationFieldMapper = {
   id: 'id',
   application_language: 'applicationLanguage',
   has_military_service: 'hasMilitaryService',
-  has_developmentaldisability: 'hasDevelopmentalDisability',
+  has_developmental_disability: 'hasDevelopmentalDisability',
   answered_community_screening: 'answeredCommunityScreening',
   annual_income: 'annualIncome',
   housing_voucher_or_subsidy: 'householdVouchersSubsidies',

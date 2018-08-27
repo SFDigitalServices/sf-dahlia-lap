@@ -14,6 +14,9 @@ class CardLayout extends React.Component {
   render() {
     const { children, pageHeader, tabSection, toolbar } = this.props
 
+    if (tabSection && !tabSection.currentUrl)
+      tabSection.currentUrl = window.location.pathname
+
     return (
       <React.Fragment>
         <PageHeader {...pageHeader} background='snow'/>

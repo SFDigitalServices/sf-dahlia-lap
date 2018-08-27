@@ -1,21 +1,33 @@
 import {
   forEach,
-  isFunction,
-  omitBy,
   includes,
+  isFunction,
   isEmpty,
   isUndefined,
   isNil,
-  keys
+  keys,
+  map,
+  omitBy,
+  snakeCase
 } from 'lodash'
+
+export const checkSnakeCase = (obj) => {
+  forEach(obj, (value, key) => {
+    if (key !== 'naturalKey' && key !== snakeCase(key)) {
+      console.warn(`fieldMapper: ${key} is not snake case`)
+    }
+  })
+}
 
 export const mapFields = (fieldMapper, to, from ) => {
   if (isUndefined(from))
-     return undefined
+    return undefined
   if (isNil(from))
-     return null
+    return null
   if (isEmpty(keys(from)))
-     return undefined
+    return undefined
+
+  checkSnakeCase(from)
 
   forEach(fieldMapper, (toField, fromField) => {
     if (isFunction(toField)) {
@@ -27,14 +39,16 @@ export const mapFields = (fieldMapper, to, from ) => {
   return to
 }
 
-export const createFieldMapper = (fields) => (source) => mapFields(fields, {}, source)
+export const createFieldMapper = (fields) => (source) => (
+  mapFields(fields, {}, source)
+)
 
 export const shapeMapper = (field, fieldsMapper) => (source) => {
   return mapFields(fieldsMapper, {}, source[field])
 }
 
-export const listMapper = (field, fieldsMapper) =>  (source) => {
-  return source[field].map(i => mapFields(fieldsMapper, {}, i))
+export const listMapper = (field, fieldsMapper) => (source) => {
+  return map(source[field], i => mapFields(fieldsMapper, {}, i))
 }
 
 export const omitEmpty = (source, fields) => (

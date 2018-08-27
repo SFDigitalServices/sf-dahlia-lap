@@ -109,12 +109,14 @@ const application = {
       "State": null,
       "Zip_Code": null,
       "Street": null,
-      "RecordType.DeveloperName": "AG"
+      "RecordType": {
+        "DeveloperName": "AG"
+      }
     }
   ],
   "proof_files": [
-    { Id: 'xxxx1', Name: 'Namexxx1' },
-    { Id: 'xxxx2', Name: 'Namexxx1'}
+    { Id: 'xxxx1', Document_Type: 'Namexxx1' },
+    { Id: 'xxxx2', Document_Type: 'Namexxx2'}
   ],
   "household_members": [
     {

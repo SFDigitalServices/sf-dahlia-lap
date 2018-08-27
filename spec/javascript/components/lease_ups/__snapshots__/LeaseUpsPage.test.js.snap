@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeaseUpsPage Should render LeaseUpTable 1`] = `
+exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
@@ -19,7 +19,7 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/listings/lease-ups"
               >
                 Lease Ups
               </a>
@@ -29,7 +29,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/1/lease_ups"
+                href="/listings/lease-ups/1/applications"
               >
                 xxxx
               </a>
@@ -59,7 +59,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/1/lease_ups/export"
+                href="/listings/1/lease-ups/export"
               >
                 Export
               </a>
@@ -255,7 +255,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
                 onClick={[Function]}
                 role="heading"
                 style={
@@ -314,7 +314,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -334,7 +334,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -352,7 +352,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -369,7 +369,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -386,7 +386,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -403,7 +403,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -420,7 +420,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -437,7 +437,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -501,7 +501,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -even"
+                className="rt-tr rt-tr-status -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -521,7 +521,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -539,7 +539,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -556,7 +556,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -573,7 +573,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -590,7 +590,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -607,7 +607,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -624,7 +624,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -688,7 +688,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -707,7 +707,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -721,7 +721,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -736,7 +736,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -751,7 +751,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -766,7 +766,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -781,7 +781,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -796,7 +796,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -830,7 +830,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -even rt-tr-status "
+                className="rt-tr -padRow -even rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -849,7 +849,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -863,7 +863,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -878,7 +878,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -893,7 +893,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -908,7 +908,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -923,7 +923,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -938,7 +938,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -972,7 +972,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -991,7 +991,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -1005,7 +1005,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1020,7 +1020,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1035,7 +1035,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1050,7 +1050,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1065,7 +1065,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1080,7 +1080,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1240,7 +1240,7 @@ Array [
 ]
 `;
 
-exports[`LeaseUpsPage Should render Mailing_Address when present 1`] = `
+exports[`LeaseUpApplicationsPage Should render Mailing_Address when present 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
@@ -1259,7 +1259,7 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/listings/lease-ups"
               >
                 Lease Ups
               </a>
@@ -1269,7 +1269,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/1/lease_ups"
+                href="/listings/lease-ups/1/applications"
               >
                 xxxx
               </a>
@@ -1299,7 +1299,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/1/lease_ups/export"
+                href="/listings/1/lease-ups/export"
               >
                 Export
               </a>
@@ -1495,7 +1495,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
                 onClick={[Function]}
                 role="heading"
                 style={
@@ -1554,7 +1554,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -1574,7 +1574,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1592,7 +1592,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1609,7 +1609,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1626,7 +1626,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1643,7 +1643,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1660,7 +1660,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1677,7 +1677,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1741,7 +1741,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -even rt-tr-status "
+                className="rt-tr -padRow -even rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -1760,7 +1760,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -1774,7 +1774,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1789,7 +1789,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1804,7 +1804,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1819,7 +1819,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1834,7 +1834,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1849,7 +1849,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1883,7 +1883,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -1902,7 +1902,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -1916,7 +1916,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1931,7 +1931,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1946,7 +1946,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1961,7 +1961,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1976,7 +1976,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1991,7 +1991,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2025,7 +2025,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -even rt-tr-status "
+                className="rt-tr -padRow -even rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -2044,7 +2044,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -2058,7 +2058,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2073,7 +2073,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2088,7 +2088,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2103,7 +2103,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2118,7 +2118,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2133,7 +2133,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2167,7 +2167,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr -padRow -odd rt-tr-status "
+                className="rt-tr -padRow -odd rt-tr-status"
                 style={Object {}}
               >
                 <div
@@ -2186,7 +2186,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   style={
                     Object {
                       "flex": "100 0 auto",
@@ -2200,7 +2200,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2215,7 +2215,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2230,7 +2230,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2245,7 +2245,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2260,7 +2260,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2275,7 +2275,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2435,7 +2435,7 @@ Array [
 ]
 `;
 
-exports[`LeaseUpsPage Should render order by Prefrence_Order and Preference_Lottery_Rank 1`] = `
+exports[`LeaseUpApplicationsPage Should render order by Prefrence_Order and Preference_Lottery_Rank 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
@@ -2454,7 +2454,7 @@ Array [
           >
             <li>
               <a
-                href="/lease_ups"
+                href="/listings/lease-ups"
               >
                 Lease Ups
               </a>
@@ -2464,7 +2464,7 @@ Array [
             >
               <a
                 aria-current="page"
-                href="/listings/1/lease_ups"
+                href="/listings/lease-ups/1/applications"
               >
                 xxxx
               </a>
@@ -2494,7 +2494,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/1/lease_ups/export"
+                href="/listings/1/lease-ups/export"
               >
                 Export
               </a>
@@ -2690,7 +2690,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
                 onClick={[Function]}
                 role="heading"
                 style={
@@ -2749,7 +2749,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -2769,7 +2769,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2787,7 +2787,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2804,7 +2804,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2821,7 +2821,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2838,7 +2838,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2855,7 +2855,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2872,7 +2872,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2936,7 +2936,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -even"
+                className="rt-tr rt-tr-status -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -2956,7 +2956,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2974,7 +2974,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -2991,7 +2991,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3008,7 +3008,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3025,7 +3025,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3042,7 +3042,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3059,7 +3059,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3123,7 +3123,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3143,7 +3143,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3161,7 +3161,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3178,7 +3178,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3195,7 +3195,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3212,7 +3212,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3229,7 +3229,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3246,7 +3246,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3310,7 +3310,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -even"
+                className="rt-tr rt-tr-status -even"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3330,7 +3330,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3348,7 +3348,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3365,7 +3365,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3382,7 +3382,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3399,7 +3399,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3416,7 +3416,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3433,7 +3433,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3497,7 +3497,7 @@ Array [
               className="rt-tr-group"
             >
               <div
-                className="rt-tr rt-tr-status  -odd"
+                className="rt-tr rt-tr-status -odd"
                 style={undefined}
                 tabIndex="0"
               >
@@ -3517,7 +3517,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3535,7 +3535,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3552,7 +3552,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3569,7 +3569,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3586,7 +3586,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3603,7 +3603,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td"
+                  className="rt-td text-left"
                   onClick={[Function]}
                   style={
                     Object {
@@ -3620,7 +3620,7 @@ Array [
                   </span>
                 </div>
                 <div
-                  className="rt-td td-offset-right"
+                  className="rt-td td-offset-right text-right"
                   onClick={[Function]}
                   style={
                     Object {

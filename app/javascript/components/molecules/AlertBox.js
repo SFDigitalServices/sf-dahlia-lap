@@ -3,9 +3,9 @@ import classNames from 'classnames'
 
 const getCloseLink = (type, onCloseClick) => {
   if (type === 'text')
-    return <button className="button button-link close text" onClick={onCloseClick}>Close</button>
+    return <button type='button' className="button button-link close text" onClick={onCloseClick}>Close</button>
   else
-    return <button className="button button-link close" onClick={onCloseClick}>&times;</button>
+    return <button type='button' className="button button-link close" onClick={onCloseClick}>&times;</button>
 }
 
 const AlertBox = ({ message, invert, noMargin, onCloseClick, dismiss, closeType }) => {

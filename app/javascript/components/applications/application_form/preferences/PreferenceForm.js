@@ -7,18 +7,18 @@ import FormGroup from '~/components/atoms/FormGroup'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap } from './values'
-import { FIELD_NAME, buildFieldId } from './utils'
+import { FIELD_NAME, buildFieldId, buildHouseholdMembersOptions } from './utils'
 
 const setRecordTypeDevName = (i, formApi, matched) => {
   if (!!matched && matched.lottery_preference) {
-    let prefName = matched.lottery_preference.name
-    formApi.values.shortFormPreferences[i].recordTypeDevName = recordTypeMap[prefName] || 'Custom'
+    const prefName = matched.lottery_preference.name
+    formApi.values.preferences[i].recordtype_developername = recordTypeMap[prefName] || 'Custom'
   }
 }
 
 const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
-  let selected = formApi.values.shortFormPreferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.id === selected.listingPreferenceID)
+  let selected = formApi.values.preferences[i] || {}
+  let matched = find(listingPreferences, pref => pref.id === selected.listing_preference_id)
   setRecordTypeDevName(i, formApi, matched)
   return selected
 }
@@ -26,7 +26,7 @@ const findSelectedPreference = (i, formApi, listingPreferences, selectedPreferen
 // omit any listingPreferences that are already selected, excluding the current one
 const findPreferencesNotSelected = (formApi, listingPreferences, selectedPreference) => {
   return omitBy(listingPreferences, (listingPref) => {
-    let isSelected = find(formApi.values.shortFormPreferences, { listingPreferenceID: listingPref.id })
+    let isSelected = find(formApi.values.preferences, { listing_preference_id: listingPref.id })
     return (isSelected && isSelected !== selectedPreference)
   })
 }
@@ -40,46 +40,33 @@ const buildListingPreferencesOptions = (preferencesNotSelected) => {
   })
 }
 
-const buildHouseholdMembersOptions = (fullHousehold) => {
-  return map(fullHousehold, (member) => {
-    return {
-      value: `${member.firstName},${member.lastName},${member.DOB}`,
-      label: `${member.firstName} ${member.lastName}`
-    }
-  })
-}
 
 const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold }) => {
   const selectedPreference = findSelectedPreference(i, formApi, listingPreferences)
   const preferencesNotSelected = findPreferencesNotSelected(formApi, listingPreferences, selectedPreference)
-
   const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
     <FormGroup>
-
       <Row>
         <Column span={6}>
           <label>Preference</label>
           <Select
-            field={buildFieldId(i, 'listingPreferenceID')}
+            field={buildFieldId(i, 'listing_preference_id')}
             options={listingPreferencesOptions}
-            value={buildFieldId(i, 'listingPreferenceID')}
+            value={buildFieldId(i,'listing_preference_id')}
           />
         </Column>
-      </Row>
-
-      <Row>
         <PreferenceAdditionalOptions
           i={i}
           formApi={formApi}
           shortFormPreference={pref}
-          listingPreferenceID={selectedPreference.listingPreferenceID}
+          listingPreferenceID={selectedPreference.listing_preference_id}
           listingPreferences={listingPreferences}
-          householdMembers={householdMembersOptions} />
+          householdMembers={householdMembersOptions}
+        />
       </Row>
-
       <Row>
         <Column span={4}>
           <button
@@ -90,7 +77,6 @@ const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold })
           </button>
         </Column>
       </Row>
-
     </FormGroup>
   )
 }

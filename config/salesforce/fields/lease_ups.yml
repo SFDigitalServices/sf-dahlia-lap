@@ -1,0 +1,28 @@
+lease_ups:
+  lease_up_listing_application_fields:
+    Application__c:
+    Application__r.Id:
+    Application__r.Name:
+    Application__r.Applicant__r.First_Name__c:
+    Application__r.Applicant__r.Last_Name__c:
+    Application__r.Applicant__r.Email__c:
+    Application__r.Applicant__r.Phone__c:
+    Application__r.Applicant__r.Residence_Address__c:
+    Application__r.Applicant__r.Mailing_Address__c:
+    Preference_Order__c:
+    Post_Lottery_Validation__c:
+    Preference_Lottery_Rank__c:
+    Application__r.Processing_Status__c:
+      label: 'Lease Up Status'
+    LastModifiedDate:
+      label: 'Status Updated'
+    Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
+  lease_up_listing_fields:
+    Id:
+    Name:
+    Lottery_Date__c:
+    Lottery_Results_Date__c:
+    In_Lottery__c:
+    Units_Available__c:
+    Lease_Signed_Application__c:
+    LastModifiedDate:

@@ -1,6 +1,6 @@
 import React from 'react'
 import { map } from 'lodash'
-import { buildFieldSpecs, buildFieldEntry } from './fieldSpecs'
+import { buildFields } from '~/utils/fieldSpecs'
 import Field from './Field'
 import arrayUtils from '~/utils/arrayUtils'
 
@@ -16,8 +16,7 @@ export const generateContent = (listing, entry, i) => {
 }
 
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
-  const fieldSpecs = map(fields, buildFieldSpecs)
-  const entries = map(fieldSpecs, (f) => buildFieldEntry(listing, f))
+  const entries = buildFields(listing, fields)
   const contents = map(entries, (entry, idx) => generateContent(listing, entry, idx))
   const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
 

@@ -1,3 +1,4 @@
+import { split, snakeCase, fromPairs } from 'lodash'
 import { mapShape, mapList } from '../utils'
 import { mapApplicationMember } from './application_member'
 import { mapFlaggedApplication } from './flagged_application'
@@ -5,6 +6,9 @@ import { mapUser } from './user'
 import { mapListing } from './listing'
 import { mapApplicationPreference } from './application_preference'
 import { mapAttachment } from './attachment'
+
+const parseList = text => split(text, ';')
+const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {
   return {
@@ -23,6 +27,8 @@ export const mapApplication = (a) => {
     application_submission_type: a.Application_Submission_Type,
     application_submitted_date: a.Application_Submitted_Date,
     annual_income: a.Annual_Income,
+    hh_total_income_with_assets_annual: a.HH_Total_Income_with_Assets_Annual,
+    household_assets: a.Household_Assets,
     monthly_income: a.Monthly_Income,
     is_lottery_complete: a.Is_Lottery_Complete,
     housing_voucher_or_subsidy: a.Housing_Voucher_or_Subsidy,
@@ -35,10 +41,11 @@ export const mapApplication = (a) => {
     general_lottery_rank: a.General_Lottery_Rank,
     answered_community_screening: a.Answered_Community_Screening,
     has_military_service: a.Has_Military_Service,
-    has_developmentaldisability: a.Has_DevelopmentalDisability,
-    has_ada_priorities_selected: a.Has_ADA_Priorities_Selected,
+    has_developmental_disability: a.Has_DevelopmentalDisability,
+    has_ada_priorities_selected: toChecklist(parseList(a.Has_ADA_Priorities_Selected)),
     terms_acknowledged: a.Terms_Acknowledged,
     number_of_dependents: a.Number_of_Dependents,
-    processing_status: a.Processing_Status
+    processing_status: a.Processing_Status,
+    reserved_senior: a.Reserved_Senior
   }
 }

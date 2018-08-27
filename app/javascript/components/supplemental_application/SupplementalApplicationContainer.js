@@ -6,21 +6,25 @@ import ContentSection from '../molecules/ContentSection'
 import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
+import StatusUpdateForm from './sections/StatusUpdateForm'
+import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
+import ConfirmedUnits from './sections/ConfirmedUnits'
+import PreferencesTable from './sections/PreferencesTable'
 
-//TODO: refactor. this is a placeholder
-// const StatusUpdateSection = () => (
-//   <ContentSection.Content paddingBottomNone marginTop>
-//     <StatusUpdateForm />
-//   </ContentSection.Content>
-// )
+import { getFullHousehold } from '~/components/applications/application_form/preferences/utils.js'
 
-const LeaseInformationSection = ({statusHistory}) => (
+const StatusUpdateSection = () => (
+  <ContentSection.Content paddingBottomNone marginTop>
+    <StatusUpdateForm />
+  </ContentSection.Content>
+)
+
+const LeaseInformationSection = ({ statusHistory }) => (
   <ContentSection title="Lease Information">
     <ContentSection.Sub title="Demographics">
-      <DemographicsInputs />
+      <DemographicsInputs/>
     </ContentSection.Sub>
-    {!isEmpty(statusHistory) &&
-      (
+    {!isEmpty(statusHistory) &&(
         <ContentSection.Sub title="Status History" borderBottom={false}>
           <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')}/>
         </ContentSection.Sub>
@@ -28,6 +32,36 @@ const LeaseInformationSection = ({statusHistory}) => (
     }
   </ContentSection>
 )
+
+const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
+  return (
+    <ContentSection title="Confirmed Household">
+      <ContentSection.Sub title="Confirmed Reserved and Priority Units">
+        <ConfirmedUnits />
+      </ContentSection.Sub>
+      <ContentSection.Sub title="Confirmed Household Income">
+        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi}/>
+      </ContentSection.Sub>
+    </ContentSection>
+  )
+}
+
+const ConfirmedPreferencesSection = ({ application,  proofFiles, fileBaseUrl }) => {
+  return (
+    <ContentSection
+      title="Confirmed Preferences"
+      description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.">
+      <ContentSection.Content>
+        <PreferencesTable
+          preferences={application.preferences}
+          proofFiles={application.proof_files}
+          applicationMembers={getFullHousehold(application)}
+          fileBaseUrl={fileBaseUrl}
+        />
+      </ContentSection.Content>
+    </ContentSection>
+  )
+}
 
 const ButtonPager = ({ disabled }) => (
   <div className="button-pager">
@@ -63,7 +97,7 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, application } = this.props
+    const { statusHistory, application, fileBaseUrl, amis, amiCharts } = this.props
     const { loading } = this.state
 
     return (
@@ -71,10 +105,10 @@ class SupplementalApplicationContainer extends React.Component {
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
-              {/* TODO: Uncomment when features are ready to display
               <StatusUpdateSection/>
-              <ContentSection title="Current Contact Informations"/>
-              */}
+              <ContentSection title="Current Contact Information"/>
+              <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
+              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts}/>
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>

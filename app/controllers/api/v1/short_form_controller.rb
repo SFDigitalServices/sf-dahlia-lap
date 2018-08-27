@@ -1,12 +1,17 @@
-# RESTful JSON API to query for short form actions
+
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
   def submit
     logger.debug "application_api_params: #{application_api_params}"
-    application = application_service.submit(application_api_params)
-    logger.debug "application submit response: #{application}"
-    render json: { application: application }
+    short_form_validator = ShortFormValidator.new(application_api_params)
+    if short_form_validator.valid?
+      application = application_service.submit(application_api_params)
+      logger.debug "application submit response: #{application}"
+      render json: { application: application }
+    else
+      render status: 422, json: { errors: short_form_validator.errors.full_messages }
+    end
   end
 
   def update
@@ -31,6 +36,8 @@ class Api::V1::ShortFormController < ApiController
             :hasDevelopmentalDisability,
             :annualIncome,
             :monthlyIncome,
+            :HHTotalIncomeWithAssets,
+            :householdAssets,
             :totalMonthlyRent,
             :agreeToTerms,
             :applicationSubmissionType,
@@ -38,6 +45,7 @@ class Api::V1::ShortFormController < ApiController
             :status,
             :numberOfDependents,
             :formMetadata,
+            :hasSenior,
             primaryApplicant: %i[
               contactId
               appMemberId

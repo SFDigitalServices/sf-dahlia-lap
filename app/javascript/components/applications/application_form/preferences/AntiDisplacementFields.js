@@ -1,6 +1,5 @@
 import React from 'react'
 import formOptions from '../formOptions'
-
 import { buildFieldId } from './utils'
 import { Field } from '~/utils/form/Field'
 

@@ -1222,7 +1222,7 @@ Array [
                 className="button-pager_row primary"
               >
                 <button
-                  className="primary radius margin-right"
+                  className="primary radius margin-right save-btn"
                   disabled={false}
                   onClick={[Function]}
                   type="submit"
