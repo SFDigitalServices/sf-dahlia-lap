@@ -25,6 +25,7 @@
     "moment": "^2.19.1",
     "postcss-smart-import": "^0.7.6",
     "prop-types": "^15.6.0",
+    "puppeteer": "^1.7.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-form": "2.6.1",
@@ -60,10 +61,12 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --testPathPattern=.*.test.js$",
+    "e2e":  "jest --testPathPattern=.*e2e.*",
     "lint": "eslint app/javascript"
   },
   "jest": {
+    "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
     ],
