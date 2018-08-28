@@ -16,12 +16,12 @@ import AlertBox from '~/components/molecules/AlertBox'
 const fieldRequiredMsg = 'is required'
 
 const preferenceRequiredFields = {
-  individualPreference: ['RB_AHP', 'L_W'],
-  preferenceProof: ['NRHP','L_W', 'AG'],
-  address: ['AG'],
+  individual_preference: ['RB_AHP', 'L_W'],
+  type_of_proof: ['NRHP','L_W', 'AG'],
+  street: ['AG'],
   city: ['AG'],
   state: ['AG'],
-  zipCode: ['AG'],
+  zip_code: ['AG'],
 }
 
 const preferenceRequiresField = (prefName, fieldName) => {
@@ -36,7 +36,7 @@ const preferenceRequiresField = (prefName, fieldName) => {
 // error, and a validation value of anything other than null
 // indicates an error.
 const getPrefFieldValidation = (pref, fieldName) => {
-  if (preferenceRequiresField(pref.recordTypeDevName, fieldName)) {
+  if (preferenceRequiresField(pref.recordtype_developername, fieldName)) {
     return pref[fieldName] ? null : fieldRequiredMsg
   } else {
     return null
@@ -48,12 +48,12 @@ const buildPrefValidations = (prefs) => {
   forEach(prefs, (pref, index) => {
     prefValidations[index] = {
       naturalKey: getPrefFieldValidation(pref, 'naturalKey'),
-      individualPreference: getPrefFieldValidation(pref, 'individualPreference'),
-      preferenceProof: getPrefFieldValidation(pref, 'preferenceProof'),
-      address: getPrefFieldValidation(pref, 'address'),
+      individual_preference: getPrefFieldValidation(pref, 'individual_preference'),
+      type_of_proof: getPrefFieldValidation(pref, 'type_of_proof'),
+      street: getPrefFieldValidation(pref, 'street'),
       city: getPrefFieldValidation(pref, 'city'),
       state: getPrefFieldValidation(pref, 'state'),
-      zipCode: getPrefFieldValidation(pref, 'zipCode'),
+      zip_code: getPrefFieldValidation(pref, 'zip_code'),
     }
   })
   return prefValidations
@@ -61,7 +61,7 @@ const buildPrefValidations = (prefs) => {
 
 const validateError = (values) => {
   return {
-    shortFormPreferences: buildPrefValidations(values.shortFormPreferences)
+    preferences: buildPrefValidations(values.preferences)
   }
 }
 

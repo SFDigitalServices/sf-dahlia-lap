@@ -19,7 +19,7 @@ const AddressRow = ({fieldId}) => (
         <Field.Text
           label="Alice Griffith Address"
           blockNote="(required)"
-          field={fieldId('address')}
+          field={fieldId('street')}
         />
       </Column>
     </Row>
@@ -42,7 +42,7 @@ const AddressRow = ({fieldId}) => (
           <Column span={6} end>
             <Field.Text
               label="Zip"
-              field={fieldId('zipCode')}
+              field={fieldId('zip_code')}
             />
           </Column>
         </Row>
