@@ -1,5 +1,4 @@
 # RESTful JSON API to query for short form actions
-# rubocop:disable Style/BracesAroundHashParameters
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
@@ -42,6 +41,8 @@ class Api::V1::ShortFormController < ApiController
             :hasDevelopmentalDisability,
             :annualIncome,
             :monthlyIncome,
+            :HHTotalIncomeWithAssets,
+            :householdAssets,
             :totalMonthlyRent,
             :agreeToTerms,
             :applicationSubmissionType,
@@ -50,112 +51,104 @@ class Api::V1::ShortFormController < ApiController
             :numberOfDependents,
             :formMetadata,
             :hasSenior,
-            {
-              primaryApplicant: %i[
-                contactId
-                appMemberId
-                language
-                phone
-                firstName
-                lastName
-                middleName
-                noPhone
-                phoneType
-                additionalPhone
-                alternatePhone
-                alternatePhoneType
-                email
-                noEmail
-                noAddress
-                hasAltMailingAddress
-                workInSf
-                languageOther
-                gender
-                genderOther
-                ethnicity
-                race
-                sexAtBirth
-                sexualOrientation
-                sexualOrientationOther
-                hiv
-                DOB
-                address
-                city
-                state
-                zip
-                mailingAddress
-                mailingCity
-                mailingState
-                mailingZip
-                preferenceAddressMatch
-                xCoordinate
-                yCoordinate
-                whichComponentOfLocatorWasUsed
-                candidateScore
-                maritalStatus
-              ],
-            },
-            {
-              alternateContact: %i[
-                appMemberId
-                alternateContactType
-                alternateContactTypeOther
-                firstName
-                middleName
-                lastName
-                agency
-                phone
-                phoneType
-                email
-                languageOther
-                mailingAddress
-                mailingCity
-                mailingState
-                mailingZip
-              ],
-            },
-            {
-              householdMembers: %i[
-                appMemberId
-                firstName
-                lastName
-                middleName
-                hasSameAddressAsApplicant
-                noAddress
-                workInSf
-                relationship
-                DOB
-                address
-                city
-                state
-                zip
-                preferenceAddressMatch
-                xCoordinate
-                yCoordinate
-                whichComponentOfLocatorWasUsed
-                candidateScore
-              ],
-            },
-            {
-              shortFormPreferences: %i[
-                applicationId
-                listingPreferenceID
-                appMemberID
-                certificateNumber
-                naturalKey
-                preferenceProof
-                preferenceName
-                individualPreference
-                optOut
-                recordTypeDevName
-                ifCombinedIndividualPreference
-                shortformPreferenceID
-                city
-                state
-                address
-                zipCode
-              ],
-            },
+            primaryApplicant: %i[
+              contactId
+              appMemberId
+              language
+              phone
+              firstName
+              lastName
+              middleName
+              noPhone
+              phoneType
+              additionalPhone
+              alternatePhone
+              alternatePhoneType
+              email
+              noEmail
+              noAddress
+              hasAltMailingAddress
+              workInSf
+              languageOther
+              gender
+              genderOther
+              ethnicity
+              race
+              sexAtBirth
+              sexualOrientation
+              sexualOrientationOther
+              hiv
+              DOB
+              address
+              city
+              state
+              zip
+              mailingAddress
+              mailingCity
+              mailingState
+              mailingZip
+              preferenceAddressMatch
+              xCoordinate
+              yCoordinate
+              whichComponentOfLocatorWasUsed
+              candidateScore
+              maritalStatus
+            ],
+            alternateContact: %i[
+              appMemberId
+              alternateContactType
+              alternateContactTypeOther
+              firstName
+              middleName
+              lastName
+              agency
+              phone
+              phoneType
+              email
+              languageOther
+              mailingAddress
+              mailingCity
+              mailingState
+              mailingZip
+            ],
+            householdMembers: %i[
+              appMemberId
+              firstName
+              lastName
+              middleName
+              hasSameAddressAsApplicant
+              noAddress
+              workInSf
+              relationship
+              DOB
+              address
+              city
+              state
+              zip
+              preferenceAddressMatch
+              xCoordinate
+              yCoordinate
+              whichComponentOfLocatorWasUsed
+              candidateScore
+            ],
+            shortFormPreferences: %i[
+              applicationId
+              listingPreferenceID
+              appMemberID
+              certificateNumber
+              naturalKey
+              preferenceProof
+              preferenceName
+              individualPreference
+              optOut
+              recordTypeDevName
+              ifCombinedIndividualPreference
+              shortformPreferenceID
+              city
+              state
+              address
+              zipCode
+            ],
           )
   end
 

@@ -9,7 +9,7 @@ A portal for leasing agents to manage listings and applications.
 * Install Yarn (if you have Homebrew you can run `brew install yarn`)
 * Run `yarn install`
 * Run `bundle install`
-  - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
+  - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
 * Run `overcommit --install`
 * Create a `.env` file in the root directory and ask a team member for access to the local development secrets
 * Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
@@ -28,9 +28,13 @@ Rails tests:
 
 `bundle exec rake spec`
 
-Running React/Javascript tests:
+Running React/Javascript unit tests:
 
 `yarn test`
+
+Running React/Javascript e2e tests:
+
+`yarn e2e`
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 

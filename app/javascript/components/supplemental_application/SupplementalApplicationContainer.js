@@ -7,6 +7,7 @@ import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdateForm from './sections/StatusUpdateForm'
+import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
@@ -31,11 +32,14 @@ const LeaseInformationSection = ({ statusHistory }) => (
   </ContentSection>
 )
 
-const ConfirmedHoushold = () => {
+const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   return (
     <ContentSection title="Confirmed Household">
       <ContentSection.Sub title="Confirmed Reserved and Priority Units">
         <ConfirmedUnits />
+      </ContentSection.Sub>
+      <ContentSection.Sub title="Confirmed Household Income">
+        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi}/>
       </ContentSection.Sub>
     </ContentSection>
   )
@@ -105,7 +109,9 @@ class SupplementalApplicationContainer extends React.Component {
       fileBaseUrl,
       onSavePreference,
       confirmedPreferencesFailed,
-      onDismissError
+      onDismissError,
+      amis,
+      amiCharts
     } = this.props
     const { loading } = this.state
 
@@ -123,7 +129,7 @@ class SupplementalApplicationContainer extends React.Component {
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
               />
-              <ConfirmedHoushold />
+              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts}/>
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>
               <ButtonPager disabled={loading}/>
