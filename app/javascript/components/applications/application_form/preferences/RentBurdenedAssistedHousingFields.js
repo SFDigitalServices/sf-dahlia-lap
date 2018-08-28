@@ -22,7 +22,7 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
         <Field.Select
           label="Individual Preference"
           blockNote="(required)"
-          field={buildFieldId(i,'individualPreference')}
+          field={buildFieldId(i,'individual_preference')}
           options={individualPreferenceOptions}
         />
       </div>

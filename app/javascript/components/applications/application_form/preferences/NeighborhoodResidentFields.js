@@ -20,7 +20,7 @@ const NeighborhoodResidentFields = ({ householdMembers, i }) => {
         <Field.Select
           label="Type of Proof"
           blockNote="(required)"
-          field={buildFieldId(i,'preferenceProof')}
+          field={buildFieldId(i,'type_of_proof')}
           options={preference_proof_options_nrhp}
         />
       </div>

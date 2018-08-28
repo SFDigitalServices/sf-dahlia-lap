@@ -38,7 +38,7 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
         <Field.Select
           label="Individual Preference"
           blockNote="(required)"
-          field={buildFieldId(i,'individualPreference')}
+          field={buildFieldId(i,'individual_preference')}
           options={individualPreferenceOptions}
         />
       </div>
@@ -46,8 +46,8 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
         <Field.Select
           label="Type of Proof"
           blockNote="(required)"
-          field={buildFieldId(i,'preferenceProof')}
-          options={getProofTypes(shortFormPreference.individualPreference)}
+          field={buildFieldId(i,'type_of_proof')}
+          options={getProofTypes(shortFormPreference.individual_preference)}
         />
       </div>
       <div className="small-12 columns">
