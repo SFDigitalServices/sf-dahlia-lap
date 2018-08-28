@@ -5,14 +5,14 @@ const payload = {
     answeredCommunityScreening: null,
     applicationSubmissionType: "Paper",
     annualIncome: 110000,
+    monthlyIncome: null,
+    HHTotalIncomeWithAssets: undefined,
+    householdAssets: null,
     householdVouchersSubsidies: 'true',
     agreeToTerms: true,
     numberOfDependents: 2,
     listingID: 'a0W0x000000GhJUEA0',
-    "monthlyIncome": null,
     hasSenior: undefined,
-    householdAssets: null,
-    totalMonthlyRent: null,
     primaryApplicant:
      { DOB: '1950-01-01',
        email: 'eee@eeee.com',
@@ -54,7 +54,8 @@ const payload = {
          address: '9 de julio',
          city: 'buenos aires',
          state: 'fl',
-         zip: '33026' } ]
+         zip: '33026' } ],
+    totalMonthlyRent: null
 }
 
 export default payload
