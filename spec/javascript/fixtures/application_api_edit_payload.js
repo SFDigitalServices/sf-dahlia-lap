@@ -2,6 +2,7 @@ export default {
     id: 'a0o0x000000OcOzAAK',
    hasMilitaryService: null,
    hasSenior: undefined,
+   householdAssets: undefined,
    hasDevelopmentalDisability: null,
    answeredCommunityScreening: null,
    annualIncome: 110000,
@@ -47,6 +48,7 @@ export default {
       phone: '9954449943',
       phoneType: 'Cell' },
    listingID: 'a0W0x000000GhJUEA0',
+   monthlyIncome: null,
    numberOfDependents: undefined,
    totalMonthlyRent: null,
    applicationSubmissionType: 'Electronic' }

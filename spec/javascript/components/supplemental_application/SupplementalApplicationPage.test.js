@@ -5,14 +5,19 @@ import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme';
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
+import units from '../../fixtures/units'
 import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
 
 const mockSubmitApplication = jest.fn()
 
 jest.mock('apiService', () => {
-  return { submitApplication: async (data) => {
+  return {
+    submitApplication: async (data) => {
       mockSubmitApplication(data)
       return true
+    },
+    getAMI: async (data) => {
+      return { ami: '10' }
     }
   }
 })
@@ -31,7 +36,8 @@ describe('SupplementalApplicationPage', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
         statusHistory={statusHistory}
-        application={supplementalApplication}/>
+        application={supplementalApplication}
+        units={units}/>
     )
 
     let tree = component.toJSON()
@@ -45,7 +51,8 @@ describe('SupplementalApplicationPage', () => {
     const wrapper = mount(
       <SupplementalApplicationPage
         application={supplementalApplication}
-        statusHistory={statusHistory}/>
+        statusHistory={statusHistory}
+        units={units}/>
     )
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')

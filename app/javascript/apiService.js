@@ -3,6 +3,7 @@ import axios from 'axios'
 const apiCall = async (method, path, data) => {
   if (process.env.NODE_ENV === 'test')
     throw new Error("API should not be called in TEST")
+
   try {
     const request = await axios[method](`/api/v1${path}`, data)
     return request.data
@@ -47,6 +48,16 @@ const fetchApplications = async ({ page, filters }) => {
   })
 }
 
+const getAMI = async ({ chartType, chartYear }) => {
+  return apiCall('get', '/ami', {
+    params: {
+      chartType: chartType,
+      year: chartYear,
+      percent: 100
+    }
+  })
+}
+
 // NOTE: This is used in Lease Ups Table
 // const updateLeaseUpStatus = async (applicationNumer, status) => {
 //   console.log(`Updating lease up status for ${applicationNumer} to ${status}`)
@@ -68,5 +79,6 @@ export default {
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
+  getAMI,
   createLeaseUpStatus
 }

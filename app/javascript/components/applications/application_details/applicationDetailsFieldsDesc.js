@@ -31,7 +31,7 @@ const fields = {
   "general_lottery_rank": null,
   "answered_community_screening": null,
   "has_military_service": null,
-  "has_developmentaldisability": {
+  "has_developmental_disability": {
     "label": "Has Developmental Disability"
   },
   "has_ada_priorities_selected": null,
