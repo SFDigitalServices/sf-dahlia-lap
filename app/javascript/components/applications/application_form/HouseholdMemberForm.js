@@ -22,7 +22,7 @@ const HouseholdMemberForm = ({ i }) => {
           <div className="small-3 columns">
               <label>Date of Birth</label>
             <Text
-              field={`householdMembers.${i}.DOB`}
+              field={`household_members.${i}.date_of_birth`}
               type="date"
               pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
               placeholder="YYYY-MM-DD" />
