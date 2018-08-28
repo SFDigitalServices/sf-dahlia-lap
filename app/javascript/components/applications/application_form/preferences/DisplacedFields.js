@@ -15,7 +15,7 @@ const DisplacedFields = ({ formApi, householdMembers, i }) => {
       </div>
       <div className="small-6 columns">
         <Field.Text
-          field={buildFieldId(i,'certificateNumber')}
+          field={buildFieldId(i,'certificate_number')}
           label="DTHP Certificate Number"
         />
       </div>
