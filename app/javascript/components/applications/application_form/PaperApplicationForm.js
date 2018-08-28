@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, isEmpty, omit, merge, each, some, isObjectLike, isNil, includes } from 'lodash'
+import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
 import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -76,10 +76,10 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    const { listing, application, onSubmit } = this.props
+    const { listing, application, onSubmit, editPage} = this.props
     const { submitType } = this.state
     this.setState({ submittedValues, loading: true, failed: false })
-    await onSubmit(submitType, submittedValues, application, listing)
+    await onSubmit(submitType, submittedValues, application, listing, editPage)
     this.setState({ loading: false })
   }
 

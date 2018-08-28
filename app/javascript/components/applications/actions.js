@@ -3,7 +3,7 @@ import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 
-export const saveApplication = async (submitType, submittedValues, application, listing) => {
+export const saveApplication = async (submitType, submittedValues, application, listing, editPage) => {
   const applicationData = domainToApi.buildApplicationShape(submittedValues)
   const response = await apiService.submitApplication(applicationData)
 
@@ -11,17 +11,12 @@ export const saveApplication = async (submitType, submittedValues, application, 
     alert('There was an error on submit. Please check values and try again.')
   }
 
-  try {
-    if (submitType === 'Save') {
-      const showAddBtn  = editPage ? '' : '?showAddBtn=true'
-      window.location.href = '/applications/' + response.application.id + showAddBtn
-    } else {
-      window.location.href = '/listings/' + listing.id + '/applications/new'
-    }
-  } catch(err) {
-    console.log('Cannot use window.location.href')
+  if (submitType === 'Save') {
+    const showAddBtn  = editPage ? '' : '?showAddBtn=true'
+    window.location.href = '/applications/' + response.application.id + showAddBtn
+  } else {
+    window.location.href = '/listings/' + listing.id + '/applications/new'
   }
-
   return response
 }
 

@@ -13,7 +13,7 @@ const ApplicationLanguageSection = ({ formApi, editValues }) => {
       <div className="row">
         <div className="small-4 columns">
           <label>Language Submitted In</label>
-          <Select field="applicationLanguage" options={application_language_options} />
+          <Select field="application_language" options={application_language_options} />
         </div>
       </div>
     </div>

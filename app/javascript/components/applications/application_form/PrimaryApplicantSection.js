@@ -9,12 +9,12 @@ import { mailingAddressFieldMap } from './utils'
 let { phone_type_options } = formOptions
 
 const validateError = validate({
-  DOB: validate.any(
+  date_of_birth: validate.any(
     validate.isValidDate("Please enter a valid Date of Birth"),
     validate.isOldEnough("The primary applicant must be 18 years of age or older")
   ),
-  firstName: validate.isPresent("Please enter a First Name"),
-  lastName: validate.isPresent("Please enter a Last Name")
+  first_name: validate.isPresent("Please enter a First Name"),
+  last_name: validate.isPresent("Please enter a Last Name")
 })
 
 const PrimaryApplicantSection = ({formApi, editValues }) => {
@@ -37,7 +37,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                   <Field.Text
                     label="First Name"
                     blockNote="(required)"
-                    field="firstName"
+                    field="first_name"
                     errorMessage={(label, error) => error }
                   />
                 </div>
@@ -49,7 +49,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                   <Field.Text
                     label="Last Name"
                     blockNote="(required)"
-                    field="lastName"
+                    field="last_name"
                     errorMessage={(label, error) => error }
                   />
                 </div>
@@ -72,7 +72,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
             <div className="row">
               <div className="small-4 columns">
                 <Field.Text
-                   field='DOB'
+                   field='date_of_birth'
                    label='Date of Birth'
                    blockNote='(required)'
                    type="date"
