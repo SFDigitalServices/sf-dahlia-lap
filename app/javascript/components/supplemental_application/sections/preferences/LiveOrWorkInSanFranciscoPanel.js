@@ -1,12 +1,11 @@
 import React from 'react'
-import { Select } from 'react-form'
+import { Select, Text } from 'react-form'
 
 import formUtils from '~/utils/formUtils'
-import FormGrid  from '~/components/molecules/FormGrid'
-import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils.js'
-import { FormItem, Comment, statusOptions } from './utils'
+import FormGrid from '~/components/molecules/FormGrid'
+import { FormItem, Comment } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
-import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
+import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 const {
   preference_proof_options_default
@@ -14,8 +13,7 @@ const {
 
 const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
 
-export const LiveOrWorkInSanFranciscoPanel = ({ preferenceIndex, applicationMembers }) => {
-  const applicationMembersOptions = buildHouseholdMembersOptions(applicationMembers)
+export const LiveOrWorkInSanFranciscoPanel = ({ preferenceIndex, preference }) => {
   return (
     <React.Fragment>
     <FormGrid.Row expand={false}>
@@ -28,7 +26,11 @@ export const LiveOrWorkInSanFranciscoPanel = ({ preferenceIndex, applicationMemb
         <Select field={buildFieldId(preferenceIndex, 'individual_preference')} options={individualPreferenceOptions} className='individual-preference-select'/>
       </FormItem>
       <FormItem label="HH Member on Proof">
-        <Select field={buildFieldId(preferenceIndex,'naturalKey')} options={applicationMembersOptions}/>
+        {/*
+          TODO: Add ability for users to change application member on pref.
+          For now, we just show the current app member in a read-only field.
+        */}
+        <input value={memberNameFromPref(preference)} disabled="true"/>
       </FormItem>
       <FormItem label="Type of Proof">
         <Select field={buildFieldId(preferenceIndex,'type_of_proof')} options={preference_proof_options_default}/>
@@ -36,7 +38,11 @@ export const LiveOrWorkInSanFranciscoPanel = ({ preferenceIndex, applicationMemb
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
       <FormItem label="Status">
-        <Select field={buildFieldId(preferenceIndex,'post_lottery_validation')} options={statusOptions}/>
+        {/*
+          TODO: Add ability for users to change status on pref.
+          For now, we just show the current status in a read-only field.
+        */}
+        <Text field={buildFieldId(preferenceIndex, 'post_lottery_validation')} disabled="true"/>
       </FormItem>
     </FormGrid.Row>
     <FormGrid.Row expand={false}>
