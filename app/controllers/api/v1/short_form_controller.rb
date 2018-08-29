@@ -1,4 +1,4 @@
-# RESTful JSON API to query for short form actions
+# Controller for the short form API.
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
@@ -26,6 +26,7 @@ class Api::V1::ShortFormController < ApiController
           .permit(
             :id,
             :listingID,
+            :applicationLanguage,
             :answeredCommunityScreening,
             :adaPrioritiesSelected,
             :householdVouchersSubsidies,
