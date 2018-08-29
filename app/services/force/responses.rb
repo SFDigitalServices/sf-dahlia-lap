@@ -1,4 +1,5 @@
 module Force
+  # Methods for handling Salesforde Responses
   module Responses
     # recursively remove "__c" and "__r" from all keys
     def self.massage(h)
@@ -34,6 +35,7 @@ module Force
       end
     end
 
+    # TODO: needs to be refactored. Capture as 0 point chore.
     def self.parsed_object(result, fields)
       obj = {}
       fields.each do |field, attrs|
@@ -56,6 +58,5 @@ module Force
       end
       Hashie::Mash.new(massage(obj))
     end
-
   end
 end

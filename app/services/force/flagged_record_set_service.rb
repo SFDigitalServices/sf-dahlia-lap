@@ -22,7 +22,7 @@ module Force
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
           WHERE #{user_can_access}
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
-        ), :pending_review).select { |set| set['Rule_Name'] != 'Residence Address' }
+        ), :pending_review).reject { |set| set['Rule_Name'] == 'Residence Address' }
       end
     end
 
