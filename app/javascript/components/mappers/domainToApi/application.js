@@ -18,6 +18,7 @@ const mapAdaPrioritiesMap = (list) => {
 
 export const applicationFieldMapper = {
   id: 'id',
+  application_language: 'applicationLanguage',
   has_military_service: 'hasMilitaryService',
   has_developmental_disability: 'hasDevelopmentalDisability',
   answered_community_screening: 'answeredCommunityScreening',
