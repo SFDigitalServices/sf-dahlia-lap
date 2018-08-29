@@ -9,7 +9,11 @@ export const alternateContactFieldMapper = {
   agency_name: 'agency',
   email: 'email',
   phone: 'phone',
-  phone_type: 'phoneType'
+  phone_type: 'phoneType',
+  mailing_address: 'mailingAddress',
+  mailing_city: 'mailingCity',
+  mailing_state: 'mailingState',
+  mailing_zip: 'mailingZip',
 }
 
 export const mapAlternateContact = createFieldMapper(alternateContactFieldMapper)

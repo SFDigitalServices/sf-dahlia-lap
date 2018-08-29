@@ -38,6 +38,7 @@ export const preferenceFieldMapper = {
 
 export const applicationFieldMapper = {
   id: 'id',
+  application_language: 'applicationLanguage',
   has_military_service: 'hasMilitaryService',
   has_developmental_disability: 'hasDevelopmentalDisability',
   answered_community_screening: 'answeredCommunityScreening',
@@ -67,7 +68,11 @@ export const alternateContactFieldMapper = {
   agency_name: 'agency',
   email: 'email',
   phone: 'phone',
-  phone_type: 'phoneType'
+  phone_type: 'phoneType',
+  mailing_street: 'mailingAddress',
+  mailing_city: 'mailingCity',
+  mailing_state: 'mailingState',
+  mailing_zip_code: 'mailingZip',
 }
 
 export const applicationShape = {

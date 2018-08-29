@@ -1,6 +1,8 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
+import AddressForm from './AddressForm'
+import { mailingAddressFieldMap } from './utils'
 
 const {
   alternate_contact_options,
@@ -64,6 +66,7 @@ const AlternateContactSection = ({editValues}) => {
                 <Select field="phone_type" options={phone_type_options} />
               </div>
             </div>
+            <AddressForm title="Mailing Address" memberType="alternateContact" fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>
