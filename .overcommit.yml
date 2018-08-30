@@ -54,7 +54,7 @@ PreCommit:
       - 'public/**/*.svg'
 
   Standard:
-    enabled: true
+    enabled: false
     description: 'Linting JavaScript'
     required_executable: './node_modules/.bin/standard'
 
