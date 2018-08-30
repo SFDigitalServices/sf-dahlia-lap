@@ -1,10 +1,11 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
+import { Text } from 'react-form'
 
-import FormGrid  from '~/components/molecules/FormGrid'
-import { FormItem, statusOptions } from './utils'
+import FormGrid from '~/components/molecules/FormGrid'
+import { FormItem } from './utils'
+import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 
-export const RentBurdenedPanel = ({ data }) => (
+export const RentBurdenedPanel = ({ preferenceIndex }) => (
   <FormGrid.Row expand={false}>
     <FormItem label="Preference Name">
       <div className="text-value">
@@ -12,10 +13,14 @@ export const RentBurdenedPanel = ({ data }) => (
       </div>
     </FormItem>
     <FormItem label="Total Household Monthly Rent">
-      <Text field='total_household_rent' type='number'/>
+      <Text field='total_monthly_rent' type='number'/>
     </FormItem>
     <FormItem label="Status">
-      <Select field='post_lottery_validation' options={statusOptions}/>
+      {/*
+        TODO: Add ability for users to change status on pref.
+        For now, we just show the current status in a read-only field.
+      */}
+      <Text field={buildFieldId(preferenceIndex, 'post_lottery_validation')} disabled="true"/>
     </FormItem>
   </FormGrid.Row>
 )

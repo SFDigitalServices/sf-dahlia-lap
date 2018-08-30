@@ -1,5 +1,5 @@
 import React from 'react'
-import { set, clone, trim, findIndex, map, each, cloneDeep } from 'lodash'
+import { set, clone, trim, map, each, cloneDeep } from 'lodash'
 import moment from 'moment'
 
 import apiService from '~/apiService'
@@ -85,7 +85,7 @@ class LeaseUpTableContainer extends React.Component {
         // and update their lease up status value and status updated date
         // in the table
         each(this.state.applications, (app, index) => {
-          if (app.application_id == applicationId) {
+          if (app.application_id === applicationId) {
             this.updateResults(`[${index}]['lease_up_status']`, status)
             this.updateResults(`[${index}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
           }

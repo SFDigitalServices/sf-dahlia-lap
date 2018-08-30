@@ -61,12 +61,14 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "test": "jest --testPathPattern=.*.test.js$",
+    "test": "jest",
+    "unit": "jest --testPathPattern=.*.test.js$",
     "e2e":  "jest --testPathPattern=.*e2e.*",
     "lint": "eslint app/javascript"
   },
   "jest": {
     "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
     ],

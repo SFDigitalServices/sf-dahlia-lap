@@ -11,8 +11,6 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 
-import { getFullHousehold } from '~/components/applications/application_form/preferences/utils.js'
-
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -46,16 +44,15 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const ConfirmedPreferencesSection = ({ application,  proofFiles, fileBaseUrl }) => {
+const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
   return (
     <ContentSection
       title="Confirmed Preferences"
       description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.">
       <ContentSection.Content>
         <PreferencesTable
-          preferences={application.preferences}
-          proofFiles={application.proof_files}
-          applicationMembers={getFullHousehold(application)}
+          application={application}
+          onSave={onSave}
           fileBaseUrl={fileBaseUrl}
         />
       </ContentSection.Content>
@@ -97,7 +94,7 @@ class SupplementalApplicationContainer extends React.Component {
   }
 
   render() {
-    const { statusHistory, application, fileBaseUrl, amis, amiCharts } = this.props
+    const { statusHistory, application, fileBaseUrl, onSavePreference, amis, amiCharts } = this.props
     const { loading } = this.state
 
     return (
@@ -107,7 +104,11 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin:'0px' }}>
               <StatusUpdateSection/>
               <ContentSection title="Current Contact Information"/>
-              <ConfirmedPreferencesSection application={application} fileBaseUrl={fileBaseUrl}/>
+              <ConfirmedPreferencesSection
+                application={application}
+                fileBaseUrl={fileBaseUrl}
+                onSave={onSavePreference}
+              />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts}/>
               <LeaseInformationSection statusHistory={statusHistory} />
               <div className="padding-bottom--2x margin-bottom--2x"></div>

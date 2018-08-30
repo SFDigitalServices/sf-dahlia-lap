@@ -139,6 +139,11 @@ const preference_proof_options_nrhp = labelize([
   'Letter documenting homelessness',
 ])
 
+const preference_proof_options_work_in_sf = labelize([
+  'Paystub with employer address',
+  'Letter from employer',
+])
+
 const priority_options = [
   'Mobility impaired',
   'Vision impaired',
@@ -185,6 +190,7 @@ export default {
   preference_proof_options_work_sf,
   preference_proof_options_rent_burden,
   preference_proof_options_nrhp,
+  preference_proof_options_work_in_sf,
   priority_options,
   listing_referral_options,
   yes_no_options,
