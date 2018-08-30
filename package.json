@@ -68,6 +68,7 @@
   },
   "jest": {
     "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
     ],
