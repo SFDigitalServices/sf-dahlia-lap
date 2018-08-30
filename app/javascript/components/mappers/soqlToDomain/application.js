@@ -46,6 +46,7 @@ export const mapApplication = (a) => {
     terms_acknowledged: a.Terms_Acknowledged,
     number_of_dependents: a.Number_of_Dependents,
     processing_status: a.Processing_Status,
+    status_last_updated: a.Status_Last_Updated,
     reserved_senior: a.Reserved_Senior
   }
 }
