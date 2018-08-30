@@ -1,34 +1,36 @@
 import React from 'react'
+import { map, reject, isEmpty, overSome, findIndex } from 'lodash'
 
-import { map, reject, filter, isEmpty, overSome, find } from 'lodash'
-import Icon from '~/components/atoms/Icon'
+import TableWrapper from '~/components/atoms/TableWrapper'
+import PreferenceIcon from './preferences/PreferenceIcon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
-import appPaths from '~/utils/appPaths'
 import Panel from './preferences/Panel'
 import {
   isCOP,
   isDTHP,
-  isGriffith,
+  isAliceGriffith,
   getPreferenceName
 } from './preferences/utils'
+import { getTypeOfProof } from './preferences/typeOfProof'
+import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
-const hasExpanderButton = (prefName) =>
-  !(isCOP(prefName) || isDTHP(prefName) || isGriffith(prefName))
+const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith)(prefName)
 
-const getAttachments = (preference, proofFiles, fileBaseUrl) => {
-  const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
-  return (!isEmpty(selectedProofFiles) &&
-          <ProofFilesList proofFiles={selectedProofFiles} fileBaseUrl={fileBaseUrl} />)
+const onlyValid = (preferences) => {
+  return reject(preferences, (pref) => {
+    return !pref.receives_preference ||
+           pref.lottery_status === 'Invalid for lottery' ||
+           isEmpty(pref.application_member)
+  })
 }
 
-const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (overSome(isCOP, isDTHP)(preference.preference_name))
-    return preference.certificate_number
-  else
-    return getAttachments(preference, proofFiles, fileBaseUrl)
+const matchingPreference = (row) => (preference) => {
+  return getPreferenceName(preference) === row[1].content
 }
+
+/** Presenter **/
 
 const buildRow = (proofFiles, fileBaseUrl) => preference => {
   return [
@@ -41,16 +43,6 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
   ]
 }
 
-const onlyValid = (preferences) => {
-  return reject(preferences, (pref) => {
-    return !pref.receives_preference ||
-           pref.lottery_status === 'Invalid for lottery' ||
-           isEmpty(pref.application_member)
-  })
-}
-
-/** Presenter **/
-
 const columns = [
   { content: '' },
   { content: 'Preference Name' },
@@ -61,75 +53,34 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const PreferenceIcon = ({ status }) => {
-  if (status === "Invalid")
-    return <Icon icon="close" size="medium" alert />
-  else if (status === "Confirmed")
-    return <Icon icon="check" size="medium" success />
-  else
-    return null
-}
-
-const matchingPreference = (row) => (preference) => {
-  return getPreferenceName(preference) === row[1].content
-}
-
-const expandedRowRenderer = (preferences, applicationMembers) => (row, toggle) => {
-  const preference = find(preferences, matchingPreference(row))
+const expandedRowRenderer = (application, applicationMembers, onSave) => (row, toggle) => {
+  const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
   return <Panel
-            preference={preference}
-            row={row}
+            application={application}
+            preferenceIndex={preferenceIndex}
             applicationMembers={applicationMembers}
+            onSave={onSave}
             onClose={toggle}
           />
 }
 
-const ExpanderAction = (row, expanded, expandedRowToggler) => {
+const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
   return (!expanded && hasExpanderButton(prefName) &&
           <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
 }
 
-const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
-  return (
-    <ul>
-      {
-        proofFiles.map(file => (
-          <li key={file.id}>
-            <a
-              href={appPaths.toAttachmentDownload(fileBaseUrl, file.id)}
-              className="block-link"
-              target="_blank"
-            >
-              {file.document_type}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  )
-}
-
-//TODO: This could be extract and re use in following tables. x-large might need to be an attribute
-const TableWrapper = ({ children }) => (
-  <div className="form-grid row expand">
-    <div className="small-12 column">
-      <div className="scrollable-table-container-under-xlarge">
-        {children}
-      </div>
-    </div>
-  </div>
-)
-
-const PreferencesTable = ({ preferences, applicationMembers, proofFiles, fileBaseUrl }) => {
+const PreferencesTable = ({ application, fileBaseUrl, onSave }) => {
+  const { preferences, proofFiles } = application
+  const applicationMembers = getFullHousehold(application)
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
-
   return (<TableWrapper>
             <ExpandableTable
               columns={columns}
               rows={rows}
-              expanderRenderer={ExpanderAction}
-              expandedRowRenderer={expandedRowRenderer(preferences, applicationMembers)} />
+              expanderRenderer={expanderAction}
+              expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave)}
+            />
           </TableWrapper>)
 }
 
