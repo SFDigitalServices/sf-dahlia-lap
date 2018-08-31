@@ -1,27 +1,15 @@
 import puppeteer from 'puppeteer'
 
+import steps from '../support/puppeteerSteps'
+
 describe('Lead header', () => {
   test('lead header loads correctly', async () => {
 	let browser = await puppeteer.launch({
-	  headless: true // change this to false to launch a browser
+	  headless: false // change this to false to launch a browser
 	});
 	let page = await browser.newPage();
 
-	await page.goto('http://localhost:3000/');
-	await page.waitForSelector('#root');
-
-  // Sign in
-  await page.click('.sign-in-btn')
-  await page.waitForNavigation()
-
-  // Sale force login
-  await page.type('#username', process.env.E2E_SALEFORCE_USERNAME)
-  await page.type('#password', process.env.E2E_SALEFORCE_PASSWORD)
-  await page.click('#Login')
-  await page.waitForNavigation()
-
-  // Got to a lease up applications
-  await page.waitForSelector('#root')
+  await steps.loginAsAgent(page)
 
   await page.goto('http://localhost:3000/listings/lease-ups/a0W0P00000DZfSpUAL/applications')
   await page.waitForSelector('#root')

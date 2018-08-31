@@ -63,7 +63,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               <div className="form-group">
                 <div className="small-4 columns">
                   <label>First Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="first_name" />
+                  <Text field="first_name" id='first_name'/>
                 </div>
                 <div className="small-4 columns">
                   <label>Middle Name</label>
@@ -71,7 +71,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                 </div>
                 <div className="small-4 columns">
                   <label>Last Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="last_name" />
+                  <Text field="last_name" id='last_name' />
                 </div>
               </div>
             </div>
@@ -94,6 +94,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
                 <div className={classNames('form-group', errorClassName(formApi,'date_of_birth'))}>
                   <label className='form-label'>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
                   <DatePickerText
+                    id='date_of_birth'
                     required={false}
                     prefilledDate={autofillValues.date_of_birth}
                     dateFormat="YYYY-MM-DD"
