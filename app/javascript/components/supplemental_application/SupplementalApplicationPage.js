@@ -9,6 +9,7 @@ import { mapList } from '~/components/mappers/utils'
 import CardLayout from '../layouts/CardLayout'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
+import Context from './context'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -61,15 +62,15 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
-  handleSavePreference = async (preferenceIndex, preferencesPanelApplication) => {
+  handleSavePreference =  async (preferenceIndex, application) => {
     const { persistedApplication } = this.state
 
-    // We clone the latest saved copy, so we can use the latest saved fields.
+    // We clone the lates saved copy, so we can use the latest saved fields.
     const synchedApplication = cloneDeep(persistedApplication)
 
     // We use the persisted copy and set only the fields updated in the panel
-    synchedApplication.total_monthly_rent = preferencesPanelApplication.total_monthly_rent
-    synchedApplication.preferences[preferenceIndex] = preferencesPanelApplication.preferences[preferenceIndex]
+    synchedApplication.total_monthly_rent = application.total_monthly_rent
+    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
 
     await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
@@ -95,18 +96,22 @@ class SupplementalApplicationPage extends React.Component {
       ]
     }
 
+    const context = {
+      application: application,
+      statusHistory: statusHistory,
+      onSubmit: this.handleSaveApplication,
+      onSavePreference: this.handleSavePreference,
+      fileBaseUrl: fileBaseUrl,
+      amiCharts: amiCharts,
+      amis: amis
+    }
+
     return (
-      <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-        <SupplementalApplicationContainer
-          application={application}
-          statusHistory={statusHistory}
-          onSubmit={this.handleSaveApplication}
-          onSavePreference={this.handleSavePreference}
-          fileBaseUrl={fileBaseUrl}
-          amiCharts={amiCharts}
-          amis={amis}
-        />
-      </CardLayout>
+      <Context.Provider value={context}>
+        <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+            <SupplementalApplicationContainer/>
+        </CardLayout>
+      </Context.Provider>
     )
   }
 }

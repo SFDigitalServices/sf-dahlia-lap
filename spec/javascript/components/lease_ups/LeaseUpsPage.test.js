@@ -6,20 +6,20 @@ import sharedHooks from '../../support/sharedHooks'
 
 const buildApplicationPreference = (uniqId, attributes = {}) => {
   return merge({
-    'Id': uniqId,
-    'Processing_Status': 'processing',
-    'LastModifiedDate': '2018-04-26T12:31:39.000+0000',
+    "Id": uniqId,
+    "Processing_Status": 'processing',
     'Preference_Order': '1',
     'Preference_Lottery_Rank': '1',
     'Listing_Preference_ID': {
       'Record_Type_For_App_Preferences': 'CAP'
     },
-    'Application': {
-      'Id': 1000 + uniqId,
-      'Name': `Application Name ${uniqId}`,
-      'Applicant': {
-        'Id': '1',
-        'Residence_Address': `1316 BURNETT ${uniqId}`,
+    "Application" : {
+      "Id": 1000 + uniqId,
+      "Name": `Application Name ${uniqId}`,
+      'Status_Last_Updated': '2018-04-26T12:31:39.000+0000',
+      "Applicant": {
+        "Id": '1',
+        "Residence_Address": `1316 BURNETT ${uniqId}`,
         'First_Name': `some first name ${uniqId}`,
         'Last_Name': `some last name ${uniqId}`,
         'Phone': 'some phone',
@@ -40,7 +40,6 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('Should render LeaseUpTable', () => {
     const applications = [ buildApplicationPreference(1), buildApplicationPreference(2) ]
-
     const wrapper = renderer.create(
       <LeaseUpApplicationsPage listing={listings} applications={applications} />
     )

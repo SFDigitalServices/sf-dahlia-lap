@@ -31,8 +31,7 @@ export const mapApplicationPreference = (value) => {
     state: value.State,
     zip_code: value.Zip_Code,
     street: value.Street,
-    recordtype_developername: get(value, 'RecordType.DeveloperName'),
-    last_modified_date: value.LastModifiedDate,
+    recordtype_developername: get(value,'RecordType.DeveloperName'),
     total_household_rent: String(value.Total_Household_Rent)
   }
 }

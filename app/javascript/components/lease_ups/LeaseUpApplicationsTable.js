@@ -61,16 +61,16 @@ const PreferenceRankCell = ({cell}) => {
 
 const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
-    { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
-    { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
-    { Header: 'First Name', accessor: 'first_name', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Last Name', accessor: 'last_name', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Phone', accessor: 'phone', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Address', accessor: 'address', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Status Updated', accessor: 'status_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
-    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id} /> }
-  ]
+      { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
+      { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className="has-border">{cell.value}</a>) },
+      { Header: 'First Name',         accessor: 'first_name' ,        Cell: resizableCell, className: 'text-left' },
+      { Header: 'Last Name',          accessor: 'last_name' ,         Cell: resizableCell, className: 'text-left' },
+      { Header: 'Phone',              accessor: 'phone' ,             Cell: resizableCell, className: 'text-left' },
+      { Header: 'Email',              accessor: 'email' ,             Cell: resizableCell, className: 'text-left' },
+      { Header: 'Address',            accessor: 'address',            Cell: resizableCell, className: 'text-left' },
+      { Header: 'Status Updated',     accessor: 'status_last_updated' ,    headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
+      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> }
+    ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
     let attrs = {}
@@ -81,7 +81,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     } else if (column.id !== 'application_number') {
       attrs.onClick = (e, handleOriginal) => { if (rowInfo) onCellClick(listingId, rowInfo) }
 
-      if (column.id === 'status_updated') {
+      if (column.id === 'status_last_updated') {
         attrs.className = 'td-offset-right text-right'
       } else if (column.id === 'rankOrder') {
         attrs.className = 'td-min-narrow'
