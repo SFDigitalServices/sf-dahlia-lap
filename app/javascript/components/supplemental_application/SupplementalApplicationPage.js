@@ -62,7 +62,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
-  handleSavePreference =  async (preferenceIndex, application) => {
+  handleSavePreference = async (preferenceIndex, application) => {
     const { persistedApplication } = this.state
 
     // We clone the lates saved copy, so we can use the latest saved fields.
@@ -109,7 +109,7 @@ class SupplementalApplicationPage extends React.Component {
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-            <SupplementalApplicationContainer/>
+          <SupplementalApplicationContainer />
         </CardLayout>
       </Context.Provider>
     )
