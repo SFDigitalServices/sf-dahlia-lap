@@ -140,7 +140,7 @@ const listingDetail = () => {
     'Building_Street_Address': '77 Bluxome Street',
     'Developer': 'Equity Residential',
     'Building_City': 'San Francisco',
-    'Building_URL': 'https:/i.imgur.com/Jh8OHJY.jpg',
+    'Building_URL': 'https://i.imgur.com/Jh8OHJY.jpg',
     'Building_State': 'CA',
     'Year_Built': 2008,
     'Building_Zip_Code': '94107',

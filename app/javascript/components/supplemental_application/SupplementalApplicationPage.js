@@ -127,7 +127,7 @@ const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
 
-  applicationWithDefaults.annual_income = getAnnualIncome(application)
+  applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
 
   return applicationWithDefaults
 }
