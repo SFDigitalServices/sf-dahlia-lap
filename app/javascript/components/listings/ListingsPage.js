@@ -6,31 +6,31 @@ import mapProps from '~/utils/mapProps'
 import { mapListing } from '~/components/mappers/soqlToDomain'
 
 const tableFields = {
-  "id":null,
-  "name":{
-    "label":"Listing Name",
-    "minWidth":225
+  'id': null,
+  'name': {
+    'label': 'Listing Name',
+    'minWidth': 225
   },
-  "application_due_date":{
-    "type":"date",
-    "label": "Application Due Date"
+  'application_due_date': {
+    'type': 'date',
+    'label': 'Application Due Date'
   },
-  "lottery_date":{
-    "type":"date",
-    "label": "Lottery Date"
+  'lottery_date': {
+    'type': 'date',
+    'label': 'Lottery Date'
   },
-  "lottery_results_date":{
-    "type":"date",
-    "label": "Lottery Results Date"
+  'lottery_results_date': {
+    'type': 'date',
+    'label': 'Lottery Results Date'
   },
-  "lottery_status":{
-    "label": "Lottery Status"
+  'lottery_status': {
+    'label': 'Lottery Status'
   },
-  "nflagged_applications":{
-    "label":"Flagged Applications"
+  'nflagged_applications': {
+    'label': 'Flagged Applications'
   },
-  "in_lottery":{
-    "label":"Applications In Lottery"
+  'in_lottery': {
+    'label': 'Applications In Lottery'
   }
 }
 
@@ -39,8 +39,8 @@ const ListingsPageTable = ({ page, listings, fields }) => {
     <IndexTable
       page={page}
       results={listings}
-      fields= {fields}
-      links={['View Listing', 'Add Application', 'Lease Ups'] } />
+      fields={fields}
+      links={['View Listing', 'Add Application', 'Lease Ups']} />
   )
 }
 
@@ -50,7 +50,7 @@ const layout = {
   }
 }
 
-const ListingsPage = ({ page, listings}) => {
+const ListingsPage = ({ page, listings }) => {
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />
@@ -58,7 +58,7 @@ const ListingsPage = ({ page, listings}) => {
   )
 }
 
-const mapProperties = ({ page, listings}) => {
+const mapProperties = ({ page, listings }) => {
   return {
     page: page,
     listings: listings.map(mapListing)

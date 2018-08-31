@@ -1,20 +1,20 @@
 import React from 'react'
 import { range } from 'lodash'
-import { Select } from 'react-form';
+import { Select } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import formUtils from '~/utils/formUtils'
 
 const DemographicsInputs = ({onChange}) => {
   const numberOfDependentsOptions = formUtils.toOptions(range(10))
-  const martialStatusOptions = formUtils.toOptions(["Single", "Married", "Domestic Partner"])
+  const martialStatusOptions = formUtils.toOptions(['Single', 'Married', 'Domestic Partner'])
 
   return (
     <React.Fragment>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group label='Number of Dependents'>
-            <Select id='demographics-dependents' field='number_of_dependents' options={numberOfDependentsOptions} placeholder='Select One'/>
+            <Select id='demographics-dependents' field='number_of_dependents' options={numberOfDependentsOptions} placeholder='Select One' />
           </FormGrid.Group>
         </FormGrid.Item>
 

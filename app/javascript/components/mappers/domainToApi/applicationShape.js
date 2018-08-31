@@ -20,10 +20,10 @@ export const applicationShape = {
 
 export const buildApplicationShape = application => {
   return omitEmpty(
-          mapFields(applicationShape, {}, application),
-          [
-            'alternateContact',
-            'adaPrioritiesSelected',
-            'demographics'
-          ])
+    mapFields(applicationShape, {}, application),
+    [
+      'alternateContact',
+      'adaPrioritiesSelected',
+      'demographics'
+    ])
 }

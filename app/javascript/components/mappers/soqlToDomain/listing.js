@@ -14,7 +14,7 @@ export const mapListing = (l) => {
     listing_lottery_preferences: mapList(mapListingLotteryPreference, l.Listing_Lottery_Preferences),
     units: mapList(mapUnit, l.Units),
     building: mapShape(mapBuilding, l.Building),
-    id:l.Id,
+    id: l.Id,
     owner_id: l.OwnerId,
     application_due_date: l.Application_Due_Date,
     name: l.Name,

@@ -1,7 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
-import sinon from 'sinon'
 
 describe('BreadCrumbs', () => {
   let items = [
@@ -13,10 +12,10 @@ describe('BreadCrumbs', () => {
 
   test('should render succesfully', () => {
     const component = renderer.create(
-      <BreadCrumbs items={items} />,
-    );
+      <BreadCrumbs items={items} />
+    )
 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

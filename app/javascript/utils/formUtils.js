@@ -1,12 +1,7 @@
 import { reduce, mapValues, isObjectLike, isArray } from 'lodash'
 
-const toOption = (item) =>  {
-  if (isArray(item))
-    return { value: item[0], label: item[1] }
-  else if (isObjectLike(item))
-    return item
-  else
-    return { value: item, label: item }
+const toOption = (item) => {
+  if (isArray(item)) { return { value: item[0], label: item[1] } } else if (isObjectLike(item)) { return item } else { return { value: item, label: item } }
 }
 
 const toOptions = (items) => {
@@ -21,11 +16,11 @@ const toOptions = (items) => {
 // them errors as soon as the form renders. So this function
 // lets us know if fields have errors only after user interaction.
 const touchedErrors = (formApi) => {
-  return reduce(formApi.errors , function(obj, error, field) {
+  return reduce(formApi.errors, function (obj, error, field) {
     obj[field] = formApi.touched[field] && error
-    return obj;
-  }, {});
-};
+    return obj
+  }, {})
+}
 
 // Returns an object whose keys are the form fields and whose
 // values indicate whether that field has an error after a
@@ -37,7 +32,7 @@ const touchedErrors = (formApi) => {
 // after user has tried to submit the form.
 const submitErrors = (formApi) => {
   return formApi.submits > 0 ? formApi.errors : mapValues(formApi.errors, () => null)
-};
+}
 
 export default {
   toOption,

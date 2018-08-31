@@ -1,7 +1,7 @@
 module Force
-
+  # Salesforce Module
   class ClientFactory
-
+    # TODO: Update this with a top-level comment
     def new_for_user(user)
       if Rails.env.test?
         new_with_username_and_password

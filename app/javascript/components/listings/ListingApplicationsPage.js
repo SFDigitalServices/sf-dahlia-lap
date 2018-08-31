@@ -7,33 +7,33 @@ import { mapApplication, mapListing } from '~/components/mappers/soqlToDomain'
 import { buildListingApplicationModel } from './listingApplicationModel'
 
 const tableFields = {
-  "id":null,
-  "name":{
-    "label":"Application Number"
+  'id': null,
+  'name': {
+    'label': 'Application Number'
   },
-  "listing_name":{
-    "label":"Listing Name"
+  'listing_name': {
+    'label': 'Listing Name'
   },
-  "listing_lottery_date":{
-    "label":"Lottery Date"
+  'listing_lottery_date': {
+    'label': 'Lottery Date'
   },
-  "applicant_first_name":{
-    "label": 'First Name'
+  'applicant_first_name': {
+    'label': 'First Name'
   },
-  "applicant_last_name": {
-    "label": 'Last Name'
+  'applicant_last_name': {
+    'label': 'Last Name'
   },
-  "application_submitted_date":{
-    "type":"date",
-    "label": 'Application Submitted Date'
+  'application_submitted_date': {
+    'type': 'date',
+    'label': 'Application Submitted Date'
   },
-  "total_household_size": {
-    "label": "Total Household Size"
+  'total_household_size': {
+    'label': 'Total Household Size'
   },
-  "application_submission_type":{
-    "label": "Application Submission Type",
-    "editable":true,
-    "editable_options":["Electronic","Paper"]
+  'application_submission_type': {
+    'label': 'Application Submission Type',
+    'editable': true,
+    'editable_options': ['Electronic', 'Paper']
   }
 }
 
@@ -42,11 +42,11 @@ const ListingApplicationsTable = ({ applications, fields }) => {
     <IndexTable
       results={applications}
       fields={fields}
-      links={['View Application'] } />
+      links={['View Application']} />
   )
 }
 
-const ListingApplicationsPage = ({listing, applications }) => {
+const ListingApplicationsPage = ({ listing, applications }) => {
   const pageHeader = {
     title: listing.name
   }
@@ -54,9 +54,9 @@ const ListingApplicationsPage = ({listing, applications }) => {
   const tabs = {
     items: [
       { title: 'Listing Details', url: `/listings/${listing.id}` },
-      { title: 'Applications',    url: `/listings/${listing.id}/applications`  }
+      { title: 'Applications', url: `/listings/${listing.id}/applications` }
     ],
-    currentUrl:window.location.pathname
+    currentUrl: window.location.pathname
   }
 
   return (
@@ -66,10 +66,10 @@ const ListingApplicationsPage = ({listing, applications }) => {
   )
 }
 
-const mapProperties = ({listing, applications }) => {
+const mapProperties = ({ listing, applications }) => {
   return {
     listing: mapListing(listing),
-    applications: applications.map(i => buildListingApplicationModel(mapApplication(i))),
+    applications: applications.map(i => buildListingApplicationModel(mapApplication(i)))
   }
 }
 

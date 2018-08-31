@@ -40,7 +40,6 @@ const buildListingPreferencesOptions = (preferencesNotSelected) => {
   })
 }
 
-
 const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold }) => {
   const selectedPreference = findSelectedPreference(i, formApi, listingPreferences)
   const preferencesNotSelected = findPreferencesNotSelected(formApi, listingPreferences, selectedPreference)
@@ -55,7 +54,7 @@ const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold })
           <Select
             field={buildFieldId(i, 'listing_preference_id')}
             options={listingPreferencesOptions}
-            value={buildFieldId(i,'listing_preference_id')}
+            value={buildFieldId(i, 'listing_preference_id')}
           />
         </Column>
         <PreferenceAdditionalOptions
@@ -71,8 +70,8 @@ const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold })
         <Column span={4}>
           <button
             onClick={() => formApi.removeValue(FIELD_NAME, i)}
-            type="button"
-            className="mb-4 btn btn-danger">
+            type='button'
+            className='mb-4 btn btn-danger'>
               Remove
           </button>
         </Column>

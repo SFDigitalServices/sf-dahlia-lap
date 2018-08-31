@@ -1,4 +1,5 @@
 module Force
+  # Methods for handling Salesforde Responses
   module Responses
     # recursively remove "__c" and "__r" from all keys
     def self.massage(h)

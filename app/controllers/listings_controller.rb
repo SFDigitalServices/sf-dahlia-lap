@@ -1,3 +1,4 @@
+# Controller for listings objects
 class ListingsController < ApplicationController
   before_action :authenticate_user!
 

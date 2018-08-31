@@ -6,84 +6,84 @@ import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
 import { mailingAddressFieldMap } from './utils'
 
-let { phone_type_options } = formOptions
+let { phoneTypeOptions } = formOptions
 
 const validateError = validate({
   date_of_birth: validate.any(
-    validate.isValidDate("Please enter a valid Date of Birth"),
-    validate.isOldEnough("The primary applicant must be 18 years of age or older")
+    validate.isValidDate('Please enter a valid Date of Birth'),
+    validate.isOldEnough('The primary applicant must be 18 years of age or older')
   ),
-  first_name: validate.isPresent("Please enter a First Name"),
-  last_name: validate.isPresent("Please enter a Last Name")
+  first_name: validate.isPresent('Please enter a First Name'),
+  last_name: validate.isPresent('Please enter a Last Name')
 })
 
-const PrimaryApplicantSection = ({formApi, editValues }) => {
+const PrimaryApplicantSection = ({ formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
 
   return (
-    <NestedForm field="applicant">
+    <NestedForm field='applicant'>
       <Form defaultValues={autofillValues} validateError={validateError} >
         { formApi => (
-          <div className="border-bottom margin-bottom--2x">
-            <div className="row">
+          <div className='border-bottom margin-bottom--2x'>
+            <div className='row'>
               <h3>Primary Applicant</h3>
             </div>
-            <div className="row">
-              <div className="form-group">
-                <div className="small-4 columns">
+            <div className='row'>
+              <div className='form-group'>
+                <div className='small-4 columns'>
                   <Field.Text
-                    label="First Name"
-                    blockNote="(required)"
-                    field="first_name"
-                    errorMessage={(label, error) => error }
+                    label='First Name'
+                    blockNote='(required)'
+                    field='first_name'
+                    errorMessage={(label, error) => error}
                   />
                 </div>
-                <div className="small-4 columns">
+                <div className='small-4 columns'>
                   <label>Middle Name</label>
-                  <Text field="middle_name" />
+                  <Text field='middle_name' />
                 </div>
-                <div className="small-4 columns">
+                <div className='small-4 columns'>
                   <Field.Text
-                    label="Last Name"
-                    blockNote="(required)"
-                    field="last_name"
-                    errorMessage={(label, error) => error }
+                    label='Last Name'
+                    blockNote='(required)'
+                    field='last_name'
+                    errorMessage={(label, error) => error}
                   />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="small-4 columns">
+            <div className='row'>
+              <div className='small-4 columns'>
                 <label>Email</label>
-                <Text field="email" />
+                <Text field='email' />
               </div>
-              <div className="small-4 columns">
+              <div className='small-4 columns'>
                 <label>Phone</label>
-                <Text field="phone"/>
+                <Text field='phone' />
               </div>
-              <div className="small-4 columns">
+              <div className='small-4 columns'>
                 <label>Phone Type</label>
-                <Select field="phone_type" options={phone_type_options} />
+                <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
-            <div className="row">
-              <div className="small-4 columns">
+            <div className='row'>
+              <div className='small-4 columns'>
                 <Field.Text
-                   field='date_of_birth'
-                   label='Date of Birth'
-                   blockNote='(required)'
-                   type="date"
-                   pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                   placeholder="YYYY-MM-DD"
-                   errorMessage={(label, error) => error }
+                  field='date_of_birth'
+                  label='Date of Birth'
+                  blockNote='(required)'
+                  type='date'
+                  pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
+                  placeholder='YYYY-MM-DD'
+                  errorMessage={(label, error) => error}
                 />
               </div>
             </div>
-            <AddressForm title="Home Address" memberType="primaryApplicant" />
-            <AddressForm title="Mailing Address" memberType="primaryApplicant" fieldMap={mailingAddressFieldMap} />
+            <AddressForm title='Home Address' memberType='primaryApplicant' />
+            <AddressForm title='Mailing Address' memberType='primaryApplicant' fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>

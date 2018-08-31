@@ -18,30 +18,30 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
       address: 'street',
       city: 'city',
       state: 'state',
-      zip: 'zip_code',
+      zip: 'zip_code'
     }
   }
 
   return (
     <div>
-      <div className="row">
+      <div className='row'>
         <h4>{title}</h4>
       </div>
-      <div className="row">
-        <div className="form-group">
-          <div className="small-6 columns">
+      <div className='row'>
+        <div className='form-group'>
+          <div className='small-6 columns'>
             <label>Street Address</label>
             <Text field={buildField(memberType, nestedField, fieldMap, 'address')} />
           </div>
-          <div className="small-6 columns">
+          <div className='small-6 columns'>
             <label>City</label>
             <Text field={buildField(memberType, nestedField, fieldMap, 'city')} />
           </div>
-          <div className="small-6 columns">
+          <div className='small-6 columns'>
             <label>State</label>
-            <Text maxLength="2" field={buildField(memberType, nestedField, fieldMap, 'state')} />
+            <Text maxLength='2' field={buildField(memberType, nestedField, fieldMap, 'state')} />
           </div>
-          <div className="small-6 columns">
+          <div className='small-6 columns'>
             <label>Zip</label>
             <Text field={buildField(memberType, nestedField, fieldMap, 'zip')} />
           </div>

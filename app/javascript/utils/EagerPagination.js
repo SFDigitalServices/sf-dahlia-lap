@@ -13,18 +13,17 @@ const sliceRecords = (records, eagerCurrentPage, eagerSize, serverSize) => {
 }
 
 class EagerPagination {
-
-  constructor(eagerPageSize, serverPageSize) {
+  constructor (eagerPageSize, serverPageSize) {
     this.eager = { currentPage: -1, size: eagerPageSize }
     this.server = { currentPage: -1, size: serverPageSize }
   }
 
-  reset() {
+  reset () {
     this.eager.currentPage = -1
     this.server.currentPage = -1
   }
 
-  buildResponse() {
+  buildResponse () {
     return {
       records: sliceRecords(this.records, this.eager.currentPage, this.eager.size, this.server.size),
       pages: this.pages,
@@ -32,11 +31,11 @@ class EagerPagination {
     }
   }
 
-  getServerPageForEagerPage(page) {
+  getServerPageForEagerPage (page) {
     return getServerPageForEagerPage(page, this.eager.size, this.server.size)
   }
 
-  async getPage(eagerPage, fetchPage) {
+  async getPage (eagerPage, fetchPage) {
     this.eager.currentPage = eagerPage
     const newServerPage = this.getServerPageForEagerPage(eagerPage)
     if (newServerPage !== this.server.currentPage) {
