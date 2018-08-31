@@ -40,8 +40,8 @@ module Force
     def set_status_last_updated(status_last_updated_dates, application_data)
       status_last_updated_dates.each do |status_date|
         application_data.each do |app_data|
-          if app_data[:Application] == status_date[:Application]
-            app_data[:Status_Last_Updated] = status_date[:Status_Last_Updated]
+          if app_data[:Application][:Id] == status_date[:Application]
+            app_data[:Application][:Status_Last_Updated] = status_date[:Status_Last_Updated]
             break
           end
         end
@@ -49,15 +49,12 @@ module Force
     end
 
     def find_status_last_updated_dates(application_ids)
-      parse_results(
-        query(%(
-          SELECT MAX(Processing_Date_Updated__c) Status_Last_Updated, Application__c
-          FROM Field_Update_Comment__c
-          WHERE Application__c IN (#{application_ids.join(', ')})
-          GROUP BY Application__c
-        )),
-        Hashie::Mash.new(Application__c: nil, Status_Last_Updated: nil),
-      )
+      massage(query(%(
+        SELECT MAX(Processing_Date_Updated__c) Status_Last_Updated, Application__c
+        FROM Field_Update_Comment__c
+        WHERE Application__c IN (#{application_ids.join(', ')})
+        GROUP BY Application__c
+      )))
     end
 
     def user_can_access

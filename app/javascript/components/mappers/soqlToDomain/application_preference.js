@@ -32,7 +32,6 @@ export const mapApplicationPreference = (value) => {
     zip_code: value.Zip_Code,
     street: value.Street,
     recordtype_developername: get(value,'RecordType.DeveloperName'),
-    last_modified_date: value.LastModifiedDate,
     total_household_rent: String(value.Total_Household_Rent)
   }
 }
