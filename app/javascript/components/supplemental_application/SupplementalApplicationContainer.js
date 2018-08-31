@@ -12,6 +12,8 @@ import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
 
+import { withContext } from './context'
+
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
     <StatusUpdateForm />
@@ -97,12 +99,13 @@ class SupplementalApplicationContainer extends React.Component {
 
   handleOnSubmit = (value) => {
     this.setState({loading: true})
-    this.props.onSubmit(value).then(() => {
+    this.props.store.onSubmit(value).then(() => {
       this.setState({loading: false})
     })
   }
 
   render() {
+    const { store } = this.props
     const {
       statusHistory,
       application,
@@ -112,7 +115,7 @@ class SupplementalApplicationContainer extends React.Component {
       onDismissError,
       amis,
       amiCharts
-    } = this.props
+    } = store
     const { loading } = this.state
 
     return (
@@ -141,4 +144,4 @@ class SupplementalApplicationContainer extends React.Component {
   }
 }
 
-export default SupplementalApplicationContainer
+export default withContext(SupplementalApplicationContainer)

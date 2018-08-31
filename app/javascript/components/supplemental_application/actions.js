@@ -4,6 +4,7 @@ import Alerts from '~/components/Alerts'
 
 export const updateApplicationAction = async (application) => {
   const applicationApi = domainToApi.buildApplicationShape(application)
+
   const response = await apiService.submitApplication(applicationApi)
   if (response === false) {
     Alerts.error()
