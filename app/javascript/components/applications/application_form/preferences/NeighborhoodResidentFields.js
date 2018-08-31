@@ -4,7 +4,7 @@ import { buildFieldId } from './utils'
 import { Field } from '~/utils/form/Field'
 
 const {
-  preference_proof_options_nrhp
+  preferenceProofOptionsNrhp
 } = formOptions
 
 const NeighborhoodResidentFields = ({ householdMembers, i }) => {
@@ -21,7 +21,7 @@ const NeighborhoodResidentFields = ({ householdMembers, i }) => {
           label='Type of Proof'
           blockNote='(required)'
           field={buildFieldId(i, 'type_of_proof')}
-          options={preference_proof_options_nrhp}
+          options={preferenceProofOptionsNrhp}
         />
       </div>
       <div className='small-12 columns'>

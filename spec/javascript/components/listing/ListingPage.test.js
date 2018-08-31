@@ -10,15 +10,13 @@ import ListingDetailsContentCard from 'components/listings/ListingDetailsContent
 import {
   detailsFields,
   buildingInformationFields,
-  lotteryPreferencesFields,
   aafFields,
   lotteryInfoFields,
   appInfoFields,
   agentDevInfoFields,
   eligibilityRulesFields,
-  additionalInfoFields,
-  openHousesFields,
-  infoSessionsFields } from 'components/listings/fields'
+  additionalInfoFields
+} from 'components/listings/fields'
 import { mapListing } from '~/components/mappers/soqlToDomain'
 
 describe('ListingPage', () => {

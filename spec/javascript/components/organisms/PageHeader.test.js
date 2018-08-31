@@ -1,12 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import PageHeader from 'components/organisms/PageHeader'
-import sinon from 'sinon'
 
 describe('PageHeader', () => {
   let title = 'title1'
   let content = 'content1'
-  let breadcrumbs = [ { title: 'Alpha', link: '/alpah' }, { title: 'Beta', link: '/beta' }, { title: 'Gama', link: '/gama' }, { title: 'Pi', link: '/pi' }]
+  let breadcrumbs = [{ title: 'Alpha', link: '/alpah' }, { title: 'Beta', link: '/beta' }, { title: 'Gama', link: '/gama' }, { title: 'Pi', link: '/pi' }]
   let action = { link: '/export', title: 'Export' }
 
   test('should render succesfully', () => {

@@ -12,11 +12,11 @@ import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
 
-const isPreference = (record, individualPreference) => ({ recordtype_developername, individual_preference }) => {
-  return recordtype_developername === record &&
+const isPreference = (record, preference) => ({ recordtypeDevelopername, individualPreference }) => {
+  return recordtypeDevelopername === record &&
     (
-      !individualPreference ||
-      individual_preference === individualPreference
+      !preference ||
+      individualPreference === preference
     )
 }
 

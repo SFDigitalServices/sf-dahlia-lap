@@ -31,7 +31,7 @@ const NoData = ({ children, className, ...rest }) => {
       <div style={{ textAlign: 'center', padding: '10px', marginBottom: '20px' }}>
         No results, try adjusting your filters
       </div>
-      <div style={{ textAlign: 'center'}}>
+      <div style={{ textAlign: 'center' }}>
         <button className='tertiary'>Reset all filters</button>
       </div>
     </div>

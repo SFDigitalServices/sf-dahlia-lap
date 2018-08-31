@@ -3,11 +3,11 @@ import formOptions from './formOptions'
 import { NestedForm, Form, Select, Text } from 'react-form'
 
 let {
-  gender_options,
-  sexual_orientation_options,
-  sex_at_birth_options,
-  race_options,
-  ethnicity_options
+  genderOptions,
+  sexualOrientationOptions,
+  sexAtBirthOptions,
+  raceOptions,
+  ethnicityOptions
 } = formOptions
 
 const DemographicInfoSection = () => {
@@ -20,15 +20,15 @@ const DemographicInfoSection = () => {
             <div className='row'>
               <div className='small-6 columns'>
                 <label>Ethnicity</label>
-                <Select field='ethnicity' options={ethnicity_options} />
+                <Select field='ethnicity' options={ethnicityOptions} />
               </div>
               <div className='small-6 columns'>
                 <label>Race</label>
-                <Select field='race' options={race_options} />
+                <Select field='race' options={raceOptions} />
               </div>
               <div className='small-3 columns'>
                 <label>Gender</label>
-                <Select field='gender' options={gender_options} />
+                <Select field='gender' options={genderOptions} />
               </div>
               <div className='small-3 columns'>
                 <label>Gender Specify (if not listed)</label>
@@ -36,11 +36,11 @@ const DemographicInfoSection = () => {
               </div>
               <div className='small-6 columns'>
                 <label>Sex at birth</label>
-                <Select field='sex_at_birth' options={sex_at_birth_options} />
+                <Select field='sex_at_birth' options={sexAtBirthOptions} />
               </div>
               <div className='small-6 columns'>
                 <label>Sexual Orientation</label>
-                <Select field='sexual_orientation' options={sexual_orientation_options} />
+                <Select field='sexual_orientation' options={sexualOrientationOptions} />
               </div>
               <div className='small-6 columns'>
                 <label>Sexual Orientation (if not listed)</label>

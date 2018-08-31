@@ -1,7 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
-import sinon from 'sinon'
 
 describe('BreadCrumbs', () => {
   let items = [

@@ -24,7 +24,7 @@ const LeaseInformationSection = ({ statusHistory }) => (
     </ContentSection.Sub>
     {!isEmpty(statusHistory) && (
       <ContentSection.Sub title='Status History' borderBottom={false}>
-        <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
+        <StatusList items={statusHistory} onAddCommnent={() => window.alert('add comment')} />
       </ContentSection.Sub>
     )
     }

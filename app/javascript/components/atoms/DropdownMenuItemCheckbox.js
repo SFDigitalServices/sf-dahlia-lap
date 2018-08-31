@@ -2,7 +2,7 @@ import React from 'react'
 
 const DropdownMenuItemCheckbox = ({ value, label, onChange, selected }) => {
   const onKeyPressHandler = (e) => {
-    if (e.charCode == 13 || e.charCode == 32) {
+    if (e.charCode === 13 || e.charCode === 32) {
       onChange(value, label, !selected)
       e.preventDefault()
     }

@@ -1,4 +1,4 @@
-import { omitBy, isUndefined} from 'lodash'
+import { omitBy, isUndefined } from 'lodash'
 
 export const mapShape = (mapper, value) => {
   if (value) { return mapper(value) } else { return undefined }

@@ -46,7 +46,7 @@ const ListingApplicationsTable = ({ applications, fields }) => {
   )
 }
 
-const ListingApplicationsPage = ({listing, applications }) => {
+const ListingApplicationsPage = ({ listing, applications }) => {
   const pageHeader = {
     title: listing.name
   }
@@ -66,7 +66,7 @@ const ListingApplicationsPage = ({listing, applications }) => {
   )
 }
 
-const mapProperties = ({listing, applications }) => {
+const mapProperties = ({ listing, applications }) => {
   return {
     listing: mapListing(listing),
     applications: applications.map(i => buildListingApplicationModel(mapApplication(i)))

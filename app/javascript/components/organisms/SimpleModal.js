@@ -1,7 +1,4 @@
 import React from 'react'
-import Icon from '../atoms/Icon'
-import ReactModal from 'react-modal'
-import _ from 'lodash'
 import classNames from 'classnames'
 
 import Modal from './Modal'
@@ -21,8 +18,8 @@ const SimpleModalBody = ({
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
-    primary: (!type || type == 'status'),
-    'alert-fill': (type == 'alert')
+    primary: (!type || type === 'status'),
+    'alert-fill': (type === 'alert')
   })
 
   return (
@@ -44,7 +41,7 @@ const SimpleModalBody = ({
   )
 }
 
-const SimpleModal = ({ children, isOpen, handleClose, ...SimpleModalBodyProps}) => {
+const SimpleModal = ({ children, isOpen, handleClose, ...SimpleModalBodyProps }) => {
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <SimpleModalBody handleClose={handleClose} {...SimpleModalBodyProps}>

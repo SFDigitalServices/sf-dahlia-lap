@@ -4,15 +4,15 @@ import { buildFieldId } from './utils'
 import { Field } from '~/utils/form/Field'
 
 const {
-  preference_proof_options_live_sf,
-  preference_proof_options_work_sf
+  preferenceProofOptionsLiveSf,
+  preferenceProofOptionsWorkSf
 } = formOptions
 
 const getProofTypes = (pref) => {
   if (pref === 'Live in SF') {
-    return preference_proof_options_live_sf
+    return preferenceProofOptionsLiveSf
   } else if (pref === 'Work in SF') {
-    return preference_proof_options_work_sf
+    return preferenceProofOptionsWorkSf
   } else {
     return []
   }

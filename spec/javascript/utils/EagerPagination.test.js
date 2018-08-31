@@ -1,5 +1,5 @@
 import EagerPagination from 'utils/EagerPagination'
-import { each, range} from 'lodash'
+import { each, range } from 'lodash'
 
 describe('EagerPagination', () => {
   describe('getServerPageForEagerPage', () => {

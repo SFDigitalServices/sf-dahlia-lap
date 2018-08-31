@@ -1,4 +1,3 @@
-import React from 'react'
 import arrayUtils from 'utils/arrayUtils'
 
 describe('arrayUtils', () => {

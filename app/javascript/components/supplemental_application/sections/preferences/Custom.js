@@ -7,7 +7,7 @@ import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 const {
-  preference_proof_options_default
+  preferenceProofOptionsDefault
 } = formOptions
 
 export const Custom = ({ preferenceIndex, preference, application }) => {
@@ -27,7 +27,7 @@ export const Custom = ({ preferenceIndex, preference, application }) => {
           <input value={memberNameFromPref(preference)} disabled='true' />
         </FormItem>
         <FormItem label='Type of Proof'>
-          <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={preference_proof_options_default} />
+          <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={preferenceProofOptionsDefault} />
         </FormItem>
         <FormItem label='Status'>
           {/*

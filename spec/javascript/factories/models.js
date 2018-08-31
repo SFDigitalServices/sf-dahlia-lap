@@ -45,7 +45,7 @@ const applicationWithApplicant = (uniqId) => {
 }
 
 const applicationWithListing = (uniqId) => {
-  return application(uniqId, { 'Listing': { 'Id': uniqId }})
+  return application(uniqId, { 'Listing': { 'Id': uniqId } })
 }
 
 const listing = (uniqId) => {
@@ -99,24 +99,24 @@ const listingDetail = () => {
   return {
     'attributes': {
       'type': 'Listing',
-      'url': '\/services\/data\/v26.0\/sobjects\/Listing\/a0W0x000000GhJUEA0'
+      'url': '/services/data/v26.0/sobjects/Listing/a0W0x000000GhJUEA0'
     },
     'Id': 'a0W0x000000GhJUEA0',
     'OwnerId': '0050P000007H5XsQAK',
     'Owner': {
       'attributes': {
         'type': 'Name',
-        'url': '\/services\/data\/v26.0\/sobjects\/User\/0050P000007H5XsQAK'
+        'url': '/services/data/v26.0/sobjects/User/0050P000007H5XsQAK'
       },
       'Name': 'Prod Vertiba'
     },
     'Application_Due_Date': '2018-05-31T20:59:00.000+0000',
-    'Name': 'Test 5\/30',
+    'Name': 'Test 5/30',
     'Status': 'Active',
     'Building': {
       'attributes': {
         'type': 'Building',
-        'url': '\/services\/data\/v26.0\/sobjects\/Building\/a0aU00000098I4WIAU'
+        'url': '/services/data/v26.0/sobjects/Building/a0aU00000098I4WIAU'
       },
       'Name': 'PR-000001'
     },
@@ -128,7 +128,7 @@ const listingDetail = () => {
     'Account': {
       'attributes': {
         'type': 'Account',
-        'url': '\/services\/data\/v26.0\/sobjects\/Account\/0010P00001pIXNcQAO'
+        'url': '/services/data/v26.0/sobjects/Account/0010P00001pIXNcQAO'
       },
       'Name': 'Equity Residential'
     },
@@ -140,7 +140,7 @@ const listingDetail = () => {
     'Building_Street_Address': '77 Bluxome Street',
     'Developer': 'Equity Residential',
     'Building_City': 'San Francisco',
-    'Building_URL': 'https:\/\/i.imgur.com\/Jh8OHJY.jpg',
+    'Building_URL': 'https:/i.imgur.com/Jh8OHJY.jpg',
     'Building_State': 'CA',
     'Year_Built': 2008,
     'Building_Zip_Code': '94107',
@@ -188,7 +188,7 @@ const listingDetail = () => {
       {
         'attributes': {
           'type': 'Listing_Lottery_Preference',
-          'url': '\/services\/data\/v26.0\/sobjects\/Listing_Lottery_Preference\/a0l0x000000RI8nAAG'
+          'url': '/services/data/v26.0/sobjects/Listing_Lottery_Preference/a0l0x000000RI8nAAG'
         },
         'Id': 'a0l0x000000RI8nAAG',
         'Total_Submitted_Apps': 0,
@@ -199,7 +199,7 @@ const listingDetail = () => {
         'Lottery_Preference': {
           'attributes': {
             'type': 'Lottery_Preference',
-            'url': '\/services\/data\/v26.0\/sobjects\/Lottery_Preference\/a0m0P00000yuzO0QAI'
+            'url': '/services/data/v26.0/sobjects/Lottery_Preference/a0m0P00000yuzO0QAI'
           },
           'Id': 'a0m0P00000yuzO0QAI',
           'Name': 'Alice Griffith Housing Development Resident'
@@ -210,7 +210,7 @@ const listingDetail = () => {
       {
         'attributes': {
           'type': 'Unit',
-          'url': '\/services\/data\/v26.0\/sobjects\/Unit\/a0b0x000000yyMBAAY'
+          'url': '/services/data/v26.0/sobjects/Unit/a0b0x000000yyMBAAY'
         },
         'Unit_Type': 'Studio',
         'BMR_Rent_Monthly': null,

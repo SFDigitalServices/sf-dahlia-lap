@@ -6,7 +6,7 @@ import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
 import { mailingAddressFieldMap } from './utils'
 
-let { phone_type_options } = formOptions
+let { phoneTypeOptions } = formOptions
 
 const validateError = validate({
   date_of_birth: validate.any(
@@ -17,7 +17,7 @@ const validateError = validate({
   last_name: validate.isPresent('Please enter a Last Name')
 })
 
-const PrimaryApplicantSection = ({formApi, editValues }) => {
+const PrimaryApplicantSection = ({ formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
@@ -66,7 +66,7 @@ const PrimaryApplicantSection = ({formApi, editValues }) => {
               </div>
               <div className='small-4 columns'>
                 <label>Phone Type</label>
-                <Select field='phone_type' options={phone_type_options} />
+                <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
             <div className='row'>

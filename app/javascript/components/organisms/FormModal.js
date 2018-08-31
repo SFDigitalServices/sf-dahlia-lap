@@ -63,7 +63,7 @@ const FormModalBody = ({
   )
 }
 
-const FormModal = ({ children, isOpen, handleClose, ...FormModalBodyProps}) => {
+const FormModal = ({ children, isOpen, handleClose, ...FormModalBodyProps }) => {
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <FormModalBody handleClose={handleClose} {...FormModalBodyProps}>

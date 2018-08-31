@@ -50,7 +50,7 @@ const layout = {
   }
 }
 
-const ListingsPage = ({ page, listings}) => {
+const ListingsPage = ({ page, listings }) => {
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />
@@ -58,7 +58,7 @@ const ListingsPage = ({ page, listings}) => {
   )
 }
 
-const mapProperties = ({ page, listings}) => {
+const mapProperties = ({ page, listings }) => {
   return {
     page: page,
     listings: listings.map(mapListing)

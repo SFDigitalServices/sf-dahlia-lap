@@ -1,5 +1,5 @@
 import { toPairs, filter, map, join, compact } from 'lodash'
-import { createFieldMapper} from '~/utils/objectUtils'
+import { createFieldMapper } from '~/utils/objectUtils'
 
 const checkListToString = (list) => {
   return join(compact(list), ';')

@@ -4,7 +4,7 @@ import { NestedForm, Form, Checkbox, Select } from 'react-form'
 import formOptions from './formOptions'
 
 let {
-  yes_no_options,
+  yesNoOptions,
   adaPriorityValueToLabelMap
 } = formOptions
 
@@ -15,7 +15,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
 
   if (editValues && editValues.has_ada_priorities_selected) {
     let selected = keys(editValues.has_ada_priorities_selected)
-    each(selected, value => autofillValues[value] = true)
+    each(selected, value => { autofillValues[value] = true })
   }
 
   let reservedTypes = map(listing.units, unit => unit.reserved_type)
@@ -26,7 +26,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         <div className='small-6 columns'>
           <label>Developmentally Disabled</label>
           <p className='form-note margin-bottom'>One or more units is reserved for applicants who are developmentally disabled. Select "Yes" below if a household member is developmentally disabled.</p>
-          <Select field='has_developmental_disability' options={yes_no_options} />
+          <Select field='has_developmental_disability' options={yesNoOptions} />
         </div>
       )
     }
@@ -38,7 +38,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         <div className='small-6 columns'>
           <label>U.S. Military</label>
           <p className='form-note margin-bottom'>One or more units is reserved for applicants who are U.S. Military. Select "Yes" below if a household member is U.S. Military.</p>
-          <Select field='has_military_service' options={yes_no_options} />
+          <Select field='has_military_service' options={yesNoOptions} />
         </div>
       )
     }
@@ -54,7 +54,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
             <p className='form-note margin-bottom'>
               This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.
             </p>
-            <Select field='answered_community_screening' options={yes_no_options} />
+            <Select field='answered_community_screening' options={yesNoOptions} />
           </div>
         </div>
       )

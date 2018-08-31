@@ -33,7 +33,7 @@ describe('SimpleModal', () => {
 
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.setProps({type: 'alert' })
+    wrapper.setProps({ type: 'alert' })
 
     expect(wrapper).toMatchSnapshot()
   })

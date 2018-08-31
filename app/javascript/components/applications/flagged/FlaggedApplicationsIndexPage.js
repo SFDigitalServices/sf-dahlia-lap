@@ -70,7 +70,7 @@ const buildFlaggedRecordModel = (flaggedRecord) => {
   }
 }
 
-const mapProperties = ({title, flaggedRecords, type }) => {
+const mapProperties = ({ title, flaggedRecords, type }) => {
   return {
     type,
     title,

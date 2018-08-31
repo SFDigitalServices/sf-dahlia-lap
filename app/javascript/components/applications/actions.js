@@ -8,7 +8,7 @@ export const saveApplication = async (submitType, submittedValues, application, 
   const response = await apiService.submitApplication(applicationData)
 
   if (response === false) {
-    alert('There was an error on submit. Please check values and try again.')
+    window.alert('There was an error on submit. Please check values and try again.')
   }
 
   if (submitType === 'Save') {
@@ -20,7 +20,7 @@ export const saveApplication = async (submitType, submittedValues, application, 
   return response
 }
 
-export const fetchApplications = async (page, { filters}) => {
+export const fetchApplications = async (page, { filters }) => {
   const response = await apiService.fetchApplications({ page, filters })
   return {
     records: map(response.records, mapApplication),

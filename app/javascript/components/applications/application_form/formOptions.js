@@ -6,27 +6,27 @@ const labelize = (options) => (
   ))
 )
 
-const application_language_options = labelize([
+const applicationLanguageOptions = labelize([
   'English',
   'Chinese',
   'Spanish',
   'Tagalog'
 ])
 
-const phone_type_options = labelize([
+const phoneTypeOptions = labelize([
   'Home',
   'Cell',
   'Work'
 ])
 
-const alternate_contact_options = labelize([
+const alternateContactOptions = labelize([
   'Family Member',
   'Friend',
   'Social Worker or Housing Counselor',
   'Other'
 ])
 
-const gender_options = labelize([
+const genderOptions = labelize([
   'Female',
   'Male',
   'Genderqueer/Gender Non-binary',
@@ -36,13 +36,13 @@ const gender_options = labelize([
   'Decline to state'
 ])
 
-const sex_at_birth_options = labelize([
+const sexAtBirthOptions = labelize([
   'Female',
   'Male',
   'Decline to answer'
 ])
 
-const relationship_options = labelize([
+const relationshipOptions = labelize([
   'Spouse',
   'Registered Domestic Partner',
   'Parent',
@@ -60,13 +60,13 @@ const relationship_options = labelize([
   'Other'
 ])
 
-const ethnicity_options = labelize([
+const ethnicityOptions = labelize([
   'Hispanic/Latino',
   'Not Hispanic/Latino',
   'Decline to state'
 ])
 
-const race_options = labelize([
+const raceOptions = labelize([
   'American Indian/Alaskan Native',
   'Asian',
   'Black/African American',
@@ -80,7 +80,7 @@ const race_options = labelize([
   'Decline to state'
 ])
 
-const sexual_orientation_options = labelize([
+const sexualOrientationOptions = labelize([
   'Bisexual',
   'Gay/Lesbian/Same-Gender Loving',
   'Questioning/Unsure',
@@ -89,7 +89,7 @@ const sexual_orientation_options = labelize([
   'Decline to state'
 ])
 
-const preference_proof_options_default = labelize([
+const preferenceProofOptionsDefault = labelize([
   'Telephone bill',
   'Cable and internet bill',
   'Gas bill',
@@ -101,7 +101,7 @@ const preference_proof_options_default = labelize([
   'School record'
 ])
 
-const preference_proof_options_live_sf = labelize([
+const preferenceProofOptionsLiveSf = labelize([
   'Telephone bill',
   'Cable and internet bill',
   'Gas bill',
@@ -114,19 +114,19 @@ const preference_proof_options_live_sf = labelize([
   'Letter documenting homelessness'
 ])
 
-const preference_proof_options_work_sf = labelize([
+const preferenceProofOptionsWorkSf = labelize([
   'Letter from employer',
   'Paystub with employer address'
 ])
 
-const preference_proof_options_rent_burden = labelize([
+const preferenceProofOptionsRentBurden = labelize([
   'Money order',
   'Cancelled check',
   'Debit from your bank account',
   'Screenshot of online payment'
 ])
 
-const preference_proof_options_nrhp = labelize([
+const preferenceProofOptionsNrhp = labelize([
   'Telephone bill',
   'Cable and internet bill',
   'Gas bill',
@@ -139,18 +139,18 @@ const preference_proof_options_nrhp = labelize([
   'Letter documenting homelessness'
 ])
 
-const preference_proof_options_work_in_sf = labelize([
+const preferenceProofOptionsWorkInSf = labelize([
   'Paystub with employer address',
   'Letter from employer'
 ])
 
-const priority_options = [
+const priorityOptions = [
   'Mobility impaired',
   'Vision impaired',
   'Hearing impaired'
 ]
 
-const listing_referral_options = labelize([
+const listingReferralOptions = labelize([
   'Newspaper',
   'MOHCD Website',
   'Developer Website',
@@ -169,30 +169,30 @@ const adaPriorityValueToLabelMap = {
   hearing_impaired: 'Hearing impaired'
 }
 
-const yes_no_options = labelize([
+const yesNoOptions = labelize([
   'Yes',
   'No',
   'Left Blank'
 ])
 
 export default {
-  application_language_options,
-  phone_type_options,
-  alternate_contact_options,
-  gender_options,
-  sex_at_birth_options,
-  relationship_options,
-  ethnicity_options,
-  race_options,
-  sexual_orientation_options,
-  preference_proof_options_default,
-  preference_proof_options_live_sf,
-  preference_proof_options_work_sf,
-  preference_proof_options_rent_burden,
-  preference_proof_options_nrhp,
-  preference_proof_options_work_in_sf,
-  priority_options,
-  listing_referral_options,
-  yes_no_options,
+  applicationLanguageOptions,
+  phoneTypeOptions,
+  alternateContactOptions,
+  genderOptions,
+  sexAtBirthOptions,
+  relationshipOptions,
+  ethnicityOptions,
+  raceOptions,
+  sexualOrientationOptions,
+  preferenceProofOptionsDefault,
+  preferenceProofOptionsLiveSf,
+  preferenceProofOptionsWorkSf,
+  preferenceProofOptionsRentBurden,
+  preferenceProofOptionsNrhp,
+  preferenceProofOptionsWorkInSf,
+  priorityOptions,
+  listingReferralOptions,
+  yesNoOptions,
   adaPriorityValueToLabelMap
 }

@@ -1,4 +1,4 @@
-import { createFieldMapper} from '~/utils/objectUtils'
+import { createFieldMapper } from '~/utils/objectUtils'
 
 export const applicantFieldMapper = {
   date_of_birth: 'DOB',

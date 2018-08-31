@@ -44,7 +44,7 @@ class Dropdown extends React.Component {
 
   componentClickHandler = (e) => {
     // We want to hide only when we click in the component but outisde the menu
-    if (this.wrapperRef === e.target) { this.setState({expanded: false }) }
+    if (this.wrapperRef === e.target) { this.setState({ expanded: false }) }
   }
 
   onChangeHandler = (value, label) => {
@@ -89,14 +89,14 @@ class Dropdown extends React.Component {
  }
 
  render () {
-   const { prompt, items, value, buttonClasses, menuClasses = []} = this.props
+   const { prompt, items, value, buttonClasses, menuClasses = [] } = this.props
    const selectedItem = find(items, { value: value })
 
    return (
-     <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => this.wrapperRef = node} style={this.props.styles}>
+     <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={this.props.styles}>
        <button
          aria-expanded={this.state.expanded ? 'true' : 'false'}
-         onClick={this.toggleExpand} ref={(node) => this.buttonRef = node}
+         onClick={this.toggleExpand} ref={(node) => { this.buttonRef = node }}
          className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
          type='button'>
          <span className='ui-icon ui-small'>

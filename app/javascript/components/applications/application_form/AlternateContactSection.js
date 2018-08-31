@@ -5,8 +5,8 @@ import AddressForm from './AddressForm'
 import { mailingAddressFieldMap } from './utils'
 
 const {
-  alternate_contact_options,
-  phone_type_options
+  alternateContactOptions,
+  phoneTypeOptions
 } = formOptions
 
 const AlternateContactSection = ({editValues}) => {
@@ -41,7 +41,7 @@ const AlternateContactSection = ({editValues}) => {
             <div className='row'>
               <div className='small-4 columns'>
                 <label>Alternate Contact Type</label>
-                <Select field='alternate_contact_type' options={alternate_contact_options} />
+                <Select field='alternate_contact_type' options={alternateContactOptions} />
               </div>
               <div className='small-4 columns'>
                 <label>Alternate Contact Type Other</label>
@@ -63,7 +63,7 @@ const AlternateContactSection = ({editValues}) => {
               </div>
               <div className='small-4 columns'>
                 <label>Phone Type</label>
-                <Select field='phone_type' options={phone_type_options} />
+                <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
             <AddressForm title='Mailing Address' memberType='alternateContact' fieldMap={mailingAddressFieldMap} />

@@ -12,9 +12,11 @@ class DropdownMenuMultiSelect extends React.Component {
     // Add original values
     if (this.props.values) { newValues = newValues.concat(this.props.values) }
 
-    if (selected) // add new value if selected
-    { newValues.push(value) } else // remove value if unslected
-    { newValues = _.remove(newValues, v => v != value) }
+    if (selected) { // add new value if selected
+      newValues.push(value)
+    } else { // remove value if unslected
+      newValues = _.remove(newValues, v => v !== value)
+    }
 
     const uniqValues = _.uniq(newValues) // remove duplications
 
@@ -22,7 +24,7 @@ class DropdownMenuMultiSelect extends React.Component {
   }
 
   render () {
-    const { items, values, onChange, style } = this.props
+    const { items, values, style } = this.props
     return (
       <ul className='dropdown-menu' style={style} role='listbox' aria-multiselectable='true' aria-activedescendant tabIndex='-1'>
         {

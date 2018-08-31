@@ -1,4 +1,4 @@
-import { createFieldMapper} from '~/utils/objectUtils'
+import { createFieldMapper } from '~/utils/objectUtils'
 
 export const alternateContactFieldMapper = {
   first_name: 'firstName',

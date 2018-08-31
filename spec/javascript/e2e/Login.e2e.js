@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer'
 describe('Lead header', () => {
   test('lead header loads correctly', async () => {
     let browser = await puppeteer.launch({
-	  headless: true // change this to false to launch a browser
+      headless: true // change this to false to launch a browser
     })
     let page = await browser.newPage()
 

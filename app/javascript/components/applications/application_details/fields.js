@@ -1,4 +1,4 @@
-import { keys, map, join} from 'lodash'
+import { keys, map, join } from 'lodash'
 import formOptions from '../application_form/formOptions'
 
 export const applicationDataFields = [

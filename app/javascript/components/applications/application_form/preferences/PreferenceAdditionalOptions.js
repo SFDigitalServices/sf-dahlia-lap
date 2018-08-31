@@ -12,7 +12,7 @@ import AliceGriffithFields from './AliceGriffithFields'
 
 const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, householdMembers, listingPreferences, listingPreferenceID }) => {
   const preference = find(listingPreferences, { id: listingPreferenceID })
-  const propsFields = { formApi, i, householdMembers, shortFormPreference}
+  const propsFields = { formApi, i, householdMembers, shortFormPreference }
 
   if (preference) {
     switch (preference.lottery_preference.name) {

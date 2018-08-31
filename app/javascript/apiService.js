@@ -35,7 +35,7 @@ const updateFlaggedApplication = async (data) => {
 
 const submitApplication = async (data) => {
   let postData = { application: data }
-  return await apiCall('post', '/short-form/submit', postData)
+  return apiCall('post', '/short-form/submit', postData)
 }
 
 const fetchApplications = async ({ page, filters }) => {
@@ -70,7 +70,7 @@ const createLeaseUpStatus = async (data) => {
       Application__c: data.applicationId
     }
   }
-  return await apiCall('post', '/field-update-comments/create', postData)
+  return apiCall('post', '/field-update-comments/create', postData)
 }
 
 export default {
