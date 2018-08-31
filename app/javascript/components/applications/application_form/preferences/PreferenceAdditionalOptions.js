@@ -31,7 +31,7 @@ const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, househol
       case 'Alice Griffith Housing Development Resident':
         return <AliceGriffithFields {...propsFields} />
       default:
-        return <DefaultPreferenceFields {...propsFields}  />
+        return <DefaultPreferenceFields {...propsFields} />
     }
   } else {
     return null

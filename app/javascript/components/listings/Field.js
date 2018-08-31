@@ -8,7 +8,7 @@ const RenderType = ({type, value}) => {
   if (type === 'html') {
     return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
   } else if (type === 'link') {
-    return(<a target='_blank' href={value}>{value}</a>)
+    return (<a target='_blank' href={value}>{value}</a>)
   } else {
     return (<p>{String(value)}</p>)
   }
@@ -16,14 +16,13 @@ const RenderType = ({type, value}) => {
 
 const Content = ({ label, value, type }) => {
   return (
-    <div className="margin-bottom--half">
-      <h4 className="t-sans t-small t-bold no-margin">
+    <div className='margin-bottom--half'>
+      <h4 className='t-sans t-small t-bold no-margin'>
         {label}
       </h4>
-      <RenderType type={type} value={value}/>
+      <RenderType type={type} value={value} />
     </div>
   )
 }
-
 
 export default Content

@@ -40,7 +40,6 @@ import ExpandableTableWrapper from 'components/pattern_library_wrappers/Expandab
 import TabCardWrapper from 'components/pattern_library_wrappers/TabCardWrapper'
 import ContentSectionWrapper from 'components/pattern_library_wrappers/ContentSectionWrapper'
 
-
 Turbolinks.start()
 
 // All setup components after this
@@ -71,7 +70,7 @@ WebpackerReact.setup({ TableSimple })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ ContentSectionBordered })
 WebpackerReact.setup({ Modal })
-WebpackerReact.setup({ ModalWrapper} )
+WebpackerReact.setup({ ModalWrapper})
 WebpackerReact.setup({ PageHeader })
 WebpackerReact.setup({ TabsSection })
 WebpackerReact.setup({ TabCard })

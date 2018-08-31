@@ -4,85 +4,85 @@
 //       but for some reason using lodash methods broke the validation.
 //       We are going to keep this methods until we can figure out why lodash does not work.
 // TODO: Replace lodash method if possible.
-function isArray(a) {
-  return Array.isArray(a);
+function isArray (a) {
+  return Array.isArray(a)
 }
 
-function isObject(a) {
-  return !Array.isArray(a) && typeof a === 'object' && a !== null;
+function isObject (a) {
+  return !Array.isArray(a) && typeof a === 'object' && a !== null
 }
 
-function isStringValidNumber(str) {
-  return !isNaN(str);
+function isStringValidNumber (str) {
+  return !isNaN(str)
 }
 
-function flattenDeep(arr, newArr = []) {
+function flattenDeep (arr, newArr = []) {
   if (!isArray(arr)) {
-    newArr.push(arr);
+    newArr.push(arr)
   } else {
     for (let i = 0; i < arr.length; i++) {
-      flattenDeep(arr[i], newArr);
+      flattenDeep(arr[i], newArr)
     }
   }
-  return newArr;
+  return newArr
 }
 
-function makePathArray(obj) {
+function makePathArray (obj) {
   return flattenDeep(obj)
     .join('.')
     .replace('[', '.')
     .replace(']', '')
-    .split('.');
+    .split('.')
 }
 
-function set(obj = {}, path, value) {
-  const keys = makePathArray(path);
-  let keyPart;
+function set (obj = {}, path, value) {
+  const keys = makePathArray(path)
+  let keyPart
 
   if (isStringValidNumber(keys[0]) && !isArray(obj)) {
-    obj = [];
+    obj = []
   }
   if (!isStringValidNumber(keys[0]) && !isObject(obj)) {
-    obj = {};
+    obj = {}
   }
 
   let cursor = obj
 
   while ((keyPart = keys.shift()) && keys.length) {
     if (isStringValidNumber(keys[0]) && !isArray(cursor[keyPart])) {
-      cursor[keyPart] = [];
+      cursor[keyPart] = []
     }
     if (!isStringValidNumber(keys[0]) && !isObject(cursor[keyPart])) {
-      cursor[keyPart] = {};
+      cursor[keyPart] = {}
     }
-    cursor = cursor[keyPart];
+    cursor = cursor[keyPart]
   }
-  cursor[keyPart] = value;
-  return obj;
+  cursor[keyPart] = value
+  return obj
 }
 
-function get(obj, path, def) {
+function get (obj, path, def) {
   if (!path) {
-    return obj;
+    return obj
   }
-  const pathObj = makePathArray(path);
-  let val;
+  const pathObj = makePathArray(path)
+  let val
   try {
-    val = pathObj.reduce((current, pathPart) => current[pathPart], obj);
+    val = pathObj.reduce((current, pathPart) => current[pathPart], obj)
   } catch (e) {}
-  return typeof val !== 'undefined' ? val : def;
+  return typeof val !== 'undefined' ? val : def
 }
 
-function isShallowEqual(obj1, obj2) {
+function isShallowEqual (obj1, obj2) {
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
-    return false;
+    return false
   }
   for (var prop in obj1) {
     if (obj1[prop] !== obj2[prop]) {
-      return false;
+      return false
     }
   }
-  return true;
+  return true
 }
 
 export default {
@@ -91,4 +91,4 @@ export default {
   isObject,
   isArray,
   isShallowEqual
-};
+}

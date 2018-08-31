@@ -4,7 +4,7 @@ export const naturalKeyFromPreference = (p) => join(
   [
     get(p, 'application_member.first_name'),
     get(p, 'application_member.last_name'),
-    get(p, 'application_member.date_of_birth'),
+    get(p, 'application_member.date_of_birth')
   ], ',')
 
 export const naturalKeyFromMember = (member) => {

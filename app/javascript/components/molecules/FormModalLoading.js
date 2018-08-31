@@ -3,7 +3,7 @@ import Loading from '../molecules/Loading'
 
 const FormModalLoading = () => {
   return (
-    <div className="form-modal_loading">
+    <div className='form-modal_loading'>
       <Loading />
     </div>
   )

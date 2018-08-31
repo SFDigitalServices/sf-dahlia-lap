@@ -7,39 +7,39 @@ import mapProps from '~/utils/mapProps'
 import { mapFlaggedRecord } from '~/components/mappers/soqlToDomain'
 
 const flaggedTableFields = {
-  "id":null,
-  "listing_name":{
-    "label":"Listing Name"
+  'id': null,
+  'listing_name': {
+    'label': 'Listing Name'
   },
-  "rule_name":{
-    "label":"Rule Name"
+  'rule_name': {
+    'label': 'Rule Name'
   },
-  "total_number_of_pending_review":{
-    "label":"Total Number of Pending Review"
+  'total_number_of_pending_review': {
+    'label': 'Total Number of Pending Review'
   },
-  "total_number_of_appealed":{
-    "label":"Total Number of Appealed"
+  'total_number_of_appealed': {
+    'label': 'Total Number of Appealed'
   }
 }
 
 const duplicatedTableFields = {
-  "id":null,
-  "listing_name":{
-    "label":"Listing Name"
+  'id': null,
+  'listing_name': {
+    'label': 'Listing Name'
   },
-  "rule_name":{
-    "label":"Rule Name"
+  'rule_name': {
+    'label': 'Rule Name'
   },
-  "total_number_of_duplicates": {
-    "label": "Total_Number_of_Duplicates"
+  'total_number_of_duplicates': {
+    'label': 'Total_Number_of_Duplicates'
   }
 }
 
 const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
   return <IndexTable
-          results={flaggedRecords}
-          fields={fields}
-          links={['View Flagged Applications']} />
+    results={flaggedRecords}
+    fields={fields}
+    links={['View Flagged Applications']} />
 }
 
 const getTableFieldsForType = (type) => {
@@ -48,7 +48,7 @@ const getTableFieldsForType = (type) => {
   } else if (type === 'pending') {
     return flaggedTableFields
   } else {
-    throw new Error("Type is required")
+    throw new Error('Type is required')
   }
 }
 
@@ -66,7 +66,7 @@ const FlaggedApplicationsIndexPage = ({title, flaggedRecords, type}) => {
 const buildFlaggedRecordModel = (flaggedRecord) => {
   return {
     ...flaggedRecord,
-    listing_name: defaultTo(get(flaggedRecord,'listing.name'), null)
+    listing_name: defaultTo(get(flaggedRecord, 'listing.name'), null)
   }
 }
 

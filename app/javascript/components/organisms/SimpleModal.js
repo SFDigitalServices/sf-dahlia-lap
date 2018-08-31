@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../atoms/Icon'
-import ReactModal from 'react-modal';
+import ReactModal from 'react-modal'
 import _ from 'lodash'
 import classNames from 'classnames'
 
@@ -21,7 +21,7 @@ const SimpleModalBody = ({
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
-    primary: (!type || type=='status'),
+    primary: (!type || type == 'status'),
     'alert-fill': (type == 'alert')
   })
 
@@ -33,11 +33,11 @@ const SimpleModalBody = ({
         {children}
       </Modal.Content>
       <Modal.Footer>
-        <div className="modal-button_item modal-button_primary">
+        <div className='modal-button_item modal-button_primary'>
           <button className={primaryButtonClassName} onClick={onPrimaryClick}>{primary}</button>
         </div>
-        <div className="modal-button_item modal-button_secondary">
-          <button className="button no-border" onClick={onSecondaryClick}>{secondary}</button>
+        <div className='modal-button_item modal-button_secondary'>
+          <button className='button no-border' onClick={onSecondaryClick}>{secondary}</button>
         </div>
       </Modal.Footer>
     </Modal.Body>

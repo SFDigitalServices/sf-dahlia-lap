@@ -10,20 +10,20 @@ const application_language_options = labelize([
   'English',
   'Chinese',
   'Spanish',
-  'Tagalog',
+  'Tagalog'
 ])
 
 const phone_type_options = labelize([
   'Home',
   'Cell',
-  'Work',
+  'Work'
 ])
 
 const alternate_contact_options = labelize([
   'Family Member',
   'Friend',
   'Social Worker or Housing Counselor',
-  'Other',
+  'Other'
 ])
 
 const gender_options = labelize([
@@ -33,13 +33,13 @@ const gender_options = labelize([
   'Trans Female',
   'Trans Male',
   'Not Listed',
-  'Decline to state',
+  'Decline to state'
 ])
 
 const sex_at_birth_options = labelize([
   'Female',
   'Male',
-  'Decline to answer',
+  'Decline to answer'
 ])
 
 const relationship_options = labelize([
@@ -57,13 +57,13 @@ const relationship_options = labelize([
   'Great Grandparent',
   'In-Law',
   'Friend',
-  'Other',
+  'Other'
 ])
 
 const ethnicity_options = labelize([
   'Hispanic/Latino',
   'Not Hispanic/Latino',
-  'Decline to state',
+  'Decline to state'
 ])
 
 const race_options = labelize([
@@ -77,7 +77,7 @@ const race_options = labelize([
   'Asian and White',
   'Black/African American and White',
   'Other/Multiracial',
-  'Decline to state',
+  'Decline to state'
 ])
 
 const sexual_orientation_options = labelize([
@@ -86,7 +86,7 @@ const sexual_orientation_options = labelize([
   'Questioning/Unsure',
   'Straight/Heterosexual',
   'Not listed',
-  'Decline to state',
+  'Decline to state'
 ])
 
 const preference_proof_options_default = labelize([
@@ -98,7 +98,7 @@ const preference_proof_options_default = labelize([
   'Water bill',
   'Paystub',
   'Public benefits record',
-  'School record',
+  'School record'
 ])
 
 const preference_proof_options_live_sf = labelize([
@@ -116,14 +116,14 @@ const preference_proof_options_live_sf = labelize([
 
 const preference_proof_options_work_sf = labelize([
   'Letter from employer',
-  'Paystub with employer address',
+  'Paystub with employer address'
 ])
 
 const preference_proof_options_rent_burden = labelize([
   'Money order',
   'Cancelled check',
   'Debit from your bank account',
-  'Screenshot of online payment',
+  'Screenshot of online payment'
 ])
 
 const preference_proof_options_nrhp = labelize([
@@ -136,18 +136,18 @@ const preference_proof_options_nrhp = labelize([
   'Paystub',
   'Public benefits record',
   'School record',
-  'Letter documenting homelessness',
+  'Letter documenting homelessness'
 ])
 
 const preference_proof_options_work_in_sf = labelize([
   'Paystub with employer address',
-  'Letter from employer',
+  'Letter from employer'
 ])
 
 const priority_options = [
   'Mobility impaired',
   'Vision impaired',
-  'Hearing impaired',
+  'Hearing impaired'
 ]
 
 const listing_referral_options = labelize([
@@ -160,7 +160,7 @@ const listing_referral_options = labelize([
   'Housing Counselor',
   'Radio Ad',
   'Bus Ad',
-  'Other',
+  'Other'
 ])
 
 const adaPriorityValueToLabelMap = {
@@ -172,7 +172,7 @@ const adaPriorityValueToLabelMap = {
 const yes_no_options = labelize([
   'Yes',
   'No',
-  'Left Blank',
+  'Left Blank'
 ])
 
 export default {

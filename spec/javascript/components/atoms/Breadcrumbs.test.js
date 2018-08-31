@@ -13,10 +13,10 @@ describe('BreadCrumbs', () => {
 
   test('should render succesfully', () => {
     const component = renderer.create(
-      <BreadCrumbs items={items} />,
-    );
+      <BreadCrumbs items={items} />
+    )
 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

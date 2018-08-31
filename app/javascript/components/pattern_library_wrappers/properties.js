@@ -20,19 +20,18 @@ const theme = {
   base0D: '#66d9ef',
   base0E: '#ae81ff',
   base0F: '#cc6633'
-};
-
+}
 
 class Properties extends React.Component {
   state = {expanded: false}
   // hardcoding here. Minor component for PL
   style = {
-    backgroundColor:'white',
-    padding:'10px',
-    marginTop:'10px',
-    borderTop:'1px solid #0077da',
-    borderRadius:'3px',
-    fontSize:'85%'
+    backgroundColor: 'white',
+    padding: '10px',
+    marginTop: '10px',
+    borderTop: '1px solid #0077da',
+    borderRadius: '3px',
+    fontSize: '85%'
   }
 
   toggleExpand = () => {
@@ -41,15 +40,14 @@ class Properties extends React.Component {
     })
   }
 
-
-  render() {
+  render () {
     const { payload } = this.props
 
     if (this.state.expanded) {
       return (
         <div style={this.style} >
           <a onClick={this.toggleExpand} >Hide Properties</a>
-          <JSONTree data={payload} invertTheme={true} theme={theme} hideRoot={true} shouldExpandNode={() => true}/>
+          <JSONTree data={payload} invertTheme theme={theme} hideRoot shouldExpandNode={() => true} />
         </div>
       )
     } else {

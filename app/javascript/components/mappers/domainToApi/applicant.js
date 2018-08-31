@@ -16,7 +16,7 @@ export const applicantFieldMapper = {
   mailing_zip_code: 'mailingZip',
   phone: 'phone',
   phone_type: 'phoneType',
-  marital_status:'maritalStatus',
+  marital_status: 'maritalStatus',
   applicationId: (source) => source.id
 }
 

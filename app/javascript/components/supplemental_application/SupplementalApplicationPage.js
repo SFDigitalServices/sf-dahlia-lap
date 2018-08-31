@@ -15,7 +15,7 @@ const getChartsToLoad = (units) => {
 }
 
 const getAmiCharts = (chartsToLoad) => {
-  return chartsToLoad.map(chart => ({ "name": chart.ami_chart_type, "year": chart.ami_chart_year }))
+  return chartsToLoad.map(chart => ({ 'name': chart.ami_chart_type, 'year': chart.ami_chart_year }))
 }
 
 const getAmis = async (chartsToLoad) => {
@@ -27,8 +27,7 @@ const getAmis = async (chartsToLoad) => {
 }
 
 class SupplementalApplicationPage extends React.Component {
-
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
@@ -38,7 +37,7 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { units } = this.props
     const chartsToLoad = getChartsToLoad(units)
     const amiCharts = getAmiCharts(chartsToLoad)
@@ -62,7 +61,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
-  handleSavePreference =  async (preferenceIndex, preferencesPanelApplication) => {
+  handleSavePreference = async (preferenceIndex, preferencesPanelApplication) => {
     const { persistedApplication } = this.state
 
     // We clone the latest saved copy, so we can use the latest saved fields.
@@ -76,7 +75,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
-  render() {
+  render () {
     const { statusHistory, fileBaseUrl, application } = this.props
     const { amis, amiCharts } = this.state
 
@@ -91,8 +90,8 @@ class SupplementalApplicationPage extends React.Component {
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
+        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
       ]
     }
 
@@ -131,8 +130,8 @@ const setApplicationsDefaults = (application) => {
 const mapProperties = ({ application, statusHistory, file_base_url, units }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
-    statusHistory: mapList(mapFieldUpdateComment,statusHistory),
-    onSubmit:  (values) => updateApplicationAction(values),
+    statusHistory: mapList(mapFieldUpdateComment, statusHistory),
+    onSubmit: (values) => updateApplicationAction(values),
     fileBaseUrl: file_base_url,
     units: mapList(mapUnit, units)
   }

@@ -8,7 +8,7 @@ export const householdMembersFieldMapper = {
   street: 'address',
   city: 'city',
   state: 'state',
-  zip_code: 'zip',
+  zip_code: 'zip'
 }
 
 export const mapHouseholdMembers = createFieldMapper(householdMembersFieldMapper)

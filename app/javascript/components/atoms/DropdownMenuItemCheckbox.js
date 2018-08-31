@@ -8,9 +8,9 @@ const DropdownMenuItemCheckbox = ({ value, label, onChange, selected }) => {
     }
   }
   return (
-    <li className="dropdown-menu_item" tabIndex="0" onKeyPress={onKeyPressHandler} role="option" aria-selected={selected} onClick={() => onChange(value, label, !selected) }>
-      <div className="checkbox">
-        <input id={label} type="checkbox" checked={selected} tabIndex="-1" name={label} value={value} />
+    <li className='dropdown-menu_item' tabIndex='0' onKeyPress={onKeyPressHandler} role='option' aria-selected={selected} onClick={() => onChange(value, label, !selected)}>
+      <div className='checkbox'>
+        <input id={label} type='checkbox' checked={selected} tabIndex='-1' name={label} value={value} />
         <label id={`label${label}`}>{label}</label>
       </div>
     </li>
