@@ -111,11 +111,11 @@ class SupplementalApplicationPage extends React.Component {
   }
 }
 
-const getAnnualIncome = ({ monthly_income, annual_income }) => {
-  if (isNil(annual_income) && !isNil(monthly_income)) {
-    return (monthly_income * 12).toFixed(2)
+const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
+  if (isNil(annualIncome) && !isNil(monthlyIncome)) {
+    return (monthlyIncome * 12).toFixed(2)
   } else {
-    return annual_income
+    return annualIncome
   }
 }
 
