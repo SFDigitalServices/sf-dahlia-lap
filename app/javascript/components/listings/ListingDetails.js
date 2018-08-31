@@ -17,7 +17,7 @@ import {
 } from './fields'
 
 const ListingDetails = ({ listing }) => {
-  const Card = (cardProps) =>  <ListingDetailsContentCard listing={listing} {...cardProps} />
+  const Card = (cardProps) => <ListingDetailsContentCard listing={listing} {...cardProps} />
   const Table = (tableProps) => <ListingDetailsContentTable listing={listing} {...tableProps} />
 
   return (
@@ -25,10 +25,10 @@ const ListingDetails = ({ listing }) => {
       <Card title='Details' fields={detailsFields} />
       <Card title='Building Information' fields={buildingInformationFields} />
       { listing.listing_lottery_preferences && (
-          <Table  title='Listing Preferences'
-                  table='listing_lottery_preferences'
-                  fields={lotteryPreferencesFields} />
-          )
+        <Table title='Listing Preferences'
+          table='listing_lottery_preferences'
+          fields={lotteryPreferencesFields} />
+      )
       }
       <Card title='Accessibility, Amenities, Fees' fields={aafFields} />
       <Card title='Lottery Information' fields={lotteryInfoFields} />
@@ -37,16 +37,16 @@ const ListingDetails = ({ listing }) => {
       <Card title='Additional Eligibility Rules' fields={eligibilityRulesFields} />
       <Card title='Additional Information' fields={additionalInfoFields} />
       { listing.open_houses && (
-          <Table  title='Open Houses'
-                  table='open_houses'
-                  fields={openHousesFields} />
-          )
+        <Table title='Open Houses'
+          table='open_houses'
+          fields={openHousesFields} />
+      )
       }
       { listing.information_sessions && (
-          <Table  title='Information Sessions'
-                  table='information_sessions'
-                  fields={infoSessionsFields} />
-        )
+        <Table title='Information Sessions'
+          table='information_sessions'
+          fields={infoSessionsFields} />
+      )
       }
     </div>
   )

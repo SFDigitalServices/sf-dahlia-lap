@@ -9,17 +9,17 @@ const householdVouchersSubsidiesOptions = [
 
 const HouseholdIncomeSection = () => {
   return (
-    <div className="border-bottom margin-bottom--2x">
+    <div className='border-bottom margin-bottom--2x'>
       <h3>Declared Household Income</h3>
-      <div className="row">
-        <div className="small-6 columns">
+      <div className='row'>
+        <div className='small-6 columns'>
           <label>Annual Income</label>
-          <Text field="annual_income" />
+          <Text field='annual_income' />
         </div>
-        <div className="small-6 columns">
+        <div className='small-6 columns'>
           <label>Housing Voucher/ Subsidy</label>
           <Select
-            field="housing_voucher_or_subsidy"
+            field='housing_voucher_or_subsidy'
             options={householdVouchersSubsidiesOptions} />
         </div>
       </div>

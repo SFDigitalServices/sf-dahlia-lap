@@ -17,6 +17,6 @@ const TabsSection = ({ children, background, padding, ...props }) => {
 
 TabsSection.defaultProps = {
   background: 'snow'
-};
+}
 
 export default TabsSection

@@ -6,10 +6,10 @@ module Applications
     def index
       case params[:type]
       when 'pending'
-        @title = "Flagged Applications - Pending Review"
+        @title = 'Flagged Applications - Pending Review'
         @flagged_records, @fields = pending_data
       when 'duplicated'
-        @title = "Marked Duplicate Apps"
+        @title = 'Marked Duplicate Apps'
         @flagged_records, @fields = duplicated_data
       end
     end
@@ -27,14 +27,14 @@ module Applications
       pending_review_record_sets = flagged_record_set_get_service.pending_review_record_sets
       fields = flagged_record_set_get_service.pending_review_index_fields
 
-      return pending_review_record_sets, fields
+      [pending_review_record_sets, fields]
     end
 
     def duplicated_data
       marked_duplicate_record_sets = flagged_record_set_get_service.marked_duplicate_record_sets
       fields = flagged_record_set_get_service.marked_duplicate_index_fields
 
-      return marked_duplicate_record_sets, fields
+      [marked_duplicate_record_sets, fields]
     end
 
     def flagged_record_set_get_service

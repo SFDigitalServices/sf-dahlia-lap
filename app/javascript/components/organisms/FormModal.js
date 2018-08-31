@@ -19,7 +19,7 @@ const FormModalBody = ({
   onSecondaryClick,
   children,
   validateError,
-  loading,
+  loading
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
@@ -33,25 +33,25 @@ const FormModalBody = ({
       {
         showAlert && alertMsg &&
         <Modal.Alert
-          invert={true}
+          invert
           show={showAlert}
           title={alertMsg}
           onCloseClick={onAlertCloseClick} />
       }
 
-      <div className="form-modal_form_wrapper">
+      <div className='form-modal_form_wrapper'>
         <Form onSubmit={onSubmit} validateError={validateError}>
           {formApi => (
-            <form onSubmit={formApi.submitForm} className="no-margin">
+            <form onSubmit={formApi.submitForm} className='no-margin'>
               <Modal.Content>
                 {children(formApi)}
               </Modal.Content>
               <Modal.Footer>
-                <div className="modal-button_item modal-button_primary">
-                  <button className={primaryButtonClassName} type="submit">{primary}</button>
+                <div className='modal-button_item modal-button_primary'>
+                  <button className={primaryButtonClassName} type='submit'>{primary}</button>
                 </div>
-                <div className="modal-button_item modal-button_secondary">
-                  <button className="button no-border" onClick={onSecondaryClick} type="button">{secondary}</button>
+                <div className='modal-button_item modal-button_secondary'>
+                  <button className='button no-border' onClick={onSecondaryClick} type='button'>{secondary}</button>
                 </div>
               </Modal.Footer>
             </form>
@@ -63,7 +63,7 @@ const FormModalBody = ({
   )
 }
 
-const FormModal = ({ children, isOpen, handleClose, ...FormModalBodyProps}) => {
+const FormModal = ({ children, isOpen, handleClose, ...FormModalBodyProps }) => {
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <FormModalBody handleClose={handleClose} {...FormModalBodyProps}>

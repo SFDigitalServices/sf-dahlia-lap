@@ -4,9 +4,11 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+Rails.logger = Logger.new(STDOUT)
 
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
-rescue LoadError
+rescue LoadError => e
+  Rails.logger.error e.message
 end

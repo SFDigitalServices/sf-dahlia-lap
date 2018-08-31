@@ -11,8 +11,8 @@ const Tab = ({ title, url, active, onKeyDown, linkRefs, onFocus }) => {
   })
 
   return (
-    <li className={liClassName} role="none">
-      <a href={url} role="menuitem" ref={linkRefs} onFocus={onFocus} onKeyDown={onKeyDown} tabIndex={active ? '-1' : '0'} aria-selected={active}>{title}</a>
+    <li className={liClassName} role='none'>
+      <a href={url} role='menuitem' ref={linkRefs} onFocus={onFocus} onKeyDown={onKeyDown} tabIndex={active ? '-1' : '0'} aria-selected={active}>{title}</a>
     </li>
   )
 }
@@ -22,8 +22,8 @@ class TabsMenu extends React.Component {
 
   handleKeyDown = (e) => {
     keyboard.forEvent(e)
-    .on('leftArrow',  (e) => this.tabRefs.prev().focus())
-    .on('rightArrow', (e) => this.tabRefs.next().focus())
+      .on('leftArrow', (e) => this.tabRefs.prev().focus())
+      .on('rightArrow', (e) => this.tabRefs.next().focus())
   }
 
   addTabRef = (node) => {
@@ -36,11 +36,11 @@ class TabsMenu extends React.Component {
     this.tabRefs.setPosition(idx)
   }
 
-  render() {
+  render () {
     const { items, currentUrl } = this.props
 
     return (
-      <ul className="tabs full-width-small-only" role="menubar">
+      <ul className='tabs full-width-small-only' role='menubar'>
         {
           items.map((item) => (
             <Tab
@@ -49,7 +49,7 @@ class TabsMenu extends React.Component {
               onKeyDown={this.handleKeyDown}
               onFocus={this.handleOnFocus}
               linkRefs={this.addTabRef}
-              active={item.url === currentUrl} /> )
+              active={item.url === currentUrl} />)
           )
         }
       </ul>

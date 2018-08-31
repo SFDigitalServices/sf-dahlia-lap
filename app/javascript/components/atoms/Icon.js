@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 const Icon = ({ icon, size = 'small', alert, success }) => {
   const spanClassName = classNames(
-    "ui-icon",
+    'ui-icon',
     `ui-${size}`,
     {
       'i-alert': alert,
@@ -15,7 +15,7 @@ const Icon = ({ icon, size = 'small', alert, success }) => {
   return (
     <span className={spanClassName}>
       <svg>
-        <use xlinkHref={`#i-${icon}`}></use>
+        <use xlinkHref={`#i-${icon}`} />
       </svg>
     </span>
   )

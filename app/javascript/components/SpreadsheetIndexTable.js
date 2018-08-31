@@ -15,7 +15,7 @@ class SpreadsheetIndexTable extends React.Component {
       loading: {},
       // [...array] == clone array
       editData: [...props.results],
-      persistedData: [...props.results],
+      persistedData: [...props.results]
     }
   }
 
@@ -56,8 +56,7 @@ class SpreadsheetIndexTable extends React.Component {
         column.Header = attrs.label
       } else if (includes(field, '__r.')) {
         column.Header = utils.cleanField(last(field.split('__r.')))
-      }
-        else if (includes(field, '.')) {
+      } else if (includes(field, '.')) {
         column.Header = utils.cleanField(last(field.split('.')))
       } else {
         column.Header = utils.cleanField(field)
@@ -104,7 +103,7 @@ class SpreadsheetIndexTable extends React.Component {
     }
   }
 
-  render() {
+  render () {
     var getTrProps = (state, rowInfo, column, instance) => {
       return {
         onClick: (e, handleOriginal) => {
@@ -123,28 +122,28 @@ class SpreadsheetIndexTable extends React.Component {
       let lotteryStatus = row.original.flagged_record.listing.lottery_status
       let viewApplicationLink = (
         <li>
-          <a className="button secondary tiny" href={`/applications/${row.original.application}`}>
+          <a className='button secondary tiny' href={`/applications/${row.original.application}`}>
             View Application
           </a>
         </li>
       )
       if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
         return (
-          <ul className="subcomponent button-radio-group segmented-radios inline-group">
+          <ul className='subcomponent button-radio-group segmented-radios inline-group'>
             {viewApplicationLink}
           </ul>
         )
       }
       return (
-        <ul className="subcomponent button-radio-group segmented-radios inline-group">
+        <ul className='subcomponent button-radio-group segmented-radios inline-group'>
           {viewApplicationLink}
           <li>
-            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row, true)} className="button secondary tiny">
+            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row, true)} className='button secondary tiny'>
               Save Changes
             </button>
           </li>
           <li>
-            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row)} className="button secondary tiny">
+            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row)} className='button secondary tiny'>
               Cancel
             </button>
           </li>
@@ -165,7 +164,6 @@ class SpreadsheetIndexTable extends React.Component {
     )
   }
 }
-
 
 SpreadsheetIndexTable.propTypes = {
   results: PropTypes.array,

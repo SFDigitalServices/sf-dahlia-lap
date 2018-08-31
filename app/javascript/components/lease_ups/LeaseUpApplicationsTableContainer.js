@@ -9,7 +9,7 @@ import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 
 class LeaseUpTableContainer extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       statusModal: {
@@ -17,7 +17,7 @@ class LeaseUpTableContainer extends React.Component {
         status: null,
         applicationId: null,
         showAlert: null,
-        loading: false,
+        loading: false
       },
       applications: this.props.applications
     }
@@ -103,10 +103,10 @@ class LeaseUpTableContainer extends React.Component {
     }
   }
 
-  buildRowData(result) {
+  buildRowData (result) {
     let rowData = cloneDeep(result)
 
-    if (!!trim(result.mailing_address)) {
+    if (trim(result.mailing_address)) {
       rowData.address = result.mailing_address
     } else {
       rowData.address = result.residence_address
@@ -123,30 +123,30 @@ class LeaseUpTableContainer extends React.Component {
     window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
 
-  rowsData() {
+  rowsData () {
     return map(this.state.applications, result => this.buildRowData(result))
   }
 
-  render() {
+  render () {
     const { listing } = this.props
 
     return (
       <div>
         <LeaseUpApplicationsTable
-            dataSet={this.rowsData()}
-            listingId={listing.id}
-            onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
-            onCellClick={this.goToSupplementaryInfo} />
+          dataSet={this.rowsData()}
+          listingId={listing.id}
+          onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
+          onCellClick={this.goToSupplementaryInfo} />
         <StatusModalWrapper
-            isOpen={this.state.statusModal.isOpen}
-            status={this.state.statusModal.status}
-            applicationId={this.state.statusModal.applicationId}
-            changeHandler={this.setStatusModalStatus}
-            submitHandler={this.createStatusUpdate}
-            closeHandler={this.closeStatusModal}
-            showAlert={this.state.statusModal.showAlert}
-            onAlertCloseClick={this.hideStatusModalAlert}
-            loading={this.state.statusModal.loading} />
+          isOpen={this.state.statusModal.isOpen}
+          status={this.state.statusModal.status}
+          applicationId={this.state.statusModal.applicationId}
+          changeHandler={this.setStatusModalStatus}
+          submitHandler={this.createStatusUpdate}
+          closeHandler={this.closeStatusModal}
+          showAlert={this.state.statusModal.showAlert}
+          onAlertCloseClick={this.hideStatusModalAlert}
+          loading={this.state.statusModal.loading} />
       </div>
     )
   }

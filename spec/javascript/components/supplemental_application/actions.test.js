@@ -11,7 +11,7 @@ jest.mock('apiService', () => {
     return true
   }
 
-  return { submitApplication: mockSubmitApplication };
+  return { submitApplication: mockSubmitApplication }
 })
 
 describe('actions', () => {

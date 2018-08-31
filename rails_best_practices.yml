@@ -1,0 +1,1 @@
+RemoveUnusedMethodsInControllersCheck: { except_methods: ['Overrides::SessionsController#after_sign_out_path_for', 'ApplicationController#after_sign_in_path_for'] }

@@ -17,11 +17,11 @@ const fieldRequiredMsg = 'is required'
 
 const preferenceRequiredFields = {
   individual_preference: ['RB_AHP', 'L_W'],
-  type_of_proof: ['NRHP','L_W', 'AG'],
+  type_of_proof: ['NRHP', 'L_W', 'AG'],
   street: ['AG'],
   city: ['AG'],
   state: ['AG'],
-  zip_code: ['AG'],
+  zip_code: ['AG']
 }
 
 const preferenceRequiresField = (prefName, fieldName) => {
@@ -53,7 +53,7 @@ const buildPrefValidations = (prefs) => {
       street: getPrefFieldValidation(pref, 'street'),
       city: getPrefFieldValidation(pref, 'city'),
       state: getPrefFieldValidation(pref, 'state'),
-      zip_code: getPrefFieldValidation(pref, 'zip_code'),
+      zip_code: getPrefFieldValidation(pref, 'zip_code')
     }
   })
   return prefValidations
@@ -66,7 +66,7 @@ const validateError = (values) => {
 }
 
 class PaperApplicationForm extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       loading: false,
@@ -76,7 +76,7 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    const { listing, application, onSubmit, editPage} = this.props
+    const { listing, application, onSubmit, editPage } = this.props
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true, failed: false })
@@ -86,7 +86,7 @@ class PaperApplicationForm extends React.Component {
 
   hasErrors = (errors) => {
     return some(errors, (value, key) => {
-      if (isObjectLike(value)){
+      if (isObjectLike(value)) {
         return this.hasErrors(value)
       } else {
         return !isNil(value)
@@ -97,25 +97,24 @@ class PaperApplicationForm extends React.Component {
   saveSubmitType = (type, formApi) => {
     const failed = this.hasErrors(formApi.errors)
     this.setState({submitType: type, failed})
-    if (failed)
-      window.scrollTo(0, 0)
+    if (failed) { window.scrollTo(0, 0) }
   }
 
-  render() {
+  render () {
     const { listing, application, editPage } = this.props
     const { loading, failed } = this.state
     return (
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={validateError}>
           { formApi => (
-            <form onSubmit={formApi.submitForm} id="shortForm">
-              <div className="app-card form-card medium-centered">
-              <div className="app-inner inset">
+            <form onSubmit={formApi.submitForm} id='shortForm'>
+              <div className='app-card form-card medium-centered'>
+                <div className='app-inner inset'>
                   <AlertBox
-                   invert
-                   dismiss={!failed}
-                   onCloseClick={() => this.setState({failed: false})}
-                   message="Please resolve any errors before saving the application." />
+                    invert
+                    dismiss={!failed}
+                    onCloseClick={() => this.setState({failed: false})}
+                    message='Please resolve any errors before saving the application.' />
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
@@ -128,19 +127,19 @@ class PaperApplicationForm extends React.Component {
                   />
                   <HouseholdIncomeSection />
                   {!editPage && <DemographicInfoSection />}
-                  <AgreeToTerms/>
+                  <AgreeToTerms />
                 </div>
-                <div className="button-pager">
-                  <div className="button-pager_row primary">
-                    <button className="primary radius margin-right save-btn" type="submit" onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
+                <div className='button-pager'>
+                  <div className='button-pager_row primary'>
+                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
                       Save
                     </button>
-                    <button className="primary radius" type="submit" onClick={() => this.saveSubmitType('SaveAndNew', formApi)}  disabled={loading}>
+                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
                       Save and New
                     </button>
                   </div>
-                  <div className="button-pager_row primary">
-                    <a className="primary radius" href="/listings">Cancel</a>
+                  <div className='button-pager_row primary'>
+                    <a className='primary radius' href='/listings'>Cancel</a>
                   </div>
                 </div>
               </div>
@@ -153,7 +152,7 @@ class PaperApplicationForm extends React.Component {
 }
 
 PaperApplicationForm.propTypes = {
-  listing: PropTypes.object.isRequired,
+  listing: PropTypes.object.isRequired
 }
 
 export default PaperApplicationForm

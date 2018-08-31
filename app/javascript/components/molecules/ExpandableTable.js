@@ -12,7 +12,7 @@ class ExpandableTableRow extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const { row, numColumns, expanderRenderer, expandedRowRenderer } = this.props
     const cells = row.map((datum, j) =>
       <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>{datum.content}</td>
@@ -20,14 +20,14 @@ class ExpandableTableRow extends React.Component {
 
     return (
       <Fragment>
-        <tr className="tr-expand" aria-expanded={this.state.expanded}>
+        <tr className='tr-expand' aria-expanded={this.state.expanded}>
           {cells}
-          <td key="expander">
+          <td key='expander'>
             {expanderRenderer && expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
           </td>
         </tr>
-        <tr className="tr-expand-content" aria-hidden={!this.state.expanded}>
-          <td colSpan={numColumns} className="td-expand-nested no-padding">
+        <tr className='tr-expand-content' aria-hidden={!this.state.expanded}>
+          <td colSpan={numColumns} className='td-expand-nested no-padding'>
             {expandedRowRenderer && expandedRowRenderer(row, this.toggleExpandedRow)}
           </td>
         </tr>
@@ -37,17 +37,17 @@ class ExpandableTableRow extends React.Component {
 }
 
 class ExpandableTable extends React.Component {
-  render() {
+  render () {
     const { columns, rows, expanderRenderer, expandedRowRenderer } = this.props
 
     const numColumns = columns.length
 
     return (
-      <table className="td-light td-plain th-plain" role="grid">
+      <table className='td-light td-plain th-plain' role='grid'>
         <thead>
           <tr>
             {columns.map((column, i) => (
-              <th key={i} scope="col" className={column.classes ? column.classes.join(' ') : ''}>
+              <th key={i} scope='col' className={column.classes ? column.classes.join(' ') : ''}>
                 {column.content}
               </th>
             ))}
@@ -68,11 +68,11 @@ class ExpandableTable extends React.Component {
   }
 }
 
-ExpandableTable.ExpanderButton = ({ onClick, label = "Expand" }) => {
+ExpandableTable.ExpanderButton = ({ onClick, label = 'Expand' }) => {
   return (
     <button
       type='button'
-      className="button button-link action-link"
+      className='button button-link action-link'
       onClick={onClick}>
       {label}
     </button>
