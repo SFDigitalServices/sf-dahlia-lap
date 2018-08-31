@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       scope '/field-update-comments' do
         post 'create' => 'field_update_comments#create'
       end
+      get 'ami' => 'ami#get'
     end
   end
 end

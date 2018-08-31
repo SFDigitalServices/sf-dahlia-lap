@@ -31,7 +31,8 @@ export const alternateContactFields = [
   'agency_name',
   'email',
   'alternate_contact_type',
-  'alternate_contact_type_other'
+  'alternate_contact_type_other',
+  'mailing_address',
 ]
 
 export const householdMembersFields = [
@@ -50,7 +51,7 @@ const adaPrioritiesToString = (list) => {
 
 export const reservedAndPriorityFields = [
   'has_military_service',
-  { field: 'has_developmentaldisability', label: 'Has Developmental Disability' },
+  { field: 'has_developmental_disability', label: 'Has Developmental Disability' },
   { field: 'has_ada_priorities_selected', value: (v) => adaPrioritiesToString(v) },
   'answered_community_screening'
 ]

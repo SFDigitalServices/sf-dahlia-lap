@@ -25,8 +25,8 @@
     "moment": "^2.19.1",
     "postcss-smart-import": "^0.7.6",
     "prop-types": "^15.6.0",
+    "puppeteer": "^1.7.0",
     "react": "^16.0.0",
-    "react-datepicker": "0.61.0",
     "react-dom": "^16.0.0",
     "react-form": "2.6.1",
     "react-json-tree": "^0.11.0",
@@ -62,9 +62,13 @@
   },
   "scripts": {
     "test": "jest",
+    "unit": "jest --testPathPattern=.*.test.js$",
+    "e2e":  "jest --testPathPattern=.*e2e.*",
     "lint": "eslint app/javascript"
   },
   "jest": {
+    "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
     ],

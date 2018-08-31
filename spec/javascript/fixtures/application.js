@@ -47,7 +47,8 @@ const application = {
     "Email": "fede@eee.com",
     "Agency_Name": null,
     "Alternate_Contact_Type": "Friend",
-    "Alternate_Contact_Type_Other": null
+    "Alternate_Contact_Type_Other": null,
+    "Mailing_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
   },
   "Listing": {
     "attributes": {

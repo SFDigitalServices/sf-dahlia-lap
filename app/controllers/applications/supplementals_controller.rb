@@ -6,6 +6,7 @@ module Applications
       @application = application_service.application(params[:application_id])
       @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
       @file_base_url = file_base_url
+      @units = listing_service.units(@application.Listing.Id)
     end
 
     def update
@@ -18,6 +19,10 @@ module Applications
 
     def application_service
       Force::ApplicationService.new(current_user)
+    end
+
+    def listing_service
+      Force::ListingService.new(current_user)
     end
   end
 end

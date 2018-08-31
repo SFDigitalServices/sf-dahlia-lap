@@ -1,5 +1,5 @@
 import React from 'react'
-import { concat, pickBy, forEach } from 'lodash'
+import { forEach } from 'lodash'
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference, getFullHousehold } from './utils'
 
@@ -43,16 +43,18 @@ class PreferencesSection extends React.Component {
     const fullHousehold = getFullHousehold(formApi.values)
     const preferences = formApi.values.preferences
 
+
     return (
       <div className="border-bottom margin-bottom--2x">
         <h3>Preferences</h3>
         {
           preferences && preferences.map(( pref, i ) => (
             <div className="border-bottom margin-bottom--2x" key={i}>
-              <PreferenceForm {...{i, formApi, listingPreferences, fullHousehold}} />
+              <PreferenceForm {...{i, pref, formApi, listingPreferences, fullHousehold}} />
             </div>
           ))
         }
+
         <div className="row">
           <div className="form-group">
             <div className="small-4 columns">
@@ -66,6 +68,7 @@ class PreferencesSection extends React.Component {
             </div>
           </div>
         </div>
+
       </div>
     )
   }

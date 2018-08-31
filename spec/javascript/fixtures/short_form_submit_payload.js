@@ -1,5 +1,6 @@
 const payload = {
     id: 'a0o0x000000OcOzAAK',
+    applicationLanguage: 'English',
     hasMilitaryService: null,
     hasDevelopmentalDisability: null,
     answeredCommunityScreening: null,
@@ -9,7 +10,9 @@ const payload = {
     agreeToTerms: true,
     numberOfDependents: 2,
     listingID: 'a0W0x000000GhJUEA0',
+    "monthlyIncome": null,
     hasSenior: undefined,
+    householdAssets: null,
     totalMonthlyRent: null,
     primaryApplicant:
      { DOB: '1950-01-01',
@@ -35,7 +38,7 @@ const payload = {
          appMemberID: undefined,
          certificateNumber: null,
          individualPreference: null,
-         lwPreferenceProof: undefined,
+         lwPreferenceProof: null,
          naturalKey: undefined,
          optOut: null,
          preferenceProof: null,

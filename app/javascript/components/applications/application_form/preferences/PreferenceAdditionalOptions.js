@@ -10,9 +10,9 @@ import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFiel
 import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
 
-const PreferenceAdditionalOptions = ({i, householdMembers, listingPreferences, listingPreferenceID }) => {
+const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, householdMembers, listingPreferences, listingPreferenceID }) => {
   const preference = find(listingPreferences, { id: listingPreferenceID })
-  const propsFields = {i, householdMembers}
+  const propsFields = { formApi, i, householdMembers, shortFormPreference}
 
   if (preference) {
     switch (preference.lottery_preference.name) {

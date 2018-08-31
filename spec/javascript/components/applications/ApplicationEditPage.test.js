@@ -21,7 +21,7 @@ jest.mock('apiService', () => {
   }
 })
 
-describe('ApplicationNewPage', () => {
+describe('ApplicationEditPage', () => {
   test('it should save correctly', async () => {
     const wrapper = mount(
         <ApplicationEditPage
@@ -41,7 +41,7 @@ describe('ApplicationNewPage', () => {
   describe('should render', () => {
     sharedHooks.useFakeTimers()
 
-    test('succesfully', () => {
+    test('successfully', () => {
       const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
@@ -53,7 +53,7 @@ describe('ApplicationNewPage', () => {
     })
 
 
-    test('succesfully with preferences', () => {
+    test('successfully with preferences', () => {
       const applicationWithPreferences = clone(application)
 
       applicationWithPreferences.preferences[0].Application_Member = {

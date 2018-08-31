@@ -1,14 +1,22 @@
 import {
-  forEach, isFunction, omitBy,
-  isEmpty, map, isUndefined, isObjectLike, includes,
-  isNil, keys
+  forEach,
+  includes,
+  isFunction,
+  isEmpty,
+  isUndefined,
+  isNil,
+  keys,
+  map,
+  omitBy,
+  snakeCase
 } from 'lodash'
 
-const isNotPresent = (value, key) => {
-  if (isObjectLike(value))
-    return isEmpty(value)
-  else
-    return isUndefined(value)
+export const checkSnakeCase = (obj) => {
+  forEach(obj, (value, key) => {
+    if (key !== 'naturalKey' && key !== snakeCase(key)) {
+      console.warn(`fieldMapper: ${key} is not snake case`)
+    }
+  })
 }
 
 export const mapFields = (fieldMapper, to, from ) => {
@@ -18,6 +26,8 @@ export const mapFields = (fieldMapper, to, from ) => {
     return null
   if (isEmpty(keys(from)))
     return undefined
+
+  checkSnakeCase(from)
 
   forEach(fieldMapper, (toField, fromField) => {
     if (isFunction(toField)) {
