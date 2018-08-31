@@ -13,7 +13,7 @@ jest.mock('apiService', () => {
   }
 })
 
-var wait = ms => new Promise((resolve, reject) => setTimeout(r, ms))
+var wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
 
 describe('ApplicationsPage', () => {
   test('should render succesfully', (done) => {

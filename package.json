@@ -88,8 +88,7 @@
     ]
   },
   "standard": {
-    "ignore": "./node_modules/**/*",
-    "ignore": "./spec/javascript/fixtures/*",
+    "ignore": ["./node_modules/**/*", "./spec/javascript/fixtures/*", "app/assets/javascripts/cable.js"],
     "env": [ "jest" ],
     "parser": "babel-eslint"
   }

@@ -1,3 +1,4 @@
+/* global mount */
 import React from 'react'
 
 import TabsMenu from 'components/molecules/TabsMenu'

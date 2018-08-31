@@ -1,3 +1,4 @@
+/* global mount */
 import React from 'react'
 
 import TabsSection from 'components/organisms/TabsSection'

@@ -58,6 +58,7 @@ PreCommit:
     exclude:
       - 'node_modules/**/*.js'
       - 'spec/javascript/fixtures/*.js'
+      - 'app/assets/javascripts/cable.js'
 
   CustomScript:
     enabled: true

@@ -1,3 +1,4 @@
+/* global mount */
 import React from 'react'
 import renderer from 'react-test-renderer'
 import IndexTable from 'components/IndexTable'

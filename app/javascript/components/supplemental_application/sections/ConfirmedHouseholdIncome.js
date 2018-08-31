@@ -45,7 +45,8 @@ const getAMIPercent = ({income, ami}) => {
 }
 
 const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
-  const { total_household_size, hh_total_income_with_assets_annual } = formApi.values
+  const totalHouseholdSize = formApi.values.total_household_size
+  const hhTotalIncomeWithAssetsAnnual = formApi.values.hh_total_income_with_assets_annual
 
   return (
     <React.Fragment>
@@ -81,7 +82,7 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         {amiCharts.map((chart) => {
-          let ami = getAMI({numHousehold: total_household_size, chartName: chart.name, chartYear: chart.year, amis: amis})
+          let ami = getAMI({numHousehold: totalHouseholdSize, chartName: chart.name, chartYear: chart.year, amis: amis})
           let id = `ami-${chart.name}`
           return (
             <FormGrid.Item key={chart.name + chart.year}>
@@ -90,7 +91,7 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
                 name={id}
                 describeId={id}
                 note='Based on Final Household Income'
-                value={getAMIPercent({income: hh_total_income_with_assets_annual, ami: ami})} />
+                value={getAMIPercent({income: hhTotalIncomeWithAssetsAnnual, ami: ami})} />
             </FormGrid.Item>
           )
         }
