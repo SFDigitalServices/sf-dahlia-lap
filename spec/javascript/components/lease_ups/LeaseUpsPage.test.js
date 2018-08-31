@@ -40,7 +40,6 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('Should render LeaseUpTable', () => {
     const applications = [ buildApplicationPreference(1), buildApplicationPreference(2) ]
-    console.log("PLEASE LOG THIS", applications)
     const wrapper = renderer.create(
       <LeaseUpApplicationsPage listing={listings} applications={applications} />,
     )
