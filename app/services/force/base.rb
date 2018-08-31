@@ -104,16 +104,6 @@ module Force
       self.class.fields["#{type}_fields"].keys.join(', ')
     end
 
-    def parse_results_for_fields(results, type)
-      parse_results(results, self.class.fields["#{type}_fields"])
-    end
-
-    # Extracted out for clarity
-    # This is being used in services. should be refactored
-    def parse_results(results, fields)
-      Force::Responses.parse_results(results, fields)
-    end
-
     # Extracted out for clarity
     # This is being used in services. should be refactored
     def massage(h)
