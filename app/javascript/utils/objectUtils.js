@@ -19,13 +19,10 @@ export const checkSnakeCase = (obj) => {
   })
 }
 
-export const mapFields = (fieldMapper, to, from ) => {
-  if (isUndefined(from))
-    return undefined
-  if (isNil(from))
-    return null
-  if (isEmpty(keys(from)))
-    return undefined
+export const mapFields = (fieldMapper, to, from) => {
+  if (isUndefined(from)) { return undefined }
+  if (isNil(from)) { return null }
+  if (isEmpty(keys(from))) { return undefined }
 
   checkSnakeCase(from)
 

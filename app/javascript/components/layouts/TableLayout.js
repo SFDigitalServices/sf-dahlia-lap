@@ -9,20 +9,19 @@ class TableLayout extends React.Component {
     document.body.classList.add('bg-white')
   }
 
-  render() {
+  render () {
     const { children, pageHeader, tabSection } = this.props
     return (
       <React.Fragment>
-        <PageHeader {...pageHeader} background='dust'/>
-        { tabSection ?
-          (
-            <TabsSection {...tabSection} background='dust' padding={true}>
+        <PageHeader {...pageHeader} background='dust' />
+        { tabSection
+          ? (
+            <TabsSection {...tabSection} background='dust' padding>
               {children}
             </TabsSection>
           )
-          :
-          (
-            <TabCard padding={true}>
+          : (
+            <TabCard padding>
               {children}
             </TabCard>
           )

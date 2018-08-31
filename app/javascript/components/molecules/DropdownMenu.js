@@ -3,7 +3,6 @@ import DropdownMenuItem from '../atoms/DropdownMenuItem'
 import formUtils from '~/utils/formUtils'
 
 class DropdownMenu extends React.Component {
-
   handleOnChange = (e, value, label) => this.props.onChange && this.props.onChange(value, label)
 
   handleOnKeyDown = (e, value, label) => {
@@ -13,15 +12,15 @@ class DropdownMenu extends React.Component {
     }
   }
 
-  render() {
+  render () {
     const { items, value, style, classes } = this.props
 
     return (
       <ul
         className={`dropdown-menu ${classes ? classes.join(' ') : ''}`}
         style={style}
-        role="listbox"
-        tabIndex="-1"
+        role='listbox'
+        tabIndex='-1'
         aria-activedescendant>
         {
           items &&

@@ -1,3 +1,4 @@
+/* global mount */
 import React from 'react'
 import renderer from 'react-test-renderer'
 import IndexTable from 'components/IndexTable'
@@ -5,33 +6,31 @@ import IndexTable from 'components/IndexTable'
 // A bit verbose, but just to ilustrate how it works
 describe('IndexIndexTable', () => {
   const results = [
-      { first_name: 'xxx1', last_name: 'zzz1' },
-      { first_name: 'xxx2', last_name: 'zzz2' }
-    ]
+    { first_name: 'xxx1', last_name: 'zzz1' },
+    { first_name: 'xxx2', last_name: 'zzz2' }
+  ]
 
   const fields = { 'first_name': null, 'last_name': null }
 
-
   // Jest Snapshot
   test('Should render IndexTable', () => {
-
     const component = renderer.create(
-      <IndexTable results = { results } fields = { fields } />
-    );
+      <IndexTable results={results} fields={fields} />
+    )
 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
   // Enzyme-Jest Snapshot
   test('Should render IndexTable', () => {
     // Mount renders the whole component tree. Mount is good for testing interactions.
     const wrapper = mount(
-      <IndexTable results = { results } fields = { fields } linls={ ['View Listing'] }/>
-    );
+      <IndexTable results={results} fields={fields} linls={['View Listing']} />
+    )
 
     // Take snapshot and save it
-    expect(wrapper).toMatchSnapshot(); // no need to convert to JSON when using Enzyme wrappers
+    expect(wrapper).toMatchSnapshot() // no need to convert to JSON when using Enzyme wrappers
 
     // Using Enzyme to check a property of a component. No need here, since we use snpashot.
     expect(wrapper.find('ReactTable').props().expanded['0']).toBeUndefined()
@@ -43,6 +42,6 @@ describe('IndexIndexTable', () => {
     expect(wrapper.find('ReactTable').props().expanded['0']).toEqual(true)
 
     // Take snapshot again of new view
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot()
   })
 })

@@ -28,5 +28,5 @@ export default {
   toListing,
   toApplicationNew,
   toLeaseUpApplications,
-  toAttachmentDownload,
+  toAttachmentDownload
 }

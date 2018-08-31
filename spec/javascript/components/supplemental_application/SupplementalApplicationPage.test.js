@@ -2,7 +2,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { cloneDeep, merge } from 'lodash'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import units from '../../fixtures/units'
@@ -23,8 +23,8 @@ jest.mock('apiService', () => {
 })
 
 const statusHistory = [
-  { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' },
-  { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated:'2018-05-10T19:54:11.000+0000' }
+  { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated: '2018-05-10T19:54:11.000+0000' },
+  { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated: '2018-05-10T19:54:11.000+0000' }
 ]
 
 describe('SupplementalApplicationPage', () => {
@@ -37,7 +37,7 @@ describe('SupplementalApplicationPage', () => {
       <SupplementalApplicationPage
         statusHistory={statusHistory}
         application={supplementalApplication}
-        units={units}/>
+        units={units} />
     )
 
     let tree = component.toJSON()
@@ -52,7 +52,7 @@ describe('SupplementalApplicationPage', () => {
       <SupplementalApplicationPage
         application={supplementalApplication}
         statusHistory={statusHistory}
-        units={units}/>
+        units={units} />
     )
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
@@ -65,22 +65,21 @@ describe('SupplementalApplicationPage', () => {
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
   })
 
-
   test('it saves an application preference panel', async () => {
     const withValidPreferences = cloneDeep(supplementalApplication)
     const payload = cloneDeep(mockShortFormSubmitPayload)
 
     merge(payload.shortFormPreferences[0], {
-      appMemberID: "xxx",
-      naturalKey: "Bla,Ble,",
-      individualPreference: "Live in SF"
+      appMemberID: 'xxx',
+      naturalKey: 'Bla,Ble,',
+      individualPreference: 'Live in SF'
     })
 
     merge(withValidPreferences.preferences[0], {
-      Preference_Name: "Live or Work in San Francisco Preference",
-      Individual_preference: "Live in SF",
+      Preference_Name: 'Live or Work in San Francisco Preference',
+      Individual_preference: 'Live in SF',
       Receives_Preference: true,
-      Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB:'03/03/83' }
+      Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' }
     })
 
     const wrapper = mount(

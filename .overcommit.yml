@@ -36,14 +36,6 @@ PreCommit:
     enabled: true
     description: 'Checking YAML syntax'
 
-  RailsBestPractices:
-    enabled: true
-    description: 'Checking Rails best practices'
-    include:
-      - './'
-    exclude:
-      - 'spec/javascript/**/*.snap'
-
   TrailingWhitespace:
     enabled: true
     description: 'Checking for trailing whitespace'
@@ -53,10 +45,14 @@ PreCommit:
       - 'app/assets/**/*.svg'
       - 'public/**/*.svg'
 
-  EsLint:
+  Standard:
     enabled: true
     description: 'Linting JavaScript'
-    required_executable: './node_modules/.bin/eslint'
+    required_executable: './node_modules/.bin/standard'
+    exclude:
+      - 'node_modules/**/*.js'
+      - 'spec/javascript/fixtures/*.js'
+      - 'app/assets/javascripts/cable.js'
 
   CustomScript:
     enabled: true

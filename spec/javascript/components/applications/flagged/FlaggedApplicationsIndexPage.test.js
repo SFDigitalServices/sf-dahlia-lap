@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 
 import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
 import flaggedRecords from '../../../fixtures/flagged_records'
@@ -12,9 +12,9 @@ describe('FlaggedApplicationsIndexPage', () => {
       <FlaggedApplicationsIndexPage
         title={title}
         type='pending'
-        flaggedRecords={flaggedRecords} />,
+        flaggedRecords={flaggedRecords} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })

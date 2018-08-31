@@ -8,7 +8,7 @@ export const mapApplicationPreference = (value) => {
   return {
     application: mapShape(mapApplication, value.Application),
     listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),
-    application_member:mapShape(mapApplicationMember, value.Application_Member),
+    application_member: mapShape(mapApplicationMember, value.Application_Member),
     id: value.Id,
     name: value.Name,
     preference_name: value.Preference_Name,
@@ -31,7 +31,7 @@ export const mapApplicationPreference = (value) => {
     state: value.State,
     zip_code: value.Zip_Code,
     street: value.Street,
-    recordtype_developername: get(value,'RecordType.DeveloperName'),
+    recordtype_developername: get(value, 'RecordType.DeveloperName'),
     total_household_rent: String(value.Total_Household_Rent)
   }
 }

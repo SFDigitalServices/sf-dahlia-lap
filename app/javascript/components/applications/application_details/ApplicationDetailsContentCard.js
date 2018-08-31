@@ -4,14 +4,13 @@ import { buildFields } from '~/utils/fieldSpecs'
 import arrayUtils from '~/utils/arrayUtils'
 
 var generateContent = (dataCollection, entry, i) => {
-  if (dataCollection == null)
-    return
+  if (dataCollection == null) { return }
 
   const { value, label } = entry
 
   return (
-    <div className="margin-bottom--half" key={i}>
-      <h4 className="t-sans t-small t-bold no-margin">
+    <div className='margin-bottom--half' key={i}>
+      <h4 className='t-sans t-small t-bold no-margin'>
         {label}
       </h4>
       <p>{value}</p>
@@ -25,16 +24,16 @@ const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMap
   const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
 
   return (
-    <div className="content-card padding-bottom-none margin-bottom--half bg-trans">
-      <h4 className="content-card_title t-serif">{title}</h4>
-      <ul className="content-grid">
-        <li className="content-item">
-          <div className="content-card">
+    <div className='content-card padding-bottom-none margin-bottom--half bg-trans'>
+      <h4 className='content-card_title t-serif'>{title}</h4>
+      <ul className='content-grid'>
+        <li className='content-item'>
+          <div className='content-card'>
             {firstHalf}
           </div>
         </li>
-        <li className="content-item">
-          <div className="content-card">
+        <li className='content-item'>
+          <div className='content-card'>
             {secondHalf}
           </div>
         </li>

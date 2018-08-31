@@ -1,39 +1,36 @@
 import { take, takeRight } from 'lodash'
 
 class Cycle {
-
-  constructor(values) {
+  constructor (values) {
     this.values = values
     this.currentPosition = 0
   }
 
-  setPosition(position) {
+  setPosition (position) {
     this.currentPosition = position
   }
 
-  next() {
+  next () {
     this.currentPosition++
 
-    if (this.currentPosition >= this.values.length)
-      this.currentPosition = 0
+    if (this.currentPosition >= this.values.length) { this.currentPosition = 0 }
 
     return this.currentValue()
   }
 
-  prev() {
+  prev () {
     this.currentPosition--
 
-    if (this.currentPosition < 0)
-      this.currentPosition = this.values.length - 1
+    if (this.currentPosition < 0) { this.currentPosition = this.values.length - 1 }
 
     return this.currentValue()
   }
 
-  currentValue() {
+  currentValue () {
     return this.values[this.currentPosition]
   }
 
-  push(value) {
+  push (value) {
     this.values.push(value)
   }
 }

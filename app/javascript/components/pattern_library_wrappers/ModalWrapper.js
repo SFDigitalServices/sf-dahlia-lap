@@ -9,19 +9,19 @@ class ModalWrapper extends React.Component {
     invertModalIsOpen: false
   }
 
-  openStatusModal  = () => this.setState({ statusModalIsOpen: true })
+  openStatusModal = () => this.setState({ statusModalIsOpen: true })
 
   closeStatusModal = () => this.setState({ statusModalIsOpen: false })
 
-  openDangerModal  = () => this.setState({ dangerModalIsOpen: true })
+  openDangerModal = () => this.setState({ dangerModalIsOpen: true })
 
   closeDangerModal = () => this.setState({ dangerModalIsOpen: false })
 
-  openInvertModal  = () => this.setState({ invertModalIsOpen: true })
+  openInvertModal = () => this.setState({ invertModalIsOpen: true })
 
   closeInvertModal = () => this.setState({ invertModalIsOpen: false })
 
-  render() {
+  render () {
     return (
       <div>
         <button onClick={this.openStatusModal}>Open Update Status Modal</button>
@@ -34,15 +34,15 @@ class ModalWrapper extends React.Component {
           onPrimaryClick={this.closeStatusModal}
           onSecondaryClick={this.closeStatusModal}
           type='status'>
-          <p class="c-steel">Loreum ipsum</p>
+          <p class='c-steel'>Loreum ipsum</p>
 
-          <div class="form-group">
-  			   <label>Comment Required</label>
-  			   <textarea name="textarea-id" id="textarea-id" cols="30" rows="10" placeholder="Type here" aria-describedby="described-id"></textarea>
+          <div class='form-group'>
+            <label>Comment Required</label>
+            <textarea name='textarea-id' id='textarea-id' cols='30' rows='10' placeholder='Type here' aria-describedby='described-id' />
           </div>
         </SimpleModal>
 
-        <br/>
+        <br />
 
         <button onClick={this.openDangerModal}>Open Danger Modal</button>
         <SimpleModal
@@ -64,7 +64,7 @@ class ModalWrapper extends React.Component {
           <div>content</div>
         </SimpleModal>
 
-        <br/>
+        <br />
 
         <button onClick={this.openInvertModal}>Open Invert Modal</button>
         <SimpleModal
@@ -76,7 +76,7 @@ class ModalWrapper extends React.Component {
           onPrimaryClick={this.closeInvertModal}
           onSecondaryClick={this.closeInvertModal}
           type='alert'
-          invert={true}
+          invert
           alert={{
             title: "This change will affect this application's preferences",
             subtitle: 'This application woudl no longer be elegible for Live Work Preference',

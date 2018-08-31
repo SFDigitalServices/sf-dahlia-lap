@@ -38,7 +38,7 @@ Rails.application.routes.draw do
         put 'update' => 'flagged_applications#update'
       end
 
-      resources :applications
+      resources :applications, only: %w[index]
       scope '/field-update-comments' do
         post 'create' => 'field_update_comments#create'
       end

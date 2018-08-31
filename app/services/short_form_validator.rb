@@ -12,6 +12,6 @@ class ShortFormValidator
   end
 
   def _validate_presence_of(id)
-     @errors.add(id, "must be present") unless @attributes[id].present?
+    @errors.add(id, 'must be present') unless @attributes[id].present?
   end
 end

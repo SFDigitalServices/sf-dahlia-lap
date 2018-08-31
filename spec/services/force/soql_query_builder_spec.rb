@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Force::SoqlQueryBuilder do
-
   describe '#to_soql' do
     let(:client) { double(:client) }
 
@@ -9,10 +8,10 @@ RSpec.describe Force::SoqlQueryBuilder do
       builder = Force::SoqlQueryBuilder.new(client)
 
       soql = builder.from(:Application__c)
-      .select('Id')
-      .where("Status__c != 'DRAFT'")
-      .paginate({ page: 2 })
-      .to_soql
+                    .select('Id')
+                    .where("Status__c != 'DRAFT'")
+                    .paginate(page: 2)
+                    .to_soql
 
       expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') LIMIT 100 OFFSET 200")
     end
@@ -21,11 +20,11 @@ RSpec.describe Force::SoqlQueryBuilder do
       builder = Force::SoqlQueryBuilder.new(client)
 
       soql = builder.from(:Application__c)
-      .select('Id')
-      .where("Status__c != 'DRAFT'")
-      .where("Id == 1")
-      .paginate({ page: 2 })
-      .to_soql
+                    .select('Id')
+                    .where("Status__c != 'DRAFT'")
+                    .where('Id == 1')
+                    .paginate(page: 2)
+                    .to_soql
 
       expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id == 1) LIMIT 100 OFFSET 200")
     end
