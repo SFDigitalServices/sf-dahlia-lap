@@ -65,11 +65,12 @@
   "scripts": {
     "lint": "standard \"./**/*.js\" | snazzy",
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy",
-    "test": "jest --testPathPattern=.*.test.js$",
-    "e2e":  "jest --testPathPattern=.*e2e.*"
+    "unit": "jest --testPathPattern=.*.test.js$",
+    "e2e":  "jest --testPathPattern=.*e2e.*",
   },
   "jest": {
     "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
     ],

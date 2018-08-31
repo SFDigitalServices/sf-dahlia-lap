@@ -38,7 +38,7 @@ const payload = {
          appMemberID: undefined,
          certificateNumber: null,
          individualPreference: null,
-         lwPreferenceProof: undefined,
+         lwPreferenceProof: null,
          naturalKey: undefined,
          optOut: null,
          preferenceProof: null,
@@ -55,7 +55,8 @@ const payload = {
          address: '9 de julio',
          city: 'buenos aires',
          state: 'fl',
-         zip: '33026' } ]
+         zip: '33026' } ],
+    totalMonthlyRent: null
 }
 
 export default payload
