@@ -1,23 +1,29 @@
 import React from 'react'
-import { Select } from 'react-form'
 import { buildFieldId } from './utils'
+import { Field } from '~/utils/form/Field'
+
+const individualPreferenceOptions = [
+  {value: 'Assisted Housing', label: 'Assisted Housing'},
+  {value: 'Rent Burdened', label: 'Rent Burdened'}
+]
 
 const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className="small-6 columns">
-        <label>Name on Lease</label>
-        <Select
+        <Field.Select
+          label="Name on Lease"
+          blockNote="(required)"
           field={buildFieldId(i,'naturalKey')}
           options={householdMembers}
         />
       </div>
       <div className="small-6 columns">
-        <label>Individual Preference</label>
-        <Select
+        <Field.Select
+          label="Individual Preference"
+          blockNote="(required)"
           field={buildFieldId(i,'individual_preference')}
-          options={[{value: 'Assisted Housing', label: 'Assisted Housing'},
-            {value: 'Rent Burdened', label: 'Rent Burdened'}]}
+          options={individualPreferenceOptions}
         />
       </div>
       <div className="small-12 columns">

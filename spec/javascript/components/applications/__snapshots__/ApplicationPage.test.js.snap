@@ -33,6 +33,13 @@ Array [
               </span>
             </p>
           </div>
+          <div
+            className="medium-4 columns no-padding"
+          >
+            <span
+              className="lead-header_secondary-action"
+            />
+          </div>
         </hgroup>
       </div>
     </div>
@@ -359,14 +366,6 @@ Array [
                     9954449943
                   </p>
                 </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
                 <div
                   className="margin-bottom--half"
                 >
@@ -379,6 +378,14 @@ Array [
                     None
                   </p>
                 </div>
+              </div>
+            </li>
+            <li
+              className="content-item"
+            >
+              <div
+                className="content-card"
+              >
                 <div
                   className="margin-bottom--half"
                 >
@@ -413,6 +420,18 @@ Array [
                   </h4>
                   <p>
                     None
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Mailing Address
+                  </h4>
+                  <p>
+                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
                   </p>
                 </div>
               </div>
@@ -707,7 +726,7 @@ Array [
           <ul>
             <li>
               <a
-                href="http:/www.someurl.com/servlet/servlet.FileDownload?file=xxxx1"
+                href="undefined/servlet/servlet.FileDownload?file=xxxx1"
                 target="_blank"
               >
                 Namexxx1
@@ -715,7 +734,7 @@ Array [
             </li>
             <li>
               <a
-                href="http:/www.someurl.com/servlet/servlet.FileDownload?file=xxxx2"
+                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
                 target="_blank"
               >
                 Namexxx2

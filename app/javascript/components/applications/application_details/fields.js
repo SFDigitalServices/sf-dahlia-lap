@@ -31,7 +31,8 @@ export const alternateContactFields = [
   'agency_name',
   'email',
   'alternate_contact_type',
-  'alternate_contact_type_other'
+  'alternate_contact_type_other',
+  'mailing_address',
 ]
 
 export const householdMembersFields = [

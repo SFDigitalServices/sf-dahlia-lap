@@ -6,6 +6,13 @@ const labelize = (options) => (
   ))
 )
 
+const application_language_options = labelize([
+  'English',
+  'Chinese',
+  'Spanish',
+  'Tagalog',
+])
+
 const phone_type_options = labelize([
   'Home',
   'Cell',
@@ -94,6 +101,24 @@ const preference_proof_options_default = labelize([
   'School record',
 ])
 
+const preference_proof_options_live_sf = labelize([
+  'Telephone bill',
+  'Cable and internet bill',
+  'Gas bill',
+  'Electric bill',
+  'Garbage bill',
+  'Water bill',
+  'Paystub',
+  'Public benefits record',
+  'School record',
+  'Letter documenting homelessness'
+])
+
+const preference_proof_options_work_sf = labelize([
+  'Letter from employer',
+  'Paystub with employer address',
+])
+
 const preference_proof_options_rent_burden = labelize([
   'Money order',
   'Cancelled check',
@@ -112,6 +137,11 @@ const preference_proof_options_nrhp = labelize([
   'Public benefits record',
   'School record',
   'Letter documenting homelessness',
+])
+
+const preference_proof_options_work_in_sf = labelize([
+  'Paystub with employer address',
+  'Letter from employer',
 ])
 
 const priority_options = [
@@ -146,6 +176,7 @@ const yes_no_options = labelize([
 ])
 
 export default {
+  application_language_options,
   phone_type_options,
   alternate_contact_options,
   gender_options,
@@ -155,8 +186,11 @@ export default {
   race_options,
   sexual_orientation_options,
   preference_proof_options_default,
+  preference_proof_options_live_sf,
+  preference_proof_options_work_sf,
   preference_proof_options_rent_burden,
   preference_proof_options_nrhp,
+  preference_proof_options_work_in_sf,
   priority_options,
   listing_referral_options,
   yes_no_options,

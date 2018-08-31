@@ -2,6 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import BreadCrumbs from '../atoms/BreadCrumbs'
 
+import { map, has, isArray } from 'lodash'
+
+const DefaultAction = ({ action }) => (
+  <a href={action.link} className="alt-caps">
+    {action.title}
+  </a>
+)
+
+const Actions = ({ actions }) => {
+  if (actions) {
+    const cleanedActions = isArray(actions) ? actions : [actions]
+    const actionsList = map(cleanedActions, (action, idx) => (
+      has(action, 'title') ?
+      <DefaultAction action={action} key={idx} /> : action
+    ))
+
+    return (
+      <div className="medium-4 columns no-padding">
+          <span className="lead-header_secondary-action">
+            {actionsList}
+          </span>
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
 const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
   return (
     <header className={`lead-header short ${breadcrumbs ? 'has-breadcrumbs' : ''} bg-${background}`}>
@@ -16,16 +44,7 @@ const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
                 </div>
               )
             }
-            { action && (
-                <div className="medium-4 columns no-padding">
-                    <span className="lead-header_secondary-action">
-                      <a href={action.link} className="alt-caps">
-                        {action.title}
-                      </a>
-                    </span>
-                </div>
-              )
-            }
+            <Actions actions={action} />
           </hgroup>
         </div>
       </div>
@@ -43,7 +62,10 @@ PageHeader.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
-  action: PropTypes.object,
+  action: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ]),
   breadcrumbs: PropTypes.array,
 }
 

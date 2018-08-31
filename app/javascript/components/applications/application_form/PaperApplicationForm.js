@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
 import { Form } from 'react-form'
-import { some, isObjectLike, isNil } from 'lodash'
-
+import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -12,6 +12,58 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
+
+const fieldRequiredMsg = 'is required'
+
+const preferenceRequiredFields = {
+  individual_preference: ['RB_AHP', 'L_W'],
+  type_of_proof: ['NRHP','L_W', 'AG'],
+  street: ['AG'],
+  city: ['AG'],
+  state: ['AG'],
+  zip_code: ['AG'],
+}
+
+const preferenceRequiresField = (prefName, fieldName) => {
+  if (fieldName === 'naturalKey') {
+    return true
+  } else {
+    return includes(preferenceRequiredFields[fieldName], prefName)
+  }
+}
+
+// In react-form v2, a validation value of null indicates no
+// error, and a validation value of anything other than null
+// indicates an error.
+const getPrefFieldValidation = (pref, fieldName) => {
+  if (preferenceRequiresField(pref.recordtype_developername, fieldName)) {
+    return pref[fieldName] ? null : fieldRequiredMsg
+  } else {
+    return null
+  }
+}
+
+const buildPrefValidations = (prefs) => {
+  let prefValidations = {}
+  forEach(prefs, (pref, index) => {
+    prefValidations[index] = {
+      naturalKey: getPrefFieldValidation(pref, 'naturalKey'),
+      individual_preference: getPrefFieldValidation(pref, 'individual_preference'),
+      type_of_proof: getPrefFieldValidation(pref, 'type_of_proof'),
+      street: getPrefFieldValidation(pref, 'street'),
+      city: getPrefFieldValidation(pref, 'city'),
+      state: getPrefFieldValidation(pref, 'state'),
+      zip_code: getPrefFieldValidation(pref, 'zip_code'),
+    }
+  })
+  return prefValidations
+}
+
+const validateError = (values) => {
+  return {
+    preferences: buildPrefValidations(values.preferences)
+  }
+}
 
 class PaperApplicationForm extends React.Component {
   constructor(props) {
@@ -24,11 +76,10 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    const { listing, application, onSubmit } = this.props
+    const { listing, application, onSubmit, editPage} = this.props
     const { submitType } = this.state
-
     this.setState({ submittedValues, loading: true, failed: false })
-    await onSubmit(submitType, submittedValues, application, listing)
+    await onSubmit(submitType, submittedValues, application, listing, editPage)
     this.setState({ loading: false })
   }
 
@@ -50,22 +101,21 @@ class PaperApplicationForm extends React.Component {
   }
 
   render() {
-    const { loading, failed } = this.state
     const { listing, application, editPage } = this.props
-
+    const { loading, failed } = this.state
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application}>
+        <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id="shortForm">
               <div className="app-card form-card medium-centered">
               <div className="app-inner inset">
                   <AlertBox
-                    invert
-                    dismiss={!failed}
-                    onCloseClick={() => this.setState({failed: false})}
-                    message="Please resolve any errors before saving the application." />
-
+                   invert
+                   dismiss={!failed}
+                   onCloseClick={() => this.setState({failed: false})}
+                   message="Please resolve any errors before saving the application." />
+                  <ApplicationLanguageSection editValues={application} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
