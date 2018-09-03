@@ -10,7 +10,6 @@ describe('LeaseUpPage', () => {
 
     await steps.loginAsAgent(page)
 
-    // await page.goto('http://localhost:3000/listings/lease-ups/a0W0P00000DZfSpUAL/applications')
     await steps.goto(page, `/listings/lease-ups/${LEASE_UP_LISTING_ID}/applications`)
     await page.waitForSelector('#root')
     await page.waitForSelector('.dropdown')
