@@ -63,10 +63,10 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "all_tests": "jest",
+    "jest": "jest",
     "lint": "standard \"./**/*.js\" | snazzy",
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy",
-    "test": "jest --testPathPattern=.*.test.js$",
+    "unit": "jest --testPathPattern=.*.test.js$",
     "e2e":  "jest --testPathPattern=.*e2e.*"
   },
   "jest": {
