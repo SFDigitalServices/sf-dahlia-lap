@@ -6,13 +6,10 @@ import mapProps from '~/utils/mapProps'
 import { mapListing } from '~/components/mappers/soqlToDomain/listing'
 import { saveApplication } from './actions'
 
-
-
 const ApplicationNewForm = ({ listing }) => {
-  const saveNewApplication = async (submitType, submittedValues, application, listing) => {
+  const saveNewApplication = async (submitType, submittedValues, application, listing, editPage) => {
     submittedValues.listing = { id: listing.id }
-
-    return saveApplication(submitType, submittedValues, application, listing)
+    return saveApplication(submitType, submittedValues, application, listing, editPage)
   }
 
   return (

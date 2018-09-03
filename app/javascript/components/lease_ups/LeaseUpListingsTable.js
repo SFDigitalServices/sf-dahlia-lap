@@ -21,7 +21,7 @@ const LeaseUpListingsTable = ({ listings, onCellClick }) => {
     }
 
     if (column.id === 'name') {
-      attributes.className = "td-bold td-min-wide"
+      attributes.className = 'td-bold td-min-wide'
     }
 
     return attributes

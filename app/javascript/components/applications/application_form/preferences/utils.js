@@ -4,11 +4,15 @@ export const naturalKeyFromPreference = (p) => join(
   [
     get(p, 'application_member.first_name'),
     get(p, 'application_member.last_name'),
-    get(p, 'application_member.date_of_birth'),
+    get(p, 'application_member.date_of_birth')
   ], ',')
 
 export const naturalKeyFromMember = (member) => {
   return `${member.first_name},${member.last_name},${member.date_of_birth}`
+}
+
+export const memberNameFromPref = (p) => {
+  return `${p.application_member.first_name} ${p.application_member.last_name}`
 }
 
 export const FIELD_NAME = 'preferences'
@@ -29,8 +33,7 @@ export const buildHouseholdMembersOptions = (applicationMembers) => {
 }
 
 export const getFullHousehold = (application) => {
-  const { household_members, applicant } = application
-  const fullHousehold = concat([applicant], household_members || [])
+  const fullHousehold = concat([application.applicant], application.household_members || [])
   return pickBy(fullHousehold, m => (
     // can only select someone for preference if they have name + DOB
     m && m.first_name && m.last_name && m.date_of_birth

@@ -1,8 +1,8 @@
 const HOST = 'http://localhost:3000'
 
 const loginAsAgent = async (page) => {
-  await page.goto('http://localhost:3000/');
-	await page.waitForSelector('#root');
+  await page.goto('http://localhost:3000/')
+  await page.waitForSelector('#root')
 
   // Sign in
   await page.click('.sign-in-btn')
@@ -21,10 +21,15 @@ const loginAsAgent = async (page) => {
 
 const goto = async (page, path) => {
   await page.goto(`${HOST}${path}`)
+  await waitForApp(page)
+}
+
+const waitForApp = async (page) => {
   await page.waitForSelector('#root')
 }
 
 export default {
   loginAsAgent,
-  goto
+  goto,
+  waitForApp
 }

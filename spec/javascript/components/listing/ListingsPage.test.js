@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 
 import ListingsPage from 'components/listings/ListingsPage'
 import modelsFactory from '../../factories/models'
@@ -11,19 +11,18 @@ describe('ListingsPage', () => {
     const fields = modelsFactory.listingFields()
 
     const wrapper = renderer.create(
-      <ListingsPage listings={results} fields={fields} />,
+      <ListingsPage listings={results} fields={fields} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot()
   })
-
 
   test('should render succesfully long list', () => {
     const fields = modelsFactory.listingFields()
     const wrapper = renderer.create(
-      <ListingsPage listings={listings} fields={fields} />,
+      <ListingsPage listings={listings} fields={fields} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })

@@ -2,7 +2,7 @@ import React from 'react'
 
 import PageHeader from '../organisms/PageHeader'
 
-const HomePageHeader = ({}) => {
+const HomePageHeader = ({ header }) => {
   return (
     <div>
       <PageHeader
@@ -12,7 +12,7 @@ const HomePageHeader = ({}) => {
   )
 }
 
-const HomePage = ({}) => {
+const HomePage = ({ page }) => {
   return (
     <div>
       <HomePageHeader />

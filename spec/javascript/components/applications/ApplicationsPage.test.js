@@ -1,6 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer';
-import apiService from '~/apiService'
+import renderer from 'react-test-renderer'
 
 import ApplicationsPage from 'components/applications/ApplicationsPage'
 
@@ -14,15 +13,15 @@ jest.mock('apiService', () => {
   }
 })
 
-var wait = ms => new Promise((r, j)=>setTimeout(r, ms))
+var wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
 
 describe('ApplicationsPage', () => {
   test('should render succesfully', (done) => {
     const wrapper = renderer.create(
-      <ApplicationsPage />,
+      <ApplicationsPage />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot()
     wait(2000)
     done()
   })

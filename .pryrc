@@ -22,7 +22,7 @@ if defined? AwesomePrint
   # Pry.config.print = proc { |output, value| output.puts value.ai }
 end
 
-# Search method on Pry 
+# Search method on Pry
 # class Object
 #   def search_methods(qry)
 #       self.methods & self.methods.select { |m| m.to_s.include?(qry.to_s) }

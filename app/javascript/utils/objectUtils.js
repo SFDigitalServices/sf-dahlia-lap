@@ -1,7 +1,14 @@
 import {
-  forEach, isFunction, omitBy,
-  isEmpty, map, isUndefined, includes,
-  isNil, keys, snakeCase
+  forEach,
+  includes,
+  isFunction,
+  isEmpty,
+  isUndefined,
+  isNil,
+  keys,
+  map,
+  omitBy,
+  snakeCase
 } from 'lodash'
 
 export const checkSnakeCase = (obj) => {
@@ -12,15 +19,13 @@ export const checkSnakeCase = (obj) => {
   })
 }
 
-export const mapFields = (fieldMapper, to, from ) => {
-  if (isUndefined(from))
-    return undefined
-  if (isNil(from))
-    return null
-  if (isEmpty(keys(from)))
-    return undefined
+export const mapFields = (fieldMapper, to, from) => {
+  if (isUndefined(from)) { return undefined }
+  if (isNil(from)) { return null }
+  if (isEmpty(keys(from))) { return undefined }
 
   checkSnakeCase(from)
+
   forEach(fieldMapper, (toField, fromField) => {
     if (isFunction(toField)) {
       to[fromField] = toField(from)

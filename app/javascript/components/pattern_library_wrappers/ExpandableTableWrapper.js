@@ -6,18 +6,18 @@ class ExpandableTableWrapper extends React.Component {
   expanderRenderer = (row, expanded, expandedRowToggler) => {
     if (expanded) return
 
-    return <button className="button button-link action-link" onClick={(e) => expandedRowToggler()}>Expand</button>
+    return <button className='button button-link action-link' onClick={(e) => expandedRowToggler()}>Expand</button>
   }
 
   expandedRowRenderer = (row, expandedRowToggler) => (
-    <div className="app-editable expand-wide scrollable-table-nested">
+    <div className='app-editable expand-wide scrollable-table-nested'>
       <div>Hello</div>
-      <br/>
-      <button className="button" onClick={(e) => (expandedRowToggler())}>Close</button>
+      <br />
+      <button className='button' onClick={(e) => (expandedRowToggler())}>Close</button>
     </div>
   )
 
-  render() {
+  render () {
     const { columns, rows } = this.props
 
     return (

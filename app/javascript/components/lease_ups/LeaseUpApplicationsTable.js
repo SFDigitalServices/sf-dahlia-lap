@@ -10,8 +10,8 @@ import classNames from 'classnames'
 import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
-  const  applicationPreferenceId = cell.original.id
-  const  applicationId = cell.original.application_id
+  const applicationPreferenceId = cell.original.id
+  const applicationId = cell.original.application_id
 
   const value = cell.value || ''
   return (
@@ -28,10 +28,10 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
 const NoData = ({ children, className, ...rest }) => {
   return (
     <div className='rt-noData' {...rest}>
-      <div style={{ textAlign:'center', padding:'10px', marginBottom: '20px' }}>
+      <div style={{ textAlign: 'center', padding: '10px', marginBottom: '20px' }}>
         No results, try adjusting your filters
       </div>
-      <div style={{ textAlign:'center'}}>
+      <div style={{ textAlign: 'center' }}>
         <button className='tertiary'>Reset all filters</button>
       </div>
     </div>
@@ -39,7 +39,7 @@ const NoData = ({ children, className, ...rest }) => {
 }
 
 const resizableCell = (cell) => (
-   <span className="rt-resizable-td-content">{cell.value}</span>
+  <span className='rt-resizable-td-content'>{cell.value}</span>
 )
 
 const isInvalid = (original) => {
@@ -50,8 +50,8 @@ const PreferenceRankCell = ({cell}) => {
   if (isInvalid(cell.original)) {
     return (
       <div>
-        <span className="rt-td-label-rank t-semis">{cell.original.preference_rank}</span>
-        <span className="rt-td-label-invalid t-semis">Invalid</span>
+        <span className='rt-td-label-rank t-semis'>{cell.original.preference_rank}</span>
+        <span className='rt-td-label-invalid t-semis'>Invalid</span>
       </div>
     )
   } else {
@@ -61,16 +61,16 @@ const PreferenceRankCell = ({cell}) => {
 
 const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
   const columns = [
-      { Header: 'Preference Rank',    accessor: 'rankOrder',          headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
-      { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => ( <a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className="has-border">{cell.value}</a>) },
-      { Header: 'First Name',         accessor: 'first_name' ,        Cell: resizableCell, className: 'text-left' },
-      { Header: 'Last Name',          accessor: 'last_name' ,         Cell: resizableCell, className: 'text-left' },
-      { Header: 'Phone',              accessor: 'phone' ,             Cell: resizableCell, className: 'text-left' },
-      { Header: 'Email',              accessor: 'email' ,             Cell: resizableCell, className: 'text-left' },
-      { Header: 'Address',            accessor: 'address',            Cell: resizableCell, className: 'text-left' },
-      { Header: 'Status Updated',     accessor: 'status_updated' ,    headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
-      { Header: 'Lease Up Status',    accessor: 'lease_up_status',    headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id}/> }
-    ]
+    { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
+    { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
+    { Header: 'First Name', accessor: 'first_name', Cell: resizableCell, className: 'text-left' },
+    { Header: 'Last Name', accessor: 'last_name', Cell: resizableCell, className: 'text-left' },
+    { Header: 'Phone', accessor: 'phone', Cell: resizableCell, className: 'text-left' },
+    { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
+    { Header: 'Address', accessor: 'address', Cell: resizableCell, className: 'text-left' },
+    { Header: 'Status Updated', accessor: 'status_last_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
+    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id} /> }
+  ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
     let attrs = {}
@@ -81,7 +81,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     } else if (column.id !== 'application_number') {
       attrs.onClick = (e, handleOriginal) => { if (rowInfo) onCellClick(listingId, rowInfo) }
 
-      if (column.id === 'status_updated') {
+      if (column.id === 'status_last_updated') {
         attrs.className = 'td-offset-right text-right'
       } else if (column.id === 'rankOrder') {
         attrs.className = 'td-min-narrow'
@@ -93,8 +93,8 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
 
   const getTrProps = (state, rowInfo, column) => {
     const statusClassName = (rowInfo && !!trim(rowInfo.row.lease_up_status))
-                            ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
-                            : ''
+      ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
+      : ''
 
     const trClassName = classNames(
       'rt-tr-status',
@@ -104,15 +104,15 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
 
     return {
       className: trClassName,
-      tabIndex: "0"
+      tabIndex: '0'
     }
   }
 
-  const sortBy = [{ id:'rankOrder', desc:false }]
+  const sortBy = [{ id: 'rankOrder', desc: false }]
 
   return (
     <ReactTable
-      className="rt-table-status"
+      className='rt-table-status'
       data={dataSet}
       columns={columns}
       getTdProps={getTdProps}
@@ -122,6 +122,5 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       NoDataComponent={NoData} />
   )
 }
-
 
 export default LeaseUpApplicationsTable

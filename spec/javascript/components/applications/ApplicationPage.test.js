@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 
 import ApplicationPage from 'components/applications/ApplicationPage'
 import sharedHooks from '../../support/sharedHooks'
@@ -14,9 +14,9 @@ describe('ApplicationPage', () => {
     const wrapper = renderer.create(
       <ApplicationPage
         application={application}
-        file_base_url={fileBaseUrl}/>,
+        file_base_url={fileBaseUrl} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })

@@ -34,7 +34,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   )
 
   return (
-    <div>
+    <div className='application-details'>
       <ApplicationCard
         title='Application Data'
         fields={applicationDataFields}
@@ -51,33 +51,33 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
         fields={alternateContactFields}
       />
       { application.household_members && (
-            <Table
-              title='Household Members'
-              table='household_members'
-              fields={householdMembersFields}
-            />)
+        <Table
+          title='Household Members'
+          table='household_members'
+          fields={householdMembersFields}
+        />)
       }
       <ApplicationCard
         title='Reserved and Priority Qualifying Information'
         fields={reservedAndPriorityFields}
         labelMapper={fields} />
-    { application.preferences && (
-          <Table
-            title='Application Preferences'
-            table='preferences'
-            fields={applicationPreferencesFields} /> )
+      { application.preferences && (
+        <Table
+          title='Application Preferences'
+          table='preferences'
+          fields={applicationPreferencesFields} />)
       }
       <ApplicationCard
         title='Declared Household Income'
         fields={declareHousholdIncome} />
-    { application.flagged_applications && (
-          <Table
-            title='Flagged Applications'
-            table='flagged_applications'
-            fields={flaggedApplicationsFields} /> )
+      { application.flagged_applications && (
+        <Table
+          title='Flagged Applications'
+          table='flagged_applications'
+          fields={flaggedApplicationsFields} />)
       }
-      <div className="content-card">
-        <h4 className="content-card_title t-serif">Attachments</h4>
+      <div className='content-card'>
+        <h4 className='content-card_title t-serif'>Attachments</h4>
         <ul>
           <ProofListItems files={application.proof_files} fileBaseUrl={fileBaseUrl} />
         </ul>

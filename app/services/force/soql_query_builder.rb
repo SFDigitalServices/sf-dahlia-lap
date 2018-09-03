@@ -1,4 +1,5 @@
 module Force
+  # Build simple SOQL queries to access data in Salesforce
   class SoqlQueryBuilder
     DEFAULT_PAGE_SIZE = 100
 
@@ -27,12 +28,12 @@ module Force
       self
     end
 
-    def whereContains(field, value)
+    def where_contains(field, value)
       where("#{field} like '%#{value}%'")
       self
     end
 
-    def whereEq(field, value)
+    def where_eq(field, value)
       where("#{field} = #{value}")
       self
     end
@@ -91,6 +92,7 @@ module Force
       soql = _query_soql
       if Rails.env.development?
         puts "[SOQL] #{soql}"
+        # puts blah if blah
       end
 
       records = @client.query(soql)
@@ -120,7 +122,7 @@ module Force
     end
 
     def _query_soql
-      query_str = ""
+      query_str = ''
       query_str += "SELECT #{@select} #{_from_soql}"
       query_str += " #{_paginate_soql}" if paginate?
       query_str
@@ -138,16 +140,15 @@ module Force
       @where.map { |a| "(#{a})" }.join(' AND ')
     end
 
-    def _result(records, pages = nil, page = nil )
+    def _result(records, pages = nil, page = nil)
       records = @transform_results.call(records) if @transform_results.present?
 
-      Hashie::Mash.new({
+      Hashie::Mash.new(
         records: records,
         pages: pages,
         page: page,
-        total_size: total_size
-      })
+        total_size: total_size,
+      )
     end
-
   end
 end

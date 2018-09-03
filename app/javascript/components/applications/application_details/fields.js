@@ -1,4 +1,4 @@
-import { keys, map, join} from 'lodash'
+import { keys, map, join } from 'lodash'
 import formOptions from '../application_form/formOptions'
 
 export const applicationDataFields = [
@@ -21,7 +21,7 @@ export const primaryApplicantFields = [
   'second_phone',
   'email',
   'residence_address',
-  'mailing_address',
+  'mailing_address'
 ]
 
 export const alternateContactFields = [
@@ -31,7 +31,8 @@ export const alternateContactFields = [
   'agency_name',
   'email',
   'alternate_contact_type',
-  'alternate_contact_type_other'
+  'alternate_contact_type_other',
+  'mailing_address'
 ]
 
 export const householdMembersFields = [
@@ -45,7 +46,7 @@ export const householdMembersFields = [
 ]
 
 const adaPrioritiesToString = (list) => {
-  return join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]),';')
+  return join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]), ';')
 }
 
 export const reservedAndPriorityFields = [
@@ -73,6 +74,6 @@ export const declareHousholdIncome = [
 
 export const flaggedApplicationsFields = [
   { field: 'flagged_record.rule_name', label: 'Rule Name' },
-  { field: 'flagged_record.total_number_of_pending_review', label: 'Total Number of Pending Review'  },
+  { field: 'flagged_record.total_number_of_pending_review', label: 'Total Number of Pending Review' },
   'view record set'
 ]

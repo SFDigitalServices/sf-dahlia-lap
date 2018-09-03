@@ -1,24 +1,25 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
 import { buildFieldId } from './utils'
+import { Field } from '~/utils/form/Field'
 
-const DisplacedFields = ({ householdMembers, i }) => {
+const DisplacedFields = ({ formApi, householdMembers, i }) => {
   return (
     <div>
-      <div className="small-6 columns">
-        <label>Person Who Claimed</label>
-        <Select
-          field={buildFieldId(i,'naturalKey')}
+      <div className='small-6 columns'>
+        <Field.Select
+          field={buildFieldId(i, 'naturalKey')}
+          label='Person Who Claimed'
+          blockNote='(required)'
           options={householdMembers}
         />
       </div>
-      <div className="small-6 columns">
-        <label>DTHP Certificate Number</label>
-        <Text
-          field={buildFieldId(i,'certificate_number')}
+      <div className='small-6 columns'>
+        <Field.Text
+          field={buildFieldId(i, 'certificate_number')}
+          label='DTHP Certificate Number'
         />
       </div>
-      <div className="small-12 columns">
+      <div className='small-12 columns'>
         <p>MOHCD will verify that the applicant holds a valid certificate. No proof is required.</p>
       </div>
     </div>

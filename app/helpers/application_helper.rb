@@ -4,10 +4,6 @@ module ApplicationHelper
     ENV['production'] ? :salesforce : :salesforcesandbox
   end
 
-  def clean_field(field)
-    field.gsub('__c', '').tr('_', ' ')
-  end
-
   def active_path(test_path)
     request.fullpath == test_path ? 'active' : ''
   end

@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   rescue_from Force::RecordNotFound, with: :not_found
 
   def not_found
-    render "404", status: 404
+    render '404', status: 404
   end
 
-  def after_sign_in_path_for(user)
+  def after_sign_in_path_for(_user)
     listings_url
   end
 
