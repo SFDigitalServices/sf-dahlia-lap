@@ -35,14 +35,31 @@ Rails tests:
 
 Running React/Javascript unit tests:
 
-`yarn test`
+`yarn unit`
 
 Running React/Javascript e2e tests:
+
+In order to run e2e tests you have to set 2 environment variables to login into Saleforce.
+You have to set it in your environment and not in your .env file since it's being used only in Ruby and e2e runs in Javascript.
+
+Set:
+
+```
+E2E_SALEFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
+E2E_SALEFORCE_PASSWORD=<ask the team for this password>
+```
+
+to run:
 
 `yarn e2e`
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
-`yarn test -u`
+`yarn unit -u`
 
 _Note2: Snapshots should be pushed to the repo_
+
+
+To run all tests (unit and e2e) or an individual test run:
+
+`yarn jest`

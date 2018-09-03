@@ -1,7 +1,8 @@
 import puppeteer from 'puppeteer'
 
-import utils from '../support/puppeteerUtils'
-import steps from '../support/puppeteerSteps'
+import utils from '../support/puppeteer/utils'
+import steps from '../support/puppeteer/steps'
+import { LEASE_UP_LISTING_ID } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
   test('should create a new application', async () => {
@@ -9,7 +10,7 @@ describe('ApplicationNewPage', () => {
     let page = await browser.newPage()
 
     await steps.loginAsAgent(page)
-    await steps.goto(page, '/listings/a0W0P00000DZfSpUAL/applications/new')
+    await steps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.type('#first_name', 'Some first name')
     await page.type('#last_name', 'Some last name')
@@ -24,14 +25,14 @@ describe('ApplicationNewPage', () => {
     expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
 
     browser.close()
-  }, 100000)
+  }, 260000)
 
-  test('should create a new application', async () => {
+  test('should fail if required fields are missing', async () => {
     let browser = await puppeteer.launch({ headless: true })
     let page = await browser.newPage()
 
     await steps.loginAsAgent(page)
-    await steps.goto(page, '/listings/a0W0P00000DZfSpUAL/applications/new')
+    await steps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
