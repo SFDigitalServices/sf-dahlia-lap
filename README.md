@@ -39,7 +39,12 @@ Running React/Javascript unit tests:
 
 Running React/Javascript e2e tests:
 
-In order to run e2e tests you have to set 2 environment variables to login into Saleforce.
+In order to run e2e tests you have to:
+* set 2 environment variables to login into Saleforce.
+* run your server locally.
+
+**env variables**
+
 You have to set it in your environment and not in your .env file since it's being used only in Ruby and e2e runs in Javascript.
 
 Set:
@@ -49,7 +54,13 @@ E2E_SALEFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
 E2E_SALEFORCE_PASSWORD=<ask the team for this password>
 ```
 
-to run:
+**run server**
+
+Run your Rails server locally in port 3000:
+
+`bundle exec rails server -p 3000`
+
+to run tests:
 
 `yarn e2e`
 
