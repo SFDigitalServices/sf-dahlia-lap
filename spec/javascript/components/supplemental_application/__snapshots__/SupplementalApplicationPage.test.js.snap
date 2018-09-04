@@ -111,6 +111,7 @@ Array [
             }
           }
         >
+          <div />
           <div
             className="app-inner inset-wide padding-bottom-none margin-top"
           >
@@ -770,10 +771,9 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Date of Birth
+                    Lease Start Date
                   </label>
                   <input
-                    blockNote="(required)"
                     onBlur={[Function]}
                     onChange={[Function]}
                     pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"

@@ -7,7 +7,7 @@ module Applications
       @application = application_service.application(params[:application_id], includes: includes)
       @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
       @file_base_url = file_base_url
-      @available_units = units_service.available_units_by_listing(@application.Listing.Id).records
+      @available_units = units_service.available_units_for_application(@application.Listing.Id, @application.Id)
       @units = listing_service.units(@application.Listing.Id)
     end
 

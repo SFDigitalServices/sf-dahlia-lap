@@ -110,6 +110,7 @@ class SupplementalApplicationContainer extends React.Component {
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
+              <div>{JSON.stringify(formApi.values.lease)}</div>
               <StatusUpdateSection />
               <ContentSection title='Current Contact Information' />
               <ConfirmedPreferencesSection
