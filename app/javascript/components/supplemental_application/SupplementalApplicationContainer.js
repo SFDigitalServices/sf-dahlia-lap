@@ -12,7 +12,6 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
-
 import { withContext } from './context'
 
 const StatusUpdateSection = () => (
@@ -21,22 +20,25 @@ const StatusUpdateSection = () => (
   </ContentSection.Content>
 )
 
-const LeaseInformationSection = ({ statusHistory, availableUnits }) => (
-  <ContentSection title='Lease Information'>
-    <ContentSection.Content borderBottom>
-      <LeaseInformatonInputs availableUnits={availableUnits} />
-    </ContentSection.Content>
-    <ContentSection.Sub title='Demographics'>
-      <DemographicsInputs />
-    </ContentSection.Sub>
-    {!isEmpty(statusHistory) && (
-      <ContentSection.Sub title='Status History' borderBottom={false}>
-        <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
+const LeaseInformationSection = withContext(({ store }) => {
+  const { statusHistory } = store
+  return (
+    <ContentSection title='Lease Information'>
+      <ContentSection.Content borderBottom>
+        <LeaseInformatonInputs />
+      </ContentSection.Content>
+      <ContentSection.Sub title='Demographics'>
+        <DemographicsInputs />
       </ContentSection.Sub>
-    )
-    }
-  </ContentSection>
-)
+      {!isEmpty(statusHistory) && (
+        <ContentSection.Sub title='Status History' borderBottom={false}>
+          <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
+        </ContentSection.Sub>
+      )
+      }
+    </ContentSection>
+  )
+})
 
 const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   return (
@@ -102,7 +104,7 @@ class SupplementalApplicationContainer extends React.Component {
 
   render () {
     const { store } = this.props
-    const { statusHistory, application, fileBaseUrl, onSavePreference, amis, amiCharts, availableUnits } = store
+    const { application, amis, amiCharts } = store
     const { loading } = this.state
 
     return (
@@ -110,16 +112,11 @@ class SupplementalApplicationContainer extends React.Component {
         <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
-              <div>{JSON.stringify(formApi.values.lease)}</div>
               <StatusUpdateSection />
               <ContentSection title='Current Contact Information' />
-              <ConfirmedPreferencesSection
-                application={application}
-                fileBaseUrl={fileBaseUrl}
-                onSave={onSavePreference}
-              />
+              <ConfirmedPreferencesSection />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-              <LeaseInformationSection statusHistory={statusHistory} availableUnits={availableUnits} />
+              <LeaseInformationSection />
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ButtonPager disabled={loading} />
             </form>

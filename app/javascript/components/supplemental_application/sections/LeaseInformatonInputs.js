@@ -6,6 +6,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import { pluck, decorateComponents } from '~/utils/utils'
 import { withNestedForm } from '~/utils/form/hoc'
 import formUtils from '~/utils/formUtils'
+import { withContext } from '../context'
 
 const Plain = ({ text }) => <div>{text}</div>
 
@@ -21,7 +22,8 @@ const CustomFormGrid = decorateComponents(INPUTS, Component => {
   )
 })
 
-const LeaseInformatonInputs = ({ formApi, availableUnits }) => {
+const LeaseInformatonInputs = ({ formApi, store }) => {
+  const { availableUnits } = store
   const list = map(availableUnits, pluck('id', 'unit_number'))
   const availableUnitsOptions = formUtils.toOptions(list)
   const monlthUnitRent = formApi.values.total_monthly_rent_without_parking
@@ -62,4 +64,4 @@ const LeaseInformatonInputs = ({ formApi, availableUnits }) => {
   )
 }
 
-export default withNestedForm('lease', LeaseInformatonInputs)
+export default withContext(withNestedForm('lease', LeaseInformatonInputs))

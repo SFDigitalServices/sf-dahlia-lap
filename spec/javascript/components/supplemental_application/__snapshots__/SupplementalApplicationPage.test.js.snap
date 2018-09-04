@@ -111,7 +111,6 @@ Array [
             }
           }
         >
-          <div />
           <div
             className="app-inner inset-wide padding-bottom-none margin-top"
           >
