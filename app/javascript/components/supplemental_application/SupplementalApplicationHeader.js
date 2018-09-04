@@ -12,7 +12,7 @@ const SupplementalApplicationHeader = ({ applicationNumber, applicantName, listi
   ]
 
   return (
-    <PageHeader title={title} breadcrumbs={breadcrumbs}  />
+    <PageHeader title={title} breadcrumbs={breadcrumbs} />
   )
 }
 

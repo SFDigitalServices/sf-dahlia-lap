@@ -7,8 +7,7 @@ const keyCodeMapping = {
 const isKeyword = (keyCode, code) => {
   const keyCodeMapped = keyCodeMapping[code]
 
-  if (keyCode == null)
-    throw new Error(`Keyboard code mapping '${code}' not found.`)
+  if (keyCode == null) { throw new Error(`Keyboard code mapping '${code}' not found.`) }
 
   return keyCode === keyCodeMapped
 }
@@ -16,13 +15,12 @@ const isKeyword = (keyCode, code) => {
 const isKeywordEvent = (e, code) => isKeyword(e.keyCode, code)
 
 class KeyboardEvents {
-  constructor(event) {
+  constructor (event) {
     this.event = event
   }
 
-  on(eventName, callback) {
-    if (isKeywordEvent(this.event, eventName))
-      callback(this.event)
+  on (eventName, callback) {
+    if (isKeywordEvent(this.event, eventName)) { callback(this.event) }
 
     return this
   }

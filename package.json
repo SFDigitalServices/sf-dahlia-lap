@@ -25,8 +25,8 @@
     "moment": "^2.19.1",
     "postcss-smart-import": "^0.7.6",
     "prop-types": "^15.6.0",
+    "puppeteer": "^1.7.0",
     "react": "^16.0.0",
-    "react-datepicker": "0.61.0",
     "react-dom": "^16.0.0",
     "react-form": "2.6.1",
     "react-json-tree": "^0.11.0",
@@ -46,25 +46,31 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
-    "eslint": "^4.10.0",
-    "eslint-config-react-app": "^2.0.1",
-    "eslint-config-react-tools": "^1.0.10",
+    "eslint": "^5.4.0",
     "eslint-plugin-class-property": "1.0.6",
     "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "7.4.0",
     "jest": "^22.4.3",
     "react-test-renderer": "^16.3.2",
     "sinon": "^4.5.0",
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1",
     "webpack": "3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "test": "jest",
-    "lint": "eslint app/javascript"
+    "lint": "standard \"./**/*.js\" | snazzy",
+    "lint:fix": "standard \"./**/*.js\" --fix | snazzy",
+    "unit": "jest --testPathPattern=.*.test.js$",
+    "e2e":  "jest --testPathPattern=.*e2e.*"
   },
   "jest": {
+    "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
+    "testURL": "http://localhost/",
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
     ],
@@ -80,5 +86,10 @@
       "node_modules",
       "app/javascript"
     ]
+  },
+  "standard": {
+    "ignore": ["./node_modules/**/*", "./spec/javascript/fixtures/*", "app/assets/javascripts/cable.js"],
+    "env": [ "jest" ],
+    "parser": "babel-eslint"
   }
 }

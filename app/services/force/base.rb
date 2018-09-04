@@ -66,7 +66,7 @@ module Force
       Force::SoqlQueryBuilder.new(@client)
     end
 
-    def parsed_index_query(q, type = :index)
+    def parsed_index_query(q, _type = :index)
       massage(query(q))
     end
 
@@ -83,7 +83,11 @@ module Force
       @api.post(endpoint, params)
     end
 
-    private
+    def api_get(endpoint, params)
+      @api.get(endpoint, params)
+    end
+
+    private_class_method
 
     def user_can_access
       if @user.admin?
@@ -100,23 +104,13 @@ module Force
       self.class.fields["#{type}_fields"].keys.join(', ')
     end
 
-    def parse_results_for_fields(results, type)
-      parse_results(results, self.class.fields["#{type}_fields"])
-    end
-
-    # Extracted out for clarity
-    # This is being used in services. should be refactored
-    def parse_results(results, fields)
-      Force::Responses.parse_results(results, fields)
-    end
-
     # Extracted out for clarity
     # This is being used in services. should be refactored
     def massage(h)
       Force::Responses.massage(h)
     end
 
-    def self.load_fields(name, file_path = nil)
+    def self.load_fields(name, _file_path = nil)
       path = "#{Rails.root}/config/salesforce/fields/#{name}.yml"
 
       @fields_fields ||= {}

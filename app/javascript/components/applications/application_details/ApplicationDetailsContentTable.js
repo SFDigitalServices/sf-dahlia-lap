@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, includes, isPlainObject, get } from 'lodash'
+import { map, isPlainObject, get } from 'lodash'
 import appPaths from '~/utils/appPaths'
 import { getLabel } from './utils'
 import { renderNative } from '~/utils/renderUtils'
@@ -41,8 +41,8 @@ const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
   const rows = getRows(data[table], fields)
 
   return (
-    <div className="content-card">
-      <h4 className="content-card_title t-serif">{title}</h4>
+    <div className='content-card'>
+      <h4 className='content-card_title t-serif'>{title}</h4>
       <table>
         <thead>
           <tr>

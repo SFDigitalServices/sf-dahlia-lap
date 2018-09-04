@@ -10,6 +10,6 @@ export const mapUnit = (unit) => {
     ami_chart_type: unit.AMI_chart_type,
     ami_chart_year: unit.AMI_chart_year,
     of_ami_for_pricing_unit: unit.of_AMI_for_Pricing_Unit,
-    reserved_type: unit.Reserved_Type,
+    reserved_type: unit.Reserved_Type
   }
 }

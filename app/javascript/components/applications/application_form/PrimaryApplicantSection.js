@@ -1,112 +1,89 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
-import DatePickerText from './DatePickerText'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import classNames from 'classnames'
-import moment from 'moment'
+import validate from '~/utils/form/validations'
+import { Field } from '~/utils/form/Field'
+import { mailingAddressFieldMap } from './utils'
 
-let { phone_type_options } = formOptions
+let { phoneTypeOptions } = formOptions
 
-let mailingAddressFieldMap = {
-  address: 'mailing_street',
-  city: 'mailing_city',
-  state: 'mailing_state',
-  zip: 'mailing_zip_code',
-}
+const validateError = validate({
+  date_of_birth: validate.any(
+    validate.isValidDate('Please enter a valid Date of Birth'),
+    validate.isOldEnough('The primary applicant must be 18 years of age or older')
+  ),
+  first_name: validate.isPresent('Please enter a First Name'),
+  last_name: validate.isPresent('Please enter a Last Name')
+})
 
-const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
-}
-
-const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth,'years')
-  return years >= 18
-}
-
-const FormError = ({formApi, field }) => {
-  if ((formApi.touched[field] || formApi.submitted) && formApi.errors[field])
-    return <span className="small error">{formApi.errors[field]}</span>
-  else
-    return null
-}
-
-const errorClassName = (formApi, field) => {
-  if (formApi.touched[field] || formApi.submitted)
-    return { error: !!formApi.errors[field] }
-  else
-    return null
-}
-
-const PrimaryApplicantSection = ({formApi, editValues }) => {
+const PrimaryApplicantSection = ({ formApi, editValues }) => {
   let autofillValues = {}
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
 
-  const validateError = (values) => {
-    return  {
-      'date_of_birth': validates(isOldEnough, "The primary applicant must be 18 years of age or older")(values.date_of_birth),
-      'first_name': !values.first_name ? "Input must contain name" : null
-    }
-  }
-
   return (
-    <NestedForm field="applicant">
+    <NestedForm field='applicant'>
       <Form defaultValues={autofillValues} validateError={validateError} >
         { formApi => (
-          <div className="border-bottom margin-bottom--2x">
-            <div className="row">
+          <div className='border-bottom margin-bottom--2x'>
+            <div className='row'>
               <h3>Primary Applicant</h3>
             </div>
-            <div className="row">
-              <div className="form-group">
-                <div className="small-4 columns">
-                  <label>First Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="first_name" />
+            <div className='row'>
+              <div className='form-group'>
+                <div className='small-4 columns'>
+                  <Field.Text
+                    label='First Name'
+                    blockNote='(required)'
+                    field='first_name'
+                    errorMessage={(label, error) => error}
+                  />
                 </div>
-                <div className="small-4 columns">
+                <div className='small-4 columns'>
                   <label>Middle Name</label>
-                  <Text field="middle_name" />
+                  <Text field='middle_name' />
                 </div>
-                <div className="small-4 columns">
-                  <label>Last Name <span className="checkbox-block_note no-margin">(required)</span></label>
-                  <Text field="last_name" />
+                <div className='small-4 columns'>
+                  <Field.Text
+                    label='Last Name'
+                    blockNote='(required)'
+                    field='last_name'
+                    errorMessage={(label, error) => error}
+                  />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="small-4 columns">
+            <div className='row'>
+              <div className='small-4 columns'>
                 <label>Email</label>
-                <Text field="email" />
+                <Text field='email' />
               </div>
-              <div className="small-4 columns">
+              <div className='small-4 columns'>
                 <label>Phone</label>
-                <Text field="phone"/>
+                <Text field='phone' />
               </div>
-              <div className="small-4 columns">
+              <div className='small-4 columns'>
                 <label>Phone Type</label>
-                <Select field="phone_type" options={phone_type_options} />
+                <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
-            <div className="row">
-              <div className="small-4 columns">
-                <div className={classNames('form-group', errorClassName(formApi,'date_of_birth'))}>
-                  <label className='form-label'>DOB <span className="checkbox-block_note no-margin">- YYYY-MM-DD (required)</span></label>
-                  <DatePickerText
-                    required={false}
-                    prefilledDate={autofillValues.date_of_birth}
-                    dateFormat="YYYY-MM-DD"
-                    showYearDropdown
-                    dropdownMode="select"
-                    className={classNames(errorClassName(formApi, 'date_of_birth'))}
-                    field="date_of_birth" />
-                  <FormError formApi={formApi} field='date_of_birth'/>
-                </div>
+            <div className='row'>
+              <div className='small-4 columns'>
+                <Field.Text
+                  field='date_of_birth'
+                  label='Date of Birth'
+                  blockNote='(required)'
+                  type='date'
+                  pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
+                  placeholder='YYYY-MM-DD'
+                  errorMessage={(label, error) => error}
+                />
               </div>
             </div>
-            <AddressForm title="Home Address" memberType="primaryApplicant" />
-            <AddressForm title="Mailing Address" memberType="primaryApplicant" fieldMap={mailingAddressFieldMap} />
+            <AddressForm title='Home Address' memberType='primaryApplicant' />
+            <AddressForm title='Mailing Address' memberType='primaryApplicant' fieldMap={mailingAddressFieldMap} />
           </div>
         )}
       </Form>

@@ -1,4 +1,5 @@
 module Force
+  # Methods for handling Salesforde Responses
   module Responses
     # recursively remove "__c" and "__r" from all keys
     def self.massage(h)
@@ -27,35 +28,5 @@ module Force
       # calls .to_s so it works for symbols too
       str.to_s.gsub('__c', '').gsub('__r', '')
     end
-
-    def self.parse_results(results, fields)
-      results.map do |result|
-        parsed_object(result, fields)
-      end
-    end
-
-    def self.parsed_object(result, fields)
-      obj = {}
-      fields.each do |field, attrs|
-        val = nil
-        if field.include? '.'
-          parts = field.split('.')
-          if parts.count == 3
-            val = result[parts[0]].try(:[], parts[1]).try(:[], parts[2])
-          else
-            val = result[parts.first] ? result[parts.first][parts.last] : nil
-          end
-        elsif result[field]
-          if attrs && attrs.type == 'date' && result[field]
-            val = Date.parse(result[field]).strftime('%D')
-          else
-            val = result[field]
-          end
-        end
-        obj[field] = val
-      end
-      Hashie::Mash.new(massage(obj))
-    end
-
   end
 end

@@ -16,8 +16,8 @@ const LeaseUpApplicationsPage = ({ listing, applications }) => {
       title: 'Export',
       link: `/listings/${listing.id}/lease-ups/export`
     },
-    breadcrumbs:[
-      {title: 'Lease Ups',  link: '/listings/lease-ups'},
+    breadcrumbs: [
+      {title: 'Lease Ups', link: '/listings/lease-ups'},
       {title: listing.name, link: appPaths.toLeaseUpApplications(listing.id)}
     ]
   }
@@ -30,7 +30,7 @@ const LeaseUpApplicationsPage = ({ listing, applications }) => {
 }
 
 const mapProperties = ({ listing, applications }) => {
-  return  {
+  return {
     listing: mapListing(listing),
     applications: applications.map(flow(mapApplicationPreference, buildLeaseUpModel))
   }

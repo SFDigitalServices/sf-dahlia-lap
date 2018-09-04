@@ -1,7 +1,8 @@
+/* global wait */
 import React from 'react'
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 import { clone } from 'lodash'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import sharedHooks from '../../support/sharedHooks'
@@ -9,58 +10,69 @@ import listing from '../../fixtures/listing'
 import application from '../../fixtures/application'
 import mockApplicationApiEditPayload from '../../fixtures/application_api_edit_payload'
 
+const mockSubmitApplication = jest.fn()
+
 jest.mock('apiService', () => {
-  const mockSubmitApplication = (data) => {
-    expect(data).toEqual(mockApplicationApiEditPayload)
+  return {
+    submitApplication: async (data) => {
+      mockSubmitApplication(data)
+      return true
+    }
   }
-  return { submitApplication: mockSubmitApplication }
 })
 
-describe('ApplicationNewPage', () => {
-  sharedHooks.useFakeTimers()
-
-  test('should render succesfully', () => {
-    const wrapper = renderer.create(
+describe('ApplicationEditPage', () => {
+  test('it should save correctly', async () => {
+    const wrapper = mount(
       <ApplicationEditPage
         listing={listing}
         application={application}
-        editPage={true} />,
+        editPage />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    wrapper.find('form').first().simulate('submit')
+
+    await wait(100)
+
+    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(mockApplicationApiEditPayload)
   })
 
-  test('it should save correctly', () => {
-    const wrapper = mount(
+  describe('should render', () => {
+    sharedHooks.useFakeTimers()
+
+    test('successfully', () => {
+      const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
           application={application}
-          editPage={true} />,
+          editPage />
       )
 
-      wrapper.find('form').first().simulate('submit')
-  })
+      expect(wrapper.toJSON()).toMatchSnapshot()
+    })
 
-  test('should render succesfully with preferences', () => {
-    const applicationWithPreferences = clone(application)
+    test('successfully with preferences', () => {
+      const applicationWithPreferences = clone(application)
 
-    applicationWithPreferences.preferences[0].Application_Member = {
-      Date_of_Birth:"1981-05-04",
-      First_Name:"Flagby",
-      Id:"a0n0x000000B3xDAAS",
-      Last_Name:"Email"
-    }
+      applicationWithPreferences.preferences[0].Application_Member = {
+        Date_of_Birth: '1981-05-04',
+        First_Name: 'Flagby',
+        Id: 'a0n0x000000B3xDAAS',
+        Last_Name: 'Email'
+      }
 
-    expect(applicationWithPreferences.preferences).toHaveLength(1)
-    expect(applicationWithPreferences.preferences[0].Application_Member).toBeTruthy()
+      expect(applicationWithPreferences.preferences).toHaveLength(1)
+      expect(applicationWithPreferences.preferences[0].Application_Member).toBeTruthy()
 
-    const wrapper = renderer.create(
-      <ApplicationEditPage
-        listing={listing}
-        application={application}
-        editPage={true} />,
-    )
+      const wrapper = renderer.create(
+        <ApplicationEditPage
+          listing={listing}
+          application={application}
+          editPage />
+      )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+      expect(wrapper.toJSON()).toMatchSnapshot()
+    })
   })
 })

@@ -99,10 +99,10 @@ class IndexTable extends React.Component {
           return (
             <select
               onChange={event => onChange(event.target.value)}
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               value={selectFilterValue}
             >
-              <option value="all">Show All</option>
+              <option value='all'>Show All</option>
               {listingOptions}
             </select>
           )
@@ -113,7 +113,7 @@ class IndexTable extends React.Component {
     return columns
   }
 
-  render() {
+  render () {
     let { links } = this.props
     var getTrProps = (state, rowInfo, column, instance) => {
       return {
@@ -126,7 +126,6 @@ class IndexTable extends React.Component {
         }
       }
     }
-
 
     return (
       <ReactTable
@@ -150,7 +149,7 @@ class IndexTable extends React.Component {
             if (href) {
               linkTags.push(
                 <li key={i++}>
-                  <a className="button secondary tiny" href={href}>
+                  <a className='button secondary tiny' href={href}>
                     {link}
                   </a>
                 </li>
@@ -158,7 +157,7 @@ class IndexTable extends React.Component {
             }
           })
           return (
-            <ul className="subcomponent button-radio-group segmented-radios inline-group">
+            <ul className='subcomponent button-radio-group segmented-radios inline-group'>
               {linkTags}
             </ul>
           )
@@ -169,7 +168,6 @@ class IndexTable extends React.Component {
     )
   }
 }
-
 
 IndexTable.propTypes = {
   results: PropTypes.array,

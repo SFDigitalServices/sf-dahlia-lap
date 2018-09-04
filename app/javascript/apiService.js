@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const apiCall = async (method, path, data) => {
-  if (process.env.NODE_ENV === 'test')
-    throw new Error("API should not be called in TEST")
+  if (process.env.NODE_ENV === 'test') { throw new Error('API should not be called in TEST') }
+
   try {
     const request = await axios[method](`/api/v1${path}`, data)
     return request.data
@@ -26,7 +26,7 @@ const updateFlaggedApplication = async (data) => {
       // have to reformat them back into salesforce-friendly terms
       Id: data.id,
       Review_Status__c: data.review_status,
-      Comments__c: data.comments,
+      Comments__c: data.comments
     }
   }
   let response = await apiCall('put', '/flagged-applications/update', putData)
@@ -35,7 +35,7 @@ const updateFlaggedApplication = async (data) => {
 
 const submitApplication = async (data) => {
   let postData = { application: data }
-  return await apiCall('post', '/short-form/submit', postData)
+  return apiCall('post', '/short-form/submit', postData)
 }
 
 const fetchApplications = async ({ page, filters }) => {
@@ -43,6 +43,16 @@ const fetchApplications = async ({ page, filters }) => {
     params: {
       page,
       ...filters
+    }
+  })
+}
+
+const getAMI = async ({ chartType, chartYear }) => {
+  return apiCall('get', '/ami', {
+    params: {
+      chartType: chartType,
+      year: chartYear,
+      percent: 100
     }
   })
 }
@@ -57,10 +67,10 @@ const createLeaseUpStatus = async (data) => {
     field_update_comment: {
       Processing_Status__c: data.status,
       Processing_Comment__c: data.comment,
-      Application__c: data.applicationId,
+      Application__c: data.applicationId
     }
   }
-  return await apiCall('post', '/field-update-comments/create', postData)
+  return apiCall('post', '/field-update-comments/create', postData)
 }
 
 export default {
@@ -68,5 +78,6 @@ export default {
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
+  getAMI,
   createLeaseUpStatus
 }

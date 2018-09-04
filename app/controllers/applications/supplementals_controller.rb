@@ -8,6 +8,7 @@ module Applications
       @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
       @file_base_url = file_base_url
       @available_units = units_service.available_units_by_listing(@application.Listing.Id).records
+      @units = listing_service.units(@application.Listing.Id)
     end
 
     def update
@@ -24,6 +25,10 @@ module Applications
 
     def units_service
       Force::UnitsService.new(current_user)
+    end
+
+    def listing_service
+      Force::ListingService.new(current_user)
     end
   end
 end

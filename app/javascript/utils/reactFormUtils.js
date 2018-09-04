@@ -1,32 +1,94 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { NestedForm, Form } from 'react-form'
+// Shamles copy paste from react-form/redux/utils, Fed
 
-export const withFormApi = (Component) => {
-  class WithFormApi extends React.Component {
-    render() {
-      const { formApi } = this.context // Old context API used by react-form
-
-      return <Component formApi={formApi} {...this.props} />
-    }
-  }
-
-  // Old context API used by react-form
-  WithFormApi.contextTypes = {
-    formApi: PropTypes.object
-  }
-
-  return WithFormApi
+// NOTE: I tried to use lodash methods here for isArray, isObject, and flattenDeep
+//       but for some reason using lodash methods broke the validation.
+//       We are going to keep this methods until we can figure out why lodash does not work.
+// TODO: Replace lodash method if possible.
+function isArray (a) {
+  return Array.isArray(a)
 }
 
-export const withNestedForm = (field, Component) => {
-  const WithNestedForm = ({ formApi, ...rest }) => (
-    <NestedForm field={field} >
-      <Form defaultValues={formApi.values[field]}>
-        { nestedFormApi => <Component formApi={nestedFormApi} {...rest} /> }
-      </Form>
-    </NestedForm>
-  )
+function isObject (a) {
+  return !Array.isArray(a) && typeof a === 'object' && a !== null
+}
 
-  return withFormApi(WithNestedForm)
+function isStringValidNumber (str) {
+  return !isNaN(str)
+}
+
+function flattenDeep (arr, newArr = []) {
+  if (!isArray(arr)) {
+    newArr.push(arr)
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      flattenDeep(arr[i], newArr)
+    }
+  }
+  return newArr
+}
+
+function makePathArray (obj) {
+  return flattenDeep(obj)
+    .join('.')
+    .replace('[', '.')
+    .replace(']', '')
+    .split('.')
+}
+
+function set (obj = {}, path, value) {
+  const keys = makePathArray(path)
+  let keyPart
+
+  if (isStringValidNumber(keys[0]) && !isArray(obj)) {
+    obj = []
+  }
+  if (!isStringValidNumber(keys[0]) && !isObject(obj)) {
+    obj = {}
+  }
+
+  let cursor = obj
+
+  while ((keyPart = keys.shift()) && keys.length) {
+    if (isStringValidNumber(keys[0]) && !isArray(cursor[keyPart])) {
+      cursor[keyPart] = []
+    }
+    if (!isStringValidNumber(keys[0]) && !isObject(cursor[keyPart])) {
+      cursor[keyPart] = {}
+    }
+    cursor = cursor[keyPart]
+  }
+  cursor[keyPart] = value
+  return obj
+}
+
+function get (obj, path, def) {
+  if (!path) {
+    return obj
+  }
+  const pathObj = makePathArray(path)
+  let val
+  try {
+    val = pathObj.reduce((current, pathPart) => current[pathPart], obj)
+  } catch (e) {}
+  return typeof val !== 'undefined' ? val : def
+}
+
+function isShallowEqual (obj1, obj2) {
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false
+  }
+  for (var prop in obj1) {
+    if (obj1[prop] !== obj2[prop]) {
+      return false
+    }
+  }
+  return true
+}
+
+export default {
+  get,
+  set,
+  isObject,
+  isArray,
+  isShallowEqual
 }

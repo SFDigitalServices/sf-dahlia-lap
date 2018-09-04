@@ -24,13 +24,22 @@ A portal for leasing agents to manage listings and applications.
 
 ## To run tests
 
+Linting:
+To lint Ruby code run: `rubocop`
+
+To lint the react code run: `yarn lint`
+
 Rails tests:
 
 `bundle exec rake spec`
 
-Running React/Javascript tests:
+Running React/Javascript unit tests:
 
 `yarn test`
+
+Running React/Javascript e2e tests:
+
+`yarn e2e`
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 

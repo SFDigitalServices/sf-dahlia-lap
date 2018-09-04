@@ -6,7 +6,7 @@ export const detailsFields = [
   { field: 'In_Lottery', label: 'Applications in Lottery' },
   'Status',
   'Lottery_Winners',
-  'Lottery_Results',
+  'Lottery_Results'
 ]
 
 export const buildingInformationFields = [
@@ -24,7 +24,7 @@ export const buildingInformationFields = [
 ]
 
 export const lotteryPreferencesFields = [
-  { field: 'Lottery_Preference.Name', label: 'Name' } ,
+  { field: 'Lottery_Preference.Name', label: 'Name' },
   'Description',
   { field: 'PDF_URL', label: 'PDF URL' },
   'Order',
@@ -62,7 +62,7 @@ export const appInfoFields = [
   { field: 'Download_URL', label: 'Download URL' }
 ]
 
-export const agentDevInfoFields= [
+export const agentDevInfoFields = [
   'Leasing_Agent_Name',
   'Leasing_Agent_Title',
   'Leasing_Agent_Email',

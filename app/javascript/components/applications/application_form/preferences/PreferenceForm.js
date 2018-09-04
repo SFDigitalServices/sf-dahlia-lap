@@ -40,47 +40,43 @@ const buildListingPreferencesOptions = (preferencesNotSelected) => {
   })
 }
 
-const PreferenceForm = ({ i, formApi, listingPreferences, fullHousehold }) => {
+const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold }) => {
   const selectedPreference = findSelectedPreference(i, formApi, listingPreferences)
   const preferencesNotSelected = findPreferencesNotSelected(formApi, listingPreferences, selectedPreference)
-
   const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
+    <FormGroup>
       <Row>
-        <FormGroup>
-
-          <Row>
-            <Column span={6}>
-              <label>Preference</label>
-              <Select
-                field={buildFieldId(i, 'listing_preference_id')}
-                options={listingPreferencesOptions}
-                value={buildFieldId(i,'listing_preference_id')}
-              />
-            </Column>
-          </Row>
-
-          <PreferenceAdditionalOptions
-            i={i}
-            listingPreferenceID={selectedPreference.listing_preference_id}
-            listingPreferences={listingPreferences}
-            householdMembers={householdMembersOptions} />
-
-          <Row>
-            <Column span={4}>
-              <button
-                onClick={() => formApi.removeValue(FIELD_NAME, i)}
-                type="button"
-                className="mb-4 btn btn-danger">
-                  Remove
-              </button>
-            </Column>
-          </Row>
-
-        </FormGroup>
+        <Column span={6}>
+          <label>Preference</label>
+          <Select
+            field={buildFieldId(i, 'listing_preference_id')}
+            options={listingPreferencesOptions}
+            value={buildFieldId(i, 'listing_preference_id')}
+          />
+        </Column>
+        <PreferenceAdditionalOptions
+          i={i}
+          formApi={formApi}
+          shortFormPreference={pref}
+          listingPreferenceID={selectedPreference.listing_preference_id}
+          listingPreferences={listingPreferences}
+          householdMembers={householdMembersOptions}
+        />
       </Row>
+      <Row>
+        <Column span={4}>
+          <button
+            onClick={() => formApi.removeValue(FIELD_NAME, i)}
+            type='button'
+            className='mb-4 btn btn-danger'>
+              Remove
+          </button>
+        </Column>
+      </Row>
+    </FormGroup>
   )
 }
 

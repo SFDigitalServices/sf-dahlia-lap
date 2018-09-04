@@ -4,6 +4,8 @@ const toApplication = (applicationId) => `/applications/${applicationId}`
 
 const toApplicationEdit = (applicationId) => `/applications/${applicationId}/edit`
 
+const toApplicationNew = (listingId) => `/listings/${listingId}/applications/new`
+
 const toApplicationsFlagged = (id) => `/applications/flagged/${id}`
 
 const toApplicationsFlaggedIndex = (type) => `/applications/flagged?type=${type}`
@@ -24,6 +26,7 @@ export default {
   toListingLeaseUps,
   toApplicationEdit,
   toListing,
+  toApplicationNew,
   toLeaseUpApplications,
   toAttachmentDownload
 }

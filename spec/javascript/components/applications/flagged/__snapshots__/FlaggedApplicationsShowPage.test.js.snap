@@ -32,6 +32,7 @@ Array [
     >
       <div
         className="rt-table"
+        role="grid"
         style={undefined}
       >
         <div
@@ -44,12 +45,13 @@ Array [
         >
           <div
             className="rt-tr"
+            role="row"
             style={undefined}
           >
             <div
               className="rt-th"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "35 0 auto",
@@ -57,15 +59,16 @@ Array [
                   "width": "35px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className=""
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "100 0 auto",
@@ -73,6 +76,7 @@ Array [
                   "width": "100px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className="rt-resizable-header-content"
@@ -86,9 +90,9 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "100 0 auto",
@@ -96,6 +100,7 @@ Array [
                   "width": "100px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className="rt-resizable-header-content"
@@ -109,9 +114,9 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "100 0 auto",
@@ -119,6 +124,7 @@ Array [
                   "width": "100px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className="rt-resizable-header-content"
@@ -132,9 +138,9 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "100 0 auto",
@@ -142,6 +148,7 @@ Array [
                   "width": "100px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className="rt-resizable-header-content"
@@ -155,9 +162,9 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "100 0 auto",
@@ -165,6 +172,7 @@ Array [
                   "width": "100px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className="rt-resizable-header-content"
@@ -178,9 +186,9 @@ Array [
               />
             </div>
             <div
-              className="rt-th  rt-resizable-header"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
-              role="heading"
+              role="columnheader"
               style={
                 Object {
                   "flex": "100 0 auto",
@@ -188,6 +196,7 @@ Array [
                   "width": "100px",
                 }
               }
+              tabIndex="-1"
             >
               <div
                 className="rt-resizable-header-content"
@@ -212,15 +221,18 @@ Array [
         >
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -odd"
               onClick={[Function]}
+              role="row"
               style={undefined}
             >
               <div
-                className="rt-td  rt-expandable"
+                className="rt-td rt-expandable"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -238,6 +250,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -251,6 +264,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -264,6 +278,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -277,6 +292,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -288,6 +304,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -301,6 +318,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -313,15 +331,18 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -even"
               onClick={[Function]}
+              role="row"
               style={undefined}
             >
               <div
-                className="rt-td  rt-expandable"
+                className="rt-td rt-expandable"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -339,6 +360,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -352,6 +374,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -365,6 +388,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -378,6 +402,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -389,6 +414,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -402,6 +428,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -414,15 +441,18 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -odd"
               onClick={[Function]}
+              role="row"
               style={undefined}
             >
               <div
-                className="rt-td  rt-expandable"
+                className="rt-td rt-expandable"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -440,6 +470,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -453,6 +484,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -466,6 +498,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -479,6 +512,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -490,6 +524,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -503,6 +538,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -515,15 +551,18 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -even"
               onClick={[Function]}
+              role="row"
               style={undefined}
             >
               <div
-                className="rt-td  rt-expandable"
+                className="rt-td rt-expandable"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -541,6 +580,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -554,6 +594,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -567,6 +608,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -580,6 +622,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -591,6 +634,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -604,6 +648,7 @@ Array [
               <div
                 className="rt-td"
                 onClick={[Function]}
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -616,13 +661,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -637,6 +685,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -651,6 +700,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -665,6 +715,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -679,6 +730,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -693,6 +745,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -707,6 +760,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -723,13 +777,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -744,6 +801,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -758,6 +816,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -772,6 +831,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -786,6 +846,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -800,6 +861,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -814,6 +876,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -830,13 +893,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -851,6 +917,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -865,6 +932,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -879,6 +947,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -893,6 +962,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -907,6 +977,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -921,6 +992,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -937,13 +1009,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -958,6 +1033,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -972,6 +1048,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -986,6 +1063,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1000,6 +1078,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1014,6 +1093,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1028,6 +1108,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1044,13 +1125,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1065,6 +1149,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1079,6 +1164,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1093,6 +1179,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1107,6 +1194,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1121,6 +1209,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1135,6 +1224,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1151,13 +1241,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1172,6 +1265,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1186,6 +1280,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1200,6 +1295,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1214,6 +1310,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1228,6 +1325,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1242,6 +1340,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1258,13 +1357,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1279,6 +1381,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1293,6 +1396,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1307,6 +1411,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1321,6 +1426,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1335,6 +1441,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1349,6 +1456,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1365,13 +1473,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1386,6 +1497,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1400,6 +1512,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1414,6 +1527,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1428,6 +1542,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1442,6 +1557,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1456,6 +1572,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1472,13 +1589,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1493,6 +1613,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1507,6 +1628,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1521,6 +1643,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1535,6 +1658,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1549,6 +1673,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1563,6 +1688,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1579,13 +1705,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1600,6 +1729,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1614,6 +1744,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1628,6 +1759,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1642,6 +1774,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1656,6 +1789,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1670,6 +1804,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1686,13 +1821,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1707,6 +1845,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1721,6 +1860,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1735,6 +1875,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1749,6 +1890,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1763,6 +1905,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1777,6 +1920,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1793,13 +1937,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1814,6 +1961,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1828,6 +1976,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1842,6 +1991,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1856,6 +2006,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1870,6 +2021,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1884,6 +2036,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1900,13 +2053,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -1921,6 +2077,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1935,6 +2092,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1949,6 +2107,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1963,6 +2122,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1977,6 +2137,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -1991,6 +2152,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2007,13 +2169,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -2028,6 +2193,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2042,6 +2208,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2056,6 +2223,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2070,6 +2238,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2084,6 +2253,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2098,6 +2268,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2114,13 +2285,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -odd"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -2135,6 +2309,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2149,6 +2324,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2163,6 +2339,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2177,6 +2354,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2191,6 +2369,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2205,6 +2384,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2221,13 +2401,16 @@ Array [
           </div>
           <div
             className="rt-tr-group"
+            role="rowgroup"
           >
             <div
               className="rt-tr -padRow -even"
+              role="row"
               style={Object {}}
             >
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "35 0 auto",
@@ -2242,6 +2425,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2256,6 +2440,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2270,6 +2455,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2284,6 +2470,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2298,6 +2485,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
@@ -2312,6 +2500,7 @@ Array [
               </div>
               <div
                 className="rt-td"
+                role="gridcell"
                 style={
                   Object {
                     "flex": "100 0 auto",
