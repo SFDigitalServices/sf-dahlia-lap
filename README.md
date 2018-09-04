@@ -50,8 +50,8 @@ You have to set it in your environment and not in your .env file since it's bein
 Set:
 
 ```
-E2E_SALEFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
-E2E_SALEFORCE_PASSWORD=<ask the team for this password>
+E2E_SALESFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
+E2E_SALESFORCE_PASSWORD=<ask the team for this password>
 ```
 
 **run server**
