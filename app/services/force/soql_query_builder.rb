@@ -1,5 +1,5 @@
 module Force
-  # Helper class for builiding and executing SOQL queries. Also provieds pagination.
+  # Build simple SOQL queries to access data in Salesforce
   class SoqlQueryBuilder
     DEFAULT_PAGE_SIZE = 100
 

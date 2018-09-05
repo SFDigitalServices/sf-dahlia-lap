@@ -24,8 +24,7 @@ const CustomFormGrid = decorateComponents(INPUTS, Component => {
 
 const LeaseInformatonInputs = ({ formApi, store }) => {
   const { availableUnits } = store
-  const list = map(availableUnits, pluck('id', 'unit_number'))
-  const availableUnitsOptions = formUtils.toOptions(list)
+  const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const monlthUnitRent = formApi.values.total_monthly_rent_without_parking
   const monthlyParkingRent = formApi.values.monthly_parking_rent
   const totalMonthlyRent = toSafeInteger(monlthUnitRent) + toSafeInteger(monthlyParkingRent)

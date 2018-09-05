@@ -133,12 +133,12 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseURL, units, availableUnits }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplicationAction(values),
-    fileBaseUrl: fileBaseURL,
+    fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
     availableUnits: mapList(mapUnit, availableUnits)
   }

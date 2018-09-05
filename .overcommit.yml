@@ -36,14 +36,6 @@ PreCommit:
     enabled: true
     description: 'Checking YAML syntax'
 
-  RailsBestPractices:
-    enabled: true
-    description: 'Checking Rails best practices'
-    include:
-      - './'
-    exclude:
-      - 'spec/javascript/**/*.snap'
-
   TrailingWhitespace:
     enabled: true
     description: 'Checking for trailing whitespace'

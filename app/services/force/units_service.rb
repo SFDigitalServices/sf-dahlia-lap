@@ -21,7 +21,7 @@ module Force
              .records
     end
 
-    def unassinged_units_by_listing(listing_id)
+    def unassigned_units_by_listing(listing_id)
       sub_query = builder.from(:Lease__c)
                          .select(:Unit__c)
                          .where_eq('Application__r.Listing__c', listing_id, :string)
@@ -33,14 +33,16 @@ module Force
              .where("Id NOT IN (#{sub_query})")
              .transform_results { |results| massage(results) }
              .query
+             .records
     end
 
-    def assinged_units_by_listing(listing_id)
+    def assigned_units_by_listing(listing_id)
       builder.from(:Lease__c)
              .select('Id, Unit__c')
              .where_eq('Application__r.Listing__c', "'#{listing_id}'")
              .transform_results { |results| massage(results) }
              .query
+             .records
     end
   end
 end
