@@ -22,32 +22,38 @@ A portal for leasing agents to manage listings and applications.
 ## To update css from Pattern Library
 * `grunt`
 
-## To run tests
+## Linting:
 
-Linting:
 To lint Ruby code run: `rubocop`
 
 To lint the react code run: `yarn lint`
 
-Rails tests:
+
+## Rails tests:
 
 `bundle exec rake spec`
 
-Running React/Javascript unit tests:
+## React/Javascript tests:
 
-`yarn unit`
+### Running unit tests:
 
-Running React/Javascript e2e tests:
+`yarn test:unit`
+
+If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
+
+`yarn unit -u`
+
+_Note2: Snapshots should be pushed to the repo_
+
+### Running e2e tests:
 
 In order to run e2e tests you have to:
-* set 2 environment variables to login into Saleforce.
-* run your server locally.
+* Set 2 environment variables to let the e2e test login into Saleforce.
+* Run your rails server locally.
 
-**env variables**
+**setting env variables**
 
-You have to set it in your environment and not in your .env file since it's being used only in Ruby and e2e runs in Javascript.
-
-Set:
+Set the following env variables. You have to set them in your environment and not in your `.env` . Variables in your `.env` are being used only by Rails and e2e runs in Javascript.
 
 ```
 E2E_SALESFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
@@ -60,17 +66,17 @@ Run your Rails server locally in port 3000:
 
 `bundle exec rails server -p 3000`
 
-to run tests:
+**running tests**
 
-`yarn e2e`
-
-If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
-
-`yarn unit -u`
-
-_Note2: Snapshots should be pushed to the repo_
+`yarn test:e2e`
 
 
-To run all tests (unit and e2e) or an individual test run:
+### Running all or individual tests
 
-`yarn jest`
+To run all tests (unit and e2e):
+
+`yarn test:all`
+
+To run an individual test:
+
+`yarn test:all path/to/test`
