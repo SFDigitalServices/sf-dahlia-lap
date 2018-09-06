@@ -65,7 +65,7 @@ class SupplementalApplicationPage extends React.Component {
   handleSavePreference = async (preferenceIndex, application) => {
     const { persistedApplication } = this.state
 
-    // We clone the lates saved copy, so we can use the latest saved fields.
+    // We clone the latest saved copy, so we can use the latest saved fields.
     const synchedApplication = cloneDeep(persistedApplication)
 
     // We use the persisted copy and set only the fields updated in the panel
