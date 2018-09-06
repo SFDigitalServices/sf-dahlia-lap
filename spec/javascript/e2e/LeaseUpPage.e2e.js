@@ -4,7 +4,7 @@ import steps from '../support/puppeteer/steps'
 import { LEASE_UP_LISTING_ID } from '../support/puppeteer/consts'
 
 describe('LeaseUpPage', () => {
-  test('should change status dropdown ', async () => {
+  test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
     let browser = await puppeteer.launch({ headless: true })
     let page = await browser.newPage()
 
