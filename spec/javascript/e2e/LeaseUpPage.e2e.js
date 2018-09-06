@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer'
 
 import steps from '../support/puppeteer/steps'
-import { LEASE_UP_LISTING_ID } from '../support/puppeteer/consts'
+import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
 
 describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
@@ -31,5 +31,5 @@ describe('LeaseUpPage', () => {
     expect(previousStatus).not.toBe(currentStatus)
 
     browser.close()
-  }, 260000)
+  }, DEFAULT_E2E_TIME_OUT)
 })

@@ -1,1 +1,3 @@
 export const LEASE_UP_LISTING_ID = 'a0W0P00000DZfSpUAL'
+
+export const DEFAULT_E2E_TIME_OUT = 260000

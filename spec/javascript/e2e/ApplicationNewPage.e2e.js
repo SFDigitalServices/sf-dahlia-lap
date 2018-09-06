@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
 import steps from '../support/puppeteer/steps'
-import { LEASE_UP_LISTING_ID } from '../support/puppeteer/consts'
+import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
   test('should create a new application', async () => {
@@ -35,7 +35,7 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(DATE_OF_BIRTH)
 
     browser.close()
-  }, 260000)
+  }, DEFAULT_E2E_TIME_OUT)
 
   test('should fail if required fields are missing', async () => {
     let browser = await puppeteer.launch({ headless: true })
