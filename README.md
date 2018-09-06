@@ -41,7 +41,7 @@ To lint the react code run: `yarn lint`
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
-`yarn unit -u`
+`yarn test:unit -u`
 
 _Note2: Snapshots should be pushed to the repo_
 
