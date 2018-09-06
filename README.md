@@ -66,6 +66,10 @@ Run your Rails server locally in port 3000:
 
 `bundle exec rails server -p 3000`
 
+Run your webpack server locally
+
+`bin/webpack-dev-server --hot`
+
 **running tests**
 
 `yarn test:e2e`
