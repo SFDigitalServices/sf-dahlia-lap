@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { mapValues, map, first, compact } from 'lodash'
 
-const run = (rules, values, ifRules) =>  {
+const run = (rules, values, ifRules) => {
   return mapValues(rules, (valFn, key) => {
     if (ifRules && ifRules[key]) {
       return ifRules[key](values) ? valFn(values[key]) : null
@@ -26,7 +26,7 @@ const validates = (fun, message) => (value) => {
 const decorateValidator = fn => message => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth,'years')
+  const years = moment().diff(dateOfBirth, 'years')
   return years >= 18
 }
 
@@ -45,8 +45,8 @@ validate.isPresent = decorateValidator(isPresent)
 validate.list = (fn) => (list) => map(list, fn)
 validate.any = (...fns) => (value) => {
   return first(
-          compact(
-            map(fns, fn => fn(value))))
+    compact(
+      map(fns, fn => fn(value))))
 }
 
 export default validate

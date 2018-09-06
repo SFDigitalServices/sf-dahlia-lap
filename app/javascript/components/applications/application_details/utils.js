@@ -1,4 +1,4 @@
-import { each , startCase, isPlainObject, includes, last, replace } from 'lodash'
+import { each, startCase, isPlainObject, includes, last, replace } from 'lodash'
 import utils from '~/utils/utils'
 
 const cleanupWords = (value) => {
@@ -9,7 +9,7 @@ const cleanupWords = (value) => {
     ['Who', 'who'],
     ['Ada', 'ADA'],
     [' To ', ' to '],
-    ['Claimed', 'claimed'],
+    ['Claimed', 'claimed']
   ], ([a, b]) => {
     value = replace(value, a, b)
   })
@@ -18,7 +18,7 @@ const cleanupWords = (value) => {
 }
 
 export const getLabel = (field) => {
-  let l = ""
+  let l = ''
   if (isPlainObject(field)) {
     l = utils.cleanField(field.label)
   } else {

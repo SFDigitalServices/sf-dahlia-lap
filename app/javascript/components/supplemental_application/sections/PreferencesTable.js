@@ -39,7 +39,7 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
     { content: preference.person_who_claimed_name },
     { content: preference.preference_lottery_rank, classes: ['text-right'] },
     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
-    { content: preference.post_lottery_validation },
+    { content: preference.post_lottery_validation }
   ]
 }
 
@@ -64,36 +64,38 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
     toggle()
     onPanelClose && onPanelClose()
   }
-  return <Panel
-            application={application}
-            preferenceIndex={preferenceIndex}
-            applicationMembers={applicationMembers}
-            onSave={onSave}
-            onClose={onClose}
-          />
+  return (
+    <Panel
+      application={application}
+      preferenceIndex={preferenceIndex}
+      applicationMembers={applicationMembers}
+      onSave={onSave}
+      onClose={onClose}
+    />
+  )
 }
 
 const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
   return (!expanded && hasExpanderButton(prefName) &&
-          <ExpanderButton label="Edit" onClick={expandedRowToggler}/>)
+  <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
 const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, onPanelClose }) => {
-    const applicationMembers = getFullHousehold(application)
-    const rows = buildRows(application, fileBaseUrl)
-    return (
-            <React.Fragment>
-              <TableWrapper>
-                <ExpandableTable
-                  columns={columns}
-                  rows={rows}
-                  expanderRenderer={expanderAction}
-                  expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
-                />
-              </TableWrapper>
-            </React.Fragment>
-          )
+  const applicationMembers = getFullHousehold(application)
+  const rows = buildRows(application, fileBaseUrl)
+  return (
+    <React.Fragment>
+      <TableWrapper>
+        <ExpandableTable
+          columns={columns}
+          rows={rows}
+          expanderRenderer={expanderAction}
+          expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
+        />
+      </TableWrapper>
+    </React.Fragment>
+  )
 }
 
 export default PreferencesTable

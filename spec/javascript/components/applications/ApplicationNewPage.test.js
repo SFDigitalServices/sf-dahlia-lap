@@ -11,9 +11,9 @@ describe('ApplicationNewPage', () => {
 
   test('should render succesfully', () => {
     const wrapper = renderer.create(
-      <ApplicationNewPage listing={listing} />,
+      <ApplicationNewPage listing={listing} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })

@@ -1,3 +1,3 @@
-export const mapOpenHouse = (open_houses) => {
-  return open_houses
+export const mapOpenHouse = (openHouses) => {
+  return openHouses
 }

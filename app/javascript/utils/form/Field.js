@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Select, Text } from 'react-form'
 
 import { FormError, errorClassName } from './errors'
 
 const BlockNote = ({ value }) => (
-  <span className="checkbox-block_note no-margin">{value}</span>
+  <span className='checkbox-block_note no-margin'>{value}</span>
 )
 
 export const Field = ({ formApi, field, label, blockNote, errorMessage, children }) => {
@@ -19,14 +19,14 @@ export const Field = ({ formApi, field, label, blockNote, errorMessage, children
         {blockNote && <BlockNote value={blockNote} />}
       </label>
       { children(field, classNames(className)) }
-      <FormError formApi={formApi} label={label} field={field} errorMessage={errorMessage}/>
+      <FormError formApi={formApi} label={label} field={field} errorMessage={errorMessage} />
     </div>
   )
 }
 
 const withField = (input) => {
   class Wrapper extends React.Component {
-    render() {
+    render () {
       const { field, errorMessage, label, blockNote, ...rest } = this.props
       const { formApi } = this.context // Old context API used by react-form
 

@@ -1,4 +1,4 @@
-import { createFieldMapper} from '~/utils/objectUtils'
+import { createFieldMapper } from '~/utils/objectUtils'
 
 export const applicantFieldMapper = {
   date_of_birth: 'DOB',
@@ -16,7 +16,7 @@ export const applicantFieldMapper = {
   mailing_zip_code: 'mailingZip',
   phone: 'phone',
   phone_type: 'phoneType',
-  marital_status:'maritalStatus',
+  marital_status: 'maritalStatus',
   applicationId: (source) => source.id
 }
 

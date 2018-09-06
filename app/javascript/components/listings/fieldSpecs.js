@@ -4,10 +4,7 @@ import moment from 'moment'
 import utils from '~/utils/utils'
 
 const getFormatType = (field) => {
-  if (includes(toLower(field), 'date'))
-    return 'date'
-  else
-    return null
+  if (includes(toLower(field), 'date')) { return 'date' } else { return null }
 }
 
 const getRenderType = (value) => {
@@ -19,10 +16,7 @@ const getRenderType = (value) => {
 }
 
 const formatValue = (value, type) => {
-  if (type === 'date')
-    return moment(value).format('L')
-  else
-    return value
+  if (type === 'date') { return moment(value).format('L') } else { return value }
 }
 
 const formatLabel = (label) => {
@@ -30,8 +24,8 @@ const formatLabel = (label) => {
     const parts = label.split('.')
     return startCase(camelCase(utils.cleanField(parts[0])))
   } else {
-   return startCase(camelCase(label))
- }
+    return startCase(camelCase(label))
+  }
 }
 
 export const buildFieldEntry = (item, entry) => {
@@ -52,8 +46,7 @@ export const buildFieldSpecs = (entry) => {
     specs.label = formatLabel(specs.field)
   }
 
-  if (!specs.formatType)
-    specs.formatType = getFormatType(specs.field)
+  if (!specs.formatType) { specs.formatType = getFormatType(specs.field) }
 
   return specs
 }

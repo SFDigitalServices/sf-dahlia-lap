@@ -3,7 +3,6 @@ import DropdownMenuItemCheckbox from '../atoms/DropdownMenuItemCheckbox'
 import _ from 'lodash'
 
 class DropdownMenuMultiSelect extends React.Component {
-
   // I chose to keep the state out of the component,
   // so we might be able to integrate it with mobx
   // Fed
@@ -11,23 +10,23 @@ class DropdownMenuMultiSelect extends React.Component {
     let newValues = []
 
     // Add original values
-    if (this.props.values)
-      newValues = newValues.concat(this.props.values)
+    if (this.props.values) { newValues = newValues.concat(this.props.values) }
 
-    if (selected) // add new value if selected
+    if (selected) { // add new value if selected
       newValues.push(value)
-    else          //remove value if unslected
-      newValues = _.remove(newValues, v => v != value)
+    } else { // remove value if unslected
+      newValues = _.remove(newValues, v => v !== value)
+    }
 
     const uniqValues = _.uniq(newValues) // remove duplications
 
     this.props.onChange(uniqValues)
   }
 
-  render() {
-    const { items, values, onChange, style } = this.props
+  render () {
+    const { items, values, style } = this.props
     return (
-      <ul className="dropdown-menu" style={style} role="listbox" aria-multiselectable="true" aria-activedescendant tabIndex="-1">
+      <ul className='dropdown-menu' style={style} role='listbox' aria-multiselectable='true' aria-activedescendant tabIndex='-1'>
         {
           items &&
           items.map((item) => (

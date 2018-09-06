@@ -12,8 +12,8 @@ const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {
   return {
-    applicant: mapShape(mapApplicationMember,a.Applicant),
-    alternate_contact: mapShape(mapApplicationMember,a.Alternate_Contact),
+    applicant: mapShape(mapApplicationMember, a.Applicant),
+    alternate_contact: mapShape(mapApplicationMember, a.Alternate_Contact),
     listing: mapShape(mapListing, a.Listing),
     preferences: mapList(mapApplicationPreference, a.preferences),
     proof_files: mapList(mapAttachment, a.proof_files),
@@ -46,6 +46,7 @@ export const mapApplication = (a) => {
     terms_acknowledged: a.Terms_Acknowledged,
     number_of_dependents: a.Number_of_Dependents,
     processing_status: a.Processing_Status,
+    status_last_updated: a.Status_Last_Updated,
     reserved_senior: a.Reserved_Senior
   }
 }

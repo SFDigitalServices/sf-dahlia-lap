@@ -6,37 +6,37 @@ import mapProps from '~/utils/mapProps'
 import { mapFlaggedApplication } from '~/components/mappers/soqlToDomain'
 
 const tableFields = {
-  "id": {
-    "label": "Id"
+  'id': {
+    'label': 'Id'
   },
-  "application": {
-    "label": 'Application'
+  'application': {
+    'label': 'Application'
   },
-  "application_name": {
-    "label": "App Number"
+  'application_name': {
+    'label': 'App Number'
   },
-  "flagged_record_set_rule_name": {
-    "label": "Rule Name"
+  'flagged_record_set_rule_name': {
+    'label': 'Rule Name'
   },
-  "primary_application_applicant_name": {
-    "label": "Primary Applicant Name"
+  'primary_application_applicant_name': {
+    'label': 'Primary Applicant Name'
   },
-  "flagged_record_set_listing_lottery_status": {
-    "label": "Lottery Status"
+  'flagged_record_set_listing_lottery_status': {
+    'label': 'Lottery Status'
   },
-  "review_status": {
-    "label": 'Review Status',
-    "editable": true,
-    "editable_options": [
-      "Pending Review",
-      "Reviewed - Keep in Lottery",
-      "Reviewed - Remove from Lottery",
-      "Appealed"
+  'review_status': {
+    'label': 'Review Status',
+    'editable': true,
+    'editable_options': [
+      'Pending Review',
+      'Reviewed - Keep in Lottery',
+      'Reviewed - Remove from Lottery',
+      'Appealed'
     ]
   },
-  "comments": {
-    "label": 'Comments',
-    "editable": true
+  'comments': {
+    'label': 'Comments',
+    'editable': true
   }
 }
 
@@ -45,13 +45,13 @@ const FlaggedApplicationsShowPageTable = ({ flaggedApplications }) => {
     /* TODO: could render normal IndexTable for this record set if Lottery Complete, so not editable */
     <SpreadsheetIndexTable
       results={flaggedApplications}
-      fields= {tableFields} />
+      fields={tableFields} />
   )
 }
 
 const FlaggedApplicationsShowPage = (props) => {
   const pageHeader = {
-      title: 'Flagged Application Set'
+    title: 'Flagged Application Set'
   }
 
   return (
@@ -65,9 +65,9 @@ const buildFlaggedApplicationModel = (flaggedApplication) => {
   return {
     ...flaggedApplication,
     application: flaggedApplication.application.id,
-    application_name: flaggedApplication.application.name ,
+    application_name: flaggedApplication.application.name,
     flagged_record_set_rule_name: flaggedApplication.flagged_record.rule_name,
-    flagged_record_set_listing_lottery_status: flaggedApplication.flagged_record.listing.lottery_status,
+    flagged_record_set_listing_lottery_status: flaggedApplication.flagged_record.listing.lottery_status
   }
 }
 

@@ -8,11 +8,11 @@ export const saveApplication = async (submitType, submittedValues, application, 
   const response = await apiService.submitApplication(applicationData)
 
   if (response === false) {
-    alert('There was an error on submit. Please check values and try again.')
+    window.alert('There was an error on submit. Please check values and try again.')
   }
 
   if (submitType === 'Save') {
-    const showAddBtn  = editPage ? '' : '?showAddBtn=true'
+    const showAddBtn = editPage ? '' : '?showAddBtn=true'
     window.location.href = '/applications/' + response.application.id + showAddBtn
   } else {
     window.location.href = '/listings/' + listing.id + '/applications/new'
@@ -20,8 +20,7 @@ export const saveApplication = async (submitType, submittedValues, application, 
   return response
 }
 
-
-export const fetchApplications = async (page, { filters} ) => {
+export const fetchApplications = async (page, { filters }) => {
   const response = await apiService.fetchApplications({ page, filters })
   return {
     records: map(response.records, mapApplication),

@@ -1,10 +1,9 @@
-import React from 'react'
 import arrayUtils from 'utils/arrayUtils'
 
 describe('arrayUtils', () => {
   describe('cycle', () => {
     test('it should go back to beginning whe next', () => {
-      const cycle = arrayUtils.cycle([1,2,3])
+      const cycle = arrayUtils.cycle([1, 2, 3])
 
       expect(cycle.next()).toEqual(2)
       expect(cycle.next()).toEqual(3)
@@ -15,7 +14,7 @@ describe('arrayUtils', () => {
     })
 
     test('it should go from begining to end when prev', () => {
-      const cycle = arrayUtils.cycle([1,2,3])
+      const cycle = arrayUtils.cycle([1, 2, 3])
 
       expect(cycle.prev()).toEqual(3)
       expect(cycle.prev()).toEqual(2)

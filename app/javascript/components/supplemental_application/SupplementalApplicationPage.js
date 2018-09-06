@@ -16,7 +16,7 @@ const getChartsToLoad = (units) => {
 }
 
 const getAmiCharts = (chartsToLoad) => {
-  return chartsToLoad.map(chart => ({ "name": chart.ami_chart_type, "year": chart.ami_chart_year }))
+  return chartsToLoad.map(chart => ({ 'name': chart.ami_chart_type, 'year': chart.ami_chart_year }))
 }
 
 const getAmis = async (chartsToLoad) => {
@@ -28,8 +28,7 @@ const getAmis = async (chartsToLoad) => {
 }
 
 class SupplementalApplicationPage extends React.Component {
-
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
@@ -40,7 +39,7 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { units } = this.props
     const chartsToLoad = getChartsToLoad(units)
     const amiCharts = getAmiCharts(chartsToLoad)
@@ -64,7 +63,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
-  handleSavePreference =  async (preferenceIndex, application) => {
+  handleSavePreference = async (preferenceIndex, application) => {
     const { persistedApplication } = this.state
 
     // We clone the lates saved copy, so we can use the latest saved fields.
@@ -77,8 +76,8 @@ class SupplementalApplicationPage extends React.Component {
     const response = await updateApplicationAction(synchedApplication)
 
     this.setState({
-        persistedApplication: synchedApplication,
-        confirmedPreferencesFailed: !response
+      persistedApplication: synchedApplication,
+      confirmedPreferencesFailed: !response
     })
   }
 
@@ -86,7 +85,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ confirmedPreferencesFailed: false })
   }
 
-  render() {
+  render () {
     const { statusHistory, fileBaseUrl, application } = this.props
     const { confirmedPreferencesFailed, amis, amiCharts } = this.state
 
@@ -101,8 +100,8 @@ class SupplementalApplicationPage extends React.Component {
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application',    url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information',  url: appPaths.toApplicationSupplementals(application.id) }
+        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
       ]
     }
 
@@ -121,35 +120,35 @@ class SupplementalApplicationPage extends React.Component {
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-            <SupplementalApplicationContainer/>
+          <SupplementalApplicationContainer />
         </CardLayout>
       </Context.Provider>
     )
   }
 }
 
-const getAnnualIncome = ({ monthly_income, annual_income }) => {
-  if (isNil(annual_income) && !isNil(monthly_income)) {
-    return (monthly_income * 12).toFixed(2)
+const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
+  if (isNil(annualIncome) && !isNil(monthlyIncome)) {
+    return (monthlyIncome * 12).toFixed(2)
   } else {
-    return annual_income
+    return annualIncome
   }
 }
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
 
-  applicationWithDefaults.annual_income = getAnnualIncome(application)
+  applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
 
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, file_base_url, units }) => {
+const mapProperties = ({ application, statusHistory, fileBaseURL, units }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
-    statusHistory: mapList(mapFieldUpdateComment,statusHistory),
-    onSubmit:  (values) => updateApplicationAction(values),
-    fileBaseUrl: file_base_url,
+    statusHistory: mapList(mapFieldUpdateComment, statusHistory),
+    onSubmit: (values) => updateApplicationAction(values),
+    fileBaseUrl: fileBaseURL,
     units: mapList(mapUnit, units)
   }
 }

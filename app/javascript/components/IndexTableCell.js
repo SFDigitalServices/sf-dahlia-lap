@@ -19,14 +19,13 @@ const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {
     } else {
       return (
         <div>
-          <input type="text" value={editVal} onChange={onChange} />
+          <input type='text' value={editVal} onChange={onChange} />
         </div>
       )
     }
   } else {
     return val
   }
-
 }
 
 export default IndexTableCell
