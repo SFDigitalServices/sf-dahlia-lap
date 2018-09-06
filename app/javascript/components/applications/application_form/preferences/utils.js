@@ -12,7 +12,11 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (p) => {
-  return `${p.application_member.first_name} ${p.application_member.last_name}`
+  if (p && p.application_member) {
+    return `${p.application_member.first_name} ${p.application_member.last_name}`
+  } else {
+    return null
+  }
 }
 
 export const FIELD_NAME = 'preferences'
