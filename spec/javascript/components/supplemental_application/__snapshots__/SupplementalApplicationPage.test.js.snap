@@ -860,7 +860,7 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Total Monlthly Rent
+                    Total Monthly Rent
                   </label>
                   <div>
                     0
@@ -876,7 +876,7 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Monlthly Tenant Contribution
+                    Monthly Tenant Contribution
                   </label>
                   <input
                     onBlur={[Function]}

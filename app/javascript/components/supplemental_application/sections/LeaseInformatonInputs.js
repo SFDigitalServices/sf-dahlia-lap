@@ -53,10 +53,10 @@ const LeaseInformatonInputs = ({ formApi, store }) => {
           label='Monthly Parking Rent'
           field='monthly_parking_rent' type='number' placeholder='Enter Amount' />
         <CustomFormGrid.Plain
-          label='Total Monlthly Rent'
+          label='Total Monthly Rent'
           text={String(totalMonthlyRent)} />
         <CustomFormGrid.Text
-          label='Monlthly Tenant Contribution'
+          label='Monthly Tenant Contribution'
           field='monthly_tenant_contribution' type='number' placeholder='Enter Amount' />
       </FormGrid.Row>
     </React.Fragment>
