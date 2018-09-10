@@ -4,7 +4,7 @@ import { isNil, uniqBy, map, cloneDeep } from 'lodash'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
-import { updateApplicationAction } from './actions'
+import { updateApplicationAction, updatePreference } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import CardLayout from '../layouts/CardLayout'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
@@ -63,17 +63,20 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference = async (preferenceIndex, application) => {
-    const { persistedApplication } = this.state
+    // const { persistedApplication } = this.state
+    //
+    // // We clone the lates saved copy, so we can use the latest saved fields.
+    // const synchedApplication = cloneDeep(persistedApplication)
+    //
+    // // We use the persisted copy and set only the fields updated in the panel
+    // synchedApplication.total_monthly_rent = application.total_monthly_rent
+    // synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
+    //
+    // await updateApplicationAction(synchedApplication)
+    //
+    // this.setState({ persistedApplication: synchedApplication })
 
-    // We clone the lates saved copy, so we can use the latest saved fields.
-    const synchedApplication = cloneDeep(persistedApplication)
-
-    // We use the persisted copy and set only the fields updated in the panel
-    synchedApplication.total_monthly_rent = application.total_monthly_rent
-    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
-
-    await updateApplicationAction(synchedApplication)
-    this.setState({ persistedApplication: synchedApplication })
+    await updatePreference(application.preferences[preferenceIndex])
   }
 
   render () {

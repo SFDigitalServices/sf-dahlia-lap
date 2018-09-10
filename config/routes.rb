@@ -43,6 +43,7 @@ Rails.application.routes.draw do
         post 'create' => 'field_update_comments#create'
       end
       get 'ami' => 'ami#get'
+      resources :preferences, only: %w[update]
     end
   end
 end

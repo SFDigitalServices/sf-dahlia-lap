@@ -19,3 +19,7 @@ export const getAMIAction = async ({chartType, chartYear}) => {
   }
   return response['ami']
 }
+
+export const updatePreference = async (preference) => {
+  apiService.updatePreference(preference)
+}

@@ -73,11 +73,20 @@ const createLeaseUpStatus = async (data) => {
   return apiCall('post', '/field-update-comments/create', postData)
 }
 
+const updatePreference = async (data) => {
+  const id = data.id
+  const postData = {
+    preference: data
+  }
+  return apiCall('put', `/preferences/${id}`, postData)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
   getAMI,
-  createLeaseUpStatus
+  createLeaseUpStatus,
+  updatePreference
 }
