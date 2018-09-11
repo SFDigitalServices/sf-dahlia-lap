@@ -63,10 +63,13 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "lint": "standard \"./**/*.js\" | snazzy",
-    "lint:fix": "standard \"./**/*.js\" --fix | snazzy",
     "unit": "jest --testPathPattern=.*.test.js$",
-    "e2e":  "jest --testPathPattern=.*e2e.*"
+    "e2e":  "jest --testPathPattern=.*e2e.* --runInBand",
+    "test:all": "jest",
+    "test:unit": "jest --testPathPattern=.*.test.js$",
+    "test:e2e":  "jest --testPathPattern=.*e2e.* --runInBand",
+    "lint": "standard \"./**/*.js\" | snazzy",
+    "lint:fix": "standard \"./**/*.js\" --fix | snazzy"
   },
   "jest": {
     "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],

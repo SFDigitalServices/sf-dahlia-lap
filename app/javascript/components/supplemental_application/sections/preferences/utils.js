@@ -29,7 +29,9 @@ export const isAssistedHousing = value => value === 'Assisted Housing'
 
 export const isRentBurdened = value => value === 'Rent Burdened'
 
-export const getPreferenceName = ({ preferenceName, individualPreference }) => {
+export const getPreferenceName = (preference) => {
+  const preferenceName = preference.preference_name
+  const individualPreference = preference.individual_preference
   if (isLWinSF(preferenceName)) {
     if (isLiveInSF(individualPreference)) {
       return 'Live in San Francisco Preference'
