@@ -71,7 +71,8 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
 }
 
 const PreferencesTable = ({ application, fileBaseUrl, onSave }) => {
-  const { preferences, proofFiles } = application
+  const { preferences } = application
+  const proofFiles = application.proof_files
   const applicationMembers = getFullHousehold(application)
   const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
   return (<TableWrapper>

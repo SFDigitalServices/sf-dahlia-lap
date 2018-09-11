@@ -32,7 +32,6 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   const Table = (props) => (
     <ApplicationDetailsContentTable data={application} {...props} />
   )
-
   return (
     <div>
       <ApplicationCard
