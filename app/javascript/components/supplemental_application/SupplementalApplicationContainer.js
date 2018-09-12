@@ -20,8 +20,16 @@ const StatusUpdateSection = () => (
   </ContentSection.Content>
 )
 
-const LeaseInformationSection = withContext(({ store }) => {
+const StatusHistorySection = withContext(({ store }) => {
   const { statusHistory } = store
+  return !isEmpty(statusHistory) && (
+    <ContentSection.Sub title='Status History' borderBottom={false}>
+      <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
+    </ContentSection.Sub>
+  )
+})
+
+const LeaseInformationSection = () => {
   return (
     <ContentSection title='Lease Information'>
       <ContentSection.Content borderBottom>
@@ -30,15 +38,9 @@ const LeaseInformationSection = withContext(({ store }) => {
       <ContentSection.Sub title='Demographics'>
         <DemographicsInputs />
       </ContentSection.Sub>
-      {!isEmpty(statusHistory) && (
-        <ContentSection.Sub title='Status History' borderBottom={false}>
-          <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
-        </ContentSection.Sub>
-      )
-      }
     </ContentSection>
   )
-})
+}
 
 const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   return (
@@ -117,6 +119,7 @@ class SupplementalApplicationContainer extends React.Component {
               <ConfirmedPreferencesSection />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection />
+              <StatusHistorySection />
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ButtonPager disabled={loading} />
             </form>
