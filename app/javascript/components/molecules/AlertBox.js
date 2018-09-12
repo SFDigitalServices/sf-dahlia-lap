@@ -5,10 +5,7 @@ const getCloseLink = (type, onCloseClick) => {
   if (type === 'text') { return <button type='button' className='button button-link close text' onClick={onCloseClick}>Close</button> } else { return <button type='button' className='button button-link close' onClick={onCloseClick}>&times;</button> }
 }
 
-const AlertBox = ({ message, invert, noMargin, onCloseClick, dismiss, closeType }) => {
-  // TODO: dismiss seems to be useless here, we can handle show or not showing this component from outside + callback, Fed
-  if (dismiss) { return null }
-
+const AlertBox = ({ message, invert, noMargin, onCloseClick, closeType }) => {
   const alertClass = classNames({
     'alert-box': true,
     alert: true,
