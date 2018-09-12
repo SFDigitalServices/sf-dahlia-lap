@@ -44,7 +44,9 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
 }
 
 const buildRows = (application, fileBaseUrl) => {
-  const { preferences, proofFiles } = application
+  const { preferences } = application
+  const proofFiles = application.proof_files
+
   return map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
 }
 
