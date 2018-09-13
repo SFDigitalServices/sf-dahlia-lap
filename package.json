@@ -91,7 +91,7 @@
     ]
   },
   "standard": {
-    "ignore": ["./node_modules/**/*", "./spec/javascript/fixtures/*", "app/assets/javascripts/cable.js"],
+    "ignore": ["./node_modules/**/*", "./spec/javascript/fixtures/*", "app/assets/javascripts/cable.js", "public/**/*"],
     "env": [ "jest" ],
     "parser": "babel-eslint"
   }
