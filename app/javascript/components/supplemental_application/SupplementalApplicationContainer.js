@@ -56,7 +56,7 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
           <AlertBox
             invert
             onCloseClick={onDismissError}
-            message="We weren't able to save your updates. Please try again" />
+            message="We weren't able to save your updates. Please try again." />
         )}
         <PreferencesTable
           application={application}
