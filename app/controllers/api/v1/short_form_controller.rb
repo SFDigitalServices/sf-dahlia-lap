@@ -3,6 +3,7 @@ class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
   def submit
+    # TODO: Uncomment this after story acceptance
     # logger.debug "application_api_params: #{application_api_params}"
     # short_form_validator = ShortFormValidator.new(application_api_params)
     # if short_form_validator.valid?
@@ -13,6 +14,8 @@ class Api::V1::ShortFormController < ApiController
     #   render status: 422, json: { errors: short_form_validator.errors.full_messages }
     # end
 
+    # TODO: Remove this testing error trigger after story acceptance.
+    # This is a trigger to render the error AlertBox in preferences table.
     if [true, false].sample
       render json: { application: application_api_params }
     else

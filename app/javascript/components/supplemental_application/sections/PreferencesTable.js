@@ -87,17 +87,14 @@ const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, on
   const applicationMembers = getFullHousehold(application)
   const rows = buildRows(application, fileBaseUrl)
   return (
-    <React.Fragment>
-      <TableWrapper>
-        <ExpandableTable
-          columns={columns}
-          rows={rows}
-          expanderRenderer={expanderAction}
-          expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
-        />
-      </TableWrapper>
-    </React.Fragment>
-  )
+    <TableWrapper>
+      <ExpandableTable
+        columns={columns}
+        rows={rows}
+        expanderRenderer={expanderAction}
+        expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
+      />
+    </TableWrapper>)
 }
 
 export default PreferencesTable
