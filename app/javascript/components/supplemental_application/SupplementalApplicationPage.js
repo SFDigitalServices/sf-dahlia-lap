@@ -3,10 +3,10 @@ import { isNil, uniqBy, map, cloneDeep } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
+import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
 import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
-import CardLayout from '../layouts/CardLayout'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
@@ -65,7 +65,7 @@ class SupplementalApplicationPage extends React.Component {
   handleSavePreference = async (preferenceIndex, application) => {
     const { persistedApplication } = this.state
 
-    // We clone the lates saved copy, so we can use the latest saved fields.
+    // We clone the latest saved copy, so we can use the latest saved fields.
     const synchedApplication = cloneDeep(persistedApplication)
 
     // We use the persisted copy and set only the fields updated in the panel
@@ -77,7 +77,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render () {
-    const { statusHistory, fileBaseUrl, application } = this.props
+    const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
     const { amis, amiCharts } = this.state
 
     const pageHeader = {
@@ -103,7 +103,8 @@ class SupplementalApplicationPage extends React.Component {
       onSavePreference: this.handleSavePreference,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
-      amis: amis
+      amis: amis,
+      availableUnits: availableUnits
     }
 
     return (
@@ -132,13 +133,14 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseURL, units }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplicationAction(values),
-    fileBaseUrl: fileBaseURL,
-    units: mapList(mapUnit, units)
+    fileBaseUrl: fileBaseUrl,
+    units: mapList(mapUnit, units),
+    availableUnits: mapList(mapUnit, availableUnits)
   }
 }
 

@@ -22,7 +22,9 @@ module Force
       query_scope.query
     end
 
-    def application(id)
+    def application(id, options = {})
+      includes = options[:includes] || %w[preferences proof_files household_members flagged_applications]
+
       application = query_first(%(
         SELECT #{query_fields(:show)}
         FROM Application__c
@@ -30,11 +32,27 @@ module Force
         AND Status__c != '#{DRAFT}'
         AND #{user_can_access}
       ))
-      application['preferences'] = app_preferences(id)
-      application['proof_files'] = app_proof_files(id)
-      application['household_members'] = app_household_members(application)
-      application['flagged_applications'] = flagged_record_set(id)
+      application['preferences'] = app_preferences(id) if includes.include?('preferences')
+      application['proof_files'] = app_proof_files(id) if includes.include?('proof_files')
+      application['household_members'] = app_household_members(application) if includes.include?('household_members')
+      application['flagged_applications'] = flagged_record_set(id) if includes.include?('flagged_applications')
+      application['lease'] = lease(id) if includes.include?('lease')
       application
+    end
+
+    def lease(application_id)
+      builder.from(:Lease__c)
+             .select(:Id,
+                     :Unit__c,
+                     :Lease_Start_Date__c,
+                     :Monthly_Parking_Rent__c,
+                     :Total_Monthly_Rent_without_Parking__c,
+                     :Monthly_Tenant_Contribution__c)
+             .where_eq(:Application__c, application_id, :string)
+             .transform_results { |results| massage(results) }
+             .query
+             .records
+             .first
     end
 
     def listing_applications(listing_id)

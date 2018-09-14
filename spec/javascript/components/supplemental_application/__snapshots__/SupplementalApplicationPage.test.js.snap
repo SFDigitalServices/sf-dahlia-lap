@@ -731,6 +731,165 @@ Array [
             </h2>
           </div>
           <div
+            className="app-inner inset-wide border-bottom"
+          >
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Assigned Unit Number
+                  </label>
+                  <select
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Lease Start Date
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                    placeholder="YYYY-MM-DD"
+                    type="date"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Preference Used
+                  </label>
+                  <select
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Monthly Unit Rent
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    type="number"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Monthly Parking Rent
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    type="number"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Total Monthly Rent
+                  </label>
+                  <div>
+                    0
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Monthly Tenant Contribution
+                  </label>
+                  <input
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter Amount"
+                    type="number"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
             className="app-inner subheader-wide"
           >
             <h3
