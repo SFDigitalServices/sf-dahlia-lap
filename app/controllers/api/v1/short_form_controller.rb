@@ -12,6 +12,7 @@ class Api::V1::ShortFormController < ApiController
     else
       render status: 422, json: { errors: short_form_validator.errors.full_messages }
     end
+    # render status: 422, json: { errors: 'bazinga' }
   end
 
   def update

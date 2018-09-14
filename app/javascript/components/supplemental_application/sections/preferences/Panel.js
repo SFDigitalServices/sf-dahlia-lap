@@ -36,9 +36,9 @@ const Panel = ({ application, preferenceIndex, applicationMembers, onClose, onSa
   const preference = application.preferences[preferenceIndex]
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
-
-  const onSaveWithPreferenceIndex = (application) => {
-    onSave(preferenceIndex, application)
+  const onSaveWithPreferenceIndex = async (application) => {
+    await onSave(preferenceIndex, application)
+    onClose()
   }
   return (
     <div className='app-editable expand-wide scrollable-table-nested'>
