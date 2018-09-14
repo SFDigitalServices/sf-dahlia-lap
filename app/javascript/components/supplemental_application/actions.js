@@ -9,6 +9,7 @@ export const updateApplicationAction = async (application) => {
   if (response === false) {
     Alerts.error()
   }
+  // debugger
   return response
 }
 

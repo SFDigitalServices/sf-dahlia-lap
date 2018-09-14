@@ -13,6 +13,7 @@ import {
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
+import { withContext } from '../context'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -62,17 +63,22 @@ const columns = [
 
 const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  const onClose = () => {
+  const handleOnClose = () => {
     toggle()
     onPanelClose && onPanelClose()
   }
+  const handleOnSave = async (application) => {
+    const response = await onSave(preferenceIndex, application)
+    response && handleOnClose()
+  }
+
   return (
     <Panel
       application={application}
       preferenceIndex={preferenceIndex}
       applicationMembers={applicationMembers}
-      onSave={onSave}
-      onClose={onClose}
+      onSave={handleOnSave}
+      onClose={handleOnClose}
     />
   )
 }
@@ -80,10 +86,11 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
 const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
   return (!expanded && hasExpanderButton(prefName) &&
-  <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
+    <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, onPanelClose }) => {
+const PreferencesTable = withContext(({ store }) => {
+  const { application, fileBaseUrl, onSavePreference, onDismissError } = store
   const applicationMembers = getFullHousehold(application)
   const rows = buildRows(application, fileBaseUrl)
   return (
@@ -92,9 +99,9 @@ const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, on
         columns={columns}
         rows={rows}
         expanderRenderer={expanderAction}
-        expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
+        expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSavePreference, onDismissError)}
       />
     </TableWrapper>)
-}
+})
 
 export default PreferencesTable

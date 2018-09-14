@@ -79,6 +79,8 @@ class SupplementalApplicationPage extends React.Component {
       persistedApplication: synchedApplication,
       confirmedPreferencesFailed: !response
     })
+
+    return response
   }
 
   handleOnDismissError = () => {

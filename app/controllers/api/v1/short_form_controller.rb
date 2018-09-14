@@ -21,7 +21,6 @@ class Api::V1::ShortFormController < ApiController
     else
       render status: 422, json: { errors: [] }
     end
-    # render status: 422, json: { errors: 'bazinga' }
   end
 
   def update
