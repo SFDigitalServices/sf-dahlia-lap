@@ -36,13 +36,9 @@ const Panel = ({ application, preferenceIndex, applicationMembers, onClose, onSa
   const preference = application.preferences[preferenceIndex]
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
-
-  const onSaveWithPreferenceIndex = (application) => {
-    onSave(preferenceIndex, application)
-  }
   return (
     <div className='app-editable expand-wide scrollable-table-nested'>
-      <Form onSubmit={onSaveWithPreferenceIndex} defaultValues={application}>
+      <Form onSubmit={onSave} defaultValues={application}>
         { formApi => (
           <React.Fragment>
             <PreferencePanel
