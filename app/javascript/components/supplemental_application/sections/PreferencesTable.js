@@ -43,6 +43,13 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
   ]
 }
 
+const buildRows = (application, fileBaseUrl) => {
+  const { preferences } = application
+  const proofFiles = application.proof_files
+
+  return map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
+}
+
 const columns = [
   { content: '' },
   { content: 'Preference Name' },
@@ -53,15 +60,21 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave) => (row, toggle) => {
+const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  return <Panel
-    application={application}
-    preferenceIndex={preferenceIndex}
-    applicationMembers={applicationMembers}
-    onSave={onSave}
-    onClose={toggle}
-  />
+  const onClose = () => {
+    toggle()
+    onPanelClose && onPanelClose()
+  }
+  return (
+    <Panel
+      application={application}
+      preferenceIndex={preferenceIndex}
+      applicationMembers={applicationMembers}
+      onSave={onSave}
+      onClose={onClose}
+    />
+  )
 }
 
 const expanderAction = (row, expanded, expandedRowToggler) => {
@@ -70,19 +83,18 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
   <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onSave }) => {
-  const { preferences } = application
-  const proofFiles = application.proof_files
+const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, onPanelClose }) => {
   const applicationMembers = getFullHousehold(application)
-  const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
-  return (<TableWrapper>
-    <ExpandableTable
-      columns={columns}
-      rows={rows}
-      expanderRenderer={expanderAction}
-      expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave)}
-    />
-  </TableWrapper>)
+  const rows = buildRows(application, fileBaseUrl)
+  return (
+    <TableWrapper>
+      <ExpandableTable
+        columns={columns}
+        rows={rows}
+        expanderRenderer={expanderAction}
+        expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
+      />
+    </TableWrapper>)
 }
 
 export default PreferencesTable

@@ -10,6 +10,7 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
+import AlertBox from '~/components/molecules/AlertBox'
 
 import { withContext } from './context'
 
@@ -28,8 +29,7 @@ const LeaseInformationSection = ({ statusHistory }) => (
       <ContentSection.Sub title='Status History' borderBottom={false}>
         <StatusList items={statusHistory} onAddCommnent={() => window.alert('add comment')} />
       </ContentSection.Sub>
-    )
-    }
+    )}
   </ContentSection>
 )
 
@@ -46,16 +46,23 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
+const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
       description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
       <ContentSection.Content>
+        { confirmedPreferencesFailed && (
+          <AlertBox
+            invert
+            onCloseClick={onDismissError}
+            message="We weren't able to save your updates. Please try again." />
+        )}
         <PreferencesTable
           application={application}
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
+          onPanelClose={onDismissError}
         />
       </ContentSection.Content>
     </ContentSection>
@@ -97,7 +104,16 @@ class SupplementalApplicationContainer extends React.Component {
 
   render () {
     const { store } = this.props
-    const { statusHistory, application, fileBaseUrl, onSavePreference, amis, amiCharts } = store
+    const {
+      statusHistory,
+      application,
+      fileBaseUrl,
+      onSavePreference,
+      confirmedPreferencesFailed,
+      onDismissError,
+      amis,
+      amiCharts
+    } = store
     const { loading } = this.state
 
     return (
@@ -111,6 +127,8 @@ class SupplementalApplicationContainer extends React.Component {
                 application={application}
                 fileBaseUrl={fileBaseUrl}
                 onSave={onSavePreference}
+                onDismissError={onDismissError}
+                confirmedPreferencesFailed={confirmedPreferencesFailed}
               />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection statusHistory={statusHistory} />
