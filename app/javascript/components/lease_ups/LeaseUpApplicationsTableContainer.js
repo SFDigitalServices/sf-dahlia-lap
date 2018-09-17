@@ -130,7 +130,6 @@ class LeaseUpTableContainer extends React.Component {
 
   render () {
     const { store } = this.props
-    console.log('store', store)
     const { listing, applications } = store
 
     return (

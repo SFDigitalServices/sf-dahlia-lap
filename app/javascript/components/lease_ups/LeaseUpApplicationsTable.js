@@ -110,6 +110,13 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
 
   const sortBy = [{ id: 'rankOrder', desc: false }]
 
+  // Selecting the size of pages does not work with manual override.
+  const getPaginationProps = () => {
+    return {
+      showPageSizeOptions: false
+    }
+  }
+
   return (
     <ReactTable
       manual
@@ -119,11 +126,12 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       columns={columns}
       getTdProps={getTdProps}
       getTrProps={getTrProps}
-      defaultPageSize={PAGE_SIZE}
       defaultSorted={sortBy}
       loading={loading}
       onFetchData={onFetchData}
-      NoDataComponent={NoData} />
+      NoDataComponent={NoData}
+      getPaginationProps={getPaginationProps}
+    />
   )
 }
 

@@ -22,10 +22,8 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   fetchApplications = async (page) => {
-    console.log('fetching applications: ', this.props.listing, page)
     // FIXME, need to figure out a way to map listing to get Id
     const response = await apiService.fetchLeaseUpApplications(this.props.listing.Id, page)
-    console.log('fetch applications response', response)
     return {
       records: !isEmpty(response.records) ? response.records.map(flow(mapApplicationPreference, buildLeaseUpModel)): [],
       pages: response.pages
@@ -42,12 +40,10 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   handleOnFetchData = (state, instance) => {
-    console.log('handleOnFetchData is being called')
     this.loadPage(state.page)
   }
 
   render () {
-    console.log('props', this.props)
     const listing = mapListing(this.props.listing)
 
     const pageHeader = {
