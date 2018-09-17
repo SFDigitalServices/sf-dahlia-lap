@@ -36,10 +36,6 @@ const Panel = ({ application, preferenceIndex, applicationMembers, onClose, onSa
   const preference = application.preferences[preferenceIndex]
   addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
-  // const onSaveWithPreferenceIndex = async (application) => {
-  //   const response = await onSave(preferenceIndex, application)
-  //   response && onClose()
-  // }
   return (
     <div className='app-editable expand-wide scrollable-table-nested'>
       <Form onSubmit={onSave} defaultValues={application}>
