@@ -17,7 +17,6 @@ class LeaseUpApplicationsPage extends React.Component {
 
   constructor (props) {
     super(props)
-    // this should belong to the page too.
     this.eagerPagination = new EagerPagination(20, 100)
   }
 
@@ -30,7 +29,6 @@ class LeaseUpApplicationsPage extends React.Component {
     }
   }
 
-  // on fetch applications (call API service), then pass down as a context?
   loadPage = (page) => {
     const fetcher = p => this.fetchApplications(p)
     this.setState({ loading: true, page: page })

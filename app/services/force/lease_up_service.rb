@@ -13,7 +13,6 @@ module Force
     end
 
     def lease_up_listing_applications(listing_id, opts = { page: 0 })
-      # Still TODO: figure out order by
       listing_subquery = builder.from(:Listing_Lottery_Preference__c)
                                 .select(:Id)
                                 .where_eq('Listing__c', "'#{listing_id}'")
