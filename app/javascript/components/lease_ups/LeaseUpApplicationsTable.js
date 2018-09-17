@@ -59,7 +59,7 @@ const PreferenceRankCell = ({cell}) => {
   }
 }
 
-const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
+const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages }) => {
   const columns = [
     { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
     { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
@@ -112,13 +112,17 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
 
   return (
     <ReactTable
+      manual
       className='rt-table-status'
       data={dataSet}
+      pages={pages}
       columns={columns}
       getTdProps={getTdProps}
       getTrProps={getTrProps}
       defaultPageSize={PAGE_SIZE}
       defaultSorted={sortBy}
+      loading={loading}
+      onFetchData={onFetchData}
       NoDataComponent={NoData} />
   )
 }

@@ -5,13 +5,16 @@ import ApplicationsFilter from './ApplicationsFilter'
 import EagerPagination from '~/utils/EagerPagination'
 
 class ApplicationsTableContainer extends React.Component {
+  // move state to the page too.
   state = { loading: false, applications: [], pages: 0 }
 
   constructor (props) {
     super(props)
+    // this should belong to the page too.
     this.eagerPagination = new EagerPagination(20, 100)
   }
 
+// these should both move to the page rather than the container
   loadPage = (page, filters) => {
     const { onFetchData } = this.props
     const fetcher = p => onFetchData(p, { filters })
