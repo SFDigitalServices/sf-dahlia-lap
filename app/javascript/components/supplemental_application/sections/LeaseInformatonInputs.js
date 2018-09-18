@@ -1,6 +1,6 @@
 import React from 'react'
 import { Select, Text } from 'react-form'
-import { map, toSafeInteger, isNil } from 'lodash'
+import { map, toSafeInteger } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { pluck, decorateComponents } from '~/utils/utils'
