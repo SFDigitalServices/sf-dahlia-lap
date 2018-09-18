@@ -108,8 +108,6 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     }
   }
 
-  const sortBy = [{ id: 'rankOrder', desc: false }]
-
   // Selecting the size of pages does not work with manual override.
   const getPaginationProps = () => {
     return {
@@ -126,7 +124,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       columns={columns}
       getTdProps={getTdProps}
       getTrProps={getTrProps}
-      defaultSorted={sortBy}
+      sortable={false}
       loading={loading}
       onFetchData={onFetchData}
       NoDataComponent={NoData}

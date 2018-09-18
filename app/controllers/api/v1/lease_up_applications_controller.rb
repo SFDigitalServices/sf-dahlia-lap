@@ -12,9 +12,7 @@ module Api::V1
 
     def lease_up_applications_params
       # TODO: allow page as param
-      puts 'PARAMS', params
       params.require(:listing_id)
-            .permit(:page)
     end
   end
 end

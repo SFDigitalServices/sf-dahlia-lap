@@ -9,6 +9,7 @@ import appPaths from '~/utils/appPaths'
 import apiService from '~/apiService'
 import EagerPagination from '~/utils/EagerPagination'
 import Context from './context'
+import mapProps from '~/utils/mapProps'
 
 class LeaseUpApplicationsPage extends React.Component {
   state = { loading: false, applications: [], pages: 0 }
@@ -19,8 +20,7 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   fetchApplications = async (page) => {
-    // FIXME, need to figure out a way to map listing to get Id
-    const response = await apiService.fetchLeaseUpApplications(this.props.listing.Id, page)
+    const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page)
     return {
       records: !isEmpty(response.records) ? response.records.map(flow(mapApplicationPreference, buildLeaseUpModel)) : [],
       pages: response.pages
@@ -40,7 +40,7 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   render () {
-    const listing = mapListing(this.props.listing)
+    const listing = this.props.listing
 
     const pageHeader = {
       title: listing.name,
@@ -73,4 +73,9 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 }
 
-export default LeaseUpApplicationsPage
+const mapProperties = ({ listing }) => {
+  return {
+    listing: mapListing(listing)
+  }
+}
+export default mapProps(mapProperties)(LeaseUpApplicationsPage)
