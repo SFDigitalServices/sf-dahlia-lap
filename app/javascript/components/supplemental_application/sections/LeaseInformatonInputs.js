@@ -23,17 +23,17 @@ const CustomFormGrid = decorateComponents(INPUTS, Component => {
 })
 
 const getTotalMonthlyRent = (values) => {
-  const monlthUnitRent = values.total_monthly_rent_without_parking
+  const monthlyUnitRent = values.total_monthly_rent_without_parking
   const monthlyParkingRent = values.monthly_parking_rent
 
-  if (monlthUnitRent || monthlyParkingRent) {
-    return toSafeInteger(monlthUnitRent) + toSafeInteger(monthlyParkingRent)
+  if (monthlyUnitRent || monthlyParkingRent) {
+    return toSafeInteger(monthlyUnitRent) + toSafeInteger(monthlyParkingRent)
   } else {
     return 'Total Unit & Parking Rent'
   }
 }
 
-const LeaseInformatonInputs = ({ formApi, store }) => {
+const LeaseInformationInputs = ({ formApi, store }) => {
   const { availableUnits } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
@@ -72,4 +72,4 @@ const LeaseInformatonInputs = ({ formApi, store }) => {
   )
 }
 
-export default withContext(withNestedForm('lease', LeaseInformatonInputs))
+export default withContext(withNestedForm('lease', LeaseInformationInputs))
