@@ -1,16 +1,14 @@
 import React from 'react'
-import { flow } from 'lodash'
+import { flow, isEmpty } from 'lodash'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import mapProps from '~/utils/mapProps'
 import { mapListing, mapApplicationPreference } from '~/components/mappers/soqlToDomain'
 import { buildLeaseUpModel } from './leaseUpModel'
 import appPaths from '~/utils/appPaths'
 import apiService from '~/apiService'
 import EagerPagination from '~/utils/EagerPagination'
 import Context from './context'
-import { isEmpty } from 'lodash'
 
 class LeaseUpApplicationsPage extends React.Component {
   state = { loading: false, applications: [], pages: 0 }
@@ -24,7 +22,7 @@ class LeaseUpApplicationsPage extends React.Component {
     // FIXME, need to figure out a way to map listing to get Id
     const response = await apiService.fetchLeaseUpApplications(this.props.listing.Id, page)
     return {
-      records: !isEmpty(response.records) ? response.records.map(flow(mapApplicationPreference, buildLeaseUpModel)): [],
+      records: !isEmpty(response.records) ? response.records.map(flow(mapApplicationPreference, buildLeaseUpModel)) : [],
       pages: response.pages
     }
   }
@@ -68,7 +66,7 @@ class LeaseUpApplicationsPage extends React.Component {
     return (
       <Context.Provider value={context}>
         <TableLayout pageHeader={pageHeader}>
-          <LeaseUpApplicationsTableContainer/>
+          <LeaseUpApplicationsTableContainer />
         </TableLayout>
       </Context.Provider>
     )

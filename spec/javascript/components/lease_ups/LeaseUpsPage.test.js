@@ -39,6 +39,7 @@ describe('LeaseUpApplicationsPage', () => {
   sharedHooks.useFakeTimers()
 
   test('Should render LeaseUpTable', () => {
+    // FIXME: Need to figure out how to mock the results to make this snapshot actually do something
     const applications = [ buildApplicationPreference(1), buildApplicationPreference(2) ]
     const wrapper = renderer.create(
       <LeaseUpApplicationsPage listing={listings} applications={applications} />
