@@ -58,7 +58,6 @@ export const appInfoFields = [
   'Application_City',
   'Application_State',
   'Application_Postal_Code',
-  { field: 'Organization_URL', label: 'Organization URL' },
   { field: 'Download_URL', label: 'Download URL' }
 ]
 
