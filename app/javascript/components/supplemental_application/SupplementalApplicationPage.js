@@ -92,7 +92,7 @@ class SupplementalApplicationPage extends React.Component {
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
-        { title: 'Lease Ups', link: '/lease-ups' },
+        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
         { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
         { title: application.name, link: '#' }
       ]
