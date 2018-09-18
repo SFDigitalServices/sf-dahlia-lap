@@ -8,7 +8,7 @@ import { withNestedForm } from '~/utils/form/hoc'
 import formUtils from '~/utils/formUtils'
 import { withContext } from '../context'
 
-const Plain = ({ text }) => <div>{text}</div>
+const Plain = ({ text }) => <div className='text-value'>{text}</div>
 
 const INPUTS = { 'Select': Select, 'Text': Text, 'Plain': Plain }
 
