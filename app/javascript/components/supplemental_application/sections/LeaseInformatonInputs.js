@@ -1,6 +1,6 @@
 import React from 'react'
 import { Select, Text } from 'react-form'
-import { map, toSafeInteger } from 'lodash'
+import { map, toSafeInteger, isNil } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { pluck, decorateComponents } from '~/utils/utils'
@@ -22,12 +22,21 @@ const CustomFormGrid = decorateComponents(INPUTS, Component => {
   )
 })
 
+const getTotalMonthlyRent = (values) => {
+  const monlthUnitRent = values.total_monthly_rent_without_parking
+  const monthlyParkingRent = values.monthly_parking_rent
+
+  if (monlthUnitRent || monthlyParkingRent) {
+    return toSafeInteger(monlthUnitRent) + toSafeInteger(monthlyParkingRent)
+  } else {
+    return 'Total Unit & Parking Rent'
+  }
+}
+
 const LeaseInformatonInputs = ({ formApi, store }) => {
   const { availableUnits } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
-  const monlthUnitRent = formApi.values.total_monthly_rent_without_parking
-  const monthlyParkingRent = formApi.values.monthly_parking_rent
-  const totalMonthlyRent = toSafeInteger(monlthUnitRent) + toSafeInteger(monthlyParkingRent)
+  const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
   return (
     <React.Fragment>
       <FormGrid.Row paddingBottom>
