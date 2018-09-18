@@ -4,12 +4,10 @@
 #   render_views
 #   login_admin
 #
-#   let(:listing_id) { 'a0W0P00000DZfSpUAL' }
-#
 #   describe '#index' do
 #     it 'should rendering succesfully' do
 #       VCR.use_cassette('listings_controller/index') do
-#         get :index, params: { listing_id: listing_id }
+#         get :index, params: { listing_id: valid_listing_id }
 #       end
 #
 #       expect(response.body).to have_react_component('LeaseUpsPage')
@@ -18,7 +16,7 @@
 #
 #     it 'should handle error' do
 #       VCR.use_cassette('listings_controller/index_errors') do
-#         get :index, params: { listing_id: 'a0W0P00000DZfSpXXX' }
+#         get :index, params: { listing_id: invalid_listing_id }
 #       end
 #
 #       expect(response).to have_http_status(:not_found)
@@ -28,7 +26,7 @@
 #   describe '#show' do
 #     it 'should rendering succesfully' do
 #       VCR.use_cassette('listings_controller/show') do
-#         get :index, params: { listing_id: listing_id }
+#         get :index, params: { listing_id: valid_listing_id }
 #       end
 #
 #       expect(response.body).to have_react_component('LeaseUpsPage')
@@ -37,7 +35,7 @@
 #
 #     it 'should handle error' do
 #       VCR.use_cassette('listings_controller/index_errors') do
-#         get :index, params: { listing_id: 'a0W0P00000DZfSpXXX' }
+#         get :index, params: { listing_id: invalid_listing_id }
 #       end
 #
 #       expect(response).to have_http_status(:not_found)

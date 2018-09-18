@@ -31,7 +31,29 @@ To lint the react code run: `yarn lint`
 
 ## Rails tests:
 
+### Running tests:
+
 `bundle exec rake spec`
+
+**Updating VCR Cassettes**
+
+if the Saleforce API changed or any of the data posted to the API changed, you have to update the VCR cassettes affected (a cassettes is just a Yaml file). Cassettes are located under `app/spec/vcr/`.
+
+In order to update the cassettes you have to:
+
+* Go to your failing test.
+* Locate the instruction that is creating the cassette with `VCR.use_cassette`.
+* Remove the cassette specified from `app/spec/vcr/`
+
+For example, for:
+```
+VCR.use_cassette('listings/applications_controller/index') do
+```
+
+You have to remove:
+```
+app/spec/vcr/listings/applications_controller/index.yml
+```
 
 ## React/Javascript tests:
 
@@ -39,11 +61,13 @@ To lint the react code run: `yarn lint`
 
 `yarn test:unit`
 
+**Updating snapshots**
+
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
 `yarn test:unit -u`
 
-_Note2: Snapshots should be pushed to the repo_
+_Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests:
 
