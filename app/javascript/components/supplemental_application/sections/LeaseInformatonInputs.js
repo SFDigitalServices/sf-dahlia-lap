@@ -37,6 +37,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   const { availableUnits } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
+  console.log('FORM API VALUES Lease info', formApi.values)
   return (
     <React.Fragment>
       <FormGrid.Row paddingBottom>
