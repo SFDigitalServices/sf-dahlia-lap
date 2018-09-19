@@ -125,7 +125,8 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   rowsData (applications) {
-    return map(applications, result => this.buildRowData(result))
+    const rowsData = map(applications, result => this.buildRowData(result))
+    return rowsData
   }
 
   render () {
@@ -142,6 +143,7 @@ class LeaseUpTableContainer extends React.Component {
           loading={store.loading}
           onFetchData={store.handleOnFetchData}
           pages={store.pages}
+          rowsPerPage={store.rowsPerPage}
         />
         <StatusModalWrapper
           isOpen={this.state.statusModal.isOpen}
