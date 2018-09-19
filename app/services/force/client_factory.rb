@@ -3,7 +3,7 @@ module Force
   class ClientFactory
     def new_for_user(user)
       if Rails.env.test?
-        new_with_oauth_token(AccessToken.request_new_with_credentials)
+        new_with_oauth_token(AccessToken.request_new_token)
       else
         new_with_oauth_token(user.oauth_token)
       end

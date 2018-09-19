@@ -67,3 +67,4 @@ Metrics/BlockLength:
   Exclude:
     - 'config/routes.rb'
     - 'spec/**/*_spec.rb'
+    - 'spec/support/**/*'

@@ -22,9 +22,14 @@ module Force
 
     class CannotGetTokenException < StandardError; end
 
-    def self.restforce_client
-      Restforce.new(request_new_with_restforce_attributes)
+    # This should be use to get a new token, regardles of the underline method.
+    def self.request_new_token
+      request_new_with_restforce
     end
+
+    ##########################################
+    # Request new token unsing Restforce lib
+    ##########################################
 
     def self.request_new_with_restforce
       client = restforce_client
@@ -47,11 +52,19 @@ module Force
       }
     end
 
-    def self.request_new_with_credentials
-      request_new(request_new_with_credentials_attributes)
+    def self.restforce_client
+      Restforce.new(request_new_with_restforce_attributes)
     end
 
-    def self.request_new_with_credentials_attributes
+    ####################################################
+    # Request new token unsing HTTP post with oauth2
+    ####################################################
+
+    def self.request_new_with_http
+      http_post(request_new_with_http_attributes)
+    end
+
+    def self.request_new_with_http_attributes
       {
         url: "#{ENV['SALESFORCE_INSTANCE_URL']}/services/oauth2/token",
         username: ENV['SALESFORCE_USERNAME'],
@@ -61,34 +74,22 @@ module Force
       }
     end
 
-    def self.request_new(opts)
+    # Makes the actual call to oauth to get the token
+    def self.http_post(opts)
       form_data = {
-        'client_id' => opts.fetch(:client_id),
+        'client_id'     => opts.fetch(:client_id),
         'client_secret' => opts.fetch(:client_secret),
-        'grant_type' => 'password',
-        'password' => opts.fetch(:password),
-        'username' => opts.fetch(:username),
+        'grant_type'    => 'password',
+        'password'      => opts.fetch(:password),
+        'username'      => opts.fetch(:username),
       }
-      ap form_data
       url = opts.fetch(:url)
-      post_response = _post(url, form_data)
+      post_response = HttpUtils.post(url, form_data)
       response = Response.new(post_response.body)
 
       raise CannotGetTokenException, response.body if response.invalid?
 
       response.token
-    end
-
-    def self._post(url, form_data)
-      uri = URI.parse(url)
-      request = Net::HTTP::Post.new(uri)
-      request.set_form_data(form_data)
-      req_options = {
-        use_ssl: uri.scheme == 'https',
-      }
-      Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-        http.request(request)
-      end
     end
   end
 end
