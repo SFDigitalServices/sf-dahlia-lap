@@ -60,6 +60,8 @@ class SupplementalApplicationPage extends React.Component {
 
     await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
+    // Redirect to same page to be able to re-pull data from SalesForce
+    window.location.href = appPaths.toApplicationSupplementals(application.id)
   }
 
   handleSavePreference = async (preferenceIndex, application) => {
