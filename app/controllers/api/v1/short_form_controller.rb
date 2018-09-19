@@ -49,6 +49,7 @@ class Api::V1::ShortFormController < ApiController
             lease: %i[
               id
               unit
+              leaseStatus
               leaseStartDate
               monthlyParkingRent
               totalMonthlyRentWithoutParking

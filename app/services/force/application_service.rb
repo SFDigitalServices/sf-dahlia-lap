@@ -45,6 +45,7 @@ module Force
              .select(:Id,
                      :Unit__c,
                      :Lease_Start_Date__c,
+                     :Lease_Status__c,
                      :Monthly_Parking_Rent__c,
                      :Total_Monthly_Rent_without_Parking__c,
                      :Monthly_Tenant_Contribution__c)
@@ -77,12 +78,10 @@ module Force
     end
 
     def submit(data)
-      # if lease information is present, pop it out and submit it separately.
+      # If lease information is available, submit it separately.
       if data.key?(:lease)
-        # submit lease. Need to manipulate it and get other values too (e.g. app id, primary applicant contact id. where should I get those?
         submit_lease(data[:lease], data[:id], data[:primaryApplicantContact])
-        # delete it from the map
-        data = data.except(:lease)
+        data = data.except(:lease) # Don't submit lease data to the customAPI.
       end
       api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
     end
@@ -90,12 +89,13 @@ module Force
     def submit_lease(lease, application_id, primary_contact_id)
       puts 'PRIMARY CONTACT ID', primary_contact_id
       # Update
-      # TODO: add lease status, fix Tenant__c permissions.
+      # FIXME: Fix Tenant__c permissions so we can submit these values.
       if lease[:id]
         response = @client.update!('Lease__c',
                                    Id: lease[:id],
                                    # Tenant__c: primary_contact_id,
                                    Unit__c: lease[:unit],
+                                   Lease_Status__c: lease[:leaseStatus],
                                    Lease_Start_Date__c: lease[:leaseStartDate],
                                    Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
                                    Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
@@ -103,11 +103,11 @@ module Force
         puts 'Successfully Updated Lease Information: ', response
       else
         # Create
-        # Tenant__c: primary_contact_id
         response = @client.create!('Lease__c',
                                    Application__c: application_id,
                                    # Tenant__c: primary_contact_id,
                                    Unit__c: lease[:unit],
+                                   Lease_Status__c: 'Draft',
                                    Lease_Start_Date__c: lease[:leaseStartDate],
                                    Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
                                    Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
