@@ -15,6 +15,7 @@ export const mapApplication = (a) => {
   console.log('Application before being mapped to domain', a)
   return {
     applicant: mapShape(mapApplicationMember, a.Applicant),
+    primary_applicant_contact: a.Primary_Applicant,
     alternate_contact: mapShape(mapApplicationMember, a.Alternate_Contact),
     listing: mapShape(mapListing, a.Listing),
     preferences: mapList(mapApplicationPreference, a.preferences),

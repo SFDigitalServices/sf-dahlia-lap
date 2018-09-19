@@ -45,6 +45,7 @@ class Api::V1::ShortFormController < ApiController
             :numberOfDependents,
             :formMetadata,
             :hasSenior,
+            :primaryApplicantContact,
             lease: %i[
               id
               unit
