@@ -12,25 +12,28 @@ module Force
       )))
     end
 
-    def lease_up_listing_applications(listing_id)
-      # TO DO: Temp fix limit to 500, will paginate in #159530254
-      application_data = massage(query(%(
-        SELECT #{query_fields(:lease_up_listing_application)}
-        FROM Application_Preference__c
-        WHERE Listing_Preference_ID__c IN
-        (SELECT Id FROM Listing_Lottery_Preference__c WHERE Listing__c = '#{listing_id}')
-        AND Preference_Lottery_Rank__c != NULL
-        ORDER BY Preference_Order__c, Preference_Lottery_Rank__c
-        ASC NULLS LAST LIMIT 500
-      )))
+    def lease_up_listing_applications(listing_id, opts = { page: 0 })
+      listing_subquery = builder.from(:Listing_Lottery_Preference__c)
+                                .select(:Id)
+                                .where_eq('Listing__c', "'#{listing_id}'")
+
+      query_scope = builder.from(:Application_Preference__c)
+                           .select(query_fields(:lease_up_listing_application))
+                           .where("Listing_Preference_ID__c IN (#{listing_subquery})")
+                           .where('Preference_Lottery_Rank__c != NULL')
+                           .paginate(opts)
+                           .order_by('Preference_Order__c', 'Preference_Lottery_Rank__c')
+                           .transform_results { |results| massage(results) }
+
+      application_data = query_scope.query
 
       # find the last time the status was updated on these applications,
       # i.e. what is the most recently-dated Field Update Comment, if
       # any, for each application
-      application_ids = application_data.map { |data| "'#{data[:Application]['Id']}'" }
+      application_ids = application_data[:records].map { |data| "'#{data[:Application]['Id']}'" }
       if application_ids.present?
         status_last_updated_dates = find_status_last_updated_dates(application_ids)
-        set_status_last_updated(status_last_updated_dates, application_data)
+        set_status_last_updated(status_last_updated_dates, application_data.records)
       end
       application_data
     end

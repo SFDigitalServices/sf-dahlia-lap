@@ -7,7 +7,7 @@ import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
 
-import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
+import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationPreferenceId = cell.original.id
@@ -59,7 +59,7 @@ const PreferenceRankCell = ({cell}) => {
   }
 }
 
-const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick }) => {
+const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage }) => {
   const columns = [
     { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
     { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
@@ -108,18 +108,29 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     }
   }
 
-  const sortBy = [{ id: 'rankOrder', desc: false }]
+  // Selecting the size of pages does not work with manual override.
+  const getPaginationProps = () => {
+    return {
+      showPageSizeOptions: false
+    }
+  }
 
   return (
     <ReactTable
+      manual
       className='rt-table-status'
       data={dataSet}
+      pages={pages}
       columns={columns}
       getTdProps={getTdProps}
       getTrProps={getTrProps}
-      defaultPageSize={PAGE_SIZE}
-      defaultSorted={sortBy}
-      NoDataComponent={NoData} />
+      defaultPageSize={rowsPerPage}
+      sortable={false}
+      loading={loading}
+      onFetchData={onFetchData}
+      NoDataComponent={NoData}
+      getPaginationProps={getPaginationProps}
+    />
   )
 }
 

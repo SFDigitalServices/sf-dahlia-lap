@@ -60,6 +60,11 @@ module Force
       self
     end
 
+    def order_by(*field)
+      @order_by = Array(field).join(', ')
+      self
+    end
+
     def transform_results(&block)
       @transform_results = block
       self
@@ -83,6 +88,10 @@ module Force
 
     def paginate?
       @page.present?
+    end
+
+    def order_by?
+      @order_by.present?
     end
 
     ################################
@@ -127,6 +136,7 @@ module Force
     def _query_soql
       query_str = ''
       query_str += "SELECT #{@select} #{_from_soql}"
+      query_str += " ORDER BY #{@order_by}" if order_by?
       query_str += " #{_paginate_soql}" if paginate?
       query_str
     end

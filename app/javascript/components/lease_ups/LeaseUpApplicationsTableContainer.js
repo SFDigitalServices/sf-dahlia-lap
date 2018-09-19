@@ -7,6 +7,7 @@ import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 import StatusModalWrapper from './StatusModalWrapper'
 import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
+import { withContext } from './context'
 
 class LeaseUpTableContainer extends React.Component {
   constructor (props) {
@@ -123,20 +124,27 @@ class LeaseUpTableContainer extends React.Component {
     window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
 
-  rowsData () {
-    return map(this.state.applications, result => this.buildRowData(result))
+  rowsData (applications) {
+    const rowsData = map(applications, result => this.buildRowData(result))
+    return rowsData
   }
 
   render () {
-    const { listing } = this.props
+    const { store } = this.props
+    const { listing, applications } = store
 
     return (
       <div>
         <LeaseUpApplicationsTable
-          dataSet={this.rowsData()}
+          dataSet={this.rowsData(applications)}
           listingId={listing.id}
           onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
-          onCellClick={this.goToSupplementaryInfo} />
+          onCellClick={this.goToSupplementaryInfo}
+          loading={store.loading}
+          onFetchData={store.handleOnFetchData}
+          pages={store.pages}
+          rowsPerPage={store.rowsPerPage}
+        />
         <StatusModalWrapper
           isOpen={this.state.statusModal.isOpen}
           status={this.state.statusModal.status}
@@ -152,4 +160,4 @@ class LeaseUpTableContainer extends React.Component {
   }
 }
 
-export default LeaseUpTableContainer
+export default withContext(LeaseUpTableContainer)
