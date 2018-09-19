@@ -45,6 +45,14 @@ class Api::V1::ShortFormController < ApiController
             :numberOfDependents,
             :formMetadata,
             :hasSenior,
+            lease: %i[
+              id
+              unit
+              leaseStartDate
+              monthlyParkingRent
+              totalMonthlyRentWithoutParking
+              monthlyTenantContribution
+            ],
             primaryApplicant: %i[
               contactId
               appMemberId

@@ -77,7 +77,43 @@ module Force
     end
 
     def submit(data)
+      # if lease information is present, pop it out and submit it separately.
+      if data.key?(:lease)
+        # submit lease. Need to manipulate it and get other values too (e.g. app id, primary applicant contact id. where should I get those?
+        submit_lease(data[:lease], data[:id], data[:primaryApplicant][:id])
+        # delete it from the map
+        data = data.except(:lease)
+      end
       api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
+    end
+
+    def submit_lease(lease, application_id, primary_contact_id)
+      puts 'PRIMARY CONTACT ID', primary_contact_id
+      # Update
+      # TODO: add primary applicant contact, application id.
+      if lease[:id]
+        response = @client.update('Lease__c',
+                                  Id: lease[:id],
+                                  Tenant__c: primary_contact_id,
+                                  Unit__c: lease[:unit],
+                                  Lease_Start_Date__c: lease[:leaseStartDate],
+                                  Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+                                  Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
+                                  Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+        puts 'Successfully Updated Lease Information: ', response
+      else
+        # Create
+        # Tenant__c: primary_contact_id
+        response = @client.create('Lease__c',
+                                  Application__c: application_id,
+                                  Tenant__c: primary_contact_id,
+                                  Unit__c: lease[:unit],
+                                  Lease_Start_Date__c: lease[:leaseStartDate],
+                                  Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+                                  Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
+                                  Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+        puts 'Successfully created new lease: ', response
+      end
     end
 
     private

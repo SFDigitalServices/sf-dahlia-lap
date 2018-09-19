@@ -12,6 +12,7 @@ const parseList = text => split(text, ';')
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {
+  console.log('Application before being mapped to domain', a)
   return {
     applicant: mapShape(mapApplicationMember, a.Applicant),
     alternate_contact: mapShape(mapApplicationMember, a.Alternate_Contact),
