@@ -22,6 +22,31 @@ module Force
 
     class CannotGetTokenException < StandardError; end
 
+    def self.restforce_client
+      Restforce.new(request_new_with_restforce_attributes)
+    end
+
+    def self.request_new_with_restforce
+      client = restforce_client
+      client.authenticate!
+      client.options[:oauth_token]
+    end
+
+    def self.request_new_with_restforce_attributes
+      {
+        instance_url: ENV['SALESFORCE_INSTANCE_URL'],
+        username: ENV['SALESFORCE_USERNAME'],
+        password: ENV['SALESFORCE_PASSWORD'],
+        security_token: ENV['SALESFORCE_SECURITY_TOKEN'],
+        client_id: ENV['SALESFORCE_CLIENT_ID'],
+        client_secret: ENV['SALESFORCE_CLIENT_SECRET'],
+        api_version: ENV['SALESFORCE_API_VERSION'],
+        mashify: false,
+        authentication_retries: 1,
+        host: 'test.salesforce.com',
+      }
+    end
+
     def self.request_new_with_credentials
       request_new(request_new_with_credentials_attributes)
     end
