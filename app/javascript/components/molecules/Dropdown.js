@@ -96,7 +96,8 @@ class Dropdown extends React.Component {
      <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={this.props.styles}>
        <button
          aria-expanded={this.state.expanded ? 'true' : 'false'}
-         onClick={this.toggleExpand} ref={(node) => { this.buttonRef = node }}
+         onClick={this.toggleExpand}
+         ref={(node) => { this.buttonRef = node }}
          className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
          type='button'>
          <span className='ui-icon ui-small'>

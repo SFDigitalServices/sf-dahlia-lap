@@ -10,6 +10,7 @@ import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
+import StatusModalWrapper from '~/components/lease_ups/StatusModalWrapper'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -76,9 +77,25 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
+  addStatusComment = () => {
+    this.setState({ showAddCommentModal: true })
+  }
+
+  closeAddCommentModal = () => {
+    this.setState({ showAddCommentModal: false })
+  }
+
+  changeAddCommentStatusHandle = (value) => {
+    this.setState({ addCommentStatus: value })
+  }
+
+  createCommentStatus = (submittedValues) => {
+    this.setState({ showAddCommentModal: false })
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
-    const { amis, amiCharts } = this.state
+    const { amis, amiCharts, showAddCommentModal, addCommentStatus } = this.state
 
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
@@ -104,13 +121,22 @@ class SupplementalApplicationPage extends React.Component {
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,
-      availableUnits: availableUnits
+      availableUnits: availableUnits,
+      addStatusComment: this.addStatusComment
     }
 
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
+
+          <StatusModalWrapper
+            isOpen={showAddCommentModal}
+            status={addCommentStatus}
+            changeHandler={this.changeAddCommentStatusHandle}
+            closeHandler={this.closeAddCommentModal}
+            submitHandler={this.createCommentStatus}
+          />
         </CardLayout>
       </Context.Provider>
     )
