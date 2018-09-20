@@ -30,9 +30,6 @@ VCR.configure do |config|
   config.filter_sensitive_data('<<ACCESS_TOKEN>>') do |interaction|
     begin
       j = JSON.parse(interaction.response.body)
-      # puts '*'*20
-      # puts j.try(:[], 'access_token')
-      # puts '*'*20
       j.try(:[], 'access_token')
     rescue JSON::ParserError, TypeError
       nil
@@ -48,4 +45,8 @@ VCR.configure do |config|
 
   # needed for codeclimate to work
   config.ignore_hosts 'codeclimate.com'
+
+  # This can be used to manipulate the response before saving
+  # config.before_record do |interaction|
+  # end
 end

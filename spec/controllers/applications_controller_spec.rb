@@ -4,34 +4,22 @@ RSpec.describe ApplicationsController, type: :controller do
   render_views
   login_admin
 
-  describe '#index' do
+  describe '#show' do
     it 'should rendering succesfully' do
-      VCR.use_cassette('applications_controller/index') do
-        get :index
+      VCR.use_cassette('applications_controller/show') do
+        get :show, params: { id: valid_application_id }
       end
 
-      expect(response.body).to have_react_component('ApplicationsPage')
+      expect(response.body).to have_react_component('ApplicationPage')
       expect(response).to have_http_status(:success)
-      expect(assigns(:listings)).to be_present
     end
-  end
 
-  # describe '#show' do
-  #   it 'should rendering succesfully' do
-  #     VCR.use_cassette('listings_controller/show') do
-  #       get :index, params: { listing_id: valid_listing_id }
-  #     end
-  #
-  #     expect(response.body).to have_react_component('LeaseUpsPage')
-  #     expect(response).to have_http_status(:success)
-  #   end
-  #
-  #   it 'should handle error' do
-  #     VCR.use_cassette('listings_controller/index_errors') do
-  #       get :index, params: { listing_id: invalid_listing_id }
-  #     end
-  #
-  #     expect(response).to have_http_status(:not_found)
-  #   end
-  # end
+    # it 'should handle error' do
+    #   VCR.use_cassette('applications_controller/show_errors') do
+    #     get :show, params: { id: invalid_application_id }
+    #   end
+    #
+    #   expect(response).to have_http_status(:not_found)
+    # end
+  end
 end

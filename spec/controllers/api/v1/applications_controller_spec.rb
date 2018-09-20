@@ -7,12 +7,12 @@ RSpec.describe Api::V1::ApplicationsController, type: :controller do
   describe '#index' do
     it 'should rendering succesfully' do
       VCR.use_cassette('api/v1/applications_controller/index') do
-        get :index, listing: valid_listing_id
+        get :index, params: { listing: valid_listing_id }
       end
 
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['records'].size).to eq(100)
+      expect(json['records'].size).to eq(8)
     end
   end
 end
