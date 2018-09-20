@@ -13,6 +13,7 @@ import {
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
+import { withContext } from '../context'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -83,7 +84,7 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
   <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, onPanelClose }) => {
+const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose }) => {
   const applicationMembers = getFullHousehold(application)
   const rows = buildRows(application, fileBaseUrl)
   return (
@@ -97,4 +98,4 @@ const PreferencesTable = ({ application, fileBaseUrl, onDismissError, onSave, on
     </TableWrapper>)
 }
 
-export default PreferencesTable
+export default withContext(PreferencesTable)

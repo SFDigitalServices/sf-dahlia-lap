@@ -1,3 +1,4 @@
+/* global alert */
 import React from 'react'
 import { Form } from 'react-form'
 import { isEmpty } from 'lodash'
@@ -11,7 +12,7 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-
+import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
 import { withContext } from './context'
 
 const StatusUpdateSection = () => (
@@ -20,18 +21,27 @@ const StatusUpdateSection = () => (
   </ContentSection.Content>
 )
 
-const LeaseInformationSection = ({ statusHistory }) => (
-  <ContentSection title='Lease Information'>
-    <ContentSection.Sub title='Demographics'>
-      <DemographicsInputs />
+const StatusHistorySection = withContext(({ store }) => {
+  const { statusHistory } = store
+  return !isEmpty(statusHistory) && (
+    <ContentSection.Sub title='Status History' borderBottom={false}>
+      <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
     </ContentSection.Sub>
-    {!isEmpty(statusHistory) && (
-      <ContentSection.Sub title='Status History' borderBottom={false}>
-        <StatusList items={statusHistory} onAddCommnent={() => window.alert('add comment')} />
+  )
+})
+
+const LeaseInformationSection = () => {
+  return (
+    <ContentSection title='Lease Information'>
+      <ContentSection.Content borderBottom>
+        <LeaseInformatonInputs />
+      </ContentSection.Content>
+      <ContentSection.Sub title='Demographics'>
+        <DemographicsInputs />
       </ContentSection.Sub>
-    )}
-  </ContentSection>
-)
+    </ContentSection>
+  )
+}
 
 const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   return (
@@ -105,7 +115,6 @@ class SupplementalApplicationContainer extends React.Component {
   render () {
     const { store } = this.props
     const {
-      statusHistory,
       application,
       fileBaseUrl,
       onSavePreference,
@@ -131,7 +140,8 @@ class SupplementalApplicationContainer extends React.Component {
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
               />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-              <LeaseInformationSection statusHistory={statusHistory} />
+              <LeaseInformationSection />
+              <StatusHistorySection />
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ButtonPager disabled={loading} />
             </form>
