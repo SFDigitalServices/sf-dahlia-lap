@@ -1,7 +1,7 @@
 module ForceHelpers
   YELLOW_ACRES_LISTING_ID = 'a0W0U000000MX4vUAG'.freeze
 
-  YELLOW_ACRES_APPLICATION_ID = 'a0o0U000000VVIhQAO'.freeze
+  YELLOW_ACRES_APPLICATION_ID = 'a0o0U000000VVw8'.freeze
 
   def valid_listing_id
     YELLOW_ACRES_LISTING_ID
@@ -16,6 +16,6 @@ module ForceHelpers
   end
 
   def invalid_application_id
-    'a0W0P00000DZfSpXXX'
+    'abcdertcoYYYYYXXX'
   end
 end
