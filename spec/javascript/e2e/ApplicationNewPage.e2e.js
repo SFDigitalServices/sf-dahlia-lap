@@ -56,5 +56,5 @@ describe('ApplicationNewPage', () => {
     expect(hasAlertBox).toBe(true)
 
     browser.close()
-  }, 100000)
+  }, DEFAULT_E2E_TIME_OUT)
 })

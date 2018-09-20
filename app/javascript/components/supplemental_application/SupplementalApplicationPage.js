@@ -33,6 +33,7 @@ class SupplementalApplicationPage extends React.Component {
     this.state = {
       // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
+      confirmedPreferencesFailed: false,
       amis: {},
       amiCharts: []
     }
@@ -72,13 +73,21 @@ class SupplementalApplicationPage extends React.Component {
     synchedApplication.total_monthly_rent = application.total_monthly_rent
     synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
 
-    await updateApplicationAction(synchedApplication)
-    this.setState({ persistedApplication: synchedApplication })
+    const response = await updateApplicationAction(synchedApplication)
+
+    this.setState({
+      persistedApplication: synchedApplication,
+      confirmedPreferencesFailed: !response
+    })
+  }
+
+  handleOnDismissError = () => {
+    this.setState({ confirmedPreferencesFailed: false })
   }
 
   render () {
     const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
-    const { amis, amiCharts } = this.state
+    const { confirmedPreferencesFailed, amis, amiCharts } = this.state
 
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
@@ -101,6 +110,8 @@ class SupplementalApplicationPage extends React.Component {
       statusHistory: statusHistory,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
+      confirmedPreferencesFailed: confirmedPreferencesFailed,
+      onDismissError: this.handleOnDismissError,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,

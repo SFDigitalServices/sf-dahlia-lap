@@ -11,6 +11,7 @@ import StatusUpdateForm from './sections/StatusUpdateForm'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
+import AlertBox from '~/components/molecules/AlertBox'
 import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
 import { withContext } from './context'
 
@@ -55,16 +56,23 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const ConfirmedPreferencesSection = ({application, fileBaseUrl, onSave}) => {
+const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
       description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
       <ContentSection.Content>
+        { confirmedPreferencesFailed && (
+          <AlertBox
+            invert
+            onCloseClick={onDismissError}
+            message="We weren't able to save your updates. Please try again." />
+        )}
         <PreferencesTable
           application={application}
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
+          onPanelClose={onDismissError}
         />
       </ContentSection.Content>
     </ContentSection>
@@ -106,7 +114,15 @@ class SupplementalApplicationContainer extends React.Component {
 
   render () {
     const { store } = this.props
-    const { application, amis, amiCharts } = store
+    const {
+      application,
+      fileBaseUrl,
+      onSavePreference,
+      confirmedPreferencesFailed,
+      onDismissError,
+      amis,
+      amiCharts
+    } = store
     const { loading } = this.state
 
     return (
@@ -116,7 +132,13 @@ class SupplementalApplicationContainer extends React.Component {
             <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
               <StatusUpdateSection />
               <ContentSection title='Current Contact Information' />
-              <ConfirmedPreferencesSection />
+              <ConfirmedPreferencesSection
+                application={application}
+                fileBaseUrl={fileBaseUrl}
+                onSave={onSavePreference}
+                onDismissError={onDismissError}
+                confirmedPreferencesFailed={confirmedPreferencesFailed}
+              />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection />
               <StatusHistorySection />
