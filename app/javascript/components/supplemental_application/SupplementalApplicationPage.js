@@ -37,7 +37,7 @@ class SupplementalApplicationPage extends React.Component {
       confirmedPreferencesFailed: false,
       amis: {},
       amiCharts: [],
-      addCommentStatus: 'Processing'
+      addCommentStatus: props.application.processing_status
     }
   }
 
@@ -104,13 +104,11 @@ class SupplementalApplicationPage extends React.Component {
 
     const applicationId = this.state.persistedApplication.id
     const { addCommentStatus } = this.state
-
     const response = await addCommentsWithStatus(applicationId, submittedValues.comment, addCommentStatus)
 
-    if (response) {
-      window.location.reload()
-    }
-    console.log(response)
+    // if (response) {
+    //   window.location.reload()
+    // }
   }
 
   render () {
@@ -154,6 +152,7 @@ class SupplementalApplicationPage extends React.Component {
 
           <StatusModalWrapper
             header='Add New Comment'
+            primaryButton='save'
             isOpen={showAddCommentModal}
             status={addCommentStatus}
             changeHandler={this.changeAddCommentStatusHandle}

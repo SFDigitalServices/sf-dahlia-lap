@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       resources :applications, only: %w[index]
       scope '/field-update-comments' do
         post 'create' => 'field_update_comments#create'
+        get  'index' => 'field_update_comments#index'
       end
       get 'ami' => 'ami#get'
     end

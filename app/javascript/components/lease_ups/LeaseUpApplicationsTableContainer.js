@@ -142,6 +142,7 @@ class LeaseUpTableContainer extends React.Component {
           onCellClick={this.goToSupplementaryInfo} />
         <StatusModalWrapper
           header='Update Status'
+          primaryButton='update'
           isOpen={this.state.statusModal.isOpen}
           status={this.state.statusModal.status}
           applicationId={this.state.statusModal.applicationId}

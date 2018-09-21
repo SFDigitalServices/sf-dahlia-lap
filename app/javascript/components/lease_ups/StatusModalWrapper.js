@@ -23,13 +23,14 @@ class StatusModalWrapper extends React.Component {
       loading,
       status,
       changeHandler,
-      header
+      header,
+      primaryButton
     } = this.props
 
     return (
       <FormModal
         header={header}
-        primary='update'
+        primary={primaryButton}
         secondary='cancel'
         isOpen={isOpen}
         handleClose={closeHandler}
