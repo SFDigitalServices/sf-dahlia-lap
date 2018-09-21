@@ -78,6 +78,9 @@ class LeaseUpTableContainer extends React.Component {
         applicationId: applicationId
       }
 
+      // TODO:  This apiService call should be move out to the LeaseUpApplicationPage.
+      //        We should pass a handler with the context API that wraps this API call.
+      //        Fed
       const response = await apiService.createLeaseUpStatus(data)
 
       if (response) {

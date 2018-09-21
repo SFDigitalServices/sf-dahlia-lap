@@ -13,9 +13,19 @@ export const updateApplicationAction = async (application) => {
 }
 
 export const getAMIAction = async ({chartType, chartYear}) => {
-  const response = await apiService.getAMI({chartType, chartYear})
+  const response = await apiService.getAMI({ chartType, chartYear })
   if (response === false) {
     Alerts.error()
   }
   return response['ami']
+}
+
+export const addCommentsWithStatus = async (applicationId, comment, status) => {
+  const data = { status, comment, applicationId }
+  const response = await apiService.createLeaseUpStatus(data)
+  if (response === false) {
+    Alerts.error()
+  }
+  // return response['ami']
+  return true
 }

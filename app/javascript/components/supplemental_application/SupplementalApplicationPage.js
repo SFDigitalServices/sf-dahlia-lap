@@ -5,7 +5,7 @@ import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
-import { updateApplicationAction } from './actions'
+import { updateApplicationAction, addCommentsWithStatus } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
@@ -35,7 +35,8 @@ class SupplementalApplicationPage extends React.Component {
       // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
       amis: {},
-      amiCharts: []
+      amiCharts: [],
+      addCommentStatus: 'Processing'
     }
   }
 
@@ -77,7 +78,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ persistedApplication: synchedApplication })
   }
 
-  addStatusComment = () => {
+  openAddStatusCommentModal = () => {
     this.setState({ showAddCommentModal: true })
   }
 
@@ -89,8 +90,18 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ addCommentStatus: value })
   }
 
-  createCommentStatus = (submittedValues) => {
+  createCommentStatus = async (submittedValues) => {
     this.setState({ showAddCommentModal: false })
+
+    const applicationId = this.state.persistedApplication.id
+    const { addCommentStatus } = this.state
+
+    const response = await addCommentsWithStatus(applicationId, submittedValues.comment, addCommentStatus)
+
+    if (response) {
+      window.location.reload()
+    }
+    console.log(response)
   }
 
   render () {
@@ -122,7 +133,7 @@ class SupplementalApplicationPage extends React.Component {
       amiCharts: amiCharts,
       amis: amis,
       availableUnits: availableUnits,
-      addStatusComment: this.addStatusComment
+      openAddStatusCommentModal: this.openAddStatusCommentModal
     }
 
     return (
@@ -131,6 +142,7 @@ class SupplementalApplicationPage extends React.Component {
           <SupplementalApplicationContainer />
 
           <StatusModalWrapper
+            header='Add New Comment'
             isOpen={showAddCommentModal}
             status={addCommentStatus}
             changeHandler={this.changeAddCommentStatusHandle}
