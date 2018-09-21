@@ -110,11 +110,12 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={formApi.submitForm} id='shortForm'>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
-                  <AlertBox
-                    invert
-                    dismiss={!failed}
-                    onCloseClick={() => this.setState({failed: false})}
-                    message='Please resolve any errors before saving the application.' />
+                  { failed && (
+                    <AlertBox
+                      invert
+                      onCloseClick={() => this.setState({failed: false})}
+                      message='Please resolve any errors before saving the application.' />
+                  )}
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
