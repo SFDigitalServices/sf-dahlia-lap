@@ -1,4 +1,3 @@
-/* global alert */
 import React from 'react'
 import { Form } from 'react-form'
 import { isEmpty } from 'lodash'
