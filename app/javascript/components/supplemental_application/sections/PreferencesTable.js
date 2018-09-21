@@ -104,4 +104,4 @@ const PreferencesTable = withContext(({ store }) => {
     </TableWrapper>)
 })
 
-export default PreferencesTable
+export default withContext(PreferencesTable)
