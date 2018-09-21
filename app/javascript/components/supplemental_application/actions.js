@@ -26,6 +26,5 @@ export const addCommentsWithStatus = async (applicationId, comment, status) => {
   if (response === false) {
     Alerts.error()
   }
-  // return response['ami']
   return true
 }
