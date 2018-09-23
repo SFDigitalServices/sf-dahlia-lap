@@ -106,9 +106,9 @@ class SupplementalApplicationPage extends React.Component {
     const { addCommentStatus } = this.state
     const response = await addCommentsWithStatus(applicationId, submittedValues.comment, addCommentStatus)
 
-    // if (response) {
-    //   window.location.reload()
-    // }
+    if (response) {
+      window.location.reload()
+    }
   }
 
   render () {

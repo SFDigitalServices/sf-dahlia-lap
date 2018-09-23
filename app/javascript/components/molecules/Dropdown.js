@@ -89,11 +89,11 @@ class Dropdown extends React.Component {
  }
 
  render () {
-   const { prompt, items, value, buttonClasses, menuClasses = [] } = this.props
+   const { prompt, items, value, buttonClasses, menuClasses = [], styles } = this.props
    const selectedItem = find(items, { value: value })
 
    return (
-     <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={this.props.styles}>
+     <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={styles}>
        <button
          aria-expanded={this.state.expanded ? 'true' : 'false'}
          onClick={this.toggleExpand}

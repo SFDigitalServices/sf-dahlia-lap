@@ -26,6 +26,7 @@
 }
 
 .ReactModal__Content {
+  //NOTE: Why do we have position relative just for modals?, Fed
   .dropdown {
     position: relative;
   }

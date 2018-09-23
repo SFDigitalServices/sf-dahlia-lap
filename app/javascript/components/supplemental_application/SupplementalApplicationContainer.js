@@ -11,8 +11,10 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
+import Dropdown from '~/components/molecules/Dropdown'
 import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
 import { withContext } from './context'
+import { LEASE_UP_STATUS_OPTIONS } from '~/components/lease_ups/leaseUpsHelpers'
 
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
@@ -78,22 +80,32 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
   )
 }
 
-const ButtonPager = ({ disabled }) => (
+// <button type='button' className='button dropdown-button has-icon--right text-align-left small is-approved small has-status-width' aria-expanded='false' disabled={disabled}>
+//   <span className='ui-icon ui-small' aria-hidden='true'>
+//     <svg>
+//       <use xlinkHref='#i-arrow-down' />
+//     </svg>
+//   </span>
+//   {application.processing_status}
+// </button>
+// <ul className='dropdown-menu' role='listbox' aria-hidden='true' aria-activedescendant='' tabIndex={0} style={{display: 'none'}}>
+//   <li className='dropdown-menu_item' role='option' aria-selected='false'><a href='/some/valid/uri'>This is a link</a></li>
+//   <li className='dropdown-menu_item' role='option' aria-selected='false'><a href='/some/valid/uri'>This is another</a></li>
+//   <li className='dropdown-menu_item is-selected' role='option' aria-selected='true'><a href='/some/valid/uri'>Yet another</a></li>
+// </ul>
+
+const ButtonPager = ({ application, disabled }) => (
   <div className='button-pager'>
     <div className='button-pager_row align-buttons-left primary inset-wide'>
-      <button className='button dropdown-button has-icon--right text-align-left small is-approved small has-status-width' href='#' aria-expanded='false' disabled={disabled}>
-        <span className='ui-icon ui-small' aria-hidden='true'>
-          <svg>
-            <use xlinkHref='#i-arrow-down' />
-          </svg>
-        </span>
-        Approved
-      </button>
-      <ul className='dropdown-menu' role='listbox' aria-hidden='true' aria-activedescendant='' tabIndex={0} style={{display: 'none'}}>
-        <li className='dropdown-menu_item' role='option' aria-selected='false'><a href='/some/valid/uri'>This is a link</a></li>
-        <li className='dropdown-menu_item' role='option' aria-selected='false'><a href='/some/valid/uri'>This is another</a></li>
-        <li className='dropdown-menu_item is-selected' role='option' aria-selected='true'><a href='/some/valid/uri'>Yet another</a></li>
-      </ul>
+      <Dropdown
+        items={LEASE_UP_STATUS_OPTIONS}
+        value={application.processing_status}
+        prompt={application.processing_status}
+        buttonClasses={['is-approved small has-status-width']}
+        styles={{ display: 'inline-block', position: 'relative' }}
+        menuClasses={['form-modal_dropdown-menu']}
+      />
+
       <button className='button primary small save-btn' type='submit' disabled={disabled}>Save</button>
     </div>
   </div>
@@ -142,7 +154,7 @@ class SupplementalApplicationContainer extends React.Component {
               <LeaseInformationSection />
               <StatusHistorySection />
               <div className='padding-bottom--2x margin-bottom--2x' />
-              <ButtonPager disabled={loading} />
+              <ButtonPager disabled={loading} application={application} />
             </form>
           )}
         </Form>

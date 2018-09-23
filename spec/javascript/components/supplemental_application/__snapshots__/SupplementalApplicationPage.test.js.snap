@@ -1128,70 +1128,38 @@ Array [
             <div
               className="button-pager_row align-buttons-left primary inset-wide"
             >
-              <button
-                aria-expanded="false"
-                className="button dropdown-button has-icon--right text-align-left small is-approved small has-status-width"
-                disabled={false}
-                href="#"
-              >
-                <span
-                  aria-hidden="true"
-                  className="ui-icon ui-small"
-                >
-                  <svg>
-                    <use
-                      xlinkHref="#i-arrow-down"
-                    />
-                  </svg>
-                </span>
-                Approved
-              </button>
-              <ul
-                aria-activedescendant=""
-                aria-hidden="true"
-                className="dropdown-menu"
-                role="listbox"
+              <div
+                className="dropdown"
+                onClick={[Function]}
                 style={
                   Object {
-                    "display": "none",
+                    "display": "inline-block",
+                    "position": "relative",
                   }
                 }
-                tabIndex={0}
               >
-                <li
-                  aria-selected="false"
-                  className="dropdown-menu_item"
-                  role="option"
+                <button
+                  aria-expanded="false"
+                  className="button dropdown-button has-icon--right text-align-left is-approved small has-status-width"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <a
-                    href="/some/valid/uri"
+                  <span
+                    className="ui-icon ui-small"
                   >
-                    This is a link
-                  </a>
-                </li>
-                <li
-                  aria-selected="false"
-                  className="dropdown-menu_item"
-                  role="option"
-                >
-                  <a
-                    href="/some/valid/uri"
-                  >
-                    This is another
-                  </a>
-                </li>
-                <li
-                  aria-selected="true"
-                  className="dropdown-menu_item is-selected"
-                  role="option"
-                >
-                  <a
-                    href="/some/valid/uri"
-                  >
-                    Yet another
-                  </a>
-                </li>
-              </ul>
+                    <svg>
+                      <use
+                        xlinkHref="#i-arrow-down"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div
+                  aria-hidden="true"
+                  className="dropdown-menu-wrapper"
+                  role="menu"
+                />
+              </div>
               <button
                 className="button primary small save-btn"
                 disabled={false}
