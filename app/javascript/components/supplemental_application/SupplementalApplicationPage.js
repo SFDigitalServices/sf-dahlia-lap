@@ -88,7 +88,21 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   openAddStatusCommentModal = () => {
-    this.setState({ showAddCommentModal: true })
+    this.setState({
+      showAddCommentModal: true,
+      statusModalHeader: 'Add New Comment',
+      statusModalButton: 'save',
+      addCommentStatus: this.props.application.processing_status
+    })
+  }
+
+  openUpdateStatusModal = (value) => {
+    this.setState({
+      showAddCommentModal: true,
+      statusModalHeader: 'Update Status',
+      statusModalButton: 'update',
+      addCommentStatus: value
+    })
   }
 
   closeAddCommentModal = () => {
@@ -107,13 +121,21 @@ class SupplementalApplicationPage extends React.Component {
     const response = await addCommentsWithStatus(applicationId, submittedValues.comment, addCommentStatus)
 
     if (response) {
+      // NOTE: reload window to fetch the latest field update comment created
       window.location.reload()
     }
   }
 
   render () {
     const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
-    const { confirmedPreferencesFailed, amis, amiCharts, showAddCommentModal, addCommentStatus } = this.state
+    const {
+      confirmedPreferencesFailed,
+      amis,
+      amiCharts,
+      showAddCommentModal,
+      addCommentStatus,
+      statusModalHeader
+    } = this.state
 
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
@@ -142,16 +164,16 @@ class SupplementalApplicationPage extends React.Component {
       amiCharts: amiCharts,
       amis: amis,
       availableUnits: availableUnits,
-      openAddStatusCommentModal: this.openAddStatusCommentModal
+      openAddStatusCommentModal: this.openAddStatusCommentModal,
+      openUpdateStatusModal: this.openUpdateStatusModal
     }
 
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
-
           <StatusModalWrapper
-            header='Add New Comment'
+            header={statusModalHeader}
             primaryButton='save'
             isOpen={showAddCommentModal}
             status={addCommentStatus}
