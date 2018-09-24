@@ -62,7 +62,7 @@ const getAMI = async ({ chartType, chartYear }) => {
 //   console.log(`Updating lease up status for ${applicationNumer} to ${status}`)
 // }
 // Creates a new Field Update Comment Salesforce record
-const createLeaseUpStatus = async (data) => {
+const createFieldUpdateComment = async (data) => {
   let postData = {
     field_update_comment: {
       Processing_Status__c: data.status,
@@ -83,6 +83,6 @@ export default {
   submitApplication,
   fetchApplications,
   getAMI,
-  createLeaseUpStatus,
+  createFieldUpdateComment,
   fetchStatusHistory
 }
