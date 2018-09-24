@@ -1,0 +1,162 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test.salesforce.com/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Sep 2018 18:24:23 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=U2_9apN8RuqCy_7DFboy8w;Path=/;Domain=.salesforce.com;Expires=Mon,
+        19-Nov-2018 18:24:23 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--full.cs97.my.salesforce.com","id":"https://test.salesforce.com/id/00D0U0000000Qf1UAE/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1537467864072","signature":"/nbjAA8EeSYyX8gUIcBxRlS5PgW3ZTmw/zOXGlQ0Muw="}'
+    http_version: 
+  recorded_at: Thu, 20 Sep 2018 18:24:08 GMT
+- request:
+    method: get
+    uri: https://sfhousing--full.cs97.my.salesforce.com/services/data/v43.0/query?q=SELECT%20Id,%20Name,%20Listing__r.Name,%20Listing__r.Lottery_Date__c,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Application_Submitted_Date__c,%20Total_Household_Size__c,%20Application_Submission_Type__c%20FROM%20Application__c%20WHERE%20(Id%20!=%20null)%20AND%20(Status__c%20!=%20%27Draft%27)%20AND%20(Listing__r.Id%20=%20%27a0W0U000000MX4vUAG%27)%20LIMIT%20100%20OFFSET%200
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Sep 2018 18:24:24 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://calm-dawn-26291.herokuapp.com/hpkp-report/00D0U0000000Qf1m";
+      Expect-Ct:
+      - max-age=0; report-uri="https://calm-dawn-26291.herokuapp.com/Expect-CT-report/00D0U0000000Qf1m";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=1UGlc8DNS5SyHDqm1glgbw;Path=/;Domain=.salesforce.com;Expires=Mon,
+        19-Nov-2018 18:24:24 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=2622/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":5,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v43.0/sobjects/Application__c/a0o0U000000VVw8QAG"},"Id":"a0o0U000000VVw8QAG","Name":"APP-00262254","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v43.0/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v43.0/sobjects/Application_Member__c/a0n0U0000030tBrQAI"},"First_Name__c":"Lappy","Last_Name__c":"Laptest"},"Application_Submitted_Date__c":"2018-08-03","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper"},{"attributes":{"type":"Application__c","url":"/services/data/v43.0/sobjects/Application__c/a0o0U000000VVwNQAW"},"Id":"a0o0U000000VVwNQAW","Name":"APP-00262256","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v43.0/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v43.0/sobjects/Application_Member__c/a0n0U0000030tC1QAI"},"First_Name__c":"Lisa","Last_Name__c":"Patest"},"Application_Submitted_Date__c":"2018-08-02","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Paper"},{"attributes":{"type":"Application__c","url":"/services/data/v43.0/sobjects/Application__c/a0o0U000000VVwXQAW"},"Id":"a0o0U000000VVwXQAW","Name":"APP-00262258","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v43.0/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v43.0/sobjects/Application_Member__c/a0n0U0000030tCLQAY"},"First_Name__c":"Partha","Last_Name__c":"Nerr"},"Application_Submitted_Date__c":"2018-08-24","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic"},{"attributes":{"type":"Application__c","url":"/services/data/v43.0/sobjects/Application__c/a0o0U000000VVwcQAG"},"Id":"a0o0U000000VVwcQAG","Name":"APP-00262259","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v43.0/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v43.0/sobjects/Application_Member__c/a0n0U0000030tCfQAI"},"First_Name__c":"Tessie","Last_Name__c":"Lapsie"},"Application_Submitted_Date__c":"2018-08-21","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic"},{"attributes":{"type":"Application__c","url":"/services/data/v43.0/sobjects/Application__c/a0o0U000000VVwmQAG"},"Id":"a0o0U000000VVwmQAG","Name":"APP-00262260","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v43.0/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v43.0/sobjects/Application_Member__c/a0n0U0000030tCkQAI"},"First_Name__c":"Portia","Last_Name__c":"Toole"},"Application_Submitted_Date__c":"2018-09-06","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Electronic"}]}'
+    http_version: 
+  recorded_at: Thu, 20 Sep 2018 18:24:09 GMT
+- request:
+    method: get
+    uri: https://sfhousing--full.cs97.my.salesforce.com/services/data/v43.0/query?q=SELECT%20count()%20FROM%20Application__c%20WHERE%20(Id%20!=%20null)%20AND%20(Status__c%20!=%20%27Draft%27)%20AND%20(Listing__r.Id%20=%20%27a0W0U000000MX4vUAG%27)
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 20 Sep 2018 18:24:25 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://calm-dawn-26291.herokuapp.com/hpkp-report/00D0U0000000Qf1m";
+      Expect-Ct:
+      - max-age=0; report-uri="https://calm-dawn-26291.herokuapp.com/Expect-CT-report/00D0U0000000Qf1m";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=SUAbP_fuTTemGB_IdC_ZQg;Path=/;Domain=.salesforce.com;Expires=Mon,
+        19-Nov-2018 18:24:25 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=2622/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":5,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Thu, 20 Sep 2018 18:24:10 GMT
+recorded_with: VCR 4.0.0
