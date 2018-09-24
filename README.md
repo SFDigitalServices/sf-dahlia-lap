@@ -19,25 +19,25 @@ A portal for leasing agents to manage listings and applications.
 * `rails s`
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
 
-## To update css from Pattern Library
+## To update CSS from Pattern Library
 * `grunt`
 
-## Linting:
+## Linting
 
 To lint Ruby code run: `rubocop`
 
-To lint the react code run: `yarn lint`
+To lint the React code run: `yarn lint`
 
 
-## Rails tests:
+## Rails tests
 
-### Running tests:
+### Running tests
 
 `bundle exec rake spec`
 
 **Updating VCR Cassettes**
 
-if the Saleforce API changed or any of the data posted to the API changed, you have to update the VCR cassettes affected (a cassettes is just a Yaml file). Cassettes are located under `app/spec/vcr/`.
+If the Salesforce API changes for a request, or if the data sent to the API for a request has changed, you have to update the VCR cassettes affected. Cassettes are YAML files located in the `app/spec/vcr/` directory.
 
 In order to update the cassettes you have to:
 
@@ -55,9 +55,11 @@ You have to remove:
 app/spec/vcr/listings/applications_controller/index.yml
 ```
 
-## React/Javascript tests:
+Then re-run your test. **Be aware that now that request in your test will actually be run.** A new cassette will be automatically generated recording that new run of the request, and then subsequent runs of the test will use that recorded cassette for the request.
 
-### Running unit tests:
+## React/Javascript tests
+
+### Running unit tests
 
 `yarn test:unit`
 
@@ -69,13 +71,13 @@ If you made a legitimate change in the view and a snapshot fails then you have t
 
 _Note: Snapshots should be pushed to the repo_
 
-### Running e2e tests:
+### Running e2e tests
 
 In order to run e2e tests you have to:
-* Set 2 environment variables to let the e2e test login into Saleforce.
+* Set two environment variables to let the e2e test login into Salesforce.
 * Run your rails server locally.
 
-**setting env variables**
+**Set env variables**
 
 Set the following env variables. You have to set them in your environment and not in your `.env` . Variables in your `.env` are being used only by Rails and e2e runs in Javascript.
 
@@ -84,7 +86,7 @@ E2E_SALESFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
 E2E_SALESFORCE_PASSWORD=<ask the team for this password>
 ```
 
-**run server**
+**Run server**
 
 Run your Rails server locally in port 3000:
 
@@ -94,7 +96,7 @@ Run your webpack server locally
 
 `bin/webpack-dev-server --hot`
 
-**running tests**
+**Run tests**
 
 `yarn test:e2e`
 
