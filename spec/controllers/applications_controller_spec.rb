@@ -13,13 +13,5 @@ RSpec.describe ApplicationsController, type: :controller do
       expect(response.body).to have_react_component('ApplicationPage')
       expect(response).to have_http_status(:success)
     end
-
-    # it 'should handle error' do
-    #   VCR.use_cassette('applications_controller/show_errors') do
-    #     get :show, params: { id: invalid_application_id }
-    #   end
-    #
-    #   expect(response).to have_http_status(:not_found)
-    # end
   end
 end

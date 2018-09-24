@@ -16,7 +16,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
 
     it 'should handle error' do
       VCR.use_cassette('listings/applications_controller/index_errors') do
-        get :index, params: { listing_id: invalid_listing_id }
+        get :index, params: { listing_id: nonexistent_listing_id }
       end
 
       expect(response).to have_http_status(:not_found)
@@ -35,7 +35,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
 
     it 'should handle error' do
       VCR.use_cassette('listings/applications_controller/index_errors') do
-        get :new, params: { listing_id: invalid_listing_id }
+        get :new, params: { listing_id: nonexistent_listing_id }
       end
 
       expect(response).to have_http_status(:not_found)

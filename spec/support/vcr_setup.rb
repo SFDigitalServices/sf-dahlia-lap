@@ -18,6 +18,8 @@ VCR.configure do |config|
     end
   end
 
+  # Also look for and replace any URL encoded versions of the username and
+  # password and filter those out too
   %w[
     SALESFORCE_USERNAME
     SALESFORCE_PASSWORD
@@ -42,9 +44,6 @@ VCR.configure do |config|
       h['Authorization'].first.split('OAuth ').last
     end
   end
-
-  # needed for codeclimate to work
-  config.ignore_hosts 'codeclimate.com'
 
   # This can be used to manipulate the response before saving
   # config.before_record do |interaction|
