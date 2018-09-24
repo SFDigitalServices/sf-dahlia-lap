@@ -17,32 +17,41 @@ module Force
              .first
     end
 
-    def submit_lease(lease, application_id, _primary_contact_id)
-      # Update
+    def submit_lease(lease, application_id, primary_contact_id)
       # FIXME: Fix Tenant__c permissions so we can submit these values.
       if lease[:id]
-        response = @client.update!('Lease__c',
-                                   Id: lease[:id],
-                                   # Tenant__c: primary_contact_id,
-                                   Unit__c: lease[:unit],
-                                   Lease_Status__c: lease[:leaseStatus],
-                                   Lease_Start_Date__c: lease[:leaseStartDate],
-                                   Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
-                                   Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
-                                   Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+        response = update_lease(lease, application_id, primary_contact_id)
       else
-        # Create
-        response = @client.create!('Lease__c',
-                                   Application__c: application_id,
-                                   # Tenant__c: primary_contact_id,
-                                   Unit__c: lease[:unit],
-                                   Lease_Status__c: 'Draft',
-                                   Lease_Start_Date__c: lease[:leaseStartDate],
-                                   Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
-                                   Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
-                                   Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+        response = create_lease(lease, application_id, primary_contact_id)
       end
       response
+    end
+
+    private
+
+    def create_lease(lease, application_id, _primary_contact_id)
+      @client.create!('Lease__c',
+                      Application__c: application_id,
+                      # Tenant__c: primary_contact_id,
+                      Unit__c: lease[:unit],
+                      Lease_Status__c: 'Draft',
+                      Lease_Start_Date__c: lease[:leaseStartDate],
+                      Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+                      Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
+                      Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+    end
+
+    def update_lease(lease, application_id, _primary_contact_id)
+      @client.update!('Lease__c',
+                      Id: lease[:id],
+                      Application__c: application_id,
+                      # Tenant__c: primary_contact_id,
+                      Unit__c: lease[:unit],
+                      Lease_Status__c: lease[:leaseStatus],
+                      Lease_Start_Date__c: lease[:leaseStartDate],
+                      Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+                      Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
+                      Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
     end
   end
 end

@@ -54,14 +54,14 @@ class SupplementalApplicationPage extends React.Component {
     const synchedApplication = cloneDeep(application)
 
     // Monthly rent and preferences are only updated in handleSavePreference below.
-    // We set this values so we keep whaterver we save in the panels
+    // We set this values so we keep whatever we save in the panels
     synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
     synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
 
     await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
-    // Redirect to same page to be able to re-pull data from SalesForce
-    window.location.href = appPaths.toApplicationSupplementals(application.id)
+    // Reload the page to be pull updated data from SalesForce.
+    window.location.reload()
   }
 
   handleSavePreference = async (preferenceIndex, application) => {

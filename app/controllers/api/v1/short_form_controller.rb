@@ -6,12 +6,10 @@ class Api::V1::ShortFormController < ApiController
     logger.debug "application_api_params: #{application_api_params}"
     short_form_validator = ShortFormValidator.new(application_api_params)
     if short_form_validator.valid?
-      # If lease information is available, submit it separately.
       if application_api_params.key?(:lease)
         response = lease_service.submit_lease(application_api_params[:lease],
                                               application_api_params[:id],
                                               application_api_params[:primaryApplicantContact])
-        # Don't submit lease application_api_params to the customAPI.
         logger.debug "lease submit response: #{response}"
       end
       application = application_service.submit(application_api_params)
