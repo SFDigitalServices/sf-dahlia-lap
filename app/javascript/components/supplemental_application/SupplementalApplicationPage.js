@@ -58,10 +58,12 @@ class SupplementalApplicationPage extends React.Component {
     synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
     synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
 
-    await updateApplicationAction(synchedApplication)
+    const response = await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
-    // Reload the page to be pull updated data from SalesForce.
-    window.location.reload()
+    if (response !== false) {
+      // Reload the page to be pull updated data from SalesForce.
+      window.location.reload()
+    }
   }
 
   handleSavePreference = async (preferenceIndex, application) => {
