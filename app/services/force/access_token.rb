@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 
 module Force
-  # Utility for requesting access tokens for login into saleforce
+  # Utility for requesting access tokens for login into Salesforce
   module AccessToken
     def self.request_new_token
       client = restforce_client

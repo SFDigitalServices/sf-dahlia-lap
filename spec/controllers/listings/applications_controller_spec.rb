@@ -5,7 +5,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
   login_admin
 
   describe '#index' do
-    it 'should rendering succesfully' do
+    it 'should render successfully' do
       VCR.use_cassette('listings/applications_controller/index') do
         get :index, params: { listing_id: valid_listing_id }
       end
@@ -14,7 +14,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it 'should handle error' do
+    it 'should handle not found errors' do
       VCR.use_cassette('listings/applications_controller/index_errors') do
         get :index, params: { listing_id: nonexistent_listing_id }
       end
@@ -24,7 +24,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
   end
 
   describe '#new' do
-    it 'should rendering succesfully' do
+    it 'should render successfully' do
       VCR.use_cassette('listings/applications_controller/new') do
         get :new, params: { listing_id: valid_listing_id }
       end
@@ -33,7 +33,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it 'should handle error' do
+    it 'should handle not found errors' do
       VCR.use_cassette('listings/applications_controller/index_errors') do
         get :new, params: { listing_id: nonexistent_listing_id }
       end

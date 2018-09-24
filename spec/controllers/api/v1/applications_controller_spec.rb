@@ -5,7 +5,7 @@ RSpec.describe Api::V1::ApplicationsController, type: :controller do
   login_admin
 
   describe '#index' do
-    it 'should rendering succesfully' do
+    it 'should render successfully' do
       VCR.use_cassette('api/v1/applications_controller/index') do
         get :index, params: { listing: valid_listing_id }
       end

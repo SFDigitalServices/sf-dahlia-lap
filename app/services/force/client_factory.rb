@@ -1,5 +1,5 @@
 module Force
-  # Creates clients for quering saleforce
+  # Creates clients for querying Salesforce
   class ClientFactory
     def initialize(user)
       @user = user

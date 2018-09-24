@@ -5,7 +5,7 @@ RSpec.describe ApplicationsController, type: :controller do
   login_admin
 
   describe '#show' do
-    it 'should rendering succesfully' do
+    it 'should render successfully' do
       VCR.use_cassette('applications_controller/show') do
         get :show, params: { id: valid_application_id }
       end

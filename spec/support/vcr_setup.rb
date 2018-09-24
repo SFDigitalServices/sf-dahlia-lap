@@ -3,8 +3,9 @@ require 'vcr'
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr'
   config.hook_into :webmock
-  # look for instances of these protected values showing up in our VCR requests
-  # and filter them out with e.g. "<<SALESFORCE_USERNAME>>"
+
+  # Look for instances of these protected values showing up in our VCR requests
+  # and filter them out with e.g. "<<SALESFORCE_USERNAME>>".
   %w[
     SALESFORCE_USERNAME
     SALESFORCE_PASSWORD
@@ -19,7 +20,7 @@ VCR.configure do |config|
   end
 
   # Also look for and replace any URL encoded versions of the username and
-  # password and filter those out too
+  # password and filter those out too.
   %w[
     SALESFORCE_USERNAME
     SALESFORCE_PASSWORD
