@@ -23,11 +23,12 @@ class Dropdown extends React.Component {
 
   toggleExpand = (e) => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
-    e.stopPropagation() // We need this, so we do not call the collpase function from Foundation
+    // We need this to avoid triggering the collapse function from Foundation
+    e.stopPropagation()
   }
 
   componentClickHandler = (e) => {
-    // We want to hide only when we click in the component but outisde the menu
+    // We want to hide the dropdown menu only when we click in the component but outside the menu
     if (this.wrapperRef === e.target) { this.setState({ expanded: false }) }
   }
 
@@ -85,7 +86,11 @@ class Dropdown extends React.Component {
    const selectedItem = find(items, { value: value })
 
    return (
-     <div className={`dropdown ${wrapperClasses ? wrapperClasses.join(' ') : ''}`} onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={styles}>
+     <div
+       className={`dropdown ${wrapperClasses ? wrapperClasses.join(' ') : ''}`}
+       onClick={this.componentClickHandler}
+       ref={(node) => { this.wrapperRef = node }}
+       style={styles}>
        <button
          aria-expanded={this.state.expanded ? 'true' : 'false'}
          onClick={this.toggleExpand}

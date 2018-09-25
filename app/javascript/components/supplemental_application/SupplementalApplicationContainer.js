@@ -26,7 +26,7 @@ const StatusHistorySection = withContext(({ store }) => {
   const { statusHistory, openAddStatusCommentModal } = store
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
-      <StatusList items={statusHistory} onAddCommnent={openAddStatusCommentModal} />
+      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
     </ContentSection.Sub>
   )
 })
