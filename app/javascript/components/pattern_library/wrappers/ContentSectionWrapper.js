@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ContentSection from '../molecules/ContentSection'
-import FormGridRow from '../molecules/FormGridRow'
+import ContentSection from '~/components/molecules/ContentSection'
+import FormGridRow from '~/components/molecules/FormGridRow'
 
 const ContentSectionWrapper = ({title, titleDesc, subtitle, subtitleDesc}) => {
   return (

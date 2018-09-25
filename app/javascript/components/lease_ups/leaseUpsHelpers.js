@@ -13,8 +13,6 @@ export const LEASE_UP_STATUS_OPTIONS = [
 export const PAGE_SIZE = 5
 
 export const getLeaseUpStatusStyle = (status) => {
-  var style = 'tertiary'
-  var statusStyle = find(LEASE_UP_STATUS_OPTIONS, {value: status})
-  if (statusStyle) style = statusStyle.style
-  return style
+  var statusOption = find(LEASE_UP_STATUS_OPTIONS, {value: status})
+  return statusOption ? statusOption.style : 'tertiary'
 }

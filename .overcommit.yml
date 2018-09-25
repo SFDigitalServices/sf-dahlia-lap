@@ -53,6 +53,7 @@ PreCommit:
       - 'node_modules/**/*.js'
       - 'spec/javascript/fixtures/*.js'
       - 'app/assets/javascripts/cable.js'
+      - 'app/javascript/packs/pattern_library.js'
 
   CustomScript:
     enabled: true
