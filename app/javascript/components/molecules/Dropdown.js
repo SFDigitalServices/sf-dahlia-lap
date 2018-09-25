@@ -4,16 +4,6 @@ import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 import { find } from 'lodash'
 import PropTypes from 'prop-types'
 
-const computeTopWith = (buttonRef) => {
-  // Hardcoded for now.
-  // Not spending time yet on getting the right top based on button
-  return 40
-}
-
-const computeLeftWith = (ref) => {
-  return 0
-}
-
 class Dropdown extends React.Component {
   constructor (props) {
     super(props)
@@ -22,14 +12,14 @@ class Dropdown extends React.Component {
   }
 
   componentDidMount () {
+    const { direction } = this.props
+    const style = {}
+    style[(direction === 'up' ? 'bottom' : 'top')] = 54
+    style.left = 0
+    this.setState({ style })
+
     document.addEventListener('mousedown', this.handleClickOutside)
     document.addEventListener('keydown', this.onEscapeHandler)
-    this.setState({
-      style: {
-        top: computeTopWith(this.buttonRef),
-        left: computeLeftWith(this.buttonRef)
-      }
-    })
   }
 
   componentWillUnmount () {
@@ -39,7 +29,7 @@ class Dropdown extends React.Component {
 
   toggleExpand = (e) => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
-    e.stopPropagation() // We need this so we do no call collpase function
+    e.stopPropagation() // We need this, so we do not call collpase function
   }
 
   componentClickHandler = (e) => {

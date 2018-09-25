@@ -94,12 +94,13 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
 //   <li className='dropdown-menu_item is-selected' role='option' aria-selected='true'><a href='/some/valid/uri'>Yet another</a></li>
 // </ul>
 
-const ButtonPager = withContext(({ store }) => {
-  const { application, loading, openUpdateStatusModal } = store
+const ButtonPager = withContext(({ loading, store }) => {
+  const { application, openUpdateStatusModal } = store
   return (
     <div className='button-pager'>
       <div className='button-pager_row align-buttons-left primary inset-wide'>
         <Dropdown
+          direction='up'
           items={LEASE_UP_STATUS_OPTIONS}
           value={application.processing_status}
           prompt={application.processing_status}
@@ -161,7 +162,7 @@ class SupplementalApplicationContainer extends React.Component {
               <LeaseInformationSection />
               <StatusHistorySection />
               <div className='padding-bottom--2x margin-bottom--2x' />
-              <ButtonPager />
+              <ButtonPager loading={loading} />
             </form>
           )}
         </Form>
