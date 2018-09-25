@@ -76,6 +76,7 @@ applications:
     Name:
       label: 'Application Number'
     Applicant__c:
+    Primary_Applicant__c:
     Alternate_Contact__c:
     Listing__c:
     Listing__r.Name:

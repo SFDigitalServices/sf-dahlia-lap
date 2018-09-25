@@ -36,23 +36,8 @@ module Force
       application['proof_files'] = app_proof_files(id) if includes.include?('proof_files')
       application['household_members'] = app_household_members(application) if includes.include?('household_members')
       application['flagged_applications'] = flagged_record_set(id) if includes.include?('flagged_applications')
-      application['lease'] = lease(id) if includes.include?('lease')
+      application['lease'] = lease_service.lease(id) if includes.include?('lease')
       application
-    end
-
-    def lease(application_id)
-      builder.from(:Lease__c)
-             .select(:Id,
-                     :Unit__c,
-                     :Lease_Start_Date__c,
-                     :Monthly_Parking_Rent__c,
-                     :Total_Monthly_Rent_without_Parking__c,
-                     :Monthly_Tenant_Contribution__c)
-             .where_eq(:Application__c, application_id, :string)
-             .transform_results { |results| massage(results) }
-             .query
-             .records
-             .first
     end
 
     def listing_applications(listing_id)
@@ -145,6 +130,10 @@ module Force
         # for community users, restrict results to their account + draft
         %(Listing__r.Account__c = '#{@user.salesforce_account_id}')
       end
+    end
+
+    def lease_service
+      Force::LeaseService.new(@user)
     end
   end
 end
