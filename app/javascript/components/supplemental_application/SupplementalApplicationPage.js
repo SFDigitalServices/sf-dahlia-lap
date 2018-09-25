@@ -92,7 +92,7 @@ class SupplementalApplicationPage extends React.Component {
   render () {
     const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
     const { confirmedPreferencesFailed, amis, amiCharts } = this.state
-
+    console.log('Application, ', application)
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
