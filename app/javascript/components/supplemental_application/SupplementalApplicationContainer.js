@@ -14,7 +14,7 @@ import AlertBox from '~/components/molecules/AlertBox'
 import Dropdown from '~/components/molecules/Dropdown'
 import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
 import { withContext } from './context'
-import { LEASE_UP_STATUS_OPTIONS } from '~/components/lease_ups/leaseUpsHelpers'
+import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from '~/components/lease_ups/leaseUpsHelpers'
 
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
@@ -88,9 +88,9 @@ const ButtonPager = withContext(({ loading, store }) => {
         <Dropdown
           items={LEASE_UP_STATUS_OPTIONS}
           value={application.processing_status}
-          prompt={application.processing_status}
+          prompt='Status'
           wrapperClasses={['dropdown-inline']}
-          buttonClasses={['is-approved', 'small', 'has-status-width']}
+          buttonClasses={[getLeaseUpStatusStyle(application.processing_status), 'small', 'has-status-width']}
           menuClasses={['dropdown-menu-bottom']}
           onChange={openUpdateStatusModal}
         />

@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import apiService from '~/apiService'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
-import StatusModalWrapper from './StatusModalWrapper'
+import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 
@@ -131,6 +131,7 @@ class LeaseUpTableContainer extends React.Component {
 
   render () {
     const { listing } = this.props
+    const { statusModal } = this.state
 
     return (
       <div>
@@ -140,17 +141,13 @@ class LeaseUpTableContainer extends React.Component {
           onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
           onCellClick={this.goToSupplementaryInfo} />
         <StatusModalWrapper
+          {...statusModal}
           header='Update Status'
-          primaryButton='update'
-          isOpen={this.state.statusModal.isOpen}
-          status={this.state.statusModal.status}
-          applicationId={this.state.statusModal.applicationId}
-          changeHandler={this.setStatusModalStatus}
-          submitHandler={this.createStatusUpdate}
-          closeHandler={this.closeStatusModal}
-          showAlert={this.state.statusModal.showAlert}
-          onAlertCloseClick={this.hideStatusModalAlert}
-          loading={this.state.statusModal.loading} />
+          submitButton='Update'
+          onStatusChange={this.setStatusModalStatus}
+          onSubmit={this.createStatusUpdate}
+          onClose={this.closeStatusModal}
+          onAlertCloseClick={this.hideStatusModalAlert} />
       </div>
     )
   }

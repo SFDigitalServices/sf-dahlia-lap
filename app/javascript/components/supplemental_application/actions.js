@@ -19,12 +19,3 @@ export const getAMIAction = async ({chartType, chartYear}) => {
   }
   return response['ami']
 }
-
-export const addCommentsWithStatus = async (applicationId, comment, status) => {
-  const data = { status, comment, applicationId }
-  const response = await apiService.createFieldUpdateComment(data)
-  if (response === false) {
-    Alerts.error()
-  }
-  return true
-}

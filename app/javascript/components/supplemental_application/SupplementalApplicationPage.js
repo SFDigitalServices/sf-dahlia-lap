@@ -1,16 +1,18 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone } from 'lodash'
 
+import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
-import { updateApplicationAction, addCommentsWithStatus } from './actions'
+import Alerts from '~/components/Alerts'
+import { updateApplicationAction } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
-import StatusModalWrapper from '~/components/lease_ups/StatusModalWrapper'
+import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -37,7 +39,9 @@ class SupplementalApplicationPage extends React.Component {
       confirmedPreferencesFailed: false,
       amis: {},
       amiCharts: [],
-      addCommentStatus: props.application.processing_status
+      statusModal: {
+        status: props.application.processing_status
+      }
     }
   }
 
@@ -87,40 +91,60 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ confirmedPreferencesFailed: false })
   }
 
+  updateStatusModal = (values) => {
+    this.setState(prevState => {
+      return {
+        statusModal: {
+          ...clone(prevState.statusModal),
+          ...values
+        }
+      }
+    })
+  }
+
   openAddStatusCommentModal = () => {
     this.setState({
-      showAddCommentModal: true,
-      statusModalHeader: 'Add New Comment',
-      statusModalButton: 'save',
-      addCommentStatus: this.props.application.processing_status
+      statusModal: {
+        header: 'Add New Comment',
+        isOpen: true,
+        status: this.props.application.processing_status,
+        submitButton: 'Save'
+      }
     })
   }
 
   openUpdateStatusModal = (value) => {
     this.setState({
-      showAddCommentModal: true,
-      statusModalHeader: 'Update Status',
-      statusModalButton: 'update',
-      addCommentStatus: value
+      statusModal: {
+        submitButton: 'Update',
+        header: 'Update Status',
+        isOpen: true,
+        status: value
+      }
     })
   }
 
-  closeAddCommentModal = () => {
-    this.setState({ showAddCommentModal: false })
+  handleStatusModalClose = () => {
+    this.updateStatusModal({isOpen: false})
   }
 
-  changeAddCommentStatusHandle = (value) => {
-    this.setState({ addCommentStatus: value })
+  handleStatusModalStatusChange = (value) => {
+    this.updateStatusModal({status: value})
   }
 
-  createCommentStatus = async (submittedValues) => {
-    this.setState({ showAddCommentModal: false })
+  handleStatusModalSubmit = async (submittedValues) => {
+    this.updateStatusModal({isOpen: false})
 
-    const applicationId = this.state.persistedApplication.id
-    const { addCommentStatus } = this.state
-    const response = await addCommentsWithStatus(applicationId, submittedValues.comment, addCommentStatus)
+    const data = {
+      status: this.state.statusModal.status,
+      comment: submittedValues.comment,
+      applicationId: this.state.persistedApplication.id
+    }
 
-    if (response) {
+    const response = await apiService.createFieldUpdateComment(data)
+    if (response === false) {
+      Alerts.error()
+    } else {
       // NOTE: Reload the page to fetch the field update comment just created.
       window.location.reload()
     }
@@ -132,9 +156,7 @@ class SupplementalApplicationPage extends React.Component {
       confirmedPreferencesFailed,
       amis,
       amiCharts,
-      showAddCommentModal,
-      addCommentStatus,
-      statusModalHeader
+      statusModal
     } = this.state
 
     const pageHeader = {
@@ -173,13 +195,10 @@ class SupplementalApplicationPage extends React.Component {
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
           <StatusModalWrapper
-            header={statusModalHeader}
-            primaryButton='save'
-            isOpen={showAddCommentModal}
-            status={addCommentStatus}
-            changeHandler={this.changeAddCommentStatusHandle}
-            closeHandler={this.closeAddCommentModal}
-            submitHandler={this.createCommentStatus}
+            {...statusModal}
+            onClose={this.handleStatusModalClose}
+            onStatusChange={this.handleStatusModalStatusChange}
+            onSubmit={this.handleStatusModalSubmit}
           />
         </CardLayout>
       </Context.Provider>

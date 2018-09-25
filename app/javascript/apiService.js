@@ -57,7 +57,6 @@ const getAMI = async ({ chartType, chartYear }) => {
   })
 }
 
-// Creates a new Field Update Comment Salesforce record
 const createFieldUpdateComment = async (data) => {
   let postData = {
     field_update_comment: {
