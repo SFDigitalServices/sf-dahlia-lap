@@ -26,7 +26,6 @@
 }
 
 .ReactModal__Content {
-  //NOTE: Why do we have position relative just for modals?, Fed
   .dropdown {
     position: relative;
   }
@@ -47,10 +46,21 @@
   }
 }
 
-// .form-modal_dropdown-menu {
-//   max-width: none;
-//   top: 54px !important;
-// }
+.form-modal_dropdown-menu {
+  max-width: none;
+  top: 54px !important;
+}
+
+.dropdown-menu-bottom {
+  max-width: none;
+  bottom: 54px !important;
+  top: auto !important;
+}
+
+.dropdown-inline {
+  display: inline-block;
+  position: relative;
+}
 
 .tr-expand-content[aria-hidden='true'] {
   display: none;

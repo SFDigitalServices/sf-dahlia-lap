@@ -7,17 +7,11 @@ import PropTypes from 'prop-types'
 class Dropdown extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { expanded: false, style: { top: 0, left: 0 } }
+    this.state = { expanded: false, style: { top: 40, left: 0 } }
     this.handleClickOutside = this.handleClickOutside.bind(this)
   }
 
   componentDidMount () {
-    const { direction } = this.props
-    const style = {}
-    style[(direction === 'up' ? 'bottom' : 'top')] = 54
-    style.left = 0
-    this.setState({ style })
-
     document.addEventListener('mousedown', this.handleClickOutside)
     document.addEventListener('keydown', this.onEscapeHandler)
   }
@@ -79,11 +73,19 @@ class Dropdown extends React.Component {
  }
 
  render () {
-   const { prompt, items, value, buttonClasses, menuClasses = [], styles } = this.props
+   const {
+     prompt,
+     items,
+     value,
+     styles,
+     buttonClasses,
+     wrapperClasses,
+     menuClasses = []
+   } = this.props
    const selectedItem = find(items, { value: value })
 
    return (
-     <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={styles}>
+     <div className={`dropdown ${wrapperClasses ? wrapperClasses.join(' ') : ''}`} onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={styles}>
        <button
          aria-expanded={this.state.expanded ? 'true' : 'false'}
          onClick={this.toggleExpand}
