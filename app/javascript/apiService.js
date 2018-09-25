@@ -73,16 +73,11 @@ const createFieldUpdateComment = async (data) => {
   return apiCall('post', '/field-update-comments/create', postData)
 }
 
-const fetchStatusHistory = (applicationId) => {
-  return apiCall('get', '/field-update-comments/index', { application_id: applicationId })
-}
-
 export default {
   updateApplication,
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
   getAMI,
-  createFieldUpdateComment,
-  fetchStatusHistory
+  createFieldUpdateComment
 }

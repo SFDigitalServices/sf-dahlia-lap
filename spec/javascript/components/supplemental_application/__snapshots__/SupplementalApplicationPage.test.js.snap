@@ -1129,14 +1129,9 @@ Array [
               className="button-pager_row align-buttons-left primary inset-wide"
             >
               <div
-                className="dropdown"
+                className="dropdown dropdown-inline"
                 onClick={[Function]}
-                style={
-                  Object {
-                    "display": "inline-block",
-                    "position": "relative",
-                  }
-                }
+                style={undefined}
               >
                 <button
                   aria-expanded="false"

@@ -121,7 +121,7 @@ class SupplementalApplicationPage extends React.Component {
     const response = await addCommentsWithStatus(applicationId, submittedValues.comment, addCommentStatus)
 
     if (response) {
-      // NOTE: reload window to fetch the latest field update comment created
+      // NOTE: Reload the page to fetch the field update comment just created.
       window.location.reload()
     }
   }

@@ -17,7 +17,7 @@ module Force
       end
     end
 
-    def fetch_status_history_by_application(application_id)
+    def status_history_by_application(application_id)
       parsed_index_query(
         %(
           SELECT Application__c, Processing_Comment__c, Processing_Date_Updated__c, Processing_Status__c

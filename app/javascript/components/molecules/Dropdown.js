@@ -23,7 +23,7 @@ class Dropdown extends React.Component {
 
   toggleExpand = (e) => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
-    e.stopPropagation() // We need this, so we do not call collpase function
+    e.stopPropagation() // We need this, so we do not call the collpase function from Foundation
   }
 
   componentClickHandler = (e) => {

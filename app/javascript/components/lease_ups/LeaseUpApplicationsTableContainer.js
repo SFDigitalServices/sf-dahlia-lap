@@ -78,9 +78,8 @@ class LeaseUpTableContainer extends React.Component {
         applicationId: applicationId
       }
 
-      // TODO:  This apiService call should be move out to the LeaseUpApplicationPage.
-      //        We should pass a handler with the context API that wraps this API call.
-      //        Fed
+      // TODO:  This apiService call should be moved out to the LeaseUpApplicationPage.
+      //        We should pass a handler that wraps this API call.
       const response = await apiService.createFieldUpdateComment(data)
 
       if (response) {
