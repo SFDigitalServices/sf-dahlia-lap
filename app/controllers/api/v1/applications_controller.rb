@@ -4,6 +4,7 @@ module Api::V1
     def index
       attributes = params.slice(:page, :application_number, :listing, :first_name, :last_name, :submission_type)
       applications = application_service.applications(attributes)
+      puts 'WHAT IS THIS ERROR', applications
       render json: applications
     end
 

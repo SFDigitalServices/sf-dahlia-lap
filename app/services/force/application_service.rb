@@ -13,13 +13,13 @@ module Force
                            .paginate(opts)
                            .transform_results { |results| massage(results) }
 
-      query_scope.where_contains(:Name, opts[:application_number]) if opts[:application_number].present?
-      query_scope.where_eq('Listing__r.Id', "'#{opts[:listing]}'") if opts[:listing].present?
-      query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
-      query_scope.where_eq('Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
-      query_scope.where_eq('Application_Submission_Type__c', "'#{opts[:submission_type]}'") if opts[:submission_type].present?
+      query_scope.where_contains(:Name, opts[:application_number], :string) if opts[:application_number].present?
+      query_scope.where_eq('Listing__r.Id', "'#{opts[:listing]}'", :string) if opts[:listing].present?
+      query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'", :string) if opts[:first_name].present?
+      query_scope.where_eq('Applicant__r.Last_Name__c', "'#{opts[:last_name]}'", :string) if opts[:last_name].present?
+      query_scope.where_eq('Application_Submission_Type__c', "'#{opts[:submission_type]}'", :string) if opts[:submission_type].present?
 
-      query_scope.query
+      puts query_scope.query
     end
 
     def application(id, options = {})
