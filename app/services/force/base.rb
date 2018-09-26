@@ -6,7 +6,7 @@ module Force
   class Base
     def initialize(user)
       @user = user
-      @client = ClientFactory.instance.new_for_user(user)
+      @client = ClientFactory.new(user).build
       @api = Force::Api.new(@client)
     end
 
