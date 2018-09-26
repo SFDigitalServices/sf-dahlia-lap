@@ -23,10 +23,13 @@ class LeaseUpTableContainer extends React.Component {
     }
   }
 
-  updateStatusModal = (path, value) => {
+  updateStatusModal = (values) => {
     this.setState(prevState => {
       return {
-        statusModal: set(clone(prevState.statusModal), path, value)
+        statusModal: {
+          ...clone(prevState.statusModal),
+          ...values
+        }
       }
     })
   }
@@ -39,38 +42,31 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  openStatusModal = () => this.updateStatusModal('isOpen', true)
-
   closeStatusModal = () => {
-    this.updateStatusModal('isOpen', false)
-    this.hideStatusModalAlert()
+    this.updateStatusModal({
+      isOpen: false,
+      showAlert: false
+    })
   }
 
-  setStatusModalStatus = (value) => this.updateStatusModal('status', value)
-
-  setStatusModalApplicationPreferenceId = (value) => this.updateStatusModal('applicationPreferenceId', value)
-
-  setStatusModalAppId = (value) => this.updateStatusModal('applicationId', value)
-
-  setStatusModalLoading = (loading) => this.updateStatusModal('loading', loading)
-
-  showStatusModalAlert = () => this.updateStatusModal('showAlert', true)
+  setStatusModalStatus = (value) => this.updateStatusModal({status: value})
 
   hideStatusModalAlert = () => this.updateStatusModal('showAlert', false)
 
   leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
-    this.setStatusModalStatus(status)
-    this.setStatusModalApplicationPreferenceId(applicationPreferenceId)
-    this.setStatusModalAppId(applicationId)
-    this.openStatusModal()
+    this.updateStatusModal({
+      applicationId: applicationId,
+      applicationPreferenceId: applicationPreferenceId,
+      isOpen: true,
+      status: status
+    })
   }
 
   createStatusUpdate = async (submittedValues) => {
-    this.setStatusModalLoading(true)
+    this.updateStatusModal({loading: true})
 
     const { status, applicationId } = this.state.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
-
     if (status && comment) {
       const data = {
         status: status,
@@ -93,14 +89,18 @@ class LeaseUpTableContainer extends React.Component {
           }
         })
 
-        this.setStatusModalLoading(false)
-        this.setStatusModalStatus(null)
-        this.setStatusModalAppId(null)
-        this.hideStatusModalAlert(null)
-        this.closeStatusModal()
+        this.updateStatusModal({
+          applicationId: null,
+          isOpen: false,
+          loading: false,
+          showAlert: false,
+          status: null
+        })
       } else {
-        this.setStatusModalLoading(false)
-        this.showStatusModalAlert()
+        this.updateStatusModal({
+          loading: false,
+          showAlert: true
+        })
       }
     }
   }

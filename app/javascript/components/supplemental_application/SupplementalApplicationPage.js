@@ -41,6 +41,7 @@ class SupplementalApplicationPage extends React.Component {
       amiCharts: [],
       loading: false,
       statusModal: {
+        loading: false,
         status: props.application.processing_status
       }
     }
@@ -143,7 +144,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleStatusModalSubmit = async (submittedValues) => {
     this.setState({loading: true})
-    this.updateStatusModal({isOpen: false})
+    this.updateStatusModal({loading: true})
 
     const data = {
       status: this.state.statusModal.status,
@@ -156,6 +157,7 @@ class SupplementalApplicationPage extends React.Component {
       Alerts.error()
       this.setState({loading: false})
     } else {
+      this.updateStatusModal({loading: false, isOpen: false})
       // NOTE: Reload the page to fetch the field update comment just created.
       window.location.reload()
     }
