@@ -155,7 +155,7 @@ module Force
     end
 
     def _format_value(type, value)
-      case type.to_sym
+      case type.to_s.to_sym
       when :string
         "'#{value}'"
       else
