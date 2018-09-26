@@ -1135,7 +1135,7 @@ Array [
               >
                 <button
                   aria-expanded="false"
-                  className="button dropdown-button has-icon--right text-align-left is-approved small has-status-width"
+                  className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
                   onClick={[Function]}
                   type="button"
                 >
@@ -1148,6 +1148,7 @@ Array [
                       />
                     </svg>
                   </span>
+                  Status
                 </button>
                 <div
                   aria-hidden="true"

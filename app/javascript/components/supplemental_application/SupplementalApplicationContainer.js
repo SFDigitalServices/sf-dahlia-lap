@@ -105,14 +105,11 @@ const ButtonPager = withContext(({ loading, store }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
-  state = {
-    loading: false
-  }
-
   handleOnSubmit = (value) => {
-    this.setState({loading: true})
+    const { setLoading } = this.props.store
+    setLoading(true)
     this.props.store.onSubmit(value).then(() => {
-      this.setState({loading: false})
+      setLoading(false)
     })
   }
 
@@ -125,9 +122,9 @@ class SupplementalApplicationContainer extends React.Component {
       confirmedPreferencesFailed,
       onDismissError,
       amis,
-      amiCharts
+      amiCharts,
+      loading
     } = store
-    const { loading } = this.state
 
     return (
       <Loading isLoading={loading}>

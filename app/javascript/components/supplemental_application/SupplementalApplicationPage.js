@@ -39,6 +39,7 @@ class SupplementalApplicationPage extends React.Component {
       confirmedPreferencesFailed: false,
       amis: {},
       amiCharts: [],
+      loading: false,
       statusModal: {
         status: props.application.processing_status
       }
@@ -52,6 +53,10 @@ class SupplementalApplicationPage extends React.Component {
 
     this.setState({ amiCharts })
     getAmis(chartsToLoad).then(amis => this.setState({ amis }))
+  }
+
+  setLoading = (loading) => {
+    this.setState({loading})
   }
 
   handleSaveApplication = async (application) => {
@@ -133,6 +138,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalSubmit = async (submittedValues) => {
+    this.setState({loading: true})
     this.updateStatusModal({isOpen: false})
 
     const data = {
@@ -144,6 +150,7 @@ class SupplementalApplicationPage extends React.Component {
     const response = await apiService.createFieldUpdateComment(data)
     if (response === false) {
       Alerts.error()
+      this.setState({loading: false})
     } else {
       // NOTE: Reload the page to fetch the field update comment just created.
       window.location.reload()
@@ -156,7 +163,8 @@ class SupplementalApplicationPage extends React.Component {
       confirmedPreferencesFailed,
       amis,
       amiCharts,
-      statusModal
+      statusModal,
+      loading
     } = this.state
 
     const pageHeader = {
@@ -186,8 +194,10 @@ class SupplementalApplicationPage extends React.Component {
       amiCharts: amiCharts,
       amis: amis,
       availableUnits: availableUnits,
+      loading: loading,
       openAddStatusCommentModal: this.openAddStatusCommentModal,
-      openUpdateStatusModal: this.openUpdateStatusModal
+      openUpdateStatusModal: this.openUpdateStatusModal,
+      setLoading: this.setLoading
     }
 
     return (
