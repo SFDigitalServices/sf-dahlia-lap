@@ -155,6 +155,7 @@ class SupplementalApplicationPage extends React.Component {
     const response = await apiService.createFieldUpdateComment(data)
     if (response === false) {
       Alerts.error()
+      this.updateStatusModal({loading: false})
       this.setState({loading: false})
     } else {
       this.updateStatusModal({loading: false, isOpen: false})
