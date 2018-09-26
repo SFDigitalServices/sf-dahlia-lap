@@ -1,9 +1,10 @@
 import puppeteer from 'puppeteer'
+import { HEADLESS } from '../support/puppeteer/consts'
 
 describe('Lead header', () => {
   test('lead header loads correctly', async () => {
     let browser = await puppeteer.launch({
-      headless: true // change this to false to launch a browser
+      headless: HEADLESS
     })
     let page = await browser.newPage()
 
