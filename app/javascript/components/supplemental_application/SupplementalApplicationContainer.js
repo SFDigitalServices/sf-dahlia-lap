@@ -80,7 +80,7 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
   )
 }
 
-const ButtonPager = withContext(({ loading, store }) => {
+const ActionButtons = withContext(({ loading, store }) => {
   const { application, openUpdateStatusModal } = store
   return (
     <div className='button-pager'>
@@ -144,7 +144,7 @@ class SupplementalApplicationContainer extends React.Component {
               <LeaseInformationSection />
               <StatusHistorySection />
               <div className='padding-bottom--2x margin-bottom--2x' />
-              <ButtonPager loading={loading} />
+              <ActionButtons loading={loading} />
             </form>
           )}
         </Form>
