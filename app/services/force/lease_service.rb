@@ -29,10 +29,10 @@ module Force
 
     private
 
-    def create_lease(lease, application_id, _primary_contact_id)
+    def create_lease(lease, application_id, primary_contact_id)
       @client.create!('Lease__c',
                       Application__c: application_id,
-                      # Tenant__c: primary_contact_id,
+                      Tenant__c: primary_contact_id,
                       Unit__c: lease[:unit],
                       Lease_Status__c: 'Draft',
                       Lease_Start_Date__c: lease[:leaseStartDate],
@@ -41,11 +41,11 @@ module Force
                       Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
     end
 
-    def update_lease(lease, application_id, _primary_contact_id)
+    def update_lease(lease, application_id, primary_contact_id)
       @client.update!('Lease__c',
                       Id: lease[:id],
                       Application__c: application_id,
-                      # Tenant__c: primary_contact_id,
+                      Tenant__c: primary_contact_id,
                       Unit__c: lease[:unit],
                       Lease_Status__c: lease[:leaseStatus],
                       Lease_Start_Date__c: lease[:leaseStartDate],
