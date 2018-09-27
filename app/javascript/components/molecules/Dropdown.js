@@ -1,7 +1,9 @@
 import React from 'react'
+import { find } from 'lodash'
+import classNames from 'classnames'
+
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
-import { find } from 'lodash'
 
 class Dropdown extends React.Component {
   constructor (props) {
@@ -86,7 +88,7 @@ class Dropdown extends React.Component {
 
    return (
      <div
-       className={`dropdown ${wrapperClasses ? wrapperClasses.join(' ') : ''}`}
+       className={classNames('dropdown', wrapperClasses)}
        onClick={this.componentClickHandler}
        ref={(node) => { this.wrapperRef = node }}
        style={styles}>
