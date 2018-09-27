@@ -74,7 +74,7 @@ class SupplementalApplicationPage extends React.Component {
     const response = await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
     if (response !== false) {
-      // Reload the page to be pull updated data from SalesForce.
+      // Reload the page to pull updated data from Salesforce
       window.location.reload()
     }
   }
@@ -159,7 +159,7 @@ class SupplementalApplicationPage extends React.Component {
       this.setState({loading: false})
     } else {
       this.updateStatusModal({loading: false, isOpen: false})
-      // NOTE: Reload the page to fetch the field update comment just created.
+      // Reload the page to fetch the field update comment just created.
       window.location.reload()
     }
   }
