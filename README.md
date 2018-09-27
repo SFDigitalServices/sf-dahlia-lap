@@ -86,6 +86,7 @@ E2E_SALESFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
 E2E_SALESFORCE_PASSWORD=<ask the team for this password>
 ```
 
+To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/Exygy/sf-dahlia-lap/blob/master/spec/javascript/support/puppeteer/consts.js)
 **Run server**
 
 Run your Rails server locally in port 3000:
