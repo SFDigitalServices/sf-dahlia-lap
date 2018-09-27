@@ -66,3 +66,5 @@ Metrics/BlockLength:
   Max: 25
   Exclude:
     - 'config/routes.rb'
+    - 'spec/**/*_spec.rb'
+    - 'spec/support/**/*'

@@ -22,7 +22,9 @@ module Force
       query_scope.query
     end
 
-    def application(id)
+    def application(id, options = {})
+      includes = options[:includes] || %w[preferences proof_files household_members flagged_applications]
+
       application = query_first(%(
         SELECT #{query_fields(:show)}
         FROM Application__c
@@ -30,10 +32,11 @@ module Force
         AND Status__c != '#{DRAFT}'
         AND #{user_can_access}
       ))
-      application['preferences'] = app_preferences(id)
-      application['proof_files'] = app_proof_files(id)
-      application['household_members'] = app_household_members(application)
-      application['flagged_applications'] = flagged_record_set(id)
+      application['preferences'] = app_preferences(id) if includes.include?('preferences')
+      application['proof_files'] = app_proof_files(id) if includes.include?('proof_files')
+      application['household_members'] = app_household_members(application) if includes.include?('household_members')
+      application['flagged_applications'] = flagged_record_set(id) if includes.include?('flagged_applications')
+      application['lease'] = lease_service.lease(id) if includes.include?('lease')
       application
     end
 
@@ -127,6 +130,10 @@ module Force
         # for community users, restrict results to their account + draft
         %(Listing__r.Account__c = '#{@user.salesforce_account_id}')
       end
+    end
+
+    def lease_service
+      Force::LeaseService.new(@user)
     end
   end
 end

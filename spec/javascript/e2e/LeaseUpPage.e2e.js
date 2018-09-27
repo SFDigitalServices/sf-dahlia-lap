@@ -1,11 +1,11 @@
 import puppeteer from 'puppeteer'
 
 import steps from '../support/puppeteer/steps'
-import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
+import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 
 describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
-    let browser = await puppeteer.launch({ headless: true })
+    let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
     await steps.loginAsAgent(page)
