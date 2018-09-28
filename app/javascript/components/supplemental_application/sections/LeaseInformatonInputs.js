@@ -40,7 +40,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   // FIXME: will this dynamically update when the preferences are updated?
   const preferences = store.application.preferences
   const confirmedPreferences = filter(preferences, { 'post_lottery_validation': 'Confirmed' })
-  const confirmedPreferenceOptions = formUtils.toOptions(map(confirmedPreferences, pluck('id', 'preference_name')))
+  const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
 
   console.log('Preferences', preferences)
   console.log('Confirmed Preferences', confirmedPreferences)
