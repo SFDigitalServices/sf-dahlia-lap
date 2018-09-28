@@ -98,7 +98,8 @@ const preferenceProofOptionsDefault = labelize([
   'Water bill',
   'Paystub',
   'Public benefits record',
-  'School record'
+  'School record',
+  'Letter documenting homelessness'
 ])
 
 const preferenceProofOptionsLiveSf = labelize([
