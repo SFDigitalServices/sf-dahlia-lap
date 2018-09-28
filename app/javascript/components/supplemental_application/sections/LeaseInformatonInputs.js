@@ -1,6 +1,6 @@
 import React from 'react'
 import { Select, Text } from 'react-form'
-import { map, toSafeInteger } from 'lodash'
+import { filter, map, toSafeInteger } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { pluck, decorateComponents } from '~/utils/utils'
@@ -37,6 +37,16 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   const { availableUnits } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
+  // FIXME: will this dynamically update when the preferences are updated?
+  const preferences = store.application.preferences
+  const confirmedPreferences = filter(preferences, { 'post_lottery_validation': 'Confirmed' })
+  const confirmedPreferenceOptions = formUtils.toOptions(map(confirmedPreferences, pluck('id', 'preference_name')))
+
+  console.log('Preferences', preferences)
+  console.log('Confirmed Preferences', confirmedPreferences)
+  console.log('Confirmed Preference Options', confirmedPreferenceOptions)
+  console.log(availableUnitsOptions)
+  console.log('Form API values in the lease section', formApi.values)
   return (
     <React.Fragment>
       <FormGrid.Row paddingBottom>
@@ -52,7 +62,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
         />
         <CustomFormGrid.Select
           label='Preference Used'
-          field='preference_used' options={[]} placeholder='Select One' />
+          field='preference_used' options={confirmedPreferenceOptions} placeholder='Select One' />
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         <CustomFormGrid.Text
