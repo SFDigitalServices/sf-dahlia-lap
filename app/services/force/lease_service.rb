@@ -20,7 +20,7 @@ module Force
     def submit_lease(lease, application_id, primary_contact_id)
       # FIXME: Fix Tenant__c permissions so we can submit these values.
       if lease[:id]
-        response = update_lease(lease, application_id, primary_contact_id)
+        response = update_lease(lease, application_id)
       else
         response = create_lease(lease, application_id, primary_contact_id)
       end
@@ -29,10 +29,10 @@ module Force
 
     private
 
-    def create_lease(lease, application_id, _primary_contact_id)
+    def create_lease(lease, application_id, primary_contact_id)
       @client.create!('Lease__c',
                       Application__c: application_id,
-                      # Tenant__c: primary_contact_id,
+                      Tenant__c: primary_contact_id,
                       Unit__c: lease[:unit],
                       Lease_Status__c: 'Draft',
                       Lease_Start_Date__c: lease[:leaseStartDate],
@@ -41,11 +41,11 @@ module Force
                       Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
     end
 
-    def update_lease(lease, application_id, _primary_contact_id)
+    def update_lease(lease, application_id)
+      # Do not update the Tenant field
       @client.update!('Lease__c',
                       Id: lease[:id],
                       Application__c: application_id,
-                      # Tenant__c: primary_contact_id,
                       Unit__c: lease[:unit],
                       Lease_Status__c: lease[:leaseStatus],
                       Lease_Start_Date__c: lease[:leaseStartDate],
