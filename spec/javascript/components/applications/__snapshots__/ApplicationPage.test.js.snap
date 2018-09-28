@@ -50,7 +50,9 @@ Array [
     <div
       className="app-card form-card tabs-card max-width expand-on-small"
     >
-      <div>
+      <div
+        className="application-details"
+      >
         <div
           className="content-card padding-bottom-none margin-bottom--half bg-trans"
         >

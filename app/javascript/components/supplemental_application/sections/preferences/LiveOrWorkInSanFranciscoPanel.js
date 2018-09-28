@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
+import { Select } from 'react-form'
 
 import formUtils from '~/utils/formUtils'
 import FormGrid from '~/components/molecules/FormGrid'

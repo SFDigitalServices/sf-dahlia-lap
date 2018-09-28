@@ -74,7 +74,7 @@ const createLeaseUpStatus = async (data) => {
 }
 
 const updatePreference = async (data) => {
-  const id = data.id
+  const id = data.Id
   const postData = {
     preference: data
   }

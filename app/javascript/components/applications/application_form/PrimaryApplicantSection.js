@@ -35,6 +35,7 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
               <div className='form-group'>
                 <div className='small-4 columns'>
                   <Field.Text
+                    id='first_name'
                     label='First Name'
                     blockNote='(required)'
                     field='first_name'
@@ -47,6 +48,7 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                 </div>
                 <div className='small-4 columns'>
                   <Field.Text
+                    id='last_name'
                     label='Last Name'
                     blockNote='(required)'
                     field='last_name'
@@ -72,6 +74,7 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
             <div className='row'>
               <div className='small-4 columns'>
                 <Field.Text
+                  id='date_of_birth'
                   field='date_of_birth'
                   label='Date of Birth'
                   blockNote='(required)'

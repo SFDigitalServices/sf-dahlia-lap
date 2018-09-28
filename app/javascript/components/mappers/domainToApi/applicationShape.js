@@ -5,12 +5,14 @@ import { preferenceFieldMapper } from './preference'
 import { householdMembersFieldMapper } from './householdMember'
 import { alternateContactFieldMapper } from './alternateContact'
 import { demographicsFieldMapper } from './demographics'
+import { leaseFieldMapper } from './lease'
 
 export const applicationShape = {
   ...applicationFieldMapper,
   listingID: (source) => source.listing.id,
   alternateContact: shapeMapper('alternate_contact', alternateContactFieldMapper),
   demographics: shapeMapper('demographics', demographicsFieldMapper),
+  lease: shapeMapper('lease', leaseFieldMapper),
   ...{
     primaryApplicant: shapeMapper('applicant', applicantFieldMapper),
     shortFormPreferences: listMapper('preferences', preferenceFieldMapper),
@@ -24,6 +26,7 @@ export const buildApplicationShape = application => {
     [
       'alternateContact',
       'adaPrioritiesSelected',
-      'demographics'
+      'demographics',
+      'lease'
     ])
 }

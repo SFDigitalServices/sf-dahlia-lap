@@ -3,6 +3,7 @@ module Listings
   class ApplicationsController < ApplicationController
     before_action :authenticate_user!
     before_action :load_listing
+    before_action :validate_listing!
 
     def index
       @applications = application_service.listing_applications(params[:listing_id])
@@ -12,6 +13,10 @@ module Listings
     def new; end
 
     private
+
+    def validate_listing!
+      raise Force::RecordNotFound, "Listing #{params[:listing_id]} not found" unless @listing.present?
+    end
 
     def load_listing
       @listing = listing_service.listing(params[:listing_id])

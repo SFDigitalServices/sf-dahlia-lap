@@ -3,9 +3,12 @@ class Api::V1::PreferencesController < ApiController
   before_action :authenticate_user!
 
   def update
-    id = params[:id]
-    preference = preference_service.update(id, preference_params)
-    render json: { preference: preference }
+    preference = preference_service.update(params[:id], preference_params)
+    if preference
+      render json: { preference: preference }
+    else
+      render status: 422, json: false
+    end
   end
 
   def preference_service
@@ -13,6 +16,6 @@ class Api::V1::PreferencesController < ApiController
   end
 
   def preference_params
-    params.require(:preference).permit!
+    params.require(:preference).permit!.to_h
   end
 end
