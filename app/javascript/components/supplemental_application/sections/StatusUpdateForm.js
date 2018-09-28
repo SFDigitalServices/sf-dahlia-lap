@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StatusUpdateForm = (props) => {
+const StatusUpdateForm = ({ store }) => {
   return (
     <React.Fragment>
       <h2 className='sr-only'>Status Update</h2>

@@ -156,6 +156,7 @@ applications:
     Alternate_Contact__r.Mailing_State__c:
     Alternate_Contact__r.Mailing_Zip_Code__c:
     Alternate_Contact__r.Marital_Status__c:
+    Processing_Status__c:
 
 flagged_record_sets:
   pending_review_fields:

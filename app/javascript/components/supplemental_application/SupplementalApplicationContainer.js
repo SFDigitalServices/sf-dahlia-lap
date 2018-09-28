@@ -1,4 +1,3 @@
-/* global alert */
 import React from 'react'
 import { Form } from 'react-form'
 import { isEmpty } from 'lodash'
@@ -12,8 +11,10 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
+import Dropdown from '~/components/molecules/Dropdown'
 import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
 import { withContext } from './context'
+import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from '~/components/lease_ups/leaseUpsHelpers'
 
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
@@ -22,10 +23,10 @@ const StatusUpdateSection = () => (
 )
 
 const StatusHistorySection = withContext(({ store }) => {
-  const { statusHistory } = store
+  const { statusHistory, openAddStatusCommentModal } = store
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
-      <StatusList items={statusHistory} onAddCommnent={() => alert('add comment')} />
+      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
     </ContentSection.Sub>
   )
 })
@@ -79,36 +80,36 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
   )
 }
 
-const ButtonPager = ({ disabled }) => (
-  <div className='button-pager'>
-    <div className='button-pager_row align-buttons-left primary inset-wide'>
-      <button className='button dropdown-button has-icon--right text-align-left small is-approved small has-status-width' href='#' aria-expanded='false' disabled={disabled}>
-        <span className='ui-icon ui-small' aria-hidden='true'>
-          <svg>
-            <use xlinkHref='#i-arrow-down' />
-          </svg>
-        </span>
-        Approved
-      </button>
-      <ul className='dropdown-menu' role='listbox' aria-hidden='true' aria-activedescendant='' tabIndex={0} style={{display: 'none'}}>
-        <li className='dropdown-menu_item' role='option' aria-selected='false'><a href='/some/valid/uri'>This is a link</a></li>
-        <li className='dropdown-menu_item' role='option' aria-selected='false'><a href='/some/valid/uri'>This is another</a></li>
-        <li className='dropdown-menu_item is-selected' role='option' aria-selected='true'><a href='/some/valid/uri'>Yet another</a></li>
-      </ul>
-      <button className='button primary small save-btn' type='submit' disabled={disabled}>Save</button>
-    </div>
-  </div>
-)
+const ActionButtons = withContext(({ loading, store }) => {
+  const { application, openUpdateStatusModal } = store
+  return (
+    <div className='button-pager'>
+      <div className='button-pager_row align-buttons-left primary inset-wide'>
+        <Dropdown
+          items={LEASE_UP_STATUS_OPTIONS}
+          value={application.processing_status}
+          prompt='Status'
+          wrapperClasses={['dropdown-inline']}
+          buttonClasses={[getLeaseUpStatusStyle(application.processing_status), 'small', 'has-status-width']}
+          menuClasses={['dropdown-menu-bottom']}
+          onChange={openUpdateStatusModal}
+        />
+        <button
+          className='button primary small save-btn'
+          type='submit'
+          disabled={loading}>
+          Save
+        </button>
+      </div>
+    </div>)
+})
 
 class SupplementalApplicationContainer extends React.Component {
-  state = {
-    loading: false
-  }
-
   handleOnSubmit = (value) => {
-    this.setState({loading: true})
+    const { setLoading } = this.props.store
+    setLoading(true)
     this.props.store.onSubmit(value).then(() => {
-      this.setState({loading: false})
+      setLoading(false)
     })
   }
 
@@ -121,9 +122,9 @@ class SupplementalApplicationContainer extends React.Component {
       confirmedPreferencesFailed,
       onDismissError,
       amis,
-      amiCharts
+      amiCharts,
+      loading
     } = store
-    const { loading } = this.state
 
     return (
       <Loading isLoading={loading}>
@@ -143,7 +144,7 @@ class SupplementalApplicationContainer extends React.Component {
               <LeaseInformationSection />
               <StatusHistorySection />
               <div className='padding-bottom--2x margin-bottom--2x' />
-              <ButtonPager disabled={loading} />
+              <ActionButtons loading={loading} />
             </form>
           )}
         </Form>
