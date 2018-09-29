@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Dropdown from '../molecules/Dropdown'
-import FormModal from 'components/organisms/FormModal'
+import Dropdown from '~/components/molecules/Dropdown'
+import FormModal from './FormModal'
 import { TextArea } from 'react-form'
 import formUtils from '~/utils/formUtils'
-import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from './leaseUpsHelpers'
+import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from '~/components/lease_ups/leaseUpsHelpers'
 
 class StatusModalWrapper extends React.Component {
   formValidator = (values) => {
@@ -16,24 +16,26 @@ class StatusModalWrapper extends React.Component {
   render () {
     const {
       isOpen,
-      closeHandler,
-      submitHandler,
+      onClose,
+      onSubmit,
       showAlert,
       onAlertCloseClick,
       loading,
       status,
-      changeHandler
+      onStatusChange,
+      header,
+      submitButton
     } = this.props
 
     return (
       <FormModal
-        header='Update Status'
-        primary='update'
+        header={header}
+        primary={submitButton}
         secondary='cancel'
         isOpen={isOpen}
-        handleClose={closeHandler}
-        onSubmit={submitHandler}
-        onSecondaryClick={closeHandler}
+        handleClose={onClose}
+        onSubmit={onSubmit}
+        onSecondaryClick={onClose}
         type='status'
         validateError={this.formValidator}
         showAlert={showAlert}
@@ -47,7 +49,7 @@ class StatusModalWrapper extends React.Component {
               items={LEASE_UP_STATUS_OPTIONS}
               value={status}
               prompt='Status'
-              onChange={changeHandler}
+              onChange={onStatusChange}
               buttonClasses={[getLeaseUpStatusStyle(status), 'margin-bottom--half', 'expand', 'small']}
               menuClasses={['form-modal_dropdown-menu']} />
             {!status && <small className='error'>Please provide a status.</small>}
