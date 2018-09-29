@@ -8,6 +8,7 @@ module Force
                      :Lease_Start_Date__c,
                      :Lease_Status__c,
                      :Monthly_Parking_Rent__c,
+                     :Preference_Used__c,
                      :Total_Monthly_Rent_without_Parking__c,
                      :Monthly_Tenant_Contribution__c)
              .where_eq(:Application__c, application_id, :string)
@@ -37,6 +38,7 @@ module Force
                       Lease_Status__c: 'Draft',
                       Lease_Start_Date__c: lease[:leaseStartDate],
                       Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+                      Preference_Used__c: lease[:preferenceUsed],
                       Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
                       Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
     end
@@ -50,6 +52,7 @@ module Force
                       Lease_Status__c: lease[:leaseStatus],
                       Lease_Start_Date__c: lease[:leaseStartDate],
                       Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+                      Preference_Used__c: lease[:preferenceUsed],
                       Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
                       Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
     end

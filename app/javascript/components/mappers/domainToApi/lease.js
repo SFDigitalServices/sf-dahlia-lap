@@ -6,6 +6,7 @@ export const leaseFieldMapper = {
   lease_status: 'leaseStatus',
   lease_start_date: 'leaseStartDate',
   monthly_parking_rent: 'monthlyParkingRent',
+  preference_used: 'preferenceUsed',
   total_monthly_rent_without_parking: 'totalMonthlyRentWithoutParking',
   monthly_tenant_contribution: 'monthlyTenantContribution'
 }
