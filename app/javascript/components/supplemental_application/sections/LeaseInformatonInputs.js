@@ -40,7 +40,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   // FIXME: will this dynamically update when the preferences are updated?
   const preferences = store.application.preferences
   const confirmedPreferences = filter(preferences, { 'post_lottery_validation': 'Confirmed' })
-  const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
+  const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': 'no_preference_used', 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
 
   // FIXME make sure it's pre-filled if there is something that's already there, and that pre-filling works if no preference used is selected
   // Probably all of the logic should be in the frontend? How do we differentiate between null and unknown? We'll probably have to just have

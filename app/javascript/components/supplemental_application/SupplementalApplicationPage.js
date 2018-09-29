@@ -71,6 +71,14 @@ class SupplementalApplicationPage extends React.Component {
     synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
     synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
 
+    // Handle lease preference used logic.
+    if (synchedApplication.lease.preference_used === 'no_preference_used') {
+      synchedApplication.lease.preference_used = null
+      synchedApplication.lease.no_preference_used = true
+    } else {
+      synchedApplication.lease.no_preference_used = false
+    }
+
     const response = await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
     if (response !== false) {
@@ -236,6 +244,8 @@ const setApplicationsDefaults = (application) => {
 
   applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
 
+  applicationWithDefaults.lease.preference_used = application.lease.no_preference_used ? 'no_preference_used' : application.lease.preference_used
+  console.log('set the app with defaults', applicationWithDefaults)
   return applicationWithDefaults
 }
 

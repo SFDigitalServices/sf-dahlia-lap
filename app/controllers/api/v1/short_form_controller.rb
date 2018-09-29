@@ -59,6 +59,7 @@ class Api::V1::ShortFormController < ApiController
               leaseStartDate
               monthlyParkingRent
               preferenceUsed
+              noPreferenceUsed
               totalMonthlyRentWithoutParking
               monthlyTenantContribution
             ],
