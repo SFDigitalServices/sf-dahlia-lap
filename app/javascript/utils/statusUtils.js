@@ -10,9 +10,7 @@ export const LEASE_UP_STATUS_OPTIONS = [
   {value: 'Lease Signed', label: 'Lease Signed', style: 'is-leased'}
 ]
 
-export const PAGE_SIZE = 5
-
-export const getLeaseUpStatusStyle = (status) => {
-  var statusOption = find(LEASE_UP_STATUS_OPTIONS, {value: status})
+export const getLeaseUpStatusClass = (status) => {
+  const statusOption = find(LEASE_UP_STATUS_OPTIONS, {value: status})
   return statusOption ? statusOption.style : 'tertiary'
 }

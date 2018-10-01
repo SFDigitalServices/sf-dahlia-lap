@@ -34,7 +34,6 @@ import TabsMenu from                 'components/molecules/TabsMenu'
 // Organisms
 import Modal from                    'components/organisms/Modal'
 import PageHeader from               'components/organisms/PageHeader'
-import StatusUpdate from             'components/organisms/StatusUpdate'
 import TabCard from                  'components/organisms/TabCard'
 import TabsSection from              'components/organisms/TabsSection'
 // Pattern Library Wrappers
@@ -42,6 +41,7 @@ import ContentSectionWrapper from    'components/pattern_library/wrappers/Conten
 import DropdownWrapper from          'components/pattern_library/wrappers/DropdownWrapper'
 import ExpandableTableWrapper from   'components/pattern_library/wrappers/ExpandableTableWrapper'
 import ModalWrapper from             'components/pattern_library/wrappers/ModalWrapper'
+import StatusUpdateWrapper from      'components/pattern_library/wrappers/StatusUpdateWrapper'
 import TabCardWrapper from           'components/pattern_library/wrappers/TabCardWrapper'
 
 Turbolinks.start()
@@ -79,7 +79,6 @@ WebpackerReact.setup({ TabsMenu })
 // Organisms
 WebpackerReact.setup({ Modal })
 WebpackerReact.setup({ PageHeader })
-WebpackerReact.setup({ StatusUpdate })
 WebpackerReact.setup({ TabCard })
 WebpackerReact.setup({ TabsSection })
 // Pattern Library Wrappers
@@ -87,4 +86,5 @@ WebpackerReact.setup({ ContentSectionWrapper })
 WebpackerReact.setup({ DropdownWrapper })
 WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ ModalWrapper })
+WebpackerReact.setup({ StatusUpdateWrapper })
 WebpackerReact.setup({ TabCardWrapper })

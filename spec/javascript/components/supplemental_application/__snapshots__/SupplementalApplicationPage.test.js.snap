@@ -6663,51 +6663,11 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       <div
                                         className="button-pager_row align-buttons-left primary inset-wide"
                                       >
-                                        <Dropdown
+                                        <StatusDropdown
                                           buttonClasses={
                                             Array [
-                                              "tertiary",
                                               "small",
                                               "has-status-width",
-                                            ]
-                                          }
-                                          items={
-                                            Array [
-                                              Object {
-                                                "label": "Processing",
-                                                "style": "is-processing",
-                                                "value": "Processing",
-                                              },
-                                              Object {
-                                                "label": "Withdrawn",
-                                                "style": "is-withdrawn",
-                                                "value": "Withdrawn",
-                                              },
-                                              Object {
-                                                "label": "Appealed",
-                                                "style": "is-appealed",
-                                                "value": "Appealed",
-                                              },
-                                              Object {
-                                                "label": "Waitlisted",
-                                                "style": "is-waitlisted",
-                                                "value": "Waitlisted",
-                                              },
-                                              Object {
-                                                "label": "Disqualified",
-                                                "style": "is-disqualified",
-                                                "value": "Disqualified",
-                                              },
-                                              Object {
-                                                "label": "Approved",
-                                                "style": "is-approved",
-                                                "value": "Approved",
-                                              },
-                                              Object {
-                                                "label": "Lease Signed",
-                                                "style": "is-leased",
-                                                "value": "Lease Signed",
-                                              },
                                             ]
                                           }
                                           menuClasses={
@@ -6716,41 +6676,101 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             ]
                                           }
                                           onChange={[Function]}
-                                          prompt="Status"
                                           wrapperClasses={
                                             Array [
                                               "dropdown-inline",
                                             ]
                                           }
                                         >
-                                          <div
-                                            className="dropdown dropdown-inline"
-                                            onClick={[Function]}
+                                          <Dropdown
+                                            buttonClasses={
+                                              Array [
+                                                "tertiary",
+                                                "small",
+                                                "has-status-width",
+                                              ]
+                                            }
+                                            items={
+                                              Array [
+                                                Object {
+                                                  "label": "Processing",
+                                                  "style": "is-processing",
+                                                  "value": "Processing",
+                                                },
+                                                Object {
+                                                  "label": "Withdrawn",
+                                                  "style": "is-withdrawn",
+                                                  "value": "Withdrawn",
+                                                },
+                                                Object {
+                                                  "label": "Appealed",
+                                                  "style": "is-appealed",
+                                                  "value": "Appealed",
+                                                },
+                                                Object {
+                                                  "label": "Waitlisted",
+                                                  "style": "is-waitlisted",
+                                                  "value": "Waitlisted",
+                                                },
+                                                Object {
+                                                  "label": "Disqualified",
+                                                  "style": "is-disqualified",
+                                                  "value": "Disqualified",
+                                                },
+                                                Object {
+                                                  "label": "Approved",
+                                                  "style": "is-approved",
+                                                  "value": "Approved",
+                                                },
+                                                Object {
+                                                  "label": "Lease Signed",
+                                                  "style": "is-leased",
+                                                  "value": "Lease Signed",
+                                                },
+                                              ]
+                                            }
+                                            menuClasses={
+                                              Array [
+                                                "dropdown-menu-bottom",
+                                              ]
+                                            }
+                                            onChange={[Function]}
+                                            prompt="Status"
+                                            wrapperClasses={
+                                              Array [
+                                                "dropdown-inline",
+                                              ]
+                                            }
                                           >
-                                            <button
-                                              aria-expanded="false"
-                                              className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
-                                              onClick={[Function]}
-                                              type="button"
-                                            >
-                                              <span
-                                                className="ui-icon ui-small"
-                                              >
-                                                <svg>
-                                                  <use
-                                                    xlinkHref="#i-arrow-down"
-                                                  />
-                                                </svg>
-                                              </span>
-                                              Status
-                                            </button>
                                             <div
-                                              aria-hidden="true"
-                                              className="dropdown-menu-wrapper"
-                                              role="menu"
-                                            />
-                                          </div>
-                                        </Dropdown>
+                                              className="dropdown dropdown-inline"
+                                              onClick={[Function]}
+                                            >
+                                              <button
+                                                aria-expanded="false"
+                                                className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                <span
+                                                  className="ui-icon ui-small"
+                                                >
+                                                  <svg>
+                                                    <use
+                                                      xlinkHref="#i-arrow-down"
+                                                    />
+                                                  </svg>
+                                                </span>
+                                                Status
+                                              </button>
+                                              <div
+                                                aria-hidden="true"
+                                                className="dropdown-menu-wrapper"
+                                                role="menu"
+                                              />
+                                            </div>
+                                          </Dropdown>
+                                        </StatusDropdown>
                                         <button
                                           className="button primary small save-btn"
                                           disabled={false}
