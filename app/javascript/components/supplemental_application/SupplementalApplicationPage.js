@@ -1,15 +1,18 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, some } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some } from 'lodash'
 
+import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
+import Alerts from '~/components/Alerts'
 import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
+import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -35,7 +38,12 @@ class SupplementalApplicationPage extends React.Component {
       persistedApplication: cloneDeep(props.application),
       confirmedPreferencesFailed: false,
       amis: {},
-      amiCharts: []
+      amiCharts: [],
+      loading: false,
+      statusModal: {
+        loading: false,
+        status: props.application.processing_status
+      }
     }
   }
 
@@ -46,6 +54,10 @@ class SupplementalApplicationPage extends React.Component {
 
     this.setState({ amiCharts })
     getAmis(chartsToLoad).then(amis => this.setState({ amis }))
+  }
+
+  setLoading = (loading) => {
+    this.setState({loading})
   }
 
   handleSaveApplication = async (application) => {
@@ -62,7 +74,7 @@ class SupplementalApplicationPage extends React.Component {
     const response = await updateApplicationAction(synchedApplication)
     this.setState({ persistedApplication: synchedApplication })
     if (response !== false) {
-      // Reload the page to be pull updated data from SalesForce.
+      // Reload the page to pull updated data from Salesforce
       window.location.reload()
     }
   }
@@ -89,9 +101,79 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ confirmedPreferencesFailed: false })
   }
 
+  updateStatusModal = (values) => {
+    this.setState(prevState => {
+      return {
+        statusModal: {
+          ...clone(prevState.statusModal),
+          ...values
+        }
+      }
+    })
+  }
+
+  openAddStatusCommentModal = () => {
+    this.setState({
+      statusModal: {
+        header: 'Add New Comment',
+        isOpen: true,
+        status: this.props.application.processing_status,
+        submitButton: 'Save'
+      }
+    })
+  }
+
+  openUpdateStatusModal = (value) => {
+    this.setState({
+      statusModal: {
+        submitButton: 'Update',
+        header: 'Update Status',
+        isOpen: true,
+        status: value
+      }
+    })
+  }
+
+  handleStatusModalClose = () => {
+    this.updateStatusModal({isOpen: false})
+  }
+
+  handleStatusModalStatusChange = (value) => {
+    this.updateStatusModal({status: value})
+  }
+
+  handleStatusModalSubmit = async (submittedValues) => {
+    this.setState({loading: true})
+    this.updateStatusModal({loading: true})
+
+    const data = {
+      status: this.state.statusModal.status,
+      comment: submittedValues.comment,
+      applicationId: this.state.persistedApplication.id
+    }
+
+    const response = await apiService.createFieldUpdateComment(data)
+    if (response === false) {
+      Alerts.error()
+      this.updateStatusModal({loading: false})
+      this.setState({loading: false})
+    } else {
+      this.updateStatusModal({loading: false, isOpen: false})
+      // Reload the page to fetch the field update comment just created.
+      window.location.reload()
+    }
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
-    const { confirmedPreferencesFailed, amis, amiCharts } = this.state
+    const {
+      confirmedPreferencesFailed,
+      amis,
+      amiCharts,
+      statusModal,
+      loading
+    } = this.state
+
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -118,13 +200,23 @@ class SupplementalApplicationPage extends React.Component {
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,
-      availableUnits: availableUnits
+      availableUnits: availableUnits,
+      loading: loading,
+      openAddStatusCommentModal: this.openAddStatusCommentModal,
+      openUpdateStatusModal: this.openUpdateStatusModal,
+      setLoading: this.setLoading
     }
 
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
+          <StatusModalWrapper
+            {...statusModal}
+            onClose={this.handleStatusModalClose}
+            onStatusChange={this.handleStatusModalStatusChange}
+            onSubmit={this.handleStatusModalSubmit}
+          />
         </CardLayout>
       </Context.Provider>
     )

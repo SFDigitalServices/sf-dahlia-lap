@@ -18,7 +18,3 @@ export const getLeaseUpStatusStyle = (status) => {
   if (statusStyle) style = statusStyle.style
   return style
 }
-
-// const FILTER_PREFERENES_OPTIONS = ['COP', 'DTHP', 'NRHP', 'Live/Work', 'No Preference', 'Marked Invalid', 'Show All']
-
-// const FILTER_STATUS_OPTIONS = ['No Status', 'Processing', 'Disqualified', 'Approved', 'Lease Signed', 'Appealed', 'Waitlist', 'Show All']

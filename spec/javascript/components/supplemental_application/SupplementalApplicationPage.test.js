@@ -107,4 +107,21 @@ describe('SupplementalApplicationPage', () => {
     expect(mockUpdateApplicationOnly.mock.calls.length).toBe(1)
     expect(mockUpdatePreference.mock.calls.length).toBe(1)
   })
+
+  test('should render the status update dropdown button and its menu of status options correctly', async () => {
+    const wrapper = mount(
+      <SupplementalApplicationPage
+        application={supplementalApplication}
+      />
+    )
+
+    // Click on the status update dropdown button to open
+    // the status options dropdown menu
+    wrapper.find('.button-pager .dropdown').simulate('click')
+
+    // Check that the page matches the snapshot that we have stored
+    // of how the dropdown button and dropdown menu should render
+    // when the dropdown menu is open
+    expect(wrapper).toMatchSnapshot()
+  })
 })

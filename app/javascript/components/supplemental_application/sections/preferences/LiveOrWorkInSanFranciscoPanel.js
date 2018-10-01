@@ -8,7 +8,7 @@ import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 const {
-  preferenceProofOptionsDefault,
+  preferenceProofOptionsLiveSf,
   preferenceProofOptionsWorkInSf
 } = formOptions
 
@@ -16,7 +16,7 @@ const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in 
 
 const getLWPrefProofTypeOptions = (individualPrefName) => {
   if (individualPrefName === 'Live in SF') {
-    return preferenceProofOptionsDefault
+    return preferenceProofOptionsLiveSf
   } else {
     return preferenceProofOptionsWorkInSf
   }
