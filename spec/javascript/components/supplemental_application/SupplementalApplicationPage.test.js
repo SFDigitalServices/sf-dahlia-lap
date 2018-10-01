@@ -9,11 +9,21 @@ import units from '../../fixtures/units'
 import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
 
 const mockSubmitApplication = jest.fn()
+const mockUpdateApplicationOnly = jest.fn()
+const mockUpdatePreference = jest.fn()
 
 jest.mock('apiService', () => {
   return {
     submitApplication: async (data) => {
       mockSubmitApplication(data)
+      return true
+    },
+    updateApplicationOnly: async (data) => {
+      mockUpdateApplicationOnly(data)
+      return true
+    },
+    updatePreference: async (data) => {
+      mockUpdatePreference(data)
       return true
     },
     getAMI: async (data) => {
@@ -94,7 +104,7 @@ describe('SupplementalApplicationPage', () => {
 
     await wait(100)
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
+    expect(mockUpdateApplicationOnly.mock.calls.length).toBe(1)
+    expect(mockUpdatePreference.mock.calls.length).toBe(1)
   })
 })

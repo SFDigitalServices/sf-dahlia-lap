@@ -20,7 +20,6 @@ export const mapApplicationPreference = (value) => {
     City: value.city,
     State: value.state,
     Zip_Code: value.zip_code,
-    Street: value.street,
-    Total_Household_Rent: String(value.total_household_rent)
+    Street: value.street
   })
 }

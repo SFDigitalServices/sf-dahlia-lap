@@ -81,6 +81,13 @@ const updatePreference = async (data) => {
   return apiCall('put', `/preferences/${id}`, postData)
 }
 
+const updateApplicationOnly = async (id, data) => {
+  const postData = {
+    application: data
+  }
+  return apiCall('put', `/applications/${id}`, postData)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
@@ -88,5 +95,6 @@ export default {
   fetchApplications,
   getAMI,
   createLeaseUpStatus,
-  updatePreference
+  updatePreference,
+  updateApplicationOnly
 }

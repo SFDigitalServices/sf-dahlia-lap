@@ -1,11 +1,11 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, some } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
-import { updateApplicationAction, updatePreference } from './actions'
+import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
@@ -68,24 +68,21 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference = async (preferenceIndex, application) => {
-    const response = await updatePreference(application.preferences[preferenceIndex])
+    const { persistedApplication } = this.state
+    const synchedApplication = cloneDeep(persistedApplication)
 
-    console.log(response)
-    // const { persistedApplication } = this.state
-    //
-    // // We clone the latest saved copy, so we can use the latest saved fields.
-    // const synchedApplication = cloneDeep(persistedApplication)
-    //
-    // // We use the persisted copy and set only the fields updated in the panel
-    // synchedApplication.total_monthly_rent = application.total_monthly_rent
-    // synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
-    //
-    // const response = await updateApplicationAction(synchedApplication)
-    //
-    // this.setState({
-    //   persistedApplication: synchedApplication,
-    //   confirmedPreferencesFailed: !response
-    // })
+    // We need to set the total_monthly_rent in the global application, so we do not overwrite it.
+    synchedApplication.total_monthly_rent = application.total_monthly_rent
+
+    const responses = await Promise.all([
+      updateTotalHouseholdRent(application.id, application.total_monthly_rent),
+      updatePreference(application.preferences[preferenceIndex])
+    ])
+
+    this.setState({
+      persistedApplication: synchedApplication,
+      confirmedPreferencesFailed: some(responses, response => response === false)
+    })
   }
 
   handleOnDismissError = () => {

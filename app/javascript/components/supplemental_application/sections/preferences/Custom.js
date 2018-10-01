@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
+import { Select, SelectStatus } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { FormItem, Comment } from './utils'
@@ -30,11 +30,7 @@ export const Custom = ({ preferenceIndex, preference, application }) => {
           <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={preferenceProofOptionsDefault} />
         </FormItem>
         <FormItem label='Status'>
-          {/*
-          TODO: Add ability for users to change status on pref.
-          For now, we just show the current status in a read-only field.
-        */}
-          <Text field={buildFieldId(preferenceIndex, 'post_lottery_validation')} disabled='true' />
+          <SelectStatus preferenceIndex={preferenceIndex} />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>

@@ -24,12 +24,18 @@ export const updatePreference = async (preference) => {
   const soqlPreference = mapApplicationPreference(preference)
   const response = await apiService.updatePreference(soqlPreference)
 
-  console.log(response)
-  // debugger
-
   if (response === false) {
     Alerts.error()
   }
+
+  return response
+}
+
+export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
+  const attributes = {
+    Total_Monthly_Rent__c: totalMonthlyRent
+  }
+  const response = await apiService.updateApplicationOnly(id, attributes)
 
   return response
 }
