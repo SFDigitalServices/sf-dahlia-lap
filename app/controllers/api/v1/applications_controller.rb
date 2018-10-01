@@ -8,16 +8,19 @@ module Api::V1
     end
 
     def update
-      # prybug
       attributes = application_params
       attributes['Id'] = params[:id]
-      application = application_service.update(attributes)
+      application = rest_application_service.update(attributes)
 
       render json: application
     end
 
     def application_params
       params.require(:application).permit(:Total_Monthly_Rent__c)
+    end
+
+    def rest_application_service
+      Force::Rest::ApplicationService.new(current_user)
     end
 
     def application_service
