@@ -55,6 +55,10 @@ PreCommit:
       - 'app/assets/javascripts/cable.js'
       - 'app/javascript/packs/pattern_library.js'
 
+  ScanForEnvVars:
+    enabled: true
+    description: "Scanning for env var values"
+
   CustomScript:
     enabled: true
     required_executable: './bin/overcommit-pre-commit'
