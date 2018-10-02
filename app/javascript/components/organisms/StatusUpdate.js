@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import PrettyTime from '../atoms/PrettyTime'
 import StatusDropdown from '../molecules/StatusDropdown'
@@ -16,10 +17,14 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
       </div>
       <div className='status-update_message'>
         <div className='status-update_comment'>
-          <p className='status-update_note'>{comment}</p>
-          <span className='status-update_date'>
-            <PrettyTime time={date} displayType='short' />
-          </span>
+          <p className={classNames('status-update_note', {'c-steel': !comment})}>
+            {comment || 'Update status or add a comment'}
+          </p>
+          {date &&
+            <span className='status-update_date'>
+              <PrettyTime time={date} displayType='short' />
+            </span>
+          }
         </div>
         <div className='status-update_footer'>
           <button className='button tiny tertiary' type='button' onClick={onAddCommentClick}>
