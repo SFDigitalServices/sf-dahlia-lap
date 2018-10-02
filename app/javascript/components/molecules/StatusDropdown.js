@@ -4,7 +4,7 @@ import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusClass } from '~/utils/statusUt
 import Dropdown from '../molecules/Dropdown'
 
 const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperClasses, styles }) => {
-  var dropdownButtonClasses = [getLeaseUpStatusClass(status)]
+  let dropdownButtonClasses = [getLeaseUpStatusClass(status)]
   if (buttonClasses) dropdownButtonClasses.push(...buttonClasses)
 
   return (

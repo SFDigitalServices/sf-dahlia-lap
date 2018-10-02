@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import PrettyTime from '../atoms/PrettyTime'
 import StatusDropdown from '../molecules/StatusDropdown'
 
-const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick }) => {
+const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor }) => {
   return (
     <div className='status-update'>
       <h3 className='status-update_title'>Update Status</h3>
@@ -20,7 +20,8 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
           <p className={classNames('status-update_note', {'c-steel': !comment})}>
             {comment || 'Update status or add a comment'}
           </p>
-          {date &&
+          {
+            ((status || comment) && date) &&
             <span className='status-update_date'>
               <PrettyTime time={date} displayType='short' />
             </span>
@@ -30,7 +31,10 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
           <button className='button tiny tertiary' type='button' onClick={onAddCommentClick}>
             Add a comment
           </button>
-          <a href='#' className='t-small right'>See Status History</a>
+          {
+            (status || comment) &&
+            <a href={statusHistoryAnchor} className='t-small right'>See Status History</a>
+          }
         </div>
       </div>
     </div>
