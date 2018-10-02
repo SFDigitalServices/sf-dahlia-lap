@@ -54,6 +54,10 @@ PreCommit:
       - 'spec/javascript/fixtures/*.js'
       - 'app/assets/javascripts/cable.js'
 
+  ScanForEnvVars:
+    enabled: true
+    description: "Scanning for env var values"
+
   CustomScript:
     enabled: true
     required_executable: './bin/overcommit-pre-commit'
