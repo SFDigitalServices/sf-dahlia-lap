@@ -73,20 +73,8 @@ _Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests
 
-In order to run e2e tests you have to:
-* Set two environment variables to let the e2e test login into Salesforce.
-* Run your rails server locally.
-
-**Set env variables**
-
-Set the following env variables. You have to set them in your environment and not in your `.env` . Variables in your `.env` are being used only by Rails and e2e runs in Javascript.
-
-```
-E2E_SALESFORCE_USERNAME=dahlia-leasing-agent@exygy.com.full
-E2E_SALESFORCE_PASSWORD=<ask the team for this password>
-```
-
 To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/Exygy/sf-dahlia-lap/blob/master/spec/javascript/support/puppeteer/consts.js)
+
 **Run server**
 
 Run your Rails server locally in port 3000:
