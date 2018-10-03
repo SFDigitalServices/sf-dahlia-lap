@@ -1,8 +1,8 @@
 import React from 'react'
-import { Select, SelectStatus } from 'react-form'
+import { Select } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment } from './utils'
+import { FormItem, Comment, SelectStatus } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 

@@ -1,7 +1,6 @@
 import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
-import { mapApplicationPreference } from '~/components/mappers/domainToSoql/application_preference'
 
 export const updateApplicationAction = async (application) => {
   const applicationApi = domainToApi.buildApplicationShape(application)
@@ -21,12 +20,9 @@ export const getAMIAction = async ({chartType, chartYear}) => {
 }
 
 export const updatePreference = async (preference) => {
-  const soqlPreference = mapApplicationPreference(preference)
-  const response = await apiService.updatePreference(soqlPreference)
+  const response = await apiService.updatePreference(preference)
 
-  if (response === false) {
-    Alerts.error()
-  }
+  if (response === false) Alerts.error()
 
   return response
 }

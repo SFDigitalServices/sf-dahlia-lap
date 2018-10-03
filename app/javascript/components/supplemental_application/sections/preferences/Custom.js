@@ -1,8 +1,8 @@
 import React from 'react'
-import { Select, SelectStatus } from 'react-form'
+import { Select } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment } from './utils'
+import { FormItem, Comment, SelectStatus } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
@@ -21,9 +21,9 @@ export const Custom = ({ preferenceIndex, preference, application }) => {
         </FormItem>
         <FormItem label='HH Member on Proof'>
           {/*
-          TODO: Add ability for users to change application member on pref.
-          For now, we just show the current app member in a read-only field.
-        */}
+            TODO: Add ability for users to change application member on pref.
+            For now, we just show the current app member in a read-only field.
+          */}
           <input value={memberNameFromPref(preference)} disabled='true' />
         </FormItem>
         <FormItem label='Type of Proof'>

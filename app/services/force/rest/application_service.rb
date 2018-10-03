@@ -1,6 +1,6 @@
 module Force
   module Rest
-    # Salesforce standard rest API for applications
+    # Provide Salesforce standard REST API interactions for applications
     class ApplicationService < Force::Base
       def update(data)
         data = Hashie::Mash.new(data)

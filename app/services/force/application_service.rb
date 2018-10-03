@@ -1,5 +1,5 @@
 module Force
-  # Salesforce SOQL API and Custom API for applications
+  # Provide Salesforce SOQL API and Custom API interactions for applications
   class ApplicationService < Force::Base
     DRAFT = 'Draft'.freeze
     FIELD_NAME = :applications

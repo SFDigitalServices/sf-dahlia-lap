@@ -62,7 +62,7 @@ const createFieldUpdateComment = async (data) => {
 }
 
 const updatePreference = async (data) => {
-  const id = data.Id
+  const id = data.id
   const postData = {
     preference: data
   }
