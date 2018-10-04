@@ -630,7 +630,9 @@ Array [
                     className="form-note shift-up"
                     id="household-annual-income"
                   >
-                    Not Including % of Assets
+                    Not Including % of Assets 
+                    <br />
+                    Please update with confirmed income
                   </span>
                 </div>
               </div>
@@ -4619,7 +4621,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           className="form-note shift-up"
                                                           id="household-annual-income"
                                                         >
-                                                          Not Including % of Assets
+                                                          Not Including % of Assets 
+                                                          <br />
+                                                          Please update with confirmed income
                                                         </span>
                                                       </div>
                                                     </Component>
