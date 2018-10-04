@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
+import { Select, Text, Checkbox } from 'react-form'
 import { filter, map, toSafeInteger } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
@@ -10,7 +10,7 @@ import { withContext } from '../context'
 
 const Plain = ({ text }) => <div className='text-value'>{text}</div>
 
-const INPUTS = { 'Select': Select, 'Text': Text, 'Plain': Plain }
+const INPUTS = { 'Select': Select, 'Text': Text, 'Plain': Plain, 'Checkbox': Checkbox }
 
 const CustomFormGrid = decorateComponents(INPUTS, Component => {
   return ({ label, ...rest }) => (
@@ -31,6 +31,10 @@ const getTotalMonthlyRent = (values) => {
   } else {
     return 'Total Unit & Parking Rent'
   }
+}
+
+const toggleNoPreferenceUsed = (formApi) => {
+  formApi.values.no_preference_used = !formApi.values.preference_used
 }
 
 const LeaseInformationInputs = ({ formApi, store }) => {
@@ -65,6 +69,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
         />
         <CustomFormGrid.Select
           label='Preference Used'
+          onChange={toggleNoPreferenceUsed(formApi)}
           field='preference_used' options={confirmedPreferenceOptions} placeholder='Select One' />
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
