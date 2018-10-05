@@ -31,32 +31,27 @@ module Force
     private
 
     def create_lease(lease, application_id, primary_contact_id)
-      @client.create!('Lease__c',
-                      Application__c: application_id,
-                      Tenant__c: primary_contact_id,
-                      Unit__c: lease[:unit],
-                      Lease_Status__c: 'Draft',
-                      Lease_Start_Date__c: lease[:leaseStartDate],
-                      Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
-                      Preference_Used__c: lease[:preferenceUsed],
-                      No_Preference_Used__c: lease[:noPreferenceUsed],
-                      Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
-                      Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+      create_lease_params = lease_base_params(lease, application_id).merge(Tenant__c: primary_contact_id, Lease_Status__c: 'Draft')
+      @client.create!('Lease__c', create_lease_params)
     end
 
     def update_lease(lease, application_id)
-      # Do not update the Tenant field
-      @client.update!('Lease__c',
-                      Id: lease[:id],
-                      Application__c: application_id,
-                      Unit__c: lease[:unit],
-                      Lease_Status__c: lease[:leaseStatus],
-                      Lease_Start_Date__c: lease[:leaseStartDate],
-                      Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
-                      Preference_Used__c: lease[:preferenceUsed],
-                      No_Preference_Used__c: lease[:noPreferenceUsed],
-                      Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
-                      Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution])
+      create_lease_params = lease_base_params(lease, application_id).merge(Id: lease[:id])
+      @client.update!('Lease__c', create_lease_params)
+    end
+
+    def lease_base_params(lease, application_id)
+      {
+        Application__c: application_id,
+        Unit__c: lease[:unit],
+        Lease_Start_Date__c: lease[:leaseStartDate],
+        Monthly_Parking_Rent__c: lease[:monthlyParkingRent],
+        Preference_Used__c: lease[:preferenceUsed],
+        # Salesforce require true/false for No_Preference_Used__c even if field was untouched
+        No_Preference_Used__c: lease[:noPreferenceUsed].nil? ? false : lease[:noPreferenceUsed],
+        Total_Monthly_Rent_without_Parking__c: lease[:totalMonthlyRentWithoutParking],
+        Monthly_Tenant_Contribution__c: lease[:monthlyTenantContribution],
+      }
     end
   end
 end
