@@ -69,7 +69,8 @@ const updatePreference = async (data) => {
   return apiCall('put', `/preferences/${id}`, postData)
 }
 
-const updateApplication = async (id, data) => {
+const updateApplication = async (data) => {
+  const id = data.id
   const postData = {
     application: data
   }

@@ -29,9 +29,10 @@ export const updatePreference = async (preference) => {
 
 export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
   const attributes = {
-    Total_Monthly_Rent__c: totalMonthlyRent
+    id: id,
+    total_monthly_rent: totalMonthlyRent
   }
-  const response = await apiService.updateApplication(id, attributes)
+  const response = await apiService.updateApplication(attributes)
 
   return response
 }
