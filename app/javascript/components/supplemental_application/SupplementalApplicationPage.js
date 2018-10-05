@@ -61,6 +61,8 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveApplication = async (application) => {
+    this.setLoading(true)
+
     const { persistedApplication } = this.state
 
     // We clone the modified application in the UI since those are the fields we want to update
@@ -76,6 +78,8 @@ class SupplementalApplicationPage extends React.Component {
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
       window.location.reload()
+    } else {
+      this.setLoading(false)
     }
   }
 

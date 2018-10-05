@@ -105,14 +105,6 @@ const ActionButtons = withContext(({ loading, store }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
-  handleOnSubmit = (value) => {
-    const { setLoading } = this.props.store
-    setLoading(true)
-    this.props.store.onSubmit(value).then(() => {
-      setLoading(false)
-    })
-  }
-
   render () {
     const { store } = this.props
     const {
@@ -123,12 +115,13 @@ class SupplementalApplicationContainer extends React.Component {
       onDismissError,
       amis,
       amiCharts,
-      loading
+      loading,
+      onSubmit
     } = store
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
+        <Form onSubmit={onSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
               <StatusUpdateSection />
