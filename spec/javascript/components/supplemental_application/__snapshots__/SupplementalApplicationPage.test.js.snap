@@ -804,6 +804,12 @@ Array [
                     >
                       Select One
                     </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      None
+                    </option>
                   </select>
                 </div>
               </div>
@@ -5656,7 +5662,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <Component
                                                                 field="preference_used"
                                                                 label="Preference Used"
-                                                                options={Array []}
+                                                                options={
+                                                                  Array [
+                                                                    Object {
+                                                                      "label": "None",
+                                                                      "value": null,
+                                                                    },
+                                                                  ]
+                                                                }
                                                                 placeholder="Select One"
                                                               >
                                                                 <Component>
@@ -5676,7 +5689,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         </label>
                                                                         <r
                                                                           field="preference_used"
-                                                                          options={Array []}
+                                                                          options={
+                                                                            Array [
+                                                                              Object {
+                                                                                "label": "None",
+                                                                                "value": null,
+                                                                              },
+                                                                            ]
+                                                                          }
                                                                           placeholder="Select One"
                                                                         >
                                                                           <t
@@ -5700,7 +5720,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                                 "validatingField": [Function],
                                                                               }
                                                                             }
-                                                                            options={Array []}
+                                                                            options={
+                                                                              Array [
+                                                                                Object {
+                                                                                  "label": "None",
+                                                                                  "value": null,
+                                                                                },
+                                                                              ]
+                                                                            }
                                                                             placeholder="Select One"
                                                                           >
                                                                             <select
@@ -5714,6 +5741,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                                 value={0}
                                                                               >
                                                                                 Select One
+                                                                              </option>
+                                                                              <option
+                                                                                key="null"
+                                                                                value={1}
+                                                                              >
+                                                                                None
                                                                               </option>
                                                                             </select>
                                                                           </t>
