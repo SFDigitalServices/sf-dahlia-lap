@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import _ from 'lodash'
+import { toLower, sortBy } from 'lodash'
 
 import PrettyTime from '~/components/atoms/PrettyTime'
 
@@ -21,7 +21,7 @@ const getStatusClassName = (status) => {
   } else if (status === 'Lease Signed') {
     return 'leased'
   } else {
-    return _.toLower(status)
+    return toLower(status)
   }
 }
 
@@ -50,8 +50,8 @@ const sortByTimestamp = (item) => {
   return item.timestamp
 }
 
-const StatusList = ({items, onAddCommnent}) => {
-  const orderedItems = _.sortBy(items, [sortByTimestamp])
+const StatusList = ({items, onAddComment}) => {
+  const orderedItems = sortBy(items, [sortByTimestamp])
 
   return (
     <div className='status-list'>
@@ -62,7 +62,7 @@ const StatusList = ({items, onAddCommnent}) => {
         }
       </ul>
       <div className='status-list_footer'>
-        <button className='button tertiary tiny margin-bottom-none' type='button' data-event='' onClick={onAddCommnent}>Add a comment</button>
+        <button className='button tertiary tiny margin-bottom-none' type='button' data-event='' onClick={onAddComment}>Add a comment</button>
       </div>
     </div>
   )

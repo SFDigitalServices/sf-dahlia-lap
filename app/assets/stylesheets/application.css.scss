@@ -51,6 +51,17 @@
   top: 54px !important;
 }
 
+.dropdown-menu-bottom {
+  max-width: none;
+  bottom: 54px !important;
+  top: auto !important;
+}
+
+.dropdown-inline {
+  display: inline-block;
+  position: relative;
+}
+
 .tr-expand-content[aria-hidden='true'] {
   display: none;
 }

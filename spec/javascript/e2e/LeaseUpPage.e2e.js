@@ -1,16 +1,16 @@
 import puppeteer from 'puppeteer'
 
-import steps from '../support/puppeteer/steps'
-import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
+import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 
 describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
-    let browser = await puppeteer.launch({ headless: true })
+    let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
-    await steps.loginAsAgent(page)
+    await sharedSteps.loginAsAgent(page)
 
-    await steps.goto(page, `/listings/lease-ups/${LEASE_UP_LISTING_ID}/applications`)
+    await sharedSteps.goto(page, `/listings/lease-ups/${LEASE_UP_LISTING_ID}/applications`)
     await page.waitForSelector('#root')
     await page.waitForSelector('.dropdown')
 

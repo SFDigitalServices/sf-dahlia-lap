@@ -76,6 +76,7 @@ applications:
     Name:
       label: 'Application Number'
     Applicant__c:
+    Primary_Applicant__c:
     Alternate_Contact__c:
     Listing__c:
     Listing__r.Name:
@@ -155,6 +156,7 @@ applications:
     Alternate_Contact__r.Mailing_State__c:
     Alternate_Contact__r.Mailing_Zip_Code__c:
     Alternate_Contact__r.Marital_Status__c:
+    Processing_Status__c:
 
 flagged_record_sets:
   pending_review_fields:

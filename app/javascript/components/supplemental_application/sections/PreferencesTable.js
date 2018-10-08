@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, reject, isEmpty, overSome, findIndex } from 'lodash'
+import { map, reject, isEmpty, overSome, findIndex, orderBy } from 'lodash'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -47,8 +47,8 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
 const buildRows = (application, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
-
-  return map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
+  const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
+  return map(onlyValid(sortedPreferences), buildRow(proofFiles, fileBaseUrl))
 }
 
 const columns = [

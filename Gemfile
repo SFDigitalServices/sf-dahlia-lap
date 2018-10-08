@@ -46,6 +46,7 @@ group :development, :test do
   gem "pry-byebug", '~> 3.4.0'
   gem 'awesome_print'
   gem 'vcr'
+  gem 'rails-controller-testing'
 end
 
 group :development do

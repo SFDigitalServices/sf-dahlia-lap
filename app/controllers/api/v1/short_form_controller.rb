@@ -3,21 +3,18 @@ class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
 
   def submit
-    # TODO: Uncomment this after story acceptance
-    # logger.debug "application_api_params: #{application_api_params}"
-    # short_form_validator = ShortFormValidator.new(application_api_params)
-    # if short_form_validator.valid?
-    #   application = application_service.submit(application_api_params)
-    #   logger.debug "application submit response: #{application}"
-    #   render json: { application: application }
-    # else
-    #   render status: 422, json: { errors: short_form_validator.errors.full_messages }
-    # end
-
-    # TODO: Remove this testing error trigger after story acceptance.
-    # This is a trigger to render the error AlertBox in preferences table.
-    if [true, false].sample
-      render json: { application: application_api_params }
+    logger.debug "application_api_params: #{application_api_params}"
+    short_form_validator = ShortFormValidator.new(application_api_params)
+    if short_form_validator.valid?
+      if application_api_params.key?(:lease)
+        response = lease_service.submit_lease(application_api_params[:lease],
+                                              application_api_params[:id],
+                                              application_api_params[:primaryApplicantContact])
+        logger.debug "lease submit response: #{response}"
+      end
+      application = application_service.submit(application_api_params)
+      logger.debug "application submit response: #{application}"
+      render json: { application: application }
     else
       render status: 422, json: { errors: [] }
     end
@@ -54,6 +51,16 @@ class Api::V1::ShortFormController < ApiController
             :numberOfDependents,
             :formMetadata,
             :hasSenior,
+            :primaryApplicantContact,
+            lease: %i[
+              id
+              unit
+              leaseStatus
+              leaseStartDate
+              monthlyParkingRent
+              totalMonthlyRentWithoutParking
+              monthlyTenantContribution
+            ],
             primaryApplicant: %i[
               contactId
               appMemberId
@@ -151,6 +158,7 @@ class Api::V1::ShortFormController < ApiController
               state
               address
               zipCode
+              postLotteryValidation
             ],
           )
   end
@@ -165,5 +173,9 @@ class Api::V1::ShortFormController < ApiController
 
   def application_service
     Force::ApplicationService.new(current_user)
+  end
+
+  def lease_service
+    Force::LeaseService.new(current_user)
   end
 end

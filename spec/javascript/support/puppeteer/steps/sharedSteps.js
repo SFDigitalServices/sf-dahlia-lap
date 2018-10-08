@@ -8,7 +8,7 @@ const loginAsAgent = async (page) => {
   await page.click('.sign-in-btn')
   await page.waitForNavigation()
 
-  // Sale force login
+  // Salesforce login
   await page.waitForSelector('#username_container')
   await page.type('#username', process.env.E2E_SALESFORCE_USERNAME)
   await page.type('#password', process.env.E2E_SALESFORCE_PASSWORD)
