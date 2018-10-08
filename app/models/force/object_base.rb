@@ -1,42 +1,38 @@
 module Force
   # Base representation of a Salesforce object. Provide mapping between
-  # SOQL API and LAP domain field names for preferences.
+  # Salesforce object field names and LAP domain field names.
   class ObjectBase
-    def initialize(fields, format)
-      raise ArgumentError, 'Field values and format are required.' unless fields && format
+    # Fields must be provided in domain format
+    def initialize(domain_fields)
+      raise ArgumentError, 'Domain field values are required.' unless domain_fields
 
       @fields = {
-        soql: {},
-        domain: {},
+        salesforce: {},
+        domain: domain_fields,
       }
-      @fields[format.to_sym] = fields
     end
 
     # TODO: Make a more general version of this logic to provide the ability
-    # to return custom and domain representations of the preference object as
-    # well - possibly could use method_missing to implement to_x methods.
-    def to_soql
-      # If we already have the SOQL fields, return those
-      return @fields[:soql] if @fields[:soql].present?
+    # to return custom API and domain representations of the object as well -
+    # possibly could use method_missing to implement to_x methods.
+    def to_salesforce
+      # If we already have the Salesforce fields, return those
+      return @fields[:salesforce] if @fields[:salesforce].present?
 
       # If we don't have any field values at all, return an empty hash
       return {} unless @fields[:domain].present?
 
-      # Select an existing set of field values
-      existing_fields = @fields[:domain].presence
-      existing_field_format = :domain
-
-      # Translate the existing fields we have into a corresponding
-      # set of SOQL fields
-      existing_fields.each do |name, value|
-        field_map = self.class::FIELD_NAME_MAPPINGS.find { |f| f[existing_field_format] == name }
+      # Translate the domain fields we have into a corresponding
+      # set of Salesforce fields
+      @fields[:domain].each do |name, value|
+        field_map = self.class::FIELD_NAME_MAPPINGS.find { |f| f[:domain] == name }
         if field_map
-          soql_field_name = field_map[:soql]
-          @fields[:soql][soql_field_name] = value
+          salesforce_field_name = field_map[:salesforce]
+          @fields[:salesforce][salesforce_field_name] = value
         end
       end
 
-      @fields[:soql]
+      @fields[:salesforce]
     end
   end
 end
