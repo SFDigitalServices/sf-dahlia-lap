@@ -57,7 +57,7 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError }) => {
+const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
@@ -74,6 +74,7 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
           onPanelClose={onDismissError}
+          formApi={formApi}
         />
       </ContentSection.Content>
     </ContentSection>
@@ -132,6 +133,7 @@ class SupplementalApplicationContainer extends React.Component {
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
+                formApi={formApi}
               />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection />

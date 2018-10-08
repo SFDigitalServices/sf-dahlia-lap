@@ -63,18 +63,8 @@ class SupplementalApplicationPage extends React.Component {
   handleSaveApplication = async (application) => {
     this.setLoading(true)
 
-    const { persistedApplication } = this.state
+    const response = await updateApplicationAction(application)
 
-    // We clone the modified application in the UI since those are the fields we want to update
-    const synchedApplication = cloneDeep(application)
-
-    // Monthly rent and preferences are only updated in handleSavePreference below.
-    // We set this values so we keep whatever we save in the panels
-    synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
-    synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
-
-    const response = await updateApplicationAction(synchedApplication)
-    this.setState({ persistedApplication: synchedApplication })
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
       window.location.reload()
@@ -84,20 +74,12 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference = async (preferenceIndex, application) => {
-    const { persistedApplication } = this.state
-    const synchedApplication = cloneDeep(persistedApplication)
-
-    // We need to set the total_monthly_rent in the global application, so we do not overwrite it.
-    synchedApplication.total_monthly_rent = application.total_monthly_rent
-    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
-
     const responses = await Promise.all([
       updateTotalHouseholdRent(application.id, application.total_monthly_rent),
       updatePreference(application.preferences[preferenceIndex])
     ])
 
     this.setState({
-      persistedApplication: synchedApplication,
       confirmedPreferencesFailed: some(responses, response => response === false)
     })
   }

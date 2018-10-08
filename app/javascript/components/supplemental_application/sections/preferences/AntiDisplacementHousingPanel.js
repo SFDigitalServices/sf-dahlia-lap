@@ -21,9 +21,9 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference }) =>
         </FormItem>
         <FormItem label='HH Member on Proof'>
           {/*
-          TODO: Add ability for users to change application member on pref.
-          For now, we just show the current app member in a read-only field.
-        */}
+            TODO: Add ability for users to change application member on pref.
+            For now, we just show the current app member in a read-only field.
+          */}
           <input value={memberNameFromPref(preference)} disabled='true' />
         </FormItem>
         <FormItem label='Type of Proof'>
@@ -37,13 +37,13 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference }) =>
         <div className='form-group'>
           <div className='form-grid_item large-12 column padding-bottom'>
             <Comment>
-            Please check to make sure that a document proving the preference address is provided.
-            if no proof document is provided, do not confirm this preference.
+              Please check to make sure that a document proving the preference address is provided.
+              if no proof document is provided, do not confirm this preference.
             </Comment>
             <Comment>
-            If the HH member name on the proof is not the primary applicant,
-            their residence address must have been provided at time of the original application.
-            MOHCD will verify that their address qualifies for this preference.
+              If the HH member name on the proof is not the primary applicant,
+              their residence address must have been provided at time of the original application.
+              MOHCD will verify that their address qualifies for this preference.
             </Comment>
           </div>
         </div>
