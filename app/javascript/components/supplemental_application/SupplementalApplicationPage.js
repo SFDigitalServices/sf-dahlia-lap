@@ -85,18 +85,20 @@ class SupplementalApplicationPage extends React.Component {
 
     // We need to set the total_monthly_rent in the global application, so we do not overwrite it.
     synchedApplication.total_monthly_rent = application.total_monthly_rent
+    synchedApplication.preferences = cloneDeep(application.preferences)
 
     const responses = await Promise.all([
       updateTotalHouseholdRent(application.id, application.total_monthly_rent),
       updatePreference(application.preferences[preferenceIndex])
     ])
+    const failed = some(responses, response => response === false)
 
     this.setState({
       persistedApplication: synchedApplication,
-      confirmedPreferencesFailed: some(responses, response => response === false)
+      confirmedPreferencesFailed: failed
     })
 
-    return response
+    return !failed
   }
 
   handleOnDismissError = () => {
@@ -167,33 +169,34 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render () {
-    const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
+    const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
       confirmedPreferencesFailed,
       amis,
       amiCharts,
       statusModal,
-      loading
+      loading,
+      persistedApplication
     } = this.state
 
     const pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
+      title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
         { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
-        { title: application.name, link: '#' }
+        { title: persistedApplication.listing.name, link: appPaths.toListingLeaseUps(persistedApplication.listing.id) },
+        { title: persistedApplication.name, link: '#' }
       ]
     }
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
 
     const context = {
-      application: application,
+      application: persistedApplication,
       statusHistory: statusHistory,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,

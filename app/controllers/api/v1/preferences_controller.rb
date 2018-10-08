@@ -5,12 +5,12 @@ module Api
       before_action :authenticate_user!
 
       def update
-        response = rest_preference_service.update(preference_params.merge(id: params[:id]))
-        if response
-          render json: true
-        else
-          render status: 422, json: false
-        end
+        # response = rest_preference_service.update(preference_params.merge(id: params[:id]))
+        # if response
+        #   render json: true
+        # else
+        render status: 422, json: false
+        # end
       end
 
       private
