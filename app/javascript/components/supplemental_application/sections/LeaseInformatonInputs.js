@@ -38,11 +38,11 @@ const toggleNoPreferenceUsed = (formApi) => {
 }
 
 const LeaseInformationInputs = ({ formApi, store }) => {
-  const { availableUnits } = store
+  const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
   // FIXME: will this dynamically update when the preferences are updated?
-  const preferences = store.application.preferences
+  const preferences = application.preferences
   const confirmedPreferences = filter(preferences, { 'post_lottery_validation': 'Confirmed' })
   const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
 
