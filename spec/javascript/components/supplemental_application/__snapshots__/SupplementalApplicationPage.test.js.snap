@@ -2914,7 +2914,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           onPanelClose={[Function]}
                                           onSave={[Function]}
                                         >
-                                          <PreferencesTable
+                                          <ContextComponent
                                             application={
                                               Object {
                                                 "alternate_contact": undefined,
@@ -3213,112 +3213,412 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               }
                                             }
                                           >
-                                            <TableWrapper>
-                                              <div
-                                                className="form-grid row expand"
-                                              >
+                                            <Component
+                                              application={
+                                                Object {
+                                                  "alternate_contact": undefined,
+                                                  "annual_income": 110000,
+                                                  "answered_community_screening": null,
+                                                  "applicant": Object {
+                                                    "agency_name": undefined,
+                                                    "alternate_contact_type": undefined,
+                                                    "alternate_contact_type_other": undefined,
+                                                    "city": "SAN FRANCISCO",
+                                                    "date_of_birth": "1950-01-01",
+                                                    "email": "eee@eeee.com",
+                                                    "first_name": "karen",
+                                                    "id": "a0n0x000000AbE6AAK",
+                                                    "last_name": "jones",
+                                                    "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                    "mailing_city": "SAN FRANCISCO",
+                                                    "mailing_state": "CA",
+                                                    "mailing_street": "123 MAIN ST",
+                                                    "mailing_zip_code": "94105-1804",
+                                                    "marital_status": "Married",
+                                                    "middle_name": null,
+                                                    "name": "karen jones",
+                                                    "phone": "9548883321",
+                                                    "phone_type": "Cell",
+                                                    "primary_language": null,
+                                                    "relationship_to_applicant": undefined,
+                                                    "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                    "second_phone": null,
+                                                    "second_phone_type": null,
+                                                    "state": "CA",
+                                                    "street": "123 MAIN ST",
+                                                    "zip_code": "94105-1804",
+                                                  },
+                                                  "application_language": "English",
+                                                  "application_submission_type": "Paper",
+                                                  "application_submitted_date": "2018-06-21",
+                                                  "createdby": Object {
+                                                    "name": "Prod Vertiba",
+                                                  },
+                                                  "flagged_applications": Array [],
+                                                  "general_lottery": true,
+                                                  "general_lottery_rank": null,
+                                                  "has_ada_priorities_selected": Object {
+                                                    "": true,
+                                                  },
+                                                  "has_developmental_disability": null,
+                                                  "has_military_service": null,
+                                                  "hh_total_income_with_assets_annual": undefined,
+                                                  "household_assets": null,
+                                                  "household_members": Array [
+                                                    Object {
+                                                      "agency_name": undefined,
+                                                      "alternate_contact_type": undefined,
+                                                      "alternate_contact_type_other": undefined,
+                                                      "city": "buenos aires",
+                                                      "date_of_birth": "1976-06-11",
+                                                      "email": undefined,
+                                                      "first_name": "diego",
+                                                      "id": "a0n0x000000XzchAAC",
+                                                      "last_name": "maradona",
+                                                      "mailing_address": undefined,
+                                                      "mailing_city": undefined,
+                                                      "mailing_state": undefined,
+                                                      "mailing_street": undefined,
+                                                      "mailing_zip_code": undefined,
+                                                      "marital_status": undefined,
+                                                      "middle_name": "m",
+                                                      "name": "diego m maradona",
+                                                      "phone": undefined,
+                                                      "phone_type": undefined,
+                                                      "primary_language": undefined,
+                                                      "relationship_to_applicant": null,
+                                                      "residence_address": undefined,
+                                                      "second_phone": undefined,
+                                                      "second_phone_type": undefined,
+                                                      "state": "fl",
+                                                      "street": "9 de julio",
+                                                      "zip_code": "33026",
+                                                    },
+                                                  ],
+                                                  "housing_voucher_or_subsidy": "true",
+                                                  "id": "a0o0x000000OcOzAAK",
+                                                  "is_lottery_complete": false,
+                                                  "lease": undefined,
+                                                  "listing": Object {
+                                                    "id": "a0W0x000000GhJUEA0",
+                                                    "name": "Test 5/30",
+                                                    "reserved_community_type": null,
+                                                  },
+                                                  "lottery_number": "00191270",
+                                                  "lottery_number_manual": null,
+                                                  "monthly_income": null,
+                                                  "name": "APP-00191270",
+                                                  "number_of_dependents": 2,
+                                                  "preferences": Array [
+                                                    Object {
+                                                      "application": undefined,
+                                                      "application_member": undefined,
+                                                      "application_member_date_of_birth": null,
+                                                      "application_member_first_name": null,
+                                                      "application_member_last_name": null,
+                                                      "certificate_number": null,
+                                                      "city": null,
+                                                      "id": "a0w0x0000014pvyAAA",
+                                                      "individual_preference": null,
+                                                      "listing_preference": Object {
+                                                        "record_type_for_app_preferences": undefined,
+                                                      },
+                                                      "listing_preference_id": "a0l0x000000RI8nAAG",
+                                                      "lottery_status": "None",
+                                                      "lw_type_of_proof": null,
+                                                      "name": "AP-0000612141",
+                                                      "opt_out": null,
+                                                      "person_who_claimed_name": null,
+                                                      "post_lottery_validation": undefined,
+                                                      "preference_lottery_rank": null,
+                                                      "preference_name": "Alice Griffith Housing Development Resident",
+                                                      "preference_order": 0,
+                                                      "receives_preference": null,
+                                                      "recordtype_developername": "AG",
+                                                      "state": null,
+                                                      "street": null,
+                                                      "total_household_rent": "undefined",
+                                                      "type_of_proof": null,
+                                                      "zip_code": null,
+                                                    },
+                                                  ],
+                                                  "primary_applicant_contact": undefined,
+                                                  "processing_status": undefined,
+                                                  "proof_files": Array [],
+                                                  "referral_source": null,
+                                                  "reserved_senior": undefined,
+                                                  "status": "Submitted",
+                                                  "status_last_updated": undefined,
+                                                  "terms_acknowledged": true,
+                                                  "total_household_size": 1,
+                                                  "total_monthly_rent": null,
+                                                }
+                                              }
+                                              onPanelClose={[Function]}
+                                              onSave={[Function]}
+                                              store={
+                                                Object {
+                                                  "amiCharts": Array [],
+                                                  "amis": Object {},
+                                                  "application": Object {
+                                                    "alternate_contact": undefined,
+                                                    "annual_income": 110000,
+                                                    "answered_community_screening": null,
+                                                    "applicant": Object {
+                                                      "agency_name": undefined,
+                                                      "alternate_contact_type": undefined,
+                                                      "alternate_contact_type_other": undefined,
+                                                      "city": "SAN FRANCISCO",
+                                                      "date_of_birth": "1950-01-01",
+                                                      "email": "eee@eeee.com",
+                                                      "first_name": "karen",
+                                                      "id": "a0n0x000000AbE6AAK",
+                                                      "last_name": "jones",
+                                                      "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                      "mailing_city": "SAN FRANCISCO",
+                                                      "mailing_state": "CA",
+                                                      "mailing_street": "123 MAIN ST",
+                                                      "mailing_zip_code": "94105-1804",
+                                                      "marital_status": "Married",
+                                                      "middle_name": null,
+                                                      "name": "karen jones",
+                                                      "phone": "9548883321",
+                                                      "phone_type": "Cell",
+                                                      "primary_language": null,
+                                                      "relationship_to_applicant": undefined,
+                                                      "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                      "second_phone": null,
+                                                      "second_phone_type": null,
+                                                      "state": "CA",
+                                                      "street": "123 MAIN ST",
+                                                      "zip_code": "94105-1804",
+                                                    },
+                                                    "application_language": "English",
+                                                    "application_submission_type": "Paper",
+                                                    "application_submitted_date": "2018-06-21",
+                                                    "createdby": Object {
+                                                      "name": "Prod Vertiba",
+                                                    },
+                                                    "flagged_applications": Array [],
+                                                    "general_lottery": true,
+                                                    "general_lottery_rank": null,
+                                                    "has_ada_priorities_selected": Object {
+                                                      "": true,
+                                                    },
+                                                    "has_developmental_disability": null,
+                                                    "has_military_service": null,
+                                                    "hh_total_income_with_assets_annual": undefined,
+                                                    "household_assets": null,
+                                                    "household_members": Array [
+                                                      Object {
+                                                        "agency_name": undefined,
+                                                        "alternate_contact_type": undefined,
+                                                        "alternate_contact_type_other": undefined,
+                                                        "city": "buenos aires",
+                                                        "date_of_birth": "1976-06-11",
+                                                        "email": undefined,
+                                                        "first_name": "diego",
+                                                        "id": "a0n0x000000XzchAAC",
+                                                        "last_name": "maradona",
+                                                        "mailing_address": undefined,
+                                                        "mailing_city": undefined,
+                                                        "mailing_state": undefined,
+                                                        "mailing_street": undefined,
+                                                        "mailing_zip_code": undefined,
+                                                        "marital_status": undefined,
+                                                        "middle_name": "m",
+                                                        "name": "diego m maradona",
+                                                        "phone": undefined,
+                                                        "phone_type": undefined,
+                                                        "primary_language": undefined,
+                                                        "relationship_to_applicant": null,
+                                                        "residence_address": undefined,
+                                                        "second_phone": undefined,
+                                                        "second_phone_type": undefined,
+                                                        "state": "fl",
+                                                        "street": "9 de julio",
+                                                        "zip_code": "33026",
+                                                      },
+                                                    ],
+                                                    "housing_voucher_or_subsidy": "true",
+                                                    "id": "a0o0x000000OcOzAAK",
+                                                    "is_lottery_complete": false,
+                                                    "lease": undefined,
+                                                    "listing": Object {
+                                                      "id": "a0W0x000000GhJUEA0",
+                                                      "name": "Test 5/30",
+                                                      "reserved_community_type": null,
+                                                    },
+                                                    "lottery_number": "00191270",
+                                                    "lottery_number_manual": null,
+                                                    "monthly_income": null,
+                                                    "name": "APP-00191270",
+                                                    "number_of_dependents": 2,
+                                                    "preferences": Array [
+                                                      Object {
+                                                        "application": undefined,
+                                                        "application_member": undefined,
+                                                        "application_member_date_of_birth": null,
+                                                        "application_member_first_name": null,
+                                                        "application_member_last_name": null,
+                                                        "certificate_number": null,
+                                                        "city": null,
+                                                        "id": "a0w0x0000014pvyAAA",
+                                                        "individual_preference": null,
+                                                        "listing_preference": Object {
+                                                          "record_type_for_app_preferences": undefined,
+                                                        },
+                                                        "listing_preference_id": "a0l0x000000RI8nAAG",
+                                                        "lottery_status": "None",
+                                                        "lw_type_of_proof": null,
+                                                        "name": "AP-0000612141",
+                                                        "opt_out": null,
+                                                        "person_who_claimed_name": null,
+                                                        "post_lottery_validation": undefined,
+                                                        "preference_lottery_rank": null,
+                                                        "preference_name": "Alice Griffith Housing Development Resident",
+                                                        "preference_order": 0,
+                                                        "receives_preference": null,
+                                                        "recordtype_developername": "AG",
+                                                        "state": null,
+                                                        "street": null,
+                                                        "total_household_rent": "undefined",
+                                                        "type_of_proof": null,
+                                                        "zip_code": null,
+                                                      },
+                                                    ],
+                                                    "primary_applicant_contact": undefined,
+                                                    "processing_status": undefined,
+                                                    "proof_files": Array [],
+                                                    "referral_source": null,
+                                                    "reserved_senior": undefined,
+                                                    "status": "Submitted",
+                                                    "status_last_updated": undefined,
+                                                    "terms_acknowledged": true,
+                                                    "total_household_size": 1,
+                                                    "total_monthly_rent": null,
+                                                  },
+                                                  "availableUnits": undefined,
+                                                  "confirmedPreferencesFailed": false,
+                                                  "fileBaseUrl": undefined,
+                                                  "loading": false,
+                                                  "onDismissError": [Function],
+                                                  "onSavePreference": [Function],
+                                                  "onSubmit": [Function],
+                                                  "openAddStatusCommentModal": [Function],
+                                                  "openUpdateStatusModal": [Function],
+                                                  "setLoading": [Function],
+                                                  "statusHistory": undefined,
+                                                }
+                                              }
+                                            >
+                                              <TableWrapper>
                                                 <div
-                                                  className="small-12 column"
+                                                  className="form-grid row expand"
                                                 >
                                                   <div
-                                                    className="scrollable-table-container-under-xlarge"
+                                                    className="small-12 column"
                                                   >
-                                                    <ExpandableTable
-                                                      columns={
-                                                        Array [
-                                                          Object {
-                                                            "content": "",
-                                                          },
-                                                          Object {
-                                                            "content": "Preference Name",
-                                                          },
-                                                          Object {
-                                                            "content": "Person Who Claimed",
-                                                          },
-                                                          Object {
-                                                            "classes": Array [
-                                                              "text-right",
-                                                            ],
-                                                            "content": "Preference Rank",
-                                                          },
-                                                          Object {
-                                                            "content": "Type of proof",
-                                                          },
-                                                          Object {
-                                                            "content": "Status",
-                                                          },
-                                                          Object {
-                                                            "content": "Actions",
-                                                          },
-                                                        ]
-                                                      }
-                                                      expandedRowRenderer={[Function]}
-                                                      expanderRenderer={[Function]}
-                                                      rows={Array []}
+                                                    <div
+                                                      className="scrollable-table-container-under-xlarge"
                                                     >
-                                                      <table
-                                                        className="td-light td-plain th-plain"
-                                                        role="grid"
+                                                      <ExpandableTable
+                                                        columns={
+                                                          Array [
+                                                            Object {
+                                                              "content": "",
+                                                            },
+                                                            Object {
+                                                              "content": "Preference Name",
+                                                            },
+                                                            Object {
+                                                              "content": "Person Who Claimed",
+                                                            },
+                                                            Object {
+                                                              "classes": Array [
+                                                                "text-right",
+                                                              ],
+                                                              "content": "Preference Rank",
+                                                            },
+                                                            Object {
+                                                              "content": "Type of proof",
+                                                            },
+                                                            Object {
+                                                              "content": "Status",
+                                                            },
+                                                            Object {
+                                                              "content": "Actions",
+                                                            },
+                                                          ]
+                                                        }
+                                                        expandedRowRenderer={[Function]}
+                                                        expanderRenderer={[Function]}
+                                                        rows={Array []}
                                                       >
-                                                        <thead>
-                                                          <tr>
-                                                            <th
-                                                              className=""
-                                                              key="0"
-                                                              scope="col"
-                                                            />
-                                                            <th
-                                                              className=""
-                                                              key="1"
-                                                              scope="col"
-                                                            >
-                                                              Preference Name
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="2"
-                                                              scope="col"
-                                                            >
-                                                              Person Who Claimed
-                                                            </th>
-                                                            <th
-                                                              className="text-right"
-                                                              key="3"
-                                                              scope="col"
-                                                            >
-                                                              Preference Rank
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="4"
-                                                              scope="col"
-                                                            >
-                                                              Type of proof
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="5"
-                                                              scope="col"
-                                                            >
-                                                              Status
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="6"
-                                                              scope="col"
-                                                            >
-                                                              Actions
-                                                            </th>
-                                                          </tr>
-                                                        </thead>
-                                                        <tbody />
-                                                      </table>
-                                                    </ExpandableTable>
+                                                        <table
+                                                          className="td-light td-plain th-plain"
+                                                          role="grid"
+                                                        >
+                                                          <thead>
+                                                            <tr>
+                                                              <th
+                                                                className=""
+                                                                key="0"
+                                                                scope="col"
+                                                              />
+                                                              <th
+                                                                className=""
+                                                                key="1"
+                                                                scope="col"
+                                                              >
+                                                                Preference Name
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="2"
+                                                                scope="col"
+                                                              >
+                                                                Person Who Claimed
+                                                              </th>
+                                                              <th
+                                                                className="text-right"
+                                                                key="3"
+                                                                scope="col"
+                                                              >
+                                                                Preference Rank
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="4"
+                                                                scope="col"
+                                                              >
+                                                                Type of proof
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="5"
+                                                                scope="col"
+                                                              >
+                                                                Status
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="6"
+                                                                scope="col"
+                                                              >
+                                                                Actions
+                                                              </th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody />
+                                                        </table>
+                                                      </ExpandableTable>
+                                                    </div>
                                                   </div>
                                                 </div>
-                                              </div>
-                                            </TableWrapper>
-                                          </PreferencesTable>
+                                              </TableWrapper>
+                                            </Component>
+                                          </ContextComponent>
                                         </ContextComponent>
                                       </div>
                                     </Component>
