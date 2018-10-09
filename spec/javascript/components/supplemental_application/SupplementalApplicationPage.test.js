@@ -9,11 +9,21 @@ import units from '../../fixtures/units'
 import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
 
 const mockSubmitApplication = jest.fn()
+const mockUpdateApplication = jest.fn()
+const mockUpdatePreference = jest.fn()
 
 jest.mock('apiService', () => {
   return {
     submitApplication: async (data) => {
       mockSubmitApplication(data)
+      return true
+    },
+    updateApplication: async (data) => {
+      mockUpdateApplication(data)
+      return true
+    },
+    updatePreference: async (data) => {
+      mockUpdatePreference(data)
       return true
     },
     getAMI: async (data) => {
@@ -94,8 +104,8 @@ describe('SupplementalApplicationPage', () => {
 
     await wait(100)
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
+    expect(mockUpdateApplication.mock.calls.length).toBe(1)
+    expect(mockUpdatePreference.mock.calls.length).toBe(1)
   })
 
   test('should render the status update dropdown button and its menu of status options correctly', async () => {
