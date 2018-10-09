@@ -18,3 +18,21 @@ export const getAMIAction = async ({chartType, chartYear}) => {
   }
   return response['ami']
 }
+
+export const updatePreference = async (preference) => {
+  const response = await apiService.updatePreference(preference)
+
+  if (response === false) Alerts.error()
+
+  return response
+}
+
+export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
+  const attributes = {
+    id: id,
+    total_monthly_rent: totalMonthlyRent
+  }
+  const response = await apiService.updateApplication(attributes)
+
+  return response
+}

@@ -158,6 +158,7 @@ class Api::V1::ShortFormController < ApiController
               state
               address
               zipCode
+              postLotteryValidation
             ],
           )
   end

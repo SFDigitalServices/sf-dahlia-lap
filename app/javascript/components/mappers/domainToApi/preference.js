@@ -15,6 +15,7 @@ export const preferenceFieldMapper = {
   street: 'address',
   zip_code: 'zipCode',
   listing_preference_id: 'listingPreferenceID',
+  post_lottery_validation: 'postLotteryValidation',
   naturalKey: 'naturalKey' // This is not a field in saleforce
 }
 
