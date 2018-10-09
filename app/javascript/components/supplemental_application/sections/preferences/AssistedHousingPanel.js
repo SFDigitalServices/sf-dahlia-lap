@@ -1,9 +1,8 @@
 import React from 'react'
-import { Text } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment } from './utils'
-import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
+import { FormItem, Comment, SelectStatus } from './utils'
+import { memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 export const AssistedHousingPanel = ({ preferenceIndex, preference }) => {
   return (
@@ -16,17 +15,13 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference }) => {
         </FormItem>
         <FormItem label='Name on Lease'>
           {/*
-          TODO: Add ability for users to change application member on pref.
-          For now, we just show the current app member in a read-only field.
-        */}
+            TODO: Add ability for users to change application member on pref.
+            For now, we just show the current app member in a read-only field.
+          */}
           <input value={memberNameFromPref(preference)} disabled='true' />
         </FormItem>
         <FormItem label='Status'>
-          {/*
-          TODO: Add ability for users to change status on pref.
-          For now, we just show the current status in a read-only field.
-        */}
-          <Text field={buildFieldId(preferenceIndex, 'post_lottery_validation')} disabled='true' />
+          <SelectStatus preferenceIndex={preferenceIndex} />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
