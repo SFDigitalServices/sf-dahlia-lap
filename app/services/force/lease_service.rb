@@ -36,7 +36,7 @@ module Force
     end
 
     def update_lease(lease, application_id)
-      create_lease_params = lease_base_params(lease, application_id).merge(Id: lease[:id])
+      create_lease_params = lease_base_params(lease, application_id).merge(Id: lease[:id], Lease_Status__c: lease[:lease_status])
       @client.update!('Lease__c', create_lease_params)
     end
 
