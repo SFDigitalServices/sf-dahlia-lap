@@ -12,13 +12,6 @@ const apiCall = async (method, path, data) => {
   }
 }
 
-// TODO: can remove, was just for spreadsheet prototype
-const updateApplication = async (data) => {
-  let putData = { application: data }
-  let response = await apiCall('put', '/short-form/update', putData)
-  return response.result
-}
-
 const updateFlaggedApplication = async (data) => {
   let putData = {
     flagged_application: {
@@ -68,11 +61,28 @@ const createFieldUpdateComment = async (data) => {
   return apiCall('post', '/field-update-comments/create', postData)
 }
 
+const updatePreference = async (data) => {
+  const id = data.id
+  const postData = {
+    preference: data
+  }
+  return apiCall('put', `/preferences/${id}`, postData)
+}
+
+const updateApplication = async (data) => {
+  const id = data.id
+  const postData = {
+    application: data
+  }
+  return apiCall('put', `/applications/${id}`, postData)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
   getAMI,
+  updatePreference,
   createFieldUpdateComment
 }
