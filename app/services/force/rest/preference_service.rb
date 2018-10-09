@@ -2,9 +2,9 @@ module Force
   module Rest
     # Provide Salesforce standard REST API interactions for preferences
     class PreferenceService < Force::Base
-      def update(attrs)
-        preference = Force::Preference.new(attrs, :domain)
-        @client.update('Application_Preference__c', preference.to_soql)
+      def update(domain_attrs)
+        preference = Force::Preference.new(domain_attrs)
+        @client.update('Application_Preference__c', preference.to_salesforce)
       end
     end
   end

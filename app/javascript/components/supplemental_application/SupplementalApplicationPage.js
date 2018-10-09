@@ -85,7 +85,7 @@ class SupplementalApplicationPage extends React.Component {
 
     // We need to set the total_monthly_rent in the global application, so we do not overwrite it.
     synchedApplication.total_monthly_rent = application.total_monthly_rent
-    synchedApplication.preferences = cloneDeep(application.preferences)
+    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
 
     const responses = await Promise.all([
       updateTotalHouseholdRent(application.id, application.total_monthly_rent),
