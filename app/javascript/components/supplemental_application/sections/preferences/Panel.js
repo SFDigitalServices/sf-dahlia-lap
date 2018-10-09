@@ -1,8 +1,6 @@
 import React from 'react'
-import { Form } from 'react-form'
 import { cond, stubTrue, constant } from 'lodash'
 
-import { addNaturalKeyToPreference } from '~/components/applications/application_form/preferences/utils.js'
 import FormGrid from '~/components/molecules/FormGrid'
 import DefaultPanel from './DefaultPanel'
 import RentBurdenedPanel from './RentBurdenedPanel'
@@ -32,35 +30,39 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, preferenceIndex, applicationMembers, onClose, onSave, loading }) => {
+const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi }) => {
   const preference = application.preferences[preferenceIndex]
-  addNaturalKeyToPreference(preference)
   const PreferencePanel = getPreferencePanel(preference)
-
-  const onSaveWithPreferenceIndex = (application) => {
-    onSave(preferenceIndex, application)
+  const onSaveWithPreferenceIndex = () => {
+    onSave(preferenceIndex, formApi.values)
   }
+
   return (
     <div className='app-editable expand-wide scrollable-table-nested'>
-      <Form onSubmit={onSaveWithPreferenceIndex} defaultValues={application}>
-        { formApi => (
-          <React.Fragment>
-            <PreferencePanel
-              application={application}
-              preferenceIndex={preferenceIndex}
-              preference={preference}
-              applicationMembers={applicationMembers}
-            />
-            <FormGrid.Row expand={false}>
-              <div className='form-grid_item column'>
-                <button className='button primary tiny margin-right margin-bottom-none save-panel-btn' type='button' onClick={formApi.submitForm} disabled={loading}>Save</button>
-                <button className='button secondary tiny margin-bottom-none' type='button' onClick={onClose} disabled={loading}>Cancel</button>
-              </div>
-            </FormGrid.Row>
-          </React.Fragment>
-        )
-        }
-      </Form>
+      <React.Fragment>
+        <PreferencePanel
+          preferenceIndex={preferenceIndex}
+          preference={preference}
+        />
+        <FormGrid.Row expand={false}>
+          <div className='form-grid_item column'>
+            <button
+              className='button primary tiny margin-right margin-bottom-none save-panel-btn'
+              type='button'
+              onClick={onSaveWithPreferenceIndex}
+              disabled={loading}>
+              Save
+            </button>
+            <button
+              className='button secondary tiny margin-bottom-none'
+              type='button'
+              onClick={onClose}
+              disabled={loading}>
+              Cancel
+            </button>
+          </div>
+        </FormGrid.Row>
+      </React.Fragment>
     </div>
   )
 }

@@ -56,7 +56,7 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError }) => {
+const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
@@ -73,6 +73,7 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
           onPanelClose={onDismissError}
+          formApi={formApi}
         />
       </ContentSection.Content>
     </ContentSection>
@@ -102,14 +103,6 @@ const ActionButtons = withContext(({ loading, store }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
-  handleOnSubmit = (value) => {
-    const { setLoading } = this.props.store
-    setLoading(true)
-    this.props.store.onSubmit(value).then(() => {
-      setLoading(false)
-    })
-  }
-
   render () {
     const { store } = this.props
     const {
@@ -120,12 +113,13 @@ class SupplementalApplicationContainer extends React.Component {
       onDismissError,
       amis,
       amiCharts,
-      loading
+      loading,
+      onSubmit
     } = store
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
+        <Form onSubmit={onSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
               <StatusUpdateSection />
@@ -136,6 +130,7 @@ class SupplementalApplicationContainer extends React.Component {
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
+                formApi={formApi}
               />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection />

@@ -10,7 +10,7 @@ const {
   preferenceProofOptionsDefault
 } = formOptions
 
-export const Custom = ({ preferenceIndex, preference, application }) => {
+export const Custom = ({ preferenceIndex, preference }) => {
   return (
     <React.Fragment>
       <FormGrid.Row expand={false}>
@@ -37,8 +37,8 @@ export const Custom = ({ preferenceIndex, preference, application }) => {
         <div className='form-group'>
           <div className='form-grid_item large-12 column padding-bottom'>
             <Comment>
-            Please check to make sure that a document proving the preference address is provided.
-            If no proof document is provided, do not confirm this preference.
+              Please check to make sure that a document proving the preference address is provided.
+              If no proof document is provided, do not confirm this preference.
             </Comment>
           </div>
         </div>
