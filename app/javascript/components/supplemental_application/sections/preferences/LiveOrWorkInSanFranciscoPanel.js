@@ -25,14 +25,14 @@ const getLWPrefProofTypeOptions = (individualPrefName) => {
 class LiveOrWorkInSanFranciscoPanel extends React.Component {
   constructor (props) {
     super(props)
-    // I do not think we need a state for this, Fed
+    // NOTE: I do not think we need a state for this, Fed
     this.state = {
       prefProofTypeOptions: getLWPrefProofTypeOptions(this.props.preference.individual_preference)
     }
   }
 
   updatePrefProofOptions = (individualPrefName) => {
-    // I do not think we need a state for this, Fed
+    // NOTE: I do not think we need a state for this, Fed
     this.setState(prevState => {
       return {
         prefProofTypeOptions: getLWPrefProofTypeOptions(individualPrefName)

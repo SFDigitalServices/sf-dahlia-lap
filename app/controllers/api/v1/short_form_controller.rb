@@ -16,7 +16,7 @@ class Api::V1::ShortFormController < ApiController
       logger.debug "application submit response: #{application}"
       render json: { application: application }
     else
-      render status: 422, json: { errors: [] }
+      render status: 422, json: { errors: short_form_validator.errors.full_messages }
     end
   end
 
