@@ -117,6 +117,9 @@ class SupplementalApplicationContainer extends React.Component {
       onSubmit
     } = store
 
+    // console.log('re render')
+    // console.log(application)
+
     return (
       <Loading isLoading={loading}>
         <Form onSubmit={onSubmit} defaultValues={application}>

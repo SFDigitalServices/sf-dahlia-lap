@@ -74,19 +74,35 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference = async (preferenceIndex, application) => {
+    const { persistedApplication } = this.state
     const responses = await Promise.all([
       updateTotalHouseholdRent(application.id, application.total_monthly_rent),
       updatePreference(application.preferences[preferenceIndex])
     ])
     const failed = some(responses, response => response === false)
 
-    this.setState({ confirmedPreferencesFailed: failed })
+    if (!failed) {
+      const updateApplication = cloneDeep(persistedApplication)
+      updateApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
+      this.setState({
+        persistedApplication: updateApplication,
+        confirmedPreferencesFailed: false
+      })
+    } else {
+      this.setState({ confirmedPreferencesFailed: true })
+    }
 
     return !failed
   }
 
-  handleOnDismissError = () => {
-    this.setState({ confirmedPreferencesFailed: false })
+  handleCancelPreferencePanel = (preferenceIndex) => {
+    const { persistedApplication } = this.state
+    const updateApplication = cloneDeep(persistedApplication)
+
+    this.setState({
+      persistedApplication: updateApplication,
+      confirmedPreferencesFailed: false
+    })
   }
 
   updateStatusModal = (values) => {
@@ -185,7 +201,7 @@ class SupplementalApplicationPage extends React.Component {
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
       confirmedPreferencesFailed: confirmedPreferencesFailed,
-      onDismissError: this.handleOnDismissError,
+      onDismissError: this.handleCancelPreferencePanel,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,

@@ -62,11 +62,11 @@ const columns = [
 
 const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  const handleOnClose = () => {
+  const handleOnClose = (preferenceIndex) => {
     toggle()
-    onPanelClose && onPanelClose()
+    onPanelClose && onPanelClose(preferenceIndex)
   }
-  const handleOnSave = async (application) => {
+  const handleOnSave = async (preferenceIndex, application) => {
     const response = await onSave(preferenceIndex, application)
     response && handleOnClose()
   }
