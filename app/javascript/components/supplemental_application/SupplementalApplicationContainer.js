@@ -6,7 +6,7 @@ import ContentSection from '../molecules/ContentSection'
 import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
-import StatusUpdateForm from './sections/StatusUpdateForm'
+import StatusUpdate from '~/components/organisms/StatusUpdate'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
@@ -15,16 +15,26 @@ import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import { withContext } from './context'
 
-const StatusUpdateSection = () => (
-  <ContentSection.Content paddingBottomNone marginTop>
-    <StatusUpdateForm />
-  </ContentSection.Content>
-)
+const StatusUpdateSection = withContext(({ store }) => {
+  const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
+  let recentStatusUpdate = statusHistory[0]
+  return (
+    <ContentSection.Content paddingBottomNone marginTop>
+      <StatusUpdate
+        status={recentStatusUpdate.status}
+        comment={recentStatusUpdate.note}
+        date={recentStatusUpdate.date}
+        onStatusDropdownChange={openUpdateStatusModal}
+        onAddCommentClick={openAddStatusCommentModal}
+        statusHistoryAnchor='#status-history-section' />
+    </ContentSection.Content>
+  )
+})
 
 const StatusHistorySection = withContext(({ store }) => {
   const { statusHistory, openAddStatusCommentModal } = store
   return !isEmpty(statusHistory) && (
-    <ContentSection.Sub title='Status History' borderBottom={false}>
+    <ContentSection.Sub id='status-history-section' title='Status History' borderBottom={false}>
       <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
     </ContentSection.Sub>
   )

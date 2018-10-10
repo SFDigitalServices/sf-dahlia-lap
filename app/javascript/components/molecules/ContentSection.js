@@ -15,8 +15,8 @@ ContentSection.Header = ({title, description}) => (
   </div>
 )
 
-ContentSection.SubHeader = ({title, description}) => (
-  <div className='app-inner subheader-wide'>
+ContentSection.SubHeader = ({title, id, description}) => (
+  <div id={id} className='app-inner subheader-wide'>
     {title && <h3 className='app-card_h3 t-sans'>{title}</h3>}
     {description && <p className='form-note max-width'>{description}</p>}
   </div>
@@ -39,9 +39,9 @@ ContentSection.Content = ({children, borderBottom, paddingBottomNone, marginTop}
   )
 }
 
-ContentSection.Sub = ({title, description, borderBottom = true, children}) => (
+ContentSection.Sub = ({title, id, description, borderBottom = true, children}) => (
   <React.Fragment>
-    <ContentSection.SubHeader title={title} description={description} />
+    <ContentSection.SubHeader id={id} title={title} description={description} />
     <ContentSection.Content borderBottom={borderBottom}>
       {children}
     </ContentSection.Content>
