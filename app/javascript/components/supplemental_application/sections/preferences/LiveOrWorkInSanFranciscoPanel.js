@@ -60,9 +60,9 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
           </FormItem>
           <FormItem label='HH Member on Proof'>
             {/*
-            TODO: Add ability for users to change application member on pref.
-            For now, we just show the current app member in a read-only field.
-          */}
+              TODO: Add ability for users to change application member on pref.
+              For now, we just show the current app member in a read-only field.
+            */}
             <input value={memberNameFromPref(preference)} disabled='true' />
           </FormItem>
           <FormItem label='Type of Proof'>
@@ -78,8 +78,8 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
           <div className='form-group'>
             <div className='form-grid_item large-12 column padding-bottom'>
               <Comment>
-              Please check to make sure that a document proving the preference address is provided.
-              If no proof document is provided, do not confirm this preference.
+                Please check to make sure that a document proving the preference address is provided.
+                If no proof document is provided, do not confirm this preference.
               </Comment>
             </div>
           </div>

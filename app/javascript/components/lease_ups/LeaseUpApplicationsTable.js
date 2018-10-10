@@ -2,12 +2,13 @@ import React from 'react'
 import ReactTable from 'react-table'
 import { trim } from 'lodash'
 
-import Dropdown from '../molecules/Dropdown'
+import StatusDropdown from '../molecules/StatusDropdown'
+import { getLeaseUpStatusClass } from '~/utils/statusUtils'
 import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
 
-import { LEASE_UP_STATUS_OPTIONS, PAGE_SIZE, getLeaseUpStatusStyle } from './leaseUpsHelpers'
+const PAGE_SIZE = 5
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationPreferenceId = cell.original.id
@@ -15,13 +16,11 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
 
   const value = cell.value || ''
   return (
-    <Dropdown
-      items={LEASE_UP_STATUS_OPTIONS}
-      value={value}
-      prompt='Status'
+    <StatusDropdown
+      status={value}
       onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
       styles={{position: 'absolute'}}
-      buttonClasses={[getLeaseUpStatusStyle(value), 'tiny']} />
+      buttonClasses={['tiny']} />
   )
 }
 
@@ -93,7 +92,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
 
   const getTrProps = (state, rowInfo, column) => {
     const statusClassName = (rowInfo && !!trim(rowInfo.row.lease_up_status))
-      ? getLeaseUpStatusStyle(rowInfo.row.lease_up_status)
+      ? getLeaseUpStatusClass(rowInfo.row.lease_up_status)
       : ''
 
     const trClassName = classNames(

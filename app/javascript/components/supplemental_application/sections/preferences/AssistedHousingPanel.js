@@ -28,9 +28,9 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference }) => {
         <div className='form-group'>
           <div className='form-grid_item large-12 column padding-bottom'>
             <Comment>
-            Do not give this preference unless applicant has provided a lease.
-            If the person who lives in assisted housing is not the primary applicant,
-            their address must have been provided at the time of the original application.
+              Do not give this preference unless applicant has provided a lease.
+              If the person who lives in assisted housing is not the primary applicant,
+              their address must have been provided at the time of the original application.
             </Comment>
           </div>
         </div>

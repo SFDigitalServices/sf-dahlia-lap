@@ -1,5 +1,5 @@
 import React from 'react'
-import ExpandableTableWrapper from '../pattern_library_wrappers/ExpandableTableWrapper'
+import ExpandableTableWrapper from '../pattern_library/wrappers/ExpandableTableWrapper'
 
 const FormGridTable = ({ columns, rows }) => {
   return (

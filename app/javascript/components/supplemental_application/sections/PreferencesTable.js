@@ -12,7 +12,6 @@ import {
   getPreferenceName
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
-import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
 import { withContext } from '../context'
 
 const { ExpanderButton } = ExpandableTable
@@ -61,7 +60,7 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose) => (row, toggle) => {
+const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
   const handleOnClose = () => {
     toggle()
@@ -76,9 +75,9 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
     <Panel
       application={application}
       preferenceIndex={preferenceIndex}
-      applicationMembers={applicationMembers}
       onSave={handleOnSave}
       onClose={handleOnClose}
+      formApi={formApi}
     />
   )
 }
@@ -89,9 +88,7 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
     <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
-const PreferencesTable = withContext(({ store }) => {
-  const { application, fileBaseUrl, onSavePreference, onDismissError } = store
-  const applicationMembers = getFullHousehold(application)
+const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
   const rows = buildRows(application, fileBaseUrl)
   return (
     <TableWrapper>
@@ -99,9 +96,9 @@ const PreferencesTable = withContext(({ store }) => {
         columns={columns}
         rows={rows}
         expanderRenderer={expanderAction}
-        expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSavePreference, onDismissError)}
+        expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
       />
     </TableWrapper>)
-})
+}
 
 export default withContext(PreferencesTable)

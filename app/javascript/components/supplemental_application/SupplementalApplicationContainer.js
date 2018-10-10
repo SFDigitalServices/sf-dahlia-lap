@@ -11,10 +11,9 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-import Dropdown from '~/components/molecules/Dropdown'
-import LeaseInformatonInputs from './sections/LeaseInformatonInputs'
+import StatusDropdown from '~/components/molecules/StatusDropdown'
+import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import { withContext } from './context'
-import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from '~/components/lease_ups/leaseUpsHelpers'
 
 const StatusUpdateSection = () => (
   <ContentSection.Content paddingBottomNone marginTop>
@@ -35,7 +34,7 @@ const LeaseInformationSection = () => {
   return (
     <ContentSection title='Lease Information'>
       <ContentSection.Content borderBottom>
-        <LeaseInformatonInputs />
+        <LeaseInformationInputs />
       </ContentSection.Content>
       <ContentSection.Sub title='Demographics'>
         <DemographicsInputs />
@@ -57,7 +56,7 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError }) => {
+const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
@@ -74,6 +73,7 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
           onPanelClose={onDismissError}
+          formApi={formApi}
         />
       </ContentSection.Content>
     </ContentSection>
@@ -82,18 +82,16 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
 
 const ActionButtons = withContext(({ loading, store }) => {
   const { application, openUpdateStatusModal } = store
+
   return (
     <div className='button-pager'>
       <div className='button-pager_row align-buttons-left primary inset-wide'>
-        <Dropdown
-          items={LEASE_UP_STATUS_OPTIONS}
-          value={application.processing_status}
-          prompt='Status'
-          wrapperClasses={['dropdown-inline']}
-          buttonClasses={[getLeaseUpStatusStyle(application.processing_status), 'small', 'has-status-width']}
-          menuClasses={['dropdown-menu-bottom']}
+        <StatusDropdown
+          status={application.processing_status}
           onChange={openUpdateStatusModal}
-        />
+          buttonClasses={['small', 'has-status-width']}
+          wrapperClasses={['dropdown-inline']}
+          menuClasses={['dropdown-menu-bottom']} />
         <button
           className='button primary small save-btn'
           type='submit'
@@ -105,14 +103,6 @@ const ActionButtons = withContext(({ loading, store }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
-  handleOnSubmit = (value) => {
-    const { setLoading } = this.props.store
-    setLoading(true)
-    this.props.store.onSubmit(value).then(() => {
-      setLoading(false)
-    })
-  }
-
   render () {
     const { store } = this.props
     const {
@@ -123,12 +113,13 @@ class SupplementalApplicationContainer extends React.Component {
       onDismissError,
       amis,
       amiCharts,
-      loading
+      loading,
+      onSubmit
     } = store
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={this.handleOnSubmit} defaultValues={application}>
+        <Form onSubmit={onSubmit} defaultValues={application}>
           {formApi => (
             <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
               <StatusUpdateSection />
@@ -139,6 +130,7 @@ class SupplementalApplicationContainer extends React.Component {
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
+                formApi={formApi}
               />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection />
