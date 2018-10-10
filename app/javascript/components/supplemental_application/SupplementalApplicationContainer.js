@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form } from 'react-form'
 import { isEmpty } from 'lodash'
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentSection from '../molecules/ContentSection'
 import Loading from '../molecules/Loading'
@@ -34,7 +35,7 @@ const StatusUpdateSection = withContext(({ store }) => {
 const StatusHistorySection = withContext(({ store }) => {
   const { statusHistory, openAddStatusCommentModal } = store
   return !isEmpty(statusHistory) && (
-    <ContentSection.Sub id='status-history-section' title='Status History' borderBottom={false}>
+    <ContentSection.Sub title='Status History' borderBottom={false}>
       <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
     </ContentSection.Sub>
   )
@@ -144,7 +145,7 @@ class SupplementalApplicationContainer extends React.Component {
               />
               <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
               <LeaseInformationSection />
-              <StatusHistorySection />
+              <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
             </form>
