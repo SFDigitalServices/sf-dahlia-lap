@@ -18,7 +18,7 @@ import { withContext } from './context'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
-  let recentStatusUpdate = statusHistory[0]
+  let recentStatusUpdate = statusHistory[0] || {status: null, note: null, date: null}
   return (
     <ContentSection.Content paddingBottomNone marginTop>
       <StatusUpdate
