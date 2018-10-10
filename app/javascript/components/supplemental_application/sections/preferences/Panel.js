@@ -9,7 +9,6 @@ import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
-import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 
 const isPreference = (record, preferenceName) => (pref) => {
   const recordtypeDevelopername = pref.recordtype_developername
