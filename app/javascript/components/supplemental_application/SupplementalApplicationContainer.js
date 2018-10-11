@@ -18,12 +18,12 @@ import { withContext } from './context'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
-  let recentStatusUpdate = statusHistory[0] || {status: null, note: null, date: null}
+  let recentStatusUpdate = statusHistory[0] || {status: null, comment: null, date: null}
   return (
     <ContentSection.Content paddingBottomNone marginTop>
       <StatusUpdate
         status={recentStatusUpdate.status}
-        comment={recentStatusUpdate.note}
+        comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
         onStatusDropdownChange={openUpdateStatusModal}
         onAddCommentClick={openAddStatusCommentModal}
