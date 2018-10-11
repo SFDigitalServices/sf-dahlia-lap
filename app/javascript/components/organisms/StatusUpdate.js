@@ -6,7 +6,7 @@ import StatusDropdown from '../molecules/StatusDropdown'
 
 const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor }) => {
   return (
-    <div className='status-update'>
+    <div className={`status-update expand-wide is-${status.toLowerCase()}`}>
       <h3 className='status-update_title'>Update Status</h3>
       <div className='status-update_action'>
         <StatusDropdown
