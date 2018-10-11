@@ -20,6 +20,9 @@ module Force
       query_scope.where_eq('Application_Submission_Type__c', "'#{opts[:submission_type]}'") if opts[:submission_type].present?
 
       query_scope.query
+
+      # application = Force::Application.new(result, :soql)
+      # application.to_domain
     end
 
     def application(id, options = {})
@@ -31,11 +34,12 @@ module Force
         WHERE Id = '#{id}'
         AND Status__c != '#{DRAFT}'
         AND #{user_can_access}
+        LIMIT 1
       ))
       application['preferences'] = app_preferences(id) if includes.include?('preferences')
-      application['proof_files'] = app_proof_files(id) if includes.include?('proof_files')
+      application['proof_files'] = attachment_service.app_proof_files(id) if includes.include?('proof_files')
       application['household_members'] = app_household_members(application) if includes.include?('household_members')
-      application['flagged_applications'] = flagged_record_set(id) if includes.include?('flagged_applications')
+      application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id) if includes.include?('flagged_applications')
       application['lease'] = lease_service.lease(id) if includes.include?('lease')
       application
     end
@@ -79,33 +83,33 @@ module Force
       ), :show_preference)
     end
 
-    def app_proof_files(application_id)
-      parsed_index_query(%(
-        SELECT #{query_fields(:show_proof_files)}
-        FROM Attachment__c
-        WHERE Related_Application__c = '#{application_id}'
-      ), :show_proof_files).map do |attachment|
-        file = query_first(%(
-          SELECT Id
-          FROM Attachment
-          WHERE ParentId = '#{attachment.Id}'
-        ))
-        {
-          Id: file.Id,
-          Document_Type: attachment.Document_Type,
-          Related_Application: attachment.Related_Application,
-          Related_Application_Preference: attachment.Related_Application_Preference,
-        }
-      end
-    end
+    # def app_proof_files(application_id)
+    #   parsed_index_query(%(
+    #     SELECT #{query_fields(:show_proof_files)}
+    #     FROM Attachment__c
+    #     WHERE Related_Application__c = '#{application_id}'
+    #   ), :show_proof_files).map do |attachment|
+    #     file = query_first(%(
+    #       SELECT Id
+    #       FROM Attachment
+    #       WHERE ParentId = '#{attachment.Id}'
+    #     ))
+    #     {
+    #       Id: file.Id,
+    #       Document_Type: attachment.Document_Type,
+    #       Related_Application: attachment.Related_Application,
+    #       Related_Application_Preference: attachment.Related_Application_Preference,
+    #     }
+    #   end
+    # end
 
-    def flagged_record_set(application_id)
-      parsed_index_query(%(
-        SELECT #{query_fields(:show_flagged_records)}
-        FROM Flagged_Application__c
-        WHERE Application__c  = '#{application_id}'
-      ), :show_flagged_records)
-    end
+    # def flagged_record_set(application_id)
+    #   parsed_index_query(%(
+    #     SELECT #{query_fields(:show_flagged_records)}
+    #     FROM Flagged_Application__c
+    #     WHERE Application__c  = '#{application_id}'
+    #   ), :show_flagged_records)
+    # end
 
     def application_defaults
       {
@@ -127,6 +131,14 @@ module Force
 
     def lease_service
       Force::LeaseService.new(@user)
+    end
+
+    def flagged_record_set_service
+      Force::FlaggedRecordSetService.new(@user)
+    end
+
+    def attachment_service
+      Force::Soql::AttachmentService.new(@user)
     end
   end
 end

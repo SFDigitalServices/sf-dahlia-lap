@@ -35,6 +35,7 @@ const ApplicationPage = (props) => {
 const mapProperties = ({ application, showAddBtn, fileBaseUrl }) => {
   return {
     application: mapApplication(application),
+    // application: application,
     fields: labelMapperFields,
     showAddBtn: showAddBtn,
     fileBaseUrl: fileBaseUrl

@@ -7,7 +7,9 @@ module Force
       end
 
       def snapshot(application_id)
-        application_id
+        custom_api_application = api_get("/LeasingAgentPortal/shortForm/Archive/#{application_id}")
+        application = Force::Application.new(custom_api_application, :custom_api)
+        application.to_domin
       end
     end
   end

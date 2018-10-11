@@ -61,4 +61,5 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   config.include ReactHelpers, type: :controller
   config.include ForceHelpers, type: :controller
+  config.include FixturesHelper
 end
