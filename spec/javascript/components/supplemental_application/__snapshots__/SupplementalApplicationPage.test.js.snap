@@ -114,13 +114,8 @@ Array [
           <div
             className="app-inner inset-wide padding-bottom-none margin-top"
           >
-            <h2
-              className="sr-only"
-            >
-              Status Update
-            </h2>
             <div
-              className="status-update expand-wide is-processing"
+              className="status-update expand-wide is-approved"
             >
               <h3
                 className="status-update_title"
@@ -130,23 +125,38 @@ Array [
               <div
                 className="status-update_action"
               >
-                <button
-                  aria-expanded="false"
-                  className="button dropdown-button has-icon--right text-align-left small is-processing"
-                  href="#"
+                <div
+                  className="dropdown"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  <span
-                    aria-hidden="true"
-                    className="ui-icon ui-small"
+                  <button
+                    aria-expanded="false"
+                    className="button dropdown-button has-icon--right text-align-left is-approved small"
+                    onClick={[Function]}
+                    type="button"
                   >
-                    <svg>
-                      <use
-                        xlinkHref="#i-arrow-down"
-                      />
-                    </svg>
-                  </span>
-                  Processing
-                </button>
+                    <span
+                      className="ui-icon ui-small"
+                    >
+                      <svg>
+                        <use
+                          xlinkHref="#i-arrow-down"
+                        />
+                      </svg>
+                    </span>
+                    Approved
+                  </button>
+                  <div
+                    aria-hidden="true"
+                    className="dropdown-menu-wrapper"
+                    role="menu"
+                  />
+                </div>
               </div>
               <div
                 className="status-update_message"
@@ -157,12 +167,14 @@ Array [
                   <p
                     className="status-update_note"
                   >
-                    Some comment
+                    xxxx1
                   </p>
                   <span
                     className="status-update_date"
                   >
-                    03/12/18 
+                    <div>
+                      5/10/18
+                    </div>
                   </span>
                 </div>
                 <div
@@ -170,14 +182,14 @@ Array [
                 >
                   <button
                     className="button tiny tertiary"
-                    data-event=""
+                    onClick={[Function]}
                     type="button"
                   >
                     Add a comment
                   </button>
                   <a
                     className="t-small right"
-                    href="/see_status_history"
+                    href="#status-history-section"
                   >
                     See Status History
                   </a>
@@ -1040,84 +1052,86 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            className="app-inner subheader-wide"
-          >
-            <h3
-              className="app-card_h3 t-sans"
-            >
-              Status History
-            </h3>
-          </div>
-          <div
-            className="app-inner inset-wide"
-          >
+          <div>
             <div
-              className="status-list"
+              className="app-inner subheader-wide"
             >
-              <ul>
-                <li
-                  className="status-list_item"
-                >
-                  <div
-                    className="status-list_tag is-approved"
-                  >
-                    Approved
-                  </div>
-                  <div
-                    className="status-list_comment"
-                  >
-                    <p
-                      className="status-list_note"
-                    >
-                      xxxx1
-                    </p>
-                    <span
-                      className="status-list_date"
-                    >
-                      <div>
-                        5/10/18
-                      </div>
-                    </span>
-                  </div>
-                </li>
-                <li
-                  className="status-list_item"
-                >
-                  <div
-                    className="status-list_tag is-pending"
-                  >
-                    Pending
-                  </div>
-                  <div
-                    className="status-list_comment"
-                  >
-                    <p
-                      className="status-list_note"
-                    >
-                      xxxx2
-                    </p>
-                    <span
-                      className="status-list_date"
-                    >
-                      <div>
-                        5/10/18
-                      </div>
-                    </span>
-                  </div>
-                </li>
-              </ul>
-              <div
-                className="status-list_footer"
+              <h3
+                className="app-card_h3 t-sans"
               >
-                <button
-                  className="button tertiary tiny margin-bottom-none"
-                  data-event=""
-                  onClick={[Function]}
-                  type="button"
+                Status History
+              </h3>
+            </div>
+            <div
+              className="app-inner inset-wide"
+            >
+              <div
+                className="status-list"
+              >
+                <ul>
+                  <li
+                    className="status-list_item"
+                  >
+                    <div
+                      className="status-list_tag is-approved"
+                    >
+                      Approved
+                    </div>
+                    <div
+                      className="status-list_comment"
+                    >
+                      <p
+                        className="status-list_note"
+                      >
+                        xxxx1
+                      </p>
+                      <span
+                        className="status-list_date"
+                      >
+                        <div>
+                          5/10/18
+                        </div>
+                      </span>
+                    </div>
+                  </li>
+                  <li
+                    className="status-list_item"
+                  >
+                    <div
+                      className="status-list_tag is-pending"
+                    >
+                      Pending
+                    </div>
+                    <div
+                      className="status-list_comment"
+                    >
+                      <p
+                        className="status-list_note"
+                      >
+                        xxxx2
+                      </p>
+                      <span
+                        className="status-list_date"
+                      >
+                        <div>
+                          5/10/18
+                        </div>
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+                <div
+                  className="status-list_footer"
                 >
-                  Add a comment
-                </button>
+                  <button
+                    className="button tertiary tiny margin-bottom-none"
+                    data-event=""
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Add a comment
+                  </button>
+                </div>
               </div>
             </div>
           </div>
