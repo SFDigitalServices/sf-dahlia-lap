@@ -189,6 +189,7 @@ Array [
                   </button>
                   <a
                     className="t-small right"
+                    data-turbolinks="false"
                     href="#status-history-section"
                   >
                     See Status History
