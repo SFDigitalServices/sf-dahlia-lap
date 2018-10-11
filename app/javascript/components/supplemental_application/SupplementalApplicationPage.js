@@ -73,17 +73,17 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleSavePreference = async (preferenceIndex, application) => {
+  handleSavePreference = async (preferenceIndex, formApplicationValues) => {
     const { persistedApplication } = this.state
     const responses = await Promise.all([
-      updateTotalHouseholdRent(application.id, application.total_monthly_rent),
-      updatePreference(application.preferences[preferenceIndex])
+      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
+      updatePreference(formApplicationValues.preferences[preferenceIndex])
     ])
     const failed = some(responses, response => response === false)
 
     if (!failed) {
       const updatedApplication = cloneDeep(persistedApplication)
-      updatedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
+      updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
       this.setState({
         persistedApplication: updatedApplication,
         confirmedPreferencesFailed: false
