@@ -95,7 +95,7 @@ class SupplementalApplicationPage extends React.Component {
     return !failed
   }
 
-  handleCancelPreferencePanel = (preferenceIndex) => {
+  handleDismissError = (preferenceIndex) => {
     this.setState({ confirmedPreferencesFailed: false })
   }
 
@@ -195,7 +195,7 @@ class SupplementalApplicationPage extends React.Component {
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
       confirmedPreferencesFailed: confirmedPreferencesFailed,
-      onDismissError: this.handleCancelPreferencePanel,
+      onDismissError: this.handleDismissError,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,
