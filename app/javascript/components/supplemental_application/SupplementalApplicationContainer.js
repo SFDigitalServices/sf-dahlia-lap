@@ -18,7 +18,7 @@ import { withContext } from './context'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
-  let recentStatusUpdate = statusHistory[0] || {status: null, comment: null, date: null}
+  let recentStatusUpdate = statusHistory && statusHistory[0] ? statusHistory[0] : {status: null, comment: null, date: null}
   return (
     <ContentSection.Content paddingBottomNone marginTop>
       <StatusUpdate
