@@ -82,10 +82,10 @@ class SupplementalApplicationPage extends React.Component {
     const failed = some(responses, response => response === false)
 
     if (!failed) {
-      const updateApplication = cloneDeep(persistedApplication)
-      updateApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
+      const updatedApplication = cloneDeep(persistedApplication)
+      updatedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
       this.setState({
-        persistedApplication: updateApplication,
+        persistedApplication: updatedApplication,
         confirmedPreferencesFailed: false
       })
     } else {
@@ -96,13 +96,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCancelPreferencePanel = (preferenceIndex) => {
-    const { persistedApplication } = this.state
-    const updateApplication = cloneDeep(persistedApplication)
-
-    this.setState({
-      persistedApplication: updateApplication,
-      confirmedPreferencesFailed: false
-    })
+    this.setState({ confirmedPreferencesFailed: false })
   }
 
   updateStatusModal = (values) => {
