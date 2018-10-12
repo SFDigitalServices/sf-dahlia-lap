@@ -132,15 +132,20 @@ class SupplementalApplicationPage extends React.Component {
   handleStatusModalSubmit = async (submittedValues) => {
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
+    console.log('submittedValues', submittedValues)
 
     const data = {
       status: this.state.statusModal.status,
       comment: submittedValues.comment,
       applicationId: this.state.persistedApplication.id
     }
+    const appResponse = await updateApplicationAction(this.state.persistedApplication)
+    console.log('App response!', appResponse)
 
-    const response = await apiService.createFieldUpdateComment(data)
-    if (response === false) {
+    const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
+    console.log('comment Response', commentResponse)
+
+    if (appResponse === false || commentResponse === false) {
       Alerts.error()
       this.updateStatusModal({loading: false})
       this.setState({loading: false})
