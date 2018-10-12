@@ -37,6 +37,12 @@ const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi
     onSave(preferenceIndex, formApi.values)
   }
 
+  const handleOnClose = () => {
+    formApi.setValue('total_monthly_rent', application.total_monthly_rent)
+    formApi.setValue(['preferences', preferenceIndex], preference)
+    onClose(preferenceIndex)
+  }
+
   return (
     <div className='app-editable expand-wide scrollable-table-nested'>
       <React.Fragment>
@@ -56,7 +62,7 @@ const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi
             <button
               className='button secondary tiny margin-bottom-none'
               type='button'
-              onClick={onClose}
+              onClick={handleOnClose}
               disabled={loading}>
               Cancel
             </button>
