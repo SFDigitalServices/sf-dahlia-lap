@@ -5,24 +5,11 @@ module Api
       before_action :authenticate_user!
 
       def update
-        # TODO: Uncomment this block of code after story acceptance.
-        # response = rest_preference_service.update(preference_params.merge(id: params[:id]))
-        # if response
-        #   render json: true
-        # else
-        #   render status: 422, json: false
-        # end
-
-        # TODO: Remove this block of code after story acceptance.
-        if [true, false].sample
-          render status: 422, json: false
+        response = rest_preference_service.update(preference_params.merge(id: params[:id]))
+        if response
+          render json: true
         else
-          response = rest_preference_service.update(preference_params.merge(id: params[:id]))
-          if response
-            render json: true
-          else
-            render status: 422, json: false
-          end
+          render status: 422, json: false
         end
       end
 
