@@ -12,9 +12,17 @@ RSpec.describe Force::Application do
       expect(application.to_domain).to eq(domain_attributes)
     end
     it 'should convert from SOQL' do
-      application = Force::Application.new(soql_attributes, :soql)
+      application = Force::Application.from_salesforce(soql_attributes)
+      attributes = application.to_domain
 
-      expect(application.to_domain).to eq(domain_attributes)
+      ap attributes
+
+      attributes['preferences'].each_with_index do |_, idx|
+        expect(attributes['preferences'][idx]).to eq(domain_attributes['preferences'][idx])
+      end
+      expect(attributes['preferences']).to eq(domain_attributes['preferences'])
+      prybug
+      expect(attributes).to eq(domain_attributes)
     end
   end
 end

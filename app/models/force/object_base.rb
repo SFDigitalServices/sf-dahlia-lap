@@ -12,6 +12,19 @@ module Force
       }
     end
 
+    def self.mapper
+      ObjectMapper.new(self::FIELD_NAME_MAPPINGS)
+    end
+
+    def self.from_salesforce(attributes)
+      domain_attributes = mapper.map(:salesforce, :domain, attributes)
+      new(domain_attributes)
+    end
+
+    def to_domain
+      @fields[:domain]
+    end
+
     # TODO: Make a more general version of this logic to provide the ability
     # to return custom API and domain representations of the object as well -
     # possibly could use method_missing to implement to_x methods.
