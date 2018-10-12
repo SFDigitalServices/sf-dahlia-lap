@@ -70,6 +70,7 @@ class SupplementalApplicationPage extends React.Component {
       // Reload the page to pull updated data from Salesforce
       window.location.reload()
     } else {
+      Alerts.error()
       this.setLoading(false)
     }
   }
@@ -153,8 +154,11 @@ class SupplementalApplicationPage extends React.Component {
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (appResponse === false || commentResponse === false) {
-      Alerts.error()
-      this.updateStatusModal({loading: false})
+      this.updateStatusModal({
+        loading: false,
+        showAlert: true,
+        alertMsg: 'We were unable to make the update, please try again.'
+      })
       this.setState({loading: false})
     } else {
       this.updateStatusModal({loading: false, isOpen: false})
