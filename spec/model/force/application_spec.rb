@@ -20,8 +20,11 @@ RSpec.describe Force::Application do
       attributes['preferences'].each_with_index do |_, idx|
         expect(attributes['preferences'][idx]).to eq(domain_attributes['preferences'][idx])
       end
+      # expect(attributes['applicant']).to eq(domain_attributes['applicant'])
       expect(attributes['preferences']).to eq(domain_attributes['preferences'])
-      prybug
+
+      attributes.delete('preferences')
+      domain_attributes.delete('preferences')
       expect(attributes).to eq(domain_attributes)
     end
   end

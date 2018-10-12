@@ -31,11 +31,11 @@ module Force
       {
         salesforce: {
           field: 'Total_Household_Rent',
-          fetch: proc { |r| r.to_s },
+          fetch: proc { |value| value.to_s },
         },
         domain: 'total_household_rent',
       },
-      { salesforce: proc { |r| r['RecordType']['DeveloperName'] }, domain: 'recordtype_developername' },
+      { salesforce: proc { |record| record['RecordType']['DeveloperName'] }, domain: 'recordtype_developername' },
       {
         salesforce: {
           field: 'Listing_Preference_ID',
@@ -44,5 +44,9 @@ module Force
         domain: 'listing_preference',
       },
     ].freeze
+  end
+
+  def to_salefroce
+
   end
 end
