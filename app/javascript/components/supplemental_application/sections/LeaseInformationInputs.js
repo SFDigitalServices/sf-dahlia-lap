@@ -41,11 +41,8 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
-  // FIXME: will this dynamically update when the preferences are updated?
-  const preferences = application.preferences
-  const confirmedPreferences = filter(preferences, { 'post_lottery_validation': 'Confirmed' })
+  const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })
   const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
-
   return (
     <React.Fragment>
       <FormGrid.Row paddingBottom>
@@ -82,4 +79,4 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   )
 }
 
-export default withContext(withNestedForm('lease', LeaseInformationInputs))
+export default withNestedForm('lease', withContext(LeaseInformationInputs))

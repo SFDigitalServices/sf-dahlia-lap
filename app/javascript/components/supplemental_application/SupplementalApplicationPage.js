@@ -172,7 +172,6 @@ class SupplementalApplicationPage extends React.Component {
       loading,
       persistedApplication
     } = this.state
-
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
