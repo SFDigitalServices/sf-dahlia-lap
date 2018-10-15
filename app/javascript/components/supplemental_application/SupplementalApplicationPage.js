@@ -74,18 +74,29 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleSavePreference = async (preferenceIndex, application) => {
+  handleSavePreference = async (preferenceIndex, formApplicationValues) => {
+    const { persistedApplication } = this.state
     const responses = await Promise.all([
-      updateTotalHouseholdRent(application.id, application.total_monthly_rent),
-      updatePreference(application.preferences[preferenceIndex])
+      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
+      updatePreference(formApplicationValues.preferences[preferenceIndex])
     ])
+    const failed = some(responses, response => response === false)
 
-    this.setState({
-      confirmedPreferencesFailed: some(responses, response => response === false)
-    })
+    if (!failed) {
+      const updatedApplication = cloneDeep(persistedApplication)
+      updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
+      this.setState({
+        persistedApplication: updatedApplication,
+        confirmedPreferencesFailed: false
+      })
+    } else {
+      this.setState({ confirmedPreferencesFailed: true })
+    }
+
+    return !failed
   }
 
-  handleOnDismissError = () => {
+  handleDismissError = (preferenceIndex) => {
     this.setState({ confirmedPreferencesFailed: false })
   }
 
@@ -153,38 +164,39 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render () {
-    const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
+    const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
       confirmedPreferencesFailed,
       amis,
       amiCharts,
       statusModal,
-      loading
+      loading,
+      persistedApplication
     } = this.state
 
     const pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
+      title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
         { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
-        { title: application.name, link: '#' }
+        { title: persistedApplication.listing.name, link: appPaths.toListingLeaseUps(persistedApplication.listing.id) },
+        { title: persistedApplication.name, link: '#' }
       ]
     }
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
 
     const context = {
-      application: application,
+      application: persistedApplication,
       statusHistory: statusHistory,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
       confirmedPreferencesFailed: confirmedPreferencesFailed,
-      onDismissError: this.handleOnDismissError,
+      onDismissError: this.handleDismissError,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,
