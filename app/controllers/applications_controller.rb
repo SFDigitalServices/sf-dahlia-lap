@@ -45,17 +45,26 @@ class ApplicationsController < ApplicationController
   end
 
   def find_application(id)
-    # TODO: May need to place the application show route underneath
-    # a listing, since now the way we display an application depends
-    # on the status of the application's listing
-    listing_in_lease_up = application_listing['Status'] == 'Lease Up'
-    if listing_in_lease_up
+    listing = soql_application_service.application_listing(id)
+
+    # Get the application from the custom API. Use the snapshot
+    # of the application if the listing is in Lease Up.
+    if listing.Status == 'Lease Up'
       application = custom_api_application_service.snapshot(id)
-      application.proof_files = attachment_service.app_proof_files(id)
-      application.flagged_applications = flagged_record_set_service.flagged_record_set(id)
-      application
     else
-      soql_application_service.application(id)
+      application = custom_api_application_service.application(id)
     end
+
+    # Add some listing details
+    application.listing = {
+      id: listing.Id,
+      name: listing.Name,
+    }
+
+    # Add additional data that must be fetched via SOQL
+    # application.preferences << preference_service.application_preferences(id)
+    # application.proof_files = attachment_service.app_proof_files(id)
+    # application.flagged_applications = flagged_record_set_service.flagged_record_set(id)
+    application # domain application with all additional info, e.g. preferences, etc., added onto it
   end
 end

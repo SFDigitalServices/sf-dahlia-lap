@@ -1,15 +1,7 @@
 {
-   "attributes":{
-      "type":"Application",
-      "url":"/services/data/v43.0/sobjects/Application/a0o0U000000VVw8QAG"
-   },
    "Id":"a0o0U000000VVw8QAG",
    "Name":"APP-00262254",
    "Applicant":{
-      "attributes":{
-         "type":"Application_Member",
-         "url":"/services/data/v43.0/sobjects/Application_Member/a0n0U0000030tBrQAI"
-      },
       "Id":"a0n0U0000030tBrQAI",
       "First_Name":"Lappy",
       "Last_Name":"Laptest",
@@ -37,10 +29,6 @@
    "Primary_Applicant":"0030U00000P8lxaQAB",
    "Alternate_Contact":null,
    "Listing":{
-      "attributes":{
-         "type":"Listing",
-         "url":"/services/data/v43.0/sobjects/Listing/a0W0U000000MX4vUAG"
-      },
       "Name":"LAP Test Listing (Do not Modify) - Yellow Acres",
       "Id":"a0W0U000000MX4vUAG",
       "Reserved_community_type":null
@@ -50,10 +38,6 @@
    "Application_Submission_Type":"Paper",
    "Application_Submitted_Date":"2018-08-03",
    "CreatedBy":{
-      "attributes":{
-         "type":"User",
-         "url":"/services/data/v43.0/sobjects/User/0050P000007H5XsQAK"
-      },
       "Name":"Prod Vertiba"
    },
    "Annual_Income":null,
@@ -73,16 +57,12 @@
    "Has_Military_Service":null,
    "Reserved_Senior":null,
    "Has_DevelopmentalDisability":null,
-   "Has_ADA_Priorities_Selected":null,
+   "Has_ADA_Priorities_Selected": "Mobility impaired;Hearing impaired",
    "Terms_Acknowledged":false,
    "Number_of_Dependents":null,
    "Processing_Status":"Waitlisted",
    "preferences":[
       {
-         "attributes":{
-            "type":"Application_Preference",
-            "url":"/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhBQAW"
-         },
          "Id":"a0w0U000001EXhBQAW",
          "Name":"AP-0000851973",
          "Preference_Name":"Certificate of Preference (COP)",
@@ -98,10 +78,6 @@
          "Certificate_Number":null,
          "Preference_Order":1,
          "RecordType":{
-            "attributes":{
-               "type":"RecordType",
-               "url":"/services/data/v43.0/sobjects/RecordType/0120P000000R7BHQA0"
-            },
             "DeveloperName":"COP"
          },
          "LW_Type_of_Proof":null,
@@ -113,10 +89,6 @@
          "Total_Household_Rent":0
       },
       {
-         "attributes":{
-            "type":"Application_Preference",
-            "url":"/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhCQAW"
-         },
          "Id":"a0w0U000001EXhCQAW",
          "Name":"AP-0000851974",
          "Preference_Name":"Displaced Tenant Housing Preference (DTHP)",
@@ -132,10 +104,6 @@
          "Certificate_Number":null,
          "Preference_Order":2,
          "RecordType":{
-            "attributes":{
-               "type":"RecordType",
-               "url":"/services/data/v43.0/sobjects/RecordType/0120P000000R7BJQA0"
-            },
             "DeveloperName":"DTHP"
          },
          "LW_Type_of_Proof":null,
@@ -147,10 +115,6 @@
          "Total_Household_Rent":0
       },
       {
-         "attributes":{
-            "type":"Application_Preference",
-            "url":"/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhDQAW"
-         },
          "Id":"a0w0U000001EXhDQAW",
          "Name":"AP-0000851975",
          "Preference_Name":"Rent Burdened / Assisted Housing Preference",
@@ -166,10 +130,6 @@
          "Certificate_Number":null,
          "Preference_Order":3,
          "RecordType":{
-            "attributes":{
-               "type":"RecordType",
-               "url":"/services/data/v43.0/sobjects/RecordType/0120P000000R7BMQA0"
-            },
             "DeveloperName":"RB_AHP"
          },
          "LW_Type_of_Proof":null,
@@ -181,10 +141,6 @@
          "Total_Household_Rent":0
       },
       {
-         "attributes":{
-            "type":"Application_Preference",
-            "url":"/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhEQAW"
-         },
          "Id":"a0w0U000001EXhEQAW",
          "Name":"AP-0000851976",
          "Preference_Name":"Live or Work in San Francisco Preference",
@@ -200,10 +156,6 @@
          "Certificate_Number":null,
          "Preference_Order":4,
          "RecordType":{
-            "attributes":{
-               "type":"RecordType",
-               "url":"/services/data/v43.0/sobjects/RecordType/0120P000000R7BKQA0"
-            },
             "DeveloperName":"L_W"
          },
          "LW_Type_of_Proof":null,
@@ -220,10 +172,6 @@
    ],
    "household_members":[
       {
-         "attributes":{
-            "type":"Application_Member",
-            "url":"/services/data/v43.0/sobjects/Application_Member/a0n0U0000030tBhQAI"
-         },
          "Id":"a0n0U0000030tBhQAI",
          "Name":"Flappy Laptest",
          "First_Name":"Flappy",
@@ -237,10 +185,6 @@
          "Zip_Code":null
       },
       {
-         "attributes":{
-            "type":"Application_Member",
-            "url":"/services/data/v43.0/sobjects/Application_Member/a0n0U0000030tBmQAI"
-         },
          "Id":"a0n0U0000030tBmQAI",
          "Name":"Slappy Laptest",
          "First_Name":"Slappy",

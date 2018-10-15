@@ -14,13 +14,7 @@ module Force
 
     def initialize(fields, format)
       raise ArgumentError, 'Field values and format are required.' unless fields && format
-
-      @fields = {
-        custom_api: {},
-        domain: {},
-        salesforce: {},
-      }
-
+      @fields = Hashie::Mash.new(FIELD_TYPES.map { |t| [t, Hashie::Mash.new] }.to_h)
       @fields[format] = fields
     end
 
