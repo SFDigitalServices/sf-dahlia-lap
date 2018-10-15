@@ -12,7 +12,7 @@ import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+// import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -141,17 +141,18 @@ class SupplementalApplicationPage extends React.Component {
     this.updateStatusModal({status: value})
   }
 
-  handleStatusModalSubmit = async (submittedValues) => {
+  handleStatusModalSubmit = async (submittedValues, fromApplication) => {
+    console.log('submittedValues', submittedValues)
+    console.log('application:', fromApplication) // application from the formApi
+
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
-    console.log('submittedValues', submittedValues)
-
     const data = {
       status: this.state.statusModal.status,
       comment: submittedValues.comment,
       applicationId: this.state.persistedApplication.id
     }
-    const appResponse = await updateApplicationAction(this.state.persistedApplication)
+    const appResponse = await updateApplicationAction(fromApplication)
     console.log('App response!', appResponse)
 
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
@@ -209,19 +210,17 @@ class SupplementalApplicationPage extends React.Component {
       loading: loading,
       openAddStatusCommentModal: this.openAddStatusCommentModal,
       openUpdateStatusModal: this.openUpdateStatusModal,
-      setLoading: this.setLoading
+      setLoading: this.setLoading,
+      statusModal: statusModal,
+      handleStatusModalClose: this.handleStatusModalClose,
+      handleStatusModalStatusChange: this.handleStatusModalStatusChange,
+      handleStatusModalSubmit: this.handleStatusModalSubmit
     }
 
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
-          <StatusModalWrapper
-            {...statusModal}
-            onClose={this.handleStatusModalClose}
-            onStatusChange={this.handleStatusModalStatusChange}
-            onSubmit={this.handleStatusModalSubmit}
-          />
         </CardLayout>
       </Context.Provider>
     )
