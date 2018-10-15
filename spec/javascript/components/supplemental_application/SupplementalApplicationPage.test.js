@@ -45,7 +45,6 @@ describe('SupplementalApplicationPage', () => {
   test('it should render correctly without status history', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
-        statusHistory={statusHistory}
         application={supplementalApplication}
         units={units} />
     )
@@ -112,6 +111,7 @@ describe('SupplementalApplicationPage', () => {
     const wrapper = mount(
       <SupplementalApplicationPage
         application={supplementalApplication}
+        statusHistory={statusHistory}
       />
     )
 

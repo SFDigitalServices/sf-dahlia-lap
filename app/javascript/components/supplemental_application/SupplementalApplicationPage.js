@@ -34,7 +34,8 @@ class SupplementalApplicationPage extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
+      // A frozen copy of the application state that is currently persisted to
+      // Salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
       confirmedPreferencesFailed: false,
       amis: {},

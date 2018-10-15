@@ -4,17 +4,6 @@ import { toLower, sortBy } from 'lodash'
 
 import PrettyTime from '~/components/atoms/PrettyTime'
 
-// Keeping note of possible status from salesforce
-// [
-//   "Processing",
-//   "Withdrawn",
-//   "Disqualified",
-//   "Approved",
-//   "Lease Signed",
-//   "Appealed",
-//   "Waitlisted"
-// ]
-
 const getStatusClassName = (status) => {
   if (!status) {
     return 'default'
@@ -25,7 +14,7 @@ const getStatusClassName = (status) => {
   }
 }
 
-const StatusListItem = ({status, note, date}) => {
+const StatusListItem = ({status, comment, date}) => {
   const statusTagClassNames = classNames(
     'status-list_tag',
     `is-${getStatusClassName(status)}`
@@ -35,7 +24,7 @@ const StatusListItem = ({status, note, date}) => {
     <li className='status-list_item'>
       <div className={statusTagClassNames}>{status}</div>
       <div className='status-list_comment'>
-        <p className='status-list_note'>{note}</p>
+        <p className='status-list_note'>{comment}</p>
         <span className='status-list_date'>
           <PrettyTime time={date} displayType='short' />
         </span>
@@ -56,8 +45,8 @@ const StatusList = ({items, onAddComment}) => {
   return (
     <div className='status-list'>
       <ul>
-        { items && orderedItems.map(({status, note, date}, idx) => (
-          <StatusListItem key={idx} status={status} note={note} date={date} />
+        { items && orderedItems.map(({status, comment, date}, idx) => (
+          <StatusListItem key={idx} status={status} comment={comment} date={date} />
         ))
         }
       </ul>
