@@ -2,11 +2,12 @@ import React from 'react'
 import classNames from 'classnames'
 
 import PrettyTime from '../atoms/PrettyTime'
+import { getLeaseUpStatusClass } from '~/utils/statusUtils'
 import StatusDropdown from '../molecules/StatusDropdown'
 
 const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor }) => {
   return (
-    <div className='status-update'>
+    <div className={`status-update expand-wide ${getLeaseUpStatusClass(status)}`}>
       <h3 className='status-update_title'>Update Status</h3>
       <div className='status-update_action'>
         <StatusDropdown
@@ -33,7 +34,7 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
           </button>
           {
             (status || comment) &&
-            <a href={statusHistoryAnchor} className='t-small right'>See Status History</a>
+            <a href={statusHistoryAnchor} data-turbolinks='false' className='t-small right'>See Status History</a>
           }
         </div>
       </div>
