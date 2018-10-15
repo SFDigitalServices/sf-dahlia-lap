@@ -2,7 +2,8 @@
 # we have settled on a format for the field mapping items
 # rubocop:disable Metrics/LineLength
 module Force
-  # Represent an application object. Provide mapping between SOQL API
+  # Represent an application object. Provide mapping between
+  # Salesforce object field names, Salesforce custom API field names,
   # and LAP domain field names for applications.
   class Application < Force::ObjectBase
     # TODO: Once we add more models and more fields, consider moving the

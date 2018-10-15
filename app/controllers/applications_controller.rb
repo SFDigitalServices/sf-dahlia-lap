@@ -47,13 +47,10 @@ class ApplicationsController < ApplicationController
   def find_application(id)
     listing = soql_application_service.application_listing(id)
 
-    # Get the application from the custom API. Use the snapshot
-    # of the application if the listing is in Lease Up.
-    if listing.Status == 'Lease Up'
-      application = custom_api_application_service.snapshot(id)
-    else
-      application = custom_api_application_service.application(id)
-    end
+    # Get the application via the custom API. Use the snapshot of
+    # the application if the listing is in Lease Up.
+    is_listing_lease_up = listing.Status == 'Lease Up'
+    application = custom_api_application_service.application(id, snapshot: is_listing_lease_up)
 
     # Add some listing details
     application.listing = {
@@ -62,9 +59,10 @@ class ApplicationsController < ApplicationController
     }
 
     # Add additional data that must be fetched via SOQL
-    # application.preferences << preference_service.application_preferences(id)
-    # application.proof_files = attachment_service.app_proof_files(id)
-    # application.flagged_applications = flagged_record_set_service.flagged_record_set(id)
+    # application['preferences'] = app_preferences(id)
+    # application['proof_files'] = attachment_service.app_proof_files(id)
+    # application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id)
+
     application # domain application with all additional info, e.g. preferences, etc., added onto it
   end
 end

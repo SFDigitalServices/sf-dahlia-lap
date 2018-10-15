@@ -13,7 +13,7 @@ module Force
     attr_accessor :fields
 
     def initialize(fields, format)
-      raise ArgumentError, 'Field values and format are required.' unless fields && format
+      raise ArgumentError, 'Field format is required when fields are provided.' if fields && !format
       @fields = Hashie::Mash.new(FIELD_TYPES.map { |t| [t, Hashie::Mash.new] }.to_h)
       @fields[format] = fields
     end

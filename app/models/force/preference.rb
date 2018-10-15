@@ -1,5 +1,6 @@
 module Force
-  # Represent a preference object. Provide mapping between SOQL API
+  # Represent a preference object. Provide mapping between
+  # Salesforce object field names, Salesforce custom API field names,
   # and LAP domain field names for preferences.
   class Preference < Force::ObjectBase
     # TODO: Once we add more models and more fields, consider moving the
