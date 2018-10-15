@@ -1,51 +1,52 @@
 module Force
   # Base representation of a Salesforce object. Provide mapping between
-  # Salesforce object field names and LAP domain field names.
+  # Salesforce object field names, Salesforce custom API field names,
+  # and LAP domain field names.
   class ObjectBase
-    # Fields must be provided in domain format
-    def initialize(domain_fields)
-      raise ArgumentError, 'Domain field values are required.' unless domain_fields
+    FIELD_TYPES = %i[custom_api domain salesforce].freeze
+
+    def initialize(fields, format)
+      raise ArgumentError, 'Field values and format are required.' unless fields && format
 
       @fields = {
+        custom_api: {},
+        domain: {},
         salesforce: {},
-        domain: domain_fields,
       }
+
+      @fields[format] = fields
     end
 
-    def self.mapper
-      ObjectMapper.new(self::FIELD_NAME_MAPPINGS)
-    end
-
-    def self.from_salesforce(attributes)
-      domain_attributes = mapper.map(:salesforce, :domain, attributes)
-      new(domain_attributes)
-    end
-
-    def to_domain
-      @fields[:domain]
-    end
-
-    # TODO: Make a more general version of this logic to provide the ability
-    # to return custom API and domain representations of the object as well -
-    # possibly could use method_missing to implement to_x methods.
-    def to_salesforce
-      # If we already have the Salesforce fields, return those
-      return @fields[:salesforce] if @fields[:salesforce].present?
-
-      # If we don't have any field values at all, return an empty hash
-      return {} unless @fields[:domain].present?
-
-      # Translate the domain fields we have into a corresponding
-      # set of Salesforce fields
-      @fields[:domain].each do |name, value|
-        field_map = self.class::FIELD_NAME_MAPPINGS.find { |f| f[:domain] == name }
-        if field_map
-          salesforce_field_name = field_map[:salesforce]
-          @fields[:salesforce][salesforce_field_name] = value
-        end
+    # Define the class methods from_custom_api, from_domain, and from_salesforce
+    FIELD_TYPES.each do |field_type|
+      define_singleton_method :"from_#{field_type}" do |attributes|
+        new(attributes, field_type)
       end
+    end
 
-      @fields[:salesforce]
+    # Define the instance methods to_custom_api, to_domain, and to_salesforce
+    FIELD_TYPES.each do |field_type|
+      define_method :"to_#{field_type}" do
+        # If we already have the requested fields, return those
+        return @fields[field_type] if @fields[field_type].present?
+
+        # If we don't have any existing field values, return an empty hash
+        existing_field_type = FIELD_TYPES.find { |type| @fields[type].present? }
+        existing_fields = @fields[existing_field_type]
+        return {} unless existing_fields
+
+        # Translate the existing fields we have into a corresponding
+        # set of the requested field type
+        existing_fields.each do |name, value|
+          field_map = self.class::FIELD_NAME_MAPPINGS.find { |f| f[existing_field_type] == name }
+          if field_map
+            field_name = field_map[field_type]
+            @fields[field_type][field_name] = value if field_name.present?
+          end
+        end
+
+        @fields[field_type]
+      end
     end
   end
 end

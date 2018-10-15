@@ -83,7 +83,7 @@ module Force
       @api.post(endpoint, params)
     end
 
-    def api_get(endpoint, params)
+    def api_get(endpoint, params = {})
       @api.get(endpoint, params)
     end
 

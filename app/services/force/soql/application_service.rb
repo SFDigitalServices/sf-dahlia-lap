@@ -1,5 +1,5 @@
 module Force
-  # Provide Salesforce SOQL API and Custom API interactions for applications
+  # Provide Salesforce SOQL API interactions for applications
   class ApplicationService < Force::Base
     DRAFT = 'Draft'.freeze
     FIELD_NAME = :applications
@@ -58,10 +58,6 @@ module Force
       )))
     end
 
-    # def submit(data)
-    #   api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
-    # end
-
     private
 
     def app_household_members(application)
@@ -82,34 +78,6 @@ module Force
         WHERE Application__c = '#{application_id}'
       ), :show_preference)
     end
-
-    # def app_proof_files(application_id)
-    #   parsed_index_query(%(
-    #     SELECT #{query_fields(:show_proof_files)}
-    #     FROM Attachment__c
-    #     WHERE Related_Application__c = '#{application_id}'
-    #   ), :show_proof_files).map do |attachment|
-    #     file = query_first(%(
-    #       SELECT Id
-    #       FROM Attachment
-    #       WHERE ParentId = '#{attachment.Id}'
-    #     ))
-    #     {
-    #       Id: file.Id,
-    #       Document_Type: attachment.Document_Type,
-    #       Related_Application: attachment.Related_Application,
-    #       Related_Application_Preference: attachment.Related_Application_Preference,
-    #     }
-    #   end
-    # end
-
-    # def flagged_record_set(application_id)
-    #   parsed_index_query(%(
-    #     SELECT #{query_fields(:show_flagged_records)}
-    #     FROM Flagged_Application__c
-    #     WHERE Application__c  = '#{application_id}'
-    #   ), :show_flagged_records)
-    # end
 
     def application_defaults
       {

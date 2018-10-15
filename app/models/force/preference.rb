@@ -45,8 +45,4 @@ module Force
       },
     ].freeze
   end
-
-  def to_salefroce
-
-  end
 end

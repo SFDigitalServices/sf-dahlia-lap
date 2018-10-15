@@ -12,17 +12,12 @@ class Api::V1::ShortFormController < ApiController
                                               application_api_params[:primaryApplicantContact])
         logger.debug "lease submit response: #{response}"
       end
-      application = application_service.submit(application_api_params)
+      application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
       render json: { application: application }
     else
       render status: 422, json: { errors: short_form_validator.errors.full_messages }
     end
-  end
-
-  def update
-    result = application_service.update(application_db_params)
-    render json: { result: result }
   end
 
   private
@@ -171,8 +166,8 @@ class Api::V1::ShortFormController < ApiController
           )
   end
 
-  def application_service
-    Force::ApplicationService.new(current_user)
+  def custom_api_application_service
+    Force::CustomApi::ApplicationService.new(current_user)
   end
 
   def lease_service

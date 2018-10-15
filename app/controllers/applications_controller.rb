@@ -8,15 +8,8 @@ class ApplicationsController < ApplicationController
   end
 
   def show
-    # @application =  if is_lease
-    #                   custom_api_application_service.snapshot(params[:id]) # SOQ: FIELDs
-    #                 else
-    #                   application_service.application(params[:id]) # CUSTOM API FIELDs
-    #                 end
-
-    # @application = application_service.application(params[:id])
-    @application = find_application2(params[:id])
-    @fields = application_service.show_fields
+    @application = find_application(params[:id])
+    @fields = soql_application_service.show_fields
     @file_base_url = file_base_url
   end
 
@@ -31,8 +24,12 @@ class ApplicationsController < ApplicationController
     @listing = listing_service.listing(params[:listing_id])
   end
 
-  def application_service
-    Force::ApplicationService.new(current_user)
+  def custom_api_application_service
+    Force::CustomApi::ApplicationService.new(current_user)
+  end
+
+  def soql_application_service
+    Force::Soql::ApplicationService.new(current_user)
   end
 
   def listing_service
@@ -47,12 +44,15 @@ class ApplicationsController < ApplicationController
     Force::Soql::AttachmentService.new(current_user)
   end
 
-  def find_application2(id)
-    is_lease = application_listing['Status'] == 'Lease Up'
-    if is_lease
-      application = custom_api_service.snapshot(id)
-      application.roof_files = attachment_service.app_proof_files(id) if includes.include?('proof_files')
-      application.flagged_applications = flagged_record_set_service.flagged_record_set(id) if includes.include?('flagged_applications')
+  def find_application(id)
+    # TODO: May need to place the application show route underneath
+    # a listing, since now the way we display an application depends
+    # on the status of the application's listing
+    listing_in_lease_up = application_listing['Status'] == 'Lease Up'
+    if listing_in_lease_up
+      application = custom_api_application_service.snapshot(id)
+      application.proof_files = attachment_service.app_proof_files(id)
+      application.flagged_applications = flagged_record_set_service.flagged_record_set(id)
       application
     else
       soql_application_service.application(id)

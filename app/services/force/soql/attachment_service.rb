@@ -5,7 +5,7 @@ module Force
       FIELD_NAME = :applications
       FIELDS = load_fields(FIELD_NAME).freeze
 
-      def app_proof_files(application_id, return_soql)
+      def app_proof_files(application_id, return_soql = true)
         result = parsed_index_query(%(
           SELECT #{query_fields(:show_proof_files)}
           FROM Attachment__c
@@ -27,7 +27,7 @@ module Force
         if return_soql
           result
         else
-          result.map { |e| Force:Attachment.new(e, :soql) }
+          result.map { |e| Force::Attachment.new(e, :soql) }
         end
       end
     end
