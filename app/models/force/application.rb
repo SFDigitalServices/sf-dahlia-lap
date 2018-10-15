@@ -1,4 +1,4 @@
-# TODO: Re-enable Rubocop's line length check on this line once
+# TODO: Re-enable Rubocop's line length check on this file once
 # we have settled on a format for the field mapping items
 # rubocop:disable Metrics/LineLength
 module Force

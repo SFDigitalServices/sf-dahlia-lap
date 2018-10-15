@@ -5,6 +5,13 @@ module Force
   class ObjectBase
     FIELD_TYPES = %i[custom_api domain salesforce].freeze
 
+    # TODO: In the long run, we will likely not want to have the fields
+    # instance var directly accessible, but for now we need it to be
+    # accessible so we can update it for special field mapping cases.
+    # When we develop a more sophisticated field mapping system, we
+    # can likely do away with this accessor.
+    attr_accessor :fields
+
     def initialize(fields, format)
       raise ArgumentError, 'Field values and format are required.' unless fields && format
 
