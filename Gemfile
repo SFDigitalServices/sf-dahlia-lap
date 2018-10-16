@@ -77,7 +77,7 @@ gem "devise", "~> 4.3"
 gem "omniauth-salesforce", "~> 1.0"
 
 # Added at 2017-10-24 00:03:53 -0700 by dkaplan:
-gem "restforce", "~> 2.5"
+gem "restforce", "~> 3.1"
 # handy ruby extensions
 gem 'facets', require: false
 
