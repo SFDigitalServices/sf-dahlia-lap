@@ -13,15 +13,29 @@ module Force
         custom_api_application_fields = api_get(path)
         application = Force::Application.from_custom_api(custom_api_application_fields)
 
+        add_application_members(application, custom_api_application_fields)
+      end
+
+      def submit(data)
+        api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
+      end
+
+      private
+
+      def add_application_members(application, custom_api_fields)
         # Create the primary applicant, alternate contact, and household members
         # from the custom API data
-        custom_api_applicant_fields = custom_api_application_fields.primaryApplicant
+        custom_api_applicant_fields = custom_api_fields.primaryApplicant
         applicant = Force::ApplicationMember.from_custom_api(custom_api_applicant_fields)
 
-        custom_api_alternate_contact_fields = custom_api_application_fields.alternateContact
-        alternate_contact = Force::ApplicationMember.from_custom_api(custom_api_alternate_contact_fields)
+        custom_api_alternate_contact_fields = custom_api_fields.alternateContact
+        if custom_api_alternate_contact_fields
+          alternate_contact = Force::ApplicationMember.from_custom_api(custom_api_alternate_contact_fields)
+        else
+          alternate_contact = nil
+        end
 
-        custom_api_hh_members_fields = custom_api_application_fields.householdMembers
+        custom_api_hh_members_fields = custom_api_fields.householdMembers
         household_members = []
         custom_api_hh_members_fields.each do |hh_member_fields|
           household_members << Force::ApplicationMember.from_custom_api(hh_member_fields)
@@ -31,13 +45,9 @@ module Force
         # primary applicant, alternate contact, and household members added on
         domain_application_fields = application.to_domain
         domain_application_fields.applicant = applicant.to_domain
-        domain_application_fields.alternate_contact = alternate_contact.to_domain
+        domain_application_fields.alternate_contact = alternate_contact.to_domain if alternate_contact
         domain_application_fields.household_members = household_members.map(&:to_domain)
         domain_application_fields
-      end
-
-      def submit(data)
-        api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
       end
     end
   end

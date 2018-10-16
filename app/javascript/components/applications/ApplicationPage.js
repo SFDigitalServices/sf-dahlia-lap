@@ -9,27 +9,9 @@ import labelMapperFields from './application_details/applicationDetailsFieldsDes
 const buildActionLinkIfNecessary = (app, showAddBtn) => {
   const actions = []
 
-  if (!app.is_lottery_complete && app.application_submission_type === 'Paper') {
-    actions.push(
-      <a
-        key='edit-application'
-        href={appPaths.toApplicationEdit(app.id)}
-        className='primary button tiny'>
-        Edit Application
-      </a>
-    )
-  }
+  if (!app.is_lottery_complete && app.application_submission_type === 'Paper') { actions.push(<a key='edit-application' href={appPaths.toApplicationEdit(app.id)} className='primary button tiny'>Edit Application</a>) }
 
-  if (showAddBtn === 'true') {
-    actions.push(
-      <a
-        key='add-new-application'
-        href={appPaths.toApplicationNew(app.listing.id)}
-        className='button tiny margin-left--half'>
-        Add new application
-      </a>
-    )
-  }
+  if (showAddBtn === 'true') { actions.push(<a key='add-new-application' href={appPaths.toApplicationNew(app.listing.id)} className='button tiny margin-left--half'>Add new application</a>) }
 
   return actions
 }

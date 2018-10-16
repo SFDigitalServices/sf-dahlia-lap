@@ -36,6 +36,10 @@ class ApplicationsController < ApplicationController
     Force::ListingService.new(current_user)
   end
 
+  def preference_service
+    Force::Soql::PreferenceService.new(current_user)
+  end
+
   def flagged_record_set_service
     Force::FlaggedRecordSetService.new(current_user)
   end
@@ -52,14 +56,19 @@ class ApplicationsController < ApplicationController
     is_listing_lease_up = listing.Status == 'Lease Up'
     application = custom_api_application_service.application(id, snapshot: is_listing_lease_up)
 
-    # Add some listing details
+    # Add a couple of listing details
     application.listing = {
       id: listing.Id,
       name: listing.Name,
     }
 
     # Add additional data that must be fetched via SOQL
-    # application['preferences'] = app_preferences(id)
+    prefs = []
+    soql_prefs_fields = preference_service.application_preferences(id)
+    soql_prefs_fields.each do |soql_pref_fields|
+      prefs << Force::Preference.from_salesforce(soql_pref_fields)
+    end
+    application.preferences = prefs.map(&:to_domain)
     # application['proof_files'] = attachment_service.app_proof_files(id)
     # application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id)
 
