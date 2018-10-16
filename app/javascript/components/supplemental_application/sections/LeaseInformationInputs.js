@@ -34,7 +34,7 @@ const getTotalMonthlyRent = (values) => {
 }
 
 const toggleNoPreferenceUsed = (formApi) => {
-  if (formApi.touched.preference_used) { formApi.values.no_preference_used = !formApi.values.preference_used }
+  if (formApi.touched.preference_used) { formApi.setValue('no_preference_used', !formApi.values.preference_used) }
 }
 
 const LeaseInformationInputs = ({ formApi, store }) => {
