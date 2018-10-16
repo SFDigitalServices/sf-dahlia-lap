@@ -36,16 +36,16 @@ class ApplicationsController < ApplicationController
     Force::ListingService.new(current_user)
   end
 
-  def preference_service
+  def soql_preference_service
     Force::Soql::PreferenceService.new(current_user)
+  end
+
+  def soql_attachment_service
+    Force::Soql::AttachmentService.new(current_user)
   end
 
   def flagged_record_set_service
     Force::FlaggedRecordSetService.new(current_user)
-  end
-
-  def attachment_service
-    Force::Soql::AttachmentService.new(current_user)
   end
 
   def find_application(id)
@@ -62,14 +62,8 @@ class ApplicationsController < ApplicationController
       name: listing.Name,
     }
 
-    # Add additional data that must be fetched via SOQL
-    prefs = []
-    soql_prefs_fields = preference_service.application_preferences(id)
-    soql_prefs_fields.each do |soql_pref_fields|
-      prefs << Force::Preference.from_salesforce(soql_pref_fields)
-    end
-    application.preferences = prefs.map(&:to_domain)
-    # application['proof_files'] = attachment_service.app_proof_files(id)
+    # Add additional data
+    application.proof_files = soql_attachment_service.app_proof_files(id)
     # application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id)
 
     application # domain application with all additional info, e.g. preferences, etc., added onto it

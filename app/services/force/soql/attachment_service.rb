@@ -1,11 +1,11 @@
 module Force
   module Soql
-    # Provide Salesforce SOQL API and Custom API interactions for applications
+    # Provide Salesforce SOQL API interactions for attachments
     class AttachmentService < Force::Base
-      FIELD_NAME = :applications
+      FIELD_NAME = :attachments
       FIELDS = load_fields(FIELD_NAME).freeze
 
-      def app_proof_files(application_id, return_soql = true)
+      def app_proof_files(application_id)
         result = parsed_index_query(%(
           SELECT #{query_fields(:show_proof_files)}
           FROM Attachment__c
@@ -24,11 +24,7 @@ module Force
           }
         end
 
-        if return_soql
-          result
-        else
-          result.map { |e| Force::Attachment.new(e, :soql) }
-        end
+        result.map { |r| Force::Attachment.from_salesforce(r).to_domain }
       end
     end
   end

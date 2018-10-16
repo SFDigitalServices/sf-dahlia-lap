@@ -36,7 +36,7 @@ module Force
           LIMIT 1
         ))
         application['preferences'] = app_preferences(id)
-        application['proof_files'] = attachment_service.app_proof_files(id)
+        application['proof_files'] = app_proof_files(id)
         application['household_members'] = app_household_members(application)
         application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id)
         application['lease'] = lease_service.lease(id)
@@ -66,14 +66,6 @@ module Force
         result.Listing
       end
 
-      def app_preferences(application_id)
-        parsed_index_query(%(
-          SELECT #{query_fields(:show_preference)}
-          FROM Application_Preference__c
-          WHERE Application__c = '#{application_id}'
-        ), :show_preference)
-      end
-
       private
 
       def app_household_members(application)
@@ -85,6 +77,34 @@ module Force
           AND Id != '#{application.Applicant.Id}'
           AND Id != '#{alternate_contact_id}'
         ), :show_household_members)
+      end
+
+      def app_preferences(application_id)
+        parsed_index_query(%(
+          SELECT #{query_fields(:show_preference)}
+          FROM Application_Preference__c
+          WHERE Application__c = '#{application_id}'
+        ), :show_preference)
+      end
+
+      def app_proof_files(application_id)
+        parsed_index_query(%(
+          SELECT #{query_fields(:show_proof_files)}
+          FROM Attachment__c
+          WHERE Related_Application__c = '#{application_id}'
+        ), :show_proof_files).map do |attachment|
+          file = query_first(%(
+            SELECT Id
+            FROM Attachment
+            WHERE ParentId = '#{attachment.Id}'
+          ))
+          {
+            Id: file.Id,
+            Document_Type: attachment.Document_Type,
+            Related_Application: attachment.Related_Application,
+            Related_Application_Preference: attachment.Related_Application_Preference,
+          }
+        end
       end
 
       def application_defaults
@@ -111,10 +131,6 @@ module Force
 
       def flagged_record_set_service
         Force::FlaggedRecordSetService.new(@user)
-      end
-
-      def attachment_service
-        Force::Soql::AttachmentService.new(@user)
       end
     end
   end

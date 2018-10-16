@@ -6,11 +6,13 @@ module Force
       FIELDS = load_fields(FIELD_NAME).freeze
 
       def application_preferences(application_id)
-        parsed_index_query(%(
+        result = parsed_index_query(%(
           SELECT #{query_fields(:show_preference)}
           FROM Application_Preference__c
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
+
+        result.map { |r| Force::Preference.from_salesforce(r).to_domain }
       end
     end
   end
