@@ -26,7 +26,6 @@ class StatusModalWrapper extends React.Component {
       header,
       submitButton
     } = this.props
-    console.log('Here are the modal props', this.props)
 
     return (
       <FormModal
