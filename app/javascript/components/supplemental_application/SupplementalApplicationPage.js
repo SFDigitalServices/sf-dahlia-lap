@@ -156,7 +156,8 @@ class SupplementalApplicationPage extends React.Component {
       this.updateStatusModal({
         loading: false,
         showAlert: true,
-        alertMsg: 'We were unable to make the update, please try again.'
+        alertMsg: 'We were unable to make the update, please try again.',
+        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
       })
       this.setState({loading: false})
     } else {
