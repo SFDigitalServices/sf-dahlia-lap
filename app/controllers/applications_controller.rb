@@ -62,10 +62,24 @@ class ApplicationsController < ApplicationController
       name: listing.Name,
     }
 
-    # Add additional data
+    # Add proof files
     application.proof_files = soql_attachment_service.app_proof_files(id)
-    # application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id)
 
-    application # domain application with all additional info, e.g. preferences, etc., added onto it
+    # Add flagged applications
+    # TODO: Move the translation of the flagged record sets into a service.
+    # Also, see if we can simplify the structure of flagged_applications in
+    # the React app and here. The React app expects a certain shape, hence the
+    # seemingly extraneous structure around the flagged applications here.
+    record_sets = flagged_record_set_service.flagged_record_set(id).map(&:Flagged_Record_Set)
+    flagged_applications = []
+    record_sets.each do |fields|
+      set = Force::FlaggedRecordSet.from_salesforce(fields).to_domain
+      flagged_applications << { flagged_record: set }
+    end
+    application.flagged_applications = flagged_applications
+
+    # Return a domain-formatted application with additional
+    # domain-formatted info added onto it
+    application
   end
 end
