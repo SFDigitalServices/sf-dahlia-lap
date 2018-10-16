@@ -142,9 +142,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
-    console.log('submittedValues', submittedValues)
-    console.log('application:', fromApplication) // application from the formApi
-
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
     const data = {
@@ -153,10 +150,7 @@ class SupplementalApplicationPage extends React.Component {
       applicationId: this.state.persistedApplication.id
     }
     const appResponse = await updateApplicationAction(fromApplication)
-    console.log('App response!', appResponse)
-
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
-    console.log('comment Response', commentResponse)
 
     if (appResponse === false || commentResponse === false) {
       Alerts.error()
