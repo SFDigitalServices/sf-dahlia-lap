@@ -1801,6 +1801,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "availableUnits": undefined,
                         "confirmedPreferencesFailed": false,
                         "fileBaseUrl": undefined,
+                        "handleStatusModalClose": [Function],
+                        "handleStatusModalStatusChange": [Function],
+                        "handleStatusModalSubmit": [Function],
                         "loading": false,
                         "onDismissError": [Function],
                         "onSavePreference": [Function],
@@ -1822,6 +1825,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             "timestamp": 1525982051,
                           },
                         ],
+                        "statusModal": Object {
+                          "loading": false,
+                          "status": undefined,
+                        },
                       }
                     }
                   >
@@ -2609,6 +2616,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "availableUnits": undefined,
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
+                                        "handleStatusModalClose": [Function],
+                                        "handleStatusModalStatusChange": [Function],
+                                        "handleStatusModalSubmit": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -2630,6 +2640,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "timestamp": 1525982051,
                                           },
                                         ],
+                                        "statusModal": Object {
+                                          "loading": false,
+                                          "status": undefined,
+                                        },
                                       }
                                     }
                                   >
@@ -3952,6 +3966,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "availableUnits": undefined,
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
+                                                "handleStatusModalClose": [Function],
+                                                "handleStatusModalStatusChange": [Function],
+                                                "handleStatusModalSubmit": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
@@ -3973,6 +3990,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "timestamp": 1525982051,
                                                   },
                                                 ],
+                                                "statusModal": Object {
+                                                  "loading": false,
+                                                  "status": undefined,
+                                                },
                                               }
                                             }
                                           >
@@ -5636,6 +5657,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "availableUnits": undefined,
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
+                                                "handleStatusModalClose": [Function],
+                                                "handleStatusModalStatusChange": [Function],
+                                                "handleStatusModalSubmit": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
@@ -5657,6 +5681,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "timestamp": 1525982051,
                                                   },
                                                 ],
+                                                "statusModal": Object {
+                                                  "loading": false,
+                                                  "status": undefined,
+                                                },
                                               }
                                             }
                                           >
@@ -5979,6 +6007,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "availableUnits": undefined,
                                                   "confirmedPreferencesFailed": false,
                                                   "fileBaseUrl": undefined,
+                                                  "handleStatusModalClose": [Function],
+                                                  "handleStatusModalStatusChange": [Function],
+                                                  "handleStatusModalSubmit": [Function],
                                                   "loading": false,
                                                   "onDismissError": [Function],
                                                   "onSavePreference": [Function],
@@ -6000,6 +6031,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       "timestamp": 1525982051,
                                                     },
                                                   ],
+                                                  "statusModal": Object {
+                                                    "loading": false,
+                                                    "status": undefined,
+                                                  },
                                                 }
                                               }
                                             >
@@ -6288,6 +6323,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "availableUnits": undefined,
                                                               "confirmedPreferencesFailed": false,
                                                               "fileBaseUrl": undefined,
+                                                              "handleStatusModalClose": [Function],
+                                                              "handleStatusModalStatusChange": [Function],
+                                                              "handleStatusModalSubmit": [Function],
                                                               "loading": false,
                                                               "onDismissError": [Function],
                                                               "onSavePreference": [Function],
@@ -6309,6 +6347,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                   "timestamp": 1525982051,
                                                                 },
                                                               ],
+                                                              "statusModal": Object {
+                                                                "loading": false,
+                                                                "status": undefined,
+                                                              },
                                                             }
                                                           }
                                                         >
@@ -7289,6 +7331,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "availableUnits": undefined,
                                             "confirmedPreferencesFailed": false,
                                             "fileBaseUrl": undefined,
+                                            "handleStatusModalClose": [Function],
+                                            "handleStatusModalStatusChange": [Function],
+                                            "handleStatusModalSubmit": [Function],
                                             "loading": false,
                                             "onDismissError": [Function],
                                             "onSavePreference": [Function],
@@ -7310,6 +7355,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "timestamp": 1525982051,
                                               },
                                             ],
+                                            "statusModal": Object {
+                                              "loading": false,
+                                              "status": undefined,
+                                            },
                                           }
                                         }
                                       >
@@ -7608,6 +7657,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "availableUnits": undefined,
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
+                                        "handleStatusModalClose": [Function],
+                                        "handleStatusModalStatusChange": [Function],
+                                        "handleStatusModalSubmit": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -7629,6 +7681,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "timestamp": 1525982051,
                                           },
                                         ],
+                                        "statusModal": Object {
+                                          "loading": false,
+                                          "status": undefined,
+                                        },
                                       }
                                     }
                                   >
@@ -7758,6 +7814,133 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   </Component>
                                 </ContextComponent>
                               </form>
+                              <StatusModalWrapper
+                                loading={false}
+                                onClose={[Function]}
+                                onStatusChange={[Function]}
+                                onSubmit={[Function]}
+                              >
+                                <FormModal
+                                  alertMsg="Something went wrong, please try again."
+                                  handleClose={[Function]}
+                                  loading={false}
+                                  onSecondaryClick={[Function]}
+                                  onSubmit={[Function]}
+                                  secondary="cancel"
+                                  type="status"
+                                  validateError={[Function]}
+                                >
+                                  <Modal
+                                    handleClose={[Function]}
+                                  >
+                                    <Modal
+                                      ariaHideApp={true}
+                                      bodyOpenClassName="ReactModal__Body--open"
+                                      closeTimeoutMS={0}
+                                      isOpen={false}
+                                      onRequestClose={[Function]}
+                                      parentSelector={[Function]}
+                                      portalClassName="ReactModalPortal"
+                                      shouldCloseOnEsc={true}
+                                      shouldCloseOnOverlayClick={true}
+                                      shouldFocusAfterRender={true}
+                                      shouldReturnFocusAfterClose={true}
+                                      style={
+                                        Object {
+                                          "content": Object {
+                                            "border": "0",
+                                            "borderRadius": "4px",
+                                            "bottom": "auto",
+                                            "left": "50%",
+                                            "minHeight": "10rem",
+                                            "opacity": "1",
+                                            "overflow": "visible",
+                                            "padding": "0px",
+                                            "position": "fixed",
+                                            "right": "auto",
+                                            "top": "50%",
+                                            "transform": "translate(-50%,-50%)",
+                                            "width": "600px",
+                                          },
+                                          "overlay": Object {
+                                            "backgroundColor": "rgba(0,0,0,0.3)",
+                                          },
+                                        }
+                                      }
+                                    >
+                                      <Portal
+                                        containerInfo={
+                                          <div
+                                            class="ReactModalPortal"
+                                          />
+                                        }
+                                      >
+                                        <ModalPortal
+                                          ariaHideApp={true}
+                                          bodyOpenClassName="ReactModal__Body--open"
+                                          closeTimeoutMS={0}
+                                          defaultStyles={
+                                            Object {
+                                              "content": Object {
+                                                "WebkitOverflowScrolling": "touch",
+                                                "background": "#fff",
+                                                "border": "1px solid #ccc",
+                                                "borderRadius": "4px",
+                                                "bottom": "40px",
+                                                "left": "40px",
+                                                "outline": "none",
+                                                "overflow": "auto",
+                                                "padding": "20px",
+                                                "position": "absolute",
+                                                "right": "40px",
+                                                "top": "40px",
+                                              },
+                                              "overlay": Object {
+                                                "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                                                "bottom": 0,
+                                                "left": 0,
+                                                "position": "fixed",
+                                                "right": 0,
+                                                "top": 0,
+                                              },
+                                            }
+                                          }
+                                          isOpen={false}
+                                          onRequestClose={[Function]}
+                                          parentSelector={[Function]}
+                                          portalClassName="ReactModalPortal"
+                                          shouldCloseOnEsc={true}
+                                          shouldCloseOnOverlayClick={true}
+                                          shouldFocusAfterRender={true}
+                                          shouldReturnFocusAfterClose={true}
+                                          style={
+                                            Object {
+                                              "content": Object {
+                                                "border": "0",
+                                                "borderRadius": "4px",
+                                                "bottom": "auto",
+                                                "left": "50%",
+                                                "minHeight": "10rem",
+                                                "opacity": "1",
+                                                "overflow": "visible",
+                                                "padding": "0px",
+                                                "position": "fixed",
+                                                "right": "auto",
+                                                "top": "50%",
+                                                "transform": "translate(-50%,-50%)",
+                                                "width": "600px",
+                                              },
+                                              "overlay": Object {
+                                                "backgroundColor": "rgba(0,0,0,0.3)",
+                                              },
+                                            }
+                                          }
+                                        />
+                                      </Portal>
+                                    </Modal>
+                                  </Modal>
+                                </FormModal>
+                              </StatusModalWrapper>
                             </t>
                           </Connect(t)>
                         </t>
@@ -7765,133 +7948,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                     </Loading>
                   </SupplementalApplicationContainer>
                 </ContextComponent>
-                <StatusModalWrapper
-                  loading={false}
-                  onClose={[Function]}
-                  onStatusChange={[Function]}
-                  onSubmit={[Function]}
-                >
-                  <FormModal
-                    alertMsg="Something went wrong, please try again."
-                    handleClose={[Function]}
-                    loading={false}
-                    onSecondaryClick={[Function]}
-                    onSubmit={[Function]}
-                    secondary="cancel"
-                    type="status"
-                    validateError={[Function]}
-                  >
-                    <Modal
-                      handleClose={[Function]}
-                    >
-                      <Modal
-                        ariaHideApp={true}
-                        bodyOpenClassName="ReactModal__Body--open"
-                        closeTimeoutMS={0}
-                        isOpen={false}
-                        onRequestClose={[Function]}
-                        parentSelector={[Function]}
-                        portalClassName="ReactModalPortal"
-                        shouldCloseOnEsc={true}
-                        shouldCloseOnOverlayClick={true}
-                        shouldFocusAfterRender={true}
-                        shouldReturnFocusAfterClose={true}
-                        style={
-                          Object {
-                            "content": Object {
-                              "border": "0",
-                              "borderRadius": "4px",
-                              "bottom": "auto",
-                              "left": "50%",
-                              "minHeight": "10rem",
-                              "opacity": "1",
-                              "overflow": "visible",
-                              "padding": "0px",
-                              "position": "fixed",
-                              "right": "auto",
-                              "top": "50%",
-                              "transform": "translate(-50%,-50%)",
-                              "width": "600px",
-                            },
-                            "overlay": Object {
-                              "backgroundColor": "rgba(0,0,0,0.3)",
-                            },
-                          }
-                        }
-                      >
-                        <Portal
-                          containerInfo={
-                            <div
-                              class="ReactModalPortal"
-                            />
-                          }
-                        >
-                          <ModalPortal
-                            ariaHideApp={true}
-                            bodyOpenClassName="ReactModal__Body--open"
-                            closeTimeoutMS={0}
-                            defaultStyles={
-                              Object {
-                                "content": Object {
-                                  "WebkitOverflowScrolling": "touch",
-                                  "background": "#fff",
-                                  "border": "1px solid #ccc",
-                                  "borderRadius": "4px",
-                                  "bottom": "40px",
-                                  "left": "40px",
-                                  "outline": "none",
-                                  "overflow": "auto",
-                                  "padding": "20px",
-                                  "position": "absolute",
-                                  "right": "40px",
-                                  "top": "40px",
-                                },
-                                "overlay": Object {
-                                  "backgroundColor": "rgba(255, 255, 255, 0.75)",
-                                  "bottom": 0,
-                                  "left": 0,
-                                  "position": "fixed",
-                                  "right": 0,
-                                  "top": 0,
-                                },
-                              }
-                            }
-                            isOpen={false}
-                            onRequestClose={[Function]}
-                            parentSelector={[Function]}
-                            portalClassName="ReactModalPortal"
-                            shouldCloseOnEsc={true}
-                            shouldCloseOnOverlayClick={true}
-                            shouldFocusAfterRender={true}
-                            shouldReturnFocusAfterClose={true}
-                            style={
-                              Object {
-                                "content": Object {
-                                  "border": "0",
-                                  "borderRadius": "4px",
-                                  "bottom": "auto",
-                                  "left": "50%",
-                                  "minHeight": "10rem",
-                                  "opacity": "1",
-                                  "overflow": "visible",
-                                  "padding": "0px",
-                                  "position": "fixed",
-                                  "right": "auto",
-                                  "top": "50%",
-                                  "transform": "translate(-50%,-50%)",
-                                  "width": "600px",
-                                },
-                                "overlay": Object {
-                                  "backgroundColor": "rgba(0,0,0,0.3)",
-                                },
-                              }
-                            }
-                          />
-                        </Portal>
-                      </Modal>
-                    </Modal>
-                  </FormModal>
-                </StatusModalWrapper>
               </div>
             </AppCard>
           </section>

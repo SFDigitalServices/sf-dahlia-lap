@@ -15,6 +15,7 @@ import AlertBox from '~/components/molecules/AlertBox'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import { withContext } from './context'
+import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
@@ -125,30 +126,42 @@ class SupplementalApplicationContainer extends React.Component {
       amis,
       amiCharts,
       loading,
-      onSubmit
+      onSubmit,
+      statusModal,
+      handleStatusModalClose,
+      handleStatusModalStatusChange,
+      handleStatusModalSubmit
     } = store
 
     return (
       <Loading isLoading={loading}>
         <Form onSubmit={onSubmit} defaultValues={application}>
           {formApi => (
-            <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
-              <StatusUpdateSection />
-              <ContentSection title='Current Contact Information' />
-              <ConfirmedPreferencesSection
-                application={application}
-                fileBaseUrl={fileBaseUrl}
-                onSave={onSavePreference}
-                onDismissError={onDismissError}
-                confirmedPreferencesFailed={confirmedPreferencesFailed}
-                formApi={formApi}
+            <React.Fragment>
+              <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
+                <StatusUpdateSection />
+                <ContentSection title='Current Contact Information' />
+                <ConfirmedPreferencesSection
+                  application={application}
+                  fileBaseUrl={fileBaseUrl}
+                  onSave={onSavePreference}
+                  onDismissError={onDismissError}
+                  confirmedPreferencesFailed={confirmedPreferencesFailed}
+                  formApi={formApi}
+                />
+                <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
+                <LeaseInformationSection />
+                <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
+                <div className='padding-bottom--2x margin-bottom--2x' />
+                <ActionButtons loading={loading} />
+              </form>
+              <StatusModalWrapper
+                {...statusModal}
+                onClose={handleStatusModalClose}
+                onStatusChange={handleStatusModalStatusChange}
+                onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, formApi.values)}
               />
-              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-              <LeaseInformationSection />
-              <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
-              <div className='padding-bottom--2x margin-bottom--2x' />
-              <ActionButtons loading={loading} />
-            </form>
+            </React.Fragment>
           )}
         </Form>
       </Loading>
