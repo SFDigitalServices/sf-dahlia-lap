@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Rails controller for Applications related views/actions
 class ApplicationsController < ApplicationController
   before_action :authenticate_user!
@@ -56,7 +58,13 @@ class ApplicationsController < ApplicationController
     is_listing_lease_up = listing.Status == 'Lease Up'
     application = custom_api_application_service.application(id, snapshot: is_listing_lease_up)
 
+    # Add a flag on the application indicating whether or not it is a snapshot
+    application.is_snapshot = is_listing_lease_up
+
     # Add a couple of listing details
+    # TODO: Evolve the data shape expected by React to move the
+    # listing out from under the application, and then we can
+    # also make the listing its own object here
     application.listing = {
       id: listing.Id,
       name: listing.Name,
