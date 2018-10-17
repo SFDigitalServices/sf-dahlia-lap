@@ -1,10 +1,9 @@
 import React from 'react'
 
-import Dropdown from '~/components/molecules/Dropdown'
+import StatusDropdown from '~/components/molecules/StatusDropdown'
 import FormModal from './FormModal'
 import { TextArea } from 'react-form'
 import formUtils from '~/utils/formUtils'
-import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from '~/components/lease_ups/leaseUpsHelpers'
 
 class StatusModalWrapper extends React.Component {
   formValidator = (values) => {
@@ -45,12 +44,10 @@ class StatusModalWrapper extends React.Component {
         {formApi => (
           <div className={'form-group ' + (formUtils.submitErrors(formApi).comment ? 'error' : '')}>
             <h2 className='form-label'>Status/Comment</h2>
-            <Dropdown
-              items={LEASE_UP_STATUS_OPTIONS}
-              value={status}
-              prompt='Status'
+            <StatusDropdown
+              status={status}
               onChange={onStatusChange}
-              buttonClasses={[getLeaseUpStatusStyle(status), 'margin-bottom--half', 'expand', 'small']}
+              buttonClasses={['margin-bottom--half', 'expand', 'small']}
               menuClasses={['form-modal_dropdown-menu']} />
             {!status && <small className='error'>Please provide a status.</small>}
             <label className='sr-only' htmlFor='status-comment' id='status-comment-label'>Comment</label>
