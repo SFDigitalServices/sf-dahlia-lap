@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ApplicationsController, type: :controller do
@@ -5,7 +7,7 @@ RSpec.describe ApplicationsController, type: :controller do
   login_admin
 
   describe '#show' do
-    context 'with a lease up application ' do
+    context 'with a lease up application' do
       let(:expected_domain_application) { fixture('controllers/applications/lease_up_application_domain.json') }
 
       it 'should return a domain application' do
