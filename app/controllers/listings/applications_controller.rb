@@ -7,7 +7,7 @@ module Listings
 
     def index
       @applications = soql_application_service.listing_applications(params[:listing_id])
-      @fields = application_service.index_fields
+      @fields = soql_application_service.index_fields
     end
 
     def new; end

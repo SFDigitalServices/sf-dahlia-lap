@@ -36,26 +36,50 @@ class ApplicationsController < ApplicationController
     Force::ListingService.new(current_user)
   end
 
+  def soql_preference_service
+    Force::Soql::PreferenceService.new(current_user)
+  end
+
+  def soql_attachment_service
+    Force::Soql::AttachmentService.new(current_user)
+  end
+
   def flagged_record_set_service
     Force::FlaggedRecordSetService.new(current_user)
   end
 
-  def attachment_service
-    Force::Soql::AttachmentService.new(current_user)
-  end
-
   def find_application(id)
-    # TODO: May need to place the application show route underneath
-    # a listing, since now the way we display an application depends
-    # on the status of the application's listing
-    listing_in_lease_up = application_listing['Status'] == 'Lease Up'
-    if listing_in_lease_up
-      application = custom_api_application_service.snapshot(id)
-      application.proof_files = attachment_service.app_proof_files(id)
-      application.flagged_applications = flagged_record_set_service.flagged_record_set(id)
-      application
-    else
-      soql_application_service.application(id)
+    listing = soql_application_service.application_listing(id)
+
+    # Get the application via the custom API. Use the snapshot of
+    # the application if the listing is in Lease Up.
+    is_listing_lease_up = listing.Status == 'Lease Up'
+    application = custom_api_application_service.application(id, snapshot: is_listing_lease_up)
+
+    # Add a couple of listing details
+    application.listing = {
+      id: listing.Id,
+      name: listing.Name,
+    }
+
+    # Add proof files
+    application.proof_files = soql_attachment_service.app_proof_files(id)
+
+    # Add flagged applications
+    # TODO: Move the translation of the flagged record sets into a service.
+    # Also, see if we can simplify the structure of flagged_applications in
+    # the React app and here. The React app expects a certain shape, hence the
+    # seemingly extraneous structure around the flagged applications here.
+    record_sets = flagged_record_set_service.flagged_record_set(id).map(&:Flagged_Record_Set)
+    flagged_applications = []
+    record_sets.each do |fields|
+      set = Force::FlaggedRecordSet.from_salesforce(fields).to_domain
+      flagged_applications << { flagged_record: set }
     end
+    application.flagged_applications = flagged_applications
+
+    # Return a domain-formatted application with additional
+    # domain-formatted info added onto it
+    application
   end
 end

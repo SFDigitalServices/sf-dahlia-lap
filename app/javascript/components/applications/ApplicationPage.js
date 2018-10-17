@@ -4,13 +4,12 @@ import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
 const buildActionLinkIfNecessary = (app, showAddBtn) => {
   const actions = []
 
-  if (!app.is_lottery_complete && app.application_submission_type === 'Paper') { actions.push(<a key='edit-application' href={appPaths.toApplicationEdit(app.id)} className='primary button tiny '>Edit Application</a>) }
+  if (!app.is_lottery_complete && app.application_submission_type === 'Paper') { actions.push(<a key='edit-application' href={appPaths.toApplicationEdit(app.id)} className='primary button tiny'>Edit Application</a>) }
 
   if (showAddBtn === 'true') { actions.push(<a key='add-new-application' href={appPaths.toApplicationNew(app.listing.id)} className='button tiny margin-left--half'>Add new application</a>) }
 
@@ -34,8 +33,7 @@ const ApplicationPage = (props) => {
 
 const mapProperties = ({ application, showAddBtn, fileBaseUrl }) => {
   return {
-    application: mapApplication(application),
-    // application: application,
+    application: application,
     fields: labelMapperFields,
     showAddBtn: showAddBtn,
     fileBaseUrl: fileBaseUrl
