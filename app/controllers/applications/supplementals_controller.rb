@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applications
   # Controller for handling application supplemental information
   class SupplementalsController < ApplicationController
@@ -18,7 +20,7 @@ module Applications
       Force::FieldUpdateCommentService.new(current_user)
     end
 
-    def application_service
+    def soql_application_service
       Force::Soql::ApplicationService.new(current_user)
     end
 

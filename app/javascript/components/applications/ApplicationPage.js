@@ -18,14 +18,36 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
 
 const ApplicationPage = (props) => {
   const { application, showAddBtn } = props
-  const pageHeader = {
-    title: `Application ${application.name}`,
-    content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
-    action: buildActionLinkIfNecessary(application, showAddBtn)
+
+  let pageHeader = {}
+  let tabSection = false
+
+  if (application.is_snapshot) {
+    pageHeader = {
+      title: `${application.name}: ${application.applicant.name}`,
+      breadcrumbs: [
+        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
+        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
+        { title: application.name, link: '#' }
+      ]
+    }
+
+    tabSection = {
+      items: [
+        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
+      ]
+    }
+  } else {
+    pageHeader = {
+      title: `Application ${application.name}`,
+      content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
+      action: buildActionLinkIfNecessary(application, showAddBtn)
+    }
   }
 
   return (
-    <CardLayout pageHeader={pageHeader}>
+    <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
       <ApplicationDetails {...props} />
     </CardLayout>
   )

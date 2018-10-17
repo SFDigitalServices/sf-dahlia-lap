@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Force
   module Soql
     # Provide Salesforce SOQL API interactions for applications
     class ApplicationService < Force::Base
-      DRAFT = 'Draft'.freeze
+      DRAFT = 'Draft'
       FIELD_NAME = :applications
       FIELDS = load_fields(FIELD_NAME).freeze
 
@@ -38,7 +40,6 @@ module Force
         application['preferences'] = app_preferences(id)
         application['proof_files'] = app_proof_files(id)
         application['household_members'] = app_household_members(application)
-        application['flagged_applications'] = flagged_record_set_service.flagged_record_set(id)
         application['lease'] = lease_service.lease(id)
         application
       end
@@ -127,10 +128,6 @@ module Force
 
       def lease_service
         Force::LeaseService.new(@user)
-      end
-
-      def flagged_record_set_service
-        Force::FlaggedRecordSetService.new(@user)
       end
     end
   end
