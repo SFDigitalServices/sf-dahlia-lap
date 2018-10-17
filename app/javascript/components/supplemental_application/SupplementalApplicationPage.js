@@ -172,7 +172,6 @@ class SupplementalApplicationPage extends React.Component {
       loading,
       persistedApplication
     } = this.state
-
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
@@ -230,9 +229,11 @@ const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
-
   applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
-
+  // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
+  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
+    delete applicationWithDefaults.lease.preference_used
+  }
   return applicationWithDefaults
 }
 

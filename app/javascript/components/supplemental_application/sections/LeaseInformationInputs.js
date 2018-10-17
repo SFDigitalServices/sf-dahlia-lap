@@ -1,6 +1,6 @@
 import React from 'react'
-import { Select, Text } from 'react-form'
-import { map, toSafeInteger } from 'lodash'
+import { Select, Text, Checkbox } from 'react-form'
+import { filter, map, toSafeInteger } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { pluck, decorateComponents } from '~/utils/utils'
@@ -10,7 +10,7 @@ import { withContext } from '../context'
 
 const Plain = ({ text }) => <div className='text-value'>{text}</div>
 
-const INPUTS = { 'Select': Select, 'Text': Text, 'Plain': Plain }
+const INPUTS = { 'Select': Select, 'Text': Text, 'Plain': Plain, 'Checkbox': Checkbox }
 
 const CustomFormGrid = decorateComponents(INPUTS, Component => {
   return ({ label, ...rest }) => (
@@ -33,10 +33,16 @@ const getTotalMonthlyRent = (values) => {
   }
 }
 
+const toggleNoPreferenceUsed = (formApi, value) => {
+  formApi.setValue('no_preference_used', !value)
+}
+
 const LeaseInformationInputs = ({ formApi, store }) => {
-  const { availableUnits } = store
+  const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const totalMonthlyRent = getTotalMonthlyRent(formApi.values)
+  const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })
+  const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
   return (
     <React.Fragment>
       <FormGrid.Row paddingBottom>
@@ -52,7 +58,8 @@ const LeaseInformationInputs = ({ formApi, store }) => {
         />
         <CustomFormGrid.Select
           label='Preference Used'
-          field='preference_used' options={[]} placeholder='Select One' />
+          onChange={(value) => toggleNoPreferenceUsed(formApi, value)}
+          field='preference_used' options={confirmedPreferenceOptions} placeholder='Select One' />
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         <CustomFormGrid.Text
@@ -72,4 +79,4 @@ const LeaseInformationInputs = ({ formApi, store }) => {
   )
 }
 
-export default withContext(withNestedForm('lease', LeaseInformationInputs))
+export default withNestedForm('lease', withContext(LeaseInformationInputs))
