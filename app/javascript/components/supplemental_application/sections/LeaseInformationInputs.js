@@ -33,8 +33,8 @@ const getTotalMonthlyRent = (values) => {
   }
 }
 
-const toggleNoPreferenceUsed = (formApi) => {
-  if (formApi.touched.preference_used) { formApi.setValue('no_preference_used', !formApi.values.preference_used) }
+const toggleNoPreferenceUsed = (formApi, value) => {
+  formApi.setValue('no_preference_used', !value)
 }
 
 const LeaseInformationInputs = ({ formApi, store }) => {
@@ -58,7 +58,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
         />
         <CustomFormGrid.Select
           label='Preference Used'
-          onChange={toggleNoPreferenceUsed(formApi)}
+          onChange={(value) => toggleNoPreferenceUsed(formApi, value)}
           field='preference_used' options={confirmedPreferenceOptions} placeholder='Select One' />
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
