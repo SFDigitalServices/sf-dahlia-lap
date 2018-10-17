@@ -6,17 +6,17 @@ RSpec.describe Force::Application do
     let(:custom_api_attributes) { fixture('application_custom_api.json') }
     let(:salesforce_attributes) { fixture('application_salesforce.json') }
 
-    pending 'should convert from custom api' do
-      application = Force::Application.new(custom_api_attributes, :custom_api)
-
-      expect(application.to_domain).to eq(domain_attributes)
-    end
+    # pending 'should convert from custom api' do
+    #   application = Force::Application.new(custom_api_attributes, :custom_api)
+    #
+    #   expect(application.to_domain).to eq(domain_attributes)
+    # end
 
     it 'should convert from Salesforce fields' do
       application = Force::Application.from_salesforce(salesforce_attributes)
       attributes = application.to_domain
 
-      ap attributes
+      # ap attributes
 
       # expect(attributes['preferences']).to be_present
       # attributes['preferences'].each_with_index do |_, idx|
