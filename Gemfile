@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.5'
+ruby '2.3.7'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -77,7 +77,7 @@ gem "devise", "~> 4.3"
 gem "omniauth-salesforce", "~> 1.0"
 
 # Added at 2017-10-24 00:03:53 -0700 by dkaplan:
-gem "restforce", "~> 2.5"
+gem "restforce", "~> 3.1"
 # handy ruby extensions
 gem 'facets', require: false
 

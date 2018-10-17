@@ -33,6 +33,7 @@ export const applicationFieldMapper = {
   reserved_senior: 'hasSenior',
   application_submission_type: 'applicationSubmissionType',
   total_monthly_rent: 'totalMonthlyRent',
+  processing_status: 'processingStatus',
   adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected))
 }
 
