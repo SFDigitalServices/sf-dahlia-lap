@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: Re-enable Rubocop's line length check on this file once
 # we have settled on a format for the field mapping items
 # rubocop:disable Metrics/LineLength
@@ -17,7 +19,7 @@ module Force
       { custom_api: 'applicationSubmissionType', domain: 'application_submission_type', salesforce: 'Application_Submission_Type' },
       { custom_api: 'applicationSubmittedDate', domain: 'application_submitted_date', salesforce: 'Application_Submitted_Date' },
       { custom_api: 'appRTType', domain: '', salesforce: '' },
-      { custom_api: '', domain: 'created_by', salesforce: 'CreatedBy' },
+      { custom_api: '', domain: 'createdby', salesforce: 'CreatedBy' },
       { custom_api: 'didApplicantUseHousingCounselingAgency', domain: '', salesforce: 'Applicant_used_housing_counseling_agency' },
       { custom_api: 'externalSessionId', domain: '', salesforce: 'Third_Party_External_ID' },
       { custom_api: 'finalHouseholdIncome', domain: '', salesforce: 'Final_Household_Income' },
@@ -69,7 +71,7 @@ module Force
 
         # Created by
         if existing_fields['CreatedBy']
-          domain_fields['created_by'] = existing_fields['CreatedBy']['Name']
+          domain_fields['createdby'] = existing_fields['CreatedBy']['Name']
         end
       end
 

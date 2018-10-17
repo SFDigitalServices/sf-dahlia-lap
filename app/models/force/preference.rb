@@ -24,7 +24,7 @@ module Force
       { custom_api: '', domain: 'preference_lottery_rank', salesforce: 'Preference_Lottery_Rank' },
       { custom_api: '', domain: 'preference_name', salesforce: 'Preference_Name' },
       { custom_api: '', domain: 'preference_order', salesforce: 'Preference_Order' },
-      { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_Proof' },
+      { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_proof' },
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
       { custom_api: 'recordTypeDevName', domain: 'recordtype_developername', salesforce: 'RecordType.DeveloperName' },
       { custom_api: 'state', domain: 'state', salesforce: 'State' },

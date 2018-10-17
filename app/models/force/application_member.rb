@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Represent an application member object. Provide mapping between
   # Salesforce object field names, Salesforce custom API field names,
@@ -42,6 +44,21 @@ module Force
         middle_name = @fields.custom_api.middleName
         last_name = @fields.custom_api.lastName
         domain_fields.name = [first_name, middle_name, last_name].compact.join(' ')
+
+        # Addresses
+        domain_fields.residence_address = [
+          domain_fields.street,
+          domain_fields.city,
+          domain_fields.state,
+          domain_fields.zip_code,
+        ].join(', ').strip
+
+        domain_fields.mailing_address = [
+          domain_fields.mailing_street,
+          domain_fields.mailing_city,
+          domain_fields.mailing_state,
+          domain_fields.mailing_zip_code,
+        ].join(', ').strip
       end
 
       domain_fields

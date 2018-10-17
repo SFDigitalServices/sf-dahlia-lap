@@ -1,5 +1,5 @@
 {
-  "total_monthly_rent":100.0,
+  "total_monthly_rent":100,
   "sub_status":null,
   "status":"Submitted",
   "referral_source":null,
@@ -20,7 +20,7 @@
   "application_submission_type":"Electronic",
   "application_language":"English",
   "answered_community_screening":null,
-  "annual_income":45000.0,
+  "annual_income":45000,
   "terms_acknowledged":false,
   "has_ada_priorities_selected":null,
   "applicant":{
@@ -46,7 +46,9 @@
     "alternate_contact_type":null,
     "agency_name":null,
     "street":"25 VAN NESS AVE",
-    "name":"Partha Nerr"
+    "name":"Partha Nerr",
+    "residence_address":"25 VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033",
+    "mailing_address":"25 VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033"
   },
   "alternate_contact":{
     "zip_code":null,
@@ -71,7 +73,9 @@
     "alternate_contact_type":null,
     "agency_name":null,
     "street":null,
-    "name":"Flora Matts"
+    "name":"Flora Matts",
+    "residence_address":", , ,",
+    "mailing_address":", , ,"
   },
   "household_members":[
 
@@ -148,5 +152,6 @@
   ],
   "flagged_applications":[
 
-  ]
+  ],
+  "total_household_size":1
 }

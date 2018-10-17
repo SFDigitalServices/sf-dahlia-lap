@@ -86,6 +86,13 @@ class ApplicationsController < ApplicationController
     end
     application.flagged_applications = flagged_applications
 
+    # Because we are getting the application info through the custom
+    # API, we do not get a value for total household size. So, we
+    # calculate it here. TODO: See if total household size can be
+    # added to custom API short form response so that we don't
+    # have to do this here.
+    application.total_household_size = application.household_members.length + 1
+
     # Return a domain-formatted application with additional
     # domain-formatted info added onto it
     application

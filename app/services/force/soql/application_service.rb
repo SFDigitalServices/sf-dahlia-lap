@@ -61,7 +61,7 @@ module Force
           FROM Application__c
           WHERE Id = '#{application_id}'
         )))
-        result.Listing
+        result&.Listing
       end
 
       private
