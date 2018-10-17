@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     # RESTful JSON API for application actions
@@ -33,7 +35,7 @@ module Api
       end
 
       def soql_application_service
-        Force::SOQL::ApplicationService.new(current_user)
+        Force::Soql::ApplicationService.new(current_user)
       end
     end
   end
