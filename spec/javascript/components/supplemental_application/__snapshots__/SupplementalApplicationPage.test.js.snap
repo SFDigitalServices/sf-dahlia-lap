@@ -7543,7 +7543,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 onSubmit={[Function]}
                               >
                                 <FormModal
-                                  alertMsg="Something went wrong, please try again."
                                   handleClose={[Function]}
                                   loading={false}
                                   onSecondaryClick={[Function]}

@@ -18,6 +18,7 @@ class StatusModalWrapper extends React.Component {
       onClose,
       onSubmit,
       showAlert,
+      alertMsg,
       onAlertCloseClick,
       loading,
       status,
@@ -38,7 +39,7 @@ class StatusModalWrapper extends React.Component {
         type='status'
         validateError={this.formValidator}
         showAlert={showAlert}
-        alertMsg='Something went wrong, please try again.'
+        alertMsg={alertMsg !== null ? alertMsg : 'Something went wrong, please try again.'}
         onAlertCloseClick={onAlertCloseClick}
         loading={loading}>
         {formApi => (
