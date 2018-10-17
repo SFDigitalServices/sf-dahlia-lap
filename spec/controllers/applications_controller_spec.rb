@@ -5,21 +5,37 @@ RSpec.describe ApplicationsController, type: :controller do
   login_admin
 
   describe '#show' do
-    let(:application_id) { {} }
-    let(:expected_domain_application) { {} }
+    context 'with a lease up application ' do
+      let(:expected_domain_application) { fixture('controllers/applications/lease_up_application_domain.json') }
 
-    it 'should return a domain application' do
-      VCR.use_cassette('applications_controller/sho') do
-        get :show, params: { id: valid_application_id }
+      it 'should return a domain application' do
+        VCR.use_cassette('applications_controller/show/lease_up_application') do
+          get :show, params: { id: lease_up_application_id }
 
-        domain_application = assigns(:application)
-        expect(domain_application).to eq(expected_domain_application)
+          domain_application = assigns(:application)
+          expect(domain_application).to eq(expected_domain_application)
+          expect(domain_application.is_snapshot).to be true
+        end
+      end
+    end
+
+    context 'with a non lease up application' do
+      let(:expected_domain_application) { fixture('controllers/applications/non_lease_up_application_domain.json') }
+
+      it 'should return a domain application' do
+        VCR.use_cassette('applications_controller/show/non_lease_up_application') do
+          get :show, params: { id: non_lease_up_application_id }
+
+          domain_application = assigns(:application)
+          expect(domain_application).to eq(expected_domain_application)
+          expect(domain_application.is_snapshot).to be false
+        end
       end
     end
 
     it 'should render successfully' do
-      VCR.use_cassette('applications_controller/show') do
-        get :show, params: { id: valid_application_id }
+      VCR.use_cassette('applications_controller/show/non_lease_up_application') do
+        get :show, params: { id: non_lease_up_application_id }
       end
 
       expect(response.body).to have_react_component('ApplicationPage')

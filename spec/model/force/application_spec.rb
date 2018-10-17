@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Force::Application do
   describe '#to_domain' do
-    let(:domain_attributes) { fixture('application_domain.json') }
-    let(:custom_api_attributes) { fixture('application_custom_api.json') }
-    let(:salesforce_attributes) { fixture('application_salesforce.json') }
+    let(:app_salesforce_to_domain) { fixture('app_salesforce_to_domain.json') }
+    # let(:app_domain_to_custom_api) { fixture('app_domain_to_custom_api.json') }
+    let(:app_domain_to_salesforce) { fixture('app_domain_to_salesforce.json') }
 
     # pending 'should convert from custom api' do
     #   application = Force::Application.new(custom_api_attributes, :custom_api)
@@ -12,8 +12,8 @@ RSpec.describe Force::Application do
     #   expect(application.to_domain).to eq(domain_attributes)
     # end
 
-    it 'should convert from Salesforce fields' do
-      application = Force::Application.from_salesforce(salesforce_attributes)
+    it 'should convert from Salesforce fields to domain' do
+      application = Force::Application.from_salesforce(app_salesforce_to_domain)
       attributes = application.to_domain
 
       # ap attributes
