@@ -23,9 +23,6 @@ module Force
         query_scope.where_eq('Application_Submission_Type__c', "'#{opts[:submission_type]}'") if opts[:submission_type].present?
 
         query_scope.query
-
-        # application = Force::Application.new(result, :soql)
-        # application.to_domain
       end
 
       def application(id)
