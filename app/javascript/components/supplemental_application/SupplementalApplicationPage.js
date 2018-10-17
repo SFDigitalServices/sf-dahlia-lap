@@ -69,6 +69,7 @@ class SupplementalApplicationPage extends React.Component {
       // Reload the page to pull updated data from Salesforce
       window.location.reload()
     } else {
+      Alerts.error()
       this.setLoading(false)
     }
   }
@@ -152,8 +153,12 @@ class SupplementalApplicationPage extends React.Component {
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (appResponse === false || commentResponse === false) {
-      Alerts.error()
-      this.updateStatusModal({loading: false})
+      this.updateStatusModal({
+        loading: false,
+        showAlert: true,
+        alertMsg: 'We were unable to make the update, please try again.',
+        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
+      })
       this.setState({loading: false})
     } else {
       this.updateStatusModal({loading: false, isOpen: false})
@@ -172,7 +177,6 @@ class SupplementalApplicationPage extends React.Component {
       loading,
       persistedApplication
     } = this.state
-
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
@@ -230,9 +234,11 @@ const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
-
   applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
-
+  // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
+  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
+    delete applicationWithDefaults.lease.preference_used
+  }
   return applicationWithDefaults
 }
 
