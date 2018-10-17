@@ -16,7 +16,7 @@ class ApplicationsController < ApplicationController
   end
 
   def edit
-    @application = application_service.application(params[:id])
+    @application = soql_application_service.application(params[:id])
     @listing = listing_service.listing(@application.Listing.Id)
   end
 

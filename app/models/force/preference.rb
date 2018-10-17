@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Represent a preference object. Provide mapping between
   # Salesforce object field names, Salesforce custom API field names,
@@ -7,6 +9,7 @@ module Force
     # field mappings into YML files or other places.
     FIELD_NAME_MAPPINGS = [
       { custom_api: 'address', domain: 'street', salesforce: 'Street' },
+      { custom_api: 'appMemberID', domain: '', salesforce: 'Application_Member__c' },
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'id', domain: 'id', salesforce: 'Id' },
@@ -56,8 +59,8 @@ module Force
       domain_fields = super
 
       # Special field conversion cases for preferences
-      if domain_fields['total_household_rent']
-        domain_fields['total_household_rent'] = domain_fields['total_household_rent'].to_s
+      if domain_fields.total_household_rent
+        domain_fields.total_household_rent = domain_fields.total_household_rent.to_s
       end
 
       # Add preference name if it isn't already present

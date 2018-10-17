@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   module CustomApi
     # Provide Salesforce custom API interactions for applications
@@ -78,6 +80,16 @@ module Force
         preferences = []
         preferences_fields.each do |pref_fields|
           preferences << Force::Preference.from_custom_api(pref_fields).to_domain
+        end
+
+        # The preferences from the custom API don't include the person who claimed's
+        # name. But they do include the app member's ID. Use that ID to get the
+        # app member's name from the rest of the custom API data. Add that onto
+        # the preference.
+        app_members = [application.applicant, *application.household_members]
+        preferences.each do |preference|
+          app_member = app_members.find { |m| m.id == preference.appMemberID }
+          preference.person_who_claimed_name = app_member.name if app_member
         end
 
         application.preferences = preferences
