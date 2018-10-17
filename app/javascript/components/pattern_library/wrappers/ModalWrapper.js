@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SimpleModal from 'components/organisms/SimpleModal'
+import SimpleModal from '~/components/organisms/SimpleModal'
 
 class ModalWrapper extends React.Component {
   state = {

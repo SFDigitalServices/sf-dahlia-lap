@@ -12,7 +12,6 @@ import {
   getPreferenceName
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
-import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
 import { withContext } from '../context'
 
 const { ExpanderButton } = ExpandableTable
@@ -61,19 +60,24 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose) => (row, toggle) => {
+const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  const onClose = () => {
+  const handleOnClose = (preferenceIndex) => {
     toggle()
-    onPanelClose && onPanelClose()
+    onPanelClose && onPanelClose(preferenceIndex)
   }
+  const handleOnSave = async (preferenceIndex, application) => {
+    const response = await onSave(preferenceIndex, application)
+    response && handleOnClose()
+  }
+
   return (
     <Panel
       application={application}
       preferenceIndex={preferenceIndex}
-      applicationMembers={applicationMembers}
-      onSave={onSave}
-      onClose={onClose}
+      onSave={handleOnSave}
+      onClose={handleOnClose}
+      formApi={formApi}
     />
   )
 }
@@ -81,11 +85,10 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
 const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
   return (!expanded && hasExpanderButton(prefName) &&
-  <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
+    <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose }) => {
-  const applicationMembers = getFullHousehold(application)
+const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
   const rows = buildRows(application, fileBaseUrl)
   return (
     <TableWrapper>
@@ -93,7 +96,7 @@ const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose }) =>
         columns={columns}
         rows={rows}
         expanderRenderer={expanderAction}
-        expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose)}
+        expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
       />
     </TableWrapper>)
 }

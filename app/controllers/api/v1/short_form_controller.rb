@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # RESTful JSON API to query for short form actions
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
@@ -47,6 +49,7 @@ class Api::V1::ShortFormController < ApiController
             :formMetadata,
             :hasSenior,
             :primaryApplicantContact,
+            :processingStatus,
             lease: %i[
               id
               unit

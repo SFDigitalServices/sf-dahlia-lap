@@ -12,7 +12,6 @@ import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -34,7 +33,8 @@ class SupplementalApplicationPage extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
+      // A frozen copy of the application state that is currently persisted to
+      // Salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
       confirmedPreferencesFailed: false,
       amis: {},
@@ -61,44 +61,41 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveApplication = async (application) => {
-    const { persistedApplication } = this.state
+    this.setLoading(true)
 
-    // We clone the modified application in the UI since those are the fields we want to update
-    const synchedApplication = cloneDeep(application)
+    const response = await updateApplicationAction(application)
 
-    // Monthly rent and preferences are only updated in handleSavePreference below.
-    // We set this values so we keep whatever we save in the panels
-    synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
-    synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
-
-    const response = await updateApplicationAction(synchedApplication)
-    this.setState({ persistedApplication: synchedApplication })
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
       window.location.reload()
+    } else {
+      this.setLoading(false)
     }
   }
 
-  handleSavePreference = async (preferenceIndex, application) => {
+  handleSavePreference = async (preferenceIndex, formApplicationValues) => {
     const { persistedApplication } = this.state
-    const synchedApplication = cloneDeep(persistedApplication)
-
-    // We need to set the total_monthly_rent in the global application, so we do not overwrite it.
-    synchedApplication.total_monthly_rent = application.total_monthly_rent
-    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
-
     const responses = await Promise.all([
-      updateTotalHouseholdRent(application.id, application.total_monthly_rent),
-      updatePreference(application.preferences[preferenceIndex])
+      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
+      updatePreference(formApplicationValues.preferences[preferenceIndex])
     ])
+    const failed = some(responses, response => response === false)
 
-    this.setState({
-      persistedApplication: synchedApplication,
-      confirmedPreferencesFailed: some(responses, response => response === false)
-    })
+    if (!failed) {
+      const updatedApplication = cloneDeep(persistedApplication)
+      updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
+      this.setState({
+        persistedApplication: updatedApplication,
+        confirmedPreferencesFailed: false
+      })
+    } else {
+      this.setState({ confirmedPreferencesFailed: true })
+    }
+
+    return !failed
   }
 
-  handleOnDismissError = () => {
+  handleDismissError = (preferenceIndex) => {
     this.setState({ confirmedPreferencesFailed: false })
   }
 
@@ -143,18 +140,18 @@ class SupplementalApplicationPage extends React.Component {
     this.updateStatusModal({status: value})
   }
 
-  handleStatusModalSubmit = async (submittedValues) => {
+  handleStatusModalSubmit = async (submittedValues, fromApplication) => {
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
-
     const data = {
       status: this.state.statusModal.status,
       comment: submittedValues.comment,
       applicationId: this.state.persistedApplication.id
     }
+    const appResponse = await updateApplicationAction(fromApplication)
+    const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
-    const response = await apiService.createFieldUpdateComment(data)
-    if (response === false) {
+    if (appResponse === false || commentResponse === false) {
       Alerts.error()
       this.updateStatusModal({loading: false})
       this.setState({loading: false})
@@ -166,38 +163,39 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render () {
-    const { statusHistory, fileBaseUrl, application, availableUnits } = this.props
+    const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
       confirmedPreferencesFailed,
       amis,
       amiCharts,
       statusModal,
-      loading
+      loading,
+      persistedApplication
     } = this.state
 
     const pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
+      title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
         { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
-        { title: application.name, link: '#' }
+        { title: persistedApplication.listing.name, link: appPaths.toListingLeaseUps(persistedApplication.listing.id) },
+        { title: persistedApplication.name, link: '#' }
       ]
     }
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
 
     const context = {
-      application: application,
+      application: persistedApplication,
       statusHistory: statusHistory,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
       confirmedPreferencesFailed: confirmedPreferencesFailed,
-      onDismissError: this.handleOnDismissError,
+      onDismissError: this.handleDismissError,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
       amis: amis,
@@ -205,19 +203,17 @@ class SupplementalApplicationPage extends React.Component {
       loading: loading,
       openAddStatusCommentModal: this.openAddStatusCommentModal,
       openUpdateStatusModal: this.openUpdateStatusModal,
-      setLoading: this.setLoading
+      setLoading: this.setLoading,
+      statusModal: statusModal,
+      handleStatusModalClose: this.handleStatusModalClose,
+      handleStatusModalStatusChange: this.handleStatusModalStatusChange,
+      handleStatusModalSubmit: this.handleStatusModalSubmit
     }
 
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
-          <StatusModalWrapper
-            {...statusModal}
-            onClose={this.handleStatusModalClose}
-            onStatusChange={this.handleStatusModalStatusChange}
-            onSubmit={this.handleStatusModalSubmit}
-          />
         </CardLayout>
       </Context.Provider>
     )

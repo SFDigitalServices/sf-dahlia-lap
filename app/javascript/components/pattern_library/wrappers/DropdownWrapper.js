@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Dropdown from '../molecules/Dropdown'
+import Dropdown from '~/components/molecules/Dropdown'
 
 class DropdownWrapper extends React.Component {
   state = { dropdown1Value: null, dropdown2Value: null }
