@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   module Soql
     # Provide Salesforce SOQL API interactions for preferences

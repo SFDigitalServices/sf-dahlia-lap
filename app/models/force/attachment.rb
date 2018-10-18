@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Represent an attachment object. Provide mapping between
   # Salesforce object field names, Salesforce custom API field names,

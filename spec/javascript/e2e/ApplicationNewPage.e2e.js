@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
+import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
   test('should create a new application', async () => {
@@ -14,7 +14,7 @@ describe('ApplicationNewPage', () => {
     let page = await browser.newPage()
 
     await sharedSteps.loginAsAgent(page)
-    await sharedSteps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
@@ -42,7 +42,7 @@ describe('ApplicationNewPage', () => {
     let page = await browser.newPage()
 
     await sharedSteps.loginAsAgent(page)
-    await sharedSteps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
