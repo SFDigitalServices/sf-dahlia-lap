@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     # RESTful JSON API for application actions

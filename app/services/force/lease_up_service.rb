@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # encapsulate all Salesforce lease up querying functions
   class LeaseUpService < Force::Base

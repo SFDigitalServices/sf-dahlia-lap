@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Encapsulate all Salesforce Lease__c querying and updating functions.
   class LeaseService < Force::Base

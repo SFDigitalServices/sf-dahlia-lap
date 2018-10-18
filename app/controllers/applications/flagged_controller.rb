@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applications
   # ext FlaggedRecordSetsController, by Fed
   class FlaggedController < ApplicationController

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Rails controller for Applications related views/actions
 class ApplicationsController < ApplicationController
   before_action :authenticate_user!

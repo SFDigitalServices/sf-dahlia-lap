@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Represent a preference object. Provide mapping between SOQL API
   # and LAP domain field names for preferences.

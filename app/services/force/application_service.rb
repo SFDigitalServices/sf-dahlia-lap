@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Force
   # Provide Salesforce SOQL API and Custom API interactions for applications
   class ApplicationService < Force::Base
-    DRAFT = 'Draft'.freeze
+    DRAFT = 'Draft'
     FIELD_NAME = :applications
     FIELDS = load_fields(FIELD_NAME).freeze
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # We could have a model for this, but right now I just one to get it to work
 class ShortFormValidator
   attr_reader :errros
