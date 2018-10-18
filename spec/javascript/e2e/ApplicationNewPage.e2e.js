@@ -1,8 +1,8 @@
 import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
-import steps from '../support/puppeteer/steps'
-import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
+import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
   test('should create a new application', async () => {
@@ -10,18 +10,18 @@ describe('ApplicationNewPage', () => {
     const LAST_NAME = 'Some last name'
     const DATE_OF_BIRTH = '03/03/1983'
 
-    let browser = await puppeteer.launch({ headless: true })
+    let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
-    await steps.loginAsAgent(page)
-    await steps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth', DATE_OF_BIRTH)
     await page.click('.save-btn')
     await page.waitForNavigation()
-    await steps.waitForApp(page)
+    await sharedSteps.waitForApp(page)
 
     const hasApplicationDetails = await utils.isPresent(page, '.application-details')
     expect(hasApplicationDetails).toBe(true)
@@ -38,11 +38,11 @@ describe('ApplicationNewPage', () => {
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should fail if required fields are missing', async () => {
-    let browser = await puppeteer.launch({ headless: true })
+    let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
-    await steps.loginAsAgent(page)
-    await steps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
@@ -56,5 +56,5 @@ describe('ApplicationNewPage', () => {
     expect(hasAlertBox).toBe(true)
 
     browser.close()
-  }, 100000)
+  }, DEFAULT_E2E_TIME_OUT)
 })

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # RESTful JSON API to query for short form actions
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
@@ -6,6 +8,12 @@ class Api::V1::ShortFormController < ApiController
     logger.debug "application_api_params: #{application_api_params}"
     short_form_validator = ShortFormValidator.new(application_api_params)
     if short_form_validator.valid?
+      if application_api_params.key?(:lease)
+        response = lease_service.submit_lease(application_api_params[:lease],
+                                              application_api_params[:id],
+                                              application_api_params[:primaryApplicantContact])
+        logger.debug "lease submit response: #{response}"
+      end
       application = application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
       render json: { application: application }
@@ -45,6 +53,17 @@ class Api::V1::ShortFormController < ApiController
             :numberOfDependents,
             :formMetadata,
             :hasSenior,
+            :primaryApplicantContact,
+            :processingStatus,
+            lease: %i[
+              id
+              unit
+              leaseStatus
+              leaseStartDate
+              monthlyParkingRent
+              totalMonthlyRentWithoutParking
+              monthlyTenantContribution
+            ],
             primaryApplicant: %i[
               contactId
               appMemberId
@@ -142,6 +161,7 @@ class Api::V1::ShortFormController < ApiController
               state
               address
               zipCode
+              postLotteryValidation
             ],
           )
   end
@@ -156,5 +176,9 @@ class Api::V1::ShortFormController < ApiController
 
   def application_service
     Force::ApplicationService.new(current_user)
+  end
+
+  def lease_service
+    Force::LeaseService.new(current_user)
   end
 end

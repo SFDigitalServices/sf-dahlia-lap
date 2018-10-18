@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import apiService from '~/apiService'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
-import StatusModalWrapper from './StatusModalWrapper'
+import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import utils from '~/utils/utils'
 import appPaths from '~/utils/appPaths'
 import { withContext } from './context'
@@ -22,12 +22,16 @@ class LeaseUpTableContainer extends React.Component {
       },
       applications: this.props.applications
     }
+    console.log('setting state', this.props.store.applications)
   }
 
-  updateStatusModal = (path, value) => {
+  updateStatusModal = (values) => {
     this.setState(prevState => {
       return {
-        statusModal: set(clone(prevState.statusModal), path, value)
+        statusModal: {
+          ...clone(prevState.statusModal),
+          ...values
+        }
       }
     })
   }
@@ -40,38 +44,31 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  openStatusModal = () => this.updateStatusModal('isOpen', true)
-
   closeStatusModal = () => {
-    this.updateStatusModal('isOpen', false)
-    this.hideStatusModalAlert()
+    this.updateStatusModal({
+      isOpen: false,
+      showAlert: false
+    })
   }
 
-  setStatusModalStatus = (value) => this.updateStatusModal('status', value)
-
-  setStatusModalApplicationPreferenceId = (value) => this.updateStatusModal('applicationPreferenceId', value)
-
-  setStatusModalAppId = (value) => this.updateStatusModal('applicationId', value)
-
-  setStatusModalLoading = (loading) => this.updateStatusModal('loading', loading)
-
-  showStatusModalAlert = () => this.updateStatusModal('showAlert', true)
+  setStatusModalStatus = (value) => this.updateStatusModal({status: value})
 
   hideStatusModalAlert = () => this.updateStatusModal('showAlert', false)
 
   leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
-    this.setStatusModalStatus(status)
-    this.setStatusModalApplicationPreferenceId(applicationPreferenceId)
-    this.setStatusModalAppId(applicationId)
-    this.openStatusModal()
+    this.updateStatusModal({
+      applicationId: applicationId,
+      applicationPreferenceId: applicationPreferenceId,
+      isOpen: true,
+      status: status
+    })
   }
 
   createStatusUpdate = async (submittedValues) => {
-    this.setStatusModalLoading(true)
+    this.updateStatusModal({loading: true})
 
     const { status, applicationId } = this.state.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
-
     if (status && comment) {
       const data = {
         status: status,
@@ -79,7 +76,9 @@ class LeaseUpTableContainer extends React.Component {
         applicationId: applicationId
       }
 
-      const response = await apiService.createLeaseUpStatus(data)
+      // TODO:  This apiService call should be moved out to the LeaseUpApplicationPage.
+      //        We should pass a handler that wraps this API call.
+      const response = await apiService.createFieldUpdateComment(data)
 
       if (response) {
         // find the rows with the application id whose status is being updated
@@ -92,14 +91,18 @@ class LeaseUpTableContainer extends React.Component {
           }
         })
 
-        this.setStatusModalLoading(false)
-        this.setStatusModalStatus(null)
-        this.setStatusModalAppId(null)
-        this.hideStatusModalAlert(null)
-        this.closeStatusModal()
+        this.updateStatusModal({
+          applicationId: null,
+          isOpen: false,
+          loading: false,
+          showAlert: false,
+          status: null
+        })
       } else {
-        this.setStatusModalLoading(false)
-        this.showStatusModalAlert()
+        this.updateStatusModal({
+          loading: false,
+          showAlert: true
+        })
       }
     }
   }
@@ -130,8 +133,10 @@ class LeaseUpTableContainer extends React.Component {
   }
 
   render () {
+    // console.log('rendering component', this.props.store.applications)
     const { store } = this.props
     const { listing, applications } = store
+    const { statusModal } = this.state
 
     return (
       <div>
@@ -146,15 +151,13 @@ class LeaseUpTableContainer extends React.Component {
           rowsPerPage={store.rowsPerPage}
         />
         <StatusModalWrapper
-          isOpen={this.state.statusModal.isOpen}
-          status={this.state.statusModal.status}
-          applicationId={this.state.statusModal.applicationId}
-          changeHandler={this.setStatusModalStatus}
-          submitHandler={this.createStatusUpdate}
-          closeHandler={this.closeStatusModal}
-          showAlert={this.state.statusModal.showAlert}
-          onAlertCloseClick={this.hideStatusModalAlert}
-          loading={this.state.statusModal.loading} />
+          {...statusModal}
+          header='Update Status'
+          submitButton='Update'
+          onStatusChange={this.setStatusModalStatus}
+          onSubmit={this.createStatusUpdate}
+          onClose={this.closeStatusModal}
+          onAlertCloseClick={this.hideStatusModalAlert} />
       </div>
     )
   }

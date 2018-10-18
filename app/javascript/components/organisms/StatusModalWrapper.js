@@ -1,10 +1,9 @@
 import React from 'react'
 
-import Dropdown from '../molecules/Dropdown'
-import FormModal from 'components/organisms/FormModal'
+import StatusDropdown from '~/components/molecules/StatusDropdown'
+import FormModal from './FormModal'
 import { TextArea } from 'react-form'
 import formUtils from '~/utils/formUtils'
-import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from './leaseUpsHelpers'
 
 class StatusModalWrapper extends React.Component {
   formValidator = (values) => {
@@ -16,24 +15,26 @@ class StatusModalWrapper extends React.Component {
   render () {
     const {
       isOpen,
-      closeHandler,
-      submitHandler,
+      onClose,
+      onSubmit,
       showAlert,
       onAlertCloseClick,
       loading,
       status,
-      changeHandler
+      onStatusChange,
+      header,
+      submitButton
     } = this.props
 
     return (
       <FormModal
-        header='Update Status'
-        primary='update'
+        header={header}
+        primary={submitButton}
         secondary='cancel'
         isOpen={isOpen}
-        handleClose={closeHandler}
-        onSubmit={submitHandler}
-        onSecondaryClick={closeHandler}
+        handleClose={onClose}
+        onSubmit={onSubmit}
+        onSecondaryClick={onClose}
         type='status'
         validateError={this.formValidator}
         showAlert={showAlert}
@@ -43,12 +44,10 @@ class StatusModalWrapper extends React.Component {
         {formApi => (
           <div className={'form-group ' + (formUtils.submitErrors(formApi).comment ? 'error' : '')}>
             <h2 className='form-label'>Status/Comment</h2>
-            <Dropdown
-              items={LEASE_UP_STATUS_OPTIONS}
-              value={status}
-              prompt='Status'
-              onChange={changeHandler}
-              buttonClasses={[getLeaseUpStatusStyle(status), 'margin-bottom--half', 'expand', 'small']}
+            <StatusDropdown
+              status={status}
+              onChange={onStatusChange}
+              buttonClasses={['margin-bottom--half', 'expand', 'small']}
               menuClasses={['form-modal_dropdown-menu']} />
             {!status && <small className='error'>Please provide a status.</small>}
             <label className='sr-only' htmlFor='status-comment' id='status-comment-label'>Comment</label>

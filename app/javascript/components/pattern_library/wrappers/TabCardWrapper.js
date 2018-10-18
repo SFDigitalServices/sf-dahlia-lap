@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ContentSection from '../molecules/ContentSection'
-import TabCard from '../organisms/TabCard'
+import ContentSection from '~/components/molecules/ContentSection'
+import TabCard from '~/components/organisms/TabCard'
 
 const TabCardWrapper = () => {
   return (
@@ -9,8 +9,8 @@ const TabCardWrapper = () => {
       <ContentSection
         title='Title2'
         subtitle='Sub'
-        titleDescription='Some Description'
-        subtitleDescription='Som sub description'
+        titleDescription='Some description'
+        subtitleDescription='Some sub description'
         label='text input'
         id='text-area'
         name='Area'

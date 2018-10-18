@@ -1,0 +1,361 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Oct 2018 20:24:47 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=aqCanlgPTd2-VTxK_M-8Ig;Path=/;Domain=.salesforce.com;Expires=Sun,
+        16-Dec-2018 20:24:47 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0U0000000Qf1UAE/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1539807887806","signature":"MP75u/hZpaR8Toxfd0c4ACe5jhR/41E6tRi/GIFSfdA="}'
+    http_version: 
+  recorded_at: Wed, 17 Oct 2018 20:24:47 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%09(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%09(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%09(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%09(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20of_AMI_for_Pricing_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W0U000000MX4vUAG%27%0A%20%20%20%20%20%20%20%20AND%20Id%20!=%20null%0A%20%20%20%20%20%20"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Oct 2018 20:24:48 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://calm-dawn-26291.herokuapp.com/hpkp-report/00D0U0000000Qf1m";
+      Expect-Ct:
+      - max-age=0; report-uri="https://calm-dawn-26291.herokuapp.com/Expect-CT-report/00D0U0000000Qf1m";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=EmfOtfI1Tk6ugKWAULEYtQ;Path=/;Domain=.salesforce.com;Expires=Sun,
+        16-Dec-2018 20:24:48 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=1262/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Id":"a0W0U000000MX4vUAG","OwnerId":"0050P000007H5XsQAK","Owner":{"attributes":{"type":"Name","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007H5XsQAK"},"Name":"Prod
+        Vertiba"},"Application_Due_Date__c":"2018-05-29T00:00:00.000+0000","Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Status__c":"Lease Up","Building__c":"a0a0U000000VGjCQAW","Building__r":{"attributes":{"type":"Building__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Building__c/a0a0U000000VGjCQAW"},"Name":"PR-019179"},"Min_BR__c":null,"Lottery_Winners__c":0.0,"Max_BR__c":null,"Lottery_Results__c":false,"Min_Income__c":2606.0,"Account__c":"001U000001YUVDjIAP","Account__r":{"attributes":{"type":"Account","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Account/001U000001YUVDjIAP"},"Name":"Exygy"},"Max_Income__c":null,"Min_Occupancy__c":1.0,"Max_Occupancy__c":null,"Building_Name__c":"Test
+        Yellow Acres","Neighborhood__c":"Civic Center","Building_Street_Address__c":"1
+        South Van Ness Ave","Developer__c":null,"Building_City__c":"San Francisco","Building_URL__c":"https://sfmohcd.org/sites/default/files/Documents/MOH/Housing%20Listing%20Photos/TEST.png","Building_State__c":"CA","Year_Built__c":2018.0,"Building_Zip_Code__c":"94103","Description__c":null,"Lottery_Preferences__c":null,"Accessibility__c":"Accessibility
+        features in common areas like lobby – wheelchair ramps, wheelchair accessible
+        bathrooms and elevators.","Fee__c":45.0,"Amenities__c":"Private bathroom and
+        kitchen in unit. Laundry room, Landscaped Roof Deck, Ground level commercial
+        space with large storefront windows and tall (19’+) ceilings and pedestrian-oriented
+        features including lush planting & bike parking.","Deposit_Min__c":1000.0,"Costs_Not_Included__c":"Replacements:
+        $75 lock, $25/key, $10/mailbox key, $100/FOB key, $100/garage remote; \r\nLate
+        rent fee: equal to 5% of total amount of monthly rent then in effect; \r\nRenter
+        pay PG&E directly to provider; \r\nNo parking.","Deposit_Max__c":1833.0,"Lottery_Date__c":"2018-09-18T22:29:00.000+0000","Lottery_Results_Date__c":null,"Lottery_Venue__c":"MOHCD","Lottery_Summary__c":null,"Lottery_Street_Address__c":"1
+        South Van Ness Ave. 5th Fl.","Lottery_City__c":"San Francisco","Lottery_URL__c":null,"Reserved_community_type__c":null,"Application_Phone__c":"(415)
+        647-7191 ext.127","Application_Organization__c":null,"Application_Street_Address__c":null,"Application_City__c":null,"Download_URL__c":null,"Application_State__c":"CA","Application_Postal_Code__c":null,"In_Lottery__c":5.0,"Leasing_Agent_Name__c":"Exygy
+        Leasing Agent","Leasing_Agent_Title__c":null,"Leasing_Agent_Email__c":"dahlia-leasing-agent@exygy.com","Leasing_Agent_Phone__c":null,"Legal_Disclaimers__c":"<table
+        border=\"0\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><td colspan=\"1\"
+        rowspan=\"1\">All BMR renters must review and acknowledge the <a href=\"http://sf-moh.org/index.aspx?page=295\"
+        target=\"_blank\">Inclusionary Affordable Housing Program Monitoring and Procedures
+        Manual 2013</a> that governs this property upon the signing of a lease for
+        a BMR unit. <br>\t\t\t <br>\t\t\tApplicants should be informed that BMR rental
+        units in some buildings may convert to ownership units in the future.  In
+        the case of conversion, BMR renters will be afforded certain rights as explained
+        in the <a href=\"http://sf-moh.org/index.aspx?page=295\" target=\"_blank\">Inclusionary
+        Affordable Housing Program Monitoring and Procedures Manual 2013</a>. Applicants
+        should inquire with the building contact person listed above to determine
+        if the building has a minimum number of years that it must remain a rental
+        building.  (Some buildings may have such restrictions based on government
+        sources of financing for their building.) Most buildings may have no restrictions
+        on conversion at all. <br>\t\t\t <br>\t\t\tIt is also important to note that
+        units governed by the Inclusionary Housing Program are NOT governed by the
+        San Francisco Rent Ordinance (also known as “rent control”). Among other rules,
+        rents may increase beyond increases allowed under “rent control.”  Please
+        see the <a href=\"http://sf-moh.org/index.aspx?page=295\" target=\"_blank\">Inclusionary
+        Affordable Housing Program Monitoring and Procedures Manual 2013</a> for more
+        information.</td></tr></tbody></table>","Building_Selection_Criteria__c":"http://sfmohcd.org/sites/default/files/Resident%20Selection%20Criteria/750%20HARRISON%20-%20RESIDENT%20SELECTION%20PLAN%20-%20FAIR%20CHANCE%20ORDINANCE.pdf","Pet_Policy__c":"Pet
+        Deposit: $500 \r\nPet Rent: $75 per month \r\n(Certified service animals are
+        exempt.)","Required_Documents__c":"Lottery Application Form, documented proof
+        of any preferences claimed (see application \r\nform for details).","Smoking_Policy__c":"No
+        smoking within the building.","Eviction_History__c":"Both the current and
+        previous landlords (going back three years) will be contacted for information
+        concerning the applicant''s history of complying with lease requirements,
+        \r\nincluding any documented lease violations and For Cause evictions. Ellis
+        Act or Owner Move In evictions will not be held against an applicant.","Criminal_History__c":null,"Credit_Rating__c":"A
+        credit report indicating a current FICO score of at least 620 or higher with
+        financial responsibilities and a comprehensive unlawful detainer check will
+        be obtained for each adult applicant. There must be no judgments; no accounts
+        rated over 90 days delinquent or a bankruptcy within the previous one year
+        to make the credit report acceptable. \r\nA credit score below 620 and/or
+        a conditional approval rating where the report contains no judgments, no accounts
+        rated over 90 days delinquent or a bankruptcy within the previous one year
+        will result in an applicant being accepted and required to pay an \r\nadditional
+        deposit equal to 1.5x the standard deposit. \r\nA credit score below 620 where
+        the report contains any judgments, any accounts rated over 90 days delinquent
+        or a bankruptcy within the previous one year, unless satisfactorily explained,
+        will result in the applicant being denied. Guarantors not accepted. \r\nApplicant
+        will not be denied for not having any credit history. Medical debt and/or
+        student debt will not be held against an applicant. Applicant must demonstrate
+        ability to meet all monthly financial obligations.","Lottery_Status__c":"In
+        Progress","Office_Hours__c":null,"Information_Sessions__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Information_Session__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Information_Session__c/a0V0U000005h6C5UAI"},"Date__c":"2018-05-05","Start_Time__c":"9:00
+        AM","End_Time__c":null,"Venue__c":"SF Public Library","Street_Address__c":null,"City__c":"San
+        Francisco"}]},"Open_Houses__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Open_Houses__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Open_Houses__c/a0Y0U000004HfSOUA0"},"Date__c":"2018-05-02","Start_Time__c":"2:00
+        PM","End_Time__c":"5:00 PM"}]},"Listing_Lottery_Preferences__r":{"totalSize":4,"done":true,"records":[{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0U000003nNfiQAE"},"Id":"a0l0U000003nNfiQAE","Total_Submitted_Apps__c":2.0,"Order__c":1.0,"Description__c":"For
+        households in which at least one member holds a Certificate of Preference
+        from the former San Francisco Redevelopment Agency. COP holders were displaced
+        by Agency action generally during the 1960s and 1970s.","Available_Units__c":9.0,"PDF_URL__c":null,"Lottery_Preference__r":{"attributes":{"type":"Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lottery_Preference__c/a0m0P00000wwi3IQAQ"},"Id":"a0m0P00000wwi3IQAQ","Name":"Certificate
+        of Preference (COP)"}},{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0U000003nNfnQAE"},"Id":"a0l0U000003nNfnQAE","Total_Submitted_Apps__c":0.0,"Order__c":2.0,"Description__c":"For
+        households in which at least one member holds a Displaced Tenant Housing Preference
+        Certificate. DTHP Certificate holders are tenants who were evicted through
+        either an Ellis Act Eviction or an Owner Move In Eviction, or have been displaced
+        by a fire. Once all units reserved for this preference are filled, remaining
+        DTHP holders will receive Live/Work preference, regardless of their current
+        residence or work location.","Available_Units__c":3.0,"PDF_URL__c":null,"Lottery_Preference__r":{"attributes":{"type":"Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lottery_Preference__c/a0m0P00000www1mQAA"},"Id":"a0m0P00000www1mQAA","Name":"Displaced
+        Tenant Housing Preference (DTHP)"}},{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0U000003nNfsQAE"},"Id":"a0l0U000003nNfsQAE","Total_Submitted_Apps__c":2.0,"Order__c":3.0,"Description__c":"For
+        households who are currently paying more than 50% of income for housing costs
+        or are living in public housing or project based Section 8 housing within
+        San Francisco.","Available_Units__c":4.0,"PDF_URL__c":null,"Lottery_Preference__r":{"attributes":{"type":"Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lottery_Preference__c/a0m0P00000xTqDtQAK"},"Id":"a0m0P00000xTqDtQAK","Name":"Rent
+        Burdened / Assisted Housing Preference"}},{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0U000003nNfxQAE"},"Id":"a0l0U000003nNfxQAE","Total_Submitted_Apps__c":4.0,"Order__c":4.0,"Description__c":"For
+        households in which at least one member lives or works in San Francisco.  Requires
+        submission of proof.  Please note in order to claim Work Preference, the applicant
+        currently work in San Francisco at least 75% of their working hours.","Available_Units__c":9.0,"PDF_URL__c":null,"Lottery_Preference__r":{"attributes":{"type":"Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lottery_Preference__c/a0m0P00000wwi3NQAQ"},"Id":"a0m0P00000wwi3NQAQ","Name":"Live
+        or Work in San Francisco Preference"}}]},"Units__r":{"totalSize":9,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HdudQAC"},"Unit_Type__c":"1
+        BR","BMR_Rent_Monthly__c":1303.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":2606.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HduiQAC"},"Unit_Type__c":"1
+        BR","BMR_Rent_Monthly__c":1303.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":2606.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HdunQAC"},"Unit_Type__c":"1
+        BR","BMR_Rent_Monthly__c":1303.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":2606.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HdusQAC"},"Unit_Type__c":"2
+        BR","BMR_Rent_Monthly__c":1465.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":2930.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HduxQAC"},"Unit_Type__c":"2
+        BR","BMR_Rent_Monthly__c":1465.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":2930.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002Hdv2QAC"},"Unit_Type__c":"2
+        BR","BMR_Rent_Monthly__c":1465.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":2930.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002Hdv7QAC"},"Unit_Type__c":"3
+        BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HdvCQAS"},"Unit_Type__c":"3
+        BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0U000002HdvHQAS"},"Unit_Type__c":"3
+        BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null}]}}]}'
+    http_version: 
+  recorded_at: Wed, 17 Oct 2018 20:24:48 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Oct 2018 20:24:48 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=PF-1yAKXREq41oItRFNMrw;Path=/;Domain=.salesforce.com;Expires=Sun,
+        16-Dec-2018 20:24:48 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0U0000000Qf1UAE/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1539807889166","signature":"Opy9I7lE7jLcsZZLAQ0WCNHRvsBp54qs7qlinomoMT0="}'
+    http_version: 
+  recorded_at: Wed, 17 Oct 2018 20:24:49 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Listing__r.Name,%20Listing__r.Lottery_Date__c,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Application_Submitted_Date__c,%20Total_Household_Size__c,%20Application_Submission_Type__c%0A%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20WHERE%20Id%20!=%20null%0A%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20AND%20Listing__r.Id=%27a0W0U000000MX4vUAG%27%0A%20%20%20%20%20%20%20%20LIMIT%2010000%0A%20%20%20%20%20%20"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Oct 2018 20:24:49 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://calm-dawn-26291.herokuapp.com/hpkp-report/00D0U0000000Qf1m";
+      Expect-Ct:
+      - max-age=0; report-uri="https://calm-dawn-26291.herokuapp.com/Expect-CT-report/00D0U0000000Qf1m";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=QGiznd0BQeOmI2U5wApUKg;Path=/;Domain=.salesforce.com;Expires=Sun,
+        16-Dec-2018 20:24:49 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=1262/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":5,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0U000000VVw8QAG"},"Id":"a0o0U000000VVw8QAG","Name":"APP-00262254","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0U0000030tBrQAI"},"First_Name__c":"Lappy","Last_Name__c":"Laptest"},"Application_Submitted_Date__c":"2018-08-03","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0U000000VVwNQAW"},"Id":"a0o0U000000VVwNQAW","Name":"APP-00262256","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0U0000030tC1QAI"},"First_Name__c":"Lisa","Last_Name__c":"Patest"},"Application_Submitted_Date__c":"2018-08-02","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Paper"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0U000000VVwXQAW"},"Id":"a0o0U000000VVwXQAW","Name":"APP-00262258","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0U0000030tCLQAY"},"First_Name__c":"Partha","Last_Name__c":"Nerr"},"Application_Submitted_Date__c":"2018-08-24","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0U000000VVwcQAG"},"Id":"a0o0U000000VVwcQAG","Name":"APP-00262259","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0U0000030tCfQAI"},"First_Name__c":"Tessie","Last_Name__c":"Lapsie"},"Application_Submitted_Date__c":"2018-10-05","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0U000000VVwmQAG"},"Id":"a0o0U000000VVwmQAG","Name":"APP-00262260","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0U000000MX4vUAG"},"Name":"LAP
+        Test Listing (Do not Modify) - Yellow Acres","Lottery_Date__c":"2018-09-18T22:29:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0U0000030tCkQAI"},"First_Name__c":"Portia","Last_Name__c":"Toole"},"Application_Submitted_Date__c":"2018-10-16","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Electronic"}]}'
+    http_version: 
+  recorded_at: Wed, 17 Oct 2018 20:24:49 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Oct 2018 20:24:49 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=0G4iV4YORmq6ELE52uc3Sw;Path=/;Domain=.salesforce.com;Expires=Sun,
+        16-Dec-2018 20:24:49 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0U0000000Qf1UAE/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1539807890384","signature":"QS5n4J0xEwE/BUOh+rcPdNGLrtK5XELOJ3rvcAmxzTg="}'
+    http_version: 
+  recorded_at: Wed, 17 Oct 2018 20:24:50 GMT
+recorded_with: VCR 4.0.0

@@ -13,8 +13,8 @@ module Force
     # BUILDER
     ################################
 
-    def select(select)
-      @select = select
+    def select(*select)
+      @select = Array(select).join(', ')
       self
     end
 
@@ -33,8 +33,13 @@ module Force
       self
     end
 
-    def where_eq(field, value)
-      where("#{field} = #{value}")
+    def where_eq(field, value, type = nil)
+      where("#{field} = #{_format_value(type, value)}")
+      self
+    end
+
+    def where_not_in(field, list)
+      where("#{field} NOT IN (#{list.join(',')})")
       self
     end
 
@@ -99,10 +104,8 @@ module Force
 
     def query
       soql = _query_soql
-      if Rails.env.development?
-        puts "[SOQL] #{soql}"
-        # puts blah if blah
-      end
+
+      puts "[SOQL] #{soql}" if Rails.env.development?
 
       records = @client.query(soql)
       if paginate?
@@ -159,6 +162,15 @@ module Force
         page: page,
         total_size: total_size,
       )
+    end
+
+    def _format_value(type, value)
+      case type.to_s.to_sym
+      when :string
+        "'#{value}'"
+      else
+        value
+      end
     end
   end
 end

@@ -12,13 +12,6 @@ const apiCall = async (method, path, data) => {
   }
 }
 
-// TODO: can remove, was just for spreadsheet prototype
-const updateApplication = async (data) => {
-  let putData = { application: data }
-  let response = await apiCall('put', '/short-form/update', putData)
-  return response.result
-}
-
 const updateFlaggedApplication = async (data) => {
   let putData = {
     flagged_application: {
@@ -67,12 +60,7 @@ const getAMI = async ({ chartType, chartYear }) => {
   })
 }
 
-// NOTE: This is used in Lease Ups Table
-// const updateLeaseUpStatus = async (applicationNumer, status) => {
-//   console.log(`Updating lease up status for ${applicationNumer} to ${status}`)
-// }
-// Creates a new Field Update Comment Salesforce record
-const createLeaseUpStatus = async (data) => {
+const createFieldUpdateComment = async (data) => {
   let postData = {
     field_update_comment: {
       Processing_Status__c: data.status,
@@ -83,6 +71,22 @@ const createLeaseUpStatus = async (data) => {
   return apiCall('post', '/field-update-comments/create', postData)
 }
 
+const updatePreference = async (data) => {
+  const id = data.id
+  const postData = {
+    preference: data
+  }
+  return apiCall('put', `/preferences/${id}`, postData)
+}
+
+const updateApplication = async (data) => {
+  const id = data.id
+  const postData = {
+    application: data
+  }
+  return apiCall('put', `/applications/${id}`, postData)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
@@ -90,5 +94,6 @@ export default {
   fetchApplications,
   fetchLeaseUpApplications,
   getAMI,
-  createLeaseUpStatus
+  updatePreference,
+  createFieldUpdateComment
 }

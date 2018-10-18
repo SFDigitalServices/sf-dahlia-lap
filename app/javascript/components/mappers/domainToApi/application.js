@@ -18,6 +18,7 @@ const mapAdaPrioritiesMap = (list) => {
 
 export const applicationFieldMapper = {
   id: 'id',
+  primary_applicant_contact: 'primaryApplicantContact',
   application_language: 'applicationLanguage',
   has_military_service: 'hasMilitaryService',
   has_developmental_disability: 'hasDevelopmentalDisability',
@@ -32,6 +33,7 @@ export const applicationFieldMapper = {
   reserved_senior: 'hasSenior',
   application_submission_type: 'applicationSubmissionType',
   total_monthly_rent: 'totalMonthlyRent',
+  processing_status: 'processingStatus',
   adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected))
 }
 

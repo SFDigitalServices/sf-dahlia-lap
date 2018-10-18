@@ -1,35 +1,20 @@
 import React from 'react'
+import { find } from 'lodash'
+import classNames from 'classnames'
+
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
-import { find } from 'lodash'
-import PropTypes from 'prop-types'
-
-const computeTopWith = (buttonRef) => {
-  // Hardcoded for now.
-  // Not spending time yet on getting the right top based on button
-  return 40
-}
-
-const computeLeftWith = (ref) => {
-  return 0
-}
 
 class Dropdown extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { expanded: false, style: { top: 0, left: 0 } }
+    this.state = { expanded: false, style: { top: 40, left: 0 } }
     this.handleClickOutside = this.handleClickOutside.bind(this)
   }
 
   componentDidMount () {
     document.addEventListener('mousedown', this.handleClickOutside)
     document.addEventListener('keydown', this.onEscapeHandler)
-    this.setState({
-      style: {
-        top: computeTopWith(this.buttonRef),
-        left: computeLeftWith(this.buttonRef)
-      }
-    })
   }
 
   componentWillUnmount () {
@@ -39,11 +24,12 @@ class Dropdown extends React.Component {
 
   toggleExpand = (e) => {
     this.setState((prevState) => ({ expanded: !prevState.expanded }))
-    e.stopPropagation() // We need this so we do no call collpase function
+    // We need this to avoid triggering the collapse function from Foundation
+    e.stopPropagation()
   }
 
   componentClickHandler = (e) => {
-    // We want to hide only when we click in the component but outisde the menu
+    // We want to hide the dropdown menu only when we click in the component but outside the menu
     if (this.wrapperRef === e.target) { this.setState({ expanded: false }) }
   }
 
@@ -89,14 +75,27 @@ class Dropdown extends React.Component {
  }
 
  render () {
-   const { prompt, items, value, buttonClasses, menuClasses = [] } = this.props
+   const {
+     prompt,
+     items,
+     value,
+     styles,
+     buttonClasses,
+     wrapperClasses,
+     menuClasses = []
+   } = this.props
    const selectedItem = find(items, { value: value })
 
    return (
-     <div className='dropdown' onClick={this.componentClickHandler} ref={(node) => { this.wrapperRef = node }} style={this.props.styles}>
+     <div
+       className={classNames('dropdown', wrapperClasses)}
+       onClick={this.componentClickHandler}
+       ref={(node) => { this.wrapperRef = node }}
+       style={styles}>
        <button
          aria-expanded={this.state.expanded ? 'true' : 'false'}
-         onClick={this.toggleExpand} ref={(node) => { this.buttonRef = node }}
+         onClick={this.toggleExpand}
+         ref={(node) => { this.buttonRef = node }}
          className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
          type='button'>
          <span className='ui-icon ui-small'>
@@ -112,11 +111,6 @@ class Dropdown extends React.Component {
      </div>
    )
  }
-}
-
-Dropdown.propTypes = {
-  items: PropTypes.array,
-  value: PropTypes.object
 }
 
 export default Dropdown
