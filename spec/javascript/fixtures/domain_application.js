@@ -46,7 +46,7 @@ const application = {
   'status': 'Submitted',
   'application_submission_type': 'Electronic',
   'application_submitted_date': '2018-06-19',
-  'createdby': 'Prod Vertiba',
+  'createdby': { 'name': 'Prod Vertiba' },
   'annual_income': 110000,
   'monthly_income': null,
   'housing_voucher_or_subsidy': 'true',

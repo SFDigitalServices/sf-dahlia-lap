@@ -48,6 +48,14 @@ module Force
 
       private
 
+      def application_defaults
+        {
+          applicationSubmissionType: 'Paper',
+          applicationSubmittedDate: Time.now.strftime('%F'), # YYYY-MM-DD
+          status: 'Submitted',
+        }
+      end
+
       def add_application_members(application, custom_api_fields)
         # Create the primary applicant, alternate contact, and household members
         # from the custom API data

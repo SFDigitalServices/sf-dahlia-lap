@@ -71,7 +71,7 @@ module Force
 
         # Created by
         if existing_fields['CreatedBy']
-          domain_fields['createdby'] = existing_fields['CreatedBy']['Name']
+          domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] }
         end
       end
 
