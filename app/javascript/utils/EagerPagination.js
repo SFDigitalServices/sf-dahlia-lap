@@ -42,7 +42,9 @@ class EagerPagination {
       this.server.currentPage = newServerPage
       const result = await fetchPage(this.server.currentPage)
       this.records = result.records
-      this.pages = (result.pages * result.records.length) / this.eager.size
+      let numerator = result.pages * result.records.length
+      if (result.pages === 0) { numerator = result.records.length }
+      this.pages = numerator / this.eager.size
     }
 
     return this.buildResponse()
