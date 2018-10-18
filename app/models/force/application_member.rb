@@ -16,7 +16,7 @@ module Force
       { custom_api: 'DOB', domain: 'date_of_birth', salesforce: 'Date_of_Birth' },
       { custom_api: 'email', domain: 'email', salesforce: 'Email' },
       { custom_api: 'firstName', domain: 'first_name', salesforce: 'First_Name' },
-      { custom_api: 'id', domain: 'id', salesforce: 'Id' },
+      { custom_api: 'appMemberId', domain: 'id', salesforce: 'Id' },
       { custom_api: 'lastName', domain: 'last_name', salesforce: 'Last_Name' },
       { custom_api: '', domain: 'mailing_address', salesforce: 'Mailing_Address' },
       { custom_api: 'mailingAddress', domain: 'mailing_street', salesforce: 'Mailing_Street' },
@@ -51,14 +51,14 @@ module Force
           domain_fields.city,
           domain_fields.state,
           domain_fields.zip_code,
-        ].join(', ').strip
+        ].compact.join(', ').strip
 
         domain_fields.mailing_address = [
           domain_fields.mailing_street,
           domain_fields.mailing_city,
           domain_fields.mailing_state,
           domain_fields.mailing_zip_code,
-        ].join(', ').strip
+        ].compact.join(', ').strip
       end
 
       domain_fields

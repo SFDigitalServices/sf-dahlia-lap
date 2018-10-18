@@ -9,7 +9,7 @@ module Force
     # field mappings into YML files or other places.
     FIELD_NAME_MAPPINGS = [
       { custom_api: 'address', domain: 'street', salesforce: 'Street' },
-      { custom_api: 'appMemberID', domain: '', salesforce: 'Application_Member__c' },
+      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member__c' },
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'id', domain: 'id', salesforce: 'Id' },

@@ -96,7 +96,7 @@ module Force
         # the preference.
         app_members = [application.applicant, *application.household_members]
         preferences.each do |preference|
-          app_member = app_members.find { |m| m.id == preference.appMemberID }
+          app_member = app_members.find { |m| m.id == preference.application_member_id }
           preference.person_who_claimed_name = app_member.name if app_member
         end
 
