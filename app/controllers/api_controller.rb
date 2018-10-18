@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Root controller from which all our API controllers inherit.
 class ApiController < ActionController::API
   respond_to :json

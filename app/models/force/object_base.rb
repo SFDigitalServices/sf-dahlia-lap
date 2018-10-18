@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Base representation of a Salesforce object. Provide mapping between
   # Salesforce object field names, Salesforce custom API field names,

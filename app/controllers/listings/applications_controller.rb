@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Listings
   # Rails controller for views/actions related to applications for a listing
   class ApplicationsController < ApplicationController

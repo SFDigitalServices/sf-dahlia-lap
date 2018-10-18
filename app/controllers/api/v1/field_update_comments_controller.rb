@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # RESTful JSON API to query for field update comment actions
 class Api::V1::FieldUpdateCommentsController < ApiController
   before_action :authenticate_user!
