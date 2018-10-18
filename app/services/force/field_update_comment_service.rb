@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # encapsulate all Salesforce Field Update Comment querying functions
   class FieldUpdateCommentService < Force::Base

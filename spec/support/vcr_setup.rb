@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'vcr'
 
 VCR.configure do |config|
@@ -41,9 +43,7 @@ VCR.configure do |config|
 
   config.filter_sensitive_data('<<ACCESS_TOKEN>>') do |interaction|
     h = interaction.request.headers
-    if h['Authorization'] && h['Authorization'].first
-      h['Authorization'].first.split('OAuth ').last
-    end
+    h['Authorization'].first.split('OAuth ').last if h['Authorization']&.first
   end
 
   # This can be used to manipulate the response before saving

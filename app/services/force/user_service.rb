@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Force
   # encapsulate all Salesforce User querying functions
   class UserService < Force::Base
-    COMMUNITY_USER_TYPE = 'PowerPartner'.freeze
+    COMMUNITY_USER_TYPE = 'PowerPartner'
     attr_accessor :account_id, :admin
 
     def initialize(user)

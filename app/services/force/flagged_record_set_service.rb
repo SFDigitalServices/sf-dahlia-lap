@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # encapsulate all Salesforce Listing querying functions
   class FlaggedRecordSetService < Force::Base

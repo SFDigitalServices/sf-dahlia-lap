@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # User ouath class functions
 class User < ApplicationRecord
   # Include default devise modules. Others available are:

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'restforce'
 require 'facets/hash/rekey'
 

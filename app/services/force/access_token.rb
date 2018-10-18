@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'net/http'
 require 'uri'
 
@@ -21,7 +23,7 @@ module Force
         api_version: EnvUtils.get!('SALESFORCE_API_VERSION'),
         mashify: false,
         authentication_retries: 1,
-        host: 'test.salesforce.com',
+        host: EnvUtils.get!('SALESFORCE_HOST'),
       }
     end
 
