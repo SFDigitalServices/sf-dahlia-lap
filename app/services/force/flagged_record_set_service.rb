@@ -44,6 +44,14 @@ module Force
       ), :flagged_applications)
     end
 
+    def flagged_record_set(application_id)
+      parsed_index_query(%(
+        SELECT #{query_fields(:show_flagged_records)}
+        FROM Flagged_Application__c
+        WHERE Application__c  = '#{application_id}'
+      ), :show_flagged_records)
+    end
+
     def update_flagged_application(data)
       data = Hashie::Mash.new(data)
       return nil unless data[:Id]

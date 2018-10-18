@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       scope '/short-form' do
-        put 'update' => 'short_form#update'
         post 'submit' => 'short_form#submit'
       end
       scope '/flagged-applications' do

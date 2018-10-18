@@ -8,7 +8,7 @@ module Api
 
       def index
         attributes = params.slice(:page, :application_number, :listing, :first_name, :last_name, :submission_type)
-        applications = application_service.applications(attributes)
+        applications = soql_application_service.applications(attributes)
         render json: applications
       end
 
@@ -34,8 +34,8 @@ module Api
         Force::Rest::ApplicationService.new(current_user)
       end
 
-      def application_service
-        Force::ApplicationService.new(current_user)
+      def soql_application_service
+        Force::Soql::ApplicationService.new(current_user)
       end
     end
   end

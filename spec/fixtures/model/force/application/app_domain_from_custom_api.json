@@ -1,0 +1,28 @@
+{
+  "annual_income": null,
+  "answered_community_screening": null,
+  "application_language": "English",
+  "application_submission_type": "Paper",
+  "application_submitted_date": "2018-08-03",
+  "has_ada_priorities_selected": {
+    "mobility_impaired": true,
+    "hearing_impaired": true
+  },
+  "has_developmental_disability": null,
+  "has_military_service": null,
+  "hh_total_income_with_assets_annual": null,
+  "household_assets": null,
+  "housing_voucher_or_subsidy": "true",
+  "id": "a0o0U000000VVw8QAG",
+  "lottery_number": "00262254",
+  "lottery_number_manual": null,
+  "monthly_income": null,
+  "name": "APP-00262254",
+  "number_of_dependents": null,
+  "processing_status":  "Waitlisted",
+  "referral_source": null,
+  "reserved_senior": null,
+  "status": "Submitted",
+  "terms_acknowledged": false,
+  "total_monthly_rent": null
+}

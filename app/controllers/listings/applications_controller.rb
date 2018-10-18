@@ -8,8 +8,8 @@ module Listings
     before_action :validate_listing!
 
     def index
-      @applications = application_service.listing_applications(params[:listing_id])
-      @fields = application_service.index_fields
+      @applications = soql_application_service.listing_applications(params[:listing_id])
+      @fields = soql_application_service.index_fields
     end
 
     def new; end
@@ -28,8 +28,8 @@ module Listings
       Force::ListingService.new(current_user)
     end
 
-    def application_service
-      Force::ApplicationService.new(current_user)
+    def soql_application_service
+      Force::Soql::ApplicationService.new(current_user)
     end
   end
 end

@@ -10,6 +10,14 @@
  *= require_self
  */
 
+ // TODO: This style is to temporarily make the application page tabs
+ // look more like the supp app page tabs. We have an upcoming story
+ // to restyle the whole application page to match the supp app page.
+ // Remove this style when that story is complete.
+.application-details > .content-card:first-child {
+  border-top: 0;
+}
+
 // TODO: move these styles into the PL - we have an upcoming story to do this
 .ReactModal__Overlay {
   z-index: 1000;

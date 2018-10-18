@@ -1,3 +1,6 @@
+// Default to Automated Test Listing on Full
+export const NON_LEASE_UP_LISTING_ID = process.env.E2E_NON_LEASE_UP_LISTING_ID || 'a0W0P00000F8YG4UAN'
+
 // Default to Yellow Acres on Full
 export const LEASE_UP_LISTING_ID = process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0U000000MX4vUAG'
 
