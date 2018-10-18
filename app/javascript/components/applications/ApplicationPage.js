@@ -54,8 +54,6 @@ const ApplicationPage = (props) => {
 }
 
 const mapProperties = ({ application, showAddBtn, fileBaseUrl }) => {
-  console.log(JSON.stringify(application))
-
   return {
     application: application,
     fields: labelMapperFields,
