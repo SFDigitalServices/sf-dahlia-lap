@@ -40,6 +40,7 @@
     "email":null,
     "date_of_birth":"1975-03-03",
     "city":"SAN FRANCISCO",
+    "id":"a0n0U0000030tCLQAY",
     "second_phone_type":null,
     "second_phone":null,
     "alternate_contact_type_other":null,
@@ -67,6 +68,7 @@
     "email":null,
     "date_of_birth":null,
     "city":null,
+    "id":"a0n0U0000030tCaQAI",
     "second_phone_type":null,
     "second_phone":null,
     "alternate_contact_type_other":null,
@@ -74,8 +76,8 @@
     "agency_name":null,
     "street":null,
     "name":"Flora Matts",
-    "residence_address":", , ,",
-    "mailing_address":", , ,"
+    "residence_address":"",
+    "mailing_address":""
   },
   "household_members":[
 
@@ -92,9 +94,9 @@
       "individual_preference":null,
       "city":null,
       "certificate_number":null,
+      "application_member_id":null,
       "street":null,
-      "preference_name":"Certificate of Preference (COP)",
-      "person_who_claimed_name":"Partha Nerr"
+      "preference_name":"Certificate of Preference (COP)"
     },
     {
       "state":null,
@@ -107,6 +109,7 @@
       "individual_preference":null,
       "city":null,
       "certificate_number":null,
+      "application_member_id":"a0n0U0000030tCLQAY",
       "street":null,
       "preference_name":"Displaced Tenant Housing Preference (DTHP)",
       "person_who_claimed_name":"Partha Nerr"
@@ -122,9 +125,9 @@
       "individual_preference":null,
       "city":null,
       "certificate_number":null,
+      "application_member_id":null,
       "street":null,
-      "preference_name":"Rent Burdened / Assisted Housing Preference",
-      "person_who_claimed_name":"Partha Nerr"
+      "preference_name":"Rent Burdened / Assisted Housing Preference"
     },
     {
       "state":null,
@@ -137,9 +140,9 @@
       "individual_preference":null,
       "city":null,
       "certificate_number":null,
+      "application_member_id":null,
       "street":null,
-      "preference_name":"Live or Work in San Francisco Preference",
-      "person_who_claimed_name":"Partha Nerr"
+      "preference_name":"Live or Work in San Francisco Preference"
     }
   ],
   "is_snapshot":true,

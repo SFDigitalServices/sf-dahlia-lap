@@ -42,6 +42,7 @@
     "email":"kuowisi@joami.gg",
     "date_of_birth":"1990-02-22",
     "city":"SAN FRANCISCO",
+    "id":"a0n0P00000BEG2sQAH",
     "second_phone_type":null,
     "second_phone":null,
     "alternate_contact_type_other":null,
@@ -70,6 +71,7 @@
       "email":null,
       "date_of_birth":"1900-01-01",
       "city":"Anywhere",
+      "id":"a0n0U0000030yBMQAY",
       "second_phone_type":null,
       "second_phone":null,
       "alternate_contact_type_other":null,
@@ -234,14 +236,14 @@
       "flagged_record":{
         "id":"a0r0P00002X4r08QAB",
         "rule_name":"Name + DOB",
-        "total_number_of_pending_review":52.0
+        "total_number_of_pending_review":52
       }
     },
     {
       "flagged_record":{
         "id":"a0r0U0000005MUsQAM",
         "rule_name":"Residence Address",
-        "total_number_of_pending_review":47.0
+        "total_number_of_pending_review":47
       }
     }
   ],
