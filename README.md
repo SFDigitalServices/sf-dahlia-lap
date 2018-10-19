@@ -2,6 +2,9 @@
 
 A portal for leasing agents to manage listings and applications.
 
+
+
+
 ## Setup
 * Use Ruby 2.2.5 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
 * Install [Bundler](https://github.com/bundler/bundler) for this version of Ruby `gem install bundler -v 1.16.2`
