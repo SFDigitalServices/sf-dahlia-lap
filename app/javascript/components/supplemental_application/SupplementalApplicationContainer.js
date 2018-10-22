@@ -14,6 +14,7 @@ import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
+import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
@@ -92,6 +93,16 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
   )
 }
 
+const RentalAssistanceInformationSection = () => {
+  return (
+    <ContentSection title='Rental Assistance Information'>
+      <ContentSection.Content borderBottom>
+        <RentalAssistance />
+      </ContentSection.Content>
+    </ContentSection>
+  )
+}
+
 const ActionButtons = withContext(({ loading, store }) => {
   const { application, openUpdateStatusModal } = store
 
@@ -151,6 +162,7 @@ class SupplementalApplicationContainer extends React.Component {
                 />
                 <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
                 <LeaseInformationSection />
+                <RentalAssistanceInformationSection />
                 <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
                 <div className='padding-bottom--2x margin-bottom--2x' />
                 <ActionButtons loading={loading} />

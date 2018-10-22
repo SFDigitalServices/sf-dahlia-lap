@@ -29,6 +29,13 @@ const getAmis = async (chartsToLoad) => {
   return [].concat.apply([], amis)
 }
 
+const hardcodedRentalAssistances = [
+  { content: 'a' },
+  { content: 'b' },
+  { content: 'c' },
+  { content: 'd' }
+]
+
 class SupplementalApplicationPage extends React.Component {
   constructor (props) {
     super(props)
@@ -43,7 +50,9 @@ class SupplementalApplicationPage extends React.Component {
       statusModal: {
         loading: false,
         status: props.application.processing_status
-      }
+      },
+      addNewRentalAssistance: false,
+      rentalAssistancesList: hardcodedRentalAssistances
     }
   }
 
@@ -141,6 +150,10 @@ class SupplementalApplicationPage extends React.Component {
     this.updateStatusModal({status: value})
   }
 
+  handleAddRentalAssistance = () => {
+    this.setState({ addNewRentalAssistance: true })
+  }
+
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
@@ -167,6 +180,14 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
+  handleCloseAddNewRentalAssistance = () => {
+    this.setState({ addNewRentalAssistance: false })
+  }
+
+  handleSaveAddNewRentalAssistance = () => {
+    this.setState({ addNewRentalAssistance: false })
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
@@ -175,7 +196,8 @@ class SupplementalApplicationPage extends React.Component {
       amiCharts,
       statusModal,
       loading,
-      persistedApplication
+      persistedApplication,
+      addNewRentalAssistance
     } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
@@ -209,9 +231,13 @@ class SupplementalApplicationPage extends React.Component {
       openUpdateStatusModal: this.openUpdateStatusModal,
       setLoading: this.setLoading,
       statusModal: statusModal,
+      addNewRentalAssistance: addNewRentalAssistance,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
-      handleStatusModalSubmit: this.handleStatusModalSubmit
+      handleStatusModalSubmit: this.handleStatusModalSubmit,
+      handleAddRentalAssistance: this.handleAddRentalAssistance,
+      handleCloseAddNewRentalAssistance: this.handleCloseAddNewRentalAssistance,
+      handleSaveAddNewRentalAssistance: this.handleSaveAddNewRentalAssistance
     }
 
     return (
