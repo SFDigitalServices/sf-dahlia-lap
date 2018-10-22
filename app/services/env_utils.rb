@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Utility for getting environment variables
 module EnvUtils
   def self.get!(name)

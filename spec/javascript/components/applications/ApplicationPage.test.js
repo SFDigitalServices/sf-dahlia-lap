@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import ApplicationPage from 'components/applications/ApplicationPage'
 import sharedHooks from '../../support/sharedHooks'
-import application from '../../fixtures/application'
+import domainApplication from '../../fixtures/domain_application'
 
 describe('ApplicationPage', () => {
   sharedHooks.useFakeTimers()
@@ -13,7 +13,7 @@ describe('ApplicationPage', () => {
 
     const wrapper = renderer.create(
       <ApplicationPage
-        application={application}
+        application={domainApplication}
         file_base_url={fileBaseUrl} />
     )
 

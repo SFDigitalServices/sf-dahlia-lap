@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Rails controller for Omniauth Callbacks
 class CallbacksController < Devise::OmniauthCallbacksController
   def salesforce

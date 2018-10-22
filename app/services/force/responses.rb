@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Methods for handling Salesforde Responses
   module Responses

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'restforce'
 require 'facets/hash/rekey'
 
@@ -83,7 +85,7 @@ module Force
       @api.post(endpoint, params)
     end
 
-    def api_get(endpoint, params)
+    def api_get(endpoint, params = {})
       @api.get(endpoint, params)
     end
 

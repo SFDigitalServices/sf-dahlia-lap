@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Force
   # Encapsulate all Salesforce Short Form Application querying functions
   class UnitsService < Force::Base
-    DRAFT = 'Draft'.freeze
+    DRAFT = 'Draft'
     FIELD_NAME = :units
     FIELDS = load_fields(FIELD_NAME).freeze
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # encapsulate all Salesforce Listing querying functions
   class FlaggedRecordSetService < Force::Base
@@ -40,6 +42,14 @@ module Force
         FROM Flagged_Application__c
         WHERE Flagged_Record_Set__c='#{record_set_id}'
       ), :flagged_applications)
+    end
+
+    def flagged_record_set(application_id)
+      parsed_index_query(%(
+        SELECT #{query_fields(:show_flagged_records)}
+        FROM Flagged_Application__c
+        WHERE Application__c  = '#{application_id}'
+      ), :show_flagged_records)
     end
 
     def update_flagged_application(data)

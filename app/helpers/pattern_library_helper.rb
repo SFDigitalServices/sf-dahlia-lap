@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helper for accessing pattern library components
 module PatternLibraryHelper
   def pl_component(component_name, args, options = {})

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Creates clients for querying Salesforce
   class ClientFactory

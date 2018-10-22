@@ -805,6 +805,12 @@ Array [
                     >
                       Select One
                     </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      None
+                    </option>
                   </select>
                 </div>
               </div>
@@ -5510,13 +5516,41 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       <div
                                         className="app-inner inset-wide border-bottom"
                                       >
-                                        <ContextComponent>
-                                          <WithFormApi
-                                            store={
+                                        <WithFormApi>
+                                          <WithNestedForm
+                                            formApi={
                                               Object {
-                                                "amiCharts": Array [],
-                                                "amis": Object {},
-                                                "application": Object {
+                                                "addValue": [Function],
+                                                "asyncValidations": 0,
+                                                "doneValidatingField": [Function],
+                                                "errors": Object {},
+                                                "format": [Function],
+                                                "getError": [Function],
+                                                "getSuccess": [Function],
+                                                "getTouched": [Function],
+                                                "getValue": [Function],
+                                                "getWarning": [Function],
+                                                "registerAsyncValidation": [Function],
+                                                "removeValue": [Function],
+                                                "reset": [Function],
+                                                "resetAll": [Function],
+                                                "setAllValues": [Function],
+                                                "setError": [Function],
+                                                "setSuccess": [Function],
+                                                "setTouched": [Function],
+                                                "setValue": [Function],
+                                                "setWarning": [Function],
+                                                "submitForm": [Function],
+                                                "submits": 0,
+                                                "submitted": false,
+                                                "successes": Object {},
+                                                "swapValues": [Function],
+                                                "touched": Object {},
+                                                "validating": Object {},
+                                                "validatingField": [Function],
+                                                "validationFailed": Object {},
+                                                "validationFailures": 0,
+                                                "values": Object {
                                                   "alternate_contact": undefined,
                                                   "annual_income": 110000,
                                                   "answered_community_screening": null,
@@ -5654,423 +5688,78 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "total_household_size": 1,
                                                   "total_monthly_rent": null,
                                                 },
-                                                "availableUnits": undefined,
-                                                "confirmedPreferencesFailed": false,
-                                                "fileBaseUrl": undefined,
-                                                "handleStatusModalClose": [Function],
-                                                "handleStatusModalStatusChange": [Function],
-                                                "handleStatusModalSubmit": [Function],
-                                                "loading": false,
-                                                "onDismissError": [Function],
-                                                "onSavePreference": [Function],
-                                                "onSubmit": [Function],
-                                                "openAddStatusCommentModal": [Function],
-                                                "openUpdateStatusModal": [Function],
-                                                "setLoading": [Function],
-                                                "statusHistory": Array [
-                                                  Object {
-                                                    "comment": "xxxx1",
-                                                    "date": "2018-05-10T19:54:11.000+0000",
-                                                    "status": "Approved",
-                                                    "timestamp": 1525982051,
-                                                  },
-                                                  Object {
-                                                    "comment": "xxxx2",
-                                                    "date": "2018-05-10T19:54:11.000+0000",
-                                                    "status": "Pending",
-                                                    "timestamp": 1525982051,
-                                                  },
-                                                ],
-                                                "statusModal": Object {
-                                                  "loading": false,
-                                                  "status": undefined,
-                                                },
+                                                "warnings": Object {},
                                               }
                                             }
                                           >
-                                            <WithNestedForm
-                                              formApi={
-                                                Object {
-                                                  "addValue": [Function],
-                                                  "asyncValidations": 0,
-                                                  "doneValidatingField": [Function],
-                                                  "errors": Object {},
-                                                  "format": [Function],
-                                                  "getError": [Function],
-                                                  "getSuccess": [Function],
-                                                  "getTouched": [Function],
-                                                  "getValue": [Function],
-                                                  "getWarning": [Function],
-                                                  "registerAsyncValidation": [Function],
-                                                  "removeValue": [Function],
-                                                  "reset": [Function],
-                                                  "resetAll": [Function],
-                                                  "setAllValues": [Function],
-                                                  "setError": [Function],
-                                                  "setSuccess": [Function],
-                                                  "setTouched": [Function],
-                                                  "setValue": [Function],
-                                                  "setWarning": [Function],
-                                                  "submitForm": [Function],
-                                                  "submits": 0,
-                                                  "submitted": false,
-                                                  "successes": Object {},
-                                                  "swapValues": [Function],
-                                                  "touched": Object {},
-                                                  "validating": Object {},
-                                                  "validatingField": [Function],
-                                                  "validationFailed": Object {},
-                                                  "validationFailures": 0,
-                                                  "values": Object {
-                                                    "alternate_contact": undefined,
-                                                    "annual_income": 110000,
-                                                    "answered_community_screening": null,
-                                                    "applicant": Object {
-                                                      "agency_name": undefined,
-                                                      "alternate_contact_type": undefined,
-                                                      "alternate_contact_type_other": undefined,
-                                                      "city": "SAN FRANCISCO",
-                                                      "date_of_birth": "1950-01-01",
-                                                      "email": "eee@eeee.com",
-                                                      "first_name": "karen",
-                                                      "id": "a0n0x000000AbE6AAK",
-                                                      "last_name": "jones",
-                                                      "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                      "mailing_city": "SAN FRANCISCO",
-                                                      "mailing_state": "CA",
-                                                      "mailing_street": "123 MAIN ST",
-                                                      "mailing_zip_code": "94105-1804",
-                                                      "marital_status": "Married",
-                                                      "middle_name": null,
-                                                      "name": "karen jones",
-                                                      "phone": "9548883321",
-                                                      "phone_type": "Cell",
-                                                      "primary_language": null,
-                                                      "relationship_to_applicant": undefined,
-                                                      "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                      "second_phone": null,
-                                                      "second_phone_type": null,
-                                                      "state": "CA",
-                                                      "street": "123 MAIN ST",
-                                                      "zip_code": "94105-1804",
-                                                    },
-                                                    "application_language": "English",
-                                                    "application_submission_type": "Paper",
-                                                    "application_submitted_date": "2018-06-21",
-                                                    "createdby": Object {
-                                                      "name": "Prod Vertiba",
-                                                    },
-                                                    "flagged_applications": Array [],
-                                                    "general_lottery": true,
-                                                    "general_lottery_rank": null,
-                                                    "has_ada_priorities_selected": Object {
-                                                      "": true,
-                                                    },
-                                                    "has_developmental_disability": null,
-                                                    "has_military_service": null,
-                                                    "hh_total_income_with_assets_annual": undefined,
-                                                    "household_assets": null,
-                                                    "household_members": Array [
-                                                      Object {
-                                                        "agency_name": undefined,
-                                                        "alternate_contact_type": undefined,
-                                                        "alternate_contact_type_other": undefined,
-                                                        "city": "buenos aires",
-                                                        "date_of_birth": "1976-06-11",
-                                                        "email": undefined,
-                                                        "first_name": "diego",
-                                                        "id": "a0n0x000000XzchAAC",
-                                                        "last_name": "maradona",
-                                                        "mailing_address": undefined,
-                                                        "mailing_city": undefined,
-                                                        "mailing_state": undefined,
-                                                        "mailing_street": undefined,
-                                                        "mailing_zip_code": undefined,
-                                                        "marital_status": undefined,
-                                                        "middle_name": "m",
-                                                        "name": "diego m maradona",
-                                                        "phone": undefined,
-                                                        "phone_type": undefined,
-                                                        "primary_language": undefined,
-                                                        "relationship_to_applicant": null,
-                                                        "residence_address": undefined,
-                                                        "second_phone": undefined,
-                                                        "second_phone_type": undefined,
-                                                        "state": "fl",
-                                                        "street": "9 de julio",
-                                                        "zip_code": "33026",
-                                                      },
-                                                    ],
-                                                    "housing_voucher_or_subsidy": "true",
-                                                    "id": "a0o0x000000OcOzAAK",
-                                                    "is_lottery_complete": false,
-                                                    "lease": undefined,
-                                                    "listing": Object {
-                                                      "id": "a0W0x000000GhJUEA0",
-                                                      "name": "Test 5/30",
-                                                      "reserved_community_type": null,
-                                                    },
-                                                    "lottery_number": "00191270",
-                                                    "lottery_number_manual": null,
-                                                    "monthly_income": null,
-                                                    "name": "APP-00191270",
-                                                    "number_of_dependents": 2,
-                                                    "preferences": Array [
-                                                      Object {
-                                                        "application": undefined,
-                                                        "application_member": undefined,
-                                                        "application_member_date_of_birth": null,
-                                                        "application_member_first_name": null,
-                                                        "application_member_last_name": null,
-                                                        "certificate_number": null,
-                                                        "city": null,
-                                                        "id": "a0w0x0000014pvyAAA",
-                                                        "individual_preference": null,
-                                                        "listing_preference": Object {
-                                                          "record_type_for_app_preferences": undefined,
-                                                        },
-                                                        "listing_preference_id": "a0l0x000000RI8nAAG",
-                                                        "lottery_status": "None",
-                                                        "lw_type_of_proof": null,
-                                                        "name": "AP-0000612141",
-                                                        "opt_out": null,
-                                                        "person_who_claimed_name": null,
-                                                        "post_lottery_validation": undefined,
-                                                        "preference_lottery_rank": null,
-                                                        "preference_name": "Alice Griffith Housing Development Resident",
-                                                        "preference_order": 0,
-                                                        "receives_preference": null,
-                                                        "recordtype_developername": "AG",
-                                                        "state": null,
-                                                        "street": null,
-                                                        "total_household_rent": "undefined",
-                                                        "type_of_proof": null,
-                                                        "zip_code": null,
-                                                      },
-                                                    ],
-                                                    "primary_applicant_contact": undefined,
-                                                    "processing_status": undefined,
-                                                    "proof_files": Array [],
-                                                    "referral_source": null,
-                                                    "reserved_senior": undefined,
-                                                    "status": "Submitted",
-                                                    "status_last_updated": undefined,
-                                                    "terms_acknowledged": true,
-                                                    "total_household_size": 1,
-                                                    "total_monthly_rent": null,
-                                                  },
-                                                  "warnings": Object {},
-                                                }
-                                              }
-                                              store={
-                                                Object {
-                                                  "amiCharts": Array [],
-                                                  "amis": Object {},
-                                                  "application": Object {
-                                                    "alternate_contact": undefined,
-                                                    "annual_income": 110000,
-                                                    "answered_community_screening": null,
-                                                    "applicant": Object {
-                                                      "agency_name": undefined,
-                                                      "alternate_contact_type": undefined,
-                                                      "alternate_contact_type_other": undefined,
-                                                      "city": "SAN FRANCISCO",
-                                                      "date_of_birth": "1950-01-01",
-                                                      "email": "eee@eeee.com",
-                                                      "first_name": "karen",
-                                                      "id": "a0n0x000000AbE6AAK",
-                                                      "last_name": "jones",
-                                                      "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                      "mailing_city": "SAN FRANCISCO",
-                                                      "mailing_state": "CA",
-                                                      "mailing_street": "123 MAIN ST",
-                                                      "mailing_zip_code": "94105-1804",
-                                                      "marital_status": "Married",
-                                                      "middle_name": null,
-                                                      "name": "karen jones",
-                                                      "phone": "9548883321",
-                                                      "phone_type": "Cell",
-                                                      "primary_language": null,
-                                                      "relationship_to_applicant": undefined,
-                                                      "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                      "second_phone": null,
-                                                      "second_phone_type": null,
-                                                      "state": "CA",
-                                                      "street": "123 MAIN ST",
-                                                      "zip_code": "94105-1804",
-                                                    },
-                                                    "application_language": "English",
-                                                    "application_submission_type": "Paper",
-                                                    "application_submitted_date": "2018-06-21",
-                                                    "createdby": Object {
-                                                      "name": "Prod Vertiba",
-                                                    },
-                                                    "flagged_applications": Array [],
-                                                    "general_lottery": true,
-                                                    "general_lottery_rank": null,
-                                                    "has_ada_priorities_selected": Object {
-                                                      "": true,
-                                                    },
-                                                    "has_developmental_disability": null,
-                                                    "has_military_service": null,
-                                                    "hh_total_income_with_assets_annual": undefined,
-                                                    "household_assets": null,
-                                                    "household_members": Array [
-                                                      Object {
-                                                        "agency_name": undefined,
-                                                        "alternate_contact_type": undefined,
-                                                        "alternate_contact_type_other": undefined,
-                                                        "city": "buenos aires",
-                                                        "date_of_birth": "1976-06-11",
-                                                        "email": undefined,
-                                                        "first_name": "diego",
-                                                        "id": "a0n0x000000XzchAAC",
-                                                        "last_name": "maradona",
-                                                        "mailing_address": undefined,
-                                                        "mailing_city": undefined,
-                                                        "mailing_state": undefined,
-                                                        "mailing_street": undefined,
-                                                        "mailing_zip_code": undefined,
-                                                        "marital_status": undefined,
-                                                        "middle_name": "m",
-                                                        "name": "diego m maradona",
-                                                        "phone": undefined,
-                                                        "phone_type": undefined,
-                                                        "primary_language": undefined,
-                                                        "relationship_to_applicant": null,
-                                                        "residence_address": undefined,
-                                                        "second_phone": undefined,
-                                                        "second_phone_type": undefined,
-                                                        "state": "fl",
-                                                        "street": "9 de julio",
-                                                        "zip_code": "33026",
-                                                      },
-                                                    ],
-                                                    "housing_voucher_or_subsidy": "true",
-                                                    "id": "a0o0x000000OcOzAAK",
-                                                    "is_lottery_complete": false,
-                                                    "lease": undefined,
-                                                    "listing": Object {
-                                                      "id": "a0W0x000000GhJUEA0",
-                                                      "name": "Test 5/30",
-                                                      "reserved_community_type": null,
-                                                    },
-                                                    "lottery_number": "00191270",
-                                                    "lottery_number_manual": null,
-                                                    "monthly_income": null,
-                                                    "name": "APP-00191270",
-                                                    "number_of_dependents": 2,
-                                                    "preferences": Array [
-                                                      Object {
-                                                        "application": undefined,
-                                                        "application_member": undefined,
-                                                        "application_member_date_of_birth": null,
-                                                        "application_member_first_name": null,
-                                                        "application_member_last_name": null,
-                                                        "certificate_number": null,
-                                                        "city": null,
-                                                        "id": "a0w0x0000014pvyAAA",
-                                                        "individual_preference": null,
-                                                        "listing_preference": Object {
-                                                          "record_type_for_app_preferences": undefined,
-                                                        },
-                                                        "listing_preference_id": "a0l0x000000RI8nAAG",
-                                                        "lottery_status": "None",
-                                                        "lw_type_of_proof": null,
-                                                        "name": "AP-0000612141",
-                                                        "opt_out": null,
-                                                        "person_who_claimed_name": null,
-                                                        "post_lottery_validation": undefined,
-                                                        "preference_lottery_rank": null,
-                                                        "preference_name": "Alice Griffith Housing Development Resident",
-                                                        "preference_order": 0,
-                                                        "receives_preference": null,
-                                                        "recordtype_developername": "AG",
-                                                        "state": null,
-                                                        "street": null,
-                                                        "total_household_rent": "undefined",
-                                                        "type_of_proof": null,
-                                                        "zip_code": null,
-                                                      },
-                                                    ],
-                                                    "primary_applicant_contact": undefined,
-                                                    "processing_status": undefined,
-                                                    "proof_files": Array [],
-                                                    "referral_source": null,
-                                                    "reserved_senior": undefined,
-                                                    "status": "Submitted",
-                                                    "status_last_updated": undefined,
-                                                    "terms_acknowledged": true,
-                                                    "total_household_size": 1,
-                                                    "total_monthly_rent": null,
-                                                  },
-                                                  "availableUnits": undefined,
-                                                  "confirmedPreferencesFailed": false,
-                                                  "fileBaseUrl": undefined,
-                                                  "handleStatusModalClose": [Function],
-                                                  "handleStatusModalStatusChange": [Function],
-                                                  "handleStatusModalSubmit": [Function],
-                                                  "loading": false,
-                                                  "onDismissError": [Function],
-                                                  "onSavePreference": [Function],
-                                                  "onSubmit": [Function],
-                                                  "openAddStatusCommentModal": [Function],
-                                                  "openUpdateStatusModal": [Function],
-                                                  "setLoading": [Function],
-                                                  "statusHistory": Array [
-                                                    Object {
-                                                      "comment": "xxxx1",
-                                                      "date": "2018-05-10T19:54:11.000+0000",
-                                                      "status": "Approved",
-                                                      "timestamp": 1525982051,
-                                                    },
-                                                    Object {
-                                                      "comment": "xxxx2",
-                                                      "date": "2018-05-10T19:54:11.000+0000",
-                                                      "status": "Pending",
-                                                      "timestamp": 1525982051,
-                                                    },
-                                                  ],
-                                                  "statusModal": Object {
-                                                    "loading": false,
-                                                    "status": undefined,
-                                                  },
-                                                }
-                                              }
+                                            <r
+                                              field="lease"
                                             >
-                                              <r
-                                                field="lease"
-                                              >
-                                                <c
-                                                  fieldApi={
-                                                    Object {
-                                                      "doneValidatingField": [Function],
-                                                      "getError": [Function],
-                                                      "getSuccess": [Function],
-                                                      "getTouched": [Function],
-                                                      "getValue": [Function],
-                                                      "getWarning": [Function],
-                                                      "registerAsyncValidation": [Function],
-                                                      "reset": [Function],
-                                                      "setError": [Function],
-                                                      "setSuccess": [Function],
-                                                      "setTouched": [Function],
-                                                      "setValue": [Function],
-                                                      "setWarning": [Function],
-                                                      "submits": 0,
-                                                      "submitted": false,
-                                                      "validatingField": [Function],
-                                                    }
+                                              <c
+                                                fieldApi={
+                                                  Object {
+                                                    "doneValidatingField": [Function],
+                                                    "getError": [Function],
+                                                    "getSuccess": [Function],
+                                                    "getTouched": [Function],
+                                                    "getValue": [Function],
+                                                    "getWarning": [Function],
+                                                    "registerAsyncValidation": [Function],
+                                                    "reset": [Function],
+                                                    "setError": [Function],
+                                                    "setSuccess": [Function],
+                                                    "setTouched": [Function],
+                                                    "setValue": [Function],
+                                                    "setWarning": [Function],
+                                                    "submits": 0,
+                                                    "submitted": false,
+                                                    "validatingField": [Function],
                                                   }
+                                                }
+                                              >
+                                                <t
+                                                  registerAsyncValidation={[Function]}
+                                                  reset={[Function]}
+                                                  submits={0}
+                                                  submitted={false}
+                                                  update={[Function]}
                                                 >
-                                                  <t
+                                                  <Connect(t)
                                                     registerAsyncValidation={[Function]}
                                                     reset={[Function]}
+                                                    store={
+                                                      Object {
+                                                        "dispatch": [Function],
+                                                        "getState": [Function],
+                                                        "replaceReducer": [Function],
+                                                        "subscribe": [Function],
+                                                        Symbol(observable): [Function],
+                                                      }
+                                                    }
                                                     submits={0}
                                                     submitted={false}
                                                     update={[Function]}
                                                   >
-                                                    <Connect(t)
+                                                    <t
+                                                      dispatch={[Function]}
+                                                      formState={
+                                                        Object {
+                                                          "asyncErrors": Object {},
+                                                          "asyncSuccesses": Object {},
+                                                          "asyncValidations": 0,
+                                                          "asyncWarnings": Object {},
+                                                          "errors": Object {},
+                                                          "submits": 0,
+                                                          "submitted": false,
+                                                          "successes": Object {},
+                                                          "touched": Object {},
+                                                          "validating": Object {},
+                                                          "validationFailed": Object {},
+                                                          "validationFailures": 0,
+                                                          "values": Object {},
+                                                          "warnings": Object {},
+                                                        }
+                                                      }
                                                       registerAsyncValidation={[Function]}
                                                       reset={[Function]}
                                                       store={
@@ -6082,64 +5771,67 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Symbol(observable): [Function],
                                                         }
                                                       }
+                                                      storeSubscription={
+                                                        Subscription {
+                                                          "listeners": Object {
+                                                            "clear": [Function],
+                                                            "get": [Function],
+                                                            "notify": [Function],
+                                                            "subscribe": [Function],
+                                                          },
+                                                          "onStateChange": [Function],
+                                                          "parentSub": undefined,
+                                                          "store": Object {
+                                                            "dispatch": [Function],
+                                                            "getState": [Function],
+                                                            "replaceReducer": [Function],
+                                                            "subscribe": [Function],
+                                                            Symbol(observable): [Function],
+                                                          },
+                                                          "unsubscribe": [Function],
+                                                        }
+                                                      }
                                                       submits={0}
                                                       submitted={false}
                                                       update={[Function]}
                                                     >
-                                                      <t
-                                                        dispatch={[Function]}
-                                                        formState={
+                                                      <ContextComponent
+                                                        formApi={
                                                           Object {
-                                                            "asyncErrors": Object {},
-                                                            "asyncSuccesses": Object {},
+                                                            "addValue": [Function],
                                                             "asyncValidations": 0,
-                                                            "asyncWarnings": Object {},
+                                                            "doneValidatingField": [Function],
                                                             "errors": Object {},
+                                                            "format": [Function],
+                                                            "getError": [Function],
+                                                            "getSuccess": [Function],
+                                                            "getTouched": [Function],
+                                                            "getValue": [Function],
+                                                            "getWarning": [Function],
+                                                            "registerAsyncValidation": [Function],
+                                                            "removeValue": [Function],
+                                                            "reset": [Function],
+                                                            "resetAll": [Function],
+                                                            "setAllValues": [Function],
+                                                            "setError": [Function],
+                                                            "setSuccess": [Function],
+                                                            "setTouched": [Function],
+                                                            "setValue": [Function],
+                                                            "setWarning": [Function],
+                                                            "submitForm": [Function],
                                                             "submits": 0,
                                                             "submitted": false,
                                                             "successes": Object {},
+                                                            "swapValues": [Function],
                                                             "touched": Object {},
                                                             "validating": Object {},
+                                                            "validatingField": [Function],
                                                             "validationFailed": Object {},
                                                             "validationFailures": 0,
                                                             "values": Object {},
                                                             "warnings": Object {},
                                                           }
                                                         }
-                                                        registerAsyncValidation={[Function]}
-                                                        reset={[Function]}
-                                                        store={
-                                                          Object {
-                                                            "dispatch": [Function],
-                                                            "getState": [Function],
-                                                            "replaceReducer": [Function],
-                                                            "subscribe": [Function],
-                                                            Symbol(observable): [Function],
-                                                          }
-                                                        }
-                                                        storeSubscription={
-                                                          Subscription {
-                                                            "listeners": Object {
-                                                              "clear": [Function],
-                                                              "get": [Function],
-                                                              "notify": [Function],
-                                                              "subscribe": [Function],
-                                                            },
-                                                            "onStateChange": [Function],
-                                                            "parentSub": undefined,
-                                                            "store": Object {
-                                                              "dispatch": [Function],
-                                                              "getState": [Function],
-                                                              "replaceReducer": [Function],
-                                                              "subscribe": [Function],
-                                                              Symbol(observable): [Function],
-                                                            },
-                                                            "unsubscribe": [Function],
-                                                          }
-                                                        }
-                                                        submits={0}
-                                                        submitted={false}
-                                                        update={[Function]}
                                                       >
                                                         <LeaseInformationInputs
                                                           formApi={
@@ -6502,7 +6194,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <Component
                                                                 field="preference_used"
                                                                 label="Preference Used"
-                                                                options={Array []}
+                                                                onChange={[Function]}
+                                                                options={
+                                                                  Array [
+                                                                    Object {
+                                                                      "label": "None",
+                                                                      "value": null,
+                                                                    },
+                                                                  ]
+                                                                }
                                                                 placeholder="Select One"
                                                               >
                                                                 <Component>
@@ -6522,7 +6222,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         </label>
                                                                         <r
                                                                           field="preference_used"
-                                                                          options={Array []}
+                                                                          onChange={[Function]}
+                                                                          options={
+                                                                            Array [
+                                                                              Object {
+                                                                                "label": "None",
+                                                                                "value": null,
+                                                                              },
+                                                                            ]
+                                                                          }
                                                                           placeholder="Select One"
                                                                         >
                                                                           <t
@@ -6546,7 +6254,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                                 "validatingField": [Function],
                                                                               }
                                                                             }
-                                                                            options={Array []}
+                                                                            onChange={[Function]}
+                                                                            options={
+                                                                              Array [
+                                                                                Object {
+                                                                                  "label": "None",
+                                                                                  "value": null,
+                                                                                },
+                                                                              ]
+                                                                            }
                                                                             placeholder="Select One"
                                                                           >
                                                                             <select
@@ -6560,6 +6276,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                                 value={0}
                                                                               >
                                                                                 Select One
+                                                                              </option>
+                                                                              <option
+                                                                                key="null"
+                                                                                value={1}
+                                                                              >
+                                                                                None
                                                                               </option>
                                                                             </select>
                                                                           </t>
@@ -6806,14 +6528,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             </div>
                                                           </Component>
                                                         </LeaseInformationInputs>
-                                                      </t>
-                                                    </Connect(t)>
-                                                  </t>
-                                                </c>
-                                              </r>
-                                            </WithNestedForm>
-                                          </WithFormApi>
-                                        </ContextComponent>
+                                                      </ContextComponent>
+                                                    </t>
+                                                  </Connect(t)>
+                                                </t>
+                                              </c>
+                                            </r>
+                                          </WithNestedForm>
+                                        </WithFormApi>
                                       </div>
                                     </Component>
                                     <Component
@@ -7821,7 +7543,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 onSubmit={[Function]}
                               >
                                 <FormModal
-                                  alertMsg="Something went wrong, please try again."
                                   handleClose={[Function]}
                                   loading={false}
                                   onSecondaryClick={[Function]}

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   module Rest
     # Provide Salesforce standard REST API interactions for applications
