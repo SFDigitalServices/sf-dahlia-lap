@@ -8,9 +8,6 @@ import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
 
-// import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusStyle } from './leaseUpsHelpers'
-// const PAGE_SIZE = 5
-
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationPreferenceId = cell.original.id
   const applicationId = cell.original.application_id
