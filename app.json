@@ -1,7 +1,7 @@
 {
   "name": "sf-dahlia-lap",
   "scripts": {
-    "postdeploy": "rake db:migrate"
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
     "COMMUNITY_LOGIN_URL": {
