@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Api::V1
   # Lease Up Applications controller for access via the API
   class LeaseUpApplicationsController < ApiController
