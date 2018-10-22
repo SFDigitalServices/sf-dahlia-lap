@@ -29,11 +29,17 @@ const getAmis = async (chartsToLoad) => {
   return [].concat.apply([], amis)
 }
 
+const getApplicationMembers = (application) => {
+  return application.household_members
+}
+
 const hardcodedRentalAssistances = [
-  { content: 'a' },
-  { content: 'b' },
-  { content: 'c' },
-  { content: 'd' }
+  [
+    { content: 'a' },
+    { content: 'b' },
+    { content: 'c' },
+    { content: 'd' }
+  ]
 ]
 
 class SupplementalApplicationPage extends React.Component {
@@ -150,8 +156,13 @@ class SupplementalApplicationPage extends React.Component {
     this.updateStatusModal({status: value})
   }
 
-  handleAddRentalAssistance = () => {
-    this.setState({ addNewRentalAssistance: true })
+  handleAddRentalAssistance = (rentalAssistanceFields) => {
+    this.setState(prev => {
+      // const rentalAssistancesList = clone(prev.rentalAssistancesList || [])
+      return {
+        addNewRentalAssistance: true
+      }
+    })
   }
 
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
@@ -188,6 +199,9 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ addNewRentalAssistance: false })
   }
 
+  handleUpdateRentalAssistance = () => {
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
@@ -197,7 +211,8 @@ class SupplementalApplicationPage extends React.Component {
       statusModal,
       loading,
       persistedApplication,
-      addNewRentalAssistance
+      addNewRentalAssistance,
+      rentalAssistancesList
     } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
@@ -231,13 +246,16 @@ class SupplementalApplicationPage extends React.Component {
       openUpdateStatusModal: this.openUpdateStatusModal,
       setLoading: this.setLoading,
       statusModal: statusModal,
+      rentalAssistancesList: rentalAssistancesList,
       addNewRentalAssistance: addNewRentalAssistance,
+      applicationMembers: getApplicationMembers(persistedApplication),
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
       handleAddRentalAssistance: this.handleAddRentalAssistance,
       handleCloseAddNewRentalAssistance: this.handleCloseAddNewRentalAssistance,
-      handleSaveAddNewRentalAssistance: this.handleSaveAddNewRentalAssistance
+      handleSaveAddNewRentalAssistance: this.handleSaveAddNewRentalAssistance,
+      handleUpdateRentalAssistance: this.handleUpdateRentalAssistance
     }
 
     return (
