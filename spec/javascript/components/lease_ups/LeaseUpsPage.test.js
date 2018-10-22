@@ -11,7 +11,7 @@ const buildApplicationPreference = (uniqId, attributes = {}) => {
     'Preference_Order': '1',
     'Preference_Lottery_Rank': '1',
     'Listing_Preference_ID': {
-      'Record_Type_For_App_Preferences': 'CAP'
+      'Record_Type_For_App_Preferences': 'COP'
     },
     'Application': {
       'Id': 1000 + uniqId,
@@ -29,8 +29,42 @@ const buildApplicationPreference = (uniqId, attributes = {}) => {
   }, attributes)
 }
 
+const applications = [
+  buildApplicationPreference(1, {
+    'Preference_Order': '2',
+    'Preference_Lottery_Rank': '2'
+  }),
+  buildApplicationPreference(2, {
+    'Preference_Order': '2',
+    'Preference_Lottery_Rank': '1'
+  }),
+  buildApplicationPreference(3, {
+    'Preference_Order': '3',
+    'Preference_Lottery_Rank': '1'
+  }),
+  buildApplicationPreference(4, {
+    'Preference_Order': '1',
+    'Preference_Lottery_Rank': '2'
+  }),
+  buildApplicationPreference(3, {
+    'Preference_Order': '1',
+    'Preference_Lottery_Rank': '1'
+  })
+]
+
+const mockfetchLeaseUpApplications = jest.fn()
+
+jest.mock('apiService', () => {
+  return {
+    fetchLeaseUpApplications: async (data) => {
+      mockfetchLeaseUpApplications(data)
+      return applications
+    }
+  }
+})
+
 describe('LeaseUpApplicationsPage', () => {
-  const listings = {
+  const listing = {
     Id: '1',
     Name: 'xxxx',
     Building_Street_Address: 'yyyy'
@@ -39,62 +73,25 @@ describe('LeaseUpApplicationsPage', () => {
   sharedHooks.useFakeTimers()
 
   test('Should render LeaseUpTable', () => {
-    // FIXME: Need to figure out how to mock the results to make this snapshot actually do something
-    const applications = [ buildApplicationPreference(1), buildApplicationPreference(2) ]
     const wrapper = renderer.create(
-      <LeaseUpApplicationsPage listing={listings} applications={applications} />
+      <LeaseUpApplicationsPage listing={listing} />
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot()
   })
 
   test('Should render Mailing_Address when present', () => {
-    const applications = [
-      buildApplicationPreference(1, {
-        'Application': {
-          'Applicant': {
-            'Residence_Address': '',
-            'Mailing_Address': '1316 SUTTER'
-          }
-        }
-      })
-    ]
-
     const wrapper = renderer.create(
-      <LeaseUpApplicationsPage listing={listings} applications={applications} />
+      <LeaseUpApplicationsPage listing={listing} />
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot()
   })
 
   test('Should render order by Prefrence_Order and Preference_Lottery_Rank', () => {
-    const applications = [
-      buildApplicationPreference(1, {
-        'Preference_Order': '2',
-        'Preference_Lottery_Rank': '2'
-      }),
-      buildApplicationPreference(2, {
-        'Preference_Order': '2',
-        'Preference_Lottery_Rank': '1'
-      }),
-      buildApplicationPreference(3, {
-        'Preference_Order': '3',
-        'Preference_Lottery_Rank': '1'
-      }),
-      buildApplicationPreference(4, {
-        'Preference_Order': '1',
-        'Preference_Lottery_Rank': '2'
-      }),
-      buildApplicationPreference(3, {
-        'Preference_Order': '1',
-        'Preference_Lottery_Rank': '1'
-      })
-    ]
-
     const wrapper = renderer.create(
-      <LeaseUpApplicationsPage listing={listings} applications={applications} />
+      <LeaseUpApplicationsPage listing={listing} />
     )
-
     expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })
