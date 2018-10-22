@@ -47,7 +47,7 @@ class EagerPagination {
       this.records = result.records
       let numerator = result.pages * result.records.length
       if (result.pages === 0) { numerator = result.records.length }
-      this.pages = numerator / this.eager.size
+      this.pages = Math.ceil(numerator / this.eager.size)
     }
 
     return this.buildResponse()
