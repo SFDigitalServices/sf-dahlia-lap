@@ -146,7 +146,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
           <FormGrid.Row expand={false}>
             <div className='form-grid_item column'>
               <button
-                className='button primary tiny margin-right margin-bottom-none save-panel-btn'
+                className='button primary tiny margin-right margin-bottom-none'
                 type='button'
                 onClick={onSave}
                 disabled={loading}>
@@ -161,7 +161,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
               </button>
               { !isNew && (
                 <button
-                  className='button alert-fill tiny margin-bottom-none'
+                  className='button alert-fill tiny margin-bottom-none right'
                   type='button'
                   onClick={onDelete}
                   disabled={loading}>
