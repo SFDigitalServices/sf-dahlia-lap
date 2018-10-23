@@ -50,6 +50,7 @@ class Api::V1::ShortFormController < ApiController
             :hasSenior,
             :primaryApplicantContact,
             :processingStatus,
+            :applicationLanguage,
             lease: %i[
               id
               unit
