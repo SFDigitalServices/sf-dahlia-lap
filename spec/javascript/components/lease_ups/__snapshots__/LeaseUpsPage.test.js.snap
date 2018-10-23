@@ -2386,7 +2386,7 @@ Array [
 ]
 `;
 
-exports[`LeaseUpApplicationsPage Should render order by Prefrence_Order and Preference_Lottery_Rank 1`] = `
+exports[`LeaseUpApplicationsPage Should render order by Preference_Order and Preference_Lottery_Rank 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
