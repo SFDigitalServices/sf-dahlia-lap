@@ -14,10 +14,10 @@ module Force
       )))
     end
 
-    def lease_up_listing_applications(listing_id, opts = { page: 0 })
+    def lease_up_listing_applications(opts)
       listing_subquery = builder.from(:Listing_Lottery_Preference__c)
                                 .select(:Id)
-                                .where_eq('Listing__c', "'#{listing_id}'")
+                                .where_eq('Listing__c', "'#{opts[:listing_id]}'")
 
       query_scope = builder.from(:Application_Preference__c)
                            .select(query_fields(:lease_up_listing_application))
