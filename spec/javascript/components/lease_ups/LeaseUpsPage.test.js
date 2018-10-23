@@ -4,7 +4,9 @@ import renderer from 'react-test-renderer'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import sharedHooks from '../../support/sharedHooks'
 
-const buildApplicationPreference = (uniqId, attributes = {}) => {
+const mockfetchLeaseUpApplications = jest.fn()
+
+const mockBuildApplicationPreference = (uniqId, attributes = {}) => {
   return merge({
     'Id': uniqId,
     'Processing_Status': 'processing',
@@ -29,36 +31,34 @@ const buildApplicationPreference = (uniqId, attributes = {}) => {
   }, attributes)
 }
 
-const applications = [
-  buildApplicationPreference(1, {
+let mockApplications = [
+  mockBuildApplicationPreference(1, {
     'Preference_Order': '2',
     'Preference_Lottery_Rank': '2'
   }),
-  buildApplicationPreference(2, {
+  mockBuildApplicationPreference(2, {
     'Preference_Order': '2',
     'Preference_Lottery_Rank': '1'
   }),
-  buildApplicationPreference(3, {
+  mockBuildApplicationPreference(3, {
     'Preference_Order': '3',
     'Preference_Lottery_Rank': '1'
   }),
-  buildApplicationPreference(4, {
+  mockBuildApplicationPreference(4, {
     'Preference_Order': '1',
     'Preference_Lottery_Rank': '2'
   }),
-  buildApplicationPreference(3, {
+  mockBuildApplicationPreference(3, {
     'Preference_Order': '1',
     'Preference_Lottery_Rank': '1'
   })
 ]
 
-const mockfetchLeaseUpApplications = jest.fn()
-
 jest.mock('apiService', () => {
   return {
     fetchLeaseUpApplications: async (data) => {
       mockfetchLeaseUpApplications(data)
-      return applications
+      return mockApplications
     }
   }
 })
