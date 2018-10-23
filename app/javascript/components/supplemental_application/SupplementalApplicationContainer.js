@@ -140,7 +140,6 @@ class SupplementalApplicationContainer extends React.Component {
             <React.Fragment>
               <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
                 <StatusUpdateSection />
-                <ContentSection title='Current Contact Information' />
                 <ConfirmedPreferencesSection
                   application={application}
                   fileBaseUrl={fileBaseUrl}
