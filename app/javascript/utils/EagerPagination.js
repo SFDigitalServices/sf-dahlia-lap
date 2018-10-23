@@ -42,7 +42,11 @@ class EagerPagination {
       this.server.currentPage = newServerPage
       const result = await fetchPage(this.server.currentPage)
       this.records = result.records
-      this.pages = (result.pages * result.records.length) / this.eager.size
+      let numerator = result.pages * result.records.length
+      // If there is < 1 page of results from salesforce, we get pages == 0. We need to round up to 1 page.
+      // TODO: Refactor this logic to avoid this step.
+      if (result.pages === 0) { numerator = result.records.length }
+      this.pages = numerator / this.eager.size
     }
 
     return this.buildResponse()
