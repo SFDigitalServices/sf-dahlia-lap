@@ -38,7 +38,7 @@ class RentalAssistanceTable extends React.Component {
     { content: 'Type of Assistance' },
     { content: 'Recurring Assistance' },
     { content: 'Assistance Amount' },
-    { content: 'Recipint' },
+    { content: 'Recipient' },
     { content: 'Edit' }
   ]
 
@@ -200,7 +200,7 @@ const RentalAssistance = ({ store }) => {
           isNew
         />
       ) : (
-        <Button text='Add Rental Assistance' onClick={handleAddRentalAssistance} />
+        <Button text='Add Rental Assistance' small onClick={handleAddRentalAssistance} />
       )}
     </React.Fragment>
   )
