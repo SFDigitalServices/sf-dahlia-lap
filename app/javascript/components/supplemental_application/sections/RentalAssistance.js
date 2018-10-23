@@ -129,7 +129,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
             <FormItem label='Assistance Amount'>
               <Text field='' type='number' />
             </FormItem>
-            <FormItem label='Recipint'>
+            <FormItem label='Recipient'>
               <Select
                 field=''
                 options={applicationMembersOptions}
