@@ -1,5 +1,5 @@
 import React from 'react'
-import { map } from 'lodash'
+import { map, sortBy } from 'lodash'
 import { Form, Text, Select } from 'react-form'
 
 import formUtils from '~/utils/formUtils'
@@ -15,7 +15,8 @@ const buildListingOptions = (listings) => {
 }
 
 const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
-  const listingOptions = buildListingOptions(listings)
+  const sortedList = sortBy(listings, 'name')
+  const listingOptions = buildListingOptions(sortedList)
 
   return (
     <Loading isLoading={loading}>
