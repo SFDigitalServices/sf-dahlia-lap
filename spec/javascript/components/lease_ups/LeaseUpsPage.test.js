@@ -88,7 +88,7 @@ describe('LeaseUpApplicationsPage', () => {
     expect(wrapper.toJSON()).toMatchSnapshot()
   })
 
-  test('Should render order by Prefrence_Order and Preference_Lottery_Rank', () => {
+   test('Should render order by Preference_Order and Preference_Lottery_Rank', () => {
     const wrapper = renderer.create(
       <LeaseUpApplicationsPage listing={listing} />
     )
