@@ -1,5 +1,5 @@
 import React from 'react'
-import { isEmpty } from 'lodash'
+import { map, isEmpty } from 'lodash'
 import { Form, Select, Text } from 'react-form'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
@@ -45,17 +45,29 @@ class RentalAssistanceTable extends React.Component {
   ]
 
   expanderRenderer = (row, expanded, expandedRowToggler) => {
+    const handleEdit = () => {
+      this.props.onEdit()
+      expandedRowToggler()
+    }
+
     return (!expanded && (
-      <ExpanderButton label='Edit' onClick={expandedRowToggler} />))
+      <ExpanderButton label='Edit' onClick={handleEdit} />))
   }
 
-  expandedRowRenderer = (row, toggle) => {
-    return <Panel toggle={toggle} />
+  expandedRowRenderer = (row, toggle, idx) => {
+    return <Panel toggle={toggle} row={row} idx={idx} />
   }
 
-  buildRows = () => {
-    return this.props.rows
+  mapRow = (value) => {
+    return [
+      { content: value.type_of_assistance },
+      { content: value.recurring_assitance },
+      { content: value.assistance_amount },
+      { content: value.recipient }
+    ]
   }
+
+  buildRows = () => map(this.props.rows, this.mapRow)
 
   render () {
     const rows = this.buildRows()
@@ -72,28 +84,44 @@ class RentalAssistanceTable extends React.Component {
   }
 }
 
-const Panel = withContext(({ toggle, store }) => {
+const Panel = withContext(({ idx, row, toggle, store }) => {
   const {
     handleUpdateRentalAssistance,
-    applicationMembers
+    handleDeleteRentalAssistance,
+    applicationMembers,
+    handleCloseAddNewRentalAssistance
   } = store
 
-  const onSave = () => {
-    handleUpdateRentalAssistance()
+  const onSave = (values) => {
+    handleUpdateRentalAssistance(values, idx)
     toggle()
   }
 
   const onClose = () => {
+    handleCloseAddNewRentalAssistance()
     toggle()
   }
 
   const onDelete = () => {
+    handleDeleteRentalAssistance(idx)
     toggle()
   }
+
+  const rowsToFields = (row) => {
+    return {
+      type_of_assistance: row[0].content,
+      recurring_assitance: row[1].content,
+      assistance_amount: row[2].content,
+      recipient: row[3].content
+    }
+  }
+
+  const values = rowsToFields(row)
 
   return (
     <ExpandablePanel>
       <AddRentalAssistanceForm
+        values={values}
         onSave={onSave}
         onClose={onClose}
         onDelete={onDelete}
@@ -105,10 +133,10 @@ const Panel = withContext(({ toggle, store }) => {
 
 const isOther = (values) => values.type_of_assistance === 'Other'
 
-const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
+const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
   const applicationMembersOptions = formUtils.toOptions(buildHouseholdMembersOptions(applicationMembers))
   return (
-    <Form onSubmit={onSave}>
+    <Form onSubmit={onSave} defaultValues={values}>
       {formApi => (
         <div className='app-editable expand-wide scrollable-table-nested'>
           <FormGrid.Row expand={false}>
@@ -119,14 +147,14 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
               />
             </FormItem>
             <FormItem label='Recurring Assistance'>
-              <YesNoRadioGroup />
+              <YesNoRadioGroup field='recurring_assitance' />
             </FormItem>
             <FormItem label='Assistance Amount'>
-              <Text field='' type='number' />
+              <Text field='assistance_amount' type='number' />
             </FormItem>
             <FormItem label='Recipient'>
               <Select
-                field=''
+                field='recipient'
                 options={applicationMembersOptions}
               />
             </FormItem>
@@ -134,7 +162,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
               <FormItem label='Other Assistance Name'>
-                <Text field='' />
+                <Text field='other_assitance_name' />
               </FormItem>
             </FormGrid.Row>
           )}
@@ -143,7 +171,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
               <button
                 className='button primary tiny margin-right margin-bottom-none'
                 type='button'
-                onClick={onSave}
+                onClick={formApi.submitForm}
                 disabled={loading}>
                 Save
               </button>
@@ -178,23 +206,26 @@ const RentalAssistance = ({ store }) => {
     rentalAssistancesList,
     handleCloseAddNewRentalAssistance,
     handleSaveAddNewRentalAssistance,
-    applicationMembers
+    applicationMembers,
+    showAddRentalAssitanceBtn,
+    hideAddRentalAssitanceBtn
   } = store
 
   return (
     <React.Fragment>
-      { !addNewRentalAssistance && !isEmpty(rentalAssistancesList) && (
-        <RentalAssistanceTable rows={rentalAssistancesList} />
+      { !isEmpty(rentalAssistancesList) && (
+        <RentalAssistanceTable rows={rentalAssistancesList} onEdit={hideAddRentalAssitanceBtn} />
       )}
 
-      { addNewRentalAssistance ? (
+      { addNewRentalAssistance && (
         <AddRentalAssistanceForm
           onSave={handleSaveAddNewRentalAssistance}
           onClose={handleCloseAddNewRentalAssistance}
           applicationMembers={applicationMembers}
           isNew
         />
-      ) : (
+      )}
+      { showAddRentalAssitanceBtn && (
         <Button text='Add Rental Assistance' small onClick={handleAddRentalAssistance} />
       )}
     </React.Fragment>

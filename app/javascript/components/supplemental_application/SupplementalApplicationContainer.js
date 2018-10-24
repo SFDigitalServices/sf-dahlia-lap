@@ -95,11 +95,9 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
 
 const RentalAssistanceInformationSection = () => {
   return (
-    <ContentSection title='Rental Assistance Information'>
-      <ContentSection.Content borderBottom>
-        <RentalAssistance />
-      </ContentSection.Content>
-    </ContentSection>
+    <ContentSection.Sub title='Rental Assistance Information'>
+      <RentalAssistance />
+    </ContentSection.Sub>
   )
 }
 
