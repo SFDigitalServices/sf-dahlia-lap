@@ -54,8 +54,8 @@ class RentalAssistanceTable extends React.Component {
       <ExpanderButton label='Edit' onClick={handleEdit} />))
   }
 
-  expandedRowRenderer = (row, toggle, idx) => {
-    return <Panel toggle={toggle} row={row} idx={idx} />
+  expandedRowRenderer = (row, toggle, original) => {
+    return <Panel toggle={toggle} rentalAssistance={original} />
   }
 
   mapRow = (value) => {
@@ -74,6 +74,7 @@ class RentalAssistanceTable extends React.Component {
     return (
       <TableWrapper>
         <ExpandableTable
+          originals={this.props.rows}
           columns={this.columns}
           rows={rows}
           expanderRenderer={this.expanderRenderer}
@@ -84,7 +85,7 @@ class RentalAssistanceTable extends React.Component {
   }
 }
 
-const Panel = withContext(({ idx, row, toggle, store }) => {
+const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   const {
     handleUpdateRentalAssistance,
     handleDeleteRentalAssistance,
@@ -93,7 +94,7 @@ const Panel = withContext(({ idx, row, toggle, store }) => {
   } = store
 
   const onSave = (values) => {
-    handleUpdateRentalAssistance(values, idx)
+    handleUpdateRentalAssistance(values)
     toggle()
   }
 
@@ -107,21 +108,10 @@ const Panel = withContext(({ idx, row, toggle, store }) => {
     toggle()
   }
 
-  const rowsToFields = (row) => {
-    return {
-      type_of_assistance: row[0].content,
-      recurring_assitance: row[1].content,
-      assistance_amount: row[2].content,
-      recipient: row[3].content
-    }
-  }
-
-  const values = rowsToFields(row)
-
   return (
     <ExpandablePanel>
       <AddRentalAssistanceForm
-        values={values}
+        values={rentalAssistance}
         onSave={onSave}
         onClose={onClose}
         onDelete={onDelete}

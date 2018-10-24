@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, clone, some } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some, sampleSize, findIndex} from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -183,6 +183,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveAddNewRentalAssistance = (values) => {
+    values.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
     this.setState(prev => {
       return {
         rentalAssistancesList: [...prev.rentalAssistancesList, values],
@@ -192,9 +193,10 @@ class SupplementalApplicationPage extends React.Component {
     })
   }
 
-  handleUpdateRentalAssistance = (values, idx) => {
+  handleUpdateRentalAssistance = (values) => {
     this.setState(prev => {
       const rentalAssistancesList = cloneDeep(prev.rentalAssistancesList)
+      const idx = findIndex(rentalAssistancesList, { id: values.id }) // <-- We use the Id to find the idx
       rentalAssistancesList[idx] = values
       return {
         rentalAssistancesList: rentalAssistancesList,
