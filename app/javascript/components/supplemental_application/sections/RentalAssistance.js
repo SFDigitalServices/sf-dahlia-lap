@@ -7,6 +7,8 @@ import ExpandableTable from '~/components/molecules/ExpandableTable'
 import Button from '~/components/atoms/Button'
 import { withContext } from '../context'
 import FormGrid from '~/components/molecules/FormGrid'
+import ExpandablePanel from '~/components/molecules/ExpandablePanel'
+import FormItem from '~/components/organisms/FormItem'
 import YesNoRadioGroup from '../YesNoRadioGroup'
 import formUtils from '~/utils/formUtils'
 import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils'
@@ -43,7 +45,8 @@ class RentalAssistanceTable extends React.Component {
   ]
 
   expanderRenderer = (row, expanded, expandedRowToggler) => {
-    return <ExpanderButton label='Edit' onClick={expandedRowToggler} />
+    return (!expanded && (
+      <ExpanderButton label='Edit' onClick={expandedRowToggler} />))
   }
 
   expandedRowRenderer = (row, toggle) => {
@@ -69,14 +72,6 @@ class RentalAssistanceTable extends React.Component {
   }
 }
 
-export const FormItem = ({label, children}) => (
-  <FormGrid.Item>
-    <FormGrid.Group label={label}>
-      {children}
-    </FormGrid.Group>
-  </FormGrid.Item>
-)
-
 const Panel = withContext(({ toggle, store }) => {
   const {
     handleUpdateRentalAssistance,
@@ -84,8 +79,8 @@ const Panel = withContext(({ toggle, store }) => {
   } = store
 
   const onSave = () => {
-    toggle()
     handleUpdateRentalAssistance()
+    toggle()
   }
 
   const onClose = () => {
@@ -97,14 +92,14 @@ const Panel = withContext(({ toggle, store }) => {
   }
 
   return (
-    <div className='app-editable expand-wide scrollable-table-nested'>
+    <ExpandablePanel>
       <AddRentalAssistanceForm
         onSave={onSave}
         onClose={onClose}
         onDelete={onDelete}
         applicationMembers={applicationMembers}
       />
-    </div>
+    </ExpandablePanel>
   )
 })
 
@@ -139,7 +134,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
               <FormItem label='Other Assistance Name'>
-                <Text field='' type='number' />
+                <Text field='' />
               </FormItem>
             </FormGrid.Row>
           )}
