@@ -40,7 +40,7 @@ class RentalAssistanceTable extends React.Component {
     { content: 'Type of Assistance' },
     { content: 'Recurring Assistance' },
     { content: 'Assistance Amount' },
-    { content: 'Recipint' },
+    { content: 'Recipient' },
     { content: 'Edit' }
   ]
 
@@ -124,7 +124,7 @@ const AddRentalAssistanceForm = ({ onSave, loading, onClose, applicationMembers,
             <FormItem label='Assistance Amount'>
               <Text field='' type='number' />
             </FormItem>
-            <FormItem label='Recipint'>
+            <FormItem label='Recipient'>
               <Select
                 field=''
                 options={applicationMembersOptions}
@@ -195,7 +195,7 @@ const RentalAssistance = ({ store }) => {
           isNew
         />
       ) : (
-        <Button text='Add Rental Assistance' onClick={handleAddRentalAssistance} />
+        <Button text='Add Rental Assistance' small onClick={handleAddRentalAssistance} />
       )}
     </React.Fragment>
   )
