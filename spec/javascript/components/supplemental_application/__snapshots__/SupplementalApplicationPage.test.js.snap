@@ -1050,376 +1050,19 @@ Array [
             </div>
           </div>
           <div
-            className="app-inner header-wide"
+            className="app-inner subheader-wide"
           >
-            <h2
-              className="app-card_h2"
+            <h3
+              className="app-card_h3 t-sans"
             >
               Rental Assistance Information
-            </h2>
+            </h3>
           </div>
           <div
             className="app-inner inset-wide border-bottom"
           >
-            <div
-              className="form-grid row expand"
-            >
-              <div
-                className="small-12 column"
-              >
-                <div
-                  className="scrollable-table-container-under-xlarge"
-                >
-                  <table
-                    className="td-light td-plain th-plain"
-                    role="grid"
-                  >
-                    <thead>
-                      <tr>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Type of Assistance
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Recurring Assistance
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Assistance Amount
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Recipint
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Edit
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr
-                        aria-expanded={false}
-                        className="tr-expand"
-                      >
-                        <td
-                          className=""
-                        >
-                          a
-                        </td>
-                        <td
-                          className=""
-                        >
-                          b
-                        </td>
-                        <td
-                          className=""
-                        >
-                          c
-                        </td>
-                        <td
-                          className=""
-                        >
-                          d
-                        </td>
-                        <td>
-                          <button
-                            className="button button-link action-link"
-                            onClick={[Function]}
-                            type="button"
-                          >
-                            Edit
-                          </button>
-                        </td>
-                      </tr>
-                      <tr
-                        aria-hidden={true}
-                        className="tr-expand-content"
-                      >
-                        <td
-                          className="td-expand-nested no-padding"
-                          colSpan={5}
-                        >
-                          <div
-                            className="app-editable expand-wide scrollable-table-nested"
-                          >
-                            <div
-                              className="app-editable expand-wide scrollable-table-nested"
-                            >
-                              <div
-                                className="form-grid row"
-                              >
-                                <div
-                                  className="form-grid_item small-12 medium-6 large-3 column"
-                                >
-                                  <div
-                                    className="form-group"
-                                  >
-                                    <label
-                                      htmlFor=""
-                                    >
-                                      Type of Assistance
-                                    </label>
-                                    <select
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      value={0}
-                                    >
-                                      <option
-                                        disabled={true}
-                                        value={0}
-                                      >
-                                        Select One...
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={1}
-                                      >
-                                        Catholic Charities
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={2}
-                                      >
-                                        Compass Family
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={3}
-                                      >
-                                        Glide
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={4}
-                                      >
-                                        Hamilton Family
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={5}
-                                      >
-                                        Homeless Prenatal
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={6}
-                                      >
-                                        HOPWA
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={7}
-                                      >
-                                        Q Foundation: First Month’s Rent
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={8}
-                                      >
-                                        Q Foundation: Move-in Deposit
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={9}
-                                      >
-                                        Q Foundation: Person with Disability Rent Subsidy
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={10}
-                                      >
-                                        Q Foundation: Senior Rent Subsidy
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={11}
-                                      >
-                                        San Francisco AIDS Foundation
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={12}
-                                      >
-                                        Section 8 HCV (tenant) voucher
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={13}
-                                      >
-                                        Self-Help for the Elderly
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={14}
-                                      >
-                                        VASH voucher
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={15}
-                                      >
-                                        Other
-                                      </option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div
-                                  className="form-grid_item small-12 medium-6 large-3 column"
-                                >
-                                  <div
-                                    className="form-group"
-                                  >
-                                    <label
-                                      htmlFor=""
-                                    >
-                                      Recurring Assistance
-                                    </label>
-                                    <div
-                                      className="radio-group-inline"
-                                    >
-                                      <p
-                                        className="radio-inline"
-                                      >
-                                        <input
-                                          checked={false}
-                                          id="undefined-yes"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="radio"
-                                        />
-                                        <label
-                                          className="radio-inline_label"
-                                          htmlFor="undefined-yes"
-                                        >
-                                          Yes
-                                        </label>
-                                      </p>
-                                      <p
-                                        className="radio-inline"
-                                      >
-                                        <input
-                                          checked={false}
-                                          id="undefined-no"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="radio"
-                                        />
-                                        <label
-                                          className="radio-inline_label"
-                                          htmlFor="undefined-no"
-                                        >
-                                          No
-                                        </label>
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div
-                                  className="form-grid_item small-12 medium-6 large-3 column"
-                                >
-                                  <div
-                                    className="form-group"
-                                  >
-                                    <label
-                                      htmlFor=""
-                                    >
-                                      Assistance Amount
-                                    </label>
-                                    <input
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      type="number"
-                                      value={Object {}}
-                                    />
-                                  </div>
-                                </div>
-                                <div
-                                  className="form-grid_item small-12 medium-6 large-3 column"
-                                >
-                                  <div
-                                    className="form-group"
-                                  >
-                                    <label
-                                      htmlFor=""
-                                    >
-                                      Recipint
-                                    </label>
-                                    <select
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      value={0}
-                                    >
-                                      <option
-                                        disabled={true}
-                                        value={0}
-                                      >
-                                        Select One...
-                                      </option>
-                                      <option
-                                        disabled={undefined}
-                                        value={1}
-                                      >
-                                        diego maradona
-                                      </option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                className="form-grid row"
-                              >
-                                <div
-                                  className="form-grid_item column"
-                                >
-                                  <button
-                                    className="button primary tiny margin-right margin-bottom-none"
-                                    disabled={undefined}
-                                    onClick={[Function]}
-                                    type="button"
-                                  >
-                                    Save
-                                  </button>
-                                  <button
-                                    className="button secondary tiny margin-right margin-bottom-none"
-                                    disabled={undefined}
-                                    onClick={[Function]}
-                                    type="button"
-                                  >
-                                    Cancel
-                                  </button>
-                                  <button
-                                    className="button alert-fill tiny margin-bottom-none right"
-                                    disabled={undefined}
-                                    onClick={[Function]}
-                                    type="button"
-                                  >
-                                    Delete
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
             <button
-              className="button"
+              className="button small"
               onClick={[Function]}
             >
               Add Rental Assistance
@@ -2221,34 +1864,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "fileBaseUrl": undefined,
                         "handleAddRentalAssistance": [Function],
                         "handleCloseAddNewRentalAssistance": [Function],
+                        "handleDeleteRentalAssistance": [Function],
                         "handleSaveAddNewRentalAssistance": [Function],
                         "handleStatusModalClose": [Function],
                         "handleStatusModalStatusChange": [Function],
                         "handleStatusModalSubmit": [Function],
                         "handleUpdateRentalAssistance": [Function],
+                        "hideAddRentalAssitanceBtn": [Function],
                         "loading": false,
                         "onDismissError": [Function],
                         "onSavePreference": [Function],
                         "onSubmit": [Function],
                         "openAddStatusCommentModal": [Function],
                         "openUpdateStatusModal": [Function],
-                        "rentalAssistancesList": Array [
-                          Array [
-                            Object {
-                              "content": "a",
-                            },
-                            Object {
-                              "content": "b",
-                            },
-                            Object {
-                              "content": "c",
-                            },
-                            Object {
-                              "content": "d",
-                            },
-                          ],
-                        ],
+                        "rentalAssistancesList": Array [],
                         "setLoading": [Function],
+                        "showAddRentalAssitanceBtn": true,
                         "statusHistory": Array [
                           Object {
                             "comment": "xxxx1",
@@ -3088,34 +2719,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "fileBaseUrl": undefined,
                                         "handleAddRentalAssistance": [Function],
                                         "handleCloseAddNewRentalAssistance": [Function],
+                                        "handleDeleteRentalAssistance": [Function],
                                         "handleSaveAddNewRentalAssistance": [Function],
                                         "handleStatusModalClose": [Function],
                                         "handleStatusModalStatusChange": [Function],
                                         "handleStatusModalSubmit": [Function],
                                         "handleUpdateRentalAssistance": [Function],
+                                        "hideAddRentalAssitanceBtn": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
                                         "onSubmit": [Function],
                                         "openAddStatusCommentModal": [Function],
                                         "openUpdateStatusModal": [Function],
-                                        "rentalAssistancesList": Array [
-                                          Array [
-                                            Object {
-                                              "content": "a",
-                                            },
-                                            Object {
-                                              "content": "b",
-                                            },
-                                            Object {
-                                              "content": "c",
-                                            },
-                                            Object {
-                                              "content": "d",
-                                            },
-                                          ],
-                                        ],
+                                        "rentalAssistancesList": Array [],
                                         "setLoading": [Function],
+                                        "showAddRentalAssitanceBtn": true,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
@@ -4490,34 +4109,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "fileBaseUrl": undefined,
                                                 "handleAddRentalAssistance": [Function],
                                                 "handleCloseAddNewRentalAssistance": [Function],
+                                                "handleDeleteRentalAssistance": [Function],
                                                 "handleSaveAddNewRentalAssistance": [Function],
                                                 "handleStatusModalClose": [Function],
                                                 "handleStatusModalStatusChange": [Function],
                                                 "handleStatusModalSubmit": [Function],
                                                 "handleUpdateRentalAssistance": [Function],
+                                                "hideAddRentalAssitanceBtn": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
                                                 "onSubmit": [Function],
                                                 "openAddStatusCommentModal": [Function],
                                                 "openUpdateStatusModal": [Function],
-                                                "rentalAssistancesList": Array [
-                                                  Array [
-                                                    Object {
-                                                      "content": "a",
-                                                    },
-                                                    Object {
-                                                      "content": "b",
-                                                    },
-                                                    Object {
-                                                      "content": "c",
-                                                    },
-                                                    Object {
-                                                      "content": "d",
-                                                    },
-                                                  ],
-                                                ],
+                                                "rentalAssistancesList": Array [],
                                                 "setLoading": [Function],
+                                                "showAddRentalAssitanceBtn": true,
                                                 "statusHistory": Array [
                                                   Object {
                                                     "comment": "xxxx1",
@@ -6589,34 +6196,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "fileBaseUrl": undefined,
                                                               "handleAddRentalAssistance": [Function],
                                                               "handleCloseAddNewRentalAssistance": [Function],
+                                                              "handleDeleteRentalAssistance": [Function],
                                                               "handleSaveAddNewRentalAssistance": [Function],
                                                               "handleStatusModalClose": [Function],
                                                               "handleStatusModalStatusChange": [Function],
                                                               "handleStatusModalSubmit": [Function],
                                                               "handleUpdateRentalAssistance": [Function],
+                                                              "hideAddRentalAssitanceBtn": [Function],
                                                               "loading": false,
                                                               "onDismissError": [Function],
                                                               "onSavePreference": [Function],
                                                               "onSubmit": [Function],
                                                               "openAddStatusCommentModal": [Function],
                                                               "openUpdateStatusModal": [Function],
-                                                              "rentalAssistancesList": Array [
-                                                                Array [
-                                                                  Object {
-                                                                    "content": "a",
-                                                                  },
-                                                                  Object {
-                                                                    "content": "b",
-                                                                  },
-                                                                  Object {
-                                                                    "content": "c",
-                                                                  },
-                                                                  Object {
-                                                                    "content": "d",
-                                                                  },
-                                                                ],
-                                                              ],
+                                                              "rentalAssistancesList": Array [],
                                                               "setLoading": [Function],
+                                                              "showAddRentalAssitanceBtn": true,
                                                               "statusHistory": Array [
                                                                 Object {
                                                                   "comment": "xxxx1",
@@ -7495,20 +7090,20 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   </ContentSection>
                                 </LeaseInformationSection>
                                 <RentalAssistanceInformationSection>
-                                  <ContentSection
+                                  <Component
                                     title="Rental Assistance Information"
                                   >
                                     <Component
                                       title="Rental Assistance Information"
                                     >
                                       <div
-                                        className="app-inner header-wide"
+                                        className="app-inner subheader-wide"
                                       >
-                                        <h2
-                                          className="app-card_h2"
+                                        <h3
+                                          className="app-card_h3 t-sans"
                                         >
                                           Rental Assistance Information
-                                        </h2>
+                                        </h3>
                                       </div>
                                     </Component>
                                     <Component
@@ -7698,34 +7293,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "fileBaseUrl": undefined,
                                                 "handleAddRentalAssistance": [Function],
                                                 "handleCloseAddNewRentalAssistance": [Function],
+                                                "handleDeleteRentalAssistance": [Function],
                                                 "handleSaveAddNewRentalAssistance": [Function],
                                                 "handleStatusModalClose": [Function],
                                                 "handleStatusModalStatusChange": [Function],
                                                 "handleStatusModalSubmit": [Function],
                                                 "handleUpdateRentalAssistance": [Function],
+                                                "hideAddRentalAssitanceBtn": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
                                                 "onSubmit": [Function],
                                                 "openAddStatusCommentModal": [Function],
                                                 "openUpdateStatusModal": [Function],
-                                                "rentalAssistancesList": Array [
-                                                  Array [
-                                                    Object {
-                                                      "content": "a",
-                                                    },
-                                                    Object {
-                                                      "content": "b",
-                                                    },
-                                                    Object {
-                                                      "content": "c",
-                                                    },
-                                                    Object {
-                                                      "content": "d",
-                                                    },
-                                                  ],
-                                                ],
+                                                "rentalAssistancesList": Array [],
                                                 "setLoading": [Function],
+                                                "showAddRentalAssitanceBtn": true,
                                                 "statusHistory": Array [
                                                   Object {
                                                     "comment": "xxxx1",
@@ -7747,1173 +7330,13 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               }
                                             }
                                           >
-                                            <RentalAssistanceTable
-                                              rows={
-                                                Array [
-                                                  Array [
-                                                    Object {
-                                                      "content": "a",
-                                                    },
-                                                    Object {
-                                                      "content": "b",
-                                                    },
-                                                    Object {
-                                                      "content": "c",
-                                                    },
-                                                    Object {
-                                                      "content": "d",
-                                                    },
-                                                  ],
-                                                ]
-                                              }
-                                            >
-                                              <TableWrapper>
-                                                <div
-                                                  className="form-grid row expand"
-                                                >
-                                                  <div
-                                                    className="small-12 column"
-                                                  >
-                                                    <div
-                                                      className="scrollable-table-container-under-xlarge"
-                                                    >
-                                                      <ExpandableTable
-                                                        columns={
-                                                          Array [
-                                                            Object {
-                                                              "content": "Type of Assistance",
-                                                            },
-                                                            Object {
-                                                              "content": "Recurring Assistance",
-                                                            },
-                                                            Object {
-                                                              "content": "Assistance Amount",
-                                                            },
-                                                            Object {
-                                                              "content": "Recipint",
-                                                            },
-                                                            Object {
-                                                              "content": "Edit",
-                                                            },
-                                                          ]
-                                                        }
-                                                        expandedRowRenderer={[Function]}
-                                                        expanderRenderer={[Function]}
-                                                        rows={
-                                                          Array [
-                                                            Array [
-                                                              Object {
-                                                                "content": "a",
-                                                              },
-                                                              Object {
-                                                                "content": "b",
-                                                              },
-                                                              Object {
-                                                                "content": "c",
-                                                              },
-                                                              Object {
-                                                                "content": "d",
-                                                              },
-                                                            ],
-                                                          ]
-                                                        }
-                                                      >
-                                                        <table
-                                                          className="td-light td-plain th-plain"
-                                                          role="grid"
-                                                        >
-                                                          <thead>
-                                                            <tr>
-                                                              <th
-                                                                className=""
-                                                                key="0"
-                                                                scope="col"
-                                                              >
-                                                                Type of Assistance
-                                                              </th>
-                                                              <th
-                                                                className=""
-                                                                key="1"
-                                                                scope="col"
-                                                              >
-                                                                Recurring Assistance
-                                                              </th>
-                                                              <th
-                                                                className=""
-                                                                key="2"
-                                                                scope="col"
-                                                              >
-                                                                Assistance Amount
-                                                              </th>
-                                                              <th
-                                                                className=""
-                                                                key="3"
-                                                                scope="col"
-                                                              >
-                                                                Recipint
-                                                              </th>
-                                                              <th
-                                                                className=""
-                                                                key="4"
-                                                                scope="col"
-                                                              >
-                                                                Edit
-                                                              </th>
-                                                            </tr>
-                                                          </thead>
-                                                          <tbody>
-                                                            <ExpandableTableRow
-                                                              expandedRowRenderer={[Function]}
-                                                              expanderRenderer={[Function]}
-                                                              key="0"
-                                                              numColumns={5}
-                                                              row={
-                                                                Array [
-                                                                  Object {
-                                                                    "content": "a",
-                                                                  },
-                                                                  Object {
-                                                                    "content": "b",
-                                                                  },
-                                                                  Object {
-                                                                    "content": "c",
-                                                                  },
-                                                                  Object {
-                                                                    "content": "d",
-                                                                  },
-                                                                ]
-                                                              }
-                                                            >
-                                                              <tr
-                                                                aria-expanded={false}
-                                                                className="tr-expand"
-                                                              >
-                                                                <td
-                                                                  className=""
-                                                                  key="0"
-                                                                >
-                                                                  a
-                                                                </td>
-                                                                <td
-                                                                  className=""
-                                                                  key="1"
-                                                                >
-                                                                  b
-                                                                </td>
-                                                                <td
-                                                                  className=""
-                                                                  key="2"
-                                                                >
-                                                                  c
-                                                                </td>
-                                                                <td
-                                                                  className=""
-                                                                  key="3"
-                                                                >
-                                                                  d
-                                                                </td>
-                                                                <td
-                                                                  key="expander"
-                                                                >
-                                                                  <Component
-                                                                    label="Edit"
-                                                                    onClick={[Function]}
-                                                                  >
-                                                                    <button
-                                                                      className="button button-link action-link"
-                                                                      onClick={[Function]}
-                                                                      type="button"
-                                                                    >
-                                                                      Edit
-                                                                    </button>
-                                                                  </Component>
-                                                                </td>
-                                                              </tr>
-                                                              <tr
-                                                                aria-hidden={true}
-                                                                className="tr-expand-content"
-                                                              >
-                                                                <td
-                                                                  className="td-expand-nested no-padding"
-                                                                  colSpan={5}
-                                                                >
-                                                                  <ContextComponent
-                                                                    toggle={[Function]}
-                                                                  >
-                                                                    <Component
-                                                                      store={
-                                                                        Object {
-                                                                          "addNewRentalAssistance": false,
-                                                                          "amiCharts": Array [],
-                                                                          "amis": Object {},
-                                                                          "application": Object {
-                                                                            "alternate_contact": undefined,
-                                                                            "annual_income": 110000,
-                                                                            "answered_community_screening": null,
-                                                                            "applicant": Object {
-                                                                              "agency_name": undefined,
-                                                                              "alternate_contact_type": undefined,
-                                                                              "alternate_contact_type_other": undefined,
-                                                                              "city": "SAN FRANCISCO",
-                                                                              "date_of_birth": "1950-01-01",
-                                                                              "email": "eee@eeee.com",
-                                                                              "first_name": "karen",
-                                                                              "id": "a0n0x000000AbE6AAK",
-                                                                              "last_name": "jones",
-                                                                              "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                              "mailing_city": "SAN FRANCISCO",
-                                                                              "mailing_state": "CA",
-                                                                              "mailing_street": "123 MAIN ST",
-                                                                              "mailing_zip_code": "94105-1804",
-                                                                              "marital_status": "Married",
-                                                                              "middle_name": null,
-                                                                              "name": "karen jones",
-                                                                              "phone": "9548883321",
-                                                                              "phone_type": "Cell",
-                                                                              "primary_language": null,
-                                                                              "relationship_to_applicant": undefined,
-                                                                              "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                              "second_phone": null,
-                                                                              "second_phone_type": null,
-                                                                              "state": "CA",
-                                                                              "street": "123 MAIN ST",
-                                                                              "zip_code": "94105-1804",
-                                                                            },
-                                                                            "application_language": "English",
-                                                                            "application_submission_type": "Paper",
-                                                                            "application_submitted_date": "2018-06-21",
-                                                                            "createdby": Object {
-                                                                              "name": "Prod Vertiba",
-                                                                            },
-                                                                            "flagged_applications": Array [],
-                                                                            "general_lottery": true,
-                                                                            "general_lottery_rank": null,
-                                                                            "has_ada_priorities_selected": Object {
-                                                                              "": true,
-                                                                            },
-                                                                            "has_developmental_disability": null,
-                                                                            "has_military_service": null,
-                                                                            "hh_total_income_with_assets_annual": undefined,
-                                                                            "household_assets": null,
-                                                                            "household_members": Array [
-                                                                              Object {
-                                                                                "agency_name": undefined,
-                                                                                "alternate_contact_type": undefined,
-                                                                                "alternate_contact_type_other": undefined,
-                                                                                "city": "buenos aires",
-                                                                                "date_of_birth": "1976-06-11",
-                                                                                "email": undefined,
-                                                                                "first_name": "diego",
-                                                                                "id": "a0n0x000000XzchAAC",
-                                                                                "last_name": "maradona",
-                                                                                "mailing_address": undefined,
-                                                                                "mailing_city": undefined,
-                                                                                "mailing_state": undefined,
-                                                                                "mailing_street": undefined,
-                                                                                "mailing_zip_code": undefined,
-                                                                                "marital_status": undefined,
-                                                                                "middle_name": "m",
-                                                                                "name": "diego m maradona",
-                                                                                "phone": undefined,
-                                                                                "phone_type": undefined,
-                                                                                "primary_language": undefined,
-                                                                                "relationship_to_applicant": null,
-                                                                                "residence_address": undefined,
-                                                                                "second_phone": undefined,
-                                                                                "second_phone_type": undefined,
-                                                                                "state": "fl",
-                                                                                "street": "9 de julio",
-                                                                                "zip_code": "33026",
-                                                                              },
-                                                                            ],
-                                                                            "housing_voucher_or_subsidy": "true",
-                                                                            "id": "a0o0x000000OcOzAAK",
-                                                                            "is_lottery_complete": false,
-                                                                            "lease": undefined,
-                                                                            "listing": Object {
-                                                                              "id": "a0W0x000000GhJUEA0",
-                                                                              "name": "Test 5/30",
-                                                                              "reserved_community_type": null,
-                                                                            },
-                                                                            "lottery_number": "00191270",
-                                                                            "lottery_number_manual": null,
-                                                                            "monthly_income": null,
-                                                                            "name": "APP-00191270",
-                                                                            "number_of_dependents": 2,
-                                                                            "preferences": Array [
-                                                                              Object {
-                                                                                "application": undefined,
-                                                                                "application_member": undefined,
-                                                                                "application_member_date_of_birth": null,
-                                                                                "application_member_first_name": null,
-                                                                                "application_member_last_name": null,
-                                                                                "certificate_number": null,
-                                                                                "city": null,
-                                                                                "id": "a0w0x0000014pvyAAA",
-                                                                                "individual_preference": null,
-                                                                                "listing_preference": Object {
-                                                                                  "record_type_for_app_preferences": undefined,
-                                                                                },
-                                                                                "listing_preference_id": "a0l0x000000RI8nAAG",
-                                                                                "lottery_status": "None",
-                                                                                "lw_type_of_proof": null,
-                                                                                "name": "AP-0000612141",
-                                                                                "opt_out": null,
-                                                                                "person_who_claimed_name": null,
-                                                                                "post_lottery_validation": undefined,
-                                                                                "preference_lottery_rank": null,
-                                                                                "preference_name": "Alice Griffith Housing Development Resident",
-                                                                                "preference_order": 0,
-                                                                                "receives_preference": null,
-                                                                                "recordtype_developername": "AG",
-                                                                                "state": null,
-                                                                                "street": null,
-                                                                                "total_household_rent": "undefined",
-                                                                                "type_of_proof": null,
-                                                                                "zip_code": null,
-                                                                              },
-                                                                            ],
-                                                                            "primary_applicant_contact": undefined,
-                                                                            "processing_status": undefined,
-                                                                            "proof_files": Array [],
-                                                                            "referral_source": null,
-                                                                            "reserved_senior": undefined,
-                                                                            "status": "Submitted",
-                                                                            "status_last_updated": undefined,
-                                                                            "terms_acknowledged": true,
-                                                                            "total_household_size": 1,
-                                                                            "total_monthly_rent": null,
-                                                                          },
-                                                                          "applicationMembers": Array [
-                                                                            Object {
-                                                                              "agency_name": undefined,
-                                                                              "alternate_contact_type": undefined,
-                                                                              "alternate_contact_type_other": undefined,
-                                                                              "city": "buenos aires",
-                                                                              "date_of_birth": "1976-06-11",
-                                                                              "email": undefined,
-                                                                              "first_name": "diego",
-                                                                              "id": "a0n0x000000XzchAAC",
-                                                                              "last_name": "maradona",
-                                                                              "mailing_address": undefined,
-                                                                              "mailing_city": undefined,
-                                                                              "mailing_state": undefined,
-                                                                              "mailing_street": undefined,
-                                                                              "mailing_zip_code": undefined,
-                                                                              "marital_status": undefined,
-                                                                              "middle_name": "m",
-                                                                              "name": "diego m maradona",
-                                                                              "phone": undefined,
-                                                                              "phone_type": undefined,
-                                                                              "primary_language": undefined,
-                                                                              "relationship_to_applicant": null,
-                                                                              "residence_address": undefined,
-                                                                              "second_phone": undefined,
-                                                                              "second_phone_type": undefined,
-                                                                              "state": "fl",
-                                                                              "street": "9 de julio",
-                                                                              "zip_code": "33026",
-                                                                            },
-                                                                          ],
-                                                                          "availableUnits": undefined,
-                                                                          "confirmedPreferencesFailed": false,
-                                                                          "fileBaseUrl": undefined,
-                                                                          "handleAddRentalAssistance": [Function],
-                                                                          "handleCloseAddNewRentalAssistance": [Function],
-                                                                          "handleSaveAddNewRentalAssistance": [Function],
-                                                                          "handleStatusModalClose": [Function],
-                                                                          "handleStatusModalStatusChange": [Function],
-                                                                          "handleStatusModalSubmit": [Function],
-                                                                          "handleUpdateRentalAssistance": [Function],
-                                                                          "loading": false,
-                                                                          "onDismissError": [Function],
-                                                                          "onSavePreference": [Function],
-                                                                          "onSubmit": [Function],
-                                                                          "openAddStatusCommentModal": [Function],
-                                                                          "openUpdateStatusModal": [Function],
-                                                                          "rentalAssistancesList": Array [
-                                                                            Array [
-                                                                              Object {
-                                                                                "content": "a",
-                                                                              },
-                                                                              Object {
-                                                                                "content": "b",
-                                                                              },
-                                                                              Object {
-                                                                                "content": "c",
-                                                                              },
-                                                                              Object {
-                                                                                "content": "d",
-                                                                              },
-                                                                            ],
-                                                                          ],
-                                                                          "setLoading": [Function],
-                                                                          "statusHistory": Array [
-                                                                            Object {
-                                                                              "comment": "xxxx1",
-                                                                              "date": "2018-05-10T19:54:11.000+0000",
-                                                                              "status": "Approved",
-                                                                              "timestamp": 1525982051,
-                                                                            },
-                                                                            Object {
-                                                                              "comment": "xxxx2",
-                                                                              "date": "2018-05-10T19:54:11.000+0000",
-                                                                              "status": "Pending",
-                                                                              "timestamp": 1525982051,
-                                                                            },
-                                                                          ],
-                                                                          "statusModal": Object {
-                                                                            "loading": false,
-                                                                            "status": undefined,
-                                                                          },
-                                                                        }
-                                                                      }
-                                                                      toggle={[Function]}
-                                                                    >
-                                                                      <div
-                                                                        className="app-editable expand-wide scrollable-table-nested"
-                                                                      >
-                                                                        <AddRentalAssistanceForm
-                                                                          applicationMembers={
-                                                                            Array [
-                                                                              Object {
-                                                                                "agency_name": undefined,
-                                                                                "alternate_contact_type": undefined,
-                                                                                "alternate_contact_type_other": undefined,
-                                                                                "city": "buenos aires",
-                                                                                "date_of_birth": "1976-06-11",
-                                                                                "email": undefined,
-                                                                                "first_name": "diego",
-                                                                                "id": "a0n0x000000XzchAAC",
-                                                                                "last_name": "maradona",
-                                                                                "mailing_address": undefined,
-                                                                                "mailing_city": undefined,
-                                                                                "mailing_state": undefined,
-                                                                                "mailing_street": undefined,
-                                                                                "mailing_zip_code": undefined,
-                                                                                "marital_status": undefined,
-                                                                                "middle_name": "m",
-                                                                                "name": "diego m maradona",
-                                                                                "phone": undefined,
-                                                                                "phone_type": undefined,
-                                                                                "primary_language": undefined,
-                                                                                "relationship_to_applicant": null,
-                                                                                "residence_address": undefined,
-                                                                                "second_phone": undefined,
-                                                                                "second_phone_type": undefined,
-                                                                                "state": "fl",
-                                                                                "street": "9 de julio",
-                                                                                "zip_code": "33026",
-                                                                              },
-                                                                            ]
-                                                                          }
-                                                                          onClose={[Function]}
-                                                                          onDelete={[Function]}
-                                                                          onSave={[Function]}
-                                                                        >
-                                                                          <t
-                                                                            onSubmit={[Function]}
-                                                                          >
-                                                                            <Connect(t)
-                                                                              onSubmit={[Function]}
-                                                                              store={
-                                                                                Object {
-                                                                                  "dispatch": [Function],
-                                                                                  "getState": [Function],
-                                                                                  "replaceReducer": [Function],
-                                                                                  "subscribe": [Function],
-                                                                                  Symbol(observable): [Function],
-                                                                                }
-                                                                              }
-                                                                            >
-                                                                              <t
-                                                                                dispatch={[Function]}
-                                                                                formState={
-                                                                                  Object {
-                                                                                    "asyncErrors": Object {},
-                                                                                    "asyncSuccesses": Object {},
-                                                                                    "asyncValidations": 0,
-                                                                                    "asyncWarnings": Object {},
-                                                                                    "errors": Object {},
-                                                                                    "submits": 0,
-                                                                                    "submitted": false,
-                                                                                    "successes": Object {},
-                                                                                    "touched": Object {},
-                                                                                    "validating": Object {},
-                                                                                    "validationFailed": Object {},
-                                                                                    "validationFailures": 0,
-                                                                                    "values": Object {},
-                                                                                    "warnings": Object {},
-                                                                                  }
-                                                                                }
-                                                                                onSubmit={[Function]}
-                                                                                store={
-                                                                                  Object {
-                                                                                    "dispatch": [Function],
-                                                                                    "getState": [Function],
-                                                                                    "replaceReducer": [Function],
-                                                                                    "subscribe": [Function],
-                                                                                    Symbol(observable): [Function],
-                                                                                  }
-                                                                                }
-                                                                                storeSubscription={
-                                                                                  Subscription {
-                                                                                    "listeners": Object {
-                                                                                      "clear": [Function],
-                                                                                      "get": [Function],
-                                                                                      "notify": [Function],
-                                                                                      "subscribe": [Function],
-                                                                                    },
-                                                                                    "onStateChange": [Function],
-                                                                                    "parentSub": undefined,
-                                                                                    "store": Object {
-                                                                                      "dispatch": [Function],
-                                                                                      "getState": [Function],
-                                                                                      "replaceReducer": [Function],
-                                                                                      "subscribe": [Function],
-                                                                                      Symbol(observable): [Function],
-                                                                                    },
-                                                                                    "unsubscribe": [Function],
-                                                                                  }
-                                                                                }
-                                                                              >
-                                                                                <div
-                                                                                  className="app-editable expand-wide scrollable-table-nested"
-                                                                                >
-                                                                                  <Component
-                                                                                    expand={false}
-                                                                                  >
-                                                                                    <div
-                                                                                      className="form-grid row"
-                                                                                    >
-                                                                                      <FormItem
-                                                                                        label="Type of Assistance"
-                                                                                      >
-                                                                                        <Component>
-                                                                                          <div
-                                                                                            className="form-grid_item small-12 medium-6 large-3 column"
-                                                                                          >
-                                                                                            <Component
-                                                                                              label="Type of Assistance"
-                                                                                            >
-                                                                                              <div
-                                                                                                className="form-group"
-                                                                                              >
-                                                                                                <label
-                                                                                                  htmlFor=""
-                                                                                                >
-                                                                                                  Type of Assistance
-                                                                                                </label>
-                                                                                                <r
-                                                                                                  field="type_of_assistance"
-                                                                                                  options={
-                                                                                                    Array [
-                                                                                                      Object {
-                                                                                                        "label": "Catholic Charities",
-                                                                                                        "value": "Catholic Charities",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Compass Family",
-                                                                                                        "value": "Compass Family",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Glide",
-                                                                                                        "value": "Glide",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Hamilton Family",
-                                                                                                        "value": "Hamilton Family",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Homeless Prenatal",
-                                                                                                        "value": "Homeless Prenatal",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "HOPWA",
-                                                                                                        "value": "HOPWA",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Q Foundation: First Month’s Rent",
-                                                                                                        "value": "Q Foundation: First Month’s Rent",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Q Foundation: Move-in Deposit",
-                                                                                                        "value": "Q Foundation: Move-in Deposit",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Q Foundation: Person with Disability Rent Subsidy",
-                                                                                                        "value": "Q Foundation: Person with Disability Rent Subsidy",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Q Foundation: Senior Rent Subsidy",
-                                                                                                        "value": "Q Foundation: Senior Rent Subsidy",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "San Francisco AIDS Foundation",
-                                                                                                        "value": "San Francisco AIDS Foundation",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Section 8 HCV (tenant) voucher",
-                                                                                                        "value": "Section 8 HCV (tenant) voucher",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Self-Help for the Elderly",
-                                                                                                        "value": "Self-Help for the Elderly",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "VASH voucher",
-                                                                                                        "value": "VASH voucher",
-                                                                                                      },
-                                                                                                      Object {
-                                                                                                        "label": "Other",
-                                                                                                        "value": "Other",
-                                                                                                      },
-                                                                                                    ]
-                                                                                                  }
-                                                                                                >
-                                                                                                  <t
-                                                                                                    fieldApi={
-                                                                                                      Object {
-                                                                                                        "doneValidatingField": [Function],
-                                                                                                        "getError": [Function],
-                                                                                                        "getSuccess": [Function],
-                                                                                                        "getTouched": [Function],
-                                                                                                        "getValue": [Function],
-                                                                                                        "getWarning": [Function],
-                                                                                                        "registerAsyncValidation": [Function],
-                                                                                                        "reset": [Function],
-                                                                                                        "setError": [Function],
-                                                                                                        "setSuccess": [Function],
-                                                                                                        "setTouched": [Function],
-                                                                                                        "setValue": [Function],
-                                                                                                        "setWarning": [Function],
-                                                                                                        "submits": 0,
-                                                                                                        "submitted": false,
-                                                                                                        "validatingField": [Function],
-                                                                                                      }
-                                                                                                    }
-                                                                                                    options={
-                                                                                                      Array [
-                                                                                                        Object {
-                                                                                                          "label": "Catholic Charities",
-                                                                                                          "value": "Catholic Charities",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Compass Family",
-                                                                                                          "value": "Compass Family",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Glide",
-                                                                                                          "value": "Glide",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Hamilton Family",
-                                                                                                          "value": "Hamilton Family",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Homeless Prenatal",
-                                                                                                          "value": "Homeless Prenatal",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "HOPWA",
-                                                                                                          "value": "HOPWA",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Q Foundation: First Month’s Rent",
-                                                                                                          "value": "Q Foundation: First Month’s Rent",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Q Foundation: Move-in Deposit",
-                                                                                                          "value": "Q Foundation: Move-in Deposit",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Q Foundation: Person with Disability Rent Subsidy",
-                                                                                                          "value": "Q Foundation: Person with Disability Rent Subsidy",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Q Foundation: Senior Rent Subsidy",
-                                                                                                          "value": "Q Foundation: Senior Rent Subsidy",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "San Francisco AIDS Foundation",
-                                                                                                          "value": "San Francisco AIDS Foundation",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Section 8 HCV (tenant) voucher",
-                                                                                                          "value": "Section 8 HCV (tenant) voucher",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Self-Help for the Elderly",
-                                                                                                          "value": "Self-Help for the Elderly",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "VASH voucher",
-                                                                                                          "value": "VASH voucher",
-                                                                                                        },
-                                                                                                        Object {
-                                                                                                          "label": "Other",
-                                                                                                          "value": "Other",
-                                                                                                        },
-                                                                                                      ]
-                                                                                                    }
-                                                                                                  >
-                                                                                                    <select
-                                                                                                      onBlur={[Function]}
-                                                                                                      onChange={[Function]}
-                                                                                                      value={0}
-                                                                                                    >
-                                                                                                      <option
-                                                                                                        disabled={true}
-                                                                                                        key=""
-                                                                                                        value={0}
-                                                                                                      >
-                                                                                                        Select One...
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Catholic Charities"
-                                                                                                        value={1}
-                                                                                                      >
-                                                                                                        Catholic Charities
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Compass Family"
-                                                                                                        value={2}
-                                                                                                      >
-                                                                                                        Compass Family
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Glide"
-                                                                                                        value={3}
-                                                                                                      >
-                                                                                                        Glide
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Hamilton Family"
-                                                                                                        value={4}
-                                                                                                      >
-                                                                                                        Hamilton Family
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Homeless Prenatal"
-                                                                                                        value={5}
-                                                                                                      >
-                                                                                                        Homeless Prenatal
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="HOPWA"
-                                                                                                        value={6}
-                                                                                                      >
-                                                                                                        HOPWA
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Q Foundation: First Month’s Rent"
-                                                                                                        value={7}
-                                                                                                      >
-                                                                                                        Q Foundation: First Month’s Rent
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Q Foundation: Move-in Deposit"
-                                                                                                        value={8}
-                                                                                                      >
-                                                                                                        Q Foundation: Move-in Deposit
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Q Foundation: Person with Disability Rent Subsidy"
-                                                                                                        value={9}
-                                                                                                      >
-                                                                                                        Q Foundation: Person with Disability Rent Subsidy
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Q Foundation: Senior Rent Subsidy"
-                                                                                                        value={10}
-                                                                                                      >
-                                                                                                        Q Foundation: Senior Rent Subsidy
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="San Francisco AIDS Foundation"
-                                                                                                        value={11}
-                                                                                                      >
-                                                                                                        San Francisco AIDS Foundation
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Section 8 HCV (tenant) voucher"
-                                                                                                        value={12}
-                                                                                                      >
-                                                                                                        Section 8 HCV (tenant) voucher
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Self-Help for the Elderly"
-                                                                                                        value={13}
-                                                                                                      >
-                                                                                                        Self-Help for the Elderly
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="VASH voucher"
-                                                                                                        value={14}
-                                                                                                      >
-                                                                                                        VASH voucher
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="Other"
-                                                                                                        value={15}
-                                                                                                      >
-                                                                                                        Other
-                                                                                                      </option>
-                                                                                                    </select>
-                                                                                                  </t>
-                                                                                                </r>
-                                                                                              </div>
-                                                                                            </Component>
-                                                                                          </div>
-                                                                                        </Component>
-                                                                                      </FormItem>
-                                                                                      <FormItem
-                                                                                        label="Recurring Assistance"
-                                                                                      >
-                                                                                        <Component>
-                                                                                          <div
-                                                                                            className="form-grid_item small-12 medium-6 large-3 column"
-                                                                                          >
-                                                                                            <Component
-                                                                                              label="Recurring Assistance"
-                                                                                            >
-                                                                                              <div
-                                                                                                className="form-group"
-                                                                                              >
-                                                                                                <label
-                                                                                                  htmlFor=""
-                                                                                                >
-                                                                                                  Recurring Assistance
-                                                                                                </label>
-                                                                                                <YesNoRadioGroup>
-                                                                                                  <div
-                                                                                                    className="radio-group-inline"
-                                                                                                  >
-                                                                                                    <r>
-                                                                                                      <t
-                                                                                                        fieldApi={
-                                                                                                          Object {
-                                                                                                            "doneValidatingField": [Function],
-                                                                                                            "getError": [Function],
-                                                                                                            "getSuccess": [Function],
-                                                                                                            "getTouched": [Function],
-                                                                                                            "getValue": [Function],
-                                                                                                            "getWarning": [Function],
-                                                                                                            "onBlur": [Function],
-                                                                                                            "onChange": [Function],
-                                                                                                            "registerAsyncValidation": [Function],
-                                                                                                            "reset": [Function],
-                                                                                                            "setError": [Function],
-                                                                                                            "setSuccess": [Function],
-                                                                                                            "setTouched": [Function],
-                                                                                                            "setValue": [Function],
-                                                                                                            "setWarning": [Function],
-                                                                                                            "submits": 0,
-                                                                                                            "submitted": false,
-                                                                                                            "validatingField": [Function],
-                                                                                                          }
-                                                                                                        }
-                                                                                                      >
-                                                                                                        <p
-                                                                                                          className="radio-inline"
-                                                                                                        >
-                                                                                                          <t
-                                                                                                            group={
-                                                                                                              Object {
-                                                                                                                "doneValidatingField": [Function],
-                                                                                                                "getError": [Function],
-                                                                                                                "getSuccess": [Function],
-                                                                                                                "getTouched": [Function],
-                                                                                                                "getValue": [Function],
-                                                                                                                "getWarning": [Function],
-                                                                                                                "onBlur": [Function],
-                                                                                                                "onChange": [Function],
-                                                                                                                "registerAsyncValidation": [Function],
-                                                                                                                "reset": [Function],
-                                                                                                                "setError": [Function],
-                                                                                                                "setSuccess": [Function],
-                                                                                                                "setTouched": [Function],
-                                                                                                                "setValue": [Function],
-                                                                                                                "setWarning": [Function],
-                                                                                                                "submits": 0,
-                                                                                                                "submitted": false,
-                                                                                                                "validatingField": [Function],
-                                                                                                              }
-                                                                                                            }
-                                                                                                            id="undefined-yes"
-                                                                                                            value="true"
-                                                                                                          >
-                                                                                                            <input
-                                                                                                              checked={false}
-                                                                                                              id="undefined-yes"
-                                                                                                              onBlur={[Function]}
-                                                                                                              onChange={[Function]}
-                                                                                                              type="radio"
-                                                                                                            />
-                                                                                                          </t>
-                                                                                                          <label
-                                                                                                            className="radio-inline_label"
-                                                                                                            htmlFor="undefined-yes"
-                                                                                                          >
-                                                                                                            Yes
-                                                                                                          </label>
-                                                                                                        </p>
-                                                                                                        <p
-                                                                                                          className="radio-inline"
-                                                                                                        >
-                                                                                                          <t
-                                                                                                            group={
-                                                                                                              Object {
-                                                                                                                "doneValidatingField": [Function],
-                                                                                                                "getError": [Function],
-                                                                                                                "getSuccess": [Function],
-                                                                                                                "getTouched": [Function],
-                                                                                                                "getValue": [Function],
-                                                                                                                "getWarning": [Function],
-                                                                                                                "onBlur": [Function],
-                                                                                                                "onChange": [Function],
-                                                                                                                "registerAsyncValidation": [Function],
-                                                                                                                "reset": [Function],
-                                                                                                                "setError": [Function],
-                                                                                                                "setSuccess": [Function],
-                                                                                                                "setTouched": [Function],
-                                                                                                                "setValue": [Function],
-                                                                                                                "setWarning": [Function],
-                                                                                                                "submits": 0,
-                                                                                                                "submitted": false,
-                                                                                                                "validatingField": [Function],
-                                                                                                              }
-                                                                                                            }
-                                                                                                            id="undefined-no"
-                                                                                                            value="false"
-                                                                                                          >
-                                                                                                            <input
-                                                                                                              checked={false}
-                                                                                                              id="undefined-no"
-                                                                                                              onBlur={[Function]}
-                                                                                                              onChange={[Function]}
-                                                                                                              type="radio"
-                                                                                                            />
-                                                                                                          </t>
-                                                                                                          <label
-                                                                                                            className="radio-inline_label"
-                                                                                                            htmlFor="undefined-no"
-                                                                                                          >
-                                                                                                            No
-                                                                                                          </label>
-                                                                                                        </p>
-                                                                                                      </t>
-                                                                                                    </r>
-                                                                                                  </div>
-                                                                                                </YesNoRadioGroup>
-                                                                                              </div>
-                                                                                            </Component>
-                                                                                          </div>
-                                                                                        </Component>
-                                                                                      </FormItem>
-                                                                                      <FormItem
-                                                                                        label="Assistance Amount"
-                                                                                      >
-                                                                                        <Component>
-                                                                                          <div
-                                                                                            className="form-grid_item small-12 medium-6 large-3 column"
-                                                                                          >
-                                                                                            <Component
-                                                                                              label="Assistance Amount"
-                                                                                            >
-                                                                                              <div
-                                                                                                className="form-group"
-                                                                                              >
-                                                                                                <label
-                                                                                                  htmlFor=""
-                                                                                                >
-                                                                                                  Assistance Amount
-                                                                                                </label>
-                                                                                                <r
-                                                                                                  field=""
-                                                                                                  type="number"
-                                                                                                >
-                                                                                                  <t
-                                                                                                    fieldApi={
-                                                                                                      Object {
-                                                                                                        "doneValidatingField": [Function],
-                                                                                                        "getError": [Function],
-                                                                                                        "getSuccess": [Function],
-                                                                                                        "getTouched": [Function],
-                                                                                                        "getValue": [Function],
-                                                                                                        "getWarning": [Function],
-                                                                                                        "registerAsyncValidation": [Function],
-                                                                                                        "reset": [Function],
-                                                                                                        "setError": [Function],
-                                                                                                        "setSuccess": [Function],
-                                                                                                        "setTouched": [Function],
-                                                                                                        "setValue": [Function],
-                                                                                                        "setWarning": [Function],
-                                                                                                        "submits": 0,
-                                                                                                        "submitted": false,
-                                                                                                        "validatingField": [Function],
-                                                                                                      }
-                                                                                                    }
-                                                                                                    type="number"
-                                                                                                  >
-                                                                                                    <input
-                                                                                                      onBlur={[Function]}
-                                                                                                      onChange={[Function]}
-                                                                                                      type="number"
-                                                                                                      value={Object {}}
-                                                                                                    />
-                                                                                                  </t>
-                                                                                                </r>
-                                                                                              </div>
-                                                                                            </Component>
-                                                                                          </div>
-                                                                                        </Component>
-                                                                                      </FormItem>
-                                                                                      <FormItem
-                                                                                        label="Recipint"
-                                                                                      >
-                                                                                        <Component>
-                                                                                          <div
-                                                                                            className="form-grid_item small-12 medium-6 large-3 column"
-                                                                                          >
-                                                                                            <Component
-                                                                                              label="Recipint"
-                                                                                            >
-                                                                                              <div
-                                                                                                className="form-group"
-                                                                                              >
-                                                                                                <label
-                                                                                                  htmlFor=""
-                                                                                                >
-                                                                                                  Recipint
-                                                                                                </label>
-                                                                                                <r
-                                                                                                  field=""
-                                                                                                  options={
-                                                                                                    Array [
-                                                                                                      Object {
-                                                                                                        "label": "diego maradona",
-                                                                                                        "value": "diego,maradona,1976-06-11",
-                                                                                                      },
-                                                                                                    ]
-                                                                                                  }
-                                                                                                >
-                                                                                                  <t
-                                                                                                    fieldApi={
-                                                                                                      Object {
-                                                                                                        "doneValidatingField": [Function],
-                                                                                                        "getError": [Function],
-                                                                                                        "getSuccess": [Function],
-                                                                                                        "getTouched": [Function],
-                                                                                                        "getValue": [Function],
-                                                                                                        "getWarning": [Function],
-                                                                                                        "registerAsyncValidation": [Function],
-                                                                                                        "reset": [Function],
-                                                                                                        "setError": [Function],
-                                                                                                        "setSuccess": [Function],
-                                                                                                        "setTouched": [Function],
-                                                                                                        "setValue": [Function],
-                                                                                                        "setWarning": [Function],
-                                                                                                        "submits": 0,
-                                                                                                        "submitted": false,
-                                                                                                        "validatingField": [Function],
-                                                                                                      }
-                                                                                                    }
-                                                                                                    options={
-                                                                                                      Array [
-                                                                                                        Object {
-                                                                                                          "label": "diego maradona",
-                                                                                                          "value": "diego,maradona,1976-06-11",
-                                                                                                        },
-                                                                                                      ]
-                                                                                                    }
-                                                                                                  >
-                                                                                                    <select
-                                                                                                      onBlur={[Function]}
-                                                                                                      onChange={[Function]}
-                                                                                                      value={0}
-                                                                                                    >
-                                                                                                      <option
-                                                                                                        disabled={true}
-                                                                                                        key=""
-                                                                                                        value={0}
-                                                                                                      >
-                                                                                                        Select One...
-                                                                                                      </option>
-                                                                                                      <option
-                                                                                                        key="diego,maradona,1976-06-11"
-                                                                                                        value={1}
-                                                                                                      >
-                                                                                                        diego maradona
-                                                                                                      </option>
-                                                                                                    </select>
-                                                                                                  </t>
-                                                                                                </r>
-                                                                                              </div>
-                                                                                            </Component>
-                                                                                          </div>
-                                                                                        </Component>
-                                                                                      </FormItem>
-                                                                                    </div>
-                                                                                  </Component>
-                                                                                  <Component
-                                                                                    expand={false}
-                                                                                  >
-                                                                                    <div
-                                                                                      className="form-grid row"
-                                                                                    >
-                                                                                      <div
-                                                                                        className="form-grid_item column"
-                                                                                      >
-                                                                                        <button
-                                                                                          className="button primary tiny margin-right margin-bottom-none"
-                                                                                          onClick={[Function]}
-                                                                                          type="button"
-                                                                                        >
-                                                                                          Save
-                                                                                        </button>
-                                                                                        <button
-                                                                                          className="button secondary tiny margin-right margin-bottom-none"
-                                                                                          onClick={[Function]}
-                                                                                          type="button"
-                                                                                        >
-                                                                                          Cancel
-                                                                                        </button>
-                                                                                        <button
-                                                                                          className="button alert-fill tiny margin-bottom-none right"
-                                                                                          onClick={[Function]}
-                                                                                          type="button"
-                                                                                        >
-                                                                                          Delete
-                                                                                        </button>
-                                                                                      </div>
-                                                                                    </div>
-                                                                                  </Component>
-                                                                                </div>
-                                                                              </t>
-                                                                            </Connect(t)>
-                                                                          </t>
-                                                                        </AddRentalAssistanceForm>
-                                                                      </div>
-                                                                    </Component>
-                                                                  </ContextComponent>
-                                                                </td>
-                                                              </tr>
-                                                            </ExpandableTableRow>
-                                                          </tbody>
-                                                        </table>
-                                                      </ExpandableTable>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </TableWrapper>
-                                            </RentalAssistanceTable>
                                             <Button
                                               onClick={[Function]}
+                                              small={true}
                                               text="Add Rental Assistance"
                                             >
                                               <button
-                                                className="button"
+                                                className="button small"
                                                 onClick={[Function]}
                                               >
                                                 Add Rental Assistance
@@ -8923,7 +7346,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         </ContextComponent>
                                       </div>
                                     </Component>
-                                  </ContentSection>
+                                  </Component>
                                 </RentalAssistanceInformationSection>
                                 <ScrollableAnchor
                                   id="status-history-section"
@@ -9110,34 +7533,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "fileBaseUrl": undefined,
                                             "handleAddRentalAssistance": [Function],
                                             "handleCloseAddNewRentalAssistance": [Function],
+                                            "handleDeleteRentalAssistance": [Function],
                                             "handleSaveAddNewRentalAssistance": [Function],
                                             "handleStatusModalClose": [Function],
                                             "handleStatusModalStatusChange": [Function],
                                             "handleStatusModalSubmit": [Function],
                                             "handleUpdateRentalAssistance": [Function],
+                                            "hideAddRentalAssitanceBtn": [Function],
                                             "loading": false,
                                             "onDismissError": [Function],
                                             "onSavePreference": [Function],
                                             "onSubmit": [Function],
                                             "openAddStatusCommentModal": [Function],
                                             "openUpdateStatusModal": [Function],
-                                            "rentalAssistancesList": Array [
-                                              Array [
-                                                Object {
-                                                  "content": "a",
-                                                },
-                                                Object {
-                                                  "content": "b",
-                                                },
-                                                Object {
-                                                  "content": "c",
-                                                },
-                                                Object {
-                                                  "content": "d",
-                                                },
-                                              ],
-                                            ],
+                                            "rentalAssistancesList": Array [],
                                             "setLoading": [Function],
+                                            "showAddRentalAssitanceBtn": true,
                                             "statusHistory": Array [
                                               Object {
                                                 "comment": "xxxx1",
@@ -9488,34 +7899,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "fileBaseUrl": undefined,
                                         "handleAddRentalAssistance": [Function],
                                         "handleCloseAddNewRentalAssistance": [Function],
+                                        "handleDeleteRentalAssistance": [Function],
                                         "handleSaveAddNewRentalAssistance": [Function],
                                         "handleStatusModalClose": [Function],
                                         "handleStatusModalStatusChange": [Function],
                                         "handleStatusModalSubmit": [Function],
                                         "handleUpdateRentalAssistance": [Function],
+                                        "hideAddRentalAssitanceBtn": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
                                         "onSubmit": [Function],
                                         "openAddStatusCommentModal": [Function],
                                         "openUpdateStatusModal": [Function],
-                                        "rentalAssistancesList": Array [
-                                          Array [
-                                            Object {
-                                              "content": "a",
-                                            },
-                                            Object {
-                                              "content": "b",
-                                            },
-                                            Object {
-                                              "content": "c",
-                                            },
-                                            Object {
-                                              "content": "d",
-                                            },
-                                          ],
-                                        ],
+                                        "rentalAssistancesList": Array [],
                                         "setLoading": [Function],
+                                        "showAddRentalAssitanceBtn": true,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
