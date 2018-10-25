@@ -57,14 +57,14 @@ class RentalAssistanceTable extends React.Component {
     return <Panel toggle={toggle} rentalAssistance={original} />
   }
 
-  buildRows = () => this.props.rentalAssistancesList.map(ra => {
+  buildRows = () => this.props.rentalAssistances.map(ra => {
     const appMember = this.props.applicationMembers.find(m => m.id === ra.recipient)
-    const appMemberName = `${appMember.first_name} ${appMember.last_name}`
+    const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
 
     return [
       { content: ra.other_assistance_name || ra.type_of_assistance },
       { content: ra.recurring_assistance },
-      { content: ra.assistance_amount },
+      { content: ra.assistance_amount ? `$${ra.assistance_amount}` : '' },
       { content: appMemberName }
     ]
   })
@@ -75,7 +75,7 @@ class RentalAssistanceTable extends React.Component {
     return (
       <TableWrapper>
         <ExpandableTable
-          originals={this.props.rentalAssistancesList}
+          originals={this.props.rentalAssistances}
           columns={this.columns}
           rows={rows}
           expanderRenderer={this.expanderRenderer}
@@ -91,7 +91,7 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
     handleUpdateRentalAssistance,
     handleDeleteRentalAssistance,
     applicationMembers,
-    handleCloseAddNewRentalAssistance
+    handleCloseRentalAssistancePanel
   } = store
 
   const onSave = (values) => {
@@ -100,7 +100,7 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   }
 
   const onClose = () => {
-    handleCloseAddNewRentalAssistance()
+    handleCloseRentalAssistancePanel()
     toggle()
   }
 
@@ -203,35 +203,36 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
 
 const RentalAssistance = ({ store }) => {
   const {
-    handleAddRentalAssistance,
-    addNewRentalAssistance,
-    rentalAssistancesList,
-    handleCloseAddNewRentalAssistance,
-    handleSaveAddNewRentalAssistance,
+    rentalAssistances,
     applicationMembers,
+    addNewRentalAssistance,
+    handleOpenRentalAssistancePanel,
+    handleCloseRentalAssistancePanel,
+    handleSaveNewRentalAssistance,
     showAddRentalAssistanceBtn,
     hideAddRentalAssistanceBtn
   } = store
 
   return (
     <React.Fragment>
-      { !isEmpty(rentalAssistancesList) && (
+      { !isEmpty(rentalAssistances) && (
         <RentalAssistanceTable
-          rentalAssistancesList={rentalAssistancesList}
+          rentalAssistances={rentalAssistances}
           applicationMembers={applicationMembers}
-          onEdit={hideAddRentalAssistanceBtn} />
+          onEdit={hideAddRentalAssistanceBtn}
+        />
       )}
 
       { addNewRentalAssistance && (
         <AddRentalAssistanceForm
-          onSave={handleSaveAddNewRentalAssistance}
-          onClose={handleCloseAddNewRentalAssistance}
+          onSave={handleSaveNewRentalAssistance}
+          onClose={handleCloseRentalAssistancePanel}
           applicationMembers={applicationMembers}
           isNew
         />
       )}
       { showAddRentalAssistanceBtn && (
-        <Button text='Add Rental Assistance' small onClick={handleAddRentalAssistance} />
+        <Button text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
       )}
     </React.Fragment>
   )
