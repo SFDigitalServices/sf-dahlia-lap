@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, isEmpty } from 'lodash'
+import { isEmpty } from 'lodash'
 import { Form, Select, Text } from 'react-form'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
@@ -11,7 +11,6 @@ import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import FormItem from '~/components/organisms/FormItem'
 import YesNoRadioGroup from '../YesNoRadioGroup'
 import formUtils from '~/utils/formUtils'
-import { buildHouseholdMembersOptions } from '~/components/applications/application_form/preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -58,23 +57,25 @@ class RentalAssistanceTable extends React.Component {
     return <Panel toggle={toggle} rentalAssistance={original} />
   }
 
-  mapRow = (value) => {
-    return [
-      { content: value.type_of_assistance },
-      { content: value.recurring_assistance },
-      { content: value.assistance_amount },
-      { content: value.recipient }
-    ]
-  }
+  buildRows = () => this.props.rentalAssistancesList.map(ra => {
+    const appMember = this.props.applicationMembers.find(m => m.id === ra.recipient)
+    const appMemberName = `${appMember.first_name} ${appMember.last_name}`
 
-  buildRows = () => map(this.props.rows, this.mapRow)
+    return [
+      { content: ra.other_assistance_name || ra.type_of_assistance },
+      { content: ra.recurring_assistance },
+      { content: ra.assistance_amount },
+      { content: appMemberName }
+    ]
+  })
 
   render () {
     const rows = this.buildRows()
+
     return (
       <TableWrapper>
         <ExpandableTable
-          originals={this.props.rows}
+          originals={this.props.rentalAssistancesList}
           columns={this.columns}
           rows={rows}
           expanderRenderer={this.expanderRenderer}
@@ -124,7 +125,13 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
 const isOther = (values) => values.type_of_assistance === 'Other'
 
 const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
-  const applicationMembersOptions = formUtils.toOptions(buildHouseholdMembersOptions(applicationMembers))
+  const applicationMembersOptions = applicationMembers.map(member => (
+    {
+      label: `${member.first_name} ${member.last_name}`,
+      value: member.id
+    }
+  ))
+
   return (
     <Form onSubmit={onSave} defaultValues={values}>
       {formApi => (
@@ -204,7 +211,10 @@ const RentalAssistance = ({ store }) => {
   return (
     <React.Fragment>
       { !isEmpty(rentalAssistancesList) && (
-        <RentalAssistanceTable rows={rentalAssistancesList} onEdit={hideAddRentalAssistanceBtn} />
+        <RentalAssistanceTable
+          rentalAssistancesList={rentalAssistancesList}
+          applicationMembers={applicationMembers}
+          onEdit={hideAddRentalAssistanceBtn} />
       )}
 
       { addNewRentalAssistance && (
