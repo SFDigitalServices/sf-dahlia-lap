@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, clone, some, sampleSize, findIndex} from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some, sampleSize, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
