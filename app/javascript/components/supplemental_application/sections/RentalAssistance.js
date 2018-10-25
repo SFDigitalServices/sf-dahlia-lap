@@ -105,7 +105,7 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   }
 
   const onDelete = () => {
-    handleDeleteRentalAssistance(idx)
+    handleDeleteRentalAssistance(rentalAssistance)
     toggle()
   }
 
@@ -144,7 +144,12 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
               />
             </FormItem>
             <FormItem label='Recurring Assistance'>
-              <YesNoRadioGroup field='recurring_assistance' />
+              <YesNoRadioGroup
+                field='recurring_assistance'
+                uniqId={(values && values.id) || 'new'}
+                trueValue='Yes'
+                falseValue='No'
+              />
             </FormItem>
             <FormItem label='Assistance Amount'>
               <Text field='assistance_amount' type='number' />

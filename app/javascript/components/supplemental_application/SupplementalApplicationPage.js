@@ -193,11 +193,11 @@ class SupplementalApplicationPage extends React.Component {
     })
   }
 
-  handleUpdateRentalAssistance = (values) => {
+  handleUpdateRentalAssistance = (rentalAssistance) => {
     this.setState(prev => {
       const rentalAssistancesList = cloneDeep(prev.rentalAssistancesList)
-      const idx = findIndex(rentalAssistancesList, { id: values.id }) // <-- We use the Id to find the idx
-      rentalAssistancesList[idx] = values
+      const idx = findIndex(rentalAssistancesList, { id: rentalAssistance.id })
+      rentalAssistancesList[idx] = rentalAssistance
       return {
         rentalAssistancesList: rentalAssistancesList,
         addNewRentalAssistance: false,
@@ -206,9 +206,10 @@ class SupplementalApplicationPage extends React.Component {
     })
   }
 
-  handleDeleteRentalAssistance = (idx) => {
+  handleDeleteRentalAssistance = (rentalAssistance) => {
     this.setState(prev => {
       const rentalAssistancesList = cloneDeep(prev.rentalAssistancesList)
+      const idx = findIndex(rentalAssistancesList, { id: rentalAssistance.id })
       rentalAssistancesList.splice(idx, 1)
       return {
         rentalAssistancesList: rentalAssistancesList,
