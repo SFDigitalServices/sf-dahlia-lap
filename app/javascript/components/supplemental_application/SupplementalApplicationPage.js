@@ -49,7 +49,7 @@ class SupplementalApplicationPage extends React.Component {
         status: props.application.processing_status
       },
       addNewRentalAssistance: false,
-      showAddRentalAssitanceBtn: true,
+      showAddRentalAssistanceBtn: true,
       rentalAssistancesList: []
     }
   }
@@ -149,7 +149,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleAddRentalAssistance = () => {
-    this.setState({ showAddRentalAssitanceBtn: false, addNewRentalAssistance: true })
+    this.setState({ showAddRentalAssistanceBtn: false, addNewRentalAssistance: true })
   }
 
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
@@ -179,7 +179,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCloseAddNewRentalAssistance = () => {
-    this.setState({ showAddRentalAssitanceBtn: true, addNewRentalAssistance: false })
+    this.setState({ showAddRentalAssistanceBtn: true, addNewRentalAssistance: false })
   }
 
   handleSaveAddNewRentalAssistance = (values) => {
@@ -188,7 +188,7 @@ class SupplementalApplicationPage extends React.Component {
       return {
         rentalAssistancesList: [...prev.rentalAssistancesList, values],
         addNewRentalAssistance: false,
-        showAddRentalAssitanceBtn: true
+        showAddRentalAssistanceBtn: true
       }
     })
   }
@@ -201,7 +201,7 @@ class SupplementalApplicationPage extends React.Component {
       return {
         rentalAssistancesList: rentalAssistancesList,
         addNewRentalAssistance: false,
-        showAddRentalAssitanceBtn: true
+        showAddRentalAssistanceBtn: true
       }
     })
   }
@@ -213,13 +213,13 @@ class SupplementalApplicationPage extends React.Component {
       return {
         rentalAssistancesList: rentalAssistancesList,
         addNewRentalAssistance: false,
-        showAddRentalAssitanceBtn: true
+        showAddRentalAssistanceBtn: true
       }
     })
   }
 
-  hideAddRentalAssitanceBtn = () => {
-    this.setState({ showAddRentalAssitanceBtn: false })
+  hideAddRentalAssistanceBtn = () => {
+    this.setState({ showAddRentalAssistanceBtn: false })
   }
 
   render () {
@@ -233,7 +233,7 @@ class SupplementalApplicationPage extends React.Component {
       persistedApplication,
       addNewRentalAssistance,
       rentalAssistancesList,
-      showAddRentalAssitanceBtn
+      showAddRentalAssistanceBtn
     } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
@@ -269,7 +269,7 @@ class SupplementalApplicationPage extends React.Component {
       statusModal: statusModal,
       rentalAssistancesList: rentalAssistancesList,
       addNewRentalAssistance: addNewRentalAssistance,
-      showAddRentalAssitanceBtn: showAddRentalAssitanceBtn,
+      showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
       applicationMembers: getApplicationMembers(persistedApplication),
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
@@ -279,7 +279,7 @@ class SupplementalApplicationPage extends React.Component {
       handleSaveAddNewRentalAssistance: this.handleSaveAddNewRentalAssistance,
       handleUpdateRentalAssistance: this.handleUpdateRentalAssistance,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
-      hideAddRentalAssitanceBtn: this.hideAddRentalAssitanceBtn
+      hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn
     }
 
     return (

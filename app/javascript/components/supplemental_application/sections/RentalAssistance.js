@@ -61,7 +61,7 @@ class RentalAssistanceTable extends React.Component {
   mapRow = (value) => {
     return [
       { content: value.type_of_assistance },
-      { content: value.recurring_assitance },
+      { content: value.recurring_assistance },
       { content: value.assistance_amount },
       { content: value.recipient }
     ]
@@ -137,7 +137,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
               />
             </FormItem>
             <FormItem label='Recurring Assistance'>
-              <YesNoRadioGroup field='recurring_assitance' />
+              <YesNoRadioGroup field='recurring_assistance' />
             </FormItem>
             <FormItem label='Assistance Amount'>
               <Text field='assistance_amount' type='number' />
@@ -152,7 +152,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
               <FormItem label='Other Assistance Name'>
-                <Text field='other_assitance_name' />
+                <Text field='other_assistance_name' />
               </FormItem>
             </FormGrid.Row>
           )}
@@ -197,14 +197,14 @@ const RentalAssistance = ({ store }) => {
     handleCloseAddNewRentalAssistance,
     handleSaveAddNewRentalAssistance,
     applicationMembers,
-    showAddRentalAssitanceBtn,
-    hideAddRentalAssitanceBtn
+    showAddRentalAssistanceBtn,
+    hideAddRentalAssistanceBtn
   } = store
 
   return (
     <React.Fragment>
       { !isEmpty(rentalAssistancesList) && (
-        <RentalAssistanceTable rows={rentalAssistancesList} onEdit={hideAddRentalAssitanceBtn} />
+        <RentalAssistanceTable rows={rentalAssistancesList} onEdit={hideAddRentalAssistanceBtn} />
       )}
 
       { addNewRentalAssistance && (
@@ -215,7 +215,7 @@ const RentalAssistance = ({ store }) => {
           isNew
         />
       )}
-      { showAddRentalAssitanceBtn && (
+      { showAddRentalAssistanceBtn && (
         <Button text='Add Rental Assistance' small onClick={handleAddRentalAssistance} />
       )}
     </React.Fragment>

@@ -1870,7 +1870,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "handleStatusModalStatusChange": [Function],
                         "handleStatusModalSubmit": [Function],
                         "handleUpdateRentalAssistance": [Function],
-                        "hideAddRentalAssitanceBtn": [Function],
+                        "hideAddRentalAssistanceBtn": [Function],
                         "loading": false,
                         "onDismissError": [Function],
                         "onSavePreference": [Function],
@@ -1879,7 +1879,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "openUpdateStatusModal": [Function],
                         "rentalAssistancesList": Array [],
                         "setLoading": [Function],
-                        "showAddRentalAssitanceBtn": true,
+                        "showAddRentalAssistanceBtn": true,
                         "statusHistory": Array [
                           Object {
                             "comment": "xxxx1",
@@ -2725,7 +2725,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "handleStatusModalStatusChange": [Function],
                                         "handleStatusModalSubmit": [Function],
                                         "handleUpdateRentalAssistance": [Function],
-                                        "hideAddRentalAssitanceBtn": [Function],
+                                        "hideAddRentalAssistanceBtn": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -2734,7 +2734,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "openUpdateStatusModal": [Function],
                                         "rentalAssistancesList": Array [],
                                         "setLoading": [Function],
-                                        "showAddRentalAssitanceBtn": true,
+                                        "showAddRentalAssistanceBtn": true,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
@@ -4115,7 +4115,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "handleStatusModalStatusChange": [Function],
                                                 "handleStatusModalSubmit": [Function],
                                                 "handleUpdateRentalAssistance": [Function],
-                                                "hideAddRentalAssitanceBtn": [Function],
+                                                "hideAddRentalAssistanceBtn": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
@@ -4124,7 +4124,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "openUpdateStatusModal": [Function],
                                                 "rentalAssistancesList": Array [],
                                                 "setLoading": [Function],
-                                                "showAddRentalAssitanceBtn": true,
+                                                "showAddRentalAssistanceBtn": true,
                                                 "statusHistory": Array [
                                                   Object {
                                                     "comment": "xxxx1",
@@ -6202,7 +6202,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "handleStatusModalStatusChange": [Function],
                                                               "handleStatusModalSubmit": [Function],
                                                               "handleUpdateRentalAssistance": [Function],
-                                                              "hideAddRentalAssitanceBtn": [Function],
+                                                              "hideAddRentalAssistanceBtn": [Function],
                                                               "loading": false,
                                                               "onDismissError": [Function],
                                                               "onSavePreference": [Function],
@@ -6211,7 +6211,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "openUpdateStatusModal": [Function],
                                                               "rentalAssistancesList": Array [],
                                                               "setLoading": [Function],
-                                                              "showAddRentalAssitanceBtn": true,
+                                                              "showAddRentalAssistanceBtn": true,
                                                               "statusHistory": Array [
                                                                 Object {
                                                                   "comment": "xxxx1",
@@ -7299,7 +7299,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "handleStatusModalStatusChange": [Function],
                                                 "handleStatusModalSubmit": [Function],
                                                 "handleUpdateRentalAssistance": [Function],
-                                                "hideAddRentalAssitanceBtn": [Function],
+                                                "hideAddRentalAssistanceBtn": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
@@ -7308,7 +7308,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "openUpdateStatusModal": [Function],
                                                 "rentalAssistancesList": Array [],
                                                 "setLoading": [Function],
-                                                "showAddRentalAssitanceBtn": true,
+                                                "showAddRentalAssistanceBtn": true,
                                                 "statusHistory": Array [
                                                   Object {
                                                     "comment": "xxxx1",
@@ -7539,7 +7539,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "handleStatusModalStatusChange": [Function],
                                             "handleStatusModalSubmit": [Function],
                                             "handleUpdateRentalAssistance": [Function],
-                                            "hideAddRentalAssitanceBtn": [Function],
+                                            "hideAddRentalAssistanceBtn": [Function],
                                             "loading": false,
                                             "onDismissError": [Function],
                                             "onSavePreference": [Function],
@@ -7548,7 +7548,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "openUpdateStatusModal": [Function],
                                             "rentalAssistancesList": Array [],
                                             "setLoading": [Function],
-                                            "showAddRentalAssitanceBtn": true,
+                                            "showAddRentalAssistanceBtn": true,
                                             "statusHistory": Array [
                                               Object {
                                                 "comment": "xxxx1",
@@ -7905,7 +7905,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "handleStatusModalStatusChange": [Function],
                                         "handleStatusModalSubmit": [Function],
                                         "handleUpdateRentalAssistance": [Function],
-                                        "hideAddRentalAssitanceBtn": [Function],
+                                        "hideAddRentalAssistanceBtn": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -7914,7 +7914,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "openUpdateStatusModal": [Function],
                                         "rentalAssistancesList": Array [],
                                         "setLoading": [Function],
-                                        "showAddRentalAssitanceBtn": true,
+                                        "showAddRentalAssistanceBtn": true,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
