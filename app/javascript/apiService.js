@@ -77,6 +77,14 @@ const updateApplication = async (data) => {
   return apiCall('put', `/applications/${id}`, postData)
 }
 
+const createRentalAssistance = async (data) => {
+  return apiCall('post', '/rental_assistances', data)
+}
+
+const updateRentalAssistance = async (data) => {
+  return apiCall('post', '/rental_assistances', data)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
@@ -84,5 +92,7 @@ export default {
   fetchApplications,
   getAMI,
   updatePreference,
-  createFieldUpdateComment
+  createFieldUpdateComment,
+  createRentalAssistance,
+  updateRentalAssistance
 }

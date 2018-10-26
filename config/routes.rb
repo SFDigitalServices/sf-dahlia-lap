@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       end
       get 'ami' => 'ami#get'
       resources :preferences, only: %w[update]
+      resources :rental_assistances, only: %w[create update]
     end
   end
 end

@@ -182,42 +182,41 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: true, addNewRentalAssistance: false })
   }
 
-  handleSaveNewRentalAssistance = (rentalAssistance) => {
-    // TODO: Add a real call to Salesforce to save the new
-    // rental assistance record and get back the ID of the
-    // record. Here, we mock the real Salesforce save by
-    // adding a fake ID to the rental assistance values.
-    const savedRentalAssistance = ((rentalAssistance) => {
-      rentalAssistance.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
-      return rentalAssistance
-    })(rentalAssistance)
+  handleSaveAddRentalAssistance = (rentalAssistance) => {
+    const response = apiService.updateRentalAssistance(rentalAssistance)
 
-    this.setState(prev => {
-      return {
-        rentalAssistances: [...prev.rentalAssistances, savedRentalAssistance],
-        addNewRentalAssistance: false,
-        showAddRentalAssistanceBtn: true
-      }
-    })
+    if (response) {
+      rentalAssistance.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
+      this.setState(prev => {
+        return {
+          rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
+          addNewRentalAssistance: false,
+          showAddRentalAssistanceBtn: true
+        }
+      })
+    } else {
+      Alerts.error()
+    }
   }
 
   handleUpdateRentalAssistance = (rentalAssistance) => {
-    // TODO: Add a real call to Salesforce to update the
-    // rental assistance record. Here, we mock the real
-    // Salesforce update by just returning the rental
-    // assistance values.
-    const updatedRentalAssistance = ((rentalAssistance) => rentalAssistance)(rentalAssistance)
+    const response = apiService.updateRentalAssistance(rentalAssistance)
 
-    this.setState(prev => {
-      const rentalAssistances = cloneDeep(prev.rentalAssistances)
-      const idx = findIndex(rentalAssistances, { id: updatedRentalAssistance.id })
-      rentalAssistances[idx] = updatedRentalAssistance
-      return {
-        rentalAssistances: rentalAssistances,
-        addNewRentalAssistance: false,
-        showAddRentalAssistanceBtn: true
-      }
-    })
+    if (response) {
+      this.setState(prev => {
+        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+        rentalAssistances[idx] = rentalAssistance
+
+        return {
+          rentalAssistancesList: rentalAssistances,
+          addNewRentalAssistance: false,
+          showAddRentalAssistanceBtn: true
+        }
+      })
+    } else {
+      Alerts.error()
+    }
   }
 
   handleDeleteRentalAssistance = (rentalAssistance) => {
