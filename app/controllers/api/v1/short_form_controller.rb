@@ -7,13 +7,19 @@ class Api::V1::ShortFormController < ApiController
   def submit
     logger.debug "application_api_params: #{application_api_params}"
     short_form_validator = ShortFormValidator.new(application_api_params)
+
     if short_form_validator.valid?
+      # Create or update lease if present
       if application_api_params.key?(:lease)
-        response = lease_service.submit_lease(application_api_params[:lease],
-                                              application_api_params[:id],
-                                              application_api_params[:primaryApplicantContact])
+        response = rest_lease_service.submit_lease(
+          application_api_params[:lease].merge(
+            application_id: application_api_params[:id],
+            primaryApplicantContact: application_api_params[:primaryApplicantContact],
+          ),
+        )
         logger.debug "lease submit response: #{response}"
       end
+
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
       render json: { application: application }
@@ -176,7 +182,7 @@ class Api::V1::ShortFormController < ApiController
     Force::CustomApi::ApplicationService.new(current_user)
   end
 
-  def lease_service
-    Force::LeaseService.new(current_user)
+  def rest_lease_service
+    Force::Rest::LeaseService.new(current_user)
   end
 end

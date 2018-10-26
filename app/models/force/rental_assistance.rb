@@ -1,10 +1,18 @@
+# frozen_string_literal: true
+
 module Force
+  # Represent a rental assistance object. Provide mapping between
+  # Salesforce object field names, Salesforce custom API field names,
+  # and LAP domain field names for rental assistances.
   class RentalAssistance < Force::ObjectBase
     FIELD_NAME_MAPPINGS = [
-      { domain: 'type_of_assistance', salesforce: 'Type_of_Assistance' },
-      { domain: 'recurring_assistance', salesforce: 'Recurring_Assistance' },
-      { domain: 'assistance_amount', salesforce: 'Assistance_Amount' },
-      { domain: 'recipient', salesforce: 'Recurring_Assistance' },
+      { domain: 'assistance_amount', salesforce: 'Assistance_Amount__c' },
+      { domain: 'id', salesforce: 'Id' },
+      { domain: 'lease', salesforce: 'Lease__c' },
+      { domain: 'other_assistance_name', salesforce: 'Other_Assistance_Name__c' },
+      { domain: 'recipient', salesforce: 'Household_Member__c' },
+      { domain: 'recurring_assistance', salesforce: 'Recurring_Assistance__c' },
+      { domain: 'type_of_assistance', salesforce: 'Type_of_Assistance__c' },
     ].freeze
   end
 end

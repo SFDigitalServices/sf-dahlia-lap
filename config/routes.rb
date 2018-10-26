@@ -3,14 +3,16 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  # devise routes
+  resources :pattern_library, only: %w[index]
+
+  # Devise routes
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   as :user do
     root to: 'pages#home'
     delete '/users/sign_out' => 'overrides/sessions#destroy'
   end
 
-  # salesforce resources
+  # Salesforce resources
   resources :listings, only: %w[index show] do
     resources :applications, only: %w[new index], module: 'listings'
     collection do
@@ -27,25 +29,28 @@ Rails.application.routes.draw do
     resources :supplementals, only: %w[index], module: 'applications'
   end
 
-  resources :pattern_library, only: %w[index]
-
-  ## --- API namespacing
+  # API namespacing
   namespace :api do
     namespace :v1 do
-      scope '/short-form' do
-        post 'submit' => 'short_form#submit'
+      get 'ami' => 'ami#get'
+
+      resources :applications, only: %w[index update]
+
+      scope '/field-update-comments' do
+        post 'create' => 'field_update_comments#create'
       end
+
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
       end
 
-      resources :applications, only: %w[index update]
-      scope '/field-update-comments' do
-        post 'create' => 'field_update_comments#create'
-      end
-      get 'ami' => 'ami#get'
       resources :preferences, only: %w[update]
-      resources :rental_assistances, only: %w[create update]
+
+      resources :rental_assistances, path: '/rental-assistances', only: %w[create update]
+
+      scope '/short-form' do
+        post 'submit' => 'short_form#submit'
+      end
     end
   end
 end

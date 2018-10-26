@@ -1,13 +1,27 @@
 # frozen_string_literal: true
+
 module Api
   module V1
-    class RentalAssistanceController < ApiController
+    # RESTful JSON API for rental assistance actions
+    class RentalAssistancesController < ApiController
       def create
-        rest_rental_assistance_service.create(rental_assistance_params)
+        response = rest_rental_assistance_service.create(rental_assistance_params)
+
+        if response
+          render json: true
+        else
+          render status: 422, json: false
+        end
       end
 
       def update
-        rest_rental_assistance_service.update(rental_assistance_params)
+        response = rest_rental_assistance_service.update(rental_assistance_params)
+
+        if response
+          render json: true
+        else
+          render status: 422, json: false
+        end
       end
 
       private
@@ -17,7 +31,15 @@ module Api
       end
 
       def rental_assistance_params
-        params.require(:rental_assistance).permit!
+        params.require(:rental_assistance).permit(
+          :assistance_amount,
+          :id,
+          :lease,
+          :other_assistance_name,
+          :recipient,
+          :recurring_assistance,
+          :type_of_assistance,
+        )
       end
     end
   end
