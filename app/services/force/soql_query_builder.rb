@@ -85,7 +85,7 @@ module Force
     end
 
     def pages
-      total_size / page_size
+      total_size.to_f / page_size.to_f
     end
 
     def paginate?
