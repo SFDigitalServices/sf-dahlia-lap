@@ -1,5 +1,5 @@
 import React from 'react'
-import { filter, isEmpty, overSome } from 'lodash'
+import { filter, some, overSome } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
 import {
@@ -27,10 +27,29 @@ const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
   )
 }
 
+const TypeOfProofWithoutFile = ({type}) => {
+  return (
+    <ul>
+      <li>
+        {type}
+      </li>
+    </ul>
+  )
+}
+
 const getAttachments = (preference, proofFiles, fileBaseUrl) => {
-  const selectedProofFiles = filter(proofFiles, { related_application_preference: preference.id })
-  return (!isEmpty(selectedProofFiles) &&
-  <ProofFilesList proofFiles={selectedProofFiles} fileBaseUrl={fileBaseUrl} />)
+  let typeOfProof = preference.recordtype_developername === 'L_W' ? preference.lw_type_of_proof : preference.type_of_proof
+  let proofFilesForPreference = filter(proofFiles, { related_application_preference: preference.id })
+
+  let isRentBurdenedAWithFiles = preference.recordtype_developername === 'RB_AHP' && some(proofFilesForPreference)
+  let isNotRentBurdenedWithFiles = preference.recordtype_developername !== 'RB_AHP' && some(proofFilesForPreference)
+  let typeOfProofMatchesFileType = typeOfProof === proofFilesForPreference[0].document_type
+
+  if (isRentBurdenedAWithFiles || (isNotRentBurdenedWithFiles && typeOfProofMatchesFileType)) {
+    return <ProofFilesList proofFiles={proofFilesForPreference} fileBaseUrl={fileBaseUrl} />
+  } else if (isNotRentBurdenedWithFiles && !typeOfProofMatchesFileType) {
+    return <TypeOfProofWithoutFile type={typeOfProof} />
+  }
 }
 
 export const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
