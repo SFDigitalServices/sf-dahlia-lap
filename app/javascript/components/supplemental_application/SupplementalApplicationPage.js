@@ -48,9 +48,9 @@ class SupplementalApplicationPage extends React.Component {
         loading: false,
         status: props.application.processing_status
       },
+      rentalAssistances: props.rentalAssistances,
       addNewRentalAssistance: false,
-      showAddRentalAssistanceBtn: true,
-      rentalAssistances: []
+      showAddRentalAssistanceBtn: true
     }
   }
 
@@ -215,7 +215,7 @@ class SupplementalApplicationPage extends React.Component {
         rentalAssistances[idx] = rentalAssistance
 
         return {
-          rentalAssistancesList: rentalAssistances,
+          rentalAssistances: rentalAssistances,
           addNewRentalAssistance: false,
           showAddRentalAssistanceBtn: true
         }
@@ -254,8 +254,8 @@ class SupplementalApplicationPage extends React.Component {
       statusModal,
       loading,
       persistedApplication,
-      addNewRentalAssistance,
       rentalAssistances,
+      addNewRentalAssistance,
       showAddRentalAssistanceBtn
     } = this.state
     const pageHeader = {
@@ -333,14 +333,15 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits, rentalAssistances }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplicationAction(values),
     fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
-    availableUnits: mapList(mapUnit, availableUnits)
+    availableUnits: mapList(mapUnit, availableUnits),
+    rentalAssistances: rentalAssistances
   }
 }
 
