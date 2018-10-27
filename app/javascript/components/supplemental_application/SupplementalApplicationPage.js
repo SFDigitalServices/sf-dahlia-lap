@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, clone, some, sampleSize, findIndex } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -189,7 +189,7 @@ class SupplementalApplicationPage extends React.Component {
     )
 
     if (response) {
-      rentalAssistance.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
+      rentalAssistance.id = response.id
       this.setState(prev => {
         return {
           rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
@@ -225,20 +225,23 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleDeleteRentalAssistance = (rentalAssistance) => {
-    // TODO: Add a real call to Salesforce to delete the
-    // rental assistance record.
+  handleDeleteRentalAssistance = async (rentalAssistance) => {
+    const response = await apiService.deleteRentalAssistance(rentalAssistance.id)
 
-    this.setState(prev => {
-      const rentalAssistances = cloneDeep(prev.rentalAssistances)
-      const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
-      rentalAssistances.splice(idx, 1)
-      return {
-        rentalAssistances: rentalAssistances,
-        addNewRentalAssistance: false,
-        showAddRentalAssistanceBtn: true
-      }
-    })
+    if (response) {
+      this.setState(prev => {
+        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+        rentalAssistances.splice(idx, 1)
+        return {
+          rentalAssistances: rentalAssistances,
+          addNewRentalAssistance: false,
+          showAddRentalAssistanceBtn: true
+        }
+      })
+    } else {
+      Alerts.error()
+    }
   }
 
   hideAddRentalAssistanceBtn = () => {

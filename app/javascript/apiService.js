@@ -94,6 +94,10 @@ const updateRentalAssistance = async (rentalAssistance, applicationId) => {
   return apiCall('put', `/rental-assistances/${id}`, putData)
 }
 
+const deleteRentalAssistance = async (rentalAssistanceId) => {
+  return apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
@@ -103,5 +107,6 @@ export default {
   updatePreference,
   createFieldUpdateComment,
   createRentalAssistance,
-  updateRentalAssistance
+  updateRentalAssistance,
+  deleteRentalAssistance
 }

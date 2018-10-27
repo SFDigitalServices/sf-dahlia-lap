@@ -12,7 +12,7 @@ module Api
         )
 
         if response
-          render json: true
+          render json: { id: response }
         else
           render status: 422, json: false
         end
@@ -22,6 +22,16 @@ module Api
         response = rest_rental_assistance_service.update(
           rental_assistance_params.merge(lease: @lease_id),
         )
+
+        if response
+          render json: true
+        else
+          render status: 422, json: false
+        end
+      end
+
+      def destroy
+        response = rest_rental_assistance_service.destroy(params[:id])
 
         if response
           render json: true

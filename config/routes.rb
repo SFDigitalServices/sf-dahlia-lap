@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
       resources :preferences, only: %w[update]
 
-      resources :rental_assistances, path: '/rental-assistances', only: %w[create update]
+      resources :rental_assistances, path: '/rental-assistances', only: %w[create update destroy]
 
       scope '/short-form' do
         post 'submit' => 'short_form#submit'
