@@ -37,7 +37,7 @@ module Force
         application['preferences'] = app_preferences(id)
         application['proof_files'] = app_proof_files(id)
         application['household_members'] = app_household_members(application)
-        application['lease'] = soql_lease_service.lease(id)
+        application['lease'] = soql_lease_service.application_lease(id)
         application
       end
 

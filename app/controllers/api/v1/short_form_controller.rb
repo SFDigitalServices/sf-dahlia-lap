@@ -9,17 +9,7 @@ class Api::V1::ShortFormController < ApiController
     short_form_validator = ShortFormValidator.new(application_api_params)
 
     if short_form_validator.valid?
-      # Create or update lease if present
-      if application_api_params.key?(:lease)
-        response = rest_lease_service.submit_lease(
-          application_api_params[:lease].merge(
-            application_id: application_api_params[:id],
-            primaryApplicantContact: application_api_params[:primaryApplicantContact],
-          ),
-        )
-        logger.debug "lease submit response: #{response}"
-      end
-
+      submit_lease if application_api_params.key?(:lease)
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
       render json: { application: application }
@@ -184,5 +174,35 @@ class Api::V1::ShortFormController < ApiController
 
   def rest_lease_service
     Force::Rest::LeaseService.new(current_user)
+  end
+
+  def soql_lease_service
+    Force::Soql::LeaseService.new(current_user)
+  end
+
+  def submit_lease
+    lease_params = application_api_params[:lease]
+    lease_params[:application_id] = application_api_params[:id]
+    lease_params[:primaryApplicantContact] = application_api_params[:primaryApplicantContact]
+
+    if lease_params[:id]
+      # If the lease is already present, we update it
+      response = rest_lease_service.update(lease_params)
+    else
+      # Before creating a lease, we must check if one already exists for the
+      # given application. An application must only have one lease. Even if an
+      # ID is not passed with the lease params from the supp app short form, a
+      # lease may still exist. For example, if the user created rental assistances
+      # from the supp app page, that will have created a blank lease before the
+      # entire supp app form was saved.
+      existing_lease = soql_lease_service.application_lease(application_api_params[:id])
+      if existing_lease
+        response = rest_lease_service.update(lease_params.merge(id: existing_lease[:Id]))
+      else
+        response = rest_lease_service.create(lease_params)
+      end
+    end
+
+    logger.debug "lease submit response: #{response}"
   end
 end

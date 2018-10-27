@@ -4,7 +4,7 @@ module Force
   module Soql
     # Provide Salesforce SOQL API interactions for leases
     class LeaseService < Force::Base
-      def lease(application_id)
+      def application_lease(application_id)
         builder
           .from(:Lease__c)
           .select(

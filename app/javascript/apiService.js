@@ -77,17 +77,19 @@ const updateApplication = async (data) => {
   return apiCall('put', `/applications/${id}`, postData)
 }
 
-const createRentalAssistance = async (data) => {
+const createRentalAssistance = async (rentalAssistance, applicationId) => {
   const postData = {
-    rental_assistance: data
+    rental_assistance: rentalAssistance,
+    application_id: applicationId
   }
   return apiCall('post', '/rental-assistances', postData)
 }
 
-const updateRentalAssistance = async (data) => {
-  const id = data.id
+const updateRentalAssistance = async (rentalAssistance, applicationId) => {
+  const id = rentalAssistance.id
   const putData = {
-    rental_assistance: data
+    rental_assistance: rentalAssistance,
+    application_id: applicationId
   }
   return apiCall('put', `/rental-assistances/${id}`, putData)
 }

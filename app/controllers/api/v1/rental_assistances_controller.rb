@@ -4,8 +4,12 @@ module Api
   module V1
     # RESTful JSON API for rental assistance actions
     class RentalAssistancesController < ApiController
+      before_action :find_or_create_application_lease
+
       def create
-        response = rest_rental_assistance_service.create(rental_assistance_params)
+        response = rest_rental_assistance_service.create(
+          rental_assistance_params.merge(lease: @lease_id),
+        )
 
         if response
           render json: true
@@ -15,7 +19,9 @@ module Api
       end
 
       def update
-        response = rest_rental_assistance_service.update(rental_assistance_params)
+        response = rest_rental_assistance_service.update(
+          rental_assistance_params.merge(lease: @lease_id),
+        )
 
         if response
           render json: true
@@ -28,6 +34,24 @@ module Api
 
       def rest_rental_assistance_service
         Force::Rest::RentalAssistanceService.new(current_user)
+      end
+
+      def soql_lease_service
+        Force::Soql::LeaseService.new(current_user)
+      end
+
+      def rest_lease_service
+        Force::Rest::LeaseService.new(current_user)
+      end
+
+      def find_or_create_application_lease
+        existing_lease = soql_lease_service.application_lease(params[:application_id])
+        if existing_lease
+          @lease_id = existing_lease[:Id]
+        else
+          new_lease_id = rest_lease_service.create(application_id: params[:application_id])
+          @lease_id = new_lease_id
+        end
       end
 
       def rental_assistance_params

@@ -183,7 +183,10 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveNewRentalAssistance = async (rentalAssistance) => {
-    const response = await apiService.createRentalAssistance(rentalAssistance)
+    const response = await apiService.createRentalAssistance(
+      rentalAssistance,
+      this.state.persistedApplication.id
+    )
 
     if (response) {
       rentalAssistance.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
@@ -200,7 +203,10 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleUpdateRentalAssistance = async (rentalAssistance) => {
-    const response = await apiService.updateRentalAssistance(rentalAssistance)
+    const response = await apiService.updateRentalAssistance(
+      rentalAssistance,
+      this.state.persistedApplication.id
+    )
 
     if (response) {
       this.setState(prev => {
