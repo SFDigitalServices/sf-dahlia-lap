@@ -561,6 +561,7 @@ Array [
                     >
                       <input
                         checked={true}
+                        className={undefined}
                         id="housing_voucher_or_subsidy-undefined-yes"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -578,6 +579,7 @@ Array [
                     >
                       <input
                         checked={false}
+                        className={undefined}
                         id="housing_voucher_or_subsidy-undefined-no"
                         onBlur={[Function]}
                         onChange={[Function]}

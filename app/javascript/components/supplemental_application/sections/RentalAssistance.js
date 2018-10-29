@@ -11,6 +11,7 @@ import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import FormItem from '~/components/organisms/FormItem'
 import YesNoRadioGroup from '../YesNoRadioGroup'
 import formUtils from '~/utils/formUtils'
+import { withField, Field } from '~/utils/form/Field'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -33,6 +34,10 @@ const typeOfAssistance = [
 ]
 
 const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
+
+const YesNoRadioGroupField = withField((field, classNames, rest) => {
+  return <YesNoRadioGroup id={field} field={field} className='no-margin' inputClassName={classNames} {...rest} />
+})
 
 class RentalAssistanceTable extends React.Component {
   columns = [
@@ -59,7 +64,7 @@ class RentalAssistanceTable extends React.Component {
 
   buildRows = () => this.props.rentalAssistancesList.map(ra => {
     const appMember = this.props.applicationMembers.find(m => m.id === ra.recipient)
-    const appMemberName = `${appMember.first_name} ${appMember.last_name}`
+    const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : null
 
     return [
       { content: ra.other_assistance_name || ra.type_of_assistance },
@@ -124,6 +129,18 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
 
 const isOther = (values) => values.type_of_assistance === 'Other'
 
+const isRequired = (value, message) => isEmpty(value) ? message : null
+
+const validateError = (values) => {
+  return {
+    type_of_assistance: isRequired(values.type_of_assistance, 'is required.'),
+    recurring_assistance: isRequired(values.recurring_assistance, 'is required.'),
+    assistance_amount: isRequired(values.assistance_amount, 'is required.'),
+    recipient: isRequired(values.recipient, 'is required.'),
+    other_assistance_name: isOther(values) ? isRequired(values.other_assistance_name, 'is required.') : null
+  }
+}
+
 const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
   const applicationMembersOptions = applicationMembers.map(member => (
     {
@@ -133,39 +150,48 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
   ))
 
   return (
-    <Form onSubmit={onSave} defaultValues={values}>
+    <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
       {formApi => (
         <div className='app-editable expand-wide scrollable-table-nested'>
           <FormGrid.Row expand={false}>
-            <FormItem label='Type of Assistance'>
-              <Select
+            <FormGrid.Item>
+              <Field.Select
+                label='Type of Assistance'
                 field='type_of_assistance'
                 options={typeOfAssistanceOptions}
               />
-            </FormItem>
-            <FormItem label='Recurring Assistance'>
-              <YesNoRadioGroup
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <YesNoRadioGroupField
+                label='Recurring Assistance'
                 field='recurring_assistance'
                 uniqId={(values && values.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
               />
-            </FormItem>
-            <FormItem label='Assistance Amount'>
-              <Text field='assistance_amount' type='number' />
-            </FormItem>
-            <FormItem label='Recipient'>
-              <Select
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <Field.Text
+                label='Assistance amount'
+                field='assistance_amount'
+                type='number'
+              />
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <Field.Select
+                label='Recipient'
                 field='recipient'
                 options={applicationMembersOptions}
               />
-            </FormItem>
+            </FormGrid.Item>
           </FormGrid.Row>
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
-              <FormItem label='Other Assistance Name'>
-                <Text field='other_assistance_name' />
-              </FormItem>
+              <FormGrid.Item>
+                <Field.Text
+                  label='Other assistance name'
+                  field='other_assistance_name' />
+              </FormGrid.Item>
             </FormGrid.Row>
           )}
           <FormGrid.Row expand={false}>
