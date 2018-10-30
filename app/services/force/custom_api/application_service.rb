@@ -48,6 +48,7 @@ module Force
       end
 
       def submit(data)
+        puts 'WHAT is being posted', application_defaults.merge(data)
         api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(data))
       end
 
