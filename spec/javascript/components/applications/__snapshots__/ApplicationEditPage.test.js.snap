@@ -367,7 +367,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST, SAN FRANCISCO, CA, 94105-1804"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -404,7 +404,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="94105-1804"
                         />
                       </div>
                     </div>
@@ -624,7 +624,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST, SAN FRANCISCO, CA, 94105-1804"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -636,7 +636,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="SAN FRANCISCO"
                         />
                       </div>
                       <div
@@ -649,7 +649,7 @@ Array [
                           maxLength="2"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="CA"
                         />
                       </div>
                       <div
@@ -661,7 +661,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="94105-1804"
                         />
                       </div>
                     </div>
@@ -1474,7 +1474,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST, SAN FRANCISCO, CA, 94105-1804"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -1511,7 +1511,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="94105-1804"
                         />
                       </div>
                     </div>
@@ -1731,7 +1731,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST, SAN FRANCISCO, CA, 94105-1804"
+                          value="123 MAIN ST"
                         />
                       </div>
                       <div
@@ -1743,7 +1743,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="SAN FRANCISCO"
                         />
                       </div>
                       <div
@@ -1756,7 +1756,7 @@ Array [
                           maxLength="2"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="CA"
                         />
                       </div>
                       <div
@@ -1768,7 +1768,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value=""
+                          value="94105-1804"
                         />
                       </div>
                     </div>
