@@ -1,6 +1,6 @@
 import React from 'react'
 import { isEmpty } from 'lodash'
-import { Form, Select, Text } from 'react-form'
+import { Form } from 'react-form'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
@@ -8,9 +8,9 @@ import Button from '~/components/atoms/Button'
 import { withContext } from '../context'
 import FormGrid from '~/components/molecules/FormGrid'
 import ExpandablePanel from '~/components/molecules/ExpandablePanel'
-import FormItem from '~/components/organisms/FormItem'
 import YesNoRadioGroup from '../YesNoRadioGroup'
 import formUtils from '~/utils/formUtils'
+import { withField, Field } from '~/utils/form/Field'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -33,6 +33,10 @@ const typeOfAssistance = [
 ]
 
 const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
+
+const YesNoRadioGroupField = withField((field, classNames, rest) => {
+  return <YesNoRadioGroup id={field} field={field} className='no-margin' inputClassName={classNames} {...rest} />
+})
 
 class RentalAssistanceTable extends React.Component {
   columns = [
@@ -125,6 +129,14 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
 
 const isOther = (values) => values.type_of_assistance === 'Other'
 
+const isRequired = (value, message) => isEmpty(value) ? message : null
+
+const validateError = (values) => {
+  return {
+    type_of_assistance: isRequired(values.type_of_assistance, 'is required.')
+  }
+}
+
 const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
   const applicationMembersOptions = applicationMembers.map(member => {
     return {
@@ -132,52 +144,53 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
       value: member.id
     }
   })
-  console.log(applicationMembersOptions)
 
   return (
-    <Form applicationMembersOptions={onSave} defaultValues={values}>
+    <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
       {formApi => (
         <div className='app-editable expand-wide scrollable-table-nested rental-assistance-form'>
           <FormGrid.Row expand={false}>
-            <FormItem label='Type of Assistance'>
-              <Select
+            <FormGrid.Item>
+              <Field.Select
+                label='Type of Assistance'
                 field='type_of_assistance'
                 options={typeOfAssistanceOptions}
                 className='rental-assistance-type'
               />
-            </FormItem>
-            <FormItem label='Recurring Assistance'>
-              <YesNoRadioGroup
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <YesNoRadioGroupField
+                label='Recurring Assistance'
                 field='recurring_assistance'
                 uniqId={(values && values.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
                 className='rental-assistance-recurring'
               />
-            </FormItem>
-            <FormItem label='Assistance Amount'>
-              <Text
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <Field.Text
+                label='Assistance amount'
                 field='assistance_amount'
                 type='number'
-                className='rental-assistance-amount'
               />
-            </FormItem>
-            <FormItem label='Recipient'>
-              <Select
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <Field.Select
+                label='Recipient'
                 field='recipient'
                 options={applicationMembersOptions}
                 className='rental-assistance-recipient'
               />
-            </FormItem>
+            </FormGrid.Item>
           </FormGrid.Row>
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
-              <FormItem label='Other Assistance Name'>
-                <Text
-                  field='other_assistance_name'
-                  className='rental-assistance-other'
-                />
-              </FormItem>
+              <FormGrid.Item>
+                <Field.Text
+                  label='Other assistance name'
+                  field='other_assistance_name' />
+              </FormGrid.Item>
             </FormGrid.Row>
           )}
           <FormGrid.Row expand={false}>
@@ -244,7 +257,7 @@ const RentalAssistance = ({ store }) => {
         />
       )}
       { showAddRentalAssistanceBtn && (
-        <Button text='Add Rental Assistance' small classes={['rental-assistance-add']} onClick={handleOpenRentalAssistancePanel} />
+        <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
       )}
     </React.Fragment>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
+import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -30,7 +30,7 @@ const getAmis = async (chartsToLoad) => {
 }
 
 const getApplicationMembers = (application) => {
-  return application.household_members
+  return concat([application.applicant], application.household_members || [])
 }
 
 class SupplementalApplicationPage extends React.Component {
