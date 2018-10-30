@@ -923,6 +923,7 @@ Array [
           >
             <button
               className="button small"
+              id="add-rental-assistance"
               onClick={[Function]}
             >
               Add Rental Assistance
@@ -7125,12 +7126,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               }
                                             >
                                               <Button
+                                                id="add-rental-assistance"
                                                 onClick={[Function]}
                                                 small={true}
                                                 text="Add Rental Assistance"
                                               >
                                                 <button
                                                   className="button small"
+                                                  id="add-rental-assistance"
                                                   onClick={[Function]}
                                                 >
                                                   Add Rental Assistance

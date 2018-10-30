@@ -254,7 +254,7 @@ const RentalAssistance = ({ store }) => {
         />
       )}
       { showAddRentalAssistanceBtn && (
-        <Button text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
+        <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
       )}
     </React.Fragment>
   )
