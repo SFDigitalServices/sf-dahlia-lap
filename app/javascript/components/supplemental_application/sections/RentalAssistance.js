@@ -133,11 +133,7 @@ const isRequired = (value, message) => isEmpty(value) ? message : null
 
 const validateError = (values) => {
   return {
-    type_of_assistance: isRequired(values.type_of_assistance, 'is required.'),
-    recurring_assistance: isRequired(values.recurring_assistance, 'is required.'),
-    assistance_amount: isRequired(values.assistance_amount, 'is required.'),
-    recipient: isRequired(values.recipient, 'is required.'),
-    other_assistance_name: isOther(values) ? isRequired(values.other_assistance_name, 'is required.') : null
+    type_of_assistance: isRequired(values.type_of_assistance, 'is required.')
   }
 }
 
