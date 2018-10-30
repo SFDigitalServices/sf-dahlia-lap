@@ -80,6 +80,7 @@ class RentalAssistanceTable extends React.Component {
           rows={rows}
           expanderRenderer={this.expanderRenderer}
           expandedRowRenderer={this.expandedRowRenderer}
+          classes={['rental-assistances']}
         />
       </TableWrapper>
     )
@@ -125,22 +126,24 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
 const isOther = (values) => values.type_of_assistance === 'Other'
 
 const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
-  const applicationMembersOptions = applicationMembers.map(member => (
-    {
+  const applicationMembersOptions = applicationMembers.map(member => {
+    return {
       label: `${member.first_name} ${member.last_name}`,
       value: member.id
     }
-  ))
+  })
+  console.log(applicationMembersOptions)
 
   return (
-    <Form onSubmit={onSave} defaultValues={values}>
+    <Form applicationMembersOptions={onSave} defaultValues={values}>
       {formApi => (
-        <div className='app-editable expand-wide scrollable-table-nested'>
+        <div className='app-editable expand-wide scrollable-table-nested rental-assistance-form'>
           <FormGrid.Row expand={false}>
             <FormItem label='Type of Assistance'>
               <Select
                 field='type_of_assistance'
                 options={typeOfAssistanceOptions}
+                className='rental-assistance-type'
               />
             </FormItem>
             <FormItem label='Recurring Assistance'>
@@ -149,22 +152,31 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
                 uniqId={(values && values.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
+                className='rental-assistance-recurring'
               />
             </FormItem>
             <FormItem label='Assistance Amount'>
-              <Text field='assistance_amount' type='number' />
+              <Text
+                field='assistance_amount'
+                type='number'
+                className='rental-assistance-amount'
+              />
             </FormItem>
             <FormItem label='Recipient'>
               <Select
                 field='recipient'
                 options={applicationMembersOptions}
+                className='rental-assistance-recipient'
               />
             </FormItem>
           </FormGrid.Row>
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
               <FormItem label='Other Assistance Name'>
-                <Text field='other_assistance_name' />
+                <Text
+                  field='other_assistance_name'
+                  className='rental-assistance-other'
+                />
               </FormItem>
             </FormGrid.Row>
           )}
@@ -232,7 +244,7 @@ const RentalAssistance = ({ store }) => {
         />
       )}
       { showAddRentalAssistanceBtn && (
-        <Button text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
+        <Button text='Add Rental Assistance' small classes={['rental-assistance-add']} onClick={handleOpenRentalAssistancePanel} />
       )}
     </React.Fragment>
   )
