@@ -44,6 +44,7 @@ Rails.application.routes.draw do
         post 'create' => 'field_update_comments#create'
       end
       get 'ami' => 'ami#get'
+      resources :lease_up_applications, path: 'lease-ups/applications', only: %w[index]
       resources :preferences, only: %w[update]
     end
   end

@@ -40,6 +40,16 @@ const fetchApplications = async ({ page, filters }) => {
   })
 }
 
+const fetchLeaseUpApplications = async (listingId, page) => {
+  // Fetch applications associated with a lease up listing.
+  return apiCall('get', '/lease-ups/applications', {
+    params: {
+      listing_id: listingId,
+      page: page
+    }
+  })
+}
+
 const getAMI = async ({ chartType, chartYear }) => {
   return apiCall('get', '/ami', {
     params: {
@@ -82,6 +92,7 @@ export default {
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
+  fetchLeaseUpApplications,
   getAMI,
   updatePreference,
   createFieldUpdateComment
