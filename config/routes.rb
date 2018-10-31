@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root to: 'pages#home'
 
@@ -31,18 +33,18 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       scope '/short-form' do
-        put 'update' => 'short_form#update'
         post 'submit' => 'short_form#submit'
       end
       scope '/flagged-applications' do
         put 'update' => 'flagged_applications#update'
       end
 
-      resources :applications, only: %w[index]
+      resources :applications, only: %w[index update]
       scope '/field-update-comments' do
         post 'create' => 'field_update_comments#create'
       end
       get 'ami' => 'ami#get'
+      resources :preferences, only: %w[update]
     end
   end
 end

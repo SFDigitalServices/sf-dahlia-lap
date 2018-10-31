@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Overrides
   # Overrides to DeviseTokenAuth
   class SessionsController < Devise::SessionsController

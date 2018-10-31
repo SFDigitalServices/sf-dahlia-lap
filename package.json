@@ -31,6 +31,7 @@
     "react-form": "2.6.1",
     "react-json-tree": "^0.11.0",
     "react-modal": "^3.4.4",
+    "react-scrollable-anchor": "^0.6.1",
     "react-table": "^6.7.4",
     "turbolinks": "^5.0.3",
     "webpacker-react": "^0.3.2"
@@ -43,6 +44,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-runtime": "^6.26.0",
     "caniuse-lite": "^1.0.30000760",
+    "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
@@ -63,13 +65,19 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "lint": "standard \"./**/*.js\" | snazzy",
-    "lint:fix": "standard \"./**/*.js\" --fix | snazzy",
     "unit": "jest --testPathPattern=.*.test.js$",
-    "e2e":  "jest --testPathPattern=.*e2e.*"
+    "e2e": "jest --testPathPattern=.*e2e.* --runInBand",
+    "test:all": "jest",
+    "test:unit": "jest --testPathPattern=.*.test.js$",
+    "test:e2e": "jest --testPathPattern=.*e2e.* --runInBand",
+    "lint": "standard \"./**/*.js\" | snazzy",
+    "lint:fix": "standard \"./**/*.js\" --fix | snazzy"
   },
   "jest": {
-    "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test|e2e).js?(x)" ],
+    "testMatch": [
+      "**/__tests__/**/*.js?(x)",
+      "**/?(*.)+(spec|test|e2e).js?(x)"
+    ],
     "testURL": "http://localhost/",
     "setupFiles": [
       "./spec/javascript/jestsetup.js"
@@ -88,8 +96,15 @@
     ]
   },
   "standard": {
-    "ignore": ["./node_modules/**/*", "./spec/javascript/fixtures/*", "app/assets/javascripts/cable.js"],
-    "env": [ "jest" ],
+    "ignore": [
+      "./node_modules/**/*",
+      "./spec/javascript/fixtures/*",
+      "app/assets/javascripts/cable.js",
+      "public/**/*"
+    ],
+    "env": [
+      "jest"
+    ],
     "parser": "babel-eslint"
   }
 }

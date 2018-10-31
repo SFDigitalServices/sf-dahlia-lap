@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Rails controller for the pattern library
 class PatternLibraryController < ApplicationController
   def index

@@ -1,12 +1,14 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some } from 'lodash'
 
+import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
-import { updateApplicationAction } from './actions'
-import { mapList } from '~/components/mappers/utils'
 import CardLayout from '../layouts/CardLayout'
+import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
+import Alerts from '~/components/Alerts'
+import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } from './actions'
+import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import Context from './context'
@@ -31,10 +33,17 @@ class SupplementalApplicationPage extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      // A frozen copy of the application state that is currently persisted to salesforce. This is the latest saved copy.
+      // A frozen copy of the application state that is currently persisted to
+      // Salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
+      confirmedPreferencesFailed: false,
       amis: {},
-      amiCharts: []
+      amiCharts: [],
+      loading: false,
+      statusModal: {
+        loading: false,
+        status: props.application.processing_status
+      }
     }
   }
 
@@ -47,63 +56,162 @@ class SupplementalApplicationPage extends React.Component {
     getAmis(chartsToLoad).then(amis => this.setState({ amis }))
   }
 
-  handleSaveApplication = async (application) => {
-    const { persistedApplication } = this.state
-
-    // We clone the modified application in the UI since those are the fields we want to update
-    const synchedApplication = cloneDeep(application)
-
-    // Monthly rent and preferences are only updated in handleSavePreference below.
-    // We set this values so we keep whaterver we save in the panels
-    synchedApplication.total_monthly_rent = persistedApplication.total_monthly_rent
-    synchedApplication.preferences = cloneDeep(persistedApplication.preferences)
-
-    await updateApplicationAction(synchedApplication)
-    this.setState({ persistedApplication: synchedApplication })
+  setLoading = (loading) => {
+    this.setState({loading})
   }
 
-  handleSavePreference = async (preferenceIndex, application) => {
+  handleSaveApplication = async (application) => {
+    this.setLoading(true)
+
+    const response = await updateApplicationAction(application)
+
+    if (response !== false) {
+      // Reload the page to pull updated data from Salesforce
+      window.location.reload()
+    } else {
+      Alerts.error()
+      this.setLoading(false)
+    }
+  }
+
+  handleSavePreference = async (preferenceIndex, formApplicationValues) => {
     const { persistedApplication } = this.state
+    const responses = await Promise.all([
+      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
+      updatePreference(formApplicationValues.preferences[preferenceIndex])
+    ])
+    const failed = some(responses, response => response === false)
 
-    // We clone the lates saved copy, so we can use the latest saved fields.
-    const synchedApplication = cloneDeep(persistedApplication)
+    if (!failed) {
+      const updatedApplication = cloneDeep(persistedApplication)
+      updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
+      this.setState({
+        persistedApplication: updatedApplication,
+        confirmedPreferencesFailed: false
+      })
+    } else {
+      this.setState({ confirmedPreferencesFailed: true })
+    }
 
-    // We use the persisted copy and set only the fields updated in the panel
-    synchedApplication.total_monthly_rent = application.total_monthly_rent
-    synchedApplication.preferences[preferenceIndex] = application.preferences[preferenceIndex]
+    return !failed
+  }
 
-    await updateApplicationAction(synchedApplication)
-    this.setState({ persistedApplication: synchedApplication })
+  handleDismissError = (preferenceIndex) => {
+    this.setState({ confirmedPreferencesFailed: false })
+  }
+
+  updateStatusModal = (values) => {
+    this.setState(prevState => {
+      return {
+        statusModal: {
+          ...clone(prevState.statusModal),
+          ...values
+        }
+      }
+    })
+  }
+
+  openAddStatusCommentModal = () => {
+    this.setState({
+      statusModal: {
+        header: 'Add New Comment',
+        isOpen: true,
+        status: this.props.application.processing_status,
+        submitButton: 'Save'
+      }
+    })
+  }
+
+  openUpdateStatusModal = (value) => {
+    this.setState({
+      statusModal: {
+        submitButton: 'Update',
+        header: 'Update Status',
+        isOpen: true,
+        status: value
+      }
+    })
+  }
+
+  handleStatusModalClose = () => {
+    this.updateStatusModal({isOpen: false})
+  }
+
+  handleStatusModalStatusChange = (value) => {
+    this.updateStatusModal({status: value})
+  }
+
+  handleStatusModalSubmit = async (submittedValues, fromApplication) => {
+    this.setState({loading: true})
+    this.updateStatusModal({loading: true})
+    const data = {
+      status: this.state.statusModal.status,
+      comment: submittedValues.comment,
+      applicationId: this.state.persistedApplication.id
+    }
+    const appResponse = await updateApplicationAction(fromApplication)
+    const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
+
+    if (appResponse === false || commentResponse === false) {
+      this.updateStatusModal({
+        loading: false,
+        showAlert: true,
+        alertMsg: 'We were unable to make the update, please try again.',
+        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
+      })
+      this.setState({loading: false})
+    } else {
+      this.updateStatusModal({loading: false, isOpen: false})
+      // Reload the page to fetch the field update comment just created.
+      window.location.reload()
+    }
   }
 
   render () {
-    const { statusHistory, fileBaseUrl, application } = this.props
-    const { amis, amiCharts } = this.state
-
+    const { statusHistory, fileBaseUrl, availableUnits } = this.props
+    const {
+      confirmedPreferencesFailed,
+      amis,
+      amiCharts,
+      statusModal,
+      loading,
+      persistedApplication
+    } = this.state
     const pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
+      title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
         { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
-        { title: application.name, link: '#' }
+        { title: persistedApplication.listing.name, link: appPaths.toListingLeaseUps(persistedApplication.listing.id) },
+        { title: persistedApplication.name, link: '#' }
       ]
     }
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id) },
+        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
 
     const context = {
-      application: application,
+      application: persistedApplication,
       statusHistory: statusHistory,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
+      confirmedPreferencesFailed: confirmedPreferencesFailed,
+      onDismissError: this.handleDismissError,
       fileBaseUrl: fileBaseUrl,
       amiCharts: amiCharts,
-      amis: amis
+      amis: amis,
+      availableUnits: availableUnits,
+      loading: loading,
+      openAddStatusCommentModal: this.openAddStatusCommentModal,
+      openUpdateStatusModal: this.openUpdateStatusModal,
+      setLoading: this.setLoading,
+      statusModal: statusModal,
+      handleStatusModalClose: this.handleStatusModalClose,
+      handleStatusModalStatusChange: this.handleStatusModalStatusChange,
+      handleStatusModalSubmit: this.handleStatusModalSubmit
     }
 
     return (
@@ -126,19 +234,22 @@ const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
-
   applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
-
+  // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
+  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
+    delete applicationWithDefaults.lease.preference_used
+  }
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseURL, units }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplicationAction(values),
-    fileBaseUrl: fileBaseURL,
-    units: mapList(mapUnit, units)
+    fileBaseUrl: fileBaseUrl,
+    units: mapList(mapUnit, units),
+    availableUnits: mapList(mapUnit, availableUnits)
   }
 }
 

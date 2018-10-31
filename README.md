@@ -19,30 +19,83 @@ A portal for leasing agents to manage listings and applications.
 * `rails s`
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
 
-## To update css from Pattern Library
+## To update CSS from Pattern Library
 * `grunt`
 
-## To run tests
+## Linting
 
-Linting:
 To lint Ruby code run: `rubocop`
 
-To lint the react code run: `yarn lint`
+To lint the React code run: `yarn lint`
 
-Rails tests:
+
+## Rails tests
+
+### Running tests
 
 `bundle exec rake spec`
 
-Running React/Javascript unit tests:
+**Updating VCR Cassettes**
 
-`yarn test`
+If the Salesforce API changes for a request, or if the data sent to the API for a request has changed, you have to update the VCR cassettes affected. Cassettes are YAML files located in the `app/spec/vcr/` directory.
 
-Running React/Javascript e2e tests:
+In order to update the cassettes you have to:
 
-`yarn e2e`
+* Go to your failing test.
+* Locate the instruction that is creating the cassette with `VCR.use_cassette`.
+* Remove the cassette specified from `app/spec/vcr/`
+
+For example, for:
+```
+VCR.use_cassette('listings/applications_controller/index') do
+```
+
+You have to remove:
+```
+app/spec/vcr/listings/applications_controller/index.yml
+```
+
+Then re-run your test. **Be aware that now that request in your test will actually be run.** A new cassette will be automatically generated recording that new run of the request, and then subsequent runs of the test will use that recorded cassette for the request.
+
+## React/Javascript tests
+
+### Running unit tests
+
+`yarn test:unit`
+
+**Updating snapshots**
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
-`yarn test -u`
+`yarn test:unit -u`
 
-_Note2: Snapshots should be pushed to the repo_
+_Note: Snapshots should be pushed to the repo_
+
+### Running e2e tests
+
+To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/Exygy/sf-dahlia-lap/blob/master/spec/javascript/support/puppeteer/consts.js)
+
+**Run server**
+
+Run your Rails server locally in port 3000:
+
+`bundle exec rails server -p 3000`
+
+Run your webpack server locally
+
+`bin/webpack-dev-server --hot`
+
+**Run tests**
+
+`yarn test:e2e`
+
+
+### Running all or individual tests
+
+To run all tests (unit and e2e):
+
+`yarn test:all`
+
+To run an individual test:
+
+`yarn test:all path/to/test`

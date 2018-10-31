@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Force
   # Requests to Salesforce API
   class Api

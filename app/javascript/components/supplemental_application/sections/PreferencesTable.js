@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, reject, isEmpty, overSome, findIndex } from 'lodash'
+import { map, reject, isEmpty, overSome, findIndex, orderBy } from 'lodash'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -12,7 +12,7 @@ import {
   getPreferenceName
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
-import { getFullHousehold } from '~/components/applications/application_form/preferences/utils'
+import { withContext } from '../context'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -43,6 +43,13 @@ const buildRow = (proofFiles, fileBaseUrl) => preference => {
   ]
 }
 
+const buildRows = (application, fileBaseUrl) => {
+  const { preferences } = application
+  const proofFiles = application.proof_files
+  const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
+  return map(onlyValid(sortedPreferences), buildRow(proofFiles, fileBaseUrl))
+}
+
 const columns = [
   { content: '' },
   { content: 'Preference Name' },
@@ -53,36 +60,45 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave) => (row, toggle) => {
+const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  return <Panel
-    application={application}
-    preferenceIndex={preferenceIndex}
-    applicationMembers={applicationMembers}
-    onSave={onSave}
-    onClose={toggle}
-  />
+  const handleOnClose = (preferenceIndex) => {
+    toggle()
+    onPanelClose && onPanelClose(preferenceIndex)
+  }
+  const handleOnSave = async (preferenceIndex, application) => {
+    const response = await onSave(preferenceIndex, application)
+    response && handleOnClose()
+  }
+
+  return (
+    <Panel
+      application={application}
+      preferenceIndex={preferenceIndex}
+      onSave={handleOnSave}
+      onClose={handleOnClose}
+      formApi={formApi}
+    />
+  )
 }
 
 const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
   return (!expanded && hasExpanderButton(prefName) &&
-  <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
+    <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onSave }) => {
-  const { preferences } = application
-  const proofFiles = application.proof_files
-  const applicationMembers = getFullHousehold(application)
-  const rows = map(onlyValid(preferences), buildRow(proofFiles, fileBaseUrl))
-  return (<TableWrapper>
-    <ExpandableTable
-      columns={columns}
-      rows={rows}
-      expanderRenderer={expanderAction}
-      expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave)}
-    />
-  </TableWrapper>)
+const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
+  const rows = buildRows(application, fileBaseUrl)
+  return (
+    <TableWrapper>
+      <ExpandableTable
+        columns={columns}
+        rows={rows}
+        expanderRenderer={expanderAction}
+        expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
+      />
+    </TableWrapper>)
 }
 
-export default PreferencesTable
+export default withContext(PreferencesTable)

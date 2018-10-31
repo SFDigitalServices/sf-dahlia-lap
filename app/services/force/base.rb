@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'restforce'
 require 'facets/hash/rekey'
 
@@ -6,7 +8,7 @@ module Force
   class Base
     def initialize(user)
       @user = user
-      @client = ClientFactory.instance.new_for_user(user)
+      @client = ClientFactory.new(user).build
       @api = Force::Api.new(@client)
     end
 
@@ -83,7 +85,7 @@ module Force
       @api.post(endpoint, params)
     end
 
-    def api_get(endpoint, params)
+    def api_get(endpoint, params = {})
       @api.get(endpoint, params)
     end
 

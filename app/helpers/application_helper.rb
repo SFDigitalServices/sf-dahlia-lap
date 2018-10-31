@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # View helpers
 module ApplicationHelper
   def salesforce_provider

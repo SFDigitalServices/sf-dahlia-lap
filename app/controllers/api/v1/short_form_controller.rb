@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # RESTful JSON API to query for short form actions
 class Api::V1::ShortFormController < ApiController
   before_action :authenticate_user!
@@ -6,17 +8,18 @@ class Api::V1::ShortFormController < ApiController
     logger.debug "application_api_params: #{application_api_params}"
     short_form_validator = ShortFormValidator.new(application_api_params)
     if short_form_validator.valid?
-      application = application_service.submit(application_api_params)
+      if application_api_params.key?(:lease)
+        response = lease_service.submit_lease(application_api_params[:lease],
+                                              application_api_params[:id],
+                                              application_api_params[:primaryApplicantContact])
+        logger.debug "lease submit response: #{response}"
+      end
+      application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
       render json: { application: application }
     else
       render status: 422, json: { errors: short_form_validator.errors.full_messages }
     end
-  end
-
-  def update
-    result = application_service.update(application_db_params)
-    render json: { result: result }
   end
 
   private
@@ -45,7 +48,20 @@ class Api::V1::ShortFormController < ApiController
             :numberOfDependents,
             :formMetadata,
             :hasSenior,
+            :primaryApplicantContact,
+            :processingStatus,
             :applicationLanguage,
+            lease: %i[
+              id
+              unit
+              leaseStatus
+              leaseStartDate
+              monthlyParkingRent
+              preferenceUsed
+              noPreferenceUsed
+              totalMonthlyRentWithoutParking
+              monthlyTenantContribution
+            ],
             primaryApplicant: %i[
               contactId
               appMemberId
@@ -143,6 +159,7 @@ class Api::V1::ShortFormController < ApiController
               state
               address
               zipCode
+              postLotteryValidation
             ],
           )
   end
@@ -155,7 +172,11 @@ class Api::V1::ShortFormController < ApiController
           )
   end
 
-  def application_service
-    Force::ApplicationService.new(current_user)
+  def custom_api_application_service
+    Force::CustomApi::ApplicationService.new(current_user)
+  end
+
+  def lease_service
+    Force::LeaseService.new(current_user)
   end
 end
