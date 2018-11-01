@@ -21,7 +21,7 @@ describe('SupplementalApplicationPage', () => {
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
 
-    browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should allow status updates via the status dropdown at the bottom of the page', async () => {
@@ -39,10 +39,10 @@ describe('SupplementalApplicationPage', () => {
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
 
-    browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  test.only('should allow new rental assistances to be created', async () => {
+  test('should allow new rental assistances to be created', async () => {
     // let browser = await puppeteer.launch({ headless: false, slowMo: 150 })
     let browser = await puppeteer.launch({ headless: false })
     let page = await browser.newPage()
@@ -94,7 +94,7 @@ describe('SupplementalApplicationPage', () => {
     // expect(latestRentalAssistanceAmount).toBe(amount)
     // expect(latestRentalAssistanceRecipient).toBe(recipientLabel)
     //
-    // browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should allow preference updates via the Confirmed Preferences section', async () => {
@@ -145,6 +145,6 @@ describe('SupplementalApplicationPage', () => {
     const currentStatus = await page.$eval(selectedOptSelector, e => e.textContent)
     expect(currentStatus).toBe(statusToSetName)
 
-    browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })

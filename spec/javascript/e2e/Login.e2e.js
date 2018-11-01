@@ -14,6 +14,6 @@ describe('Lead header', () => {
     const html = await page.$eval('.lead-header_title', e => e.innerHTML)
     expect(html).toBe('Welcome to the Leasing Agent Portal.')
 
-    browser.close()
+    await browser.close()
   }, 16000)
 })
