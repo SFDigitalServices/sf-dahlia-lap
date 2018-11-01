@@ -35,6 +35,7 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   fetchApplications = async (page) => {
+    // update fetchLeaseUpApplication to take filters
     const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page)
     return {
       records: map(response.records, flow(mapApplicationPreference, buildLeaseUpModel)),
@@ -42,7 +43,8 @@ class LeaseUpApplicationsPage extends React.Component {
     }
   }
 
-  loadPage = async (page) => {
+  loadPage = async (page, filters) => {
+    // update code here to include filters
     const fetcher = p => this.fetchApplications(p)
     this.setState({ loading: true, page: page })
     const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
@@ -50,7 +52,14 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   handleOnFetchData = (state, instance) => {
+    // const { filters } = this.state
     this.loadPage(state.page)
+  }
+
+  handleOnFilter = (filters) => {
+    this.setState({ filters })
+    this.eagerPagination.reset()
+    this.loadPage(0, filters)
   }
 
   handleCreateStatusUpdate = async (data) => {
@@ -120,10 +129,11 @@ class LeaseUpApplicationsPage extends React.Component {
       applications: this.state.applications,
       listing: listing,
       handleOnFetchData: this.handleOnFetchData,
+      handleCreateStatusUpdate: this.handleCreateStatusUpdate,
+      handleOnFilter: this.handleOnFilter,
       loading: this.state.loading,
       pages: this.state.pages,
       rowsPerPage: ROWS_PER_PAGE,
-      handleCreateStatusUpdate: this.handleCreateStatusUpdate,
       updateStatusModal: this.updateStatusModal,
       statusModal: this.state.statusModal
     }
