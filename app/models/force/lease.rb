@@ -14,7 +14,7 @@ module Force
       { domain: 'monthlyTenantContribution', salesforce: 'Monthly_Tenant_Contribution__c' },
       { domain: 'noPreferenceUsed', salesforce: 'No_Preference_Used__c' },
       { domain: 'preferenceUsed', salesforce: 'Preference_Used__c' },
-      { domain: 'primary_contact_id', salesforce: 'Tenant__c' },
+      { domain: 'primaryApplicantContact', salesforce: 'Tenant__c' },
       { domain: 'totalMonthlyRentWithoutParking', salesforce: 'Total_Monthly_Rent_without_Parking__c' },
       { domain: 'unit', salesforce: 'Unit__c' },
     ].freeze
