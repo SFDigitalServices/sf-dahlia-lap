@@ -74,5 +74,28 @@ module Force
 
       domain_fields
     end
+
+    # TODO: There is code somewhere in this app that causes the Salesforce field
+    # names we use in SOQL queries to have the "__c" suffix automatically added
+    # onto them. That forces the field mappings in these Force objects to use
+    # Salesforce field names without that suffix. That in turn causes issues
+    # when trying to use the field mappings to translate to Salesforce fields
+    # for REST API calls. Find and remove the code that strips out the "__c"
+    # suffix, so that the Force objects' field mappings can contain true
+    # Salesforce field names. Then remove this function as it won't be needed.
+    def to_salesforce
+      salesforce_fields = super
+
+      # Add the "__c" suffix back onto Salesforce field names
+      field_names = salesforce_fields.keys
+      field_names.each do |field_name|
+        unless %w[Id Name].include?(field_name)
+          salesforce_fields["#{field_name}__c"] = salesforce_fields[field_name]
+          salesforce_fields.delete(field_name)
+        end
+      end
+
+      salesforce_fields
+    end
   end
 end

@@ -13,6 +13,7 @@ jest.mock('apiService', () => {
   }
 })
 
+// FIXME: extract this out and make it generic
 var wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
 
 describe('ApplicationsPage', () => {

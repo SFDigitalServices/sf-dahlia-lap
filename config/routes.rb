@@ -44,6 +44,8 @@ Rails.application.routes.draw do
         put 'update' => 'flagged_applications#update'
       end
 
+      resources :lease_up_applications, path: 'lease-ups/applications', only: %w[index]
+
       resources :preferences, only: %w[update]
 
       resources :rental_assistances, path: '/rental-assistances', only: %w[create update destroy]

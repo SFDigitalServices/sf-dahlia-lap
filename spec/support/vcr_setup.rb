@@ -9,6 +9,9 @@ VCR.configure do |config|
   # Look for instances of these protected values showing up in our VCR requests
   # and filter them out with e.g. "<<SALESFORCE_USERNAME>>".
   %w[
+    SALESFORCE_HOST
+    SALESFORCE_INSTANCE_URL
+    SALESFORCE_API_VERSION
     SALESFORCE_USERNAME
     SALESFORCE_PASSWORD
     SALESFORCE_SECURITY_TOKEN
