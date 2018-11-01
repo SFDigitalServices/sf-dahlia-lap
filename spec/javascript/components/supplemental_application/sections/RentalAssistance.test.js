@@ -9,7 +9,7 @@ import { cloneDeep } from 'lodash'
 const baseContext = {
   rentalAssistances: [],
   applicationMembers: [],
-  addNewRentalAssistance: false,
+  showNewRentalAssistancePanel: false,
   handleOpenRentalAssistancePanel: () => { },
   handleCloseRentalAssistancePanel: () => { },
   handleSaveNewRentalAssistance: () => { },
@@ -49,7 +49,7 @@ describe('RentalAssistance', () => {
     const context = cloneDeep(baseContext)
 
     context.rentalAssistances = [{ type_of_assistance: 'Other' }]
-    context.addNewRentalAssistance = true
+    context.showNewRentalAssistancePanel = true
 
     const component = renderer.create(
       <Context.Provider value={context}>
@@ -63,7 +63,7 @@ describe('RentalAssistance', () => {
 
   test('should validate that type of assistance is present upon save of the form panel', () => {
     const context = cloneDeep(baseContext)
-    context.addNewRentalAssistance = true
+    context.showNewRentalAssistancePanel = true
 
     const wrapper = mount(
       <Context.Provider value={context}>

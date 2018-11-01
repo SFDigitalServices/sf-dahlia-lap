@@ -226,7 +226,7 @@ const RentalAssistance = ({ store }) => {
   const {
     rentalAssistances,
     applicationMembers,
-    addNewRentalAssistance,
+    showNewRentalAssistancePanel,
     handleOpenRentalAssistancePanel,
     handleCloseRentalAssistancePanel,
     handleSaveNewRentalAssistance,
@@ -244,7 +244,7 @@ const RentalAssistance = ({ store }) => {
         />
       )}
 
-      { addNewRentalAssistance && (
+      { showNewRentalAssistancePanel && (
         <AddRentalAssistanceForm
           onSave={handleSaveNewRentalAssistance}
           onClose={handleCloseRentalAssistancePanel}

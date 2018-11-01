@@ -1686,7 +1686,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                   <SupplementalApplicationContainer
                     store={
                       Object {
-                        "addNewRentalAssistance": false,
                         "amiCharts": Array [],
                         "amis": Object {},
                         "application": Object {
@@ -1908,6 +1907,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "rentalAssistances": Array [],
                         "setLoading": [Function],
                         "showAddRentalAssistanceBtn": true,
+                        "showNewRentalAssistancePanel": false,
                         "statusHistory": Array [
                           Object {
                             "comment": "xxxx1",
@@ -2570,7 +2570,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   <Component
                                     store={
                                       Object {
-                                        "addNewRentalAssistance": false,
                                         "amiCharts": Array [],
                                         "amis": Object {},
                                         "application": Object {
@@ -2792,6 +2791,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "rentalAssistances": Array [],
                                         "setLoading": [Function],
                                         "showAddRentalAssistanceBtn": true,
+                                        "showNewRentalAssistancePanel": false,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
@@ -3972,7 +3972,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             onSave={[Function]}
                                             store={
                                               Object {
-                                                "addNewRentalAssistance": false,
                                                 "amiCharts": Array [],
                                                 "amis": Object {},
                                                 "application": Object {
@@ -4194,6 +4193,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "rentalAssistances": Array [],
                                                 "setLoading": [Function],
                                                 "showAddRentalAssistanceBtn": true,
+                                                "showNewRentalAssistancePanel": false,
                                                 "statusHistory": Array [
                                                   Object {
                                                     "comment": "xxxx1",
@@ -6088,7 +6088,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           }
                                                           store={
                                                             Object {
-                                                              "addNewRentalAssistance": false,
                                                               "amiCharts": Array [],
                                                               "amis": Object {},
                                                               "application": Object {
@@ -6310,6 +6309,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "rentalAssistances": Array [],
                                                               "setLoading": [Function],
                                                               "showAddRentalAssistanceBtn": true,
+                                                              "showNewRentalAssistancePanel": false,
                                                               "statusHistory": Array [
                                                                 Object {
                                                                   "comment": "xxxx1",
@@ -6856,7 +6856,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             <RentalAssistance
                                               store={
                                                 Object {
-                                                  "addNewRentalAssistance": false,
                                                   "amiCharts": Array [],
                                                   "amis": Object {},
                                                   "application": Object {
@@ -7078,6 +7077,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "rentalAssistances": Array [],
                                                   "setLoading": [Function],
                                                   "showAddRentalAssistanceBtn": true,
+                                                  "showNewRentalAssistancePanel": false,
                                                   "statusHistory": Array [
                                                     Object {
                                                       "comment": "xxxx1",
@@ -7490,7 +7490,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       <Component
                                         store={
                                           Object {
-                                            "addNewRentalAssistance": false,
                                             "amiCharts": Array [],
                                             "amis": Object {},
                                             "application": Object {
@@ -7712,6 +7711,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "rentalAssistances": Array [],
                                             "setLoading": [Function],
                                             "showAddRentalAssistanceBtn": true,
+                                            "showNewRentalAssistancePanel": false,
                                             "statusHistory": Array [
                                               Object {
                                                 "comment": "xxxx1",
@@ -7885,7 +7885,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     loading={false}
                                     store={
                                       Object {
-                                        "addNewRentalAssistance": false,
                                         "amiCharts": Array [],
                                         "amis": Object {},
                                         "application": Object {
@@ -8107,6 +8106,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "rentalAssistances": Array [],
                                         "setLoading": [Function],
                                         "showAddRentalAssistanceBtn": true,
+                                        "showNewRentalAssistancePanel": false,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
