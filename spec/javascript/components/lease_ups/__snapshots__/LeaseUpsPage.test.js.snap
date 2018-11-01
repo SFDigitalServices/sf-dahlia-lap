@@ -96,7 +96,7 @@ Array [
               style={undefined}
             >
               <div
-                className="rt-th td-min-narrow rt-resizable-header -sort-asc -cursor-pointer"
+                className="rt-th td-min-narrow rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -120,7 +120,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -144,7 +144,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -168,7 +168,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -192,7 +192,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -216,7 +216,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -240,7 +240,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -264,7 +264,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -288,7 +288,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-min-wide tr-fixed-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-min-wide tr-fixed-right rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -326,10 +326,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -odd"
+                className="rt-tr -padRow -odd rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -343,13 +342,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 1
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -359,29 +357,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1001/supplementals"
-                  >
-                    Application Name 1
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -396,10 +373,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -414,10 +389,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -432,10 +405,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -450,10 +421,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 1
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -468,13 +453,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -484,38 +468,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -524,10 +479,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -even"
+                className="rt-tr -padRow -even rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -541,13 +495,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 1
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -557,29 +510,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1002/supplementals"
-                  >
-                    Application Name 2
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 2
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -594,10 +526,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 2
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -612,10 +542,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -630,10 +558,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 2
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -648,10 +574,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 2
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -666,13 +606,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -682,38 +621,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -1225,57 +1135,6 @@ Array [
                   1
                 </span>
               </span>
-              <span
-                className="select-wrap -pageSizeOptions"
-              >
-                <select
-                  onChange={[Function]}
-                  value={5}
-                >
-                  <option
-                    value={5}
-                  >
-                    5
-                     
-                    rows
-                  </option>
-                  <option
-                    value={10}
-                  >
-                    10
-                     
-                    rows
-                  </option>
-                  <option
-                    value={20}
-                  >
-                    20
-                     
-                    rows
-                  </option>
-                  <option
-                    value={25}
-                  >
-                    25
-                     
-                    rows
-                  </option>
-                  <option
-                    value={50}
-                  >
-                    50
-                     
-                    rows
-                  </option>
-                  <option
-                    value={100}
-                  >
-                    100
-                     
-                    rows
-                  </option>
-                </select>
-              </span>
             </div>
             <div
               className="-next"
@@ -1292,7 +1151,35 @@ Array [
           </div>
         </div>
         <div
-          className="-loading"
+          className="rt-noData"
+        >
+          <div
+            style={
+              Object {
+                "marginBottom": "20px",
+                "padding": "10px",
+                "textAlign": "center",
+              }
+            }
+          >
+            No results, try adjusting your filters
+          </div>
+          <div
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            <button
+              className="tertiary"
+            >
+              Reset all filters
+            </button>
+          </div>
+        </div>
+        <div
+          className="-loading -active"
         >
           <div
             className="-loading-inner"
@@ -1402,7 +1289,7 @@ Array [
               style={undefined}
             >
               <div
-                className="rt-th td-min-narrow rt-resizable-header -sort-asc -cursor-pointer"
+                className="rt-th td-min-narrow rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1426,7 +1313,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1450,7 +1337,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1474,7 +1361,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1498,7 +1385,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1522,7 +1409,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1546,7 +1433,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1570,7 +1457,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1594,7 +1481,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-min-wide tr-fixed-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-min-wide tr-fixed-right rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -1632,10 +1519,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -odd"
+                className="rt-tr -padRow -odd rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -1649,13 +1535,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 1
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -1665,29 +1550,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1001/supplementals"
-                  >
-                    Application Name 1
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -1702,10 +1566,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -1720,10 +1582,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -1738,10 +1598,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -1756,10 +1614,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 SUTTER
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -1774,13 +1646,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -1790,38 +1661,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -2486,57 +2328,6 @@ Array [
                   1
                 </span>
               </span>
-              <span
-                className="select-wrap -pageSizeOptions"
-              >
-                <select
-                  onChange={[Function]}
-                  value={5}
-                >
-                  <option
-                    value={5}
-                  >
-                    5
-                     
-                    rows
-                  </option>
-                  <option
-                    value={10}
-                  >
-                    10
-                     
-                    rows
-                  </option>
-                  <option
-                    value={20}
-                  >
-                    20
-                     
-                    rows
-                  </option>
-                  <option
-                    value={25}
-                  >
-                    25
-                     
-                    rows
-                  </option>
-                  <option
-                    value={50}
-                  >
-                    50
-                     
-                    rows
-                  </option>
-                  <option
-                    value={100}
-                  >
-                    100
-                     
-                    rows
-                  </option>
-                </select>
-              </span>
             </div>
             <div
               className="-next"
@@ -2553,7 +2344,35 @@ Array [
           </div>
         </div>
         <div
-          className="-loading"
+          className="rt-noData"
+        >
+          <div
+            style={
+              Object {
+                "marginBottom": "20px",
+                "padding": "10px",
+                "textAlign": "center",
+              }
+            }
+          >
+            No results, try adjusting your filters
+          </div>
+          <div
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            <button
+              className="tertiary"
+            >
+              Reset all filters
+            </button>
+          </div>
+        </div>
+        <div
+          className="-loading -active"
         >
           <div
             className="-loading-inner"
@@ -2567,7 +2386,7 @@ Array [
 ]
 `;
 
-exports[`LeaseUpApplicationsPage Should render order by Prefrence_Order and Preference_Lottery_Rank 1`] = `
+exports[`LeaseUpApplicationsPage Should render order by Preference_Order and Preference_Lottery_Rank 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-dust"
@@ -2663,7 +2482,7 @@ Array [
               style={undefined}
             >
               <div
-                className="rt-th td-min-narrow rt-resizable-header -sort-asc -cursor-pointer"
+                className="rt-th td-min-narrow rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2687,7 +2506,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2711,7 +2530,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2735,7 +2554,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2759,7 +2578,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2783,7 +2602,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2807,7 +2626,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th rt-resizable-header -cursor-pointer"
+                className="rt-th rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2831,7 +2650,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-offset-right text-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-offset-right text-right rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2855,7 +2674,7 @@ Array [
                 />
               </div>
               <div
-                className="rt-th td-min-wide tr-fixed-right rt-resizable-header -cursor-pointer"
+                className="rt-th td-min-wide tr-fixed-right rt-resizable-header"
                 onClick={[Function]}
                 role="columnheader"
                 style={
@@ -2893,10 +2712,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -odd"
+                className="rt-tr -padRow -odd rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -2910,13 +2728,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 1
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -2926,29 +2743,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1003/supplementals"
-                  >
-                    Application Name 3
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 3
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -2963,10 +2759,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 3
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -2981,10 +2775,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -2999,10 +2791,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 3
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3017,10 +2807,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 3
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3035,13 +2839,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3051,38 +2854,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -3091,10 +2865,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -even"
+                className="rt-tr -padRow -even rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -3108,13 +2881,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 2
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3124,29 +2896,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1004/supplementals"
-                  >
-                    Application Name 4
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 4
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3161,10 +2912,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 4
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3179,10 +2928,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3197,10 +2944,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 4
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3215,10 +2960,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 4
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3233,13 +2992,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3249,38 +3007,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -3289,10 +3018,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -odd"
+                className="rt-tr -padRow -odd rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -3306,13 +3034,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 1
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3322,29 +3049,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1002/supplementals"
-                  >
-                    Application Name 2
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 2
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3359,10 +3065,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 2
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3377,10 +3081,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3395,10 +3097,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 2
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3413,10 +3113,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 2
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3431,13 +3145,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3447,38 +3160,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -3487,10 +3171,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -even"
+                className="rt-tr -padRow -even rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -3504,13 +3187,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 2
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3520,29 +3202,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1001/supplementals"
-                  >
-                    Application Name 1
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3557,10 +3218,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3575,10 +3234,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3593,10 +3250,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 1
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3611,10 +3266,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 1
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3629,13 +3298,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3645,38 +3313,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -3685,10 +3324,9 @@ Array [
               role="rowgroup"
             >
               <div
-                className="rt-tr rt-tr-status -odd"
+                className="rt-tr -padRow -odd rt-tr-status"
                 role="row"
-                style={undefined}
-                tabIndex="0"
+                style={Object {}}
               >
                 <div
                   className="rt-td td-min-narrow"
@@ -3702,13 +3340,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    CAP 1
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td text-left"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3718,29 +3355,8 @@ Array [
                     }
                   }
                 >
-                  <a
-                    className="has-border"
-                    href="/applications/1003/supplementals"
-                  >
-                    Application Name 3
-                  </a>
-                </div>
-                <div
-                  className="rt-td text-left"
-                  onClick={[Function]}
-                  role="gridcell"
-                  style={
-                    Object {
-                      "flex": "100 0 auto",
-                      "maxWidth": null,
-                      "width": "100px",
-                    }
-                  }
-                >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some first name 3
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3755,10 +3371,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some last name 3
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3773,10 +3387,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some phone
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3791,10 +3403,8 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    some email 3
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3809,10 +3419,24 @@ Array [
                     }
                   }
                 >
-                  <span
-                    className="rt-resizable-td-content"
-                  >
-                    1316 BURNETT 3
+                  <span>
+                     
+                  </span>
+                </div>
+                <div
+                  className="rt-td text-left"
+                  onClick={[Function]}
+                  role="gridcell"
+                  style={
+                    Object {
+                      "flex": "100 0 auto",
+                      "maxWidth": null,
+                      "width": "100px",
+                    }
+                  }
+                >
+                  <span>
+                     
                   </span>
                 </div>
                 <div
@@ -3827,13 +3451,12 @@ Array [
                     }
                   }
                 >
-                  <div>
-                    04/26/2018
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
                 <div
                   className="rt-td td-min-wide td-status td-fixed-right"
-                  onClick={[Function]}
                   role="gridcell"
                   style={
                     Object {
@@ -3843,38 +3466,9 @@ Array [
                     }
                   }
                 >
-                  <div
-                    className="dropdown"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "position": "absolute",
-                      }
-                    }
-                  >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tiny"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
-                    <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
-                  </div>
+                  <span>
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -3927,57 +3521,6 @@ Array [
                   1
                 </span>
               </span>
-              <span
-                className="select-wrap -pageSizeOptions"
-              >
-                <select
-                  onChange={[Function]}
-                  value={5}
-                >
-                  <option
-                    value={5}
-                  >
-                    5
-                     
-                    rows
-                  </option>
-                  <option
-                    value={10}
-                  >
-                    10
-                     
-                    rows
-                  </option>
-                  <option
-                    value={20}
-                  >
-                    20
-                     
-                    rows
-                  </option>
-                  <option
-                    value={25}
-                  >
-                    25
-                     
-                    rows
-                  </option>
-                  <option
-                    value={50}
-                  >
-                    50
-                     
-                    rows
-                  </option>
-                  <option
-                    value={100}
-                  >
-                    100
-                     
-                    rows
-                  </option>
-                </select>
-              </span>
             </div>
             <div
               className="-next"
@@ -3994,7 +3537,35 @@ Array [
           </div>
         </div>
         <div
-          className="-loading"
+          className="rt-noData"
+        >
+          <div
+            style={
+              Object {
+                "marginBottom": "20px",
+                "padding": "10px",
+                "textAlign": "center",
+              }
+            }
+          >
+            No results, try adjusting your filters
+          </div>
+          <div
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            <button
+              className="tertiary"
+            >
+              Reset all filters
+            </button>
+          </div>
+        </div>
+        <div
+          className="-loading -active"
         >
           <div
             className="-loading-inner"

@@ -49,6 +49,10 @@ const application = {
     "Alternate_Contact_Type": "Friend",
     "Alternate_Contact_Type_Other": null,
     "Mailing_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+    "Mailing_Street": "123 MAIN ST",
+    "Mailing_City": "SAN FRANCISCO",
+    "Mailing_State": "CA",
+    "Mailing_Zip_Code": "94105-1804",
   },
   "Listing": {
     "attributes": {

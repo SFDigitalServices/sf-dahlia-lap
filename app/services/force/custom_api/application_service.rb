@@ -12,7 +12,12 @@ module Force
         end
 
         # Fetch data from the custom API
-        custom_api_application_fields = api_get(path)
+        begin
+          custom_api_application_fields = api_get(path)
+        rescue Faraday::ResourceNotFound
+          return nil
+        end
+
         application = Force::Application.from_custom_api(custom_api_application_fields).to_domain
 
         application = add_application_members(application, custom_api_application_fields)

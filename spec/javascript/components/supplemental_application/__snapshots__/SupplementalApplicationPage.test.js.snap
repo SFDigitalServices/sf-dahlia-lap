@@ -190,15 +190,6 @@ Array [
             <h2
               className="app-card_h2"
             >
-              Current Contact Information
-            </h2>
-          </div>
-          <div
-            className="app-inner header-wide"
-          >
-            <h2
-              className="app-card_h2"
-            >
               Confirmed Preferences
             </h2>
             <p
@@ -3001,23 +2992,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     </Component>
                                   </Component>
                                 </ContextComponent>
-                                <ContentSection
-                                  title="Current Contact Information"
-                                >
-                                  <Component
-                                    title="Current Contact Information"
-                                  >
-                                    <div
-                                      className="app-inner header-wide"
-                                    >
-                                      <h2
-                                        className="app-card_h2"
-                                      >
-                                        Current Contact Information
-                                      </h2>
-                                    </div>
-                                  </Component>
-                                </ContentSection>
                                 <ConfirmedPreferencesSection
                                   application={
                                     Object {
