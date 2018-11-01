@@ -4,8 +4,6 @@ import TableSubComponent from '~/components/atoms/TableSubComponent'
 import PrettyTime from '../atoms/PrettyTime'
 import appPaths from '~/utils/appPaths'
 
-const PAGE_SIZE = 20
-
 const SubComponent = (row) => (
   <TableSubComponent items={
     [{
@@ -19,7 +17,7 @@ const SubComponent = (row) => (
 /*      Presenter                         */
 /******************************************/
 
-const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
+const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerPage }) => {
   const columns = [
     { Header: 'Application Number', accessor: 'name', headerClassName: 'td-min-narrow' },
     { Header: 'Listing Name', accessor: 'listing.name' },
@@ -48,7 +46,7 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages }) => {
       sortable={false}
       defaultSorted={sortBy}
       loading={loading}
-      defaultPageSize={PAGE_SIZE}
+      defaultPageSize={rowsPerPage}
       onFetchData={onFetchData}
       SubComponent={SubComponent}
       getPaginationProps={getPaginationProps} />
