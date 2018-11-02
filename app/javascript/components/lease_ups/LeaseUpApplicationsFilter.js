@@ -1,12 +1,14 @@
 import React from 'react'
 import { Form, Text, Select } from 'react-form'
-
 import formUtils from '~/utils/formUtils'
 import Loading from '~/components/molecules/Loading'
 
-const StatusOptions = formUtils.toOptions(['No Status', 'Processing', 'Disqualified', 'Approved', 'Lease Signed', 'Waitlisted', 'Withdrawn', 'Appealed', 'All Status', [null, 'Any type']])
+const StatusOptions = formUtils.toOptions(['No Status', 'Processing', 'Disqualified', 'Approved', 'Lease Signed', 'Waitlisted', 'Withdrawn', 'Appealed', [null, 'All Status']])
 
-const LeaseUpApplicationsFilter = ({ onSubmit, loading = false }) => {
+const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false }) => {
+  preferences.push([null, 'All Preferences'], ['general', 'General'])
+  const preferenceOptions = formUtils.toOptions(preferences)
+
   return (
     <Loading isLoading={loading}>
       <Form onSubmit={onSubmit}>
@@ -14,6 +16,9 @@ const LeaseUpApplicationsFilter = ({ onSubmit, loading = false }) => {
           <form onSubmit={formApi.submitForm} >
             <div className='filter-row'>
               <div className='filter-group'>
+                <div className='filter-group_item'>
+                  <Select field='preference' options={preferenceOptions} placeholder='Preference' />
+                </div>
                 <div className='filter-group_item'>
                   <Text field='application_number' placeholder='Application Number' />
                 </div>

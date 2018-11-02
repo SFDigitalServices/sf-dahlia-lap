@@ -1,5 +1,5 @@
 import React from 'react'
-import { flow, map, each, set, clone } from 'lodash'
+import { flow, map, each, set, clone, uniq } from 'lodash'
 import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
@@ -48,7 +48,12 @@ class LeaseUpApplicationsPage extends React.Component {
     const fetcher = p => this.fetchApplications(p)
     this.setState({ loading: true, page: page })
     const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
-    this.setState({ applications: records, loading: false, pages: pages })
+    this.setState({
+      applications: records,
+      loading: false,
+      pages: pages,
+      preferences: uniq(map(records, (record) => record.preference_record_type))
+    })
   }
 
   handleOnFetchData = (state, instance) => {
@@ -127,6 +132,7 @@ class LeaseUpApplicationsPage extends React.Component {
 
     const context = {
       applications: this.state.applications,
+      preferences: this.state.preferences,
       listing: listing,
       handleOnFetchData: this.handleOnFetchData,
       handleCreateStatusUpdate: this.handleCreateStatusUpdate,

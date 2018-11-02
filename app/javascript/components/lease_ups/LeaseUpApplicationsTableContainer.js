@@ -72,11 +72,11 @@ class LeaseUpTableContainer extends React.Component {
 
   render () {
     const { store } = this.props
-    const { listing, applications, statusModal } = store
+    const { listing, applications, statusModal, preferences } = store
 
     return (
       <div>
-        <LeaseUpApplicationsFilter onSubmit={store.handleOnFilter} loading={store.loading} />
+        <LeaseUpApplicationsFilter preferences={preferences} onSubmit={store.handleOnFilter} loading={store.loading} />
         <LeaseUpApplicationsTable
           dataSet={this.rowsData(applications)}
           listingId={listing.id}
