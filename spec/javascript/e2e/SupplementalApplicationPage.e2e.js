@@ -57,43 +57,39 @@ describe('SupplementalApplicationPage', () => {
     await page.waitForSelector('.rental-assistance-form')
 
     // // Set up the values we'll use to fill out the rental assistance form
-    // const [typeVal, typeLabel] = await page.$eval(
-    //   '.rental-assistance-form .rental-assistance-type option:nth-child(2)',
-    //   e => [e.value, e.textContent]
-    // )
+    const [typeVal] = await page.$eval(
+      '.rental-assistance-form .rental-assistance-type option:nth-child(2)',
+      e => [e.value, e.textContent]
+    )
     // const recurring = 'Yes'
     const amount = 100
-    // const [recipientVal, recipientLabel] = await page.$eval(
-    //   '.rental-assistance-form .rental-assistance-recipient option:nth-child(2)',
-    //   e => [e.value, e.textContent]
-    // )
+    const [recipientVal] = await page.$eval(
+      '.rental-assistance-form .rental-assistance-recipient option:nth-child(2)',
+      e => [e.value, e.textContent]
+    )
+
+    const tableSize = await page.$$eval('.rental-assistances tr', e => e.length)
 
     // Fill out the rental assistance form with the values we want
-    // await page.select('.rental-assistance-form .rental-assistance-type', typeVal)
-    // await page.click('#recurring_assistance-new-yes')
-    await page.type('#assistance_amount', `${amount}`)
-    // await page.select('.rental-assistance-form .rental-assistance-recipient', recipientVal)
+    await page.select('.rental-assistance-form-new .rental-assistance-type', typeVal)
+    await page.click('#recurring_assistance-new-yes')
+    await page.type('.rental-assistance-form-new #assistance_amount', `${amount}`)
+    await page.select('.rental-assistance-form-new .rental-assistance-recipient', recipientVal)
 
     // Save the rental assistance form
-    // await page.click('.rental-assistance-form button.primary')
+    await page.click('.rental-assistance-form-new button.primary')
 
-    // // Wait for the API rental assistance create call to complete
-    // await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/rental-assistances/'))
-    //
-    // // Reload the page
-    // await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
-    //
-    // // The latest rental assistance in the rental assistances table should be the
-    // // rental assistance that we just created
-    // const latestRentalAssistanceType = await page.$eval('.rental-assistances tr:last-child td:nth-child(1)', e => e.textContent)
-    // const latestRentalAssistanceRecurring = await page.$eval('.rental-assistances tr:last-child td:nth-child(2)', e => e.textContent)
-    // const latestRentalAssistanceAmount = await page.$eval('.rental-assistances tr:last-child td:nth-child(3)', e => e.textContent)
-    // const latestRentalAssistanceRecipient = await page.$eval('.rental-assistances tr:last-child td:nth-child(4)', e => e.textContent)
-    // expect(latestRentalAssistanceType).toBe(typeLabel)
-    // expect(latestRentalAssistanceRecurring).toBe(recurring)
-    // expect(latestRentalAssistanceAmount).toBe(amount)
-    // expect(latestRentalAssistanceRecipient).toBe(recipientLabel)
-    //
-    // browser.close()
+    // Wait for the API rental assistance create call to complete
+    await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/rental-assistances'))
+
+    // Reload the page
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+
+    // Rental assistance tabel should have increased in size.
+    const currentTableSize = await page.$$eval('.rental-assistances tr', e => e.length)
+
+    expect(currentTableSize).toBeGreaterThan(tableSize)
+
+    browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })
