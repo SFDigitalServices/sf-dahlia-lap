@@ -1,5 +1,8 @@
 import { slice } from 'lodash'
 
+// Note: This needs to match the page size defined on the server in soql_query_builder.rb.
+const SERVER_PAGE_SIZE = 100
+
 const getServerPageForEagerPage = (eagerCurrentPage, eagerSize, serverSize) => {
   const recordsSize = eagerCurrentPage * eagerSize
   return Math.floor(recordsSize / serverSize)
@@ -51,4 +54,7 @@ class EagerPagination {
   }
 }
 
-export default EagerPagination
+export {
+  EagerPagination,
+  SERVER_PAGE_SIZE
+}
