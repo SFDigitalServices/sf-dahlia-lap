@@ -1,6 +1,6 @@
-# Leasing Agent Portal
+# DAHLIA Partners
 
-A portal for leasing agents to manage listings and applications.
+A portal for leasing agents, sales agents, and developers to manage listings and applications.
 
 Cross-browser testing done with <a href="https://www.browserstack.com/"><img src="./Browserstack-logo@2x.png?raw=true" height="36" ></a>
 
