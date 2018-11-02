@@ -22,7 +22,12 @@ const ApplicationPage = (props) => {
   let pageHeader = {}
   let tabSection = false
 
-  if (application.is_snapshot) {
+  if (!application) {
+    pageHeader = {
+      title: 'Application',
+      content: (<span>Name of Listing:</span>)
+    }
+  } else if (application.is_snapshot) {
     pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -46,9 +51,11 @@ const ApplicationPage = (props) => {
     }
   }
 
+  if (!application) window.alert('The application you requested could not be found.')
+
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      <ApplicationDetails {...props} />
+      {application && <ApplicationDetails {...props} />}
     </CardLayout>
   )
 }

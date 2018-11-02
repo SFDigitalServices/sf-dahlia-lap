@@ -9,7 +9,7 @@ import { cloneDeep } from 'lodash'
 const baseContext = {
   rentalAssistances: [],
   applicationMembers: [],
-  addNewRentalAssistance: false,
+  showNewRentalAssistancePanel: false,
   handleOpenRentalAssistancePanel: () => { },
   handleCloseRentalAssistancePanel: () => { },
   handleSaveNewRentalAssistance: () => { },
@@ -18,7 +18,7 @@ const baseContext = {
 }
 
 describe('RentalAssistance', () => {
-  test('it should not render table if rental assistances is empty', () => {
+  test('should not render a table if rental assistances is empty', () => {
     const context = cloneDeep(baseContext)
     const component = renderer.create(
       <Context.Provider value={context}>
@@ -30,7 +30,7 @@ describe('RentalAssistance', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('it should rennder table when rental assistances present', () => {
+  test('should render a table when rental assistances are present', () => {
     const context = cloneDeep(baseContext)
 
     context.rentalAssistances = [{ type_of_assistance: 'Other' }]
@@ -45,11 +45,11 @@ describe('RentalAssistance', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('it should show add rental assistance form and table', () => {
+  test('should be able to show the add rental assistance form along with the table', () => {
     const context = cloneDeep(baseContext)
 
     context.rentalAssistances = [{ type_of_assistance: 'Other' }]
-    context.addNewRentalAssistance = true
+    context.showNewRentalAssistancePanel = true
 
     const component = renderer.create(
       <Context.Provider value={context}>
@@ -61,25 +61,9 @@ describe('RentalAssistance', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('it should show add rental assistance form and table', () => {
+  test('should validate that type of assistance is present upon save of the form panel', () => {
     const context = cloneDeep(baseContext)
-
-    context.rentalAssistances = [{ type_of_assistance: 'Other' }]
-    context.addNewRentalAssistance = true
-
-    const component = renderer.create(
-      <Context.Provider value={context}>
-        <RentalAssistance />
-      </Context.Provider>
-    )
-
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-
-  test('it should validate that type of assistance is present', () => {
-    const context = cloneDeep(baseContext)
-    context.addNewRentalAssistance = true
+    context.showNewRentalAssistancePanel = true
 
     const wrapper = mount(
       <Context.Provider value={context}>

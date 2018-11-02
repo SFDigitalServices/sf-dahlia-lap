@@ -58,6 +58,8 @@ class ApplicationsController < ApplicationController
     is_listing_lease_up = listing.Status == 'Lease Up'
     application = custom_api_application_service.application(id, snapshot: is_listing_lease_up)
 
+    return unless application
+
     # Add a flag on the application indicating whether or not it is a snapshot
     application.is_snapshot = is_listing_lease_up
 
