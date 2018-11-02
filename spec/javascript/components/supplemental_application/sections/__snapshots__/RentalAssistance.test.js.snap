@@ -56,9 +56,7 @@ Array [
             >
               <td
                 className=""
-              >
-                Other
-              </td>
+              />
               <td
                 className=""
               />
@@ -718,9 +716,7 @@ Array [
             >
               <td
                 className=""
-              >
-                Other
-              </td>
+              />
               <td
                 className=""
               />

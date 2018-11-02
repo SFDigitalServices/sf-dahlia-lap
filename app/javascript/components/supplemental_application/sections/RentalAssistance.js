@@ -38,6 +38,8 @@ const YesNoRadioGroupField = withField((field, classNames, rest) => {
   return <YesNoRadioGroup id={field} field={field} className='no-margin' inputClassName={classNames} {...rest} />
 })
 
+const isOther = (values) => values.type_of_assistance === 'Other'
+
 class RentalAssistanceTable extends React.Component {
   columns = [
     { content: 'Type of Assistance' },
@@ -64,9 +66,10 @@ class RentalAssistanceTable extends React.Component {
   buildRows = () => this.props.rentalAssistances.map(ra => {
     const appMember = this.props.applicationMembers.find(m => m.id === ra.recipient)
     const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
+    const typeOfAssistance = isOther(ra) ? ra.other_assistance_name : ra.type_of_assistance
 
     return [
-      { content: ra.other_assistance_name || ra.type_of_assistance },
+      { content: typeOfAssistance },
       { content: ra.recurring_assistance },
       { content: ra.assistance_amount ? `$${ra.assistance_amount}` : '' },
       { content: appMemberName }
@@ -125,8 +128,6 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
     </ExpandablePanel>
   )
 })
-
-const isOther = (values) => values.type_of_assistance === 'Other'
 
 const isRequired = (value, message) => isEmpty(value) ? message : null
 
