@@ -72,17 +72,17 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
               </div>
             </div>
             <div className='row'>
-              <div className='small-4 columns'>
-                <Field.Text
-                  id='date_of_birth'
-                  field='date_of_birth'
-                  label='Date of Birth'
-                  blockNote='(required)'
-                  type='date'
-                  pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
-                  placeholder='YYYY-MM-DD'
-                  errorMessage={(label, error) => error}
-                />
+              <div className='small-4 columns form-date-of-birth'>
+                <label>Date of Birth</label>
+                <div className='form-group-month'>
+                  <Text field={['friends', 0]} id='dob_month' placeholder='MM' />
+                </div>
+                <div className='form-group-day'>
+                  <Text field={['friends', 1]} id='dob_day' placeholder='DD' />
+                </div>
+                <div className='form-group-year'>
+                  <Text field={['friends', 2]} id='dob_year' placeholder='YYYY' />
+                </div>
               </div>
             </div>
             <AddressForm title='Home Address' memberType='primaryApplicant' />
