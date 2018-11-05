@@ -1,7 +1,7 @@
 // modifications to toolkit styles
 .top-bar {
   .name-logo a {
-    background: url(asset-path('logo.svg')) no-repeat;
+    background: asset-url('logo.svg') no-repeat;
     background-size: contain;
   }
 }
