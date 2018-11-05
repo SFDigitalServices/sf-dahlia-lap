@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SupplementalApplicationPage it should render correctly without status history 1`] = `
+exports[`SupplementalApplicationPage it should render correctly with status history 1`] = `
 Array [
   <header
     className="lead-header short has-breadcrumbs bg-snow"
