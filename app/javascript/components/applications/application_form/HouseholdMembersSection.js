@@ -9,7 +9,7 @@ const HouseholdMembersSection = ({ formApi, editValues }) => {
       </div>
       { formApi.values.household_members && formApi.values.household_members.map((member, i) => (
         <div className='border-bottom margin-bottom--2x' key={i}>
-          <HouseholdMemberForm i={i} />
+          <HouseholdMemberForm i={i} formApi={formApi} />
           <div className='row'>
             <div className='form-group'>
               <div className='small-4 columns'>

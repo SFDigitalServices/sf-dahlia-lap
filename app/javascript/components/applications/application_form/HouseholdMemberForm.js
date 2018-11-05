@@ -1,8 +1,9 @@
 import React from 'react'
 import { Text } from 'react-form'
 import AddressForm from './AddressForm'
+import { MultiDateField } from '~/utils/form/Field'
 
-const HouseholdMemberForm = ({ i }) => {
+const HouseholdMemberForm = ({ i, formApi }) => {
   return (
     <div>
       <div className='row'>
@@ -11,7 +12,7 @@ const HouseholdMemberForm = ({ i }) => {
             <label>First Name</label>
             <Text field={`household_members.${i}.first_name`} />
           </div>
-          <div className='small-3 columns'>
+          <div className='small-2 columns'>
             <label>Middle Name</label>
             <Text field={`household_members.${i}.middle_name`} />
           </div>
@@ -19,13 +20,14 @@ const HouseholdMemberForm = ({ i }) => {
             <label>Last Name</label>
             <Text field={`household_members.${i}.last_name`} />
           </div>
-          <div className='small-3 columns'>
-            <label>Date of Birth</label>
-            <Text
+          <div className='small-4 columns form-date-of-birth'>
+            <MultiDateField
+              id='date_of_birth'
               field={`household_members.${i}.date_of_birth`}
-              type='date'
-              pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
-              placeholder='YYYY-MM-DD' />
+              formApi={formApi}
+              label='Date of Birth'
+              errorMessage={(label, error) => error}
+            />
           </div>
         </div>
       </div>
