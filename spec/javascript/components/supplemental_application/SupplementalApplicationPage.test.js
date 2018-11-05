@@ -42,7 +42,7 @@ describe('SupplementalApplicationPage', () => {
     jest.clearAllMocks()
   })
 
-  test('it should render correctly without status history', () => {
+  test('it should render correctly with status history', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
         application={supplementalApplication}
