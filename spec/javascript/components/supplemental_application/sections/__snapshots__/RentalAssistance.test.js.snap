@@ -12,7 +12,7 @@ Array [
         className="scrollable-table-container-under-xlarge"
       >
         <table
-          className="td-light td-plain th-plain"
+          className="td-light td-plain th-plain rental-assistances"
           role="grid"
         >
           <thead>
@@ -96,7 +96,7 @@ Array [
                   className="app-editable expand-wide scrollable-table-nested"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested"
+                    className="app-editable expand-wide scrollable-table-nested rental-assistance-form"
                   >
                     <div
                       className="form-grid row"
@@ -372,262 +372,266 @@ Array [
     </div>
   </div>,
   <div
-    className="app-editable expand-wide scrollable-table-nested"
+    className="rental-assistance-form-new"
   >
     <div
-      className="form-grid row"
+      className="app-editable expand-wide scrollable-table-nested rental-assistance-form"
     >
       <div
-        className="form-grid_item small-12 medium-6 large-3 column"
+        className="form-grid row"
       >
         <div
-          className="form-group"
+          className="form-grid_item small-12 medium-6 large-3 column"
         >
-          <label
-            className="form-label"
-            htmlFor="type_of_assistance"
+          <div
+            className="form-group"
           >
-            Type of Assistance 
-          </label>
-          <select
-            className=""
-            id="type_of_assistance"
-            onBlur={[Function]}
-            onChange={[Function]}
-            value={0}
-          >
-            <option
-              disabled={true}
+            <label
+              className="form-label"
+              htmlFor="type_of_assistance"
+            >
+              Type of Assistance 
+            </label>
+            <select
+              className=""
+              id="type_of_assistance"
+              onBlur={[Function]}
+              onChange={[Function]}
               value={0}
             >
-              Select One...
-            </option>
-            <option
-              disabled={undefined}
-              value={1}
-            >
-              Catholic Charities
-            </option>
-            <option
-              disabled={undefined}
-              value={2}
-            >
-              Compass Family
-            </option>
-            <option
-              disabled={undefined}
-              value={3}
-            >
-              Glide
-            </option>
-            <option
-              disabled={undefined}
-              value={4}
-            >
-              Hamilton Family
-            </option>
-            <option
-              disabled={undefined}
-              value={5}
-            >
-              Homeless Prenatal
-            </option>
-            <option
-              disabled={undefined}
-              value={6}
-            >
-              HOPWA
-            </option>
-            <option
-              disabled={undefined}
-              value={7}
-            >
-              Q Foundation: First Month’s Rent
-            </option>
-            <option
-              disabled={undefined}
-              value={8}
-            >
-              Q Foundation: Move-in Deposit
-            </option>
-            <option
-              disabled={undefined}
-              value={9}
-            >
-              Q Foundation: Person with Disability Rent Subsidy
-            </option>
-            <option
-              disabled={undefined}
-              value={10}
-            >
-              Q Foundation: Senior Rent Subsidy
-            </option>
-            <option
-              disabled={undefined}
-              value={11}
-            >
-              San Francisco AIDS Foundation
-            </option>
-            <option
-              disabled={undefined}
-              value={12}
-            >
-              Section 8 HCV (tenant) voucher
-            </option>
-            <option
-              disabled={undefined}
-              value={13}
-            >
-              Self-Help for the Elderly
-            </option>
-            <option
-              disabled={undefined}
-              value={14}
-            >
-              VASH voucher
-            </option>
-            <option
-              disabled={undefined}
-              value={15}
-            >
-              Other
-            </option>
-          </select>
+              <option
+                disabled={true}
+                value={0}
+              >
+                Select One...
+              </option>
+              <option
+                disabled={undefined}
+                value={1}
+              >
+                Catholic Charities
+              </option>
+              <option
+                disabled={undefined}
+                value={2}
+              >
+                Compass Family
+              </option>
+              <option
+                disabled={undefined}
+                value={3}
+              >
+                Glide
+              </option>
+              <option
+                disabled={undefined}
+                value={4}
+              >
+                Hamilton Family
+              </option>
+              <option
+                disabled={undefined}
+                value={5}
+              >
+                Homeless Prenatal
+              </option>
+              <option
+                disabled={undefined}
+                value={6}
+              >
+                HOPWA
+              </option>
+              <option
+                disabled={undefined}
+                value={7}
+              >
+                Q Foundation: First Month’s Rent
+              </option>
+              <option
+                disabled={undefined}
+                value={8}
+              >
+                Q Foundation: Move-in Deposit
+              </option>
+              <option
+                disabled={undefined}
+                value={9}
+              >
+                Q Foundation: Person with Disability Rent Subsidy
+              </option>
+              <option
+                disabled={undefined}
+                value={10}
+              >
+                Q Foundation: Senior Rent Subsidy
+              </option>
+              <option
+                disabled={undefined}
+                value={11}
+              >
+                San Francisco AIDS Foundation
+              </option>
+              <option
+                disabled={undefined}
+                value={12}
+              >
+                Section 8 HCV (tenant) voucher
+              </option>
+              <option
+                disabled={undefined}
+                value={13}
+              >
+                Self-Help for the Elderly
+              </option>
+              <option
+                disabled={undefined}
+                value={14}
+              >
+                VASH voucher
+              </option>
+              <option
+                disabled={undefined}
+                value={15}
+              >
+                Other
+              </option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div
-        className="form-grid_item small-12 medium-6 large-3 column"
-      >
         <div
-          className="form-group"
+          className="form-grid_item small-12 medium-6 large-3 column"
         >
-          <label
-            className="form-label"
-            htmlFor="recurring_assistance"
-          >
-            Recurring Assistance 
-          </label>
           <div
-            className="no-margin radio-group-inline"
+            className="form-group"
           >
-            <p
-              className="radio-inline"
+            <label
+              className="form-label"
+              htmlFor="recurring_assistance"
             >
-              <input
-                checked={false}
-                className=""
-                id="recurring_assistance-new-yes"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-              />
-              <label
-                className="radio-inline_label"
-                htmlFor="recurring_assistance-new-yes"
-              >
-                Yes
-              </label>
-            </p>
-            <p
-              className="radio-inline"
+              Recurring Assistance 
+            </label>
+            <div
+              className="no-margin radio-group-inline"
             >
-              <input
-                checked={false}
-                className=""
-                id="recurring_assistance-new-no"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-              />
-              <label
-                className="radio-inline_label"
-                htmlFor="recurring_assistance-new-no"
+              <p
+                className="radio-inline"
               >
-                No
-              </label>
-            </p>
+                <input
+                  checked={false}
+                  className=""
+                  id="recurring_assistance-new-yes"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  type="radio"
+                />
+                <label
+                  className="radio-inline_label"
+                  htmlFor="recurring_assistance-new-yes"
+                >
+                  Yes
+                </label>
+              </p>
+              <p
+                className="radio-inline"
+              >
+                <input
+                  checked={false}
+                  className=""
+                  id="recurring_assistance-new-no"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  type="radio"
+                />
+                <label
+                  className="radio-inline_label"
+                  htmlFor="recurring_assistance-new-no"
+                >
+                  No
+                </label>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          className="form-grid_item small-12 medium-6 large-3 column"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="form-label"
+              htmlFor="assistance_amount"
+            >
+              Assistance Amount 
+            </label>
+            <input
+              className=""
+              id="assistance_amount"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="number"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="form-grid_item small-12 medium-6 large-3 column"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="form-label"
+              htmlFor="recipient"
+            >
+              Recipient 
+            </label>
+            <select
+              className=""
+              id="recipient"
+              onBlur={[Function]}
+              onChange={[Function]}
+              value={0}
+            >
+              <option
+                disabled={true}
+                value={0}
+              >
+                Select One...
+              </option>
+              <option
+                disabled={undefined}
+                value={1}
+              >
+                Test Tester
+              </option>
+            </select>
           </div>
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-6 large-3 column"
+        className="form-grid row"
       >
         <div
-          className="form-group"
+          className="form-grid_item column"
         >
-          <label
-            className="form-label"
-            htmlFor="assistance_amount"
+          <button
+            className="button primary tiny margin-right margin-bottom-none"
+            disabled={undefined}
+            onClick={[Function]}
+            type="button"
           >
-            Assistance Amount 
-          </label>
-          <input
-            className=""
-            id="assistance_amount"
-            onBlur={[Function]}
-            onChange={[Function]}
-            type="number"
-            value=""
-          />
+            Save
+          </button>
+          <button
+            className="button secondary tiny margin-right margin-bottom-none"
+            disabled={undefined}
+            onClick={[Function]}
+            type="button"
+          >
+            Cancel
+          </button>
         </div>
-      </div>
-      <div
-        className="form-grid_item small-12 medium-6 large-3 column"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            className="form-label"
-            htmlFor="recipient"
-          >
-            Recipient 
-          </label>
-          <select
-            className=""
-            id="recipient"
-            onBlur={[Function]}
-            onChange={[Function]}
-            value={0}
-          >
-            <option
-              disabled={true}
-              value={0}
-            >
-              Select One...
-            </option>
-            <option
-              disabled={undefined}
-              value={1}
-            >
-              Test Tester
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div
-      className="form-grid row"
-    >
-      <div
-        className="form-grid_item column"
-      >
-        <button
-          className="button primary tiny margin-right margin-bottom-none"
-          disabled={undefined}
-          onClick={[Function]}
-          type="button"
-        >
-          Save
-        </button>
-        <button
-          className="button secondary tiny margin-right margin-bottom-none"
-          disabled={undefined}
-          onClick={[Function]}
-          type="button"
-        >
-          Cancel
-        </button>
       </div>
     </div>
   </div>,
@@ -663,7 +667,7 @@ Array [
         className="scrollable-table-container-under-xlarge"
       >
         <table
-          className="td-light td-plain th-plain"
+          className="td-light td-plain th-plain rental-assistances"
           role="grid"
         >
           <thead>
@@ -747,7 +751,7 @@ Array [
                   className="app-editable expand-wide scrollable-table-nested"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested"
+                    className="app-editable expand-wide scrollable-table-nested rental-assistance-form"
                   >
                     <div
                       className="form-grid row"
@@ -1044,7 +1048,7 @@ Array [
         className="scrollable-table-container-under-xlarge"
       >
         <table
-          className="td-light td-plain th-plain"
+          className="td-light td-plain th-plain rental-assistances"
           role="grid"
         >
           <thead>
@@ -1128,7 +1132,7 @@ Array [
                   className="app-editable expand-wide scrollable-table-nested"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested"
+                    className="app-editable expand-wide scrollable-table-nested rental-assistance-form"
                   >
                     <div
                       className="form-grid row"
