@@ -69,7 +69,7 @@
       "last_name":"Doe",
       "first_name":"John",
       "email":null,
-      "date_of_birth":"1900-01-01",
+      "date_of_birth":["1900", "01", "01"],
       "city":"Anywhere",
       "id":"a0n0U0000030yBMQAY",
       "second_phone_type":null,
