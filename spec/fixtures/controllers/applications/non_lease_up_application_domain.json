@@ -40,7 +40,7 @@
     "last_name":"Doe",
     "first_name":"Jane",
     "email":"kuowisi@joami.gg",
-    "date_of_birth":"1990-02-22",
+    "date_of_birth":["1990", "02", "22"],
     "city":"SAN FRANCISCO",
     "id":"a0n0P00000BEG2sQAH",
     "second_phone_type":null,

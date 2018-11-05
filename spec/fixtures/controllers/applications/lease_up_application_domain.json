@@ -38,7 +38,7 @@
     "last_name":"Nerr",
     "first_name":"Partha",
     "email":null,
-    "date_of_birth":"1975-03-03",
+    "date_of_birth":["1975", "03", "03"],
     "city":"SAN FRANCISCO",
     "id":"a0n0U0000030tCLQAY",
     "second_phone_type":null,

@@ -6,7 +6,7 @@ const application = {
     'last_name': 'jones',
     'middle_name': null,
     'name': 'karen jones',
-    'date_of_birth': '1950-01-01',
+    'date_of_birth': ['1950', '01', '01'],
     'phone_type': 'Cell',
     'phone': '9548883321',
     'second_phone_type': null,
