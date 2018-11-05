@@ -66,10 +66,9 @@ class RentalAssistanceTable extends React.Component {
   buildRows = () => this.props.rentalAssistances.map(ra => {
     const appMember = this.props.applicationMembers.find(m => m.id === ra.recipient)
     const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
-    const typeOfAssistance = isOther(ra) ? ra.other_assistance_name : ra.type_of_assistance
 
     return [
-      { content: typeOfAssistance },
+      { content: ra.other_assistance_name || ra.type_of_assistance },
       { content: ra.recurring_assistance },
       { content: ra.assistance_amount ? `$${ra.assistance_amount}` : '' },
       { content: appMemberName }
