@@ -38,6 +38,8 @@ const YesNoRadioGroupField = withField((field, classNames, rest) => {
   return <YesNoRadioGroup id={field} field={field} className='no-margin' inputClassName={classNames} {...rest} />
 })
 
+const isOther = (values) => values.type_of_assistance === 'Other'
+
 class RentalAssistanceTable extends React.Component {
   columns = [
     { content: 'Type of Assistance' },
@@ -127,8 +129,6 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   )
 })
 
-const isOther = (values) => values.type_of_assistance === 'Other'
-
 const isRequired = (value, message) => isEmpty(value) ? message : null
 
 const validateError = (values) => {
@@ -170,7 +170,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
             </FormGrid.Item>
             <FormGrid.Item>
               <Field.Text
-                label='Assistance amount'
+                label='Assistance Amount'
                 field='assistance_amount'
                 type='number'
               />
@@ -188,7 +188,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
             <FormGrid.Row expand={false}>
               <FormGrid.Item>
                 <Field.Text
-                  label='Other assistance name'
+                  label='Other Assistance Name'
                   field='other_assistance_name' />
               </FormGrid.Item>
             </FormGrid.Row>

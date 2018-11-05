@@ -203,6 +203,10 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleUpdateRentalAssistance = async (rentalAssistance) => {
+    if (rentalAssistance.type_of_assistance !== 'Other') {
+      rentalAssistance.other_assistance_name = null
+    }
+
     const response = await apiService.updateRentalAssistance(
       rentalAssistance,
       this.state.persistedApplication.id

@@ -8,13 +8,20 @@ import { cloneDeep } from 'lodash'
 
 const baseContext = {
   rentalAssistances: [],
-  applicationMembers: [],
+  applicationMembers: [{id: '123', first_name: 'Test', last_name: 'Tester'}],
   showNewRentalAssistancePanel: false,
   handleOpenRentalAssistancePanel: () => { },
   handleCloseRentalAssistancePanel: () => { },
   handleSaveNewRentalAssistance: () => { },
   showAddRentalAssistanceBtn: () => { },
   hideAddRentalAssistanceBtn: () => { }
+}
+
+const rentalAssistance = {
+  type_of_assistance: 'Compass Family',
+  recurring_assistance: 'Yes',
+  assistance_amount: '100',
+  recipient: '123'
 }
 
 describe('RentalAssistance', () => {
@@ -33,7 +40,7 @@ describe('RentalAssistance', () => {
   test('should render a table when rental assistances are present', () => {
     const context = cloneDeep(baseContext)
 
-    context.rentalAssistances = [{ type_of_assistance: 'Other' }]
+    context.rentalAssistances = [rentalAssistance]
 
     const component = renderer.create(
       <Context.Provider value={context}>
@@ -48,8 +55,29 @@ describe('RentalAssistance', () => {
   test('should be able to show the add rental assistance form along with the table', () => {
     const context = cloneDeep(baseContext)
 
-    context.rentalAssistances = [{ type_of_assistance: 'Other' }]
+    context.rentalAssistances = [rentalAssistance]
     context.showNewRentalAssistancePanel = true
+
+    const component = renderer.create(
+      <Context.Provider value={context}>
+        <RentalAssistance />
+      </Context.Provider>
+    )
+
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('should show the Other Assistance Name in the table when Type of Assistance is Other', () => {
+    const context = cloneDeep(baseContext)
+
+    context.rentalAssistances = [
+      {
+        ...rentalAssistance,
+        type_of_assistance: 'Other',
+        other_assistance_name: 'Test Other Assistance Name'
+      }
+    ]
 
     const component = renderer.create(
       <Context.Provider value={context}>
