@@ -8,7 +8,10 @@ describe('ApplicationNewPage', () => {
   test('should create a new application', async () => {
     const FIRST_NAME = 'Some first name'
     const LAST_NAME = 'Some last name'
-    const DATE_OF_BIRTH = '03/03/1983'
+    const DATE_OF_BIRTH = '03/04/1983'
+    const DOB_MONTH = '03'
+    const DOB_DAY = '04'
+    const DOB_YEAR = '1983'
 
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
@@ -18,7 +21,9 @@ describe('ApplicationNewPage', () => {
 
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
-    await page.type('#date_of_birth', DATE_OF_BIRTH)
+    await page.type('#month', DOB_MONTH)
+    await page.type('#day', DOB_DAY)
+    await page.type('#year', DOB_YEAR)
     await page.click('.save-btn')
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
