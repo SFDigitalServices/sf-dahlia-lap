@@ -168,7 +168,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
             </FormGrid.Item>
             <FormGrid.Item>
               <Field.Text
-                label='Assistance amount'
+                label='Assistance Amount'
                 field='assistance_amount'
                 type='number'
               />
@@ -185,7 +185,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
             <FormGrid.Row expand={false}>
               <FormGrid.Item>
                 <Field.Text
-                  label='Other assistance name'
+                  label='Other Assistance Name'
                   field='other_assistance_name' />
               </FormGrid.Item>
             </FormGrid.Row>
