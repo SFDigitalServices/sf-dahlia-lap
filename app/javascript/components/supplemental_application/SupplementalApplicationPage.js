@@ -202,7 +202,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleUpdateRentalAssistance = (rentalAssistance) => {
-    // Set other assistance name to null of Other is not selected (Reset to blank).
     if (rentalAssistance.type_of_assistance !== 'Other') {
       rentalAssistance.other_assistance_name = null
     }
