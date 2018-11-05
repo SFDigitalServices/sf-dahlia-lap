@@ -22,7 +22,6 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
-  console.log('PrimaryApplicantSection formAPI', formApi)
   return (
     <NestedForm field='applicant'>
       <Form defaultValues={autofillValues} validateError={validateError} >

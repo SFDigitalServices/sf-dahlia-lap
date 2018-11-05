@@ -36,9 +36,11 @@ const isOldEnough = (dateOfBirth) => {
 
 const isValidDate = (dateOfBirth) => {
   if (dateOfBirth) {
-    dateOfBirth = dateOfBirth.join('-')
+    // Verify that the year is in a valid range
+    if (dateOfBirth[0] < 1900) return false
     // Check that the date is valid and not in the future
-    return moment(dateOfBirth, 'YYYY-MM-DD').isValid() && (moment().diff(dateOfBirth, 'days') > 0)
+    const dobString = dateOfBirth.join('-')
+    return moment(dobString, 'YYYY-MM-DD').isValid() && (moment().diff(dobString, 'days') > 0)
   }
 }
 
