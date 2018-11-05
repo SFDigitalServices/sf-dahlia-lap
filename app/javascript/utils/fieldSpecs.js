@@ -17,7 +17,8 @@ const getRenderType = (value) => {
 
 export const formatValue = (value, type) => {
   if (type === 'date') {
-    if (value.length === 3) { return moment(value.join('-'), 'YYYY-MM-DD').format('L') }
+    // Convert domain date array to string if needed
+    if (value && value.length === 3) { return moment(value.join('-'), 'YYYY-MM-DD').format('L') }
     return moment(value).format('L')
   } else {
     return value

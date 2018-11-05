@@ -242,7 +242,7 @@ Array [
                   className="row"
                 >
                   <div
-                    className="small-4 columns"
+                    className="small-4 columns form-date-of-birth"
                   >
                     <div
                       className="form-group"
@@ -258,15 +258,44 @@ Array [
                           (required)
                         </span>
                       </label>
-                      <input
-                        className=""
-                        id="date_of_birth"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                        placeholder="YYYY-MM-DD"
-                        type="date"
-                        value=""
+                      <div
+                        className="form-group-month"
+                      >
+                        <input
+                          className=""
+                          id="month"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="MM"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="form-group-day"
+                      >
+                        <input
+                          className=""
+                          id="day"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="DD"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="form-group-year"
+                      >
+                        <input
+                          className=""
+                          id="year"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="YYYY"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="d-inline-block"
                       />
                     </div>
                   </div>
