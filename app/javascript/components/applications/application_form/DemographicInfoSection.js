@@ -5,7 +5,6 @@ import { NestedForm, Form, Select, Text } from 'react-form'
 let {
   genderOptions,
   sexualOrientationOptions,
-  sexAtBirthOptions,
   raceOptions,
   ethnicityOptions
 } = formOptions
@@ -26,17 +25,13 @@ const DemographicInfoSection = () => {
                 <label>Race</label>
                 <Select field='race' options={raceOptions} />
               </div>
-              <div className='small-3 columns'>
+              <div className='small-6 columns'>
                 <label>Gender</label>
                 <Select field='gender' options={genderOptions} />
               </div>
-              <div className='small-3 columns'>
+              <div className='small-6 columns'>
                 <label>Gender Specify (if not listed)</label>
                 <Text field='gender_other' />
-              </div>
-              <div className='small-6 columns'>
-                <label>Sex at birth</label>
-                <Select field='sex_at_birth' options={sexAtBirthOptions} />
               </div>
               <div className='small-6 columns'>
                 <label>Sexual Orientation</label>
