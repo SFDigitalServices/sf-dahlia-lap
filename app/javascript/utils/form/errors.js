@@ -3,7 +3,9 @@ import React from 'react'
 import reactFormUtils from '~/utils/reactFormUtils'
 
 export const hasError = (formApi, field) => {
-  if (reactFormUtils.get(formApi.touched, field) || formApi.submits > 0) { return !!formApi.getError(field) } else { return null }
+  var touched = reactFormUtils.get(formApi.touched, field)
+  if (field === 'date_of_birth') { touched = (touched && touched.length === 3 && touched.every((t) => t === true)) }
+  if (touched || formApi.submits > 0) { return !!formApi.getError(field) } else { return null }
 }
 
 export const FormError = ({ formApi, label, field, errorMessage }) => {

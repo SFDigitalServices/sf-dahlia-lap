@@ -24,6 +24,31 @@ export const Field = ({ formApi, field, label, blockNote, errorMessage, children
   )
 }
 
+export const MultiDateField = ({ formApi, field, label, blockNote, errorMessage, children }) => {
+  const className = errorClassName(formApi, field)
+
+  return (
+    <div className={classNames('form-group', className)}>
+      <label className='form-label' htmlFor={field}>
+        {`${label} `}
+        {blockNote && <BlockNote value={blockNote} />}
+      </label>
+      <div className='form-group-month'>
+        <Text className={classNames(className)} field={[field, 1]} id='month' placeholder='MM' />
+      </div>
+      <div className='form-group-day'>
+        <Text className={classNames(className)} field={[field, 2]} id='day' placeholder='DD' />
+      </div>
+      <div className='form-group-year'>
+        <Text className={classNames(className)} field={[field, 0]} id='year' placeholder='YYYY' />
+      </div>
+      <div className='d-inline-block'>
+        <FormError formApi={formApi} label={label} field={field} errorMessage={errorMessage} />
+      </div>
+    </div>
+  )
+}
+
 const withField = (input) => {
   class Wrapper extends React.Component {
     render () {

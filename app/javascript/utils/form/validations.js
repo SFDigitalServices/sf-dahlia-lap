@@ -26,14 +26,19 @@ const validates = (fun, message) => (value) => {
 const decorateValidator = fn => message => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
-  const years = moment().diff(dateOfBirth, 'years')
-  return years >= 18
+  if (dateOfBirth && isValidDate(dateOfBirth)) {
+    const years = moment().diff(moment(dateOfBirth.join('-'), 'YYYY-MM-DD'), 'years')
+    return years >= 18
+  } else {
+    return true
+  }
 }
 
 const isValidDate = (dateOfBirth) => {
   if (dateOfBirth) {
+    dateOfBirth = dateOfBirth.join('-')
     // Check that the date is valid and not in the future
-    return moment(dateOfBirth).isValid() && (moment().diff(dateOfBirth, 'days') > 0)
+    return moment(dateOfBirth, 'YYYY-MM-DD').isValid() && (moment().diff(dateOfBirth, 'days') > 0)
   }
 }
 

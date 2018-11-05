@@ -3,7 +3,7 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
-import { Field } from '~/utils/form/Field'
+import { Field, MultiDateField } from '~/utils/form/Field'
 import { mailingAddressFieldMap } from './utils'
 
 let { phoneTypeOptions } = formOptions
@@ -22,7 +22,7 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
-
+  console.log('PrimaryApplicantSection formAPI', formApi)
   return (
     <NestedForm field='applicant'>
       <Form defaultValues={autofillValues} validateError={validateError} >
@@ -73,16 +73,14 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
             </div>
             <div className='row'>
               <div className='small-4 columns form-date-of-birth'>
-                <label>Date of Birth</label>
-                <div className='form-group-month'>
-                  <Text field={['friends', 0]} id='dob_month' placeholder='MM' />
-                </div>
-                <div className='form-group-day'>
-                  <Text field={['friends', 1]} id='dob_day' placeholder='DD' />
-                </div>
-                <div className='form-group-year'>
-                  <Text field={['friends', 2]} id='dob_year' placeholder='YYYY' />
-                </div>
+                <MultiDateField
+                  id='date_of_birth'
+                  field='date_of_birth'
+                  formApi={formApi}
+                  label='Date of Birth'
+                  blockNote='(required)'
+                  errorMessage={(label, error) => error}
+                />
               </div>
             </div>
             <AddressForm title='Home Address' memberType='primaryApplicant' />
