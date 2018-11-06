@@ -39,7 +39,7 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
 
-    browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should fail if required fields are missing', async () => {
@@ -60,6 +60,6 @@ describe('ApplicationNewPage', () => {
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
 
-    browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })
