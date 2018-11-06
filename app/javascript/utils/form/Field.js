@@ -32,7 +32,7 @@ export const withField = (input) => {
 
       return (
         <Field formApi={formApi} field={field} label={label} blockNote={blockNote} errorMessage={errorMessage}>
-          {(f, errorClassNames) => (input(f, classNames(classNames, errorClassNames), rest))}
+          {(f, errorClassNames) => (input(f, classNames(className, errorClassNames), rest))}
         </Field>
       )
     }
@@ -47,8 +47,8 @@ export const withField = (input) => {
 }
 
 const decorateInput = (Comp) => (
-  withField((field, classNames, rest) => {
-    return <Comp id={field} field={field} className={classNames} {...rest} />
+  withField((field, className, rest) => {
+    return <Comp id={field} field={field} className={className} {...rest} />
   })
 )
 

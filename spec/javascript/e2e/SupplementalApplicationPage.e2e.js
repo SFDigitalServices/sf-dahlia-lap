@@ -42,7 +42,7 @@ describe('SupplementalApplicationPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  test('should allow new rental assistances to be created', async () => {
+  test.only('should allow new rental assistances to be created', async () => {
     // let browser = await puppeteer.launch({ headless: false, slowMo: 150 })
     let browser = await puppeteer.launch({ headless: false })
     let page = await browser.newPage()
@@ -54,17 +54,17 @@ describe('SupplementalApplicationPage', () => {
     await page.click('button#add-rental-assistance')
 
     // Wait for the rental assistance form to appear
-    await page.waitForSelector('.rental-assistance-form')
+    await page.waitForSelector('.rental-assistance-form-new')
 
     // // Set up the values we'll use to fill out the rental assistance form
     const [typeVal] = await page.$eval(
-      '.rental-assistance-form .rental-assistance-type option:nth-child(2)',
+      '.rental-assistance-form-new .rental-assistance-type option:nth-child(2)',
       e => [e.value, e.textContent]
     )
     // const recurring = 'Yes'
     const amount = 100
     const [recipientVal] = await page.$eval(
-      '.rental-assistance-form .rental-assistance-recipient option:nth-child(2)',
+      '.rental-assistance-form-new .rental-assistance-recipient option:nth-child(2)',
       e => [e.value, e.textContent]
     )
 
@@ -88,7 +88,7 @@ describe('SupplementalApplicationPage', () => {
     expect(currentTableSize).toBeGreaterThan(tableSize)
 
     await browser.close()
-  }, DEFAULT_E2E_TIME_OUT)
+  }, DEFAULT_E2E_TIME_OUT * 2)
 
   test('should allow preference updates via the Confirmed Preferences section', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
