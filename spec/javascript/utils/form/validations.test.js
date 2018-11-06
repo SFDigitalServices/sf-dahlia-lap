@@ -16,13 +16,13 @@ describe('validate', () => {
     })
   })
   describe('isValidDate', () => {
-    test('passes validation if date is 0-padded and valid', () => {
+    test('passes validation if date is valid and 0-padded', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)(['2000', '02', '29'])).toEqual(null)
     })
-    test('passes validation if date is not 0-padded and valid', () => {
+    test('passes validation if date is valid and not 0-padded', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)(['2000', '2', '9'])).toEqual(null)
     })
-    test('passes validation if date is integers and valid', () => {
+    test('passes validation if date is valid and values are integers', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)([2000, 2, 9])).toEqual(null)
     })
     test('fails validation if date is a leap day in the wrong year', () => {
