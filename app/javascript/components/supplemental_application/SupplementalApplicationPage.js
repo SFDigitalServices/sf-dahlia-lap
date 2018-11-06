@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, clone, some } from 'lodash'
+import { concat, isNil, uniqBy, map, cloneDeep, clone, some, sampleSize, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -29,6 +29,10 @@ const getAmis = async (chartsToLoad) => {
   return [].concat.apply([], amis)
 }
 
+const getApplicationMembers = (application) => {
+  return concat([application.applicant], application.household_members || [])
+}
+
 class SupplementalApplicationPage extends React.Component {
   constructor (props) {
     super(props)
@@ -43,7 +47,10 @@ class SupplementalApplicationPage extends React.Component {
       statusModal: {
         loading: false,
         status: props.application.processing_status
-      }
+      },
+      showNewRentalAssistancePanel: false,
+      showAddRentalAssistanceBtn: true,
+      rentalAssistances: []
     }
   }
 
@@ -141,6 +148,10 @@ class SupplementalApplicationPage extends React.Component {
     this.updateStatusModal({status: value})
   }
 
+  handleOpenRentalAssistancePanel = () => {
+    this.setState({ showAddRentalAssistanceBtn: false, showNewRentalAssistancePanel: true })
+  }
+
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
@@ -167,6 +178,72 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
+  handleCloseRentalAssistancePanel = () => {
+    this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
+  }
+
+  handleSaveNewRentalAssistance = (rentalAssistance) => {
+    // TODO: Add a real call to Salesforce to save the new
+    // rental assistance record and get back the ID of the
+    // record. Here, we mock the real Salesforce save by
+    // adding a fake ID to the rental assistance values.
+    const savedRentalAssistance = ((rentalAssistance) => {
+      rentalAssistance.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
+      return rentalAssistance
+    })(rentalAssistance)
+
+    this.setState(prev => {
+      return {
+        rentalAssistances: [...prev.rentalAssistances, savedRentalAssistance],
+        showNewRentalAssistancePanel: false,
+        showAddRentalAssistanceBtn: true
+      }
+    })
+  }
+
+  handleUpdateRentalAssistance = (rentalAssistance) => {
+    if (rentalAssistance.type_of_assistance !== 'Other') {
+      rentalAssistance.other_assistance_name = null
+    }
+
+    // TODO: Add a real call to Salesforce to update the
+    // rental assistance record. Here, we mock the real
+    // Salesforce update by just returning the rental
+    // assistance values.
+    const updatedRentalAssistance = ((rentalAssistance) => rentalAssistance)(rentalAssistance)
+
+    this.setState(prev => {
+      const rentalAssistances = cloneDeep(prev.rentalAssistances)
+      const idx = findIndex(rentalAssistances, { id: updatedRentalAssistance.id })
+      rentalAssistances[idx] = updatedRentalAssistance
+      return {
+        rentalAssistances: rentalAssistances,
+        showNewRentalAssistancePanel: false,
+        showAddRentalAssistanceBtn: true
+      }
+    })
+  }
+
+  handleDeleteRentalAssistance = (rentalAssistance) => {
+    // TODO: Add a real call to Salesforce to delete the
+    // rental assistance record.
+
+    this.setState(prev => {
+      const rentalAssistances = cloneDeep(prev.rentalAssistances)
+      const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+      rentalAssistances.splice(idx, 1)
+      return {
+        rentalAssistances: rentalAssistances,
+        showNewRentalAssistancePanel: false,
+        showAddRentalAssistanceBtn: true
+      }
+    })
+  }
+
+  hideAddRentalAssistanceBtn = () => {
+    this.setState({ showAddRentalAssistanceBtn: false })
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
@@ -175,7 +252,10 @@ class SupplementalApplicationPage extends React.Component {
       amiCharts,
       statusModal,
       loading,
-      persistedApplication
+      persistedApplication,
+      showNewRentalAssistancePanel,
+      rentalAssistances,
+      showAddRentalAssistanceBtn
     } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
@@ -195,23 +275,33 @@ class SupplementalApplicationPage extends React.Component {
 
     const context = {
       application: persistedApplication,
+      applicationMembers: getApplicationMembers(persistedApplication),
+      amis: amis,
+      amiCharts: amiCharts,
+      availableUnits: availableUnits,
       statusHistory: statusHistory,
+      fileBaseUrl: fileBaseUrl,
+      loading: loading,
+      setLoading: this.setLoading,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
       confirmedPreferencesFailed: confirmedPreferencesFailed,
       onDismissError: this.handleDismissError,
-      fileBaseUrl: fileBaseUrl,
-      amiCharts: amiCharts,
-      amis: amis,
-      availableUnits: availableUnits,
-      loading: loading,
+      statusModal: statusModal,
       openAddStatusCommentModal: this.openAddStatusCommentModal,
       openUpdateStatusModal: this.openUpdateStatusModal,
-      setLoading: this.setLoading,
-      statusModal: statusModal,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
-      handleStatusModalSubmit: this.handleStatusModalSubmit
+      handleStatusModalSubmit: this.handleStatusModalSubmit,
+      rentalAssistances: rentalAssistances,
+      showNewRentalAssistancePanel: showNewRentalAssistancePanel,
+      showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
+      hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
+      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
+      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
+      handleSaveNewRentalAssistance: this.handleSaveNewRentalAssistance,
+      handleUpdateRentalAssistance: this.handleUpdateRentalAssistance,
+      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
     }
 
     return (

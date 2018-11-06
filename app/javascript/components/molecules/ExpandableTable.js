@@ -13,7 +13,7 @@ class ExpandableTableRow extends React.Component {
   }
 
   render () {
-    const { row, numColumns, expanderRenderer, expandedRowRenderer } = this.props
+    const { row, numColumns, expanderRenderer, expandedRowRenderer, original } = this.props
     const cells = row.map((datum, j) =>
       <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>{datum.content}</td>
     )
@@ -28,7 +28,7 @@ class ExpandableTableRow extends React.Component {
         </tr>
         <tr className='tr-expand-content' aria-hidden={!this.state.expanded}>
           <td colSpan={numColumns} className='td-expand-nested no-padding'>
-            {expandedRowRenderer && expandedRowRenderer(row, this.toggleExpandedRow)}
+            {expandedRowRenderer && expandedRowRenderer(row, this.toggleExpandedRow, original)}
           </td>
         </tr>
       </Fragment>
@@ -38,7 +38,7 @@ class ExpandableTableRow extends React.Component {
 
 class ExpandableTable extends React.Component {
   render () {
-    const { columns, rows, expanderRenderer, expandedRowRenderer } = this.props
+    const { columns, rows, expanderRenderer, expandedRowRenderer, originals } = this.props
 
     const numColumns = columns.length
 
@@ -57,6 +57,8 @@ class ExpandableTable extends React.Component {
           {rows.map((row, i) => (
             <ExpandableTableRow
               key={i}
+              idx={i}
+              original={originals && originals[i]}
               row={row}
               numColumns={numColumns}
               expanderRenderer={expanderRenderer}

@@ -91,14 +91,16 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
 const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
   const rows = buildRows(application, fileBaseUrl)
   return (
-    <TableWrapper>
-      <ExpandableTable
-        columns={columns}
-        rows={rows}
-        expanderRenderer={expanderAction}
-        expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
-      />
-    </TableWrapper>)
+    <div className='preferences-table'>
+      <TableWrapper>
+        <ExpandableTable
+          columns={columns}
+          rows={rows}
+          expanderRenderer={expanderAction}
+          expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
+        />
+      </TableWrapper>
+    </div>)
 }
 
 export default withContext(PreferencesTable)

@@ -24,7 +24,7 @@ export const Field = ({ formApi, field, label, blockNote, errorMessage, children
   )
 }
 
-const withField = (input) => {
+export const withField = (input) => {
   class Wrapper extends React.Component {
     render () {
       const { field, errorMessage, label, blockNote, ...rest } = this.props

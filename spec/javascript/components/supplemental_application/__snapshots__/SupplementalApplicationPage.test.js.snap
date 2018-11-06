@@ -202,66 +202,70 @@ Array [
             className="app-inner inset-wide"
           >
             <div
-              className="form-grid row expand"
+              className="preferences-table"
             >
               <div
-                className="small-12 column"
+                className="form-grid row expand"
               >
                 <div
-                  className="scrollable-table-container-under-xlarge"
+                  className="small-12 column"
                 >
-                  <table
-                    className="td-light td-plain th-plain"
-                    role="grid"
+                  <div
+                    className="scrollable-table-container-under-xlarge"
                   >
-                    <thead>
-                      <tr>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Preference Name
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Person Who Claimed
-                        </th>
-                        <th
-                          className="text-right"
-                          scope="col"
-                        >
-                          Preference Rank
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Type of proof
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Status
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody />
-                  </table>
+                    <table
+                      className="td-light td-plain th-plain"
+                      role="grid"
+                    >
+                      <thead>
+                        <tr>
+                          <th
+                            className=""
+                            scope="col"
+                          >
+                            
+                          </th>
+                          <th
+                            className=""
+                            scope="col"
+                          >
+                            Preference Name
+                          </th>
+                          <th
+                            className=""
+                            scope="col"
+                          >
+                            Person Who Claimed
+                          </th>
+                          <th
+                            className="text-right"
+                            scope="col"
+                          >
+                            Preference Rank
+                          </th>
+                          <th
+                            className=""
+                            scope="col"
+                          >
+                            Type of proof
+                          </th>
+                          <th
+                            className=""
+                            scope="col"
+                          >
+                            Status
+                          </th>
+                          <th
+                            className=""
+                            scope="col"
+                          >
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody />
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -548,14 +552,15 @@ Array [
                     >
                       <input
                         checked={true}
-                        id="housing_voucher_or_subsidy-yes"
+                        className={undefined}
+                        id="housing_voucher_or_subsidy-undefined-yes"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="radio"
                       />
                       <label
                         className="radio-inline_label"
-                        htmlFor="housing_voucher_or_subsidy-yes"
+                        htmlFor="housing_voucher_or_subsidy-undefined-yes"
                       >
                         Yes
                       </label>
@@ -565,14 +570,15 @@ Array [
                     >
                       <input
                         checked={false}
-                        id="housing_voucher_or_subsidy-no"
+                        className={undefined}
+                        id="housing_voucher_or_subsidy-undefined-no"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="radio"
                       />
                       <label
                         className="radio-inline_label"
-                        htmlFor="housing_voucher_or_subsidy-no"
+                        htmlFor="housing_voucher_or_subsidy-undefined-no"
                       >
                         No
                       </label>
@@ -888,6 +894,31 @@ Array [
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            className="app-inner subheader-wide"
+          >
+            <h3
+              className="app-card_h3 t-sans"
+            >
+              Rental Assistance Information
+            </h3>
+            <p
+              className="form-note max-width"
+            >
+              Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.
+            </p>
+          </div>
+          <div
+            className="app-inner inset-wide border-bottom"
+          >
+            <button
+              className="button small"
+              id="add-rental-assistance"
+              onClick={[Function]}
+            >
+              Add Rental Assistance
+            </button>
           </div>
           <div
             className="app-inner subheader-wide"
@@ -1795,19 +1826,88 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "total_household_size": 1,
                           "total_monthly_rent": null,
                         },
+                        "applicationMembers": Array [
+                          Object {
+                            "agency_name": undefined,
+                            "alternate_contact_type": undefined,
+                            "alternate_contact_type_other": undefined,
+                            "city": "SAN FRANCISCO",
+                            "date_of_birth": "1950-01-01",
+                            "email": "eee@eeee.com",
+                            "first_name": "karen",
+                            "id": "a0n0x000000AbE6AAK",
+                            "last_name": "jones",
+                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                            "mailing_city": "SAN FRANCISCO",
+                            "mailing_state": "CA",
+                            "mailing_street": "123 MAIN ST",
+                            "mailing_zip_code": "94105-1804",
+                            "marital_status": "Married",
+                            "middle_name": null,
+                            "name": "karen jones",
+                            "phone": "9548883321",
+                            "phone_type": "Cell",
+                            "primary_language": null,
+                            "relationship_to_applicant": undefined,
+                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                            "second_phone": null,
+                            "second_phone_type": null,
+                            "state": "CA",
+                            "street": "123 MAIN ST",
+                            "zip_code": "94105-1804",
+                          },
+                          Object {
+                            "agency_name": undefined,
+                            "alternate_contact_type": undefined,
+                            "alternate_contact_type_other": undefined,
+                            "city": "buenos aires",
+                            "date_of_birth": "1976-06-11",
+                            "email": undefined,
+                            "first_name": "diego",
+                            "id": "a0n0x000000XzchAAC",
+                            "last_name": "maradona",
+                            "mailing_address": undefined,
+                            "mailing_city": undefined,
+                            "mailing_state": undefined,
+                            "mailing_street": undefined,
+                            "mailing_zip_code": undefined,
+                            "marital_status": undefined,
+                            "middle_name": "m",
+                            "name": "diego m maradona",
+                            "phone": undefined,
+                            "phone_type": undefined,
+                            "primary_language": undefined,
+                            "relationship_to_applicant": null,
+                            "residence_address": undefined,
+                            "second_phone": undefined,
+                            "second_phone_type": undefined,
+                            "state": "fl",
+                            "street": "9 de julio",
+                            "zip_code": "33026",
+                          },
+                        ],
                         "availableUnits": undefined,
                         "confirmedPreferencesFailed": false,
                         "fileBaseUrl": undefined,
+                        "handleCloseRentalAssistancePanel": [Function],
+                        "handleDeleteRentalAssistance": [Function],
+                        "handleOpenRentalAssistancePanel": [Function],
+                        "handleSaveNewRentalAssistance": [Function],
                         "handleStatusModalClose": [Function],
                         "handleStatusModalStatusChange": [Function],
                         "handleStatusModalSubmit": [Function],
+                        "handleUpdateRentalAssistance": [Function],
+                        "hideAddRentalAssistanceBtn": [Function],
                         "loading": false,
                         "onDismissError": [Function],
                         "onSavePreference": [Function],
                         "onSubmit": [Function],
                         "openAddStatusCommentModal": [Function],
                         "openUpdateStatusModal": [Function],
+                        "rentalAssistances": Array [],
                         "setLoading": [Function],
+                        "showAddRentalAssistanceBtn": true,
+                        "showNewRentalAssistancePanel": false,
                         "statusHistory": Array [
                           Object {
                             "comment": "xxxx1",
@@ -2610,19 +2710,88 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "total_household_size": 1,
                                           "total_monthly_rent": null,
                                         },
+                                        "applicationMembers": Array [
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "SAN FRANCISCO",
+                                            "date_of_birth": "1950-01-01",
+                                            "email": "eee@eeee.com",
+                                            "first_name": "karen",
+                                            "id": "a0n0x000000AbE6AAK",
+                                            "last_name": "jones",
+                                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "mailing_city": "SAN FRANCISCO",
+                                            "mailing_state": "CA",
+                                            "mailing_street": "123 MAIN ST",
+                                            "mailing_zip_code": "94105-1804",
+                                            "marital_status": "Married",
+                                            "middle_name": null,
+                                            "name": "karen jones",
+                                            "phone": "9548883321",
+                                            "phone_type": "Cell",
+                                            "primary_language": null,
+                                            "relationship_to_applicant": undefined,
+                                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "second_phone": null,
+                                            "second_phone_type": null,
+                                            "state": "CA",
+                                            "street": "123 MAIN ST",
+                                            "zip_code": "94105-1804",
+                                          },
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "buenos aires",
+                                            "date_of_birth": "1976-06-11",
+                                            "email": undefined,
+                                            "first_name": "diego",
+                                            "id": "a0n0x000000XzchAAC",
+                                            "last_name": "maradona",
+                                            "mailing_address": undefined,
+                                            "mailing_city": undefined,
+                                            "mailing_state": undefined,
+                                            "mailing_street": undefined,
+                                            "mailing_zip_code": undefined,
+                                            "marital_status": undefined,
+                                            "middle_name": "m",
+                                            "name": "diego m maradona",
+                                            "phone": undefined,
+                                            "phone_type": undefined,
+                                            "primary_language": undefined,
+                                            "relationship_to_applicant": null,
+                                            "residence_address": undefined,
+                                            "second_phone": undefined,
+                                            "second_phone_type": undefined,
+                                            "state": "fl",
+                                            "street": "9 de julio",
+                                            "zip_code": "33026",
+                                          },
+                                        ],
                                         "availableUnits": undefined,
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
+                                        "handleCloseRentalAssistancePanel": [Function],
+                                        "handleDeleteRentalAssistance": [Function],
+                                        "handleOpenRentalAssistancePanel": [Function],
+                                        "handleSaveNewRentalAssistance": [Function],
                                         "handleStatusModalClose": [Function],
                                         "handleStatusModalStatusChange": [Function],
                                         "handleStatusModalSubmit": [Function],
+                                        "handleUpdateRentalAssistance": [Function],
+                                        "hideAddRentalAssistanceBtn": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
                                         "onSubmit": [Function],
                                         "openAddStatusCommentModal": [Function],
                                         "openUpdateStatusModal": [Function],
+                                        "rentalAssistances": Array [],
                                         "setLoading": [Function],
+                                        "showAddRentalAssistanceBtn": true,
+                                        "showNewRentalAssistancePanel": false,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
@@ -3943,19 +4112,88 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "total_household_size": 1,
                                                   "total_monthly_rent": null,
                                                 },
+                                                "applicationMembers": Array [
+                                                  Object {
+                                                    "agency_name": undefined,
+                                                    "alternate_contact_type": undefined,
+                                                    "alternate_contact_type_other": undefined,
+                                                    "city": "SAN FRANCISCO",
+                                                    "date_of_birth": "1950-01-01",
+                                                    "email": "eee@eeee.com",
+                                                    "first_name": "karen",
+                                                    "id": "a0n0x000000AbE6AAK",
+                                                    "last_name": "jones",
+                                                    "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                    "mailing_city": "SAN FRANCISCO",
+                                                    "mailing_state": "CA",
+                                                    "mailing_street": "123 MAIN ST",
+                                                    "mailing_zip_code": "94105-1804",
+                                                    "marital_status": "Married",
+                                                    "middle_name": null,
+                                                    "name": "karen jones",
+                                                    "phone": "9548883321",
+                                                    "phone_type": "Cell",
+                                                    "primary_language": null,
+                                                    "relationship_to_applicant": undefined,
+                                                    "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                    "second_phone": null,
+                                                    "second_phone_type": null,
+                                                    "state": "CA",
+                                                    "street": "123 MAIN ST",
+                                                    "zip_code": "94105-1804",
+                                                  },
+                                                  Object {
+                                                    "agency_name": undefined,
+                                                    "alternate_contact_type": undefined,
+                                                    "alternate_contact_type_other": undefined,
+                                                    "city": "buenos aires",
+                                                    "date_of_birth": "1976-06-11",
+                                                    "email": undefined,
+                                                    "first_name": "diego",
+                                                    "id": "a0n0x000000XzchAAC",
+                                                    "last_name": "maradona",
+                                                    "mailing_address": undefined,
+                                                    "mailing_city": undefined,
+                                                    "mailing_state": undefined,
+                                                    "mailing_street": undefined,
+                                                    "mailing_zip_code": undefined,
+                                                    "marital_status": undefined,
+                                                    "middle_name": "m",
+                                                    "name": "diego m maradona",
+                                                    "phone": undefined,
+                                                    "phone_type": undefined,
+                                                    "primary_language": undefined,
+                                                    "relationship_to_applicant": null,
+                                                    "residence_address": undefined,
+                                                    "second_phone": undefined,
+                                                    "second_phone_type": undefined,
+                                                    "state": "fl",
+                                                    "street": "9 de julio",
+                                                    "zip_code": "33026",
+                                                  },
+                                                ],
                                                 "availableUnits": undefined,
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
+                                                "handleCloseRentalAssistancePanel": [Function],
+                                                "handleDeleteRentalAssistance": [Function],
+                                                "handleOpenRentalAssistancePanel": [Function],
+                                                "handleSaveNewRentalAssistance": [Function],
                                                 "handleStatusModalClose": [Function],
                                                 "handleStatusModalStatusChange": [Function],
                                                 "handleStatusModalSubmit": [Function],
+                                                "handleUpdateRentalAssistance": [Function],
+                                                "hideAddRentalAssistanceBtn": [Function],
                                                 "loading": false,
                                                 "onDismissError": [Function],
                                                 "onSavePreference": [Function],
                                                 "onSubmit": [Function],
                                                 "openAddStatusCommentModal": [Function],
                                                 "openUpdateStatusModal": [Function],
+                                                "rentalAssistances": Array [],
                                                 "setLoading": [Function],
+                                                "showAddRentalAssistanceBtn": true,
+                                                "showNewRentalAssistancePanel": false,
                                                 "statusHistory": Array [
                                                   Object {
                                                     "comment": "xxxx1",
@@ -3977,111 +4215,115 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               }
                                             }
                                           >
-                                            <TableWrapper>
-                                              <div
-                                                className="form-grid row expand"
-                                              >
+                                            <div
+                                              className="preferences-table"
+                                            >
+                                              <TableWrapper>
                                                 <div
-                                                  className="small-12 column"
+                                                  className="form-grid row expand"
                                                 >
                                                   <div
-                                                    className="scrollable-table-container-under-xlarge"
+                                                    className="small-12 column"
                                                   >
-                                                    <ExpandableTable
-                                                      columns={
-                                                        Array [
-                                                          Object {
-                                                            "content": "",
-                                                          },
-                                                          Object {
-                                                            "content": "Preference Name",
-                                                          },
-                                                          Object {
-                                                            "content": "Person Who Claimed",
-                                                          },
-                                                          Object {
-                                                            "classes": Array [
-                                                              "text-right",
-                                                            ],
-                                                            "content": "Preference Rank",
-                                                          },
-                                                          Object {
-                                                            "content": "Type of proof",
-                                                          },
-                                                          Object {
-                                                            "content": "Status",
-                                                          },
-                                                          Object {
-                                                            "content": "Actions",
-                                                          },
-                                                        ]
-                                                      }
-                                                      expandedRowRenderer={[Function]}
-                                                      expanderRenderer={[Function]}
-                                                      rows={Array []}
+                                                    <div
+                                                      className="scrollable-table-container-under-xlarge"
                                                     >
-                                                      <table
-                                                        className="td-light td-plain th-plain"
-                                                        role="grid"
+                                                      <ExpandableTable
+                                                        columns={
+                                                          Array [
+                                                            Object {
+                                                              "content": "",
+                                                            },
+                                                            Object {
+                                                              "content": "Preference Name",
+                                                            },
+                                                            Object {
+                                                              "content": "Person Who Claimed",
+                                                            },
+                                                            Object {
+                                                              "classes": Array [
+                                                                "text-right",
+                                                              ],
+                                                              "content": "Preference Rank",
+                                                            },
+                                                            Object {
+                                                              "content": "Type of proof",
+                                                            },
+                                                            Object {
+                                                              "content": "Status",
+                                                            },
+                                                            Object {
+                                                              "content": "Actions",
+                                                            },
+                                                          ]
+                                                        }
+                                                        expandedRowRenderer={[Function]}
+                                                        expanderRenderer={[Function]}
+                                                        rows={Array []}
                                                       >
-                                                        <thead>
-                                                          <tr>
-                                                            <th
-                                                              className=""
-                                                              key="0"
-                                                              scope="col"
-                                                            />
-                                                            <th
-                                                              className=""
-                                                              key="1"
-                                                              scope="col"
-                                                            >
-                                                              Preference Name
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="2"
-                                                              scope="col"
-                                                            >
-                                                              Person Who Claimed
-                                                            </th>
-                                                            <th
-                                                              className="text-right"
-                                                              key="3"
-                                                              scope="col"
-                                                            >
-                                                              Preference Rank
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="4"
-                                                              scope="col"
-                                                            >
-                                                              Type of proof
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="5"
-                                                              scope="col"
-                                                            >
-                                                              Status
-                                                            </th>
-                                                            <th
-                                                              className=""
-                                                              key="6"
-                                                              scope="col"
-                                                            >
-                                                              Actions
-                                                            </th>
-                                                          </tr>
-                                                        </thead>
-                                                        <tbody />
-                                                      </table>
-                                                    </ExpandableTable>
+                                                        <table
+                                                          className="td-light td-plain th-plain"
+                                                          role="grid"
+                                                        >
+                                                          <thead>
+                                                            <tr>
+                                                              <th
+                                                                className=""
+                                                                key="0"
+                                                                scope="col"
+                                                              />
+                                                              <th
+                                                                className=""
+                                                                key="1"
+                                                                scope="col"
+                                                              >
+                                                                Preference Name
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="2"
+                                                                scope="col"
+                                                              >
+                                                                Person Who Claimed
+                                                              </th>
+                                                              <th
+                                                                className="text-right"
+                                                                key="3"
+                                                                scope="col"
+                                                              >
+                                                                Preference Rank
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="4"
+                                                                scope="col"
+                                                              >
+                                                                Type of proof
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="5"
+                                                                scope="col"
+                                                              >
+                                                                Status
+                                                              </th>
+                                                              <th
+                                                                className=""
+                                                                key="6"
+                                                                scope="col"
+                                                              >
+                                                                Actions
+                                                              </th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody />
+                                                        </table>
+                                                      </ExpandableTable>
+                                                    </div>
                                                   </div>
                                                 </div>
-                                              </div>
-                                            </TableWrapper>
+                                              </TableWrapper>
+                                            </div>
                                           </PreferencesTable>
                                         </ContextComponent>
                                       </div>
@@ -5205,12 +5447,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         "validatingField": [Function],
                                                                       }
                                                                     }
-                                                                    id="housing_voucher_or_subsidy-yes"
+                                                                    id="housing_voucher_or_subsidy-undefined-yes"
                                                                     value="true"
                                                                   >
                                                                     <input
                                                                       checked={true}
-                                                                      id="housing_voucher_or_subsidy-yes"
+                                                                      id="housing_voucher_or_subsidy-undefined-yes"
                                                                       onBlur={[Function]}
                                                                       onChange={[Function]}
                                                                       type="radio"
@@ -5218,7 +5460,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                   </t>
                                                                   <label
                                                                     className="radio-inline_label"
-                                                                    htmlFor="housing_voucher_or_subsidy-yes"
+                                                                    htmlFor="housing_voucher_or_subsidy-undefined-yes"
                                                                   >
                                                                     Yes
                                                                   </label>
@@ -5249,12 +5491,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         "validatingField": [Function],
                                                                       }
                                                                     }
-                                                                    id="housing_voucher_or_subsidy-no"
+                                                                    id="housing_voucher_or_subsidy-undefined-no"
                                                                     value="false"
                                                                   >
                                                                     <input
                                                                       checked={false}
-                                                                      id="housing_voucher_or_subsidy-no"
+                                                                      id="housing_voucher_or_subsidy-undefined-no"
                                                                       onBlur={[Function]}
                                                                       onChange={[Function]}
                                                                       type="radio"
@@ -5262,7 +5504,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                   </t>
                                                                   <label
                                                                     className="radio-inline_label"
-                                                                    htmlFor="housing_voucher_or_subsidy-no"
+                                                                    htmlFor="housing_voucher_or_subsidy-undefined-no"
                                                                   >
                                                                     No
                                                                   </label>
@@ -5986,19 +6228,88 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 "total_household_size": 1,
                                                                 "total_monthly_rent": null,
                                                               },
+                                                              "applicationMembers": Array [
+                                                                Object {
+                                                                  "agency_name": undefined,
+                                                                  "alternate_contact_type": undefined,
+                                                                  "alternate_contact_type_other": undefined,
+                                                                  "city": "SAN FRANCISCO",
+                                                                  "date_of_birth": "1950-01-01",
+                                                                  "email": "eee@eeee.com",
+                                                                  "first_name": "karen",
+                                                                  "id": "a0n0x000000AbE6AAK",
+                                                                  "last_name": "jones",
+                                                                  "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                                  "mailing_city": "SAN FRANCISCO",
+                                                                  "mailing_state": "CA",
+                                                                  "mailing_street": "123 MAIN ST",
+                                                                  "mailing_zip_code": "94105-1804",
+                                                                  "marital_status": "Married",
+                                                                  "middle_name": null,
+                                                                  "name": "karen jones",
+                                                                  "phone": "9548883321",
+                                                                  "phone_type": "Cell",
+                                                                  "primary_language": null,
+                                                                  "relationship_to_applicant": undefined,
+                                                                  "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                                  "second_phone": null,
+                                                                  "second_phone_type": null,
+                                                                  "state": "CA",
+                                                                  "street": "123 MAIN ST",
+                                                                  "zip_code": "94105-1804",
+                                                                },
+                                                                Object {
+                                                                  "agency_name": undefined,
+                                                                  "alternate_contact_type": undefined,
+                                                                  "alternate_contact_type_other": undefined,
+                                                                  "city": "buenos aires",
+                                                                  "date_of_birth": "1976-06-11",
+                                                                  "email": undefined,
+                                                                  "first_name": "diego",
+                                                                  "id": "a0n0x000000XzchAAC",
+                                                                  "last_name": "maradona",
+                                                                  "mailing_address": undefined,
+                                                                  "mailing_city": undefined,
+                                                                  "mailing_state": undefined,
+                                                                  "mailing_street": undefined,
+                                                                  "mailing_zip_code": undefined,
+                                                                  "marital_status": undefined,
+                                                                  "middle_name": "m",
+                                                                  "name": "diego m maradona",
+                                                                  "phone": undefined,
+                                                                  "phone_type": undefined,
+                                                                  "primary_language": undefined,
+                                                                  "relationship_to_applicant": null,
+                                                                  "residence_address": undefined,
+                                                                  "second_phone": undefined,
+                                                                  "second_phone_type": undefined,
+                                                                  "state": "fl",
+                                                                  "street": "9 de julio",
+                                                                  "zip_code": "33026",
+                                                                },
+                                                              ],
                                                               "availableUnits": undefined,
                                                               "confirmedPreferencesFailed": false,
                                                               "fileBaseUrl": undefined,
+                                                              "handleCloseRentalAssistancePanel": [Function],
+                                                              "handleDeleteRentalAssistance": [Function],
+                                                              "handleOpenRentalAssistancePanel": [Function],
+                                                              "handleSaveNewRentalAssistance": [Function],
                                                               "handleStatusModalClose": [Function],
                                                               "handleStatusModalStatusChange": [Function],
                                                               "handleStatusModalSubmit": [Function],
+                                                              "handleUpdateRentalAssistance": [Function],
+                                                              "hideAddRentalAssistanceBtn": [Function],
                                                               "loading": false,
                                                               "onDismissError": [Function],
                                                               "onSavePreference": [Function],
                                                               "onSubmit": [Function],
                                                               "openAddStatusCommentModal": [Function],
                                                               "openUpdateStatusModal": [Function],
+                                                              "rentalAssistances": Array [],
                                                               "setLoading": [Function],
+                                                              "showAddRentalAssistanceBtn": true,
+                                                              "showNewRentalAssistancePanel": false,
                                                               "statusHistory": Array [
                                                                 Object {
                                                                   "comment": "xxxx1",
@@ -6513,6 +6824,301 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       </div>
                                     </Component>
                                     <Component
+                                      description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
+                                      title="Rental Assistance Information"
+                                    >
+                                      <Component
+                                        description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
+                                        title="Rental Assistance Information"
+                                      >
+                                        <div
+                                          className="app-inner subheader-wide"
+                                        >
+                                          <h3
+                                            className="app-card_h3 t-sans"
+                                          >
+                                            Rental Assistance Information
+                                          </h3>
+                                          <p
+                                            className="form-note max-width"
+                                          >
+                                            Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.
+                                          </p>
+                                        </div>
+                                      </Component>
+                                      <Component
+                                        borderBottom={true}
+                                      >
+                                        <div
+                                          className="app-inner inset-wide border-bottom"
+                                        >
+                                          <ContextComponent>
+                                            <RentalAssistance
+                                              store={
+                                                Object {
+                                                  "amiCharts": Array [],
+                                                  "amis": Object {},
+                                                  "application": Object {
+                                                    "alternate_contact": undefined,
+                                                    "annual_income": 110000,
+                                                    "answered_community_screening": null,
+                                                    "applicant": Object {
+                                                      "agency_name": undefined,
+                                                      "alternate_contact_type": undefined,
+                                                      "alternate_contact_type_other": undefined,
+                                                      "city": "SAN FRANCISCO",
+                                                      "date_of_birth": "1950-01-01",
+                                                      "email": "eee@eeee.com",
+                                                      "first_name": "karen",
+                                                      "id": "a0n0x000000AbE6AAK",
+                                                      "last_name": "jones",
+                                                      "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                      "mailing_city": "SAN FRANCISCO",
+                                                      "mailing_state": "CA",
+                                                      "mailing_street": "123 MAIN ST",
+                                                      "mailing_zip_code": "94105-1804",
+                                                      "marital_status": "Married",
+                                                      "middle_name": null,
+                                                      "name": "karen jones",
+                                                      "phone": "9548883321",
+                                                      "phone_type": "Cell",
+                                                      "primary_language": null,
+                                                      "relationship_to_applicant": undefined,
+                                                      "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                      "second_phone": null,
+                                                      "second_phone_type": null,
+                                                      "state": "CA",
+                                                      "street": "123 MAIN ST",
+                                                      "zip_code": "94105-1804",
+                                                    },
+                                                    "application_language": "English",
+                                                    "application_submission_type": "Paper",
+                                                    "application_submitted_date": "2018-06-21",
+                                                    "createdby": Object {
+                                                      "name": "Prod Vertiba",
+                                                    },
+                                                    "flagged_applications": Array [],
+                                                    "general_lottery": true,
+                                                    "general_lottery_rank": null,
+                                                    "has_ada_priorities_selected": Object {
+                                                      "": true,
+                                                    },
+                                                    "has_developmental_disability": null,
+                                                    "has_military_service": null,
+                                                    "hh_total_income_with_assets_annual": undefined,
+                                                    "household_assets": null,
+                                                    "household_members": Array [
+                                                      Object {
+                                                        "agency_name": undefined,
+                                                        "alternate_contact_type": undefined,
+                                                        "alternate_contact_type_other": undefined,
+                                                        "city": "buenos aires",
+                                                        "date_of_birth": "1976-06-11",
+                                                        "email": undefined,
+                                                        "first_name": "diego",
+                                                        "id": "a0n0x000000XzchAAC",
+                                                        "last_name": "maradona",
+                                                        "mailing_address": undefined,
+                                                        "mailing_city": undefined,
+                                                        "mailing_state": undefined,
+                                                        "mailing_street": undefined,
+                                                        "mailing_zip_code": undefined,
+                                                        "marital_status": undefined,
+                                                        "middle_name": "m",
+                                                        "name": "diego m maradona",
+                                                        "phone": undefined,
+                                                        "phone_type": undefined,
+                                                        "primary_language": undefined,
+                                                        "relationship_to_applicant": null,
+                                                        "residence_address": undefined,
+                                                        "second_phone": undefined,
+                                                        "second_phone_type": undefined,
+                                                        "state": "fl",
+                                                        "street": "9 de julio",
+                                                        "zip_code": "33026",
+                                                      },
+                                                    ],
+                                                    "housing_voucher_or_subsidy": "true",
+                                                    "id": "a0o0x000000OcOzAAK",
+                                                    "is_lottery_complete": false,
+                                                    "lease": undefined,
+                                                    "listing": Object {
+                                                      "id": "a0W0x000000GhJUEA0",
+                                                      "name": "Test 5/30",
+                                                      "reserved_community_type": null,
+                                                    },
+                                                    "lottery_number": "00191270",
+                                                    "lottery_number_manual": null,
+                                                    "monthly_income": null,
+                                                    "name": "APP-00191270",
+                                                    "number_of_dependents": 2,
+                                                    "preferences": Array [
+                                                      Object {
+                                                        "application": undefined,
+                                                        "application_member": undefined,
+                                                        "application_member_date_of_birth": null,
+                                                        "application_member_first_name": null,
+                                                        "application_member_last_name": null,
+                                                        "certificate_number": null,
+                                                        "city": null,
+                                                        "id": "a0w0x0000014pvyAAA",
+                                                        "individual_preference": null,
+                                                        "listing_preference": Object {
+                                                          "record_type_for_app_preferences": undefined,
+                                                        },
+                                                        "listing_preference_id": "a0l0x000000RI8nAAG",
+                                                        "lottery_status": "None",
+                                                        "lw_type_of_proof": null,
+                                                        "name": "AP-0000612141",
+                                                        "opt_out": null,
+                                                        "person_who_claimed_name": null,
+                                                        "post_lottery_validation": undefined,
+                                                        "preference_lottery_rank": null,
+                                                        "preference_name": "Alice Griffith Housing Development Resident",
+                                                        "preference_order": 0,
+                                                        "receives_preference": null,
+                                                        "recordtype_developername": "AG",
+                                                        "state": null,
+                                                        "street": null,
+                                                        "total_household_rent": "undefined",
+                                                        "type_of_proof": null,
+                                                        "zip_code": null,
+                                                      },
+                                                    ],
+                                                    "primary_applicant_contact": undefined,
+                                                    "processing_status": undefined,
+                                                    "proof_files": Array [],
+                                                    "referral_source": null,
+                                                    "reserved_senior": undefined,
+                                                    "status": "Submitted",
+                                                    "status_last_updated": undefined,
+                                                    "terms_acknowledged": true,
+                                                    "total_household_size": 1,
+                                                    "total_monthly_rent": null,
+                                                  },
+                                                  "applicationMembers": Array [
+                                                    Object {
+                                                      "agency_name": undefined,
+                                                      "alternate_contact_type": undefined,
+                                                      "alternate_contact_type_other": undefined,
+                                                      "city": "SAN FRANCISCO",
+                                                      "date_of_birth": "1950-01-01",
+                                                      "email": "eee@eeee.com",
+                                                      "first_name": "karen",
+                                                      "id": "a0n0x000000AbE6AAK",
+                                                      "last_name": "jones",
+                                                      "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                      "mailing_city": "SAN FRANCISCO",
+                                                      "mailing_state": "CA",
+                                                      "mailing_street": "123 MAIN ST",
+                                                      "mailing_zip_code": "94105-1804",
+                                                      "marital_status": "Married",
+                                                      "middle_name": null,
+                                                      "name": "karen jones",
+                                                      "phone": "9548883321",
+                                                      "phone_type": "Cell",
+                                                      "primary_language": null,
+                                                      "relationship_to_applicant": undefined,
+                                                      "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                      "second_phone": null,
+                                                      "second_phone_type": null,
+                                                      "state": "CA",
+                                                      "street": "123 MAIN ST",
+                                                      "zip_code": "94105-1804",
+                                                    },
+                                                    Object {
+                                                      "agency_name": undefined,
+                                                      "alternate_contact_type": undefined,
+                                                      "alternate_contact_type_other": undefined,
+                                                      "city": "buenos aires",
+                                                      "date_of_birth": "1976-06-11",
+                                                      "email": undefined,
+                                                      "first_name": "diego",
+                                                      "id": "a0n0x000000XzchAAC",
+                                                      "last_name": "maradona",
+                                                      "mailing_address": undefined,
+                                                      "mailing_city": undefined,
+                                                      "mailing_state": undefined,
+                                                      "mailing_street": undefined,
+                                                      "mailing_zip_code": undefined,
+                                                      "marital_status": undefined,
+                                                      "middle_name": "m",
+                                                      "name": "diego m maradona",
+                                                      "phone": undefined,
+                                                      "phone_type": undefined,
+                                                      "primary_language": undefined,
+                                                      "relationship_to_applicant": null,
+                                                      "residence_address": undefined,
+                                                      "second_phone": undefined,
+                                                      "second_phone_type": undefined,
+                                                      "state": "fl",
+                                                      "street": "9 de julio",
+                                                      "zip_code": "33026",
+                                                    },
+                                                  ],
+                                                  "availableUnits": undefined,
+                                                  "confirmedPreferencesFailed": false,
+                                                  "fileBaseUrl": undefined,
+                                                  "handleCloseRentalAssistancePanel": [Function],
+                                                  "handleDeleteRentalAssistance": [Function],
+                                                  "handleOpenRentalAssistancePanel": [Function],
+                                                  "handleSaveNewRentalAssistance": [Function],
+                                                  "handleStatusModalClose": [Function],
+                                                  "handleStatusModalStatusChange": [Function],
+                                                  "handleStatusModalSubmit": [Function],
+                                                  "handleUpdateRentalAssistance": [Function],
+                                                  "hideAddRentalAssistanceBtn": [Function],
+                                                  "loading": false,
+                                                  "onDismissError": [Function],
+                                                  "onSavePreference": [Function],
+                                                  "onSubmit": [Function],
+                                                  "openAddStatusCommentModal": [Function],
+                                                  "openUpdateStatusModal": [Function],
+                                                  "rentalAssistances": Array [],
+                                                  "setLoading": [Function],
+                                                  "showAddRentalAssistanceBtn": true,
+                                                  "showNewRentalAssistancePanel": false,
+                                                  "statusHistory": Array [
+                                                    Object {
+                                                      "comment": "xxxx1",
+                                                      "date": "2018-05-10T19:54:11.000+0000",
+                                                      "status": "Approved",
+                                                      "timestamp": 1525982051,
+                                                    },
+                                                    Object {
+                                                      "comment": "xxxx2",
+                                                      "date": "2018-05-10T19:54:11.000+0000",
+                                                      "status": "Pending",
+                                                      "timestamp": 1525982051,
+                                                    },
+                                                  ],
+                                                  "statusModal": Object {
+                                                    "loading": false,
+                                                    "status": undefined,
+                                                  },
+                                                }
+                                              }
+                                            >
+                                              <Button
+                                                id="add-rental-assistance"
+                                                onClick={[Function]}
+                                                small={true}
+                                                text="Add Rental Assistance"
+                                              >
+                                                <button
+                                                  className="button small"
+                                                  id="add-rental-assistance"
+                                                  onClick={[Function]}
+                                                >
+                                                  Add Rental Assistance
+                                                </button>
+                                              </Button>
+                                            </RentalAssistance>
+                                          </ContextComponent>
+                                        </div>
+                                      </Component>
+                                    </Component>
+                                    <Component
                                       title="Demographics"
                                     >
                                       <Component
@@ -7024,19 +7630,88 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "total_household_size": 1,
                                               "total_monthly_rent": null,
                                             },
+                                            "applicationMembers": Array [
+                                              Object {
+                                                "agency_name": undefined,
+                                                "alternate_contact_type": undefined,
+                                                "alternate_contact_type_other": undefined,
+                                                "city": "SAN FRANCISCO",
+                                                "date_of_birth": "1950-01-01",
+                                                "email": "eee@eeee.com",
+                                                "first_name": "karen",
+                                                "id": "a0n0x000000AbE6AAK",
+                                                "last_name": "jones",
+                                                "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                "mailing_city": "SAN FRANCISCO",
+                                                "mailing_state": "CA",
+                                                "mailing_street": "123 MAIN ST",
+                                                "mailing_zip_code": "94105-1804",
+                                                "marital_status": "Married",
+                                                "middle_name": null,
+                                                "name": "karen jones",
+                                                "phone": "9548883321",
+                                                "phone_type": "Cell",
+                                                "primary_language": null,
+                                                "relationship_to_applicant": undefined,
+                                                "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                                "second_phone": null,
+                                                "second_phone_type": null,
+                                                "state": "CA",
+                                                "street": "123 MAIN ST",
+                                                "zip_code": "94105-1804",
+                                              },
+                                              Object {
+                                                "agency_name": undefined,
+                                                "alternate_contact_type": undefined,
+                                                "alternate_contact_type_other": undefined,
+                                                "city": "buenos aires",
+                                                "date_of_birth": "1976-06-11",
+                                                "email": undefined,
+                                                "first_name": "diego",
+                                                "id": "a0n0x000000XzchAAC",
+                                                "last_name": "maradona",
+                                                "mailing_address": undefined,
+                                                "mailing_city": undefined,
+                                                "mailing_state": undefined,
+                                                "mailing_street": undefined,
+                                                "mailing_zip_code": undefined,
+                                                "marital_status": undefined,
+                                                "middle_name": "m",
+                                                "name": "diego m maradona",
+                                                "phone": undefined,
+                                                "phone_type": undefined,
+                                                "primary_language": undefined,
+                                                "relationship_to_applicant": null,
+                                                "residence_address": undefined,
+                                                "second_phone": undefined,
+                                                "second_phone_type": undefined,
+                                                "state": "fl",
+                                                "street": "9 de julio",
+                                                "zip_code": "33026",
+                                              },
+                                            ],
                                             "availableUnits": undefined,
                                             "confirmedPreferencesFailed": false,
                                             "fileBaseUrl": undefined,
+                                            "handleCloseRentalAssistancePanel": [Function],
+                                            "handleDeleteRentalAssistance": [Function],
+                                            "handleOpenRentalAssistancePanel": [Function],
+                                            "handleSaveNewRentalAssistance": [Function],
                                             "handleStatusModalClose": [Function],
                                             "handleStatusModalStatusChange": [Function],
                                             "handleStatusModalSubmit": [Function],
+                                            "handleUpdateRentalAssistance": [Function],
+                                            "hideAddRentalAssistanceBtn": [Function],
                                             "loading": false,
                                             "onDismissError": [Function],
                                             "onSavePreference": [Function],
                                             "onSubmit": [Function],
                                             "openAddStatusCommentModal": [Function],
                                             "openUpdateStatusModal": [Function],
+                                            "rentalAssistances": Array [],
                                             "setLoading": [Function],
+                                            "showAddRentalAssistanceBtn": true,
+                                            "showNewRentalAssistancePanel": false,
                                             "statusHistory": Array [
                                               Object {
                                                 "comment": "xxxx1",
@@ -7350,19 +8025,88 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "total_household_size": 1,
                                           "total_monthly_rent": null,
                                         },
+                                        "applicationMembers": Array [
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "SAN FRANCISCO",
+                                            "date_of_birth": "1950-01-01",
+                                            "email": "eee@eeee.com",
+                                            "first_name": "karen",
+                                            "id": "a0n0x000000AbE6AAK",
+                                            "last_name": "jones",
+                                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "mailing_city": "SAN FRANCISCO",
+                                            "mailing_state": "CA",
+                                            "mailing_street": "123 MAIN ST",
+                                            "mailing_zip_code": "94105-1804",
+                                            "marital_status": "Married",
+                                            "middle_name": null,
+                                            "name": "karen jones",
+                                            "phone": "9548883321",
+                                            "phone_type": "Cell",
+                                            "primary_language": null,
+                                            "relationship_to_applicant": undefined,
+                                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "second_phone": null,
+                                            "second_phone_type": null,
+                                            "state": "CA",
+                                            "street": "123 MAIN ST",
+                                            "zip_code": "94105-1804",
+                                          },
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "buenos aires",
+                                            "date_of_birth": "1976-06-11",
+                                            "email": undefined,
+                                            "first_name": "diego",
+                                            "id": "a0n0x000000XzchAAC",
+                                            "last_name": "maradona",
+                                            "mailing_address": undefined,
+                                            "mailing_city": undefined,
+                                            "mailing_state": undefined,
+                                            "mailing_street": undefined,
+                                            "mailing_zip_code": undefined,
+                                            "marital_status": undefined,
+                                            "middle_name": "m",
+                                            "name": "diego m maradona",
+                                            "phone": undefined,
+                                            "phone_type": undefined,
+                                            "primary_language": undefined,
+                                            "relationship_to_applicant": null,
+                                            "residence_address": undefined,
+                                            "second_phone": undefined,
+                                            "second_phone_type": undefined,
+                                            "state": "fl",
+                                            "street": "9 de julio",
+                                            "zip_code": "33026",
+                                          },
+                                        ],
                                         "availableUnits": undefined,
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
+                                        "handleCloseRentalAssistancePanel": [Function],
+                                        "handleDeleteRentalAssistance": [Function],
+                                        "handleOpenRentalAssistancePanel": [Function],
+                                        "handleSaveNewRentalAssistance": [Function],
                                         "handleStatusModalClose": [Function],
                                         "handleStatusModalStatusChange": [Function],
                                         "handleStatusModalSubmit": [Function],
+                                        "handleUpdateRentalAssistance": [Function],
+                                        "hideAddRentalAssistanceBtn": [Function],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
                                         "onSubmit": [Function],
                                         "openAddStatusCommentModal": [Function],
                                         "openUpdateStatusModal": [Function],
+                                        "rentalAssistances": Array [],
                                         "setLoading": [Function],
+                                        "showAddRentalAssistanceBtn": true,
+                                        "showNewRentalAssistancePanel": false,
                                         "statusHistory": Array [
                                           Object {
                                             "comment": "xxxx1",
