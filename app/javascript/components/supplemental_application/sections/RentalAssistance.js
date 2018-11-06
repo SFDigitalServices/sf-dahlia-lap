@@ -26,9 +26,9 @@ const typeOfAssistance = [
   'Q Foundation: Person with Disability Rent Subsidy',
   'Q Foundation: Senior Rent Subsidy',
   'San Francisco AIDS Foundation',
-  'Section 8 HCV (tenant) voucher',
+  'Section 8 HCV (Tenant) Voucher',
   'Self-Help for the Elderly',
-  'VASH voucher',
+  'VASH Voucher',
   'Other'
 ]
 

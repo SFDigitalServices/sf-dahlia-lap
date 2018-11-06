@@ -196,7 +196,7 @@ Array [
                               disabled={undefined}
                               value={12}
                             >
-                              Section 8 HCV (tenant) voucher
+                              Section 8 HCV (Tenant) Voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -208,7 +208,7 @@ Array [
                               disabled={undefined}
                               value={14}
                             >
-                              VASH voucher
+                              VASH Voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -472,7 +472,7 @@ Array [
               disabled={undefined}
               value={12}
             >
-              Section 8 HCV (tenant) voucher
+              Section 8 HCV (Tenant) Voucher
             </option>
             <option
               disabled={undefined}
@@ -484,7 +484,7 @@ Array [
               disabled={undefined}
               value={14}
             >
-              VASH voucher
+              VASH Voucher
             </option>
             <option
               disabled={undefined}
@@ -847,7 +847,7 @@ Array [
                               disabled={undefined}
                               value={12}
                             >
-                              Section 8 HCV (tenant) voucher
+                              Section 8 HCV (Tenant) Voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -859,7 +859,7 @@ Array [
                               disabled={undefined}
                               value={14}
                             >
-                              VASH voucher
+                              VASH Voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -1228,7 +1228,7 @@ Array [
                               disabled={undefined}
                               value={12}
                             >
-                              Section 8 HCV (tenant) voucher
+                              Section 8 HCV (Tenant) Voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -1240,7 +1240,7 @@ Array [
                               disabled={undefined}
                               value={14}
                             >
-                              VASH voucher
+                              VASH Voucher
                             </option>
                             <option
                               disabled={undefined}
