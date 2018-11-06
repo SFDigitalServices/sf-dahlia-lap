@@ -12,6 +12,7 @@ const HouseholdMemberForm = ({ i, formApi }) => {
               id={`household_members_${i}_first_name`}
               label='First Name'
               field={`household_members.${i}.first_name`}
+              blockNote='(required)'
               errorMessage={(label, error) => error}
             />
           </div>
@@ -27,6 +28,7 @@ const HouseholdMemberForm = ({ i, formApi }) => {
               id={`household_members_${i}_last_name`}
               label='Last Name'
               field={`household_members.${i}.last_name`}
+              blockNote='(required)'
               errorMessage={(label, error) => error}
             />
           </div>
@@ -36,6 +38,7 @@ const HouseholdMemberForm = ({ i, formApi }) => {
               field={`household_members.${i}.date_of_birth`}
               formApi={formApi}
               label='Date of Birth'
+              blockNote='(required)'
               errorMessage={(label, error) => error}
             />
           </div>
