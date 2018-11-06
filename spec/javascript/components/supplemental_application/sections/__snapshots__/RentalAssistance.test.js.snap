@@ -114,7 +114,7 @@ Array [
                             Type of Assistance 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-type"
                             id="type_of_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -239,7 +239,7 @@ Array [
                             >
                               <input
                                 checked={true}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-yes"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -257,7 +257,7 @@ Array [
                             >
                               <input
                                 checked={false}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-no"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -308,7 +308,7 @@ Array [
                             Recipient 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-recipient"
                             id="recipient"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -393,7 +393,7 @@ Array [
               Type of Assistance 
             </label>
             <select
-              className=""
+              className="rental-assistance-type"
               id="type_of_assistance"
               onBlur={[Function]}
               onChange={[Function]}
@@ -518,7 +518,7 @@ Array [
               >
                 <input
                   checked={false}
-                  className=""
+                  className="rental-assistance-recurring"
                   id="recurring_assistance-new-yes"
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -536,7 +536,7 @@ Array [
               >
                 <input
                   checked={false}
-                  className=""
+                  className="rental-assistance-recurring"
                   id="recurring_assistance-new-no"
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -587,7 +587,7 @@ Array [
               Recipient 
             </label>
             <select
-              className=""
+              className="rental-assistance-recipient"
               id="recipient"
               onBlur={[Function]}
               onChange={[Function]}
@@ -769,7 +769,7 @@ Array [
                             Type of Assistance 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-type"
                             id="type_of_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -894,7 +894,7 @@ Array [
                             >
                               <input
                                 checked={true}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-yes"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -912,7 +912,7 @@ Array [
                             >
                               <input
                                 checked={false}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-no"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -963,7 +963,7 @@ Array [
                             Recipient 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-recipient"
                             id="recipient"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -1150,7 +1150,7 @@ Array [
                             Type of Assistance 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-type"
                             id="type_of_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -1275,7 +1275,7 @@ Array [
                             >
                               <input
                                 checked={true}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-yes"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1293,7 +1293,7 @@ Array [
                             >
                               <input
                                 checked={false}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-no"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1344,7 +1344,7 @@ Array [
                             Recipient 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-recipient"
                             id="recipient"
                             onBlur={[Function]}
                             onChange={[Function]}
