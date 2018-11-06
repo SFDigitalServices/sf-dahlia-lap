@@ -46,6 +46,8 @@ describe('validate', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)([null, '01', '12'])).toEqual(FAILED_VALIDATION)
       expect(validate.isValidDate(FAILED_VALIDATION)(['2000', null, '12'])).toEqual(FAILED_VALIDATION)
       expect(validate.isValidDate(FAILED_VALIDATION)(['2000', '01', null])).toEqual(FAILED_VALIDATION)
+      // Array of length < 3
+      expect(validate.isValidDate(FAILED_VALIDATION)(['01', '12'])).toEqual(FAILED_VALIDATION)
     })
     test('fails validation if date has non-numerical characters in it', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)(['2010', '01z', '12'])).toEqual(FAILED_VALIDATION)
