@@ -1,5 +1,5 @@
 import React from 'react'
-import { flow, map, each, set, clone, uniq } from 'lodash'
+import { flow, map, each, set, clone } from 'lodash'
 import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
@@ -34,9 +34,9 @@ class LeaseUpApplicationsPage extends React.Component {
     this.eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   }
 
-  fetchApplications = async (page) => {
-    // update fetchLeaseUpApplication to take filters
-    const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page)
+  fetchApplications = async (page, filters) => {
+    const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
+    console.log(response)
     return {
       records: map(response.records, flow(mapApplicationPreference, buildLeaseUpModel)),
       pages: response.pages
@@ -44,21 +44,19 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   loadPage = async (page, filters) => {
-    // update code here to include filters
-    const fetcher = p => this.fetchApplications(p)
+    const fetcher = p => this.fetchApplications(p, filters)
     this.setState({ loading: true, page: page })
     const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
     this.setState({
       applications: records,
       loading: false,
-      pages: pages,
-      preferences: uniq(map(records, (record) => record.preference_record_type))
+      pages: pages
     })
   }
 
   handleOnFetchData = (state, instance) => {
-    // const { filters } = this.state
-    this.loadPage(state.page)
+    const { filters } = this.state
+    this.loadPage(state.page, filters)
   }
 
   handleOnFilter = (filters) => {
@@ -116,7 +114,8 @@ class LeaseUpApplicationsPage extends React.Component {
 
   render () {
     const listing = this.props.listing
-
+    console.log(listing)
+    const preferences = map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
     const pageHeader = {
       title: listing.name,
       content: listing.building_street_address,
@@ -132,8 +131,8 @@ class LeaseUpApplicationsPage extends React.Component {
 
     const context = {
       applications: this.state.applications,
-      preferences: this.state.preferences,
       listing: listing,
+      preferences: preferences,
       handleOnFetchData: this.handleOnFetchData,
       handleCreateStatusUpdate: this.handleCreateStatusUpdate,
       handleOnFilter: this.handleOnFilter,

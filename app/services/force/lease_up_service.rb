@@ -14,18 +14,21 @@ module Force
       )))
     end
 
+    # change to preferences
     def lease_up_listing_applications(opts)
-      listing_subquery = builder.from(:Listing_Lottery_Preference__c)
-                                .select(:Id)
-                                .where_eq('Listing__c', "'#{opts[:listing_id]}'")
-
       query_scope = builder.from(:Application_Preference__c)
                            .select(query_fields(:lease_up_listing_application))
-                           .where("Listing_Preference_ID__c IN (#{listing_subquery})")
+                           .where("Listing_Preference_ID__c IN (#{listing_subquery(opts[:listing_id])})")
                            .where('Preference_Lottery_Rank__c != NULL')
                            .paginate(opts)
                            .order_by('Preference_Order__c', 'Preference_Lottery_Rank__c')
                            .transform_results { |results| massage(results) }
+
+      query_scope.where_contains('Application__r.Name', opts[:application_number]) if opts[:application_number].present?
+      query_scope.where_eq('Application__r.Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
+      query_scope.where_eq('Application__r.Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
+      query_scope.where_eq('Application__r.Processing_Status__c', "'#{opts[:status]}'") if opts[:status].present?
+      query_scope.where_eq('Preference_Name__c', "'#{opts[:preference]}'") if opts[:preference].present?
 
       application_data = query_scope.query
 
@@ -41,6 +44,12 @@ module Force
     end
 
     private
+
+    def listing_subquery(listing_id)
+      builder.from(:Listing_Lottery_Preference__c)
+             .select(:Id)
+             .where_eq('Listing__c', "'#{listing_id}'")
+    end
 
     def set_status_last_updated(status_last_updated_dates, application_data)
       status_last_updated_dates.each do |status_date|
