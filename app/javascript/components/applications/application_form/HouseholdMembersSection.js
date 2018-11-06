@@ -30,7 +30,8 @@ const HouseholdMembersSection = ({ formApi, editValues }) => {
             <button
               onClick={() => formApi.addValue('household_members', '')}
               type='button'
-              className='mb-4 mr-4 btn btn-success'>
+              className='mb-4 mr-4 btn btn-success'
+              id='add-additional-member'>
                 + Additional Member
             </button>
           </div>

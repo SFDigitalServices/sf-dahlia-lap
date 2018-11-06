@@ -1,7 +1,6 @@
 import React from 'react'
-import { Text } from 'react-form'
 import AddressForm from './AddressForm'
-import { MultiDateField } from '~/utils/form/Field'
+import { Field, MultiDateField } from '~/utils/form/Field'
 
 const HouseholdMemberForm = ({ i, formApi }) => {
   return (
@@ -9,20 +8,31 @@ const HouseholdMemberForm = ({ i, formApi }) => {
       <div className='row'>
         <div className='form-group'>
           <div className='small-3 columns'>
-            <label>First Name</label>
-            <Text field={`household_members.${i}.first_name`} />
+            <Field.Text
+              id={`household_members_${i}_first_name`}
+              label='First Name'
+              field={`household_members.${i}.first_name`}
+              errorMessage={(label, error) => error}
+            />
           </div>
           <div className='small-2 columns'>
-            <label>Middle Name</label>
-            <Text field={`household_members.${i}.middle_name`} />
+            <Field.Text
+              id={`household_members_${i}_middle_name`}
+              label='Middle Name'
+              field={`household_members.${i}.middle_name`}
+            />
           </div>
           <div className='small-3 columns'>
-            <label>Last Name</label>
-            <Text field={`household_members.${i}.last_name`} />
+            <Field.Text
+              id={`household_members_${i}_last_name`}
+              label='Last Name'
+              field={`household_members.${i}.last_name`}
+              errorMessage={(label, error) => error}
+            />
           </div>
           <div className='small-4 columns form-date-of-birth'>
             <MultiDateField
-              id='date_of_birth'
+              id={`household_members_${i}_date_of_birth`}
               field={`household_members.${i}.date_of_birth`}
               formApi={formApi}
               label='Date of Birth'

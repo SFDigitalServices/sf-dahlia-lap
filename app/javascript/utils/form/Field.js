@@ -24,7 +24,7 @@ export const Field = ({ formApi, field, label, blockNote, errorMessage, children
   )
 }
 
-export const MultiDateField = ({ formApi, field, label, blockNote, errorMessage, children }) => {
+export const MultiDateField = ({ formApi, field, label, id, blockNote, errorMessage, children }) => {
   const className = errorClassName(formApi, field)
 
   return (
@@ -34,13 +34,13 @@ export const MultiDateField = ({ formApi, field, label, blockNote, errorMessage,
         {blockNote && <BlockNote value={blockNote} />}
       </label>
       <div className='form-group-month'>
-        <Text className={classNames(className)} field={[field, 1]} id='month' placeholder='MM' />
+        <Text className={classNames(className)} field={[field, 1]} id={id + '_month'} placeholder='MM' />
       </div>
       <div className='form-group-day'>
-        <Text className={classNames(className)} field={[field, 2]} id='day' placeholder='DD' />
+        <Text className={classNames(className)} field={[field, 2]} id={id + '_day'} placeholder='DD' />
       </div>
       <div className='form-group-year'>
-        <Text className={classNames(className)} field={[field, 0]} id='year' placeholder='YYYY' />
+        <Text className={classNames(className)} field={[field, 0]} id={id + '_year'} placeholder='YYYY' />
       </div>
       <div className='d-inline-block'>
         <FormError formApi={formApi} label={label} field={field} errorMessage={errorMessage} />
