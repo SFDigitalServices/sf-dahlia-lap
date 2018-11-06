@@ -6,7 +6,7 @@ const HomePageHeader = ({ header }) => {
   return (
     <div>
       <PageHeader
-        title='Welcome to the Leasing Agent Portal.'
+        title='Welcome to DAHLIA Partners.'
         content='We hope you enjoy your stay here.' />
     </div>
   )
