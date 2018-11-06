@@ -1,6 +1,7 @@
 import React from 'react'
 import { isEmpty } from 'lodash'
 import { Form } from 'react-form'
+import classNames from 'classnames'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
@@ -148,7 +149,13 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
   return (
     <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
       {formApi => (
-        <div className='app-editable expand-wide scrollable-table-nested rental-assistance-form'>
+        <div className={classNames(
+          'app-editable expand-wide scrollable-table-nested',
+          {
+            'rental-assistance-new-form': isNew,
+            'rental-assistance-edit-form': !isNew
+          }
+        )}>
           <FormGrid.Row expand={false}>
             <FormGrid.Item>
               <Field.Select
@@ -249,14 +256,12 @@ const RentalAssistance = ({ store }) => {
       )}
 
       { showNewRentalAssistancePanel && (
-        <div className='rental-assistance-form-new'>
-          <AddRentalAssistanceForm
-            onSave={handleSaveNewRentalAssistance}
-            onClose={handleCloseRentalAssistancePanel}
-            applicationMembers={applicationMembers}
-            isNew
-          />
-        </div>
+        <AddRentalAssistanceForm
+          onSave={handleSaveNewRentalAssistance}
+          onClose={handleCloseRentalAssistancePanel}
+          applicationMembers={applicationMembers}
+          isNew
+        />
       )}
       { showAddRentalAssistanceBtn && (
         <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />

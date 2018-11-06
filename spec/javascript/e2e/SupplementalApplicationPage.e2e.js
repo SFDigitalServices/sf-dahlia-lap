@@ -42,7 +42,7 @@ describe('SupplementalApplicationPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  test.only('should allow new rental assistances to be created', async () => {
+  test('should allow  new rental assistance to be created', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
@@ -52,42 +52,68 @@ describe('SupplementalApplicationPage', () => {
     // Click on the Add Rental Assistance button in the Rental Assistance section
     await page.click('button#add-rental-assistance')
 
-    // Wait for the rental assistance form to appear
-    await page.waitForSelector('.rental-assistance-form-new')
+    // Wait for the new rental assistance form to appear
+    await page.waitForSelector('.rental-assistance-new-form')
 
-    // // Set up the values we'll use to fill out the rental assistance form
+    // Set up the values we'll use to fill out the rental assistance form
     const [typeVal] = await page.$eval(
-      '.rental-assistance-form-new .rental-assistance-type option:nth-child(2)',
+      '.rental-assistance-new-form .rental-assistance-type option:nth-child(2)',
       e => [e.value, e.textContent]
     )
-    // const recurring = 'Yes'
     const amount = 100
     const [recipientVal] = await page.$eval(
-      '.rental-assistance-form-new .rental-assistance-recipient option:nth-child(2)',
+      '.rental-assistance-new-form .rental-assistance-recipient option:nth-child(2)',
       e => [e.value, e.textContent]
     )
 
-    const tableSize = await page.$$eval('.rental-assistances tr', e => e.length)
+    // Record how many rental assistances are currently in the table
+    const tableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', e => e.length)
 
-    // Fill out the rental assistance form with the values we want
-    await page.select('.rental-assistance-form-new .rental-assistance-type', typeVal)
+    // Fill out the new rental assistance form
+    await page.select('.rental-assistance-new-form .rental-assistance-type', typeVal)
     await page.click('#recurring_assistance-new-yes')
-    await page.type('.rental-assistance-form-new #assistance_amount', `${amount}`)
-    await page.select('.rental-assistance-form-new .rental-assistance-recipient', recipientVal)
+    await page.type('.rental-assistance-new-form #assistance_amount', `${amount}`)
+    await page.select('.rental-assistance-new-form .rental-assistance-recipient', recipientVal)
 
-    // Save the rental assistance form
-    await page.click('.rental-assistance-form-new button.primary')
+    // Save the new rental assistance form
+    await page.click('.rental-assistance-new-form button.primary')
 
     // Wait for the API rental assistance create call to complete
     await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/rental-assistances'))
 
-    // Rental assistance tabel should have increased in size.
-    const currentTableSize = await page.$$eval('.rental-assistances tr', e => e.length)
-
-    expect(currentTableSize).toBeGreaterThan(tableSize)
+    // Check that the rental assistances table has increased in size by one
+    const currentTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', e => e.length)
+    expect(currentTableSize).toEqual(tableSize + 1)
 
     await browser.close()
-  }, DEFAULT_E2E_TIME_OUT * 2)
+  }, DEFAULT_E2E_TIME_OUT)
+
+  // This test requires a rental assistance to be already present in the rental
+  // assistances table. If the prior test for creating a rental assistance has
+  // succeeded, then there will be at least one rental assistance present.
+  test('should allow a rental assistance to be updated', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+
+    // Locate the first rental assistance
+
+    // Click the Edit button on that rental assistance
+
+    // Wait for the edit rental assistance form to open
+
+    // Change the amount field
+
+    // Save the edit rental assistance form
+
+    // Wait for the API rental assistance update call to complete
+
+    // Check that the first rental assistance's amount value matches the value we updated it to
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
 
   test('should allow preference updates via the Confirmed Preferences section', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
