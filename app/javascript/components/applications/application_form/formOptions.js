@@ -36,12 +36,6 @@ const genderOptions = labelize([
   'Decline to state'
 ])
 
-const sexAtBirthOptions = labelize([
-  'Female',
-  'Male',
-  'Decline to answer'
-])
-
 const relationshipOptions = labelize([
   'Spouse',
   'Registered Domestic Partner',
@@ -181,7 +175,6 @@ export default {
   phoneTypeOptions,
   alternateContactOptions,
   genderOptions,
-  sexAtBirthOptions,
   relationshipOptions,
   ethnicityOptions,
   raceOptions,

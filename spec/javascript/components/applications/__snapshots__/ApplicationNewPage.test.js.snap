@@ -1007,7 +1007,7 @@ Array [
                     </select>
                   </div>
                   <div
-                    className="small-3 columns"
+                    className="small-6 columns"
                   >
                     <label>
                       Gender
@@ -1068,7 +1068,7 @@ Array [
                     </select>
                   </div>
                   <div
-                    className="small-3 columns"
+                    className="small-6 columns"
                   >
                     <label>
                       Gender Specify (if not listed)
@@ -1078,43 +1078,6 @@ Array [
                       onChange={[Function]}
                       value=""
                     />
-                  </div>
-                  <div
-                    className="small-6 columns"
-                  >
-                    <label>
-                      Sex at birth
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={0}
-                    >
-                      <option
-                        disabled={true}
-                        value={0}
-                      >
-                        Select One...
-                      </option>
-                      <option
-                        disabled={undefined}
-                        value={1}
-                      >
-                        Female
-                      </option>
-                      <option
-                        disabled={undefined}
-                        value={2}
-                      >
-                        Male
-                      </option>
-                      <option
-                        disabled={undefined}
-                        value={3}
-                      >
-                        Decline to answer
-                      </option>
-                    </select>
                   </div>
                   <div
                     className="small-6 columns"
