@@ -43,8 +43,7 @@ describe('SupplementalApplicationPage', () => {
   }, DEFAULT_E2E_TIME_OUT)
 
   test.only('should allow new rental assistances to be created', async () => {
-    // let browser = await puppeteer.launch({ headless: false, slowMo: 150 })
-    let browser = await puppeteer.launch({ headless: false })
+    let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
     await sharedSteps.loginAsAgent(page)
