@@ -40,7 +40,7 @@ const isValidDate = (dateOfBirth) => {
     if (dateOfBirth[0] < 1900) return false
     // Check that the date is valid and not in the future
     const dobString = dateOfBirth.join('-')
-    return moment(dobString, 'YYYY-MM-DD', true).isValid() && (moment().diff(dobString, 'days') > 0)
+    return moment(dobString, 'YYYY-M-D', true).isValid() && (moment().diff(dobString, 'days') > 0)
   }
 }
 

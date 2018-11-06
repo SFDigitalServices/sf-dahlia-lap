@@ -11,10 +11,19 @@ describe('validate', () => {
     test('fails validation if DOB is less than 18 years ago', () => {
       expect(validate.isOldEnough(FAILED_VALIDATION)(['2010', '01', '12'])).toEqual(FAILED_VALIDATION)
     })
+    test('fails validation if DOB is not a valid date', () => {
+      expect(validate.isOldEnough(FAILED_VALIDATION)(['2010', '13', '30'])).toEqual(FAILED_VALIDATION)
+    })
   })
   describe('isValidDate', () => {
-    test('passes validation if date is valid', () => {
+    test('passes validation if date is 0-padded and valid', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)(['2000', '02', '29'])).toEqual(null)
+    })
+    test('passes validation if date is not 0-padded and valid', () => {
+      expect(validate.isValidDate(FAILED_VALIDATION)(['2000', '2', '9'])).toEqual(null)
+    })
+    test('passes validation if date is integers and valid', () => {
+      expect(validate.isValidDate(FAILED_VALIDATION)([2000, 2, 9])).toEqual(null)
     })
     test('fails validation if date is a leap day in the wrong year', () => {
       expect(validate.isValidDate(FAILED_VALIDATION)(['1999', '02', '29'])).toEqual(FAILED_VALIDATION)
