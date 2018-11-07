@@ -7,7 +7,7 @@ module Force
       FIELD_NAME = :preferences
       FIELDS = load_fields(FIELD_NAME).freeze
 
-      def application_preferences(application_id)
+      def application_preferences_for_application(application_id)
         result = parsed_index_query(%(
           SELECT #{query_fields(:show_preference)}
           FROM Application_Preference__c

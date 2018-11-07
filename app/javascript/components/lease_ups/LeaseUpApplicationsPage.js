@@ -4,8 +4,9 @@ import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import { mapListing, mapApplicationPreference } from '~/components/mappers/soqlToDomain'
-import { buildLeaseUpModel } from './leaseUpModel'
+import { mapListing, mapApplicationPreference, mapApplication } from '~/components/mappers/soqlToDomain'
+import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
+import { buildLeaseUpAppGenLotteryModel } from './leaseUpAppGenLotteryModel'
 import appPaths from '~/utils/appPaths'
 import apiService from '~/apiService'
 import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
@@ -36,9 +37,14 @@ class LeaseUpApplicationsPage extends React.Component {
 
   fetchApplications = async (page, filters) => {
     const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
-    console.log(response)
+    let records
+    if (response.records[0].Application) {
+      records = map(response.records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
+    } else {
+      records = map(response.records, flow(mapApplication, buildLeaseUpAppGenLotteryModel))
+    }
     return {
-      records: map(response.records, flow(mapApplicationPreference, buildLeaseUpModel)),
+      records: records,
       pages: response.pages
     }
   }

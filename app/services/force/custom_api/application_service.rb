@@ -26,7 +26,7 @@ module Force
           # We use the SOQL service to fetch preferences here because we can
           # get a wider range of preference fields via SOQL than we can in
           # the custom API response
-          preferences = soql_preference_service.application_preferences(id)
+          preferences = soql_preference_service.application_preferences_for_application(id)
           application.preferences = preferences
         end
 
