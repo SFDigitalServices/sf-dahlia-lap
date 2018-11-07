@@ -79,6 +79,7 @@ listings:
     Legal_Disclaimers__c:
     Building_Selection_Criteria__c:
     Pet_Policy__c:
+    Report_id__c:
     Required_Documents__c:
     Smoking_Policy__c:
     Eviction_History__c:

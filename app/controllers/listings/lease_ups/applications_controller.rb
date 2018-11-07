@@ -22,7 +22,7 @@ module Listings::LeaseUps
     end
 
     def compacted_listing(full_listing)
-      full_listing.slice('Id', 'Name', 'Building_Street_Address')
+      full_listing.slice('Id', 'Name', 'Building_Street_Address', 'Report_id')
     end
   end
 end

@@ -103,13 +103,16 @@ class LeaseUpApplicationsPage extends React.Component {
   render () {
     const listing = this.props.listing
 
+    const exportButtonAction = {
+      title: 'Export',
+      // FIXME: Base URL needs to be dynamically loaded based on ENV vars
+      link: `SALESFORCE_INSTANCE_URL/${listing.report_id}?csv=1`
+    }
+
     const pageHeader = {
       title: listing.name,
       content: listing.building_street_address,
-      action: {
-        title: 'Export',
-        link: `/listings/${listing.id}/lease-ups/export`
-      },
+      action: listing.report_id ? exportButtonAction : null,
       breadcrumbs: [
         {title: 'Lease Ups', link: appPaths.toLeaseUps()},
         {title: listing.name, link: appPaths.toLeaseUpApplications(listing.id)}
