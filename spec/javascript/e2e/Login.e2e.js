@@ -12,7 +12,7 @@ describe('Lead header', () => {
     await page.waitForSelector('#root')
 
     const html = await page.$eval('.lead-header_title', e => e.innerHTML)
-    expect(html).toBe('Welcome to the Leasing Agent Portal.')
+    expect(html).toBe('Welcome to DAHLIA Partners.')
 
     await browser.close()
   }, 16000)

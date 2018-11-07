@@ -1,6 +1,7 @@
 import React from 'react'
 import { isEmpty } from 'lodash'
 import { Form } from 'react-form'
+import classNames from 'classnames'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
@@ -26,9 +27,9 @@ const typeOfAssistance = [
   'Q Foundation: Person with Disability Rent Subsidy',
   'Q Foundation: Senior Rent Subsidy',
   'San Francisco AIDS Foundation',
-  'Section 8 HCV (tenant) voucher',
+  'Section 8 HCV (Tenant) Voucher',
   'Self-Help for the Elderly',
-  'VASH voucher',
+  'VASH Voucher',
   'Other'
 ]
 
@@ -140,17 +141,23 @@ const validateError = (values) => {
 }
 
 const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
-  const applicationMembersOptions = applicationMembers.map(member => {
-    return {
+  const applicationMembersOptions = applicationMembers.map(member => (
+    {
       label: `${member.first_name} ${member.last_name}`,
       value: member.id
     }
-  })
+  ))
 
   return (
     <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
       {formApi => (
-        <div className='app-editable expand-wide scrollable-table-nested rental-assistance-form'>
+        <div className={classNames(
+          'app-editable expand-wide scrollable-table-nested',
+          {
+            'rental-assistance-new-form': isNew,
+            'rental-assistance-edit-form': !isNew
+          }
+        )}>
           <FormGrid.Row expand={false}>
             <FormGrid.Item>
               <Field.Select
