@@ -9,7 +9,10 @@ import { saveApplication } from './actions'
 const ApplicationNewForm = ({ listing }) => {
   const saveNewApplication = async (submitType, submittedValues, application, listing, editPage) => {
     submittedValues.listing = { id: listing.id }
-    return saveApplication(submitType, submittedValues, application, listing, editPage)
+    // return saveApplication(submitType, submittedValues, application, listing, editPage)
+
+    console.log(submittedValues)
+    return true
   }
 
   return (

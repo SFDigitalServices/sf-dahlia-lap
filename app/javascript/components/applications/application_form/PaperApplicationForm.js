@@ -60,6 +60,7 @@ const buildPrefValidations = (prefs) => {
 }
 
 const validateError = (values) => {
+  console.log(values)
   return {
     preferences: buildPrefValidations(values.preferences)
   }
