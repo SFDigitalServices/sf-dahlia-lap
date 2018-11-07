@@ -1,31 +1,11 @@
 import React from 'react'
 import { find, isNil } from 'lodash'
+import { Text } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
-import { RadioGroup, Radio, Text } from 'react-form'
 import { formatPercent } from '~/utils/utils'
-
-const YesNoRadioGroup = ({field}) => {
-  return (
-    <div className='radio-group-inline'>
-      <RadioGroup field={field}>
-        {(group) => (
-          <React.Fragment>
-            <p className='radio-inline'>
-              <Radio group={group} value={`true`} id={`${field}-yes`} />
-              <label className='radio-inline_label' htmlFor={`${field}-yes`}>Yes</label>
-            </p>
-            <p className='radio-inline'>
-              <Radio group={group} value={`false`} id={`${field}-no`} />
-              <label className='radio-inline_label' htmlFor={`${field}-no`}>No</label>
-            </p>
-          </React.Fragment>
-        )}
-      </RadioGroup>
-    </div>
-  )
-}
+import YesNoRadioGroup from '../YesNoRadioGroup'
 
 const getAMI = ({numHousehold, chartName, chartYear, amis}) => {
   let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'numOfHousehold': numHousehold})

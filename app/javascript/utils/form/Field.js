@@ -49,7 +49,7 @@ export const MultiDateField = ({ formApi, field, label, id, blockNote, errorMess
   )
 }
 
-const withField = (input) => {
+export const withField = (input) => {
   class Wrapper extends React.Component {
     render () {
       const { field, errorMessage, label, blockNote, ...rest } = this.props
