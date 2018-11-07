@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :pattern_library, only: %w[index]
 
+  get 'reports/:id' => redirect { |params| "#{ENV['SALESFORCE_INSTANCE_URL']}/#{params[:id]}?csv=1" }
+
   ## --- API namespacing
   namespace :api do
     namespace :v1 do

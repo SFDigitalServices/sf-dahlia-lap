@@ -106,7 +106,8 @@ class LeaseUpApplicationsPage extends React.Component {
     const exportButtonAction = {
       title: 'Export',
       // FIXME: Base URL needs to be dynamically loaded based on ENV vars
-      link: `SALESFORCE_INSTANCE_URL/${listing.report_id}?csv=1`
+      // link: `{{base url}}/${listing.report_id}?csv=1`
+      link: `/reports/${listing.report_id}`
     }
 
     const pageHeader = {
