@@ -38,10 +38,10 @@ class LeaseUpApplicationsPage extends React.Component {
   fetchApplications = async (page, filters) => {
     const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
     let records
-    if (response.records[0].Application) {
-      records = map(response.records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
-    } else {
+    if (filters && filters.preference === 'general') {
       records = map(response.records, flow(mapApplication, buildLeaseUpAppGenLotteryModel))
+    } else {
+      records = map(response.records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
     }
     return {
       records: records,

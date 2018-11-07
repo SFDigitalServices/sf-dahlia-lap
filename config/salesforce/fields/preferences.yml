@@ -1,5 +1,5 @@
 preferences:
-  show_preference_fields:
+  app_preferences_for_application_fields:
     Id:
     Name:
     Preference_Name__c:
@@ -28,3 +28,21 @@ preferences:
     Zip_Code__c:
     Post_Lottery_Validation__c:
     Total_Household_Rent__c:
+  app_preferences_for_listing_fields:
+    Application__c:
+    Application__r.Id:
+    Application__r.Name:
+    Application__r.Applicant__r.First_Name__c:
+    Application__r.Applicant__r.Last_Name__c:
+    Application__r.Applicant__r.Email__c:
+    Application__r.Applicant__r.Phone__c:
+    Application__r.Applicant__r.Residence_Address__c:
+    Application__r.Applicant__r.Mailing_Address__c:
+    Preference_Order__c:
+    Post_Lottery_Validation__c:
+    Preference_Lottery_Rank__c:
+    Application__r.Processing_Status__c:
+      label: 'Lease Up Status'
+    LastModifiedDate:
+      label: 'Status Updated'
+    Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:

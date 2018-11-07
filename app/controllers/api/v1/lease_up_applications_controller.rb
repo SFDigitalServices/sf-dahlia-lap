@@ -7,17 +7,17 @@ module Api::V1
       if lease_up_apps_params[:preference] == 'general'
         applications = soql_application_service.applications(lease_up_apps_params)
       else
-        applications = lease_up_service.lease_up_listing_applications(lease_up_apps_params)
+        applications = soql_preference_service.application_preferences_for_listing(lease_up_apps_params)
       end
       render json: applications
     end
 
-    def lease_up_service
-      Force::LeaseUpService.new(current_user)
-    end
-
     def soql_application_service
       Force::Soql::ApplicationService.new(current_user)
+    end
+
+    def soql_preference_service
+      Force::Soql::PreferenceService.new(current_user)
     end
 
     private
