@@ -50,6 +50,7 @@ class SupplementalApplicationPage extends React.Component {
       },
       showNewRentalAssistancePanel: false,
       showAddRentalAssistanceBtn: true,
+      rentalAssistanceLoading: false,
       rentalAssistances: props.rentalAssistances
     }
   }
@@ -183,6 +184,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveNewRentalAssistance = async (rentalAssistance) => {
+    this.setState({ rentalAssistanceLoading: true })
     const response = await apiService.createRentalAssistance(
       rentalAssistance,
       this.state.persistedApplication.id
@@ -194,15 +196,18 @@ class SupplementalApplicationPage extends React.Component {
         return {
           rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
           showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          showAddRentalAssistanceBtn: true,
+          rentalAssistanceLoading: false
         }
       })
     } else {
       Alerts.error()
+      this.setState({ rentalAssistanceLoading: false })
     }
   }
 
   handleUpdateRentalAssistance = async (rentalAssistance) => {
+    this.setState({ rentalAssistanceLoading: true })
     if (rentalAssistance.type_of_assistance !== 'Other') {
       rentalAssistance.other_assistance_name = null
     }
@@ -221,15 +226,18 @@ class SupplementalApplicationPage extends React.Component {
         return {
           rentalAssistances: rentalAssistances,
           showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          showAddRentalAssistanceBtn: true,
+          rentalAssistanceLoading: false
         }
       })
     } else {
       Alerts.error()
+      this.setState({ rentalAssistanceLoading: false })
     }
   }
 
   handleDeleteRentalAssistance = async (rentalAssistance) => {
+    this.setState({ rentalAssistanceLoading: true })
     const response = await apiService.deleteRentalAssistance(rentalAssistance.id)
 
     if (response) {
@@ -240,11 +248,13 @@ class SupplementalApplicationPage extends React.Component {
         return {
           rentalAssistances: rentalAssistances,
           showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          showAddRentalAssistanceBtn: true,
+          rentalAssistanceLoading: false
         }
       })
     } else {
       Alerts.error()
+      this.setState({ rentalAssistanceLoading: false })
     }
   }
 
@@ -263,7 +273,8 @@ class SupplementalApplicationPage extends React.Component {
       persistedApplication,
       rentalAssistances,
       showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn
+      showAddRentalAssistanceBtn,
+      rentalAssistanceLoading
     } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
@@ -290,6 +301,7 @@ class SupplementalApplicationPage extends React.Component {
       statusHistory: statusHistory,
       fileBaseUrl: fileBaseUrl,
       loading: loading,
+      rentalAssistanceLoading: rentalAssistanceLoading,
       setLoading: this.setLoading,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,

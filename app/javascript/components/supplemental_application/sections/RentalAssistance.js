@@ -98,11 +98,12 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
     handleUpdateRentalAssistance,
     handleDeleteRentalAssistance,
     applicationMembers,
-    handleCloseRentalAssistancePanel
+    handleCloseRentalAssistancePanel,
+    rentalAssistanceLoading
   } = store
 
-  const onSave = (values) => {
-    handleUpdateRentalAssistance(values)
+  const onSave = async (values) => {
+    await handleUpdateRentalAssistance(values)
     toggle()
   }
 
@@ -111,8 +112,8 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
     toggle()
   }
 
-  const onDelete = () => {
-    handleDeleteRentalAssistance(rentalAssistance)
+  const onDelete = async () => {
+    await handleDeleteRentalAssistance(rentalAssistance)
     toggle()
   }
 
@@ -124,6 +125,7 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
         onClose={onClose}
         onDelete={onDelete}
         applicationMembers={applicationMembers}
+        loading={rentalAssistanceLoading}
       />
     </ExpandablePanel>
   )
@@ -235,7 +237,8 @@ const RentalAssistance = ({ store }) => {
     handleCloseRentalAssistancePanel,
     handleSaveNewRentalAssistance,
     showAddRentalAssistanceBtn,
-    hideAddRentalAssistanceBtn
+    hideAddRentalAssistanceBtn,
+    rentalAssistanceLoading
   } = store
 
   return (
@@ -254,6 +257,7 @@ const RentalAssistance = ({ store }) => {
             onSave={handleSaveNewRentalAssistance}
             onClose={handleCloseRentalAssistancePanel}
             applicationMembers={applicationMembers}
+            loading={rentalAssistanceLoading}
             isNew
           />
         </div>
