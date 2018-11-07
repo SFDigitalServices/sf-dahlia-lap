@@ -14,6 +14,7 @@ import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
+import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
@@ -32,41 +33,6 @@ const StatusUpdateSection = withContext(({ store }) => {
     </ContentSection.Content>
   )
 })
-
-const StatusHistorySection = withContext(({ store }) => {
-  const { statusHistory, openAddStatusCommentModal } = store
-  return !isEmpty(statusHistory) && (
-    <ContentSection.Sub title='Status History' borderBottom={false}>
-      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
-    </ContentSection.Sub>
-  )
-})
-
-const LeaseInformationSection = () => {
-  return (
-    <ContentSection title='Lease Information'>
-      <ContentSection.Content borderBottom>
-        <LeaseInformationInputs />
-      </ContentSection.Content>
-      <ContentSection.Sub title='Demographics'>
-        <DemographicsInputs />
-      </ContentSection.Sub>
-    </ContentSection>
-  )
-}
-
-const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
-  return (
-    <ContentSection title='Confirmed Household'>
-      <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
-        <ConfirmedUnits />
-      </ContentSection.Sub>
-      <ContentSection.Sub title='Confirmed Household Income'>
-        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi} />
-      </ContentSection.Sub>
-    </ContentSection>
-  )
-}
 
 const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
   return (
@@ -91,6 +57,46 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
     </ContentSection>
   )
 }
+
+const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
+  return (
+    <ContentSection title='Confirmed Household'>
+      <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
+        <ConfirmedUnits />
+      </ContentSection.Sub>
+      <ContentSection.Sub title='Confirmed Household Income'>
+        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi} />
+      </ContentSection.Sub>
+    </ContentSection>
+  )
+}
+
+const LeaseInformationSection = () => {
+  return (
+    <ContentSection title='Lease Information'>
+      <ContentSection.Content borderBottom>
+        <LeaseInformationInputs />
+      </ContentSection.Content>
+      <ContentSection.Sub
+        title='Rental Assistance Information'
+        description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
+        <RentalAssistance />
+      </ContentSection.Sub>
+      <ContentSection.Sub title='Demographics'>
+        <DemographicsInputs />
+      </ContentSection.Sub>
+    </ContentSection>
+  )
+}
+
+const StatusHistorySection = withContext(({ store }) => {
+  const { statusHistory, openAddStatusCommentModal } = store
+  return !isEmpty(statusHistory) && (
+    <ContentSection.Sub title='Status History' borderBottom={false}>
+      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
+    </ContentSection.Sub>
+  )
+})
 
 const ActionButtons = withContext(({ loading, store }) => {
   const { application, openUpdateStatusModal } = store
@@ -140,7 +146,6 @@ class SupplementalApplicationContainer extends React.Component {
             <React.Fragment>
               <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
                 <StatusUpdateSection />
-                <ContentSection title='Current Contact Information' />
                 <ConfirmedPreferencesSection
                   application={application}
                   fileBaseUrl={fileBaseUrl}

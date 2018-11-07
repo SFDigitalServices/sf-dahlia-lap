@@ -1,10 +1,11 @@
 import React from 'react'
 import classNames from 'classnames'
 
-const Button = ({ text, tiny, tertiary, ...rest }) => {
+const Button = ({ text, small, tiny, tertiary, ...rest }) => {
   const btnClassNames = classNames('button', {
-    'tiny': tiny,
-    'tertiary': tertiary
+    'small': small,
+    'tertiary': tertiary,
+    'tiny': tiny
   })
   return (
     <button className={btnClassNames} {...rest}>{text}</button>

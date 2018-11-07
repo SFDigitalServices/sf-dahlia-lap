@@ -42,7 +42,7 @@ describe('SupplementalApplicationPage', () => {
     jest.clearAllMocks()
   })
 
-  test('it should render correctly without status history', () => {
+  test('it should render correctly with status history', () => {
     const component = renderer.create(
       <SupplementalApplicationPage
         application={supplementalApplication}
@@ -98,8 +98,8 @@ describe('SupplementalApplicationPage', () => {
       />
     )
 
-    wrapper.find('TableWrapper .action-link').simulate('click')
-    wrapper.find('TableWrapper .save-panel-btn').simulate('click')
+    wrapper.find('.preferences-table .action-link').first().simulate('click')
+    wrapper.find('.preferences-table .save-panel-btn').simulate('click')
 
     await wait(100)
 

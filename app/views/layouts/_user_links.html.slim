@@ -3,5 +3,5 @@
   / alternative to needing rails-ujs, if we can get it styled correctly:
   / li= button_to 'Sign out', users_sign_out_path, method: 'delete', class: 'button button-link'
 - else
-  li= link_to 'Leasing Agent Sign in', omniauth_authorize_path(:user, salesforce_provider), class: 'sign-in-btn'
+  li= link_to 'Partner Sign in', omniauth_authorize_path(:user, salesforce_provider), class: 'sign-in-btn'
   li= link_to 'MOHCD Admin Sign in', omniauth_authorize_path(:user, salesforce_provider, { admin: true })
