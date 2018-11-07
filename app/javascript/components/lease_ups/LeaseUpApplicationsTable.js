@@ -7,6 +7,7 @@ import { getLeaseUpStatusClass } from '~/utils/statusUtils'
 import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
+import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationPreferenceId = cell.original.id
@@ -19,19 +20,6 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
       onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
       styles={{position: 'absolute'}}
       buttonClasses={['tiny']} />
-  )
-}
-
-const NoData = ({ children, className, ...rest }) => {
-  return (
-    <div className='rt-noData' {...rest}>
-      <div style={{ textAlign: 'center', padding: '10px', marginBottom: '20px' }}>
-        No results, try adjusting your filters
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <button className='tertiary'>Reset all filters</button>
-      </div>
-    </div>
   )
 }
 
@@ -56,7 +44,9 @@ const PreferenceRankCell = ({cell}) => {
   }
 }
 
-const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage }) => {
+const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage, maxPages }) => {
+  const maxPagesMsg = `You have reached the maximum number of records we can display at this time. There are ${pages * rowsPerPage} records that match your selected filters, but the maximum we can display is ${MAX_SERVER_LIMIT}. Please use filters to narrow the number of matching records.`
+  const noDataMsg = maxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
     { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
     { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
@@ -125,7 +115,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       sortable={false}
       loading={loading}
       onFetchData={onFetchData}
-      NoDataComponent={NoData}
+      noDataText={noDataMsg}
       getPaginationProps={getPaginationProps}
     />
   )

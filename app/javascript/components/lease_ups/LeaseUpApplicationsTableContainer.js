@@ -82,6 +82,7 @@ class LeaseUpTableContainer extends React.Component {
           onFetchData={store.handleOnFetchData}
           pages={store.pages}
           rowsPerPage={store.rowsPerPage}
+          maxPages={store.maxPages}
         />
         <StatusModalWrapper
           {...statusModal}
