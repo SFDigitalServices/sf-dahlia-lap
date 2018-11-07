@@ -259,15 +259,13 @@ const RentalAssistance = ({ store }) => {
       )}
 
       { showNewRentalAssistancePanel && (
-        <div className='rental-assistance-form-new'>
-          <AddRentalAssistanceForm
-            onSave={handleSaveNewRentalAssistance}
-            onClose={handleCloseRentalAssistancePanel}
-            applicationMembers={applicationMembers}
-            loading={rentalAssistanceLoading}
-            isNew
-          />
-        </div>
+        <AddRentalAssistanceForm
+          onSave={handleSaveNewRentalAssistance}
+          onClose={handleCloseRentalAssistancePanel}
+          applicationMembers={applicationMembers}
+          loading={rentalAssistanceLoading}
+          isNew
+        />
       )}
       { showAddRentalAssistanceBtn && (
         <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
