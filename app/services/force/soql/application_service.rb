@@ -16,6 +16,7 @@ module Force
         query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
         query_scope.where_eq('Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
         query_scope.where_eq('Application_Submission_Type__c', "'#{opts[:submission_type]}'") if opts[:submission_type].present?
+        query_scope.where_eq('Processing_Status__c', "'#{opts[:status]}'") if opts[:status].present?
 
         if opts[:preference] == 'general'
           query_scope.where_eq('General_Lottery__c', 'true')
