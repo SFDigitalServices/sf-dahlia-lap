@@ -42,7 +42,7 @@ describe('SupplementalApplicationPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  test('should allow  new rental assistance to be created', async () => {
+  test('should allow a new rental assistance to be created', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
@@ -67,7 +67,7 @@ describe('SupplementalApplicationPage', () => {
       e => [e.value, e.textContent]
     )
 
-    // Record how many rental assistances are currently in the table
+    // Record how many rental assistances are in the table before we attempt our create
     const prevTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
 
     // Fill out the new rental assistance form
@@ -103,8 +103,8 @@ describe('SupplementalApplicationPage', () => {
   // This test requires a rental assistance to be already present in the rental
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
-  test.only('should allow a rental assistance to be updated', async () => {
-    let browser = await puppeteer.launch({ headless: false, slowMo: 50 })
+  test('should allow a rental assistance to be updated', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
     await sharedSteps.loginAsAgent(page)
@@ -120,7 +120,12 @@ describe('SupplementalApplicationPage', () => {
     // Record the amount value
     const prevAmountValue = await page.$eval('.rental-assistance-edit-form #assistance_amount', e => e.value)
 
-    // Change the amount field
+    // Clear the amount field
+    await page.evaluate(() => {
+      document.querySelector('.rental-assistance-edit-form #assistance_amount').value = ''
+    })
+
+    // Enter a new amount value
     const amount = parseInt(prevAmountValue) + 100
     await page.type('.rental-assistance-edit-form #assistance_amount', `${amount}`)
 
@@ -133,6 +138,39 @@ describe('SupplementalApplicationPage', () => {
     // Check that the first rental assistance's amount value matches the value we updated it to
     const newAmount = await page.$eval(`${firstRentalAssistanceSelector} td:nth-child(3)`, e => e.textContent)
     expect(newAmount).toEqual(`$${amount}`)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
+  // This test requires a rental assistance to be already present in the rental
+  // assistances table. If the prior test for creating a rental assistance has
+  // succeeded, then there will be at least one rental assistance present.
+  test('should allow a rental assistance to be deleted', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+
+    // Record how many rental assistances are in the table before we attempt our delete
+    const prevTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
+
+    // Click the Edit button on the first rental assistance
+    const firstRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:first-child'
+    await page.click(`${firstRentalAssistanceSelector} button.action-link`)
+
+    // Wait for the edit rental assistance form to open
+    await page.waitForSelector('.rental-assistance-edit-form')
+
+    // Delete the rental assistance
+    await page.click('.rental-assistance-edit-form button.alert-fill')
+
+    // Wait for the API rental assistance delete call to complete
+    await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/rental-assistances'))
+
+    // Check that the rental assistances table has decreased in size by one
+    const newTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
+    expect(newTableSize).toEqual(prevTableSize - 1)
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
