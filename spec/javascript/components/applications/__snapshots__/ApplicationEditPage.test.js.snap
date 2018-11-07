@@ -270,7 +270,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="month"
+                          id="date_of_birth_month"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="MM"
@@ -282,7 +282,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="day"
+                          id="date_of_birth_day"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="DD"
@@ -294,7 +294,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="year"
+                          id="date_of_birth_year"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="YYYY"
@@ -720,38 +720,75 @@ Array [
                         <div
                           className="small-3 columns"
                         >
-                          <label>
-                            First Name
-                          </label>
-                          <input
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="diego"
-                          />
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              className="form-label"
+                              htmlFor="household_members.0.first_name"
+                            >
+                              First Name 
+                              <span
+                                className="checkbox-block_note no-margin"
+                              >
+                                (required)
+                              </span>
+                            </label>
+                            <input
+                              className=""
+                              id="household_members_0_first_name"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value="diego"
+                            />
+                          </div>
                         </div>
                         <div
                           className="small-2 columns"
                         >
-                          <label>
-                            Middle Name
-                          </label>
-                          <input
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="m"
-                          />
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              className="form-label"
+                              htmlFor="household_members.0.middle_name"
+                            >
+                              Middle Name 
+                            </label>
+                            <input
+                              className=""
+                              id="household_members_0_middle_name"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value="m"
+                            />
+                          </div>
                         </div>
                         <div
                           className="small-3 columns"
                         >
-                          <label>
-                            Last Name
-                          </label>
-                          <input
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="maradona"
-                          />
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              className="form-label"
+                              htmlFor="household_members.0.last_name"
+                            >
+                              Last Name 
+                              <span
+                                className="checkbox-block_note no-margin"
+                              >
+                                (required)
+                              </span>
+                            </label>
+                            <input
+                              className=""
+                              id="household_members_0_last_name"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value="maradona"
+                            />
+                          </div>
                         </div>
                         <div
                           className="small-4 columns form-date-of-birth"
@@ -764,13 +801,18 @@ Array [
                               htmlFor="household_members.0.date_of_birth"
                             >
                               Date of Birth 
+                              <span
+                                className="checkbox-block_note no-margin"
+                              >
+                                (required)
+                              </span>
                             </label>
                             <div
                               className="form-group-month"
                             >
                               <input
                                 className=""
-                                id="month"
+                                id="household_members_0_date_of_birth_month"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="MM"
@@ -782,7 +824,7 @@ Array [
                             >
                               <input
                                 className=""
-                                id="day"
+                                id="household_members_0_date_of_birth_day"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="DD"
@@ -794,7 +836,7 @@ Array [
                             >
                               <input
                                 className=""
-                                id="year"
+                                id="household_members_0_date_of_birth_year"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="YYYY"
@@ -912,6 +954,7 @@ Array [
                     >
                       <button
                         className="mb-4 mr-4 btn btn-success"
+                        id="add-additional-member"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1444,7 +1487,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="month"
+                          id="date_of_birth_month"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="MM"
@@ -1456,7 +1499,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="day"
+                          id="date_of_birth_day"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="DD"
@@ -1468,7 +1511,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="year"
+                          id="date_of_birth_year"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="YYYY"
@@ -1894,38 +1937,75 @@ Array [
                         <div
                           className="small-3 columns"
                         >
-                          <label>
-                            First Name
-                          </label>
-                          <input
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="diego"
-                          />
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              className="form-label"
+                              htmlFor="household_members.0.first_name"
+                            >
+                              First Name 
+                              <span
+                                className="checkbox-block_note no-margin"
+                              >
+                                (required)
+                              </span>
+                            </label>
+                            <input
+                              className=""
+                              id="household_members_0_first_name"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value="diego"
+                            />
+                          </div>
                         </div>
                         <div
                           className="small-2 columns"
                         >
-                          <label>
-                            Middle Name
-                          </label>
-                          <input
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="m"
-                          />
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              className="form-label"
+                              htmlFor="household_members.0.middle_name"
+                            >
+                              Middle Name 
+                            </label>
+                            <input
+                              className=""
+                              id="household_members_0_middle_name"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value="m"
+                            />
+                          </div>
                         </div>
                         <div
                           className="small-3 columns"
                         >
-                          <label>
-                            Last Name
-                          </label>
-                          <input
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="maradona"
-                          />
+                          <div
+                            className="form-group"
+                          >
+                            <label
+                              className="form-label"
+                              htmlFor="household_members.0.last_name"
+                            >
+                              Last Name 
+                              <span
+                                className="checkbox-block_note no-margin"
+                              >
+                                (required)
+                              </span>
+                            </label>
+                            <input
+                              className=""
+                              id="household_members_0_last_name"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              value="maradona"
+                            />
+                          </div>
                         </div>
                         <div
                           className="small-4 columns form-date-of-birth"
@@ -1938,13 +2018,18 @@ Array [
                               htmlFor="household_members.0.date_of_birth"
                             >
                               Date of Birth 
+                              <span
+                                className="checkbox-block_note no-margin"
+                              >
+                                (required)
+                              </span>
                             </label>
                             <div
                               className="form-group-month"
                             >
                               <input
                                 className=""
-                                id="month"
+                                id="household_members_0_date_of_birth_month"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="MM"
@@ -1956,7 +2041,7 @@ Array [
                             >
                               <input
                                 className=""
-                                id="day"
+                                id="household_members_0_date_of_birth_day"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="DD"
@@ -1968,7 +2053,7 @@ Array [
                             >
                               <input
                                 className=""
-                                id="year"
+                                id="household_members_0_date_of_birth_year"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 placeholder="YYYY"
@@ -2086,6 +2171,7 @@ Array [
                     >
                       <button
                         className="mb-4 mr-4 btn btn-success"
+                        id="add-additional-member"
                         onClick={[Function]}
                         type="button"
                       >

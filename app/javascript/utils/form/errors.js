@@ -1,10 +1,12 @@
 import React from 'react'
+import { includes } from 'lodash'
 
 import reactFormUtils from '~/utils/reactFormUtils'
 
 export const hasError = (formApi, field) => {
   var touched = reactFormUtils.get(formApi.touched, field)
-  if (field === 'date_of_birth') { touched = (touched && touched.length === 3 && touched.every((t) => t === true)) }
+  // Don't show validation error on date_of_birth until all 3 date fields have been touched.
+  if (includes(field, 'date_of_birth')) { touched = (touched && touched.length === 3 && touched.every((t) => t === true)) }
   if (touched || formApi.submits > 0) { return !!formApi.getError(field) } else { return null }
 }
 

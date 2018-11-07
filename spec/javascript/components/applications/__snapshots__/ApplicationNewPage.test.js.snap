@@ -263,7 +263,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="month"
+                          id="date_of_birth_month"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="MM"
@@ -275,7 +275,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="day"
+                          id="date_of_birth_day"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="DD"
@@ -287,7 +287,7 @@ Array [
                       >
                         <input
                           className=""
-                          id="year"
+                          id="date_of_birth_year"
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="YYYY"
@@ -711,6 +711,7 @@ Array [
                     >
                       <button
                         className="mb-4 mr-4 btn btn-success"
+                        id="add-additional-member"
                         onClick={[Function]}
                         type="button"
                       >
