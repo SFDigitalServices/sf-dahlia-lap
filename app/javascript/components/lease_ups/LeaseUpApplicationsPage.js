@@ -20,7 +20,7 @@ class LeaseUpApplicationsPage extends React.Component {
     loading: false,
     applications: [],
     pages: 0,
-    maxPages: false,
+    atMaxPages: false,
     statusModal: {
       isOpen: false,
       status: null,
@@ -47,12 +47,12 @@ class LeaseUpApplicationsPage extends React.Component {
     const fetcher = p => this.fetchApplications(p)
     this.setState({ loading: true, page: page })
     const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
-    this.setState({ applications: records, loading: false, pages: pages, maxPages: false })
+    this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
   }
 
   handleOnFetchData = (state, instance) => {
     if (this.eagerPagination.isOverLimit(state.page)) {
-      this.setState({ applications: [], loading: false, maxPages: true })
+      this.setState({ applications: [], loading: false, atMaxPages: true })
     } else {
       this.loadPage(state.page)
     }
@@ -131,7 +131,7 @@ class LeaseUpApplicationsPage extends React.Component {
       handleCreateStatusUpdate: this.handleCreateStatusUpdate,
       updateStatusModal: this.updateStatusModal,
       statusModal: this.state.statusModal,
-      maxPages: this.state.maxPages
+      atMaxPages: this.state.atMaxPages
     }
 
     return (

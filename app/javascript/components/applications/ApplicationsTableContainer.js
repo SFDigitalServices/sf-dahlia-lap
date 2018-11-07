@@ -19,14 +19,14 @@ class ApplicationsTableContainer extends React.Component {
     const fetcher = p => onFetchData(p, { filters })
     this.setState({ loading: true, page: page })
     this.eagerPagination.getPage(page, fetcher).then(({ records, pages }) => {
-      this.setState({ applications: records, loading: false, pages: pages, maxPages: false })
+      this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
     })
   }
 
   handleOnFetchData = (state, instance) => {
     const { filters } = this.state
     if (this.eagerPagination.isOverLimit(state.page)) {
-      this.setState({ applications: [], loading: false, maxPages: true })
+      this.setState({ applications: [], loading: false, atMaxPages: true })
     } else {
       this.loadPage(state.page, filters)
     }
@@ -40,7 +40,7 @@ class ApplicationsTableContainer extends React.Component {
 
   render () {
     const { listings } = this.props
-    const { loading, applications, pages, maxPages } = this.state
+    const { loading, applications, pages, atMaxPages } = this.state
 
     return (
       <React.Fragment>
@@ -51,7 +51,7 @@ class ApplicationsTableContainer extends React.Component {
           pages={pages}
           loading={loading}
           rowsPerPage={ROWS_PER_PAGE}
-          maxPages={maxPages}
+          atMaxPages={atMaxPages}
         />
       </React.Fragment>
     )
