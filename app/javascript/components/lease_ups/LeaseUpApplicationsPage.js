@@ -1,3 +1,5 @@
+/* global SALESFORCE_BASE_URL */
+
 import React from 'react'
 import { flow, map, each, set, clone } from 'lodash'
 import moment from 'moment'
@@ -105,9 +107,7 @@ class LeaseUpApplicationsPage extends React.Component {
 
     const exportButtonAction = {
       title: 'Export',
-      // FIXME: Base URL needs to be dynamically loaded based on ENV vars
-      // link: `{{base url}}/${listing.report_id}?csv=1`
-      link: `/reports/${listing.report_id}`
+      link: `${SALESFORCE_BASE_URL}/${listing.report_id}?csv=1`
     }
 
     const pageHeader = {

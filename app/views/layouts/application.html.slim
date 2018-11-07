@@ -25,3 +25,5 @@ html
         == render 'layouts/messages'
         == yield
     == render 'layouts/icons'
+    javascript:
+      var SALESFORCE_BASE_URL = current_user&.admin ? `#{ENV['SALESFORCE_INSTANCE_URL']}` : `#{ENV['COMMUNITY_LOGIN_URL']}``
