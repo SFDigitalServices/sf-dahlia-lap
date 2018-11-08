@@ -59,10 +59,18 @@ const buildPrefValidations = (prefs) => {
   return prefValidations
 }
 
+const validateAnnualIncome = (value) => {
+  if (/[a-zA-Z;<>]/.test(value)) {
+    return 'Only numbers, $ and "," are valid.'
+  } else {
+    return null
+  }
+}
+
 const validateError = (values) => {
-  console.log(values)
   return {
-    preferences: buildPrefValidations(values.preferences)
+    preferences: buildPrefValidations(values.preferences),
+    annual_income: validateAnnualIncome(values.annual_income)
   }
 }
 
