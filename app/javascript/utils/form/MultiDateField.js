@@ -25,7 +25,8 @@ export const MultiDateField = ({ formApi, field, label, id, blockNote, errorMess
         <Text
           className={classNames(className)}
           field={[field, 2]}
-          id={id + '_day'} placeholder='DD'
+          id={id + '_day'}
+          placeholder='DD'
           type='number' />
       </div>
       <div className='form-group-year'>
