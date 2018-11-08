@@ -51,20 +51,6 @@ Array [
               yyyy
             </p>
           </div>
-          <div
-            className="medium-4 columns no-padding"
-          >
-            <span
-              className="lead-header_secondary-action"
-            >
-              <a
-                className="alt-caps"
-                href="/listings/1/lease-ups/export"
-              >
-                Export
-              </a>
-            </span>
-          </div>
         </hgroup>
       </div>
     </div>
@@ -1244,20 +1230,6 @@ Array [
               yyyy
             </p>
           </div>
-          <div
-            className="medium-4 columns no-padding"
-          >
-            <span
-              className="lead-header_secondary-action"
-            >
-              <a
-                className="alt-caps"
-                href="/listings/1/lease-ups/export"
-              >
-                Export
-              </a>
-            </span>
-          </div>
         </hgroup>
       </div>
     </div>
@@ -2436,20 +2408,6 @@ Array [
             <p>
               yyyy
             </p>
-          </div>
-          <div
-            className="medium-4 columns no-padding"
-          >
-            <span
-              className="lead-header_secondary-action"
-            >
-              <a
-                className="alt-caps"
-                href="/listings/1/lease-ups/export"
-              >
-                Export
-              </a>
-            </span>
           </div>
         </hgroup>
       </div>

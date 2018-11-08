@@ -105,9 +105,11 @@ class LeaseUpApplicationsPage extends React.Component {
   render () {
     const listing = this.props.listing
 
+    const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
+
     const exportButtonAction = {
       title: 'Export',
-      link: `${SALESFORCE_BASE_URL}/${listing.report_id}?csv=1`
+      link: `${baseUrl}/${listing.report_id}?csv=1`
     }
 
     const pageHeader = {
