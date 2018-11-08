@@ -33,6 +33,6 @@ export const mapApplicationMember = (value) => {
 const dateOfBirthToDomain = (dateOfBirth) => {
   // Convert 'YYYY-MM-DD' string to domain format [YYYY, MM, DD]
   if (!dateOfBirth) return null
-  const split = dateOfBirth.split('-')
-  return [split[0], split[1], split[2]]
+  const dateParts = dateOfBirth.split('-')
+  return [dateParts[0], dateParts[1], dateParts[2]]
 }

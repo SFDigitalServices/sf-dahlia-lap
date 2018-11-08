@@ -4,7 +4,7 @@ import { Text } from 'react-form'
 import { BlockNote } from '~/utils/form/Field'
 import { FormError, errorClassName } from './errors'
 
-export const MultiDateField = ({ formApi, field, label, id, blockNote, errorMessage, children }) => {
+export const MultiDateField = ({ formApi, field, label, id, blockNote, errorMessage }) => {
   const className = errorClassName(formApi, field)
 
   return (

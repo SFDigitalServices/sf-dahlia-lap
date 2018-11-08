@@ -72,13 +72,10 @@ const buildHouseholdMemberValidations = (householdMembers) => {
   return householdMemberValidations
 }
 
-const validateError = (values) => {
-  const validateErrors = {
-    preferences: buildPrefValidations(values.preferences),
-    household_members: buildHouseholdMemberValidations(values.household_members)
-  }
-  return validateErrors
-}
+const validateError = (values) => ({
+  preferences: buildPrefValidations(values.preferences),
+  household_members: buildHouseholdMemberValidations(values.household_members)
+})
 
 class PaperApplicationForm extends React.Component {
   constructor (props) {
