@@ -3,7 +3,8 @@ import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
-import { Field, MultiDateField } from '~/utils/form/Field'
+import { Field } from '~/utils/form/Field'
+import { MultiDateField } from '~/utils/form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
 
 let { phoneTypeOptions } = formOptions

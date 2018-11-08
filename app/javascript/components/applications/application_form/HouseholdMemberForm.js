@@ -1,6 +1,7 @@
 import React from 'react'
 import AddressForm from './AddressForm'
-import { Field, MultiDateField } from '~/utils/form/Field'
+import { Field } from '~/utils/form/Field'
+import { MultiDateField } from '~/utils/form/MultiDateField'
 
 const HouseholdMemberForm = ({ i, formApi }) => {
   return (
