@@ -267,6 +267,7 @@ Array [
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="MM"
+                          type="number"
                           value=""
                         />
                       </div>
@@ -279,6 +280,7 @@ Array [
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="DD"
+                          type="number"
                           value=""
                         />
                       </div>
@@ -291,6 +293,7 @@ Array [
                           onBlur={[Function]}
                           onChange={[Function]}
                           placeholder="YYYY"
+                          type="number"
                           value=""
                         />
                       </div>
