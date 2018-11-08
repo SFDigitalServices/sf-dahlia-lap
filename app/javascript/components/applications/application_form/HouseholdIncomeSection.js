@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Select } from 'react-form'
+import { Select } from 'react-form'
 import { Field } from '~/utils/form/Field'
 
 const householdVouchersSubsidiesOptions = [
