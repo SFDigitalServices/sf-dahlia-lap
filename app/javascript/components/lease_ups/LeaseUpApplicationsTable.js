@@ -45,7 +45,7 @@ const PreferenceRankCell = ({cell}) => {
 }
 
 const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage, atMaxPages }) => {
-  const maxPagesMsg = `You have reached the maximum number of records we can display at this time. There are ${pages * rowsPerPage} records that match your selected filters, but the maximum we can display is ${MAX_SERVER_LIMIT}. Please use filters to narrow the number of matching records.`
+  const maxPagesMsg = `Unfortunately, we can only display the first ${MAX_SERVER_LIMIT / rowsPerPage} pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
     { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
