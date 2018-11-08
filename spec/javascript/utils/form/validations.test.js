@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 import validate from 'utils/form/validations'
 
 // Validations will return this message if failed, null if passed
@@ -9,7 +11,8 @@ describe('validate', () => {
       expect(validate.isOldEnough(FAILED_VALIDATION_MSG)(['2000', '01', '12'])).toEqual(null)
     })
     test('fails validation if DOB is less than 18 years ago', () => {
-      expect(validate.isOldEnough(FAILED_VALIDATION_MSG)(['2010', '01', '12'])).toEqual(FAILED_VALIDATION_MSG)
+      const recentYear = moment().subtract(10, 'years').year()
+      expect(validate.isOldEnough(FAILED_VALIDATION_MSG)([recentYear, '01', '12'])).toEqual(FAILED_VALIDATION_MSG)
     })
     test('fails validation if DOB is not a valid date', () => {
       expect(validate.isOldEnough(FAILED_VALIDATION_MSG)(['2010', '13', '30'])).toEqual(FAILED_VALIDATION_MSG)
@@ -29,7 +32,8 @@ describe('validate', () => {
       expect(validate.isValidDate(FAILED_VALIDATION_MSG)(['1999', '02', '29'])).toEqual(FAILED_VALIDATION_MSG)
     })
     test('fails validation if date is in the future', () => {
-      expect(validate.isValidDate(FAILED_VALIDATION_MSG)(['2020', '01', '12'])).toEqual(FAILED_VALIDATION_MSG)
+      const futureYear = moment().add(1, 'years').year()
+      expect(validate.isValidDate(FAILED_VALIDATION_MSG)([futureYear, '01', '12'])).toEqual(FAILED_VALIDATION_MSG)
     })
     test('fails validation if date is too far in the past', () => {
       expect(validate.isValidDate(FAILED_VALIDATION_MSG)(['1899', '01', '12'])).toEqual(FAILED_VALIDATION_MSG)
