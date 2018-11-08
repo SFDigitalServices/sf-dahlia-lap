@@ -50,13 +50,13 @@ class Api::V1::ShortFormController < ApiController
             lease: %i[
               id
               unit
-              leaseStatus
-              leaseStartDate
-              monthlyParkingRent
-              preferenceUsed
-              noPreferenceUsed
-              totalMonthlyRentWithoutParking
-              monthlyTenantContribution
+              lease_status
+              lease_start_date
+              monthly_parking_rent
+              preference_used
+              no_preference_used
+              total_monthly_rent_without_parking
+              monthly_tenant_contribution
             ],
             primaryApplicant: %i[
               contactId
@@ -182,7 +182,7 @@ class Api::V1::ShortFormController < ApiController
   def submit_lease
     lease_params = application_api_params[:lease]
     lease_params[:application_id] = application_api_params[:id]
-    lease_params[:primaryApplicantContact] = application_api_params[:primaryApplicantContact]
+    lease_params[:primary_applicant_contact] = application_api_params[:primaryApplicantContact]
 
     if lease_params[:id]
       # If the lease is already present, we update it
