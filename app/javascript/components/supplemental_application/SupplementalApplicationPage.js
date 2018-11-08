@@ -200,9 +200,11 @@ class SupplementalApplicationPage extends React.Component {
           rentalAssistanceLoading: false
         }
       })
+      return true
     } else {
       Alerts.error()
       this.setState({ rentalAssistanceLoading: false })
+      return false
     }
   }
 
@@ -230,9 +232,11 @@ class SupplementalApplicationPage extends React.Component {
           rentalAssistanceLoading: false
         }
       })
+      return true
     } else {
       Alerts.error()
       this.setState({ rentalAssistanceLoading: false })
+      return false
     }
   }
 
@@ -252,9 +256,11 @@ class SupplementalApplicationPage extends React.Component {
           rentalAssistanceLoading: false
         }
       })
+      return true
     } else {
       Alerts.error()
       this.setState({ rentalAssistanceLoading: false })
+      return false
     }
   }
 

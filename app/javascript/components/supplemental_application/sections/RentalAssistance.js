@@ -104,8 +104,8 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   } = store
 
   const onSave = async (values) => {
-    await handleUpdateRentalAssistance(values)
-    toggle()
+    const updateResult = await handleUpdateRentalAssistance(values)
+    if (updateResult) toggle()
   }
 
   const onClose = () => {
@@ -114,8 +114,8 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   }
 
   const onDelete = async () => {
-    await handleDeleteRentalAssistance(rentalAssistance)
-    toggle()
+    const deleteResult = await handleDeleteRentalAssistance(rentalAssistance)
+    if (deleteResult) toggle()
   }
 
   return (
