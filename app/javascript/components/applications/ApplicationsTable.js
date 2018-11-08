@@ -19,7 +19,7 @@ const SubComponent = (row) => (
 /******************************************/
 
 const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerPage, atMaxPages }) => {
-  const maxPagesMsg = `You have reached the maximum number of records we can display at this time. There are ${(pages * rowsPerPage).toLocaleString('en')} records that match your selected filters, but the maximum we can display is ${MAX_SERVER_LIMIT.toLocaleString('en')}. Please use filters to narrow the number of matching records.`
+  const maxPagesMsg = 'Unfortunately, we can only display the first 105 pages of applications at this time. Please use the filters above to narrow your results.'
   const noDataText = atMaxPages ? maxPagesMsg : 'No rows found'
   const columns = [
     { Header: 'Application Number', accessor: 'name', headerClassName: 'td-min-narrow' },
