@@ -60,10 +60,14 @@ const buildPrefValidations = (prefs) => {
 }
 
 const validateAnnualIncome = (value) => {
-  if (/[a-zA-Z;<>]/.test(value)) {
-    return 'Only numbers, $ and "," are valid.'
-  } else {
+  if (isNil(value)) {
     return null
+  } else {
+    if (/[a-zA-Z;<>]/.test(value)) {
+      return 'Only numbers, $ and "," are valid.'
+    } else {
+      return null
+    }
   }
 }
 
