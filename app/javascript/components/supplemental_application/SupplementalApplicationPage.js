@@ -183,13 +183,27 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 
-  handleSaveNewRentalAssistance = async (rentalAssistance) => {
+  handleRentalAssistanceAction = (action) => {
     this.setState({ rentalAssistanceLoading: true })
-    const response = await apiService.createRentalAssistance(
+
+    return (...args) => {
+      return action(...args).then(response => {
+        if (response) {
+          return true
+        } else {
+          Alerts.error()
+          this.setState({ rentalAssistanceLoading: false })
+          return false
+        }
+      })
+    }
+  }
+
+  handleSaveNewRentalAssistance = async (rentalAssistance) => {
+    const response = await this.handleRentalAssistanceAction(apiService.createRentalAssistance)(
       rentalAssistance,
       this.state.persistedApplication.id
     )
-
     if (response) {
       rentalAssistance.id = response.id
       this.setState(prev => {
@@ -200,21 +214,15 @@ class SupplementalApplicationPage extends React.Component {
           rentalAssistanceLoading: false
         }
       })
-      return true
-    } else {
-      Alerts.error()
-      this.setState({ rentalAssistanceLoading: false })
-      return false
     }
+    return response
   }
 
   handleUpdateRentalAssistance = async (rentalAssistance) => {
-    this.setState({ rentalAssistanceLoading: true })
     if (rentalAssistance.type_of_assistance !== 'Other') {
       rentalAssistance.other_assistance_name = null
     }
-
-    const response = await apiService.updateRentalAssistance(
+    const response = await this.handleRentalAssistanceAction(apiService.updateRentalAssistance)(
       rentalAssistance,
       this.state.persistedApplication.id
     )
@@ -232,17 +240,13 @@ class SupplementalApplicationPage extends React.Component {
           rentalAssistanceLoading: false
         }
       })
-      return true
-    } else {
-      Alerts.error()
-      this.setState({ rentalAssistanceLoading: false })
-      return false
     }
+
+    return response
   }
 
   handleDeleteRentalAssistance = async (rentalAssistance) => {
-    this.setState({ rentalAssistanceLoading: true })
-    const response = await apiService.deleteRentalAssistance(rentalAssistance.id)
+    const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(rentalAssistance.id)
 
     if (response) {
       this.setState(prev => {
@@ -256,12 +260,9 @@ class SupplementalApplicationPage extends React.Component {
           rentalAssistanceLoading: false
         }
       })
-      return true
-    } else {
-      Alerts.error()
-      this.setState({ rentalAssistanceLoading: false })
-      return false
     }
+
+    return response
   }
 
   hideAddRentalAssistanceBtn = () => {
