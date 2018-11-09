@@ -7,7 +7,7 @@ module Force
       FIELD_NAME = :preferences
       FIELDS = load_fields(FIELD_NAME).freeze
 
-      def application_preferences_for_application(application_id)
+      def app_preferences_for_application(application_id)
         result = parsed_index_query(%(
           SELECT #{query_fields(:app_preferences_for_application)}
           FROM Application_Preference__c
@@ -17,8 +17,8 @@ module Force
         result.map { |r| Force::Preference.from_salesforce(r).to_domain }
       end
 
-      def application_preferences_for_listing(opts)
-        query_scope = app_pref_for_listing_query(opts)
+      def app_preferences_for_listing(opts)
+        query_scope = app_preferences_for_listing_query(opts)
         query_scope.where_contains('Application__r.Name', opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Application__r.Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
         query_scope.where_eq('Application__r.Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
@@ -30,7 +30,7 @@ module Force
 
       private
 
-      def app_pref_for_listing_query(opts)
+      def app_preferences_for_listing_query(opts)
         builder.from(:Application_Preference__c)
                .select(query_fields(:app_preferences_for_listing))
                .where("Listing_Preference_ID__c IN (#{listing_subquery(opts[:listing_id])})")

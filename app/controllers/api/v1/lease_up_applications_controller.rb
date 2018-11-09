@@ -8,7 +8,7 @@ module Api::V1
         applications = soql_application_service.applications(lease_up_apps_params)
         application_ids = applications[:records].map { |data| "'#{data['Id']}'" }
       else
-        applications = soql_preference_service.application_preferences_for_listing(lease_up_apps_params)
+        applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
         application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
       end
 

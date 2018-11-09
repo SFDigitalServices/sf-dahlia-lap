@@ -1,9 +1,10 @@
 import React from 'react'
 import { Form, Text, Select } from 'react-form'
 import formUtils from '~/utils/formUtils'
+import LEASE_UP_STATUS_OPTIONS from '~/utils/statusUtils'
 import Loading from '~/components/molecules/Loading'
 
-const StatusOptions = formUtils.toOptions(['No Status', 'Processing', 'Disqualified', 'Approved', 'Lease Signed', 'Waitlisted', 'Withdrawn', 'Appealed', [null, 'All Status']])
+const StatusOptions = formUtils.toOptions(LEASE_UP_STATUS_OPTIONS)
 
 const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false }) => {
   preferences.push([null, 'All Preferences'], ['general', 'General'])

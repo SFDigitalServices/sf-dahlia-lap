@@ -120,7 +120,6 @@ class LeaseUpApplicationsPage extends React.Component {
 
   render () {
     const listing = this.props.listing
-    console.log(listing)
     const preferences = map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
     const pageHeader = {
       title: listing.name,
