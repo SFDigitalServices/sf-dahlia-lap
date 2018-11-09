@@ -9,7 +9,7 @@ export const mailingAddressFieldMap = {
 
 export const parseHouseholdIncome = (value) => {
   if (isString(value)) {
-    return value.replace('$', '').replace(',', '')
+    return parseFloat(value.replace('$', '').replace(',', ''))
   } else {
     return value
   }
