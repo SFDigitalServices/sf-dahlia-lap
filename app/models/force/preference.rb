@@ -52,6 +52,10 @@ module Force
         preference.fields.salesforce.delete 'RecordType'
       end
 
+      if attributes.Application_Member
+        preference.fields.salesforce['Application_Member'] = attributes.Application_Member.Id
+      end
+
       preference
     end
 
