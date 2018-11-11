@@ -1,14 +1,14 @@
 import puppeteer from 'puppeteer'
 
-import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
-} from '../support/puppeteer/consts'
+} from '../../support/puppeteer/consts'
 
-describe('SupplementalApplicationPage preferences', () => {
-  test('should allow preference updates via the Confirmed Preferences section', async () => {
+describe('SupplementalApplicationPage Confirmed Preferences section', () => {
+  test('should allow preference updates', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 

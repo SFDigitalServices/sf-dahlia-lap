@@ -1,13 +1,13 @@
 import puppeteer from 'puppeteer'
 
-import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
-} from '../support/puppeteer/consts'
+} from '../../support/puppeteer/consts'
 
-describe('SupplementalApplicationPage manage rental assistance', () => {
+describe('SupplementalApplicationPage Rental Assistance Information section', () => {
   test('should allow a new rental assistance to be created', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()

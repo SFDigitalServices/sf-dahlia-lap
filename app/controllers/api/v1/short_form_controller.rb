@@ -196,7 +196,7 @@ class Api::V1::ShortFormController < ApiController
       # entire supp app form was saved.
       existing_lease = soql_lease_service.application_lease(application_api_params[:id])
       if existing_lease
-        response = rest_lease_service.update(lease_params.merge(id: existing_lease[:Id]))
+        response = rest_lease_service.update(lease_params.merge(id: existing_lease[:id]))
       else
         response = rest_lease_service.create(lease_params)
       end

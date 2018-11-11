@@ -1,12 +1,12 @@
 import puppeteer from 'puppeteer'
 
-import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import supplementalApplicationSteps from '../support/puppeteer/steps/supplementalApplicationSteps'
+import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
+import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
-} from '../support/puppeteer/consts'
+} from '../../support/puppeteer/consts'
 
 describe('SupplementalApplicationPage status history', () => {
   test('should allow status updates via the Add a Comment button in the status history section', async () => {
