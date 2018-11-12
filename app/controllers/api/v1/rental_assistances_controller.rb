@@ -4,7 +4,7 @@ module Api
   module V1
     # RESTful JSON API for rental assistance actions
     class RentalAssistancesController < ApiController
-      before_action :find_or_create_application_lease
+      before_action :find_or_create_application_lease, except: :destroy
 
       def create
         response = rest_rental_assistance_service.create(
@@ -31,7 +31,7 @@ module Api
       end
 
       def destroy
-        response = rest_rental_assistance_service.destroy(params[:id])
+        response = custom_api_rental_assistance_service.destroy(params[:id])
 
         if response
           render json: true
@@ -44,6 +44,10 @@ module Api
 
       def rest_rental_assistance_service
         Force::Rest::RentalAssistanceService.new(current_user)
+      end
+
+      def custom_api_rental_assistance_service
+        Force::CustomApi::RentalAssistanceService.new(current_user)
       end
 
       def soql_lease_service
