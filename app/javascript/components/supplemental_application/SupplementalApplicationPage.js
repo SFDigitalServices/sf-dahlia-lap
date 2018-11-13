@@ -189,7 +189,7 @@ class SupplementalApplicationPage extends React.Component {
     return (...args) => {
       return action(...args).then(response => {
         if (response) {
-          return true
+          return response
         } else {
           Alerts.error()
           this.setState({ rentalAssistanceLoading: false })

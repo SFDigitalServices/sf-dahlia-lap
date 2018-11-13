@@ -6,12 +6,12 @@ module Force
     class RentalAssistanceService < Force::Base
       def create(domain_attrs)
         rental_assistance = Force::RentalAssistance.from_domain(domain_attrs)
-        @client.create('Rental_Assistance__c', rental_assistance.to_salesforce)
+        @client.create!('Rental_Assistance__c', rental_assistance.to_salesforce)
       end
 
       def update(domain_attrs)
         rental_assistance = Force::RentalAssistance.from_domain(domain_attrs)
-        @client.update('Rental_Assistance__c', rental_assistance.to_salesforce)
+        @client.update!('Rental_Assistance__c', rental_assistance.to_salesforce)
       end
     end
   end

@@ -60,7 +60,7 @@ module Api
 
       def find_or_create_application_lease
         existing_lease = soql_lease_service.application_lease(params[:application_id])
-        if existing_lease
+        if existing_lease.present?
           @lease_id = existing_lease[:id]
         else
           new_lease_id = rest_lease_service.create(application_id: params[:application_id])
