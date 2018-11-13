@@ -17,6 +17,7 @@ const HouseholdIncomeSection = () => {
           <Field.Text
             label='Annual Income'
             field='annual_income'
+            errorMessage={(label, error) => error}
           />
         </div>
         <div className='small-6 columns'>

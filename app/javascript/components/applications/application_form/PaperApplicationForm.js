@@ -64,7 +64,7 @@ const validateAnnualIncome = (value) => {
     return null
   } else {
     if (/[^0-9$,.]/.test(value)) {
-      return 'only accepts numbers, $, commas, and periods.'
+      return 'Please enter a valid dollar amount.'
     } else {
       return null
     }
