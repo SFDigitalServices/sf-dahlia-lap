@@ -1,10 +1,15 @@
 import React from 'react'
 import { Form, Text, Select } from 'react-form'
 import formUtils from '~/utils/formUtils'
-import LEASE_UP_STATUS_FILTER_OPTIONS from '~/utils/statusUtils'
+import LEASE_UP_STATUS_OPTIONS from '~/utils/statusUtils'
 import Loading from '~/components/molecules/Loading'
+import { clone } from 'lodash'
 
-const StatusOptions = formUtils.toOptions(LEASE_UP_STATUS_FILTER_OPTIONS)
+const statusFilterOptions = clone(LEASE_UP_STATUS_OPTIONS)
+statusFilterOptions.unshift({value: 'No Status', label: 'No Status'})
+statusFilterOptions.push({value: null, label: 'All Status'})
+
+const StatusOptions = formUtils.toOptions(statusFilterOptions)
 
 const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false }) => {
   preferences.push([null, 'All Preferences'], ['general', 'General'])

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LEASE_UP_STATUS_DROPDOWN_OPTIONS, getLeaseUpStatusClass } from '~/utils/statusUtils'
+import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusClass } from '~/utils/statusUtils'
 import Dropdown from '../molecules/Dropdown'
 
 const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperClasses, styles }) => {
@@ -9,7 +9,7 @@ const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperC
 
   return (
     <Dropdown
-      items={LEASE_UP_STATUS_DROPDOWN_OPTIONS}
+      items={LEASE_UP_STATUS_OPTIONS}
       value={status}
       prompt='Status'
       onChange={onChange}
