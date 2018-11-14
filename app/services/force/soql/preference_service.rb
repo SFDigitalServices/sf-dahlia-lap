@@ -22,13 +22,22 @@ module Force
         query_scope.where_contains('Application__r.Name', opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Application__r.Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
         query_scope.where_eq('Application__r.Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
-        query_scope.where_eq('Application__r.Processing_Status__c', "'#{opts[:status]}'") if opts[:status].present?
         query_scope.where_eq('Preference_Name__c', "'#{opts[:preference]}'") if opts[:preference].present?
+        query_scope = status_query(query_scope, opts)
 
         query_scope.query
       end
 
       private
+
+      def status_query(query_scope, opts)
+        if opts[:status] == 'No Status'
+          query_scope.where_eq('Application__r.Processing_Status__c', 'NULL')
+        elsif opts[:status].present?
+          query_scope.where_eq('Application__r.Processing_Status__c', "'#{opts[:status]}'")
+        end
+        query_scope
+      end
 
       def app_preferences_for_listing_query(opts)
         builder.from(:Application_Preference__c)
