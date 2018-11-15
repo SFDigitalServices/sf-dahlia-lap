@@ -1,5 +1,5 @@
 import React from 'react'
-import { concat, isNil, uniqBy, map, cloneDeep, clone, some, sampleSize, findIndex } from 'lodash'
+import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -50,7 +50,8 @@ class SupplementalApplicationPage extends React.Component {
       },
       showNewRentalAssistancePanel: false,
       showAddRentalAssistanceBtn: true,
-      rentalAssistances: []
+      rentalAssistanceLoading: false,
+      rentalAssistances: props.rentalAssistances
     }
   }
 
@@ -182,62 +183,86 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 
-  handleSaveNewRentalAssistance = (rentalAssistance) => {
-    // TODO: Add a real call to Salesforce to save the new
-    // rental assistance record and get back the ID of the
-    // record. Here, we mock the real Salesforce save by
-    // adding a fake ID to the rental assistance values.
-    const savedRentalAssistance = ((rentalAssistance) => {
-      rentalAssistance.id = sampleSize('ABCDEFGabcdefg0123456789', 6).join('')
-      return rentalAssistance
-    })(rentalAssistance)
+  handleRentalAssistanceAction = (action) => {
+    this.setState({ rentalAssistanceLoading: true })
 
-    this.setState(prev => {
-      return {
-        rentalAssistances: [...prev.rentalAssistances, savedRentalAssistance],
-        showNewRentalAssistancePanel: false,
-        showAddRentalAssistanceBtn: true
-      }
-    })
+    return (...args) => {
+      return action(...args).then(response => {
+        if (response) {
+          return response
+        } else {
+          Alerts.error()
+          this.setState({ rentalAssistanceLoading: false })
+          return false
+        }
+      })
+    }
   }
 
-  handleUpdateRentalAssistance = (rentalAssistance) => {
+  handleSaveNewRentalAssistance = async (rentalAssistance) => {
+    const response = await this.handleRentalAssistanceAction(apiService.createRentalAssistance)(
+      rentalAssistance,
+      this.state.persistedApplication.id
+    )
+    if (response) {
+      rentalAssistance.id = response.id
+      this.setState(prev => {
+        return {
+          rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
+          showNewRentalAssistancePanel: false,
+          showAddRentalAssistanceBtn: true,
+          rentalAssistanceLoading: false
+        }
+      })
+    }
+    return response
+  }
+
+  handleUpdateRentalAssistance = async (rentalAssistance) => {
     if (rentalAssistance.type_of_assistance !== 'Other') {
       rentalAssistance.other_assistance_name = null
     }
+    const response = await this.handleRentalAssistanceAction(apiService.updateRentalAssistance)(
+      rentalAssistance,
+      this.state.persistedApplication.id
+    )
 
-    // TODO: Add a real call to Salesforce to update the
-    // rental assistance record. Here, we mock the real
-    // Salesforce update by just returning the rental
-    // assistance values.
-    const updatedRentalAssistance = ((rentalAssistance) => rentalAssistance)(rentalAssistance)
+    if (response) {
+      this.setState(prev => {
+        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+        rentalAssistances[idx] = rentalAssistance
 
-    this.setState(prev => {
-      const rentalAssistances = cloneDeep(prev.rentalAssistances)
-      const idx = findIndex(rentalAssistances, { id: updatedRentalAssistance.id })
-      rentalAssistances[idx] = updatedRentalAssistance
-      return {
-        rentalAssistances: rentalAssistances,
-        showNewRentalAssistancePanel: false,
-        showAddRentalAssistanceBtn: true
-      }
-    })
+        return {
+          rentalAssistances: rentalAssistances,
+          showNewRentalAssistancePanel: false,
+          showAddRentalAssistanceBtn: true,
+          rentalAssistanceLoading: false
+        }
+      })
+    }
+
+    return response
   }
 
-  handleDeleteRentalAssistance = (rentalAssistance) => {
-    // TODO: Add a real call to Salesforce to delete the
-    // rental assistance record.
+  handleDeleteRentalAssistance = async (rentalAssistance) => {
+    const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(rentalAssistance.id)
 
-    this.setState(prev => {
-      const rentalAssistances = cloneDeep(prev.rentalAssistances)
-      const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
-      rentalAssistances.splice(idx, 1)
-      return {
-        rentalAssistances: rentalAssistances,
-        showNewRentalAssistancePanel: false,
-        showAddRentalAssistanceBtn: true
-      }
-    })
+    if (response) {
+      this.setState(prev => {
+        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+        rentalAssistances.splice(idx, 1)
+        return {
+          rentalAssistances: rentalAssistances,
+          showNewRentalAssistancePanel: false,
+          showAddRentalAssistanceBtn: true,
+          rentalAssistanceLoading: false
+        }
+      })
+    }
+
+    return response
   }
 
   hideAddRentalAssistanceBtn = () => {
@@ -253,9 +278,10 @@ class SupplementalApplicationPage extends React.Component {
       statusModal,
       loading,
       persistedApplication,
-      showNewRentalAssistancePanel,
       rentalAssistances,
-      showAddRentalAssistanceBtn
+      showNewRentalAssistancePanel,
+      showAddRentalAssistanceBtn,
+      rentalAssistanceLoading
     } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
@@ -282,6 +308,7 @@ class SupplementalApplicationPage extends React.Component {
       statusHistory: statusHistory,
       fileBaseUrl: fileBaseUrl,
       loading: loading,
+      rentalAssistanceLoading: rentalAssistanceLoading,
       setLoading: this.setLoading,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
@@ -332,14 +359,15 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits, rentalAssistances }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplicationAction(values),
     fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
-    availableUnits: mapList(mapUnit, availableUnits)
+    availableUnits: mapList(mapUnit, availableUnits),
+    rentalAssistances: rentalAssistances
   }
 }
 

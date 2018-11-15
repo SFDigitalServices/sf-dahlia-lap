@@ -9,7 +9,7 @@ module Force
     # field mappings into YML files or other places.
     FIELD_NAME_MAPPINGS = [
       { custom_api: 'address', domain: 'street', salesforce: 'Street' },
-      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member__c' },
+      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member' },
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'id', domain: 'id', salesforce: 'Id' },
@@ -52,6 +52,10 @@ module Force
         preference.fields.salesforce.delete 'RecordType'
       end
 
+      if attributes.Application_Member
+        preference.fields.salesforce['Application_Member'] = attributes.Application_Member.Id
+      end
+
       preference
     end
 
@@ -89,7 +93,7 @@ module Force
       # Add the "__c" suffix back onto Salesforce field names
       field_names = salesforce_fields.keys
       field_names.each do |field_name|
-        unless %w[Id Name].include?(field_name)
+        unless %w[Id Name].include?(field_name) || field_name.end_with?('__c')
           salesforce_fields["#{field_name}__c"] = salesforce_fields[field_name]
           salesforce_fields.delete(field_name)
         end

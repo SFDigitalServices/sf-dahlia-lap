@@ -88,6 +88,27 @@ const updateApplication = async (data) => {
   return apiCall('put', `/applications/${id}`, postData)
 }
 
+const createRentalAssistance = async (rentalAssistance, applicationId) => {
+  const postData = {
+    rental_assistance: rentalAssistance,
+    application_id: applicationId
+  }
+  return apiCall('post', '/rental-assistances', postData)
+}
+
+const updateRentalAssistance = async (rentalAssistance, applicationId) => {
+  const id = rentalAssistance.id
+  const putData = {
+    rental_assistance: rentalAssistance,
+    application_id: applicationId
+  }
+  return apiCall('put', `/rental-assistances/${id}`, putData)
+}
+
+const deleteRentalAssistance = async (rentalAssistanceId) => {
+  return apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
+}
+
 export default {
   updateApplication,
   updateFlaggedApplication,
@@ -96,5 +117,8 @@ export default {
   fetchLeaseUpApplications,
   getAMI,
   updatePreference,
-  createFieldUpdateComment
+  createFieldUpdateComment,
+  createRentalAssistance,
+  updateRentalAssistance,
+  deleteRentalAssistance
 }
