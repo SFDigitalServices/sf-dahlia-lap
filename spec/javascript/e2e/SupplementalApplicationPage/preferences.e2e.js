@@ -49,6 +49,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     // Open the same preference edit panel as before
+    await page.waitForSelector(`${firstRowSelector}`)
     await page.click(`${firstRowSelector} .button-link`)
 
     // Check that the value entered for Status was successfully saved
