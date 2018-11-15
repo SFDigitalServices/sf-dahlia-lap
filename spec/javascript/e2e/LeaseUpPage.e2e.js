@@ -30,6 +30,6 @@ describe('LeaseUpPage', () => {
     const currentStatus = await page.$eval('.rt-tr-group:first-child .rt-td .dropdown .dropdown-button', e => e.textContent)
     expect(previousStatus).not.toBe(currentStatus)
 
-    browser.close()
+    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })
