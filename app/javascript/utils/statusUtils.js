@@ -14,3 +14,5 @@ export const getLeaseUpStatusClass = (status) => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, {value: status})
   return statusOption ? statusOption.style : 'tertiary'
 }
+
+export default LEASE_UP_STATUS_OPTIONS

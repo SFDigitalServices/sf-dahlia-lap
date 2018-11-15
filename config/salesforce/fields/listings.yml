@@ -86,3 +86,13 @@ listings:
     Credit_Rating__c:
     Lottery_Status__c:
     Office_Hours__c:
+  lease_up_listing_fields:
+    Id:
+    Name:
+    Lottery_Date__c:
+    Lottery_Results_Date__c:
+    In_Lottery__c:
+    Units_Available__c:
+    Lease_Signed_Application__c:
+    LastModifiedDate:
+
