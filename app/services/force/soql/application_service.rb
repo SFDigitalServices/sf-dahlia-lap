@@ -37,7 +37,7 @@ module Force
         application['preferences'] = app_preferences(id)
         application['proof_files'] = app_proof_files(id)
         application['household_members'] = app_household_members(application)
-        application['lease'] = lease_service.lease(id)
+        application['lease'] = soql_lease_service.application_lease(id)
         application
       end
 
@@ -123,8 +123,8 @@ module Force
         end
       end
 
-      def lease_service
-        Force::LeaseService.new(@user)
+      def soql_lease_service
+        Force::Soql::LeaseService.new(@user)
       end
     end
   end
