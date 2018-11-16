@@ -1346,30 +1346,7 @@ Array [
         <div
           className="rt-noData"
         >
-          <div
-            style={
-              Object {
-                "marginBottom": "20px",
-                "padding": "10px",
-                "textAlign": "center",
-              }
-            }
-          >
-            No results, try adjusting your filters
-          </div>
-          <div
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }
-          >
-            <button
-              className="tertiary"
-            >
-              Reset all filters
-            </button>
-          </div>
+          No results, try adjusting your filters
         </div>
         <div
           className="-loading -active"
@@ -2732,30 +2709,7 @@ Array [
         <div
           className="rt-noData"
         >
-          <div
-            style={
-              Object {
-                "marginBottom": "20px",
-                "padding": "10px",
-                "textAlign": "center",
-              }
-            }
-          >
-            No results, try adjusting your filters
-          </div>
-          <div
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }
-          >
-            <button
-              className="tertiary"
-            >
-              Reset all filters
-            </button>
-          </div>
+          No results, try adjusting your filters
         </div>
         <div
           className="-loading -active"
@@ -4118,30 +4072,7 @@ Array [
         <div
           className="rt-noData"
         >
-          <div
-            style={
-              Object {
-                "marginBottom": "20px",
-                "padding": "10px",
-                "textAlign": "center",
-              }
-            }
-          >
-            No results, try adjusting your filters
-          </div>
-          <div
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }
-          >
-            <button
-              className="tertiary"
-            >
-              Reset all filters
-            </button>
-          </div>
+          No results, try adjusting your filters
         </div>
         <div
           className="-loading -active"
