@@ -9,7 +9,7 @@ const HouseholdMembersSection = ({ formApi, editValues }) => {
       </div>
       { formApi.values.household_members && formApi.values.household_members.map((member, i) => (
         <div className='border-bottom margin-bottom--2x' key={i}>
-          <HouseholdMemberForm i={i} />
+          <HouseholdMemberForm i={i} formApi={formApi} />
           <div className='row'>
             <div className='form-group'>
               <div className='small-4 columns'>
@@ -30,7 +30,8 @@ const HouseholdMembersSection = ({ formApi, editValues }) => {
             <button
               onClick={() => formApi.addValue('household_members', '')}
               type='button'
-              className='mb-4 mr-4 btn btn-success'>
+              className='mb-4 mr-4 btn btn-success'
+              id='add-additional-member'>
                 + Additional Member
             </button>
           </div>
