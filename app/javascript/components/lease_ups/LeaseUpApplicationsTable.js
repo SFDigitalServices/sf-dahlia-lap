@@ -7,10 +7,11 @@ import { getLeaseUpStatusClass } from '~/utils/statusUtils'
 import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
+import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
-  const applicationPreferenceId = cell.original.id
   const applicationId = cell.original.application_id
+  const applicationPreferenceId = cell.original.application_preference_id
 
   const value = cell.value || ''
   return (
@@ -19,19 +20,6 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
       onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
       styles={{position: 'absolute'}}
       buttonClasses={['tiny']} />
-  )
-}
-
-const NoData = ({ children, className, ...rest }) => {
-  return (
-    <div className='rt-noData' {...rest}>
-      <div style={{ textAlign: 'center', padding: '10px', marginBottom: '20px' }}>
-        No results, try adjusting your filters
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <button className='tertiary'>Reset all filters</button>
-      </div>
-    </div>
   )
 }
 
@@ -56,7 +44,9 @@ const PreferenceRankCell = ({cell}) => {
   }
 }
 
-const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage }) => {
+const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage, atMaxPages }) => {
+  const maxPagesMsg = `Unfortunately, we can only display the first ${MAX_SERVER_LIMIT / rowsPerPage} pages of applications at this time. Please use the filters above to narrow your results.`
+  const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
     { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
     { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
@@ -66,7 +56,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
     { Header: 'Address', accessor: 'address', Cell: resizableCell, className: 'text-left' },
     { Header: 'Status Updated', accessor: 'status_last_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
-    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id} /> }
+    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> }
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
@@ -125,7 +115,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       sortable={false}
       loading={loading}
       onFetchData={onFetchData}
-      NoDataComponent={NoData}
+      noDataText={noDataMsg}
       getPaginationProps={getPaginationProps}
     />
   )

@@ -59,7 +59,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/1/lease-ups/export"
+                href="/REPORT_ID?csv=1"
               >
                 Export
               </a>
@@ -73,6 +73,199 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
   >
     <div>
+      <div
+        className="loading-panel loading"
+      >
+        <div
+          className="spinner sk-fading-circle"
+        >
+          <div
+            className="sk-circle1 sk-circle"
+          />
+          <div
+            className="sk-circle2 sk-circle"
+          />
+          <div
+            className="sk-circle3 sk-circle"
+          />
+          <div
+            className="sk-circle4 sk-circle"
+          />
+          <div
+            className="sk-circle5 sk-circle"
+          />
+          <div
+            className="sk-circle6 sk-circle"
+          />
+          <div
+            className="sk-circle7 sk-circle"
+          />
+          <div
+            className="sk-circle8 sk-circle"
+          />
+          <div
+            className="sk-circle9 sk-circle"
+          />
+          <div
+            className="sk-circle10 sk-circle"
+          />
+          <div
+            className="sk-circle11 sk-circle"
+          />
+          <div
+            className="sk-circle12 sk-circle"
+          />
+        </div>
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="filter-row"
+          >
+            <div
+              className="filter-group"
+            >
+              <div
+                className="filter-group_item"
+              >
+                <select
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <option
+                    disabled={true}
+                    value={0}
+                  >
+                    Preference
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={1}
+                  >
+                    All Preferences
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={2}
+                  >
+                    General
+                  </option>
+                </select>
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Application Number"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="First Name"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Last Name"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <select
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <option
+                    disabled={true}
+                    value={0}
+                  >
+                    Status
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={1}
+                  >
+                    No Status
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={2}
+                  >
+                    Processing
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={3}
+                  >
+                    Withdrawn
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={4}
+                  >
+                    Appealed
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={5}
+                  >
+                    Waitlisted
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={6}
+                  >
+                    Disqualified
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={7}
+                  >
+                    Approved
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={8}
+                  >
+                    Lease Signed
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={9}
+                  >
+                    All Status
+                  </option>
+                </select>
+              </div>
+              <div
+                className="filter-group_action"
+              >
+                <button
+                  className="small"
+                >
+                  Filter
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
       <div
         className="ReactTable rt-table-status"
         style={Object {}}
@@ -1153,30 +1346,7 @@ Array [
         <div
           className="rt-noData"
         >
-          <div
-            style={
-              Object {
-                "marginBottom": "20px",
-                "padding": "10px",
-                "textAlign": "center",
-              }
-            }
-          >
-            No results, try adjusting your filters
-          </div>
-          <div
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }
-          >
-            <button
-              className="tertiary"
-            >
-              Reset all filters
-            </button>
-          </div>
+          No results, try adjusting your filters
         </div>
         <div
           className="-loading -active"
@@ -1252,7 +1422,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/1/lease-ups/export"
+                href="/REPORT_ID?csv=1"
               >
                 Export
               </a>
@@ -1266,6 +1436,199 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
   >
     <div>
+      <div
+        className="loading-panel loading"
+      >
+        <div
+          className="spinner sk-fading-circle"
+        >
+          <div
+            className="sk-circle1 sk-circle"
+          />
+          <div
+            className="sk-circle2 sk-circle"
+          />
+          <div
+            className="sk-circle3 sk-circle"
+          />
+          <div
+            className="sk-circle4 sk-circle"
+          />
+          <div
+            className="sk-circle5 sk-circle"
+          />
+          <div
+            className="sk-circle6 sk-circle"
+          />
+          <div
+            className="sk-circle7 sk-circle"
+          />
+          <div
+            className="sk-circle8 sk-circle"
+          />
+          <div
+            className="sk-circle9 sk-circle"
+          />
+          <div
+            className="sk-circle10 sk-circle"
+          />
+          <div
+            className="sk-circle11 sk-circle"
+          />
+          <div
+            className="sk-circle12 sk-circle"
+          />
+        </div>
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="filter-row"
+          >
+            <div
+              className="filter-group"
+            >
+              <div
+                className="filter-group_item"
+              >
+                <select
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <option
+                    disabled={true}
+                    value={0}
+                  >
+                    Preference
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={1}
+                  >
+                    All Preferences
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={2}
+                  >
+                    General
+                  </option>
+                </select>
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Application Number"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="First Name"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Last Name"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <select
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <option
+                    disabled={true}
+                    value={0}
+                  >
+                    Status
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={1}
+                  >
+                    No Status
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={2}
+                  >
+                    Processing
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={3}
+                  >
+                    Withdrawn
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={4}
+                  >
+                    Appealed
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={5}
+                  >
+                    Waitlisted
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={6}
+                  >
+                    Disqualified
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={7}
+                  >
+                    Approved
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={8}
+                  >
+                    Lease Signed
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={9}
+                  >
+                    All Status
+                  </option>
+                </select>
+              </div>
+              <div
+                className="filter-group_action"
+              >
+                <button
+                  className="small"
+                >
+                  Filter
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
       <div
         className="ReactTable rt-table-status"
         style={Object {}}
@@ -2346,30 +2709,7 @@ Array [
         <div
           className="rt-noData"
         >
-          <div
-            style={
-              Object {
-                "marginBottom": "20px",
-                "padding": "10px",
-                "textAlign": "center",
-              }
-            }
-          >
-            No results, try adjusting your filters
-          </div>
-          <div
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }
-          >
-            <button
-              className="tertiary"
-            >
-              Reset all filters
-            </button>
-          </div>
+          No results, try adjusting your filters
         </div>
         <div
           className="-loading -active"
@@ -2445,7 +2785,7 @@ Array [
             >
               <a
                 className="alt-caps"
-                href="/listings/1/lease-ups/export"
+                href="/REPORT_ID?csv=1"
               >
                 Export
               </a>
@@ -2459,6 +2799,199 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
   >
     <div>
+      <div
+        className="loading-panel loading"
+      >
+        <div
+          className="spinner sk-fading-circle"
+        >
+          <div
+            className="sk-circle1 sk-circle"
+          />
+          <div
+            className="sk-circle2 sk-circle"
+          />
+          <div
+            className="sk-circle3 sk-circle"
+          />
+          <div
+            className="sk-circle4 sk-circle"
+          />
+          <div
+            className="sk-circle5 sk-circle"
+          />
+          <div
+            className="sk-circle6 sk-circle"
+          />
+          <div
+            className="sk-circle7 sk-circle"
+          />
+          <div
+            className="sk-circle8 sk-circle"
+          />
+          <div
+            className="sk-circle9 sk-circle"
+          />
+          <div
+            className="sk-circle10 sk-circle"
+          />
+          <div
+            className="sk-circle11 sk-circle"
+          />
+          <div
+            className="sk-circle12 sk-circle"
+          />
+        </div>
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="filter-row"
+          >
+            <div
+              className="filter-group"
+            >
+              <div
+                className="filter-group_item"
+              >
+                <select
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <option
+                    disabled={true}
+                    value={0}
+                  >
+                    Preference
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={1}
+                  >
+                    All Preferences
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={2}
+                  >
+                    General
+                  </option>
+                </select>
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Application Number"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="First Name"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <input
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Last Name"
+                  value=""
+                />
+              </div>
+              <div
+                className="filter-group_item"
+              >
+                <select
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <option
+                    disabled={true}
+                    value={0}
+                  >
+                    Status
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={1}
+                  >
+                    No Status
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={2}
+                  >
+                    Processing
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={3}
+                  >
+                    Withdrawn
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={4}
+                  >
+                    Appealed
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={5}
+                  >
+                    Waitlisted
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={6}
+                  >
+                    Disqualified
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={7}
+                  >
+                    Approved
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={8}
+                  >
+                    Lease Signed
+                  </option>
+                  <option
+                    disabled={undefined}
+                    value={9}
+                  >
+                    All Status
+                  </option>
+                </select>
+              </div>
+              <div
+                className="filter-group_action"
+              >
+                <button
+                  className="small"
+                >
+                  Filter
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
       <div
         className="ReactTable rt-table-status"
         style={Object {}}
@@ -3539,30 +4072,7 @@ Array [
         <div
           className="rt-noData"
         >
-          <div
-            style={
-              Object {
-                "marginBottom": "20px",
-                "padding": "10px",
-                "textAlign": "center",
-              }
-            }
-          >
-            No results, try adjusting your filters
-          </div>
-          <div
-            style={
-              Object {
-                "textAlign": "center",
-              }
-            }
-          >
-            <button
-              className="tertiary"
-            >
-              Reset all filters
-            </button>
-          </div>
+          No results, try adjusting your filters
         </div>
         <div
           className="-loading -active"

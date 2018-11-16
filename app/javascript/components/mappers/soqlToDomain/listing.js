@@ -67,6 +67,7 @@ export const mapListing = (l) => {
     legal_disclaimers: l.Legal_Disclaimers,
     building_selection_criteria: l.Building_Selection_Criteria,
     pet_policy: l.Pet_Policy,
+    report_id: l.Report_id,
     required_documents: l.Required_Documents,
     smoking_policy: l.Smoking_Policy,
     eviction_history: l.Eviction_History,

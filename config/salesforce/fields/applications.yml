@@ -9,6 +9,10 @@ applications:
       label: 'Lottery Date'
     Applicant__r.First_Name__c:
     Applicant__r.Last_Name__c:
+    Applicant__r.Email__c:
+    Applicant__r.Phone__c:
+    Applicant__r.Residence_Address__c:
+    Applicant__r.Mailing_Address__c:
     Application_Submitted_Date__c:
       type: 'date'
     Total_Household_Size__c:
@@ -18,6 +22,10 @@ applications:
       editable_options:
         - Electronic
         - Paper
+    General_Lottery__c:
+    General_Lottery_Rank__c:
+    Processing_Status__c:
+        label: 'Lease Up Status'
   show_preference_fields:
     Id:
     Name:

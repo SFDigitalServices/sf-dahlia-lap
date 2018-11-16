@@ -67,7 +67,8 @@ describe('LeaseUpApplicationsPage', () => {
   const listing = {
     Id: '1',
     Name: 'xxxx',
-    Building_Street_Address: 'yyyy'
+    Building_Street_Address: 'yyyy',
+    Report_id: 'REPORT_ID'
   }
 
   sharedHooks.useFakeTimers()

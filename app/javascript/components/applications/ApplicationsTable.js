@@ -3,6 +3,7 @@ import ReactTable from 'react-table'
 import TableSubComponent from '~/components/atoms/TableSubComponent'
 import PrettyTime from '../atoms/PrettyTime'
 import appPaths from '~/utils/appPaths'
+import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
 
 const SubComponent = (row) => (
   <TableSubComponent items={
@@ -17,7 +18,9 @@ const SubComponent = (row) => (
 /*      Presenter                         */
 /******************************************/
 
-const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerPage }) => {
+const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerPage, atMaxPages }) => {
+  const maxPagesMsg = `Unfortunately, we can only display the first ${MAX_SERVER_LIMIT / rowsPerPage} pages of applications at this time. Please use the filters above to narrow your results.`
+  const noDataText = atMaxPages ? maxPagesMsg : 'No rows found'
   const columns = [
     { Header: 'Application Number', accessor: 'name', headerClassName: 'td-min-narrow' },
     { Header: 'Listing Name', accessor: 'listing.name' },
@@ -49,7 +52,9 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerP
       defaultPageSize={rowsPerPage}
       onFetchData={onFetchData}
       SubComponent={SubComponent}
-      getPaginationProps={getPaginationProps} />
+      getPaginationProps={getPaginationProps}
+      noDataText={noDataText}
+    />
   )
 }
 
