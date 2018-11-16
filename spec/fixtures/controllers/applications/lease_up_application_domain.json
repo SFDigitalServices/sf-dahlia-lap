@@ -1,5 +1,5 @@
 {
-  "total_monthly_rent":100,
+  "total_monthly_rent":100.0,
   "sub_status":null,
   "status":"Submitted",
   "referral_source":null,
@@ -20,7 +20,7 @@
   "application_submission_type":"Electronic",
   "application_language":"English",
   "answered_community_screening":null,
-  "annual_income":45000,
+  "annual_income":45000.0,
   "terms_acknowledged":false,
   "has_ada_priorities_selected":null,
   "applicant":{
