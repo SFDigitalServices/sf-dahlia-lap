@@ -70,9 +70,7 @@ module Force
         end
 
         # Created by
-        if existing_fields['CreatedBy']
-          domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] }
-        end
+        domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
       end
 
       domain_fields
@@ -102,3 +100,4 @@ module Force
     end
   end
 end
+# rubocop:enable Metrics/LineLength
