@@ -1,7 +1,10 @@
 import React from 'react'
 import { trim, map, cloneDeep } from 'lodash'
+
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
+import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+
 import appPaths from '~/utils/appPaths'
 import { withContext } from './context'
 
@@ -69,10 +72,11 @@ class LeaseUpTableContainer extends React.Component {
 
   render () {
     const { store } = this.props
-    const { listing, applications, statusModal } = store
+    const { listing, applications, statusModal, preferences } = store
 
     return (
       <div>
+        <LeaseUpApplicationsFilter preferences={preferences} onSubmit={store.handleOnFilter} loading={store.loading} />
         <LeaseUpApplicationsTable
           dataSet={this.rowsData(applications)}
           listingId={listing.id}

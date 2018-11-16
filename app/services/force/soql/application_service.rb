@@ -9,18 +9,19 @@ module Force
       FIELDS = load_fields(FIELD_NAME).freeze
 
       def applications(opts = { page: 0 })
-        query_scope = builder.from(:Application__c)
-                             .select(query_fields(:index))
-                             .where(user_can_access)
-                             .where("Status__c != '#{DRAFT}'")
-                             .paginate(opts)
-                             .transform_results { |results| massage(results) }
+        query_scope = applications_query(opts)
 
         query_scope.where_contains(:Name, opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Listing__r.Id', "'#{opts[:listing]}'") if opts[:listing].present?
         query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
         query_scope.where_eq('Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
         query_scope.where_eq('Application_Submission_Type__c', "'#{opts[:submission_type]}'") if opts[:submission_type].present?
+        query_scope = status_query(query_scope, opts)
+
+        if opts[:preference] == 'general'
+          query_scope.where_eq('General_Lottery__c', 'true')
+                     .order_by('General_Lottery_Rank__c')
+        end
 
         query_scope.query
       end
@@ -65,6 +66,24 @@ module Force
       end
 
       private
+
+      def status_query(query_scope, opts)
+        if opts[:status] == 'No Status'
+          query_scope.where_eq('Processing_Status__c', 'NULL')
+        elsif opts[:status].present?
+          query_scope.where_eq('Processing_Status__c', "'#{opts[:status]}'")
+        end
+        query_scope
+      end
+
+      def applications_query(opts)
+        builder.from(:Application__c)
+               .select(query_fields(:index))
+               .where(user_can_access)
+               .where("Status__c != '#{DRAFT}'")
+               .paginate(opts)
+               .transform_results { |results| massage(results) }
+      end
 
       def app_household_members(application)
         alternate_contact_id = application.Alternate_Contact ? application.Alternate_Contact.Id : nil

@@ -40,12 +40,13 @@ const fetchApplications = async ({ page, filters }) => {
   })
 }
 
-const fetchLeaseUpApplications = async (listingId, page) => {
+const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
   // Fetch applications associated with a lease up listing.
   return apiCall('get', '/lease-ups/applications', {
     params: {
       listing_id: listingId,
-      page: page
+      page: page,
+      ...filters
     }
   })
 }

@@ -10,8 +10,8 @@ import classNames from 'classnames'
 import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
-  const applicationPreferenceId = cell.original.id
   const applicationId = cell.original.application_id
+  const applicationPreferenceId = cell.original.application_preference_id
 
   const value = cell.value || ''
   return (
@@ -56,7 +56,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
     { Header: 'Address', accessor: 'address', Cell: resizableCell, className: 'text-left' },
     { Header: 'Status Updated', accessor: 'status_last_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
-    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} applicationId={cell.original.id} /> }
+    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> }
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
