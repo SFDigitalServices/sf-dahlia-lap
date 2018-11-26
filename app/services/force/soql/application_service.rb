@@ -11,7 +11,6 @@ module Force
       def applications(opts = { page: 0 })
         query_scope = builder.from(:Application__c)
                              .select(query_fields(:index))
-                             .where(user_can_access)
                              .where("Status__c != '#{DRAFT}'")
                              .paginate(opts)
                              .transform_results { |results| massage(results) }
@@ -31,7 +30,6 @@ module Force
           FROM Application__c
           WHERE Id = '#{id}'
           AND Status__c != '#{DRAFT}'
-          AND #{user_can_access}
           LIMIT 1
         ))
         application['preferences'] = app_preferences(id)
@@ -48,8 +46,7 @@ module Force
         massage(query(%(
           SELECT #{query_fields(:index)}
           FROM Application__c
-          WHERE #{user_can_access}
-          AND Status__c != '#{DRAFT}'
+          WHERE Status__c != '#{DRAFT}'
           AND Listing__r.Id='#{listing_id}'
           LIMIT 10000
         )))
@@ -111,16 +108,6 @@ module Force
           applicationSubmittedDate: Time.now.strftime('%F'), # YYYY-MM-DD
           status: 'Submitted',
         }
-      end
-
-      def user_can_access
-        if @user.admin?
-          # HACK: return truthiness (e.g. "1=1" in MySQL)
-          'Id != null'
-        else
-          # for community users, restrict results to their account + draft
-          %(Listing__r.Account__c = '#{@user.salesforce_account_id}')
-        end
       end
 
       def lease_service

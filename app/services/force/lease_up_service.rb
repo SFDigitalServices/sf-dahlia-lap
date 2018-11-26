@@ -58,15 +58,5 @@ module Force
         GROUP BY Application__c
       )))
     end
-
-    def user_can_access
-      if @user.admin?
-        # HACK: return truthiness (e.g. "1=1" in MySQL)
-        'Id != null'
-      else
-        # for community users, restrict results to their account + draft
-        %(Listing__r.Account__c = '#{@user.salesforce_account_id}')
-      end
-    end
   end
 end

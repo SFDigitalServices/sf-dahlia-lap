@@ -15,15 +15,13 @@ module Force
       if @user.admin?
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
-          WHERE #{user_can_access}
-          AND hideOnCommunity__c = false
+          WHERE hideOnCommunity__c = false
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review)
       else
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
-          WHERE #{user_can_access}
-          AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
+          WHERE (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review).reject { |set| set['Rule_Name'] == 'Residence Address' }
       end
     end
@@ -31,8 +29,7 @@ module Force
     def marked_duplicate_record_sets
       parsed_index_query(%(
         SELECT #{query_fields(:marked_duplicate)} FROM Flagged_Record_Set__c
-        WHERE #{user_can_access}
-        AND Total_Number_of_Duplicates__c > 0
+        WHERE Total_Number_of_Duplicates__c > 0
       ), :marked_duplicate)
     end
 
@@ -70,20 +67,6 @@ module Force
 
     def flagged_applications_fields
       massage(FIELDS[:flagged_applications_fields])
-    end
-
-    private
-
-    def user_can_access
-      if @user.admin?
-        # HACK: return truthiness (e.g. "1=1" in MySQL)
-        'Id != null'
-      else
-        # for community users, restrict results to their account + draft
-        %(
-          Listing__r.Account__c = '#{@user.salesforce_account_id}'
-        )
-      end
     end
   end
 end
