@@ -1,4 +1,5 @@
 import { omitBy, isUndefined } from 'lodash'
+import moment from 'moment'
 
 export const mapShape = (mapper, value) => {
   if (value) { return mapper(value) } else { return {} }
@@ -9,3 +10,9 @@ export const mapList = (mapper, list) => {
 }
 
 export const compactShape = obj => omitBy(obj, isUndefined)
+
+export const domainDateOfBirthToApi = (dateOfBirth) => {
+  // Convert domain DOB [YYYY, MM, DD] to API format ('YYYY-MM-DD')
+  // Create moment and reformat to ensure that the integers are padded.
+  return dateOfBirth && moment(dateOfBirth.join('-'), 'YYYY-MM-DD').format('YYYY-MM-DD')
+}

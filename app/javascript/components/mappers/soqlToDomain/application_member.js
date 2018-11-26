@@ -5,7 +5,7 @@ export const mapApplicationMember = (value) => {
     last_name: value.Last_Name,
     middle_name: value.Middle_Name,
     name: value.Name,
-    date_of_birth: value.Date_of_Birth,
+    date_of_birth: dateOfBirthToDomain(value.Date_of_Birth),
     phone_type: value.Phone_Type,
     phone: value.Phone,
     second_phone_type: value.Second_Phone_Type,
@@ -28,4 +28,11 @@ export const mapApplicationMember = (value) => {
     alternate_contact_type: value.Alternate_Contact_Type,
     alternate_contact_type_other: value.Alternate_Contact_Type_Other
   }
+}
+
+const dateOfBirthToDomain = (dateOfBirth) => {
+  // Convert 'YYYY-MM-DD' string to domain format [YYYY, MM, DD]
+  if (!dateOfBirth) return null
+  const dateParts = dateOfBirth.split('-')
+  return [dateParts[0], dateParts[1], dateParts[2]]
 }

@@ -2,7 +2,7 @@ import arrayUtils from 'utils/arrayUtils'
 
 describe('arrayUtils', () => {
   describe('cycle', () => {
-    test('it should go back to beginning whe next', () => {
+    test('it should go back to beginning when next', () => {
       const cycle = arrayUtils.cycle([1, 2, 3])
 
       expect(cycle.next()).toEqual(2)

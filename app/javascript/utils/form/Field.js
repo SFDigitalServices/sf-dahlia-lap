@@ -5,7 +5,7 @@ import { Select, Text } from 'react-form'
 
 import { FormError, errorClassName } from './errors'
 
-const BlockNote = ({ value }) => (
+export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin'>{value}</span>
 )
 

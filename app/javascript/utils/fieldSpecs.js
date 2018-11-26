@@ -3,7 +3,7 @@ import moment from 'moment'
 
 import utils from '~/utils/utils'
 
-const getFormatType = (field) => {
+export const getFormatType = (field) => {
   if (includes(toLower(field), 'date')) { return 'date' } else { return null }
 }
 
@@ -15,8 +15,14 @@ const getRenderType = (value) => {
   }
 }
 
-const formatValue = (value, type) => {
-  if (type === 'date') { return moment(value).format('L') } else { return value }
+export const formatValue = (value, type) => {
+  if (type === 'date') {
+    // Convert domain date array to string if needed
+    if (value && value.length === 3) { return moment(value.join('-'), 'YYYY-MM-DD').format('L') }
+    return moment(value).format('L')
+  } else {
+    return value
+  }
 }
 
 const cleanupWords = (value) => {

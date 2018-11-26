@@ -1,3 +1,5 @@
+/* global SALESFORCE_BASE_URL */
+
 import React from 'react'
 import { flow, map, each, set, clone } from 'lodash'
 import moment from 'moment'
@@ -21,6 +23,7 @@ class LeaseUpApplicationsPage extends React.Component {
     loading: false,
     applications: [],
     pages: 0,
+    atMaxPages: false,
     statusModal: {
       isOpen: false,
       status: null,
@@ -53,16 +56,20 @@ class LeaseUpApplicationsPage extends React.Component {
     const fetcher = p => this.fetchApplications(p, filters)
     this.setState({ loading: true, page: page })
     const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
-    this.setState({
-      applications: records,
-      loading: false,
-      pages: pages
-    })
+    this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
   }
 
   handleOnFetchData = (state, instance) => {
     const { filters } = this.state
-    this.loadPage(state.page, filters)
+    if (this.eagerPagination.isOverLimit(state.page)) {
+      this.setState({
+        applications: [],
+        loading: false,
+        atMaxPages: true
+      })
+    } else {
+      this.loadPage(state.page, filters)
+    }
   }
 
   handleOnFilter = (filters) => {
@@ -120,14 +127,20 @@ class LeaseUpApplicationsPage extends React.Component {
 
   render () {
     const listing = this.props.listing
+
+    const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
+
+    const exportButtonAction = {
+      title: 'Export',
+      link: `${baseUrl}/${listing.report_id}?csv=1`
+    }
+
     const preferences = map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+
     const pageHeader = {
       title: listing.name,
       content: listing.building_street_address,
-      action: {
-        title: 'Export',
-        link: `/listings/${listing.id}/lease-ups/export`
-      },
+      action: listing.report_id ? exportButtonAction : null,
       breadcrumbs: [
         {title: 'Lease Ups', link: appPaths.toLeaseUps()},
         {title: listing.name, link: appPaths.toLeaseUpApplications(listing.id)}
@@ -145,7 +158,8 @@ class LeaseUpApplicationsPage extends React.Component {
       pages: this.state.pages,
       rowsPerPage: ROWS_PER_PAGE,
       updateStatusModal: this.updateStatusModal,
-      statusModal: this.state.statusModal
+      statusModal: this.state.statusModal,
+      atMaxPages: this.state.atMaxPages
     }
 
     return (

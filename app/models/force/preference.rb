@@ -52,9 +52,7 @@ module Force
         preference.fields.salesforce.delete 'RecordType'
       end
 
-      if attributes.Application_Member
-        preference.fields.salesforce['Application_Member'] = attributes.Application_Member.Id
-      end
+      preference.fields.salesforce['Application_Member'] = attributes.Application_Member.Id if attributes.Application_Member
 
       preference
     end
@@ -63,9 +61,7 @@ module Force
       domain_fields = super
 
       # Special field conversion cases for preferences
-      if domain_fields.total_household_rent
-        domain_fields.total_household_rent = domain_fields.total_household_rent.to_s
-      end
+      domain_fields.total_household_rent = domain_fields.total_household_rent.to_s if domain_fields.total_household_rent
 
       # Add preference name if it isn't already present
       if !domain_fields.preference_name && @fields.salesforce.empty?

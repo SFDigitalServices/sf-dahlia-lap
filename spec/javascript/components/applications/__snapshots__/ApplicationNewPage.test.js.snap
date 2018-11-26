@@ -242,7 +242,7 @@ Array [
                   className="row"
                 >
                   <div
-                    className="small-4 columns"
+                    className="small-4 columns form-date-of-birth"
                   >
                     <div
                       className="form-group"
@@ -258,15 +258,47 @@ Array [
                           (required)
                         </span>
                       </label>
-                      <input
-                        className=""
-                        id="date_of_birth"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                        placeholder="YYYY-MM-DD"
-                        type="date"
-                        value=""
+                      <div
+                        className="form-group-month"
+                      >
+                        <input
+                          className=""
+                          id="date_of_birth_month"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="MM"
+                          type="number"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="form-group-day"
+                      >
+                        <input
+                          className=""
+                          id="date_of_birth_day"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="DD"
+                          type="number"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="form-group-year"
+                      >
+                        <input
+                          className=""
+                          id="date_of_birth_year"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          placeholder="YYYY"
+                          type="number"
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="d-inline-block"
                       />
                     </div>
                   </div>
@@ -682,6 +714,7 @@ Array [
                     >
                       <button
                         className="mb-4 mr-4 btn btn-success"
+                        id="add-additional-member"
                         onClick={[Function]}
                         type="button"
                       >

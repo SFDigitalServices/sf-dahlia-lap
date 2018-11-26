@@ -28,7 +28,6 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   const ApplicationCard = (props) => (
     <ApplicationDetailsContentCard dataCollection={application} {...props} />
   )
-
   const Table = (props) => (
     <ApplicationDetailsContentTable data={application} {...props} />
   )
