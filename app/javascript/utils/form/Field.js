@@ -5,7 +5,7 @@ import { Select, Text } from 'react-form'
 
 import { FormError, errorClassName } from './errors'
 
-const BlockNote = ({ value }) => (
+export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin'>{value}</span>
 )
 
@@ -27,12 +27,12 @@ export const Field = ({ formApi, field, label, blockNote, errorMessage, children
 export const withField = (input) => {
   class Wrapper extends React.Component {
     render () {
-      const { field, errorMessage, label, blockNote, ...rest } = this.props
+      const { field, errorMessage, label, blockNote, className, ...rest } = this.props
       const { formApi } = this.context // Old context API used by react-form
 
       return (
         <Field formApi={formApi} field={field} label={label} blockNote={blockNote} errorMessage={errorMessage}>
-          {(f, classNames) => (input(f, classNames, rest))}
+          {(f, errorClassNames) => (input(f, classNames(className, errorClassNames), rest))}
         </Field>
       )
     }
@@ -47,8 +47,8 @@ export const withField = (input) => {
 }
 
 const decorateInput = (Comp) => (
-  withField((field, classNames, rest) => {
-    return <Comp id={field} field={field} className={classNames} {...rest} />
+  withField((field, className, rest) => {
+    return <Comp id={field} field={field} className={className} {...rest} />
   })
 )
 

@@ -3,6 +3,7 @@ import { map, isPlainObject, get } from 'lodash'
 import appPaths from '~/utils/appPaths'
 import { getLabel } from './utils'
 import { renderNative } from '~/utils/renderUtils'
+import { formatValue, getFormatType } from '~/utils/fieldSpecs'
 
 const getColumns = (fields) => map(fields, (field) => {
   const label = getLabel(field)
@@ -23,8 +24,9 @@ const getRow = (row, field) => {
       </td>
     )
   }
+
   const value = get(row, field)
-  return <td key={field}>{renderNative(value)}</td>
+  return <td key={field}>{renderNative(formatValue(value, getFormatType(field)))}</td>
 }
 
 const getRows = (data, fields) => map(data, (row, idx) => {

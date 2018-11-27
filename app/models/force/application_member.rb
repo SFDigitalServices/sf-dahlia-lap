@@ -59,6 +59,9 @@ module Force
           domain_fields.mailing_state,
           domain_fields.mailing_zip_code,
         ].compact.join(', ').strip
+
+        # Date of birth
+        domain_fields.date_of_birth = @fields.custom_api.DOB&.split('-')
       end
 
       domain_fields

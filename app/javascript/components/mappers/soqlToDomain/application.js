@@ -6,7 +6,6 @@ import { mapUser } from './user'
 import { mapListing } from './listing'
 import { mapApplicationPreference } from './application_preference'
 import { mapAttachment } from './attachment'
-import { mapLease } from './lease'
 
 const parseList = text => split(text, ';')
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
@@ -21,7 +20,7 @@ export const mapApplication = (a) => {
     proof_files: mapList(mapAttachment, a.proof_files),
     household_members: mapList(mapApplicationMember, a.household_members),
     flagged_applications: mapList(mapFlaggedApplication, a.flagged_applications),
-    lease: mapShape(mapLease, a.lease),
+    lease: a.lease,
     createdby: mapShape(mapUser, a.CreatedBy),
     id: a.Id,
     name: a.Name,

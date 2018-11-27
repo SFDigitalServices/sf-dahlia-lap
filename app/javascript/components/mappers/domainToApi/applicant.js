@@ -1,7 +1,7 @@
 import { createFieldMapper } from '~/utils/objectUtils'
+import { domainDateOfBirthToApi } from '~/components/mappers/utils'
 
 export const applicantFieldMapper = {
-  date_of_birth: 'DOB',
   email: 'email',
   first_name: 'firstName',
   last_name: 'lastName',
@@ -17,7 +17,8 @@ export const applicantFieldMapper = {
   phone: 'phone',
   phone_type: 'phoneType',
   marital_status: 'maritalStatus',
-  applicationId: (source) => source.id
+  applicationId: (source) => source.id,
+  DOB: (source) => domainDateOfBirthToApi(source.date_of_birth)
 }
 
 export const mapApplicant = createFieldMapper(applicantFieldMapper)

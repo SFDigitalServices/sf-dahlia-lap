@@ -70,9 +70,7 @@ module Force
         end
 
         # Created by
-        if existing_fields['CreatedBy']
-          domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] }
-        end
+        domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
       end
 
       domain_fields
@@ -92,7 +90,7 @@ module Force
       # Add the "__c" suffix back onto Salesforce field names
       field_names = salesforce_fields.keys
       field_names.each do |field_name|
-        unless %w[Id Name].include?(field_name)
+        unless %w[Id Name].include?(field_name) || field_name.end_with?('__c')
           salesforce_fields["#{field_name}__c"] = salesforce_fields[field_name]
           salesforce_fields.delete(field_name)
         end
@@ -102,3 +100,4 @@ module Force
     end
   end
 end
+# rubocop:enable Metrics/LineLength

@@ -12,6 +12,7 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
+import validate from '~/utils/form/validations'
 
 const fieldRequiredMsg = 'is required'
 
@@ -59,11 +60,23 @@ const buildPrefValidations = (prefs) => {
   return prefValidations
 }
 
-const validateError = (values) => {
-  return {
-    preferences: buildPrefValidations(values.preferences)
-  }
+const buildHouseholdMemberValidations = (householdMembers) => {
+  let householdMemberValidations = {}
+  forEach(householdMembers, (member, index) => {
+    // If member is empty, do not validate it.
+    householdMemberValidations[index] = member === '' ? {} : {
+      first_name: validate.isPresent('Please enter a First Name')(member.first_name),
+      last_name: validate.isPresent('Please enter a Last Name')(member.last_name),
+      date_of_birth: validate.isValidDate('Please enter a valid Date of Birth')(member.date_of_birth)
+    }
+  })
+  return householdMemberValidations
 }
+
+const validateError = (values) => ({
+  preferences: buildPrefValidations(values.preferences),
+  household_members: buildHouseholdMemberValidations(values.household_members)
+})
 
 class PaperApplicationForm extends React.Component {
   constructor (props) {

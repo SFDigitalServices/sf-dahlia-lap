@@ -12,7 +12,7 @@ Array [
         className="scrollable-table-container-under-xlarge"
       >
         <table
-          className="td-light td-plain th-plain"
+          className="td-light td-plain th-plain rental-assistances"
           role="grid"
         >
           <thead>
@@ -96,7 +96,7 @@ Array [
                   className="app-editable expand-wide scrollable-table-nested"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested"
+                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
@@ -114,7 +114,7 @@ Array [
                             Type of Assistance 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-type"
                             id="type_of_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -196,7 +196,7 @@ Array [
                               disabled={undefined}
                               value={12}
                             >
-                              Section 8 HCV (Tenant) Voucher
+                              Section 8 HCV (tenant) voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -208,7 +208,7 @@ Array [
                               disabled={undefined}
                               value={14}
                             >
-                              VASH Voucher
+                              VASH voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -239,7 +239,7 @@ Array [
                             >
                               <input
                                 checked={true}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-yes"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -257,7 +257,7 @@ Array [
                             >
                               <input
                                 checked={false}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-no"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -308,7 +308,7 @@ Array [
                             Recipient 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-recipient"
                             id="recipient"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -372,7 +372,7 @@ Array [
     </div>
   </div>,
   <div
-    className="app-editable expand-wide scrollable-table-nested"
+    className="app-editable expand-wide scrollable-table-nested rental-assistance-new-form"
   >
     <div
       className="form-grid row"
@@ -390,7 +390,7 @@ Array [
             Type of Assistance 
           </label>
           <select
-            className=""
+            className="rental-assistance-type"
             id="type_of_assistance"
             onBlur={[Function]}
             onChange={[Function]}
@@ -472,7 +472,7 @@ Array [
               disabled={undefined}
               value={12}
             >
-              Section 8 HCV (Tenant) Voucher
+              Section 8 HCV (tenant) voucher
             </option>
             <option
               disabled={undefined}
@@ -484,7 +484,7 @@ Array [
               disabled={undefined}
               value={14}
             >
-              VASH Voucher
+              VASH voucher
             </option>
             <option
               disabled={undefined}
@@ -515,7 +515,7 @@ Array [
             >
               <input
                 checked={false}
-                className=""
+                className="rental-assistance-recurring"
                 id="recurring_assistance-new-yes"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -533,7 +533,7 @@ Array [
             >
               <input
                 checked={false}
-                className=""
+                className="rental-assistance-recurring"
                 id="recurring_assistance-new-no"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -584,7 +584,7 @@ Array [
             Recipient 
           </label>
           <select
-            className=""
+            className="rental-assistance-recipient"
             id="recipient"
             onBlur={[Function]}
             onChange={[Function]}
@@ -663,7 +663,7 @@ Array [
         className="scrollable-table-container-under-xlarge"
       >
         <table
-          className="td-light td-plain th-plain"
+          className="td-light td-plain th-plain rental-assistances"
           role="grid"
         >
           <thead>
@@ -747,7 +747,7 @@ Array [
                   className="app-editable expand-wide scrollable-table-nested"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested"
+                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
@@ -765,7 +765,7 @@ Array [
                             Type of Assistance 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-type"
                             id="type_of_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -847,7 +847,7 @@ Array [
                               disabled={undefined}
                               value={12}
                             >
-                              Section 8 HCV (Tenant) Voucher
+                              Section 8 HCV (tenant) voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -859,7 +859,7 @@ Array [
                               disabled={undefined}
                               value={14}
                             >
-                              VASH Voucher
+                              VASH voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -890,7 +890,7 @@ Array [
                             >
                               <input
                                 checked={true}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-yes"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -908,7 +908,7 @@ Array [
                             >
                               <input
                                 checked={false}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-no"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -959,7 +959,7 @@ Array [
                             Recipient 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-recipient"
                             id="recipient"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -1044,7 +1044,7 @@ Array [
         className="scrollable-table-container-under-xlarge"
       >
         <table
-          className="td-light td-plain th-plain"
+          className="td-light td-plain th-plain rental-assistances"
           role="grid"
         >
           <thead>
@@ -1128,7 +1128,7 @@ Array [
                   className="app-editable expand-wide scrollable-table-nested"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested"
+                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
@@ -1146,7 +1146,7 @@ Array [
                             Type of Assistance 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-type"
                             id="type_of_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
@@ -1228,7 +1228,7 @@ Array [
                               disabled={undefined}
                               value={12}
                             >
-                              Section 8 HCV (Tenant) Voucher
+                              Section 8 HCV (tenant) voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -1240,7 +1240,7 @@ Array [
                               disabled={undefined}
                               value={14}
                             >
-                              VASH Voucher
+                              VASH voucher
                             </option>
                             <option
                               disabled={undefined}
@@ -1271,7 +1271,7 @@ Array [
                             >
                               <input
                                 checked={true}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-yes"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1289,7 +1289,7 @@ Array [
                             >
                               <input
                                 checked={false}
-                                className=""
+                                className="rental-assistance-recurring"
                                 id="recurring_assistance-new-no"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1340,7 +1340,7 @@ Array [
                             Recipient 
                           </label>
                           <select
-                            className=""
+                            className="rental-assistance-recipient"
                             id="recipient"
                             onBlur={[Function]}
                             onChange={[Function]}
