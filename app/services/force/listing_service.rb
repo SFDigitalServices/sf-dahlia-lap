@@ -10,7 +10,6 @@ module Force
     def listings
       parsed_index_query(%(
         SELECT #{query_fields(:index)} FROM Listing__c
-        WHERE #{user_can_access}
       ))
     end
 
@@ -21,7 +20,6 @@ module Force
         #{subqueries}
         FROM Listing__c
         WHERE Id='#{id}'
-        AND #{user_can_access}
       ))
     end
 
