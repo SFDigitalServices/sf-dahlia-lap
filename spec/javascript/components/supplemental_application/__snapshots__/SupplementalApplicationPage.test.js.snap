@@ -8511,7 +8511,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       onRequestClose={[Function]}
                                       parentSelector={[Function]}
                                       portalClassName="ReactModalPortal"
-                                      role="dialog"
                                       shouldCloseOnEsc={true}
                                       shouldCloseOnOverlayClick={true}
                                       shouldFocusAfterRender={true}
@@ -8580,7 +8579,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           onRequestClose={[Function]}
                                           parentSelector={[Function]}
                                           portalClassName="ReactModalPortal"
-                                          role="dialog"
                                           shouldCloseOnEsc={true}
                                           shouldCloseOnOverlayClick={true}
                                           shouldFocusAfterRender={true}
