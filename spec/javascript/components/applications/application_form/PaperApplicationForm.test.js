@@ -35,7 +35,33 @@ describe('PaperApplicationForm', () => {
 
       await wait(100)
 
-      expect(wrapper).toMatchSnapshot()
+      const formGroupSel = '.form-group'
+      const labelSel = 'label.form-label[htmlFor="annual_income"]'
+      const fieldWrapper1Sel = 'r[field="annual_income"]'
+      const fieldWrapper2Sel = 't#annual_income'
+      const inputSel = 'input#annual_income'
+      const errorMsgWrapperSel = 'FormError[field="annual_income"]'
+      const errorMsgSel = 'span.small'
+
+      // Check that the elements that make up the annual income field are
+      // present and have the correct validation error classes
+      const fieldElementsSel =
+        `${formGroupSel}.error > ` +
+        `${labelSel} + ` +
+        `${fieldWrapper1Sel}.error > ` +
+        `${fieldWrapper2Sel}.error > ` +
+        `${inputSel}.error`
+      expect(wrapper.exists(fieldElementsSel)).toEqual(true)
+
+      // Check that the error message elements are present, have the
+      // correct error classes, and correct error message text
+      const errorElementsSel =
+        `${formGroupSel}.error > ` +
+        `${labelSel} + ` +
+        `${fieldWrapper1Sel}.error + ` +
+        `${errorMsgWrapperSel} > ` +
+        `${errorMsgSel}.error`
+      expect(wrapper.find(errorElementsSel).text()).toEqual('Please enter a valid dollar amount.')
     })
   })
 })
