@@ -1,6 +1,7 @@
 import React from 'react'
 import { isEmpty } from 'lodash'
 import { Form } from 'react-form'
+import classNames from 'classnames'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
@@ -26,9 +27,9 @@ const typeOfAssistance = [
   'Q Foundation: Person with Disability Rent Subsidy',
   'Q Foundation: Senior Rent Subsidy',
   'San Francisco AIDS Foundation',
-  'Section 8 HCV (Tenant) Voucher',
+  'Section 8 HCV (tenant) voucher',
   'Self-Help for the Elderly',
-  'VASH Voucher',
+  'VASH voucher',
   'Other'
 ]
 
@@ -86,6 +87,7 @@ class RentalAssistanceTable extends React.Component {
           rows={rows}
           expanderRenderer={this.expanderRenderer}
           expandedRowRenderer={this.expandedRowRenderer}
+          classes={['rental-assistances']}
         />
       </TableWrapper>
     )
@@ -97,12 +99,13 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
     handleUpdateRentalAssistance,
     handleDeleteRentalAssistance,
     applicationMembers,
-    handleCloseRentalAssistancePanel
+    handleCloseRentalAssistancePanel,
+    rentalAssistanceLoading
   } = store
 
-  const onSave = (values) => {
-    handleUpdateRentalAssistance(values)
-    toggle()
+  const onSave = async (values) => {
+    const updateResult = await handleUpdateRentalAssistance(values)
+    if (updateResult) toggle()
   }
 
   const onClose = () => {
@@ -110,9 +113,9 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
     toggle()
   }
 
-  const onDelete = () => {
-    handleDeleteRentalAssistance(rentalAssistance)
-    toggle()
+  const onDelete = async () => {
+    const deleteResult = await handleDeleteRentalAssistance(rentalAssistance)
+    if (deleteResult) toggle()
   }
 
   return (
@@ -123,6 +126,7 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
         onClose={onClose}
         onDelete={onDelete}
         applicationMembers={applicationMembers}
+        loading={rentalAssistanceLoading}
       />
     </ExpandablePanel>
   )
@@ -147,13 +151,20 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
   return (
     <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
       {formApi => (
-        <div className='app-editable expand-wide scrollable-table-nested'>
+        <div className={classNames(
+          'app-editable expand-wide scrollable-table-nested',
+          {
+            'rental-assistance-new-form': isNew,
+            'rental-assistance-edit-form': !isNew
+          }
+        )}>
           <FormGrid.Row expand={false}>
             <FormGrid.Item>
               <Field.Select
                 label='Type of Assistance'
                 field='type_of_assistance'
                 options={typeOfAssistanceOptions}
+                className='rental-assistance-type'
               />
             </FormGrid.Item>
             <FormGrid.Item>
@@ -163,6 +174,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
                 uniqId={(values && values.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
+                className='rental-assistance-recurring'
               />
             </FormGrid.Item>
             <FormGrid.Item>
@@ -177,6 +189,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
                 label='Recipient'
                 field='recipient'
                 options={applicationMembersOptions}
+                className='rental-assistance-recipient'
               />
             </FormGrid.Item>
           </FormGrid.Row>
@@ -231,7 +244,8 @@ const RentalAssistance = ({ store }) => {
     handleCloseRentalAssistancePanel,
     handleSaveNewRentalAssistance,
     showAddRentalAssistanceBtn,
-    hideAddRentalAssistanceBtn
+    hideAddRentalAssistanceBtn,
+    rentalAssistanceLoading
   } = store
 
   return (
@@ -249,6 +263,7 @@ const RentalAssistance = ({ store }) => {
           onSave={handleSaveNewRentalAssistance}
           onClose={handleCloseRentalAssistancePanel}
           applicationMembers={applicationMembers}
+          loading={rentalAssistanceLoading}
           isNew
         />
       )}

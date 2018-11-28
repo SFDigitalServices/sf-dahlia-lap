@@ -1,31 +1,47 @@
 import React from 'react'
-import { Text } from 'react-form'
 import AddressForm from './AddressForm'
+import { Field } from '~/utils/form/Field'
+import { MultiDateField } from '~/utils/form/MultiDateField'
 
-const HouseholdMemberForm = ({ i }) => {
+const HouseholdMemberForm = ({ i, formApi }) => {
   return (
     <div>
       <div className='row'>
         <div className='form-group'>
           <div className='small-3 columns'>
-            <label>First Name</label>
-            <Text field={`household_members.${i}.first_name`} />
+            <Field.Text
+              id={`household_members_${i}_first_name`}
+              label='First Name'
+              field={`household_members.${i}.first_name`}
+              blockNote='(required)'
+              errorMessage={(label, error) => error}
+            />
+          </div>
+          <div className='small-2 columns'>
+            <Field.Text
+              id={`household_members_${i}_middle_name`}
+              label='Middle Name'
+              field={`household_members.${i}.middle_name`}
+            />
           </div>
           <div className='small-3 columns'>
-            <label>Middle Name</label>
-            <Text field={`household_members.${i}.middle_name`} />
+            <Field.Text
+              id={`household_members_${i}_last_name`}
+              label='Last Name'
+              field={`household_members.${i}.last_name`}
+              blockNote='(required)'
+              errorMessage={(label, error) => error}
+            />
           </div>
-          <div className='small-3 columns'>
-            <label>Last Name</label>
-            <Text field={`household_members.${i}.last_name`} />
-          </div>
-          <div className='small-3 columns'>
-            <label>Date of Birth</label>
-            <Text
+          <div className='small-4 columns form-date-of-birth'>
+            <MultiDateField
+              id={`household_members_${i}_date_of_birth`}
               field={`household_members.${i}.date_of_birth`}
-              type='date'
-              pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
-              placeholder='YYYY-MM-DD' />
+              formApi={formApi}
+              label='Date of Birth'
+              blockNote='(required)'
+              errorMessage={(label, error) => error}
+            />
           </div>
         </div>
       </div>

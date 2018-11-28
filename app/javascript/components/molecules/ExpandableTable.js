@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import classNames from 'classnames'
 
 class ExpandableTableRow extends React.Component {
   constructor (props) {
@@ -38,12 +39,12 @@ class ExpandableTableRow extends React.Component {
 
 class ExpandableTable extends React.Component {
   render () {
-    const { columns, rows, expanderRenderer, expandedRowRenderer, originals } = this.props
+    const { columns, rows, expanderRenderer, expandedRowRenderer, originals, classes } = this.props
 
     const numColumns = columns.length
 
     return (
-      <table className='td-light td-plain th-plain' role='grid'>
+      <table className={classNames('td-light td-plain th-plain', classes)} role='grid'>
         <thead>
           <tr>
             {columns.map((column, i) => (

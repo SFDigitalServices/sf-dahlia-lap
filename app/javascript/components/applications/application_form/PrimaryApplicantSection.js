@@ -4,6 +4,7 @@ import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
+import { MultiDateField } from '~/utils/form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
 
 let { phoneTypeOptions } = formOptions
@@ -22,7 +23,6 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
   if (editValues && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
-
   return (
     <NestedForm field='applicant'>
       <Form defaultValues={autofillValues} validateError={validateError} >
@@ -72,15 +72,13 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
               </div>
             </div>
             <div className='row'>
-              <div className='small-4 columns'>
-                <Field.Text
+              <div className='small-4 columns form-date-of-birth'>
+                <MultiDateField
                   id='date_of_birth'
                   field='date_of_birth'
+                  formApi={formApi}
                   label='Date of Birth'
                   blockNote='(required)'
-                  type='date'
-                  pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
-                  placeholder='YYYY-MM-DD'
                   errorMessage={(label, error) => error}
                 />
               </div>
