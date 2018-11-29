@@ -12,21 +12,26 @@ module Force
     # marked duplicates - already marked, can unmark if needed :)
 
     def pending_review_record_sets
+      # Get listings that the user can access
+      listings = listings_user_can_access
       if @user.admin?
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
-          WHERE hideOnCommunity__c = false
+          WHERE Listing__c in (#{listings.map(&:inspect).join(',')})
+          AND hideOnCommunity__c = false
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review)
       else
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
-          WHERE (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
+          WHERE Listing__c in (#{listings.map { |listing| "\'#{listing}\'" }.join(',')})
+          AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review).reject { |set| set['Rule_Name'] == 'Residence Address' }
       end
     end
 
     def marked_duplicate_record_sets
+      # get listing ids that the user has access to.
       parsed_index_query(%(
         SELECT #{query_fields(:marked_duplicate)} FROM Flagged_Record_Set__c
         WHERE Total_Number_of_Duplicates__c > 0
@@ -67,6 +72,17 @@ module Force
 
     def flagged_applications_fields
       massage(FIELDS[:flagged_applications_fields])
+    end
+
+    private
+
+    def listings_user_can_access
+      listings = parsed_index_query(%(
+        SELECT Id FROM Listing__c
+      ))
+      listing_ids = listings.map(&:Id)
+      puts 'Listing Ids user has access to', listing_ids
+      listing_ids
     end
   end
 end
