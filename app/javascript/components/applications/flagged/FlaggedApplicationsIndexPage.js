@@ -54,7 +54,6 @@ const getTableFieldsForType = (type) => {
 
 const FlaggedApplicationsIndexPage = ({title, flaggedRecords, type}) => {
   const tableFields = getTableFieldsForType(type)
-  console.log('flaggedRecords', flaggedRecords)
   return (
     <TableLayout pageHeader={{title: title}}>
       <FlaggedApplicationsIndexTable
@@ -72,7 +71,6 @@ const buildFlaggedRecordModel = (flaggedRecord) => {
 }
 
 const mapProperties = ({ title, flaggedRecords, type }) => {
-  console.log('flagged records before mapping', flaggedRecords)
   return {
     type,
     title,

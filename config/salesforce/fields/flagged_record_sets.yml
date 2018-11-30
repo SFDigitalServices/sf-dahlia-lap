@@ -11,6 +11,7 @@ flagged_record_sets:
     Id:
     Listing__r.Name:
       label: 'Listing Name'
+    Listing__r.Id:
     Rule_Name__c:
     Total_Number_of_Duplicates__c:
   flagged_applications_fields:

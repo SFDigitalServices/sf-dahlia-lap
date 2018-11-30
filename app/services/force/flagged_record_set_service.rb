@@ -13,28 +13,31 @@ module Force
 
     def pending_review_record_sets
       # Get listings that the user can access
-      listings = listings_user_can_access
+      listing_ids = listings_user_can_access
+      # Try using a "collect on the array"
       if @user.admin?
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
-          WHERE Listing__c in (#{listings.map(&:inspect).join(',')})
+          WHERE Listing__c in (#{listing_ids.map { |id| "\'#{id}\'" }.join(',')})
           AND hideOnCommunity__c = false
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review)
       else
         parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
-          WHERE Listing__c in (#{listings.map { |listing| "\'#{listing}\'" }.join(',')})
+          WHERE Listing__c in (#{listing_ids.map { |id| "\'#{id}\'" }.join(',')})
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review).reject { |set| set['Rule_Name'] == 'Residence Address' }
       end
     end
 
     def marked_duplicate_record_sets
-      # get listing ids that the user has access to.
+      # Get listings that the user can access
+      listing_ids = listings_user_can_access
       parsed_index_query(%(
         SELECT #{query_fields(:marked_duplicate)} FROM Flagged_Record_Set__c
-        WHERE Total_Number_of_Duplicates__c > 0
+        WHERE Listing__c in (#{listing_ids.map { |id| "\'#{id}\'" }.join(',')})
+        AND Total_Number_of_Duplicates__c > 0
       ), :marked_duplicate)
     end
 
@@ -77,12 +80,9 @@ module Force
     private
 
     def listings_user_can_access
-      listings = parsed_index_query(%(
+      parsed_index_query(%(
         SELECT Id FROM Listing__c
-      ))
-      listing_ids = listings.map(&:Id)
-      puts 'Listing Ids user has access to', listing_ids
-      listing_ids
+      )).map(&:Id)
     end
   end
 end
