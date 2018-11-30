@@ -51,7 +51,6 @@ module Force
     end
 
     def query(q)
-      puts 'QUERY ', q
       debug(q)
       if Rails.env.development? && ENV['CACHE_SALESFORCE_REQUESTS']
         query_with_cache(q)
