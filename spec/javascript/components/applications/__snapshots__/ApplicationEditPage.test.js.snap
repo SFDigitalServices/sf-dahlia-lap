@@ -1106,14 +1106,23 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Annual Income
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={110000}
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="annual_income"
+                      >
+                        Annual Income 
+                      </label>
+                      <input
+                        className=""
+                        id="annual_income"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value={110000}
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
@@ -2626,14 +2635,23 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Annual Income
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={110000}
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="annual_income"
+                      >
+                        Annual Income 
+                      </label>
+                      <input
+                        className=""
+                        id="annual_income"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value={110000}
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"

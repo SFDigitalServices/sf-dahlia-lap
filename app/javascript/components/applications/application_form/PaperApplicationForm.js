@@ -60,6 +60,18 @@ const buildPrefValidations = (prefs) => {
   return prefValidations
 }
 
+const validateAnnualIncome = (value) => {
+  if (isNil(value)) {
+    return null
+  } else {
+    if (/[^0-9$,.]/.test(value)) {
+      return 'Please enter a valid dollar amount.'
+    } else {
+      return null
+    }
+  }
+}
+
 const buildHouseholdMemberValidations = (householdMembers) => {
   let householdMemberValidations = {}
   forEach(householdMembers, (member, index) => {
@@ -75,6 +87,7 @@ const buildHouseholdMemberValidations = (householdMembers) => {
 
 const validateError = (values) => ({
   preferences: buildPrefValidations(values.preferences),
+  annual_income: validateAnnualIncome(values.annual_income),
   household_members: buildHouseholdMemberValidations(values.household_members)
 })
 
