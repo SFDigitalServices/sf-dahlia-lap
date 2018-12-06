@@ -26,11 +26,19 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
+    // Enter in required information
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
+
+    // Select ADA priorities
+    await page.click('#adaPrioritiesSelected-0')
+    await page.click('#adaPrioritiesSelected-1')
+    await page.click('#adaPrioritiesSelected-2')
+
+    // Save the application
     await page.click('.save-btn')
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
@@ -38,13 +46,14 @@ describe('ApplicationNewPage', () => {
     const hasApplicationDetails = await utils.isPresent(page, '.application-details')
     expect(hasApplicationDetails).toBe(true)
 
+    // Verify that the values match on the application view page
     expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
-
-    // We get all the application attributes values
     const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
+
     expect(values).toContain(FIRST_NAME)
     expect(values).toContain(LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
+    expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
