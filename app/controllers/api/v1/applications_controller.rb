@@ -7,7 +7,7 @@ module Api
       before_action :authenticate_user!
 
       def index
-        attributes = params.slice(:page, :application_number, :listing, :first_name, :last_name, :submission_type)
+        attributes = params.slice(:page, :application_number, :listing_id, :first_name, :last_name, :submission_type)
         applications = soql_application_service.applications(attributes)
         render json: applications
       end
