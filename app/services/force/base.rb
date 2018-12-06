@@ -91,16 +91,6 @@ module Force
 
     private_class_method
 
-    def user_can_access
-      if @user.admin?
-        # HACK: return truthiness (e.g. "1=1" in MySQL)
-        'Id != null'
-      else
-        # for community users, restrict results to their account
-        "Account__c = '#{@user.salesforce_account_id}'"
-      end
-    end
-
     def query_fields(type = :index)
       # FIELDS should get defined in child class
       self.class.fields["#{type}_fields"].keys.join(', ')
