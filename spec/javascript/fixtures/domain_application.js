@@ -60,9 +60,9 @@ const application = {
   'has_military_service': null,
   'has_developmental_disability': null,
   'has_ada_priorities_selected': {
-    'vision_impaired': true,
-    'mobility_impaired': true,
-    'hearing_impaired': true
+    'vision_impairments': true,
+    'mobility_impairments': true,
+    'hearing_impairments': true
   },
   'terms_acknowledged': true,
   'preferences': [
