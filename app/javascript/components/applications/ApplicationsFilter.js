@@ -29,7 +29,7 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
                   <Text field='application_number' placeholder='Application Number' />
                 </div>
                 <div className='filter-group_item'>
-                  <Select field='listing' options={listingOptions} placeholder='Any Listing' />
+                  <Select field='listing_id' options={listingOptions} placeholder='Any Listing' />
                 </div>
                 <div className='filter-group_item'>
                   <Text field='first_name' placeholder='First Name' />
