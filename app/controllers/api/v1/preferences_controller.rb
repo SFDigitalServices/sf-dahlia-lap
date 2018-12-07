@@ -23,6 +23,7 @@ module Api
           :individual_preference,
           :post_lottery_validation,
           :type_of_proof,
+          :lw_type_of_proof,
         )
       end
 

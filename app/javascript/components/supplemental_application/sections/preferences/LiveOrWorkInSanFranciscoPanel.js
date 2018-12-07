@@ -61,10 +61,10 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
               TODO: Add ability for users to change application member on pref.
               For now, we just show the current app member in a read-only field.
             */}
-            <input value={memberNameFromPref(preference)} disabled='true' />
+            <input value={memberNameFromPref(preference)} disabled />
           </FormItem>
           <FormItem label='Type of Proof'>
-            <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={this.state.prefProofTypeOptions} />
+            <Select field={buildFieldId(preferenceIndex, 'lw_type_of_proof')} options={this.state.prefProofTypeOptions} />
           </FormItem>
         </FormGrid.Row>
         <FormGrid.Row expand={false}>
