@@ -1,25 +1,15 @@
-import { join, get, map, concat, pickBy } from 'lodash'
+import { get, map, concat, pickBy } from 'lodash'
 import { domainDateOfBirthToApi } from '~/components/mappers/utils'
 
 export const naturalKeyFromPreference = (p) => {
-  const naturalKey = join(
-    [
-      get(p, 'application_member.first_name'),
-      get(p, 'application_member.last_name'),
-      domainDateOfBirthToApi(get(p, 'application_member.date_of_birth'))
-    ], ',')
-  console.log('naturalKeyFromPreference', p, naturalKey)
-  return naturalKey
+  return naturalKeyFromMember(get(p, 'application_member'))
 }
 
 export const naturalKeyFromMember = (member) => {
-  const naturalKey = `${member.first_name},${member.last_name},${domainDateOfBirthToApi(member.date_of_birth)}`
-  console.log('naturalKeyFromMember', member, naturalKey)
-  return naturalKey
+  return `${member.first_name},${member.last_name},${domainDateOfBirthToApi(member.date_of_birth)}`
 }
 
 export const memberNameFromPref = (p) => {
-  console.log('getting memberNameFromPref', p)
   if (p && p.application_member) {
     return `${p.application_member.first_name} ${p.application_member.last_name}`
   } else {
@@ -36,14 +26,12 @@ export const addNaturalKeyToPreference = (p) => {
 }
 
 export const buildHouseholdMembersOptions = (applicationMembers) => {
-  const householdMemberOptions = map(applicationMembers, (member) => {
+  return map(applicationMembers, (member) => {
     return {
-      value: `${member.first_name},${member.last_name},${domainDateOfBirthToApi(member.date_of_birth)}`,
+      value: naturalKeyFromMember(member),
       label: `${member.first_name} ${member.last_name}`
     }
   })
-  console.log('buildHouseholdMembersOptions', householdMemberOptions)
-  return householdMemberOptions
 }
 
 export const getFullHousehold = (application) => {
