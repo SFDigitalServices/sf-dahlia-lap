@@ -10,8 +10,8 @@ const allPreferencesSelected = (formApi, listingPreferences) => {
 }
 
 const hasHouseholdMembers = (formApi) => {
-  let hasPrimaryApplicant = formApi.values.applicant.first_name
-  let hasHouseholdMembers = formApi.values.household_members.length
+  let hasPrimaryApplicant = !isEmpty(formApi.values) && formApi.values.applicant.first_name
+  let hasHouseholdMembers = !isEmpty(formApi.values) && !isEmpty(formApi.values.household_members)
   return (hasHouseholdMembers || hasPrimaryApplicant)
 }
 
@@ -25,7 +25,7 @@ class PreferencesSection extends React.Component {
 
     let autofillPreferences = []
 
-    if (!isEmpty(editValues.preferences)) {
+    if (!isEmpty(editValues) && editValues.preferences) {
       forEach(editValues.preferences, (preference) => {
         if (!isEmpty(preference.application_member)) {
           let editPreference = preference

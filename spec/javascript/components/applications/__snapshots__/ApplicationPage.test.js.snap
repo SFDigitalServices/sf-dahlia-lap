@@ -698,31 +698,6 @@ Array [
           <h4
             className="content-card_title t-serif"
           >
-            Flagged Applications
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  Rule Name
-                </th>
-                <th>
-                  Total Number of Pending Review
-                </th>
-                <th>
-                  View Record Set
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
-        </div>
-        <div
-          className="content-card"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
             Attachments
           </h4>
           <ul>
