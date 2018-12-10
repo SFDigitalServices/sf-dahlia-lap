@@ -57,7 +57,7 @@
    "Has_Military_Service":null,
    "Reserved_Senior":null,
    "Has_DevelopmentalDisability":null,
-   "Has_ADA_Priorities_Selected": "Mobility impaired;Hearing impaired",
+   "Has_ADA_Priorities_Selected": "Mobility impairments;Hearing impairments",
    "Terms_Acknowledged":false,
    "Number_of_Dependents":null,
    "Processing_Status":"Waitlisted",

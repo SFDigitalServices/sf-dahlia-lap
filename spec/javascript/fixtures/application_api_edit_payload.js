@@ -10,7 +10,7 @@ export default {
   HHTotalIncomeWithAssets: undefined,
   householdVouchersSubsidies: 'true',
   agreeToTerms: true,
-  adaPrioritiesSelected: 'Vision impaired;Mobility impaired;Hearing impaired',
+  adaPrioritiesSelected: 'Vision impairments;Mobility impairments;Hearing impairments',
   primaryApplicant:
   { DOB: '1950-01-01',
     email: 'eee@eeee.com',
