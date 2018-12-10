@@ -1,7 +1,7 @@
 import { each, replace, get, toLower, includes, isString, camelCase, startCase, map } from 'lodash'
 import moment from 'moment'
 
-import utils from '~/utils/utils'
+import { API_DATE_FORMAT, cleanField } from '~/utils/utils'
 
 export const getFormatType = (field) => {
   if (includes(toLower(field), 'date')) { return 'date' } else { return null }
@@ -18,7 +18,7 @@ const getRenderType = (value) => {
 export const formatValue = (value, type) => {
   if (type === 'date') {
     // Convert domain date array to string if needed
-    if (value && value.length === 3) { return moment(value.join('-'), 'YYYY-MM-DD').format('L') }
+    if (value && value.length === 3) { return moment(value.join('-'), API_DATE_FORMAT).format('L') }
     return moment(value).format('L')
   } else {
     return value
@@ -44,7 +44,7 @@ const cleanupWords = (value) => {
 const formatLabel = (label) => {
   if (includes(label, '.')) {
     const parts = label.split('.')
-    return startCase(camelCase(utils.cleanField(parts[0])))
+    return startCase(camelCase(cleanField(parts[0])))
   } else {
     return cleanupWords(startCase(camelCase(label)))
   }
@@ -57,7 +57,7 @@ export const buildFieldEntry = (item, spec, options = {}) => {
     value = spec.value(value)
   }
 
-  let label = utils.cleanField(spec.label)
+  let label = cleanField(spec.label)
   let renderType = spec.renderType || getRenderType(value)
 
   value = formatValue(value, spec.formatType)
