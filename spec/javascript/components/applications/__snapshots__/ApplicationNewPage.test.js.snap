@@ -770,7 +770,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-0"
                             >
-                              Mobility impaired
+                              Mobility impairments
                             </label>
                           </div>
                         </div>
@@ -791,7 +791,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-1"
                             >
-                              Vision impaired
+                              Vision impairments
                             </label>
                           </div>
                         </div>
@@ -812,7 +812,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-2"
                             >
-                              Hearing impaired
+                              Hearing impairments
                             </label>
                           </div>
                         </div>
@@ -860,14 +860,23 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Annual Income
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="annual_income"
+                      >
+                        Annual Income 
+                      </label>
+                      <input
+                        className=""
+                        id="annual_income"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value=""
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"

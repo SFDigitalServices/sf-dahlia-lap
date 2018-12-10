@@ -13,9 +13,9 @@ export const saveApplication = async (submitType, submittedValues, application, 
 
   if (submitType === 'Save') {
     const showAddBtn = editPage ? '' : '?showAddBtn=true'
-    window.location.href = '/applications/' + response.application.id + showAddBtn
+    window.location.href = `/applications/${response.application.id}${showAddBtn}`
   } else {
-    window.location.href = '/listings/' + listing.id + '/applications/new'
+    window.location.href = `/listings/${listing.id}/applications/new`
   }
   return response
 }

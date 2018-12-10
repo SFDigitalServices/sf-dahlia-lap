@@ -1,5 +1,6 @@
 import React from 'react'
-import { Text, Select } from 'react-form'
+import { Select } from 'react-form'
+import { Field } from '~/utils/form/Field'
 
 const householdVouchersSubsidiesOptions = [
   {value: 'true', label: 'true'},
@@ -13,8 +14,11 @@ const HouseholdIncomeSection = () => {
       <h3>Declared Household Income</h3>
       <div className='row'>
         <div className='small-6 columns'>
-          <label>Annual Income</label>
-          <Text field='annual_income' />
+          <Field.Text
+            label='Annual Income'
+            field='annual_income'
+            errorMessage={(label, error) => error}
+          />
         </div>
         <div className='small-6 columns'>
           <label>Housing Voucher/ Subsidy</label>
