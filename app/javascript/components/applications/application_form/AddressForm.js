@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text } from 'react-form'
+import { isEmpty } from 'lodash'
 
 const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
   // to do: refactor this to use props
@@ -13,7 +14,7 @@ const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
 }
 
 const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
-  if (!fieldMap) {
+  if (isEmpty(fieldMap)) {
     fieldMap = {
       address: 'street',
       city: 'city',

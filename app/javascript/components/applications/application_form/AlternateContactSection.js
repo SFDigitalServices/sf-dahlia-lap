@@ -1,4 +1,5 @@
 import React from 'react'
+import { isEmpty } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
@@ -11,7 +12,7 @@ const {
 
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
-  if (editValues && editValues.alternate_contact) {
+  if (!isEmpty(editValues) && editValues.alternate_contact) {
     autofillValues = editValues.alternate_contact
   }
   return (

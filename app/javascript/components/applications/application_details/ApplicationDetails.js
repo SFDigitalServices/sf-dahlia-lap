@@ -1,5 +1,5 @@
 import React from 'react'
-import { map } from 'lodash'
+import { map, isEmpty } from 'lodash'
 
 import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
 import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
@@ -48,7 +48,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
         title='Alternate Contact'
         fields={alternateContactFields}
       />
-      { application.household_members && (
+      { !isEmpty(application.household_members) && (
         <Table
           title='Household Members'
           table='household_members'
@@ -59,7 +59,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
         title='Reserved and Priority Qualifying Information'
         fields={reservedAndPriorityFields}
         labelMapper={fields} />
-      { application.preferences && (
+      { !isEmpty(application.preferences) && (
         <Table
           title='Application Preferences'
           table='preferences'
@@ -68,7 +68,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
       <ApplicationCard
         title='Declared Household Income'
         fields={declareHousholdIncome} />
-      { application.flagged_applications && (
+      { !isEmpty(application.flagged_applications) && (
         <Table
           title='Flagged Applications'
           table='flagged_applications'

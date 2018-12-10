@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { toLower, sortBy } from 'lodash'
+import { toLower, sortBy, isEmpty } from 'lodash'
 
 import PrettyTime from '~/components/atoms/PrettyTime'
 
@@ -45,7 +45,7 @@ const StatusList = ({items, onAddComment}) => {
   return (
     <div className='status-list'>
       <ul>
-        { items && orderedItems.map(({status, comment, date}, idx) => (
+        { !isEmpty(items) && orderedItems.map(({status, comment, date}, idx) => (
           <StatusListItem key={idx} status={status} comment={comment} date={date} />
         ))
         }

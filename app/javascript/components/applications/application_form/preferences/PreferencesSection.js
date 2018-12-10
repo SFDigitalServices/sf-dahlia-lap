@@ -1,17 +1,17 @@
 import React from 'react'
-import { forEach } from 'lodash'
+import { forEach, isEmpty } from 'lodash'
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference, getFullHousehold } from './utils'
 
 const allPreferencesSelected = (formApi, listingPreferences) => {
-  if (formApi.values && formApi.values.preferences && listingPreferences) {
+  if (formApi.values && !isEmpty(formApi.values.preferences) && listingPreferences) {
     return formApi.values.preferences.length === listingPreferences.length
   }
 }
 
 const hasHouseholdMembers = (formApi) => {
-  let hasPrimaryApplicant = formApi.values.applicant && formApi.values.applicant.first_name
-  let hasHouseholdMembers = formApi.values.household_members && formApi.values.household_members.length
+  let hasPrimaryApplicant = formApi.values.applicant.first_name
+  let hasHouseholdMembers = formApi.values.household_members.length
   return (hasHouseholdMembers || hasPrimaryApplicant)
 }
 
@@ -25,9 +25,9 @@ class PreferencesSection extends React.Component {
 
     let autofillPreferences = []
 
-    if (editValues && editValues.preferences) {
+    if (!isEmpty(editValues.preferences)) {
       forEach(editValues.preferences, (preference) => {
-        if (preference.application_member) {
+        if (!isEmpty(preference.application_member)) {
           let editPreference = preference
           editPreference['naturalKey'] = naturalKeyFromPreference(preference)
           autofillPreferences.push(editPreference)
@@ -46,7 +46,7 @@ class PreferencesSection extends React.Component {
       <div className='border-bottom margin-bottom--2x'>
         <h3>Preferences</h3>
         {
-          preferences && preferences.map((pref, i) => (
+          !isEmpty(preferences) && preferences.map((pref, i) => (
             <div className='border-bottom margin-bottom--2x' key={i}>
               <PreferenceForm {...{i, pref, formApi, listingPreferences, fullHousehold}} />
             </div>

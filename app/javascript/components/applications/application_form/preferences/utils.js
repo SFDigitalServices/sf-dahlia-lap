@@ -1,4 +1,4 @@
-import { join, get, map, concat, pickBy } from 'lodash'
+import { join, get, map, concat, pickBy, isEmpty } from 'lodash'
 
 export const naturalKeyFromPreference = (p) => join(
   [
@@ -12,7 +12,7 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (p) => {
-  if (p && p.application_member) {
+  if (!isEmpty(p) && p.application_member) {
     return `${p.application_member.first_name} ${p.application_member.last_name}`
   } else {
     return null

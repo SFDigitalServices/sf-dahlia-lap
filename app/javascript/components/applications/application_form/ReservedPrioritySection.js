@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, each, includes, keys, toPairs } from 'lodash'
+import { map, each, includes, keys, toPairs, isEmpty } from 'lodash'
 import { NestedForm, Form, Checkbox, Select } from 'react-form'
 import formOptions from './formOptions'
 
@@ -13,7 +13,7 @@ const ReservedPrioritySection = ({editValues, listing}) => {
 
   const adaPriorities = toPairs(adaPriorityValueToLabelMap)
 
-  if (editValues && editValues.has_ada_priorities_selected) {
+  if (!isEmpty(editValues) && editValues.has_ada_priorities_selected) {
     let selected = keys(editValues.has_ada_priorities_selected)
     each(selected, value => { autofillValues[value] = true })
   }

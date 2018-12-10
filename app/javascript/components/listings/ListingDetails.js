@@ -1,4 +1,5 @@
 import React from 'react'
+import { isEmpty } from 'lodash'
 import ListingDetailsContentCard from './ListingDetailsContentCard'
 import ListingDetailsContentTable from './ListingDetailsContentTable'
 
@@ -24,7 +25,7 @@ const ListingDetails = ({ listing }) => {
     <div>
       <Card title='Details' fields={detailsFields} />
       <Card title='Building Information' fields={buildingInformationFields} />
-      { listing.listing_lottery_preferences && (
+      { !isEmpty(listing.listing_lottery_preferences) && (
         <Table title='Listing Preferences'
           table='listing_lottery_preferences'
           fields={lotteryPreferencesFields} />
@@ -36,13 +37,13 @@ const ListingDetails = ({ listing }) => {
       <Card title='Leasing Agent and Developer Information' fields={agentDevInfoFields} />
       <Card title='Additional Eligibility Rules' fields={eligibilityRulesFields} />
       <Card title='Additional Information' fields={additionalInfoFields} />
-      { listing.open_houses && (
+      { !isEmpty(listing.open_houses) && (
         <Table title='Open Houses'
           table='open_houses'
           fields={openHousesFields} />
       )
       }
-      { listing.information_sessions && (
+      { !isEmpty(listing.information_sessions) && (
         <Table title='Information Sessions'
           table='information_sessions'
           fields={infoSessionsFields} />
