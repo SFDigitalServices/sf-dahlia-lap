@@ -1,9 +1,10 @@
 import { map, propertyOf, mapValues } from 'lodash'
 
 // FIXME Rename to a more useful filename.
-const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZZ'
+export const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZZ'
 
-const API_DATE_FORMAT = 'YYYY-MM-DD'
+export const API_DATE_FORMAT = 'YYYY-MM-DD'
+
 const cleanField = (field) => {
   return field.replace(/__c/g, '').replace(/_/g, ' ')
 }
@@ -22,6 +23,5 @@ export const formatPercent = (value) => {
 
 export default {
   cleanField,
-  SALESFORCE_DATE_FORMAT,
   API_DATE_FORMAT
 }

@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { mapValues, map, first, compact } from 'lodash'
-import API_DATE_FORMAT from '~/utils/utils'
+import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
   return mapValues(rules, (valFn, key) => {
