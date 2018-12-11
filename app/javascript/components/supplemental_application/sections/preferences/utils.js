@@ -72,8 +72,9 @@ export const Comment = ({children}) => (
   </p>
 )
 
-export const SelectStatus = ({ preferenceIndex }) => (
+export const SelectStatus = ({ preferenceIndex, className }) => (
   <Select
     field={buildFieldId(preferenceIndex, 'post_lottery_validation')}
     options={statusOptions}
+    className={className}
   />)

@@ -64,12 +64,17 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
             <input value={memberNameFromPref(preference)} disabled />
           </FormItem>
           <FormItem label='Type of Proof'>
-            <Select field={buildFieldId(preferenceIndex, 'lw_type_of_proof')} options={this.state.prefProofTypeOptions} />
+            <Select
+              field={buildFieldId(preferenceIndex, 'lw_type_of_proof')}
+              options={this.state.prefProofTypeOptions}
+              className='type-of-proof-select' />
           </FormItem>
         </FormGrid.Row>
         <FormGrid.Row expand={false}>
           <FormItem label='Status'>
-            <SelectStatus preferenceIndex={preferenceIndex} />
+            <SelectStatus
+              preferenceIndex={preferenceIndex}
+              className={'preference-status-select'} />
           </FormItem>
         </FormGrid.Row>
         <FormGrid.Row expand={false}>

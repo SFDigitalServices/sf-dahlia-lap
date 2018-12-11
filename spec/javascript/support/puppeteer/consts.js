@@ -10,4 +10,4 @@ export const LEASE_UP_LISTING_APPLICATION_ID = process.env.E2E_LEASE_UP_LISTING_
 export const DEFAULT_E2E_TIME_OUT = 260000
 
 // Change to false to see tests running on browser locally
-export const HEADLESS = true
+export const HEADLESS = false
