@@ -35,14 +35,14 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await page.click(liveWorkEditSelector)
 
     // Update the individual preference (select Live vs Work in SF)
-    const individualPreferenceSelector = '.individual-preference-select'
+    const individualPreferenceSelector = `${liveWorkExpandedPanelSelector} .individual-preference-select`
     const unselectedPreferenceSelector = getUnselectedOptSelector(individualPreferenceSelector)
     const prefToSetName = await page.$eval(unselectedPreferenceSelector, e => e.textContent)
     const prefToSetValue = await page.$eval(unselectedPreferenceSelector, e => e.value)
     await page.select(individualPreferenceSelector, prefToSetValue)
 
     // Update the type of proof
-    const typeOfProofSelector = '.type-of-proof-select'
+    const typeOfProofSelector = `${liveWorkExpandedPanelSelector} .type-of-proof-select`
     const unselectedTypeOfProofSelector = getUnselectedOptSelector(typeOfProofSelector)
     const typeOfProofToSetName = await page.$eval(unselectedTypeOfProofSelector, e => e.textContent)
     const typeOfProofToSetValue = await page.$eval(unselectedTypeOfProofSelector, e => e.value)
@@ -99,7 +99,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     await sharedSteps.loginAsAgent(page)
 
-    // The application used here must include a claimed live/work
+    // The application used here must include a claimed assisted housing
     // preference for this test to be able to pass.
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
@@ -107,7 +107,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     const assistedHousingRowSelector = '#assisted-housing-preference-row'
     const assistedHousingExpandedPanelSelector = '#assisted-housing-preference-panel'
 
-    // Click on the live/work preference's Edit button in the Confirmed
+    // Click on the assisted housing preference's Edit button in the Confirmed
     // Preferences section to expand that preference's edit panel
     await page.click(assistedHousingEditSelector)
 
@@ -139,7 +139,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await page.waitForSelector(`${assistedHousingRowSelector}`)
     await page.click(assistedHousingEditSelector)
 
-    // Check that the value entered for individual preference, type of proof, and status were successfully saved
+    // Check that the value entered for status was successfully saved
     // and now appears in the preference panel
     const currentStatus = await page.$eval(getSelectedOptSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
