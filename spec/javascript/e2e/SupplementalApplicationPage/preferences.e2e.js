@@ -62,8 +62,15 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/preferences/'))
 
     // Validate that the panel has collapsed
+    const isCollapsed = await page.$eval(liveWorkExpandedPanelSelector, e => e.attributes['aria-hidden'].value)
+    expect(isCollapsed).toBe('true')
 
     // Validate that values were updated in the table.
+    const liveWorkRowValues = await page.$$eval(`${liveWorkRowSelector} td`, tds => tds.map((td) => td.textContent))
+    console.log('liveWorkRowValues', liveWorkRowValues)
+    expect(liveWorkRowValues[1]).toContain(prefToSetName.split(' ')[0])
+    expect(liveWorkRowValues[4]).toBe(typeOfProofToSetName)
+    expect(liveWorkRowValues[5]).toBe(prefStatusToSetName)
 
     // Reload the page
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
