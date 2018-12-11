@@ -21,7 +21,9 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference }) => {
           <input value={memberNameFromPref(preference)} disabled />
         </FormItem>
         <FormItem label='Status'>
-          <SelectStatus preferenceIndex={preferenceIndex} />
+          <SelectStatus
+            preferenceIndex={preferenceIndex}
+            className='preference-status-select' />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>

@@ -49,7 +49,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await page.select(typeOfProofSelector, typeOfProofToSetValue)
 
     // Update the preference status
-    const prefStatusSelector = '.preference-status-select'
+    const prefStatusSelector = `${liveWorkExpandedPanelSelector} .preference-status-select`
     const unselectedPrefStatusSelector = getUnselectedOptSelector(prefStatusSelector)
     const prefStatusToSetName = await page.$eval(unselectedPrefStatusSelector, e => e.textContent)
     const prefStatusToSetValue = await page.$eval(unselectedPrefStatusSelector, e => e.value)
@@ -67,8 +67,8 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     // Validate that values were updated in the table.
     const liveWorkRowValues = await page.$$eval(`${liveWorkRowSelector} td`, tds => tds.map((td) => td.textContent))
-    console.log('liveWorkRowValues', liveWorkRowValues)
-    expect(liveWorkRowValues[1]).toContain(prefToSetName.split(' ')[0])
+
+    expect(liveWorkRowValues[1]).toContain(prefToSetName.split(' ')[0]) // Check if both contain 'Live' or 'Work'. TODO: Find a less hacky way to do this
     expect(liveWorkRowValues[4]).toBe(typeOfProofToSetName)
     expect(liveWorkRowValues[5]).toBe(prefStatusToSetName)
 
@@ -93,57 +93,57 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  // test('should allow updates to assisted housing preference', async () => {
-  //   let browser = await puppeteer.launch({ headless: HEADLESS })
-  //   let page = await browser.newPage()
+  test('should allow updates to assisted housing preference', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
 
-  //   await sharedSteps.loginAsAgent(page)
+    await sharedSteps.loginAsAgent(page)
 
-  //   // The application used here must include a claimed and editable
-  //   // preference as its first preference for this test to be able to pass.
-  //   await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+    // The application used here must include a claimed live/work
+    // preference for this test to be able to pass.
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-  //   const firstRowSelector = '.tr-expand:first-child'
-  //   const firstPanelSelector = `${firstRowSelector} + .tr-expand-content`
-  //   const statusFieldSelector = `${firstPanelSelector} .form-grid_item:last-child select`
-  //   const unselectedStatusOptSelector = `${statusFieldSelector} option:not(:checked):not(:disabled)`
-  //   const selectedStatusOptSelector = `${statusFieldSelector} option:checked`
+    const assistedHousingEditSelector = '#assisted-housing-preference-edit'
+    const assistedHousingRowSelector = '#assisted-housing-preference-row'
+    const assistedHousingExpandedPanelSelector = '#assisted-housing-preference-panel'
 
-  //   // Click on the first preference's Edit button in the Confirmed
-  //   // Preferences section to expand that preference's edit panel
-  //   await page.click(`${firstRowSelector} .button-link`)
+    // Click on the live/work preference's Edit button in the Confirmed
+    // Preferences section to expand that preference's edit panel
+    await page.click(assistedHousingEditSelector)
 
-  //   // Find an unselected option value in the panel's Status select field
-  //   const statusToSetName = await page.$eval(unselectedStatusOptSelector, e => e.textContent)
-  //   const statusToSetValue = await page.$eval(unselectedStatusOptSelector, e => e.value)
+    // Update the preference status
+    const prefStatusSelector = `${assistedHousingExpandedPanelSelector} .preference-status-select`
+    const unselectedPrefStatusSelector = getUnselectedOptSelector(prefStatusSelector)
+    const prefStatusToSetName = await page.$eval(unselectedPrefStatusSelector, e => e.textContent)
+    const prefStatusToSetValue = await page.$eval(unselectedPrefStatusSelector, e => e.value)
+    await page.select(prefStatusSelector, prefStatusToSetValue)
 
-  //   // Set the Status field value in the preference panel to that new value.
-  //   // Puppeteer's select function takes the value attr of the option, not the
-  //   // text content of the option. So if you're trying to select an option that
-  //   // looks like <option value="1">First</option>, you would pass 1 as the
-  //   // second arg to page.select, not "First".
-  //   await page.select(statusFieldSelector, statusToSetValue)
+    // Click the save button in the preference panel
+    await page.click(`${assistedHousingExpandedPanelSelector} .save-panel-btn`)
 
-  //   // Update the type of proof
+    // Wait for the API preference update call to complete
+    await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/preferences/'))
 
-  //   // Click the save button in the preference panel
-  //   await page.click(`${firstPanelSelector} .button.primary`)
+    // Validate that the panel has collapsed
+    const isCollapsed = await page.$eval(assistedHousingExpandedPanelSelector, e => e.attributes['aria-hidden'].value)
+    expect(isCollapsed).toBe('true')
 
-  //   // Wait for the API preference update call to complete
-  //   await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/preferences/'))
+    // Validate that values were updated in the table.
+    const assistedHousingRowValues = await page.$$eval(`${assistedHousingRowSelector} td`, tds => tds.map((td) => td.textContent))
+    expect(assistedHousingRowValues[5]).toBe(prefStatusToSetName)
 
-  //   // Reload the page
-  //   await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+    // Reload the page
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-  //   // Open the same preference edit panel as before
-  //   await page.waitForSelector(`${firstRowSelector}`)
-  //   await page.click(`${firstRowSelector} .button-link`)
+    // Open the same preference edit panel as before
+    await page.waitForSelector(`${assistedHousingRowSelector}`)
+    await page.click(assistedHousingEditSelector)
 
-  //   // Check that the value entered for Status was successfully saved
-  //   // and now appears in the preference panel
-  //   const currentStatus = await page.$eval(selectedStatusOptSelector, e => e.textContent)
-  //   expect(currentStatus).toBe(statusToSetName)
+    // Check that the value entered for individual preference, type of proof, and status were successfully saved
+    // and now appears in the preference panel
+    const currentStatus = await page.$eval(getSelectedOptSelector(prefStatusSelector), e => e.textContent)
+    expect(currentStatus).toBe(prefStatusToSetName)
 
-  //   await browser.close()
-  // }, DEFAULT_E2E_TIME_OUT)
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
 })
