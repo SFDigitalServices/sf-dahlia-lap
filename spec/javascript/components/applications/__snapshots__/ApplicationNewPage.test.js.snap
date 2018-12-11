@@ -770,7 +770,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-0"
                             >
-                              Mobility impaired
+                              Mobility impairments
                             </label>
                           </div>
                         </div>
@@ -791,7 +791,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-1"
                             >
-                              Vision impaired
+                              Vision impairments
                             </label>
                           </div>
                         </div>
@@ -812,7 +812,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-2"
                             >
-                              Hearing impaired
+                              Hearing impairments
                             </label>
                           </div>
                         </div>

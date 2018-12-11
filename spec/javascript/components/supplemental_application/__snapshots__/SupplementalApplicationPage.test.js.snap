@@ -467,16 +467,16 @@ Array [
                     >
                       <input
                         checked={false}
-                        id="has_ada_priorities_selected.mobility_impaired"
+                        id="has_ada_priorities_selected.mobility_impairments"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="checkbox"
                       />
                       <label
                         className="checkbox-block_label"
-                        htmlFor="has_ada_priorities_selected.mobility_impaired"
+                        htmlFor="has_ada_priorities_selected.mobility_impairments"
                       >
-                        Mobility Impaired
+                        Mobility Impairments
                       </label>
                     </div>
                     <div
@@ -484,16 +484,16 @@ Array [
                     >
                       <input
                         checked={false}
-                        id="has_ada_priorities_selected.vision_impaired"
+                        id="has_ada_priorities_selected.vision_impairments"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="checkbox"
                       />
                       <label
                         className="checkbox-block_label"
-                        htmlFor="has_ada_priorities_selected.vision_impaired"
+                        htmlFor="has_ada_priorities_selected.vision_impairments"
                       >
-                        Vision Impaired
+                        Vision Impairments
                       </label>
                     </div>
                     <div
@@ -501,16 +501,16 @@ Array [
                     >
                       <input
                         checked={false}
-                        id="has_ada_priorities_selected.hearing_impaired"
+                        id="has_ada_priorities_selected.hearing_impairments"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="checkbox"
                       />
                       <label
                         className="checkbox-block_label"
-                        htmlFor="has_ada_priorities_selected.hearing_impaired"
+                        htmlFor="has_ada_priorities_selected.hearing_impairments"
                       >
-                        Hearing Impaired
+                        Hearing Impairments
                       </label>
                     </div>
                   </div>
@@ -5153,15 +5153,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           role="group"
                                                         >
                                                           <CheckboxBlock
-                                                            field="has_ada_priorities_selected.mobility_impaired"
-                                                            label="Mobility Impaired"
+                                                            field="has_ada_priorities_selected.mobility_impairments"
+                                                            label="Mobility Impairments"
                                                           >
                                                             <div
                                                               className="checkbox-block"
                                                             >
                                                               <r
-                                                                field="has_ada_priorities_selected.mobility_impaired"
-                                                                id="has_ada_priorities_selected.mobility_impaired"
+                                                                field="has_ada_priorities_selected.mobility_impairments"
+                                                                id="has_ada_priorities_selected.mobility_impairments"
                                                               >
                                                                 <t
                                                                   fieldApi={
@@ -5184,11 +5184,11 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "validatingField": [Function],
                                                                     }
                                                                   }
-                                                                  id="has_ada_priorities_selected.mobility_impaired"
+                                                                  id="has_ada_priorities_selected.mobility_impairments"
                                                                 >
                                                                   <input
                                                                     checked={false}
-                                                                    id="has_ada_priorities_selected.mobility_impaired"
+                                                                    id="has_ada_priorities_selected.mobility_impairments"
                                                                     onBlur={[Function]}
                                                                     onChange={[Function]}
                                                                     type="checkbox"
@@ -5197,22 +5197,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               </r>
                                                               <label
                                                                 className="checkbox-block_label"
-                                                                htmlFor="has_ada_priorities_selected.mobility_impaired"
+                                                                htmlFor="has_ada_priorities_selected.mobility_impairments"
                                                               >
-                                                                Mobility Impaired
+                                                                Mobility Impairments
                                                               </label>
                                                             </div>
                                                           </CheckboxBlock>
                                                           <CheckboxBlock
-                                                            field="has_ada_priorities_selected.vision_impaired"
-                                                            label="Vision Impaired"
+                                                            field="has_ada_priorities_selected.vision_impairments"
+                                                            label="Vision Impairments"
                                                           >
                                                             <div
                                                               className="checkbox-block"
                                                             >
                                                               <r
-                                                                field="has_ada_priorities_selected.vision_impaired"
-                                                                id="has_ada_priorities_selected.vision_impaired"
+                                                                field="has_ada_priorities_selected.vision_impairments"
+                                                                id="has_ada_priorities_selected.vision_impairments"
                                                               >
                                                                 <t
                                                                   fieldApi={
@@ -5235,11 +5235,11 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "validatingField": [Function],
                                                                     }
                                                                   }
-                                                                  id="has_ada_priorities_selected.vision_impaired"
+                                                                  id="has_ada_priorities_selected.vision_impairments"
                                                                 >
                                                                   <input
                                                                     checked={false}
-                                                                    id="has_ada_priorities_selected.vision_impaired"
+                                                                    id="has_ada_priorities_selected.vision_impairments"
                                                                     onBlur={[Function]}
                                                                     onChange={[Function]}
                                                                     type="checkbox"
@@ -5248,22 +5248,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               </r>
                                                               <label
                                                                 className="checkbox-block_label"
-                                                                htmlFor="has_ada_priorities_selected.vision_impaired"
+                                                                htmlFor="has_ada_priorities_selected.vision_impairments"
                                                               >
-                                                                Vision Impaired
+                                                                Vision Impairments
                                                               </label>
                                                             </div>
                                                           </CheckboxBlock>
                                                           <CheckboxBlock
-                                                            field="has_ada_priorities_selected.hearing_impaired"
-                                                            label="Hearing Impaired"
+                                                            field="has_ada_priorities_selected.hearing_impairments"
+                                                            label="Hearing Impairments"
                                                           >
                                                             <div
                                                               className="checkbox-block"
                                                             >
                                                               <r
-                                                                field="has_ada_priorities_selected.hearing_impaired"
-                                                                id="has_ada_priorities_selected.hearing_impaired"
+                                                                field="has_ada_priorities_selected.hearing_impairments"
+                                                                id="has_ada_priorities_selected.hearing_impairments"
                                                               >
                                                                 <t
                                                                   fieldApi={
@@ -5286,11 +5286,11 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "validatingField": [Function],
                                                                     }
                                                                   }
-                                                                  id="has_ada_priorities_selected.hearing_impaired"
+                                                                  id="has_ada_priorities_selected.hearing_impairments"
                                                                 >
                                                                   <input
                                                                     checked={false}
-                                                                    id="has_ada_priorities_selected.hearing_impaired"
+                                                                    id="has_ada_priorities_selected.hearing_impairments"
                                                                     onBlur={[Function]}
                                                                     onChange={[Function]}
                                                                     type="checkbox"
@@ -5299,9 +5299,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               </r>
                                                               <label
                                                                 className="checkbox-block_label"
-                                                                htmlFor="has_ada_priorities_selected.hearing_impaired"
+                                                                htmlFor="has_ada_priorities_selected.hearing_impairments"
                                                               >
-                                                                Hearing Impaired
+                                                                Hearing Impairments
                                                               </label>
                                                             </div>
                                                           </CheckboxBlock>
