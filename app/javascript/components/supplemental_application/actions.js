@@ -18,9 +18,6 @@ export const getAMIAction = async ({chartType, chartYear}) => {
 
 export const updatePreference = async (preference) => {
   const response = await apiService.updatePreference(preference)
-
-  if (response === false) Alerts.error()
-
   return response
 }
 
