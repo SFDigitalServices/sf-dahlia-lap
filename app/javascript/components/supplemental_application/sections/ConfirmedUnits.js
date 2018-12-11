@@ -55,14 +55,14 @@ const ConfirmedUnits = () => {
         <FormGrid.Group label='Household ADA Priorities'>
           <div className='checkbox-group form-checkbox-item' role='group'>
             <CheckboxBlock
-              field='has_ada_priorities_selected.mobility_impaired'
-              label='Mobility Impaired' />
+              field='has_ada_priorities_selected.mobility_impairments'
+              label='Mobility Impairments' />
             <CheckboxBlock
-              field='has_ada_priorities_selected.vision_impaired'
-              label='Vision Impaired' />
+              field='has_ada_priorities_selected.vision_impairments'
+              label='Vision Impairments' />
             <CheckboxBlock
-              field='has_ada_priorities_selected.hearing_impaired'
-              label='Hearing Impaired' />
+              field='has_ada_priorities_selected.hearing_impairments'
+              label='Hearing Impairments' />
           </div>
         </FormGrid.Group>
       </FormGrid.Item>
