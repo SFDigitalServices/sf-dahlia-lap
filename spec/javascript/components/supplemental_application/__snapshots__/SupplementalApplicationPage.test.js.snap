@@ -4398,6 +4398,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         }
                                                         expandedRowRenderer={[Function]}
                                                         expanderRenderer={[Function]}
+                                                        rowKeyIndex={1}
                                                         rows={Array []}
                                                       >
                                                         <table
