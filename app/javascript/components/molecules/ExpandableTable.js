@@ -80,7 +80,7 @@ ExpandableTable.ExpanderButton = ({ onClick, label = 'Expand', id }) => {
       type='button'
       className='button button-link action-link'
       onClick={onClick}
-      id={id !== null ? id : null}>
+      id={id}>
       {label}
     </button>
   )
