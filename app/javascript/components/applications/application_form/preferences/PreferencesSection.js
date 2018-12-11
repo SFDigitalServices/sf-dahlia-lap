@@ -60,7 +60,8 @@ class PreferencesSection extends React.Component {
                 onClick={() => formApi.addValue('preferences', '')}
                 disabled={disableAddPreference(formApi, listingPreferences)}
                 type='button'
-                className='mb-4 mr-4 btn btn-success'>
+                className='mb-4 mr-4 btn btn-success'
+                id='add-preference-button'>
                   + Add Preference
               </button>
             </div>
