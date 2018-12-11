@@ -45,7 +45,7 @@ const payload = {
          city: null,
          state: null,
          address: null,
-         zipCode: null,
+         zip: null,
          listingPreferenceID: 'a0l0x000000RI8nAAG' } ],
     householdMembers:
      [ { DOB: '1976-06-11',
