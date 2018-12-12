@@ -15,12 +15,28 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
     tabContent =
       <button
         type='button'
-        className='button button-link action-link'
-        onClick={onClick}>
+        className='button-link'
+        onClick={onClick}
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}>
         {title}
       </button>
   } else {
-    tabContent = <a href={url} role='menuitem' ref={linkRefs} onFocus={onFocus} onKeyDown={onKeyDown} tabIndex={active ? '-1' : '0'} aria-selected={active}>{title}</a>
+    tabContent =
+      <a
+        href={url}
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}>
+        {title}
+      </a>
   }
 
   return (

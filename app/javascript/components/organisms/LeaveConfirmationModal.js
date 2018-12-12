@@ -2,12 +2,12 @@ import React from 'react'
 
 import Modal from './Modal'
 
-class LeaveConfirmationModalWrapper extends React.Component {
+class LeaveConfirmationModal extends React.Component {
   render () {
     const {
       isOpen,
       handleClose,
-      onSecondaryClick
+      destination
     } = this.props
 
     return (
@@ -19,10 +19,10 @@ class LeaveConfirmationModalWrapper extends React.Component {
           </Modal.Content>
           <Modal.Footer>
             <div className='modal-button_item modal-button_primary'>
-              <button className='button'>Discard Changes</button>
+              <a className='button alert' href={destination}>Discard Changes</a>
             </div>
             <div className='modal-button_item modal-button_secondary'>
-              <button className='button no-border' onClick={onSecondaryClick} type='button'>Keep Editing</button>
+              <button className='button no-border' onClick={handleClose} type='button'>Keep Editing</button>
             </div>
           </Modal.Footer>
         </Modal.Body>
@@ -31,4 +31,4 @@ class LeaveConfirmationModalWrapper extends React.Component {
   }
 }
 
-export default LeaveConfirmationModalWrapper
+export default LeaveConfirmationModal

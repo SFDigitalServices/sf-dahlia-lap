@@ -11,7 +11,7 @@ import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } f
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
-import LeaveConfirmationModalWrapper from '~/components/organisms/LeaveConfirmationModalWrapper'
+import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
 
 const getChartsToLoad = (units) => {
@@ -277,6 +277,10 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ leaveConfirmationModal: { isOpen: true } })
   }
 
+  handleStatusModalClose = () => {
+    this.setState({ leaveConfirmationModal: { isOpen: false } })
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
@@ -345,8 +349,10 @@ class SupplementalApplicationPage extends React.Component {
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
         </CardLayout>
-        <LeaveConfirmationModalWrapper
-          isOpen={leaveConfirmationModal.isOpen} />
+        <LeaveConfirmationModal
+          isOpen={leaveConfirmationModal.isOpen}
+          handleClose={this.handleStatusModalClose}
+          destination={appPaths.toApplication(persistedApplication.id)} />
       </Context.Provider>
     )
   }
