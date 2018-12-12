@@ -49,7 +49,7 @@ const AlternateContactSection = ({editValues}) => {
               </div>
               <div className='small-4 columns'>
                 <label>Agency (if applicable)</label>
-                <Text field='agency' />
+                <Text field='agency_name' />
               </div>
             </div>
             <div className='row'>
