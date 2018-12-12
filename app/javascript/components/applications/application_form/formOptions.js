@@ -10,7 +10,7 @@ const applicationLanguageOptions = labelize([
   'English',
   'Chinese',
   'Spanish',
-  'Tagalog'
+  'Filipino'
 ])
 
 const phoneTypeOptions = labelize([
