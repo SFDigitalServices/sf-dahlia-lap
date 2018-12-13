@@ -88,7 +88,7 @@ const application = {
   "Answered_Community_Screening": null,
   "Has_Military_Service": null,
   "Has_DevelopmentalDisability": null,
-  "Has_ADA_Priorities_Selected": "Vision impaired;Mobility impaired;Hearing impaired",
+  "Has_ADA_Priorities_Selected": "Vision impairments;Mobility impairments;Hearing impairments",
   "Terms_Acknowledged": true,
   "preferences": [
     {

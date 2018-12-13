@@ -92,7 +92,7 @@ Array [
                         disabled={undefined}
                         value={4}
                       >
-                        Tagalog
+                        Filipino
                       </option>
                     </select>
                   </div>
@@ -1016,7 +1016,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-0"
                             >
-                              Mobility impaired
+                              Mobility impairments
                             </label>
                           </div>
                         </div>
@@ -1037,7 +1037,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-1"
                             >
-                              Vision impaired
+                              Vision impairments
                             </label>
                           </div>
                         </div>
@@ -1058,7 +1058,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-2"
                             >
-                              Hearing impaired
+                              Hearing impairments
                             </label>
                           </div>
                         </div>
@@ -1085,6 +1085,7 @@ Array [
                       <button
                         className="mb-4 mr-4 btn btn-success"
                         disabled={false}
+                        id="add-preference-button"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1324,7 +1325,7 @@ Array [
                         disabled={undefined}
                         value={4}
                       >
-                        Tagalog
+                        Filipino
                       </option>
                     </select>
                   </div>
@@ -2248,7 +2249,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-0"
                             >
-                              Mobility impaired
+                              Mobility impairments
                             </label>
                           </div>
                         </div>
@@ -2269,7 +2270,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-1"
                             >
-                              Vision impaired
+                              Vision impairments
                             </label>
                           </div>
                         </div>
@@ -2290,7 +2291,7 @@ Array [
                             <label
                               htmlFor="adaPrioritiesSelected-2"
                             >
-                              Hearing impaired
+                              Hearing impairments
                             </label>
                           </div>
                         </div>
@@ -2321,9 +2322,10 @@ Array [
                           Preference
                         </label>
                         <select
+                          id="select-paper-preference-0"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value={1}
+                          value={2}
                         >
                           <option
                             disabled={true}
@@ -2335,13 +2337,13 @@ Array [
                             disabled={undefined}
                             value={1}
                           >
-                            Alice Griffith Housing Development Resident
+                            Certificate of Preference (COP)
                           </option>
                           <option
                             disabled={undefined}
                             value={2}
                           >
-                            Certificate of Preference (COP)
+                            Alice Griffith Housing Development Resident
                           </option>
                         </select>
                       </div>
@@ -2614,6 +2616,7 @@ Array [
                       <button
                         className="mb-4 mr-4 btn btn-success"
                         disabled={false}
+                        id="add-preference-button"
                         onClick={[Function]}
                         type="button"
                       >

@@ -218,15 +218,19 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
                 disabled={loading}>
                 Cancel
               </button>
-              { !isNew && (
-                <button
-                  className='button alert-fill tiny margin-bottom-none right'
-                  type='button'
-                  onClick={onDelete}
-                  disabled={loading}>
-                  Delete
-                </button>
-              )}
+              {
+                /* TODO: Re-enable the delete button when the Salesforce custom API
+                endpoint for deleting rental assistances is deployed to Prod. */
+                false && !isNew && (
+                  <button
+                    className='button alert-fill tiny margin-bottom-none right'
+                    type='button'
+                    onClick={onDelete}
+                    disabled={loading}>
+                    Delete
+                  </button>
+                )
+              }
             </div>
           </FormGrid.Row>
         </div>
