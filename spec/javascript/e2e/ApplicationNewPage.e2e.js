@@ -153,4 +153,51 @@ describe('ApplicationNewPage', () => {
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
+  test('should create a new application with live/work preference successfully', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    // Fill out primary applicant required fields
+    await page.type('#first_name', FIRST_NAME)
+    await page.type('#last_name', LAST_NAME)
+    await page.type('#date_of_birth_month', DOB_MONTH)
+    await page.type('#date_of_birth_day', DOB_DAY)
+    await page.type('#date_of_birth_year', DOB_YEAR)
+
+    await page.click('#add-preference-button')
+
+    // Fill out live/work preference required fields
+    // Select the live/work preference
+    const liveWorkDropdownValue = '5'
+    await page.waitForSelector('#select-paper-preference-0')
+    await page.select('#select-paper-preference-0', liveWorkDropdownValue)
+
+    // Select the household member
+    await page.waitForSelector('#preferences\\.0\\.naturalKey')
+    await page.select('#preferences\\.0\\.naturalKey', '1')
+
+    // Select live vs work
+    const liveDropDownValue = '1'
+    await page.select('#preferences\\.0\\.individual_preference', liveDropDownValue)
+
+    // Select type of proof
+    const telephoneBillDropdownValue = '1'
+    await page.select('#preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
+
+    await page.click('.save-btn')
+    await page.waitForNavigation()
+    await sharedSteps.waitForApp(page)
+
+    // Find the live/work table row, then check its content
+    const tableRows = await page.$$eval('#content-card-preferences table tr', trs => trs.map((tr) => tr.textContent))
+    const liveWorkRow = tableRows.filter(s => s.includes('Live or Work in San Francisco Preference'))
+    expect(liveWorkRow[0]).toContain(`${FIRST_NAME} ${LAST_NAME}`)
+    expect(liveWorkRow[0]).toContain('Telephone bill')
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
 })
