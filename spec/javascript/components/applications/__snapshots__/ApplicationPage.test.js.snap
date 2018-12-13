@@ -442,6 +442,7 @@ Array [
         </div>
         <div
           className="content-card"
+          id="content-card-household_members"
         >
           <h4
             className="content-card_title t-serif"
@@ -578,6 +579,7 @@ Array [
         </div>
         <div
           className="content-card"
+          id="content-card-preferences"
         >
           <h4
             className="content-card_title t-serif"
@@ -694,6 +696,7 @@ Array [
         </div>
         <div
           className="content-card"
+          id="content-card-flagged_applications"
         >
           <h4
             className="content-card_title t-serif"
