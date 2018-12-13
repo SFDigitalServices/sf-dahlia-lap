@@ -3,17 +3,21 @@ const payload = {
     applicationLanguage: 'English',
     hasMilitaryService: null,
     hasDevelopmentalDisability: null,
+    HHTotalIncomeWithAssets: undefined,
     answeredCommunityScreening: null,
     applicationSubmissionType: "Paper",
     annualIncome: 110000,
-    monthlyIncome: null,
-    HHTotalIncomeWithAssets: undefined,
-    householdAssets: null,
+    confirmedHouseholdAnnualIncome: 115000,
     householdVouchersSubsidies: 'true',
     agreeToTerms: true,
     numberOfDependents: 2,
     listingID: 'a0W0x000000GhJUEA0',
+    monthlyIncome: null,
     hasSenior: undefined,
+    householdAssets: null,
+    totalMonthlyRent: null,
+    primaryApplicantContact: undefined,
+    processingStatus: undefined,
     primaryApplicant:
      { DOB: '1950-01-01',
        email: 'eee@eeee.com',
@@ -36,6 +40,7 @@ const payload = {
      [ { recordTypeDevName: 'AG',
          shortformPreferenceID: 'a0w0x0000014pvyAAA',
          appMemberID: undefined,
+         postLotteryValidation: undefined,
          certificateNumber: null,
          individualPreference: null,
          lwPreferenceProof: null,
@@ -55,8 +60,7 @@ const payload = {
          address: '9 de julio',
          city: 'buenos aires',
          state: 'fl',
-         zip: '33026' } ],
-    totalMonthlyRent: null
+         zip: '33026' } ]
 }
 
 export default payload
