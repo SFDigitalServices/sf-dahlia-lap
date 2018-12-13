@@ -14,7 +14,7 @@ import apiService from '~/apiService'
 import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
 import Context from './context'
 import mapProps from '~/utils/mapProps'
-import utils from '~/utils/utils'
+import { SALESFORCE_DATE_FORMAT } from '~/utils/utils'
 
 const ROWS_PER_PAGE = 5
 
@@ -87,7 +87,7 @@ class LeaseUpApplicationsPage extends React.Component {
       each(applications, (app, index) => {
         if (app.application_id === applicationId) {
           this.updateResults(`[${index}]['lease_up_status']`, status)
-          this.updateResults(`[${index}]['status_updated']`, moment().format(utils.SALESFORCE_DATE_FORMAT))
+          this.updateResults(`[${index}]['status_updated']`, moment().format(SALESFORCE_DATE_FORMAT))
         }
       })
 

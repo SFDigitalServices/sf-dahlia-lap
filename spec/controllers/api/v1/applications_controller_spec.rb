@@ -9,7 +9,7 @@ RSpec.describe Api::V1::ApplicationsController, type: :controller do
   describe '#index' do
     it 'should render successfully' do
       VCR.use_cassette('api/v1/applications_controller/index') do
-        get :index, params: { listing: valid_listing_id }
+        get :index, params: { listing_id: valid_listing_id }
       end
 
       expect(response).to have_http_status(:success)
