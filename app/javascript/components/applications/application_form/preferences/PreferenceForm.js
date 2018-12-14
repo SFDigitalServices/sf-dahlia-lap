@@ -1,6 +1,6 @@
 import React from 'react'
 import { Select } from 'react-form'
-import { find, map, omitBy } from 'lodash'
+import { find, map, omitBy, sortBy } from 'lodash'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
 import FormGroup from '~/components/atoms/FormGroup'
@@ -32,12 +32,14 @@ const findPreferencesNotSelected = (formApi, listingPreferences, selectedPrefere
 }
 
 const buildListingPreferencesOptions = (preferencesNotSelected) => {
-  return map(preferencesNotSelected, (listingPref) => {
+  const listingPrefOptions = map(preferencesNotSelected, (listingPref) => {
     return {
       value: listingPref.id,
-      label: listingPref.lottery_preference.name
+      label: listingPref.lottery_preference.name,
+      order: listingPref.order
     }
   })
+  return sortBy(listingPrefOptions, opt => opt.order)
 }
 
 const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold }) => {
@@ -55,6 +57,7 @@ const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold })
             field={buildFieldId(i, 'listing_preference_id')}
             options={listingPreferencesOptions}
             value={buildFieldId(i, 'listing_preference_id')}
+            id={`select-paper-preference-${i}`}
           />
         </Column>
         <PreferenceAdditionalOptions

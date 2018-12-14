@@ -1,5 +1,6 @@
 import moment from 'moment'
 import { mapValues, map, first, compact } from 'lodash'
+import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
   return mapValues(rules, (valFn, key) => {
@@ -27,7 +28,7 @@ const decorateValidator = fn => message => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
   if (dateOfBirth && isValidDate(dateOfBirth)) {
-    const years = moment().diff(moment(dateOfBirth.join('-'), 'YYYY-MM-DD'), 'years')
+    const years = moment().diff(moment(dateOfBirth.join('-'), API_DATE_FORMAT), 'years')
     return years >= 18
   } else {
     return false
