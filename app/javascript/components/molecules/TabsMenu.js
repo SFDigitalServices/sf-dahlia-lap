@@ -15,7 +15,7 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
     tabContent =
       <button
         type='button'
-        className='button-link'
+        className='button-unstyled'
         onClick={onClick}
         role='menuitem'
         ref={linkRefs}
