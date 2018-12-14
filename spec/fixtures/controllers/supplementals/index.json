@@ -1,0 +1,394 @@
+{
+	"attributes": {
+		"type": "Application",
+		"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application/a0o0U000000VVwXQAW"
+	},
+	"Id": "a0o0U000000VVwXQAW",
+	"Name": "APP-00262258",
+	"Applicant": {
+		"attributes": {
+			"type": "Application_Member",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member/a0n0U0000030tCLQAY"
+		},
+		"Id": "a0n0U0000030tCLQAY",
+		"First_Name": "Partha",
+		"Last_Name": "Nerr",
+		"Middle_Name": null,
+		"Name": "Partha Nerr",
+		"Date_of_Birth": "1975-03-03",
+		"Phone_Type": "Work",
+		"Phone": "(415) 555-6868",
+		"Second_Phone_Type": null,
+		"Second_Phone": null,
+		"Email": null,
+		"Primary_Language": null,
+		"Residence_Address": "25 VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033",
+		"Street": "25 VAN NESS AVE",
+		"City": "SAN FRANCISCO",
+		"State": "CA",
+		"Zip_Code": "94102-6033",
+		"Mailing_Address": "25 VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033",
+		"Mailing_Street": "25 VAN NESS AVE",
+		"Mailing_City": "SAN FRANCISCO",
+		"Mailing_State": "CA",
+		"Mailing_Zip_Code": "94102-6033",
+		"Marital_Status": null
+	},
+	"Primary_Applicant": "0030U00000P8m5oQAB",
+	"Alternate_Contact": {
+		"attributes": {
+			"type": "Application_Member",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member/a0n0U0000030tCaQAI"
+		},
+		"Id": "a0n0U0000030tCaQAI",
+		"First_Name": "Flora",
+		"Middle_Name": null,
+		"Last_Name": "Matts",
+		"Phone_Type": null,
+		"Phone": "(415) 555-7777",
+		"Email": null,
+		"Agency_Name": null,
+		"Alternate_Contact_Type": "Other",
+		"Alternate_Contact_Type_Other": "Colleague",
+		"Residence_Address": null,
+		"Street": null,
+		"City": null,
+		"State": null,
+		"Zip_Code": null,
+		"Mailing_Address": null,
+		"Mailing_Street": null,
+		"Mailing_City": null,
+		"Mailing_State": null,
+		"Mailing_Zip_Code": null,
+		"Marital_Status": null
+	},
+	"Listing": {
+		"attributes": {
+			"type": "Listing",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing/a0W0U000000MX4vUAG"
+		},
+		"Name": "LAP Test Listing (Do not Modify) - Yellow Acres",
+		"Id": "a0W0U000000MX4vUAG",
+		"Reserved_community_type": null
+	},
+	"Status": "Submitted",
+	"Total_Household_Size": 1.0,
+	"Application_Submission_Type": "Electronic",
+	"Application_Submitted_Date": "2018-12-12",
+	"CreatedBy": {
+		"attributes": {
+			"type": "User",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007H5XsQAK"
+		},
+		"Name": "Prod Vertiba"
+	},
+	"Annual_Income": 40000.0,
+	"Confirmed_Household_Annual_Income": 35000.0,
+	"Household_Assets": null,
+	"HH_Total_Income_with_Assets_Annual": null,
+	"Monthly_Income": null,
+	"Is_Lottery_Complete": false,
+	"Housing_Voucher_or_Subsidy": "false",
+	"Referral_Source": null,
+	"Application_Language": "English",
+	"Lottery_Number_Manual": null,
+	"Lottery_Number": "00262258",
+	"Total_Monthly_Rent": 100.0,
+	"General_Lottery": false,
+	"General_Lottery_Rank": null,
+	"Answered_Community_Screening": null,
+	"Has_Military_Service": null,
+	"Reserved_Senior": null,
+	"Has_DevelopmentalDisability": null,
+	"Has_ADA_Priorities_Selected": null,
+	"Terms_Acknowledged": false,
+	"Number_of_Dependents": null,
+	"Processing_Status": "Processing",
+	"preferences": [{
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhuQAG"
+		},
+		"Id": "a0w0U000001EXhuQAG",
+		"Name": "AP-0000851989",
+		"Preference_Name": "Certificate of Preference (COP)",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": null,
+		"Preference_Lottery_Rank": null,
+		"Listing_Preference_ID": "a0l0U000003nNfiQAE",
+		"Receives_Preference": false,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 1.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"
+			},
+			"DeveloperName": "COP"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": null,
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhxQAG"
+		},
+		"Id": "a0w0U000001EXhxQAG",
+		"Name": "AP-0000851992",
+		"Preference_Name": "Live or Work in San Francisco Preference",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": "None",
+		"Preference_Lottery_Rank": 4.0,
+		"Listing_Preference_ID": "a0l0U000003nNfxQAE",
+		"Receives_Preference": true,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 4.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"
+			},
+			"DeveloperName": "L_W"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": "Unconfirmed",
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhvQAG"
+		},
+		"Id": "a0w0U000001EXhvQAG",
+		"Name": "AP-0000851990",
+		"Preference_Name": "Displaced Tenant Housing Preference (DTHP)",
+		"Person_who_claimed_Name": "Partha Nerr",
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": "Valid for lottery",
+		"Preference_Lottery_Rank": 1.0,
+		"Listing_Preference_ID": "a0l0U000003nNfnQAE",
+		"Receives_Preference": true,
+		"Application_Member": {
+			"attributes": {
+				"type": "Application_Member",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member/a0n0U0000030tCLQAY"
+			},
+			"First_Name": "Partha",
+			"Last_Name": "Nerr",
+			"Date_of_Birth": "1975-03-03",
+			"Id": "a0n0U0000030tCLQAY"
+		},
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 2.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"
+			},
+			"DeveloperName": "DTHP"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": "Confirmed",
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5fQAG"
+		},
+		"Id": "a0w0U000001GM5fQAG",
+		"Name": "AP-0000880723",
+		"Preference_Name": "Neighborhood Resident Housing Preference (NRHP)",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": null,
+		"Preference_Lottery_Rank": null,
+		"Listing_Preference_ID": "a0l0U000003npavQAA",
+		"Receives_Preference": false,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 6.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"
+			},
+			"DeveloperName": "NRHP"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": null,
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5hQAG"
+		},
+		"Id": "a0w0U000001GM5hQAG",
+		"Name": "AP-0000880725",
+		"Preference_Name": "Anti-Displacement Housing Preference (ADHP)",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": "Unconfirmed",
+		"Preference_Lottery_Rank": null,
+		"Listing_Preference_ID": "a0l0U000003npb5QAA",
+		"Receives_Preference": false,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 8.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"
+			},
+			"DeveloperName": "ADHP"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": null,
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhwQAG"
+		},
+		"Id": "a0w0U000001EXhwQAG",
+		"Name": "AP-0000851991",
+		"Preference_Name": "Rent Burdened / Assisted Housing Preference",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": null,
+		"Preference_Lottery_Rank": null,
+		"Listing_Preference_ID": "a0l0U000003nNfsQAE",
+		"Receives_Preference": false,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 3.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"
+			},
+			"DeveloperName": "RB_AHP"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": null,
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5eQAG"
+		},
+		"Id": "a0w0U000001GM5eQAG",
+		"Name": "AP-0000880722",
+		"Preference_Name": "Alice Griffith Housing Development Resident",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": "None",
+		"Preference_Lottery_Rank": null,
+		"Listing_Preference_ID": "a0l0U000003npaqQAA",
+		"Receives_Preference": false,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 5.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"
+			},
+			"DeveloperName": "AG"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": null,
+		"Total_Household_Rent": 100.0
+	}, {
+		"attributes": {
+			"type": "Application_Preference",
+			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5gQAG"
+		},
+		"Id": "a0w0U000001GM5gQAG",
+		"Name": "AP-0000880724",
+		"Preference_Name": "Artist Fund (Test Custom Pref)",
+		"Person_who_claimed_Name": null,
+		"Type_of_proof": null,
+		"Opt_Out": false,
+		"Lottery_Status": "Unconfirmed",
+		"Preference_Lottery_Rank": null,
+		"Listing_Preference_ID": "a0l0U000003npb0QAA",
+		"Receives_Preference": false,
+		"Application_Member": null,
+		"Individual_preference": null,
+		"Certificate_Number": null,
+		"Preference_Order": 7.0,
+		"RecordType": {
+			"attributes": {
+				"type": "RecordType",
+				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BIQA0"
+			},
+			"DeveloperName": "Custom"
+		},
+		"LW_Type_of_Proof": null,
+		"City": null,
+		"State": null,
+		"Street": null,
+		"Zip_Code": null,
+		"Post_Lottery_Validation": null,
+		"Total_Household_Rent": 100.0
+	}],
+	"proof_files": [],
+	"household_members": [],
+	"lease": {
+		"id": "a130U0000003i70QAA",
+		"unit": null,
+		"lease_start_date": null,
+		"lease_status": "Draft",
+		"monthly_parking_rent": null,
+		"preference_used": null,
+		"no_preference_used": false,
+		"total_monthly_rent_without_parking": null,
+		"monthly_tenant_contribution": null
+	}
+}
