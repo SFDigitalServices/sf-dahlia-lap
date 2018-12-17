@@ -21,7 +21,6 @@ module Force
         #{subqueries}
         FROM Listing__c
         WHERE Id='#{id}'
-        AND #{user_can_access}
       ))
     end
 

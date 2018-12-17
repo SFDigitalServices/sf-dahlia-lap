@@ -6,9 +6,9 @@ const checkListToString = (list) => {
 }
 
 const adaPrioritiesMapValues = {
-  'vision_impaired': 'Vision impaired',
-  'mobility_impaired': 'Mobility impaired',
-  'hearing_impaired': 'Hearing impaired'
+  'vision_impairments': 'Vision impairments',
+  'mobility_impairments': 'Mobility impairments',
+  'hearing_impairments': 'Hearing impairments'
 }
 
 const mapAdaPrioritiesMap = (list) => {

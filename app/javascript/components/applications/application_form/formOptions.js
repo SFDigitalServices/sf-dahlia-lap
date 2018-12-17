@@ -10,7 +10,7 @@ const applicationLanguageOptions = labelize([
   'English',
   'Chinese',
   'Spanish',
-  'Tagalog'
+  'Filipino'
 ])
 
 const phoneTypeOptions = labelize([
@@ -140,9 +140,9 @@ const preferenceProofOptionsWorkInSf = labelize([
 ])
 
 const priorityOptions = [
-  'Mobility impaired',
-  'Vision impaired',
-  'Hearing impaired'
+  'Mobility impairments',
+  'Vision impairments',
+  'Hearing impairments'
 ]
 
 const listingReferralOptions = labelize([
@@ -159,9 +159,9 @@ const listingReferralOptions = labelize([
 ])
 
 const adaPriorityValueToLabelMap = {
-  mobility_impaired: 'Mobility impaired',
-  vision_impaired: 'Vision impaired',
-  hearing_impaired: 'Hearing impaired'
+  mobility_impairments: 'Mobility impairments',
+  vision_impairments: 'Vision impairments',
+  hearing_impairments: 'Hearing impairments'
 }
 
 const yesNoOptions = labelize([
