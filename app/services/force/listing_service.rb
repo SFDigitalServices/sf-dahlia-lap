@@ -10,8 +10,7 @@ module Force
     def listings
       parsed_index_query(%(
         SELECT #{query_fields(:index)} FROM Listing__c
-        WHERE #{user_can_access}
-        AND Status__c != 'Lease Up'
+        WHERE Status__c != 'Lease Up'
       ))
     end
 
