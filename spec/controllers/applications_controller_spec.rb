@@ -23,7 +23,7 @@ RSpec.describe ApplicationsController, type: :controller do
     context 'with a non lease up application' do
       let(:expected_non_lease_up_app) { fixture('controllers/applications/non_lease_up_application_domain.json') }
 
-      it 'should return a domain application snapshot' do
+      it 'should return a domain application' do
         VCR.use_cassette('applications_controller/show/non_lease_up_application') do
           get :show, params: { id: non_lease_up_application_id }
 
