@@ -43,7 +43,7 @@ const ApplicationDetailsContentTable = ({ data, title, table, fields }) => {
   const rows = getRows(data[table], fields)
 
   return (
-    <div className='content-card'>
+    <div className='content-card' id={`content-card-${table}`}>
       <h4 className='content-card_title t-serif'>{title}</h4>
       <table>
         <thead>
