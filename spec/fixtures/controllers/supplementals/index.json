@@ -1,14 +1,14 @@
 {
 	"attributes": {
 		"type": "Application",
-		"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application/a0o0U000000VVwXQAW"
+		"url": "/services/data/v43.0/sobjects/Application/a0o0U000000VVwXQAW"
 	},
 	"Id": "a0o0U000000VVwXQAW",
 	"Name": "APP-00262258",
 	"Applicant": {
 		"attributes": {
 			"type": "Application_Member",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member/a0n0U0000030tCLQAY"
+			"url": "/services/data/v43.0/sobjects/Application_Member/a0n0U0000030tCLQAY"
 		},
 		"Id": "a0n0U0000030tCLQAY",
 		"First_Name": "Partha",
@@ -38,7 +38,7 @@
 	"Alternate_Contact": {
 		"attributes": {
 			"type": "Application_Member",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member/a0n0U0000030tCaQAI"
+			"url": "/services/data/v43.0/sobjects/Application_Member/a0n0U0000030tCaQAI"
 		},
 		"Id": "a0n0U0000030tCaQAI",
 		"First_Name": "Flora",
@@ -65,7 +65,7 @@
 	"Listing": {
 		"attributes": {
 			"type": "Listing",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing/a0W0U000000MX4vUAG"
+			"url": "/services/data/v43.0/sobjects/Listing/a0W0U000000MX4vUAG"
 		},
 		"Name": "LAP Test Listing (Do not Modify) - Yellow Acres",
 		"Id": "a0W0U000000MX4vUAG",
@@ -78,7 +78,7 @@
 	"CreatedBy": {
 		"attributes": {
 			"type": "User",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007H5XsQAK"
+			"url": "/services/data/v43.0/sobjects/User/0050P000007H5XsQAK"
 		},
 		"Name": "Prod Vertiba"
 	},
@@ -107,7 +107,7 @@
 	"preferences": [{
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhuQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhuQAG"
 		},
 		"Id": "a0w0U000001EXhuQAG",
 		"Name": "AP-0000851989",
@@ -126,7 +126,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BHQA0"
 			},
 			"DeveloperName": "COP"
 		},
@@ -140,7 +140,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhxQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhxQAG"
 		},
 		"Id": "a0w0U000001EXhxQAG",
 		"Name": "AP-0000851992",
@@ -159,7 +159,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BKQA0"
 			},
 			"DeveloperName": "L_W"
 		},
@@ -173,7 +173,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhvQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhvQAG"
 		},
 		"Id": "a0w0U000001EXhvQAG",
 		"Name": "AP-0000851990",
@@ -188,7 +188,7 @@
 		"Application_Member": {
 			"attributes": {
 				"type": "Application_Member",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member/a0n0U0000030tCLQAY"
+				"url": "/services/data/v43.0/sobjects/Application_Member/a0n0U0000030tCLQAY"
 			},
 			"First_Name": "Partha",
 			"Last_Name": "Nerr",
@@ -201,7 +201,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BJQA0"
 			},
 			"DeveloperName": "DTHP"
 		},
@@ -215,7 +215,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5fQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001GM5fQAG"
 		},
 		"Id": "a0w0U000001GM5fQAG",
 		"Name": "AP-0000880723",
@@ -234,7 +234,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BLQA0"
 			},
 			"DeveloperName": "NRHP"
 		},
@@ -248,7 +248,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5hQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001GM5hQAG"
 		},
 		"Id": "a0w0U000001GM5hQAG",
 		"Name": "AP-0000880725",
@@ -267,7 +267,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BGQA0"
 			},
 			"DeveloperName": "ADHP"
 		},
@@ -281,7 +281,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001EXhwQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001EXhwQAG"
 		},
 		"Id": "a0w0U000001EXhwQAG",
 		"Name": "AP-0000851991",
@@ -300,7 +300,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BMQA0"
 			},
 			"DeveloperName": "RB_AHP"
 		},
@@ -314,7 +314,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5eQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001GM5eQAG"
 		},
 		"Id": "a0w0U000001GM5eQAG",
 		"Name": "AP-0000880722",
@@ -333,7 +333,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000NHVqQAO"
 			},
 			"DeveloperName": "AG"
 		},
@@ -347,7 +347,7 @@
 	}, {
 		"attributes": {
 			"type": "Application_Preference",
-			"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference/a0w0U000001GM5gQAG"
+			"url": "/services/data/v43.0/sobjects/Application_Preference/a0w0U000001GM5gQAG"
 		},
 		"Id": "a0w0U000001GM5gQAG",
 		"Name": "AP-0000880724",
@@ -366,7 +366,7 @@
 		"RecordType": {
 			"attributes": {
 				"type": "RecordType",
-				"url": "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BIQA0"
+				"url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BIQA0"
 			},
 			"DeveloperName": "Custom"
 		},
