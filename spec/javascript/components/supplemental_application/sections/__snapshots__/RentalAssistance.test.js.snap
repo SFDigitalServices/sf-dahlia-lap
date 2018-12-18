@@ -352,6 +352,14 @@ Array [
                         >
                           Cancel
                         </button>
+                        <button
+                          className="button alert-fill tiny margin-bottom-none right"
+                          disabled={undefined}
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -995,6 +1003,14 @@ Array [
                         >
                           Cancel
                         </button>
+                        <button
+                          className="button alert-fill tiny margin-bottom-none right"
+                          disabled={undefined}
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -1392,6 +1408,14 @@ Array [
                           type="button"
                         >
                           Cancel
+                        </button>
+                        <button
+                          className="button alert-fill tiny margin-bottom-none right"
+                          disabled={undefined}
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Delete
                         </button>
                       </div>
                     </div>
