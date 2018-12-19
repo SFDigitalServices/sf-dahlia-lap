@@ -345,7 +345,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rack (>= 2.0.6)
-  rails (~> 5.1.4)
+  rails (~> 5.1.6.1)
   rails-controller-testing
   rails_12factor
   rails_best_practices
