@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactModal from 'react-modal'
-import { startCase } from 'lodash'
 
 import Alert from '../organisms/Alert'
 
@@ -61,7 +60,7 @@ Modal.Body = ({ children, handleClose, hidden }) => (
 
 Modal.Header = ({ title }) => (
   <header className='modal-inner margin-top'>
-    <h1 className='modal-title t-gamma no-margin'>{startCase(title)}</h1>
+    <h1 className='modal-title t-gamma no-margin'>{title}</h1>
   </header>
 )
 
