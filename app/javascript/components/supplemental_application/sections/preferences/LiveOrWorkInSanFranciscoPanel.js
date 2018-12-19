@@ -36,6 +36,10 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
         prefProofTypeOptions: getLWPrefProofTypeOptions(individualPrefName)
       }
     })
+    // Reset the preference proof if the individual preference updates
+    this.props.formApi.setValue(`preferences[${this.props.preferenceIndex}].lw_type_of_proof`, null)
+    // Type of proof needs to be null if lw_type_of_proof is null, otherwise it will overwrite the value.
+    this.props.formApi.setValue(`preferences[${this.props.preferenceIndex}].type_of_proof`, null)
   }
 
   render () {
