@@ -66,16 +66,18 @@ Array [
         className="tab-title"
         role="none"
       >
-        <a
+        <button
           aria-selected={false}
-          href="/applications/a0o0x000000OcOzAAK"
+          className="button-unstyled"
+          onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="0"
+          type="button"
         >
           Short Form Application
-        </a>
+        </button>
       </li>
       <li
         className="tab-title"
@@ -1454,6 +1456,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
           "currentUrl": "/",
           "items": Array [
             Object {
+              "onClick": [Function],
               "title": "Short Form Application",
               "url": "/applications/a0o0x000000OcOzAAK",
             },
@@ -1595,6 +1598,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         items={
           Array [
             Object {
+              "onClick": [Function],
               "title": "Short Form Application",
               "url": "/applications/a0o0x000000OcOzAAK",
             },
@@ -1613,6 +1617,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
             items={
               Array [
                 Object {
+                  "onClick": [Function],
                   "title": "Short Form Application",
                   "url": "/applications/a0o0x000000OcOzAAK",
                 },
@@ -1631,6 +1636,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                 active={false}
                 key="/applications/a0o0x000000OcOzAAK"
                 linkRefs={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 title="Short Form Application"
@@ -1640,16 +1646,18 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                   className="tab-title"
                   role="none"
                 >
-                  <a
+                  <button
                     aria-selected={false}
-                    href="/applications/a0o0x000000OcOzAAK"
+                    className="button-unstyled"
+                    onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     role="menuitem"
                     tabIndex="0"
+                    type="button"
                   >
                     Short Form Application
-                  </a>
+                  </button>
                 </li>
               </Tab>
               <Tab
@@ -8624,6 +8632,122 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         </TabCard>
       </TabsSection>
     </CardLayout>
+    <LeaveConfirmationModal
+      destination="/applications/a0o0x000000OcOzAAK"
+      handleClose={[Function]}
+      isOpen={false}
+    >
+      <Modal
+        handleClose={[Function]}
+        isOpen={false}
+      >
+        <Modal
+          ariaHideApp={true}
+          bodyOpenClassName="ReactModal__Body--open"
+          closeTimeoutMS={0}
+          isOpen={false}
+          onRequestClose={[Function]}
+          parentSelector={[Function]}
+          portalClassName="ReactModalPortal"
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
+          shouldFocusAfterRender={true}
+          shouldReturnFocusAfterClose={true}
+          style={
+            Object {
+              "content": Object {
+                "border": "0",
+                "borderRadius": "4px",
+                "bottom": "auto",
+                "left": "50%",
+                "minHeight": "10rem",
+                "opacity": "1",
+                "overflow": "visible",
+                "padding": "0px",
+                "position": "fixed",
+                "right": "auto",
+                "top": "50%",
+                "transform": "translate(-50%,-50%)",
+                "width": "600px",
+              },
+              "overlay": Object {
+                "backgroundColor": "rgba(0,0,0,0.3)",
+              },
+            }
+          }
+        >
+          <Portal
+            containerInfo={
+              <div
+                class="ReactModalPortal"
+              />
+            }
+          >
+            <ModalPortal
+              ariaHideApp={true}
+              bodyOpenClassName="ReactModal__Body--open"
+              closeTimeoutMS={0}
+              defaultStyles={
+                Object {
+                  "content": Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "background": "#fff",
+                    "border": "1px solid #ccc",
+                    "borderRadius": "4px",
+                    "bottom": "40px",
+                    "left": "40px",
+                    "outline": "none",
+                    "overflow": "auto",
+                    "padding": "20px",
+                    "position": "absolute",
+                    "right": "40px",
+                    "top": "40px",
+                  },
+                  "overlay": Object {
+                    "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "fixed",
+                    "right": 0,
+                    "top": 0,
+                  },
+                }
+              }
+              isOpen={false}
+              onRequestClose={[Function]}
+              parentSelector={[Function]}
+              portalClassName="ReactModalPortal"
+              shouldCloseOnEsc={true}
+              shouldCloseOnOverlayClick={true}
+              shouldFocusAfterRender={true}
+              shouldReturnFocusAfterClose={true}
+              style={
+                Object {
+                  "content": Object {
+                    "border": "0",
+                    "borderRadius": "4px",
+                    "bottom": "auto",
+                    "left": "50%",
+                    "minHeight": "10rem",
+                    "opacity": "1",
+                    "overflow": "visible",
+                    "padding": "0px",
+                    "position": "fixed",
+                    "right": "auto",
+                    "top": "50%",
+                    "transform": "translate(-50%,-50%)",
+                    "width": "600px",
+                  },
+                  "overlay": Object {
+                    "backgroundColor": "rgba(0,0,0,0.3)",
+                  },
+                }
+              }
+            />
+          </Portal>
+        </Modal>
+      </Modal>
+    </LeaveConfirmationModal>
   </SupplementalApplicationPage>
 </MapProps>
 `;

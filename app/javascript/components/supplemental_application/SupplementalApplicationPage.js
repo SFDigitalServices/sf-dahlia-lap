@@ -11,6 +11,7 @@ import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } f
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
+import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
 
 const getChartsToLoad = (units) => {
@@ -47,6 +48,9 @@ class SupplementalApplicationPage extends React.Component {
       statusModal: {
         loading: false,
         status: props.application.processing_status
+      },
+      leaveConfirmationModal: {
+        isOpen: false
       },
       showNewRentalAssistancePanel: false,
       showAddRentalAssistanceBtn: true,
@@ -269,6 +273,14 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: false })
   }
 
+  openLeaveConfirmationModal = () => {
+    this.setState({ leaveConfirmationModal: { isOpen: true } })
+  }
+
+  handleStatusModalClose = () => {
+    this.setState({ leaveConfirmationModal: { isOpen: false } })
+  }
+
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
     const {
@@ -276,6 +288,7 @@ class SupplementalApplicationPage extends React.Component {
       amis,
       amiCharts,
       statusModal,
+      leaveConfirmationModal,
       loading,
       persistedApplication,
       rentalAssistances,
@@ -294,7 +307,7 @@ class SupplementalApplicationPage extends React.Component {
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id) },
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id), onClick: this.openLeaveConfirmationModal },
         { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
@@ -336,6 +349,10 @@ class SupplementalApplicationPage extends React.Component {
         <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
           <SupplementalApplicationContainer />
         </CardLayout>
+        <LeaveConfirmationModal
+          isOpen={leaveConfirmationModal.isOpen}
+          handleClose={this.handleStatusModalClose}
+          destination={appPaths.toApplication(persistedApplication.id)} />
       </Context.Provider>
     )
   }
