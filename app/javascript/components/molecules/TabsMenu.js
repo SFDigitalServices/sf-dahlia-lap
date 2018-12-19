@@ -4,15 +4,44 @@ import classNames from 'classnames'
 import arrayUtils from '~/utils/arrayUtils'
 import keyboard from '~/utils/keyboard'
 
-const Tab = ({ title, url, active, onKeyDown, linkRefs, onFocus }) => {
+const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
   const liClassName = classNames({
     'tab-title': true,
     'active': active
   })
 
+  let tabContent
+  if (onClick) {
+    tabContent =
+      <button
+        type='button'
+        className='button-unstyled'
+        onClick={onClick}
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}>
+        {title}
+      </button>
+  } else {
+    tabContent =
+      <a
+        href={url}
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}>
+        {title}
+      </a>
+  }
+
   return (
     <li className={liClassName} role='none'>
-      <a href={url} role='menuitem' ref={linkRefs} onFocus={onFocus} onKeyDown={onKeyDown} tabIndex={active ? '-1' : '0'} aria-selected={active}>{title}</a>
+      {tabContent}
     </li>
   )
 }
@@ -48,6 +77,7 @@ class TabsMenu extends React.Component {
               key={item.url}
               onKeyDown={this.handleKeyDown}
               onFocus={this.handleOnFocus}
+              onClick={item.onClick}
               linkRefs={this.addTabRef}
               active={item.url === currentUrl} />)
           )
