@@ -111,36 +111,33 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   // This test requires a rental assistance to be already present in the rental
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
+  test('should allow a rental assistance to be deleted', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
 
-  // TODO: Uncomment the below test when the Salesforce work for the custom API
-  // endpoint that allows rental assistance deletion is deployed to Prod.
-  // test('should allow a rental assistance to be deleted', async () => {
-  //   let browser = await puppeteer.launch({ headless: HEADLESS })
-  //   let page = await browser.newPage()
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-  //   await sharedSteps.loginAsAgent(page)
-  //   await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+    // Record how many rental assistances are in the table before we attempt our delete
+    const prevTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
 
-  //   // Record how many rental assistances are in the table before we attempt our delete
-  //   const prevTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
+    // Click the Edit button on the first rental assistance
+    const firstRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:first-child'
+    await page.click(`${firstRentalAssistanceSelector} button.action-link`)
 
-  //   // Click the Edit button on the first rental assistance
-  //   const firstRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:first-child'
-  //   await page.click(`${firstRentalAssistanceSelector} button.action-link`)
+    // Wait for the edit rental assistance form to open
+    await page.waitForSelector('.rental-assistance-edit-form')
 
-  //   // Wait for the edit rental assistance form to open
-  //   await page.waitForSelector('.rental-assistance-edit-form')
+    // Delete the rental assistance
+    await page.click('.rental-assistance-edit-form button.alert-fill')
 
-  //   // Delete the rental assistance
-  //   await page.click('.rental-assistance-edit-form button.alert-fill')
+    // Wait for the API rental assistance delete call to complete
+    await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/rental-assistances'))
 
-  //   // Wait for the API rental assistance delete call to complete
-  //   await page.waitForResponse(request => request.url().includes('http://localhost:3000/api/v1/rental-assistances'))
+    // Check that the rental assistances table has decreased in size by one
+    const newTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
+    expect(newTableSize).toEqual(prevTableSize - 1)
 
-  //   // Check that the rental assistances table has decreased in size by one
-  //   const newTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
-  //   expect(newTableSize).toEqual(prevTableSize - 1)
-
-  //   await browser.close()
-  // }, DEFAULT_E2E_TIME_OUT)
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
 })
