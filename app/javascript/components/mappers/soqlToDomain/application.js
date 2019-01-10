@@ -29,7 +29,7 @@ export const mapApplication = (a) => {
     application_submission_type: a.Application_Submission_Type,
     application_submitted_date: a.Application_Submitted_Date,
     annual_income: a.Annual_Income,
-    confirmed_annual_income: a.Confirmed_Household_Annual_Income,
+    confirmed_household_annual_income: a.Confirmed_Household_Annual_Income,
     hh_total_income_with_assets_annual: a.HH_Total_Income_with_Assets_Annual,
     household_assets: a.Household_Assets,
     monthly_income: a.Monthly_Income,

@@ -44,8 +44,8 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group label='Confirmed Household Annual Income'>
-            <Text field='confirmed_annual_income'
+          <FormGrid.Group label='Confirmed Annual Income'>
+            <Text field='confirmed_household_annual_income'
               placeholder='Enter Amount'
             />
             <span className='form-note shift-up' id='household-annual-income'>
