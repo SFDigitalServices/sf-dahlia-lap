@@ -616,21 +616,19 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Household Annual Income
+                    Confirmed Annual Income
                   </label>
                   <input
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Enter Amount"
-                    value={110000}
+                    value={115000}
                   />
                   <span
                     className="form-note shift-up"
                     id="household-annual-income"
                   >
-                    Not Including % of Assets 
-                    <br />
-                    Please update with confirmed income
+                    Not Including % of Assets
                   </span>
                 </div>
               </div>
@@ -1162,6 +1160,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       "Application_Language": "English",
       "Application_Submission_Type": "Paper",
       "Application_Submitted_Date": "2018-06-21",
+      "Confirmed_Household_Annual_Income": 115000,
       "CreatedBy": Object {
         "Name": "Prod Vertiba",
         "attributes": Object {
@@ -1306,6 +1305,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "application_language": "English",
         "application_submission_type": "Paper",
         "application_submitted_date": "2018-06-21",
+        "confirmed_household_annual_income": 115000,
         "createdby": Object {
           "name": "Prod Vertiba",
         },
@@ -1744,6 +1744,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "application_language": "English",
                           "application_submission_type": "Paper",
                           "application_submitted_date": "2018-06-21",
+                          "confirmed_household_annual_income": 115000,
                           "createdby": Object {
                             "name": "Prod Vertiba",
                           },
@@ -2010,6 +2011,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "application_language": "English",
                               "application_submission_type": "Paper",
                               "application_submitted_date": "2018-06-21",
+                              "confirmed_household_annual_income": 115000,
                               "createdby": Object {
                                 "name": "Prod Vertiba",
                               },
@@ -2161,6 +2163,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "application_language": "English",
                                 "application_submission_type": "Paper",
                                 "application_submitted_date": "2018-06-21",
+                                "confirmed_household_annual_income": 115000,
                                 "createdby": Object {
                                   "name": "Prod Vertiba",
                                 },
@@ -2321,6 +2324,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "application_language": "English",
                                   "application_submission_type": "Paper",
                                   "application_submitted_date": "2018-06-21",
+                                  "confirmed_household_annual_income": 115000,
                                   "createdby": Object {
                                     "name": "Prod Vertiba",
                                   },
@@ -2483,6 +2487,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "application_language": "English",
                                     "application_submission_type": "Paper",
                                     "application_submitted_date": "2018-06-21",
+                                    "confirmed_household_annual_income": 115000,
                                     "createdby": Object {
                                       "name": "Prod Vertiba",
                                     },
@@ -2677,6 +2682,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "application_language": "English",
                                           "application_submission_type": "Paper",
                                           "application_submitted_date": "2018-06-21",
+                                          "confirmed_household_annual_income": 115000,
                                           "createdby": Object {
                                             "name": "Prod Vertiba",
                                           },
@@ -3116,6 +3122,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "application_language": "English",
                                       "application_submission_type": "Paper",
                                       "application_submitted_date": "2018-06-21",
+                                      "confirmed_household_annual_income": 115000,
                                       "createdby": Object {
                                         "name": "Prod Vertiba",
                                       },
@@ -3296,6 +3303,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "application_language": "English",
                                         "application_submission_type": "Paper",
                                         "application_submitted_date": "2018-06-21",
+                                        "confirmed_household_annual_income": 115000,
                                         "createdby": Object {
                                           "name": "Prod Vertiba",
                                         },
@@ -3477,6 +3485,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "application_language": "English",
                                               "application_submission_type": "Paper",
                                               "application_submitted_date": "2018-06-21",
+                                              "confirmed_household_annual_income": 115000,
                                               "createdby": Object {
                                                 "name": "Prod Vertiba",
                                               },
@@ -3656,6 +3665,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "application_language": "English",
                                                 "application_submission_type": "Paper",
                                                 "application_submitted_date": "2018-06-21",
+                                                "confirmed_household_annual_income": 115000,
                                                 "createdby": Object {
                                                   "name": "Prod Vertiba",
                                                 },
@@ -3810,6 +3820,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "application_language": "English",
                                                 "application_submission_type": "Paper",
                                                 "application_submitted_date": "2018-06-21",
+                                                "confirmed_household_annual_income": 115000,
                                                 "createdby": Object {
                                                   "name": "Prod Vertiba",
                                                 },
@@ -3989,6 +4000,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "application_language": "English",
                                                   "application_submission_type": "Paper",
                                                   "application_submitted_date": "2018-06-21",
+                                                  "confirmed_household_annual_income": 115000,
                                                   "createdby": Object {
                                                     "name": "Prod Vertiba",
                                                   },
@@ -4144,6 +4156,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "application_language": "English",
                                                   "application_submission_type": "Paper",
                                                   "application_submitted_date": "2018-06-21",
+                                                  "confirmed_household_annual_income": 115000,
                                                   "createdby": Object {
                                                     "name": "Prod Vertiba",
                                                   },
@@ -4552,6 +4565,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "application_language": "English",
                                         "application_submission_type": "Paper",
                                         "application_submitted_date": "2018-06-21",
+                                        "confirmed_household_annual_income": 115000,
                                         "createdby": Object {
                                           "name": "Prod Vertiba",
                                         },
@@ -5420,6 +5434,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "application_language": "English",
                                                   "application_submission_type": "Paper",
                                                   "application_submitted_date": "2018-06-21",
+                                                  "confirmed_household_annual_income": 115000,
                                                   "createdby": Object {
                                                     "name": "Prod Vertiba",
                                                   },
@@ -5739,7 +5754,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     className="form-grid_item small-12 medium-6 large-3 column"
                                                   >
                                                     <Component
-                                                      label="Household Annual Income"
+                                                      label="Confirmed Annual Income"
                                                     >
                                                       <div
                                                         className="form-group"
@@ -5747,10 +5762,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           htmlFor=""
                                                         >
-                                                          Household Annual Income
+                                                          Confirmed Annual Income
                                                         </label>
                                                         <r
-                                                          field="annual_income"
+                                                          field="confirmed_household_annual_income"
                                                           placeholder="Enter Amount"
                                                         >
                                                           <t
@@ -5780,7 +5795,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
                                                               placeholder="Enter Amount"
-                                                              value={110000}
+                                                              value={115000}
                                                             />
                                                           </t>
                                                         </r>
@@ -5788,9 +5803,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           className="form-note shift-up"
                                                           id="household-annual-income"
                                                         >
-                                                          Not Including % of Assets 
-                                                          <br />
-                                                          Please update with confirmed income
+                                                          Not Including % of Assets
                                                         </span>
                                                       </div>
                                                     </Component>
@@ -5969,6 +5982,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "application_language": "English",
                                                   "application_submission_type": "Paper",
                                                   "application_submitted_date": "2018-06-21",
+                                                  "confirmed_household_annual_income": 115000,
                                                   "createdby": Object {
                                                     "name": "Prod Vertiba",
                                                   },
@@ -6301,6 +6315,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 "application_language": "English",
                                                                 "application_submission_type": "Paper",
                                                                 "application_submitted_date": "2018-06-21",
+                                                                "confirmed_household_annual_income": 115000,
                                                                 "createdby": Object {
                                                                   "name": "Prod Vertiba",
                                                                 },
@@ -7086,6 +7101,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "application_language": "English",
                                                     "application_submission_type": "Paper",
                                                     "application_submitted_date": "2018-06-21",
+                                                    "confirmed_household_annual_income": 115000,
                                                     "createdby": Object {
                                                       "name": "Prod Vertiba",
                                                     },
@@ -7737,6 +7753,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "application_language": "English",
                                               "application_submission_type": "Paper",
                                               "application_submitted_date": "2018-06-21",
+                                              "confirmed_household_annual_income": 115000,
                                               "createdby": Object {
                                                 "name": "Prod Vertiba",
                                               },
@@ -8149,6 +8166,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "application_language": "English",
                                           "application_submission_type": "Paper",
                                           "application_submitted_date": "2018-06-21",
+                                          "confirmed_household_annual_income": 115000,
                                           "createdby": Object {
                                             "name": "Prod Vertiba",
                                           },
