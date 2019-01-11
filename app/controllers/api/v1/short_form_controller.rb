@@ -33,6 +33,7 @@ class Api::V1::ShortFormController < ApiController
             :hasMilitaryService,
             :hasDevelopmentalDisability,
             :annualIncome,
+            :confirmedHouseholdAnnualIncome,
             :monthlyIncome,
             :HHTotalIncomeWithAssets,
             :householdAssets,
