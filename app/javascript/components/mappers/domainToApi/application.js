@@ -24,6 +24,7 @@ export const applicationFieldMapper = {
   has_developmental_disability: 'hasDevelopmentalDisability',
   answered_community_screening: 'answeredCommunityScreening',
   annual_income: 'annualIncome',
+  confirmed_household_annual_income: 'confirmedHouseholdAnnualIncome',
   monthly_income: 'monthlyIncome',
   hh_total_income_with_assets_annual: 'HHTotalIncomeWithAssets',
   household_assets: 'householdAssets',
