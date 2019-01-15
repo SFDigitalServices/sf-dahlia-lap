@@ -53,6 +53,7 @@ Array [
             <tr
               aria-expanded={false}
               className="tr-expand"
+              id={null}
             >
               <td
                 className=""
@@ -77,6 +78,7 @@ Array [
               <td>
                 <button
                   className="button button-link action-link"
+                  id={undefined}
                   onClick={[Function]}
                   type="button"
                 >
@@ -87,6 +89,7 @@ Array [
             <tr
               aria-hidden={true}
               className="tr-expand-content"
+              id={null}
             >
               <td
                 className="td-expand-nested no-padding"
@@ -704,6 +707,7 @@ Array [
             <tr
               aria-expanded={false}
               className="tr-expand"
+              id={null}
             >
               <td
                 className=""
@@ -728,6 +732,7 @@ Array [
               <td>
                 <button
                   className="button button-link action-link"
+                  id={undefined}
                   onClick={[Function]}
                   type="button"
                 >
@@ -738,6 +743,7 @@ Array [
             <tr
               aria-hidden={true}
               className="tr-expand-content"
+              id={null}
             >
               <td
                 className="td-expand-nested no-padding"
@@ -1085,6 +1091,7 @@ Array [
             <tr
               aria-expanded={false}
               className="tr-expand"
+              id={null}
             >
               <td
                 className=""
@@ -1109,6 +1116,7 @@ Array [
               <td>
                 <button
                   className="button button-link action-link"
+                  id={undefined}
                   onClick={[Function]}
                   type="button"
                 >
@@ -1119,6 +1127,7 @@ Array [
             <tr
               aria-hidden={true}
               className="tr-expand-content"
+              id={null}
             >
               <td
                 className="td-expand-nested no-padding"

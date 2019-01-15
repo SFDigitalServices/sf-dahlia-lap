@@ -18,10 +18,12 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference }) => {
             TODO: Add ability for users to change application member on pref.
             For now, we just show the current app member in a read-only field.
           */}
-          <input value={memberNameFromPref(preference)} disabled='true' />
+          <input value={memberNameFromPref(preference)} disabled />
         </FormItem>
         <FormItem label='Status'>
-          <SelectStatus preferenceIndex={preferenceIndex} />
+          <SelectStatus
+            preferenceIndex={preferenceIndex}
+            className='preference-status-select' />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>

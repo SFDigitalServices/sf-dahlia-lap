@@ -15,7 +15,9 @@ export const RentBurdenedPanel = ({ preferenceIndex }) => (
       <Text field='total_monthly_rent' type='number' />
     </FormItem>
     <FormItem label='Status'>
-      <SelectStatus preferenceIndex={preferenceIndex} />
+      <SelectStatus
+        preferenceIndex={preferenceIndex}
+        className='preference-status-select' />
     </FormItem>
   </FormGrid.Row>
 )
