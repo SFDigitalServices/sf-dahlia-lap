@@ -56,6 +56,7 @@ const application = {
     "Name": "Prod Vertiba"
   },
   "Annual_Income": 110000,
+  "Confirmed_Household_Annual_Income": 115000,
   "Monthly_Income": null,
   "HH_Total_IncomeWith_Assets": null,
   "Household_Assets": null,
