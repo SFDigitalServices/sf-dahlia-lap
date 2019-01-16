@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, reject, isEmpty, overSome, findIndex, orderBy } from 'lodash'
+import { map, reject, isEmpty, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -85,7 +85,7 @@ const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row
 const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
   return (!expanded && hasExpanderButton(prefName) &&
-    <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
+    <ExpanderButton label='Edit' onClick={expandedRowToggler} id={`${kebabCase(prefName)}-edit`} />)
 }
 
 const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
@@ -96,6 +96,7 @@ const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, form
         <ExpandableTable
           columns={columns}
           rows={rows}
+          rowKeyIndex={1}
           expanderRenderer={expanderAction}
           expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
         />

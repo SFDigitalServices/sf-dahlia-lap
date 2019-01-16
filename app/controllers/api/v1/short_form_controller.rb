@@ -145,6 +145,7 @@ class Api::V1::ShortFormController < ApiController
               certificateNumber
               naturalKey
               preferenceProof
+              lwPreferenceProof
               preferenceName
               individualPreference
               optOut

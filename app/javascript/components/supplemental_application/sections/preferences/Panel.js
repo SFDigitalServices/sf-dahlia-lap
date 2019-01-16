@@ -49,6 +49,7 @@ const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi
         <PreferencePanel
           preferenceIndex={preferenceIndex}
           preference={preference}
+          formApi={formApi}
         />
         <FormGrid.Row expand={false}>
           <div className='form-grid_item column'>
