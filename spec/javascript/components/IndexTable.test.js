@@ -10,12 +10,27 @@ describe('IndexIndexTable', () => {
     { first_name: 'xxx2', last_name: 'zzz2' }
   ]
 
+  const emptyResults = [
+    {first_name: undefined, last_name: undefined, lottery_date: undefined}
+  ]
+
   const fields = { 'first_name': null, 'last_name': null }
+
+  const fieldsForEmptyResults = { 'first_name': null, 'last_name': null, 'lottery_date': null }
 
   // Jest Snapshot
   test('Should render IndexTable', () => {
     const component = renderer.create(
       <IndexTable results={results} fields={fields} />
+    )
+
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('Should render Empty string if values are undefined', () => {
+    const component = renderer.create(
+      <IndexTable results={emptyResults} fields={fieldsForEmptyResults} />
     )
 
     let tree = component.toJSON()

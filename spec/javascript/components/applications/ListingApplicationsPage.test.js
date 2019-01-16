@@ -34,6 +34,7 @@ const applications = [
     }
   }
 ]
+
 describe('ListingApplicationsPage', () => {
   test('should render succesfully', () => {
     const listing = { Id: 1, Name: 'xxxxListing' }
