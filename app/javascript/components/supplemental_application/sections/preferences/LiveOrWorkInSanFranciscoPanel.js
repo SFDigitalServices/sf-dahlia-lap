@@ -36,6 +36,10 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
         prefProofTypeOptions: getLWPrefProofTypeOptions(individualPrefName)
       }
     })
+    // Reset the preference proof if the individual preference updates
+    this.props.formApi.setValue(`preferences[${this.props.preferenceIndex}].lw_type_of_proof`, null)
+    // Type of proof needs to be null if lw_type_of_proof is null, otherwise it will overwrite the value.
+    this.props.formApi.setValue(`preferences[${this.props.preferenceIndex}].type_of_proof`, null)
   }
 
   render () {
@@ -61,15 +65,20 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
               TODO: Add ability for users to change application member on pref.
               For now, we just show the current app member in a read-only field.
             */}
-            <input value={memberNameFromPref(preference)} disabled='true' />
+            <input value={memberNameFromPref(preference)} disabled />
           </FormItem>
           <FormItem label='Type of Proof'>
-            <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={this.state.prefProofTypeOptions} />
+            <Select
+              field={buildFieldId(preferenceIndex, 'lw_type_of_proof')}
+              options={this.state.prefProofTypeOptions}
+              className='type-of-proof-select' />
           </FormItem>
         </FormGrid.Row>
         <FormGrid.Row expand={false}>
           <FormItem label='Status'>
-            <SelectStatus preferenceIndex={preferenceIndex} />
+            <SelectStatus
+              preferenceIndex={preferenceIndex}
+              className={'preference-status-select'} />
           </FormItem>
         </FormGrid.Row>
         <FormGrid.Row expand={false}>
