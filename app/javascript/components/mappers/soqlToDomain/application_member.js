@@ -1,8 +1,8 @@
 export const mapApplicationMember = (value) => {
   return {
     id: value.Id,
-    first_name: value.First_Name ? value.First_Name : 'blah',
-    last_name: value.Last_Name ? value.Last_Name : 'blah',
+    first_name: value.First_Name,
+    last_name: value.Last_Name,
     middle_name: value.Middle_Name,
     name: value.Name,
     date_of_birth: dateOfBirthToDomain(value.Date_of_Birth),

@@ -31,7 +31,8 @@ class IndexTable extends React.Component {
           let val = this.state.data[cellInfo.index][cellInfo.column.id]
           if (cellInfo.column.Header === 'Lottery Date') {
             // cheap way of knowing when to parse date fields
-            val = moment(val).format('L')
+            // only parse the date if the value is not undefined.
+            val = val ? moment(val).format('L') : undefined
           }
           return <IndexTableCell {...{ attrs, val }} />
         },
