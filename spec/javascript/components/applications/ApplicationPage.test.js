@@ -1,25 +1,30 @@
 import React from 'react'
 import { clone } from 'lodash'
-import renderer from 'react-test-renderer'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import sharedHooks from '../../support/sharedHooks'
 import domainApplication from '../../fixtures/domain_application'
+import { mount } from 'enzyme'
 
-describe('ApplicationPage for app without flagged apps', () => {
+describe('ApplicationPage', () => {
   describe('should render', () => {
     sharedHooks.useFakeTimers()
-    test('successfully without flagged apps table', () => {
-      const fileBaseUrl = 'http:/www.someurl.com'
-      const wrapper = renderer.create(
+    const flaggedAppCardSelector = '#content-card-flagged_applications'
+
+    test('application without flagged applications', () => {
+      const fileBaseUrl = 'http://www.someurl.com'
+      expect(domainApplication.flagged_applications).toHaveLength(0)
+
+      const wrapper = mount(
         <ApplicationPage
           application={domainApplication}
           file_base_url={fileBaseUrl} />
       )
-
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      // Flagged application content card should not render
+      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
+      expect(wrapper).toMatchSnapshot()
     })
 
-    test('successfully with flagged apps table', () => {
+    test('application with flagged applications', () => {
       const applicationWithFlagged = clone(domainApplication)
       applicationWithFlagged.flagged_applications = [{
         'flagged_record':
@@ -30,16 +35,22 @@ describe('ApplicationPage for app without flagged apps', () => {
           }
       }]
 
-      expect(applicationWithFlagged.flagged_applications).toHaveLength(1)
+      // expect(applicationWithFlagged.flagged_applications).toHaveLength(1)
       expect(applicationWithFlagged.flagged_applications[0].flagged_record).toBeTruthy()
 
-      const fileBaseUrl = 'http:/www.someurl.com'
-      const wrapper = renderer.create(
+      const fileBaseUrl = 'http://www.someurl.com'
+      const wrapper = mount(
         <ApplicationPage
           application={applicationWithFlagged}
           file_base_url={fileBaseUrl} />
       )
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      // Flagged application content card should render
+      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
+      // Check that the row is there and contains the right rule name.
+      expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
+      expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()).toEqual('Name + DOB')
+
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })

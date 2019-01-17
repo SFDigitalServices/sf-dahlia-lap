@@ -47,7 +47,7 @@ describe('IndexIndexTable', () => {
     // Take snapshot and save it
     expect(wrapper).toMatchSnapshot() // no need to convert to JSON when using Enzyme wrappers
 
-    // Using Enzyme to check a property of a component. No need here, since we use snpashot.
+    // Using Enzyme to check a property of a component. No need here, since we use snapshot.
     expect(wrapper.find('ReactTable').props().expanded['0']).toBeUndefined()
 
     // Simulate interaction
