@@ -11,6 +11,8 @@ const payload = {
     householdVouchersSubsidies: 'true',
     agreeToTerms: true,
     numberOfDependents: 2,
+    numberOfSeniors: 3,
+    numberOfMinors: 4,
     listingID: 'a0W0x000000GhJUEA0',
     monthlyIncome: null,
     hasSenior: undefined,
