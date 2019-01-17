@@ -73,7 +73,9 @@ const fields = {
   'alternate_contact.alternate_contact_type_other': {
     'label': 'Relationship - Other'
   },
-  'number_of_dependents': null
+  'number_of_dependents': null,
+  'number_of_seniors': null,
+  'number_of_minors': null
 }
 
 export default fields
