@@ -4,11 +4,24 @@ import ApplicationPage from 'components/applications/ApplicationPage'
 import sharedHooks from '../../support/sharedHooks'
 import domainApplication from '../../fixtures/domain_application'
 import { mount } from 'enzyme'
+import renderer from 'react-test-renderer'
 
 describe('ApplicationPage', () => {
   describe('should render', () => {
     sharedHooks.useFakeTimers()
     const flaggedAppCardSelector = '#content-card-flagged_applications'
+
+    test('without error and as expected', () => {
+      const fileBaseUrl = 'http://www.someurl.com'
+
+      const wrapper = renderer.create(
+        <ApplicationPage
+          application={domainApplication}
+          file_base_url={fileBaseUrl} />
+      )
+      // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
+      expect(wrapper.toJSON()).toMatchSnapshot()
+    })
 
     test('application without flagged applications', () => {
       const fileBaseUrl = 'http://www.someurl.com'
@@ -21,7 +34,6 @@ describe('ApplicationPage', () => {
       )
       // Flagged application content card should not render
       expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
-      expect(wrapper).toMatchSnapshot()
     })
 
     test('application with flagged applications', () => {
@@ -46,8 +58,6 @@ describe('ApplicationPage', () => {
       // Check that the row is there and contains the right rule name.
       expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
       expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()).toEqual('Name + DOB')
-
-      expect(wrapper).toMatchSnapshot()
     })
   })
 })
