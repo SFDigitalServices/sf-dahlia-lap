@@ -35,9 +35,6 @@ describe('ApplicationPage', () => {
           }
       }]
 
-      // expect(applicationWithFlagged.flagged_applications).toHaveLength(1)
-      expect(applicationWithFlagged.flagged_applications[0].flagged_record).toBeTruthy()
-
       const fileBaseUrl = 'http://www.someurl.com'
       const wrapper = mount(
         <ApplicationPage
