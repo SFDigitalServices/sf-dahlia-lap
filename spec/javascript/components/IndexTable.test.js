@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import IndexTable from 'components/IndexTable'
 
 // A bit verbose, but just to ilustrate how it works
-describe('IndexIndexTable', () => {
+describe('IndexTable', () => {
   const results = [
     { first_name: 'xxx1', last_name: 'zzz1' },
     { first_name: 'xxx2', last_name: 'zzz2' }
@@ -19,7 +19,7 @@ describe('IndexIndexTable', () => {
   const fieldsForEmptyResults = { 'first_name': null, 'last_name': null, 'lottery_date': null }
 
   // Jest Snapshot
-  test('Should render IndexTable', () => {
+  test('should render IndexTable', () => {
     const component = renderer.create(
       <IndexTable results={results} fields={fields} />
     )
@@ -28,7 +28,7 @@ describe('IndexIndexTable', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('Should render Empty string if values are undefined', () => {
+  test('should render Empty string if values are undefined', () => {
     const wrapper = mount(
       <IndexTable results={emptyResults} fields={fieldsForEmptyResults} />
     )
@@ -42,7 +42,7 @@ describe('IndexIndexTable', () => {
   })
 
   // Enzyme-Jest Snapshot
-  test('Should render IndexTable', () => {
+  test('rows should be expandable', () => {
     // Mount renders the whole component tree. Mount is good for testing interactions.
     const wrapper = mount(
       <IndexTable results={results} fields={fields} linls={['View Listing']} />
