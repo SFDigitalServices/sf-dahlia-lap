@@ -16,7 +16,7 @@ import Context from './context'
 import mapProps from '~/utils/mapProps'
 import { SALESFORCE_DATE_FORMAT } from '~/utils/utils'
 
-const ROWS_PER_PAGE = 5
+const ROWS_PER_PAGE = 20
 
 class LeaseUpApplicationsPage extends React.Component {
   state = {
