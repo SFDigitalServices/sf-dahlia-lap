@@ -29,12 +29,16 @@ describe('IndexIndexTable', () => {
   })
 
   test('Should render Empty string if values are undefined', () => {
-    const component = renderer.create(
+    const wrapper = mount(
       <IndexTable results={emptyResults} fields={fieldsForEmptyResults} />
     )
 
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+    const firstRow = wrapper.find('div.rt-tbody div.rt-tr-group').first()
+    // Filter out the arrow that expands the row.
+    firstRow.find('div.rt-td').not('.rt-expandable').forEach((node) => {
+      // Expect all other cellts to be empty
+      expect(node.text()).toEqual('')
+    })
   })
 
   // Enzyme-Jest Snapshot
