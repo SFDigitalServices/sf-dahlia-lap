@@ -3,7 +3,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import IndexTable from 'components/IndexTable'
 
-// A bit verbose, but just to ilustrate how it works
+// A bit verbose, but just to illustrate how it works
 describe('IndexTable', () => {
   const results = [
     { first_name: 'xxx1', last_name: 'zzz1' },
@@ -28,7 +28,7 @@ describe('IndexTable', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('should render Empty string if values are undefined', () => {
+  test('should render empty string if values are undefined', () => {
     const wrapper = mount(
       <IndexTable results={emptyResults} fields={fieldsForEmptyResults} />
     )
@@ -36,7 +36,7 @@ describe('IndexTable', () => {
     const firstRow = wrapper.find('div.rt-tbody div.rt-tr-group').first()
     // Filter out the arrow that expands the row.
     firstRow.find('div.rt-td').not('.rt-expandable').forEach((node) => {
-      // Expect all other cellts to be empty
+      // Expect all other cells to be empty
       expect(node.text()).toEqual('')
     })
   })
@@ -45,11 +45,8 @@ describe('IndexTable', () => {
   test('rows should be expandable', () => {
     // Mount renders the whole component tree. Mount is good for testing interactions.
     const wrapper = mount(
-      <IndexTable results={results} fields={fields} linls={['View Listing']} />
+      <IndexTable results={results} fields={fields} links={['View Listing']} />
     )
-
-    // Take snapshot and save it
-    expect(wrapper).toMatchSnapshot() // no need to convert to JSON when using Enzyme wrappers
 
     // Using Enzyme to check a property of a component. No need here, since we use snapshot.
     expect(wrapper.find('ReactTable').props().expanded['0']).toBeUndefined()

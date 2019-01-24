@@ -10,7 +10,7 @@ const allPreferencesSelected = (formApi, listingPreferences) => {
 }
 
 const hasHouseholdMembers = (formApi) => {
-  let hasPrimaryApplicant = !isEmpty(formApi.values) && formApi.values.applicant.first_name
+  let hasPrimaryApplicant = !isEmpty(formApi.values) && !isEmpty(formApi.values.applicant) && formApi.values.applicant.first_name
   let hasHouseholdMembers = !isEmpty(formApi.values) && !isEmpty(formApi.values.household_members)
   return (hasHouseholdMembers || hasPrimaryApplicant)
 }

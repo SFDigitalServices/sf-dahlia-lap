@@ -10,7 +10,7 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (p) => {
-  if (!isEmpty(p) && p.application_member) {
+  if (!isEmpty(p) && !isEmpty(p.application_member)) {
     return `${p.application_member.first_name} ${p.application_member.last_name}`
   } else {
     return null
