@@ -56,6 +56,8 @@ describe('SupplementalApplicationPage', () => {
   test('it saves demographics correctly', async () => {
     const payload = cloneDeep(mockShortFormSubmitPayload)
     payload.numberOfDependents = 1
+    payload.numberOfSeniors = 2
+    payload.numberOfMinors = 3
     payload.primaryApplicant.maritalStatus = 'Domestic Partner'
     const wrapper = mount(
       <SupplementalApplicationPage
@@ -65,6 +67,8 @@ describe('SupplementalApplicationPage', () => {
     )
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
+    wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
+    wrapper.find('#demographics-minors select option[value=4]').simulate('change')
     wrapper.find('#demographics-marital-status select option[value=3]').simulate('change')
     wrapper.find('form').first().simulate('submit')
 

@@ -1030,6 +1030,184 @@ Array [
                   <label
                     htmlFor=""
                   >
+                    Number of Seniors
+                  </label>
+                  <select
+                    id="demographics-seniors"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={4}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      0
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={2}
+                    >
+                      1
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={3}
+                    >
+                      2
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={4}
+                    >
+                      3
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={5}
+                    >
+                      4
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={6}
+                    >
+                      5
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={7}
+                    >
+                      6
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={8}
+                    >
+                      7
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={9}
+                    >
+                      8
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={10}
+                    >
+                      9
+                    </option>
+                  </select>
+                  <span
+                    className="form-note shift-up"
+                    id="household-annual-income"
+                  >
+                    Check the listing to verify the age cutoff for seniors.
+                  </span>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
+                    Number of Minors
+                  </label>
+                  <select
+                    id="demographics-minors"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    value={5}
+                  >
+                    <option
+                      disabled={true}
+                      value={0}
+                    >
+                      Select One
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={1}
+                    >
+                      0
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={2}
+                    >
+                      1
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={3}
+                    >
+                      2
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={4}
+                    >
+                      3
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={5}
+                    >
+                      4
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={6}
+                    >
+                      5
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={7}
+                    >
+                      6
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={8}
+                    >
+                      7
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={9}
+                    >
+                      8
+                    </option>
+                    <option
+                      disabled={undefined}
+                      value={10}
+                    >
+                      9
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    htmlFor=""
+                  >
                     Primary Applicant Marital Status
                   </label>
                   <select
@@ -1192,6 +1370,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       "Monthly_Income": null,
       "Name": "APP-00191270",
       "Number_of_Dependents": 2,
+      "Number_of_Minors": 4,
+      "Number_of_Seniors": 3,
       "Referral_Source": null,
       "Status": "Submitted",
       "Terms_Acknowledged": true,
@@ -1368,6 +1548,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "monthly_income": null,
         "name": "APP-00191270",
         "number_of_dependents": 2,
+        "number_of_minors": 4,
+        "number_of_seniors": 3,
         "preferences": Array [
           Object {
             "application": undefined,
@@ -1807,6 +1989,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "monthly_income": null,
                           "name": "APP-00191270",
                           "number_of_dependents": 2,
+                          "number_of_minors": 4,
+                          "number_of_seniors": 3,
                           "preferences": Array [
                             Object {
                               "application": undefined,
@@ -2074,6 +2258,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "monthly_income": null,
                               "name": "APP-00191270",
                               "number_of_dependents": 2,
+                              "number_of_minors": 4,
+                              "number_of_seniors": 3,
                               "preferences": Array [
                                 Object {
                                   "application": undefined,
@@ -2226,6 +2412,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "monthly_income": null,
                                 "name": "APP-00191270",
                                 "number_of_dependents": 2,
+                                "number_of_minors": 4,
+                                "number_of_seniors": 3,
                                 "preferences": Array [
                                   Object {
                                     "application": undefined,
@@ -2387,6 +2575,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "monthly_income": null,
                                   "name": "APP-00191270",
                                   "number_of_dependents": 2,
+                                  "number_of_minors": 4,
+                                  "number_of_seniors": 3,
                                   "preferences": Array [
                                     Object {
                                       "application": undefined,
@@ -2550,6 +2740,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "monthly_income": null,
                                     "name": "APP-00191270",
                                     "number_of_dependents": 2,
+                                    "number_of_minors": 4,
+                                    "number_of_seniors": 3,
                                     "preferences": Array [
                                       Object {
                                         "application": undefined,
@@ -2745,6 +2937,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "monthly_income": null,
                                           "name": "APP-00191270",
                                           "number_of_dependents": 2,
+                                          "number_of_minors": 4,
+                                          "number_of_seniors": 3,
                                           "preferences": Array [
                                             Object {
                                               "application": undefined,
@@ -3185,6 +3379,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "monthly_income": null,
                                       "name": "APP-00191270",
                                       "number_of_dependents": 2,
+                                      "number_of_minors": 4,
+                                      "number_of_seniors": 3,
                                       "preferences": Array [
                                         Object {
                                           "application": undefined,
@@ -3366,6 +3562,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "monthly_income": null,
                                         "name": "APP-00191270",
                                         "number_of_dependents": 2,
+                                        "number_of_minors": 4,
+                                        "number_of_seniors": 3,
                                         "preferences": Array [
                                           Object {
                                             "application": undefined,
@@ -3548,6 +3746,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "monthly_income": null,
                                               "name": "APP-00191270",
                                               "number_of_dependents": 2,
+                                              "number_of_minors": 4,
+                                              "number_of_seniors": 3,
                                               "preferences": Array [
                                                 Object {
                                                   "application": undefined,
@@ -3728,6 +3928,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "monthly_income": null,
                                                 "name": "APP-00191270",
                                                 "number_of_dependents": 2,
+                                                "number_of_minors": 4,
+                                                "number_of_seniors": 3,
                                                 "preferences": Array [
                                                   Object {
                                                     "application": undefined,
@@ -3883,6 +4085,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "monthly_income": null,
                                                 "name": "APP-00191270",
                                                 "number_of_dependents": 2,
+                                                "number_of_minors": 4,
+                                                "number_of_seniors": 3,
                                                 "preferences": Array [
                                                   Object {
                                                     "application": undefined,
@@ -4063,6 +4267,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "monthly_income": null,
                                                   "name": "APP-00191270",
                                                   "number_of_dependents": 2,
+                                                  "number_of_minors": 4,
+                                                  "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
                                                       "application": undefined,
@@ -4219,6 +4425,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "monthly_income": null,
                                                   "name": "APP-00191270",
                                                   "number_of_dependents": 2,
+                                                  "number_of_minors": 4,
+                                                  "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
                                                       "application": undefined,
@@ -4629,6 +4837,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "monthly_income": null,
                                         "name": "APP-00191270",
                                         "number_of_dependents": 2,
+                                        "number_of_minors": 4,
+                                        "number_of_seniors": 3,
                                         "preferences": Array [
                                           Object {
                                             "application": undefined,
@@ -5498,6 +5708,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "monthly_income": null,
                                                   "name": "APP-00191270",
                                                   "number_of_dependents": 2,
+                                                  "number_of_minors": 4,
+                                                  "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
                                                       "application": undefined,
@@ -6046,6 +6258,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "monthly_income": null,
                                                   "name": "APP-00191270",
                                                   "number_of_dependents": 2,
+                                                  "number_of_minors": 4,
+                                                  "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
                                                       "application": undefined,
@@ -6379,6 +6593,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 "monthly_income": null,
                                                                 "name": "APP-00191270",
                                                                 "number_of_dependents": 2,
+                                                                "number_of_minors": 4,
+                                                                "number_of_seniors": 3,
                                                                 "preferences": Array [
                                                                   Object {
                                                                     "application": undefined,
@@ -7165,6 +7381,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "monthly_income": null,
                                                     "name": "APP-00191270",
                                                     "number_of_dependents": 2,
+                                                    "number_of_minors": 4,
+                                                    "number_of_seniors": 3,
                                                     "preferences": Array [
                                                       Object {
                                                         "application": undefined,
@@ -7587,6 +7805,436 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     className="form-grid_item small-12 medium-6 large-3 column"
                                                   >
                                                     <Component
+                                                      label="Number of Seniors"
+                                                    >
+                                                      <div
+                                                        className="form-group"
+                                                      >
+                                                        <label
+                                                          htmlFor=""
+                                                        >
+                                                          Number of Seniors
+                                                        </label>
+                                                        <r
+                                                          field="number_of_seniors"
+                                                          id="demographics-seniors"
+                                                          options={
+                                                            Array [
+                                                              Object {
+                                                                "label": 0,
+                                                                "value": 0,
+                                                              },
+                                                              Object {
+                                                                "label": 1,
+                                                                "value": 1,
+                                                              },
+                                                              Object {
+                                                                "label": 2,
+                                                                "value": 2,
+                                                              },
+                                                              Object {
+                                                                "label": 3,
+                                                                "value": 3,
+                                                              },
+                                                              Object {
+                                                                "label": 4,
+                                                                "value": 4,
+                                                              },
+                                                              Object {
+                                                                "label": 5,
+                                                                "value": 5,
+                                                              },
+                                                              Object {
+                                                                "label": 6,
+                                                                "value": 6,
+                                                              },
+                                                              Object {
+                                                                "label": 7,
+                                                                "value": 7,
+                                                              },
+                                                              Object {
+                                                                "label": 8,
+                                                                "value": 8,
+                                                              },
+                                                              Object {
+                                                                "label": 9,
+                                                                "value": 9,
+                                                              },
+                                                            ]
+                                                          }
+                                                          placeholder="Select One"
+                                                        >
+                                                          <t
+                                                            fieldApi={
+                                                              Object {
+                                                                "doneValidatingField": [Function],
+                                                                "getError": [Function],
+                                                                "getSuccess": [Function],
+                                                                "getTouched": [Function],
+                                                                "getValue": [Function],
+                                                                "getWarning": [Function],
+                                                                "registerAsyncValidation": [Function],
+                                                                "reset": [Function],
+                                                                "setError": [Function],
+                                                                "setSuccess": [Function],
+                                                                "setTouched": [Function],
+                                                                "setValue": [Function],
+                                                                "setWarning": [Function],
+                                                                "submits": 0,
+                                                                "submitted": false,
+                                                                "validatingField": [Function],
+                                                              }
+                                                            }
+                                                            id="demographics-seniors"
+                                                            options={
+                                                              Array [
+                                                                Object {
+                                                                  "label": 0,
+                                                                  "value": 0,
+                                                                },
+                                                                Object {
+                                                                  "label": 1,
+                                                                  "value": 1,
+                                                                },
+                                                                Object {
+                                                                  "label": 2,
+                                                                  "value": 2,
+                                                                },
+                                                                Object {
+                                                                  "label": 3,
+                                                                  "value": 3,
+                                                                },
+                                                                Object {
+                                                                  "label": 4,
+                                                                  "value": 4,
+                                                                },
+                                                                Object {
+                                                                  "label": 5,
+                                                                  "value": 5,
+                                                                },
+                                                                Object {
+                                                                  "label": 6,
+                                                                  "value": 6,
+                                                                },
+                                                                Object {
+                                                                  "label": 7,
+                                                                  "value": 7,
+                                                                },
+                                                                Object {
+                                                                  "label": 8,
+                                                                  "value": 8,
+                                                                },
+                                                                Object {
+                                                                  "label": 9,
+                                                                  "value": 9,
+                                                                },
+                                                              ]
+                                                            }
+                                                            placeholder="Select One"
+                                                          >
+                                                            <select
+                                                              id="demographics-seniors"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              value={4}
+                                                            >
+                                                              <option
+                                                                disabled={true}
+                                                                key=""
+                                                                value={0}
+                                                              >
+                                                                Select One
+                                                              </option>
+                                                              <option
+                                                                key="0"
+                                                                value={1}
+                                                              >
+                                                                0
+                                                              </option>
+                                                              <option
+                                                                key="1"
+                                                                value={2}
+                                                              >
+                                                                1
+                                                              </option>
+                                                              <option
+                                                                key="2"
+                                                                value={3}
+                                                              >
+                                                                2
+                                                              </option>
+                                                              <option
+                                                                key="3"
+                                                                value={4}
+                                                              >
+                                                                3
+                                                              </option>
+                                                              <option
+                                                                key="4"
+                                                                value={5}
+                                                              >
+                                                                4
+                                                              </option>
+                                                              <option
+                                                                key="5"
+                                                                value={6}
+                                                              >
+                                                                5
+                                                              </option>
+                                                              <option
+                                                                key="6"
+                                                                value={7}
+                                                              >
+                                                                6
+                                                              </option>
+                                                              <option
+                                                                key="7"
+                                                                value={8}
+                                                              >
+                                                                7
+                                                              </option>
+                                                              <option
+                                                                key="8"
+                                                                value={9}
+                                                              >
+                                                                8
+                                                              </option>
+                                                              <option
+                                                                key="9"
+                                                                value={10}
+                                                              >
+                                                                9
+                                                              </option>
+                                                            </select>
+                                                          </t>
+                                                        </r>
+                                                        <span
+                                                          className="form-note shift-up"
+                                                          id="household-annual-income"
+                                                        >
+                                                          Check the listing to verify the age cutoff for seniors.
+                                                        </span>
+                                                      </div>
+                                                    </Component>
+                                                  </div>
+                                                </Component>
+                                                <Component>
+                                                  <div
+                                                    className="form-grid_item small-12 medium-6 large-3 column"
+                                                  >
+                                                    <Component
+                                                      label="Number of Minors"
+                                                    >
+                                                      <div
+                                                        className="form-group"
+                                                      >
+                                                        <label
+                                                          htmlFor=""
+                                                        >
+                                                          Number of Minors
+                                                        </label>
+                                                        <r
+                                                          field="number_of_minors"
+                                                          id="demographics-minors"
+                                                          options={
+                                                            Array [
+                                                              Object {
+                                                                "label": 0,
+                                                                "value": 0,
+                                                              },
+                                                              Object {
+                                                                "label": 1,
+                                                                "value": 1,
+                                                              },
+                                                              Object {
+                                                                "label": 2,
+                                                                "value": 2,
+                                                              },
+                                                              Object {
+                                                                "label": 3,
+                                                                "value": 3,
+                                                              },
+                                                              Object {
+                                                                "label": 4,
+                                                                "value": 4,
+                                                              },
+                                                              Object {
+                                                                "label": 5,
+                                                                "value": 5,
+                                                              },
+                                                              Object {
+                                                                "label": 6,
+                                                                "value": 6,
+                                                              },
+                                                              Object {
+                                                                "label": 7,
+                                                                "value": 7,
+                                                              },
+                                                              Object {
+                                                                "label": 8,
+                                                                "value": 8,
+                                                              },
+                                                              Object {
+                                                                "label": 9,
+                                                                "value": 9,
+                                                              },
+                                                            ]
+                                                          }
+                                                          placeholder="Select One"
+                                                        >
+                                                          <t
+                                                            fieldApi={
+                                                              Object {
+                                                                "doneValidatingField": [Function],
+                                                                "getError": [Function],
+                                                                "getSuccess": [Function],
+                                                                "getTouched": [Function],
+                                                                "getValue": [Function],
+                                                                "getWarning": [Function],
+                                                                "registerAsyncValidation": [Function],
+                                                                "reset": [Function],
+                                                                "setError": [Function],
+                                                                "setSuccess": [Function],
+                                                                "setTouched": [Function],
+                                                                "setValue": [Function],
+                                                                "setWarning": [Function],
+                                                                "submits": 0,
+                                                                "submitted": false,
+                                                                "validatingField": [Function],
+                                                              }
+                                                            }
+                                                            id="demographics-minors"
+                                                            options={
+                                                              Array [
+                                                                Object {
+                                                                  "label": 0,
+                                                                  "value": 0,
+                                                                },
+                                                                Object {
+                                                                  "label": 1,
+                                                                  "value": 1,
+                                                                },
+                                                                Object {
+                                                                  "label": 2,
+                                                                  "value": 2,
+                                                                },
+                                                                Object {
+                                                                  "label": 3,
+                                                                  "value": 3,
+                                                                },
+                                                                Object {
+                                                                  "label": 4,
+                                                                  "value": 4,
+                                                                },
+                                                                Object {
+                                                                  "label": 5,
+                                                                  "value": 5,
+                                                                },
+                                                                Object {
+                                                                  "label": 6,
+                                                                  "value": 6,
+                                                                },
+                                                                Object {
+                                                                  "label": 7,
+                                                                  "value": 7,
+                                                                },
+                                                                Object {
+                                                                  "label": 8,
+                                                                  "value": 8,
+                                                                },
+                                                                Object {
+                                                                  "label": 9,
+                                                                  "value": 9,
+                                                                },
+                                                              ]
+                                                            }
+                                                            placeholder="Select One"
+                                                          >
+                                                            <select
+                                                              id="demographics-minors"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              value={5}
+                                                            >
+                                                              <option
+                                                                disabled={true}
+                                                                key=""
+                                                                value={0}
+                                                              >
+                                                                Select One
+                                                              </option>
+                                                              <option
+                                                                key="0"
+                                                                value={1}
+                                                              >
+                                                                0
+                                                              </option>
+                                                              <option
+                                                                key="1"
+                                                                value={2}
+                                                              >
+                                                                1
+                                                              </option>
+                                                              <option
+                                                                key="2"
+                                                                value={3}
+                                                              >
+                                                                2
+                                                              </option>
+                                                              <option
+                                                                key="3"
+                                                                value={4}
+                                                              >
+                                                                3
+                                                              </option>
+                                                              <option
+                                                                key="4"
+                                                                value={5}
+                                                              >
+                                                                4
+                                                              </option>
+                                                              <option
+                                                                key="5"
+                                                                value={6}
+                                                              >
+                                                                5
+                                                              </option>
+                                                              <option
+                                                                key="6"
+                                                                value={7}
+                                                              >
+                                                                6
+                                                              </option>
+                                                              <option
+                                                                key="7"
+                                                                value={8}
+                                                              >
+                                                                7
+                                                              </option>
+                                                              <option
+                                                                key="8"
+                                                                value={9}
+                                                              >
+                                                                8
+                                                              </option>
+                                                              <option
+                                                                key="9"
+                                                                value={10}
+                                                              >
+                                                                9
+                                                              </option>
+                                                            </select>
+                                                          </t>
+                                                        </r>
+                                                      </div>
+                                                    </Component>
+                                                  </div>
+                                                </Component>
+                                                <Component>
+                                                  <div
+                                                    className="form-grid_item small-12 medium-6 large-3 column"
+                                                  >
+                                                    <Component
                                                       label="Primary Applicant Marital Status"
                                                     >
                                                       <div
@@ -7817,6 +8465,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "monthly_income": null,
                                               "name": "APP-00191270",
                                               "number_of_dependents": 2,
+                                              "number_of_minors": 4,
+                                              "number_of_seniors": 3,
                                               "preferences": Array [
                                                 Object {
                                                   "application": undefined,
@@ -8230,6 +8880,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "monthly_income": null,
                                           "name": "APP-00191270",
                                           "number_of_dependents": 2,
+                                          "number_of_minors": 4,
+                                          "number_of_seniors": 3,
                                           "preferences": Array [
                                             Object {
                                               "application": undefined,

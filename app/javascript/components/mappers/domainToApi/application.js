@@ -31,6 +31,8 @@ export const applicationFieldMapper = {
   housing_voucher_or_subsidy: 'householdVouchersSubsidies',
   terms_acknowledged: 'agreeToTerms',
   number_of_dependents: 'numberOfDependents',
+  number_of_seniors: 'numberOfSeniors',
+  number_of_minors: 'numberOfMinors',
   reserved_senior: 'hasSenior',
   application_submission_type: 'applicationSubmissionType',
   total_monthly_rent: 'totalMonthlyRent',

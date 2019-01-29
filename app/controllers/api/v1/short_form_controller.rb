@@ -43,6 +43,8 @@ class Api::V1::ShortFormController < ApiController
             :applicationSubmittedDate,
             :status,
             :numberOfDependents,
+            :numberOfSeniors,
+            :numberOfMinors,
             :formMetadata,
             :hasSenior,
             :primaryApplicantContact,

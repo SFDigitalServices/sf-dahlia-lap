@@ -75,6 +75,8 @@ const application = {
   "Has_ADA_Priorities_Selected": null,
   "Terms_Acknowledged": true,
   "Number_of_Dependents": 2,
+  "Number_of_Seniors": 3,
+  "Number_of_Minors": 4,
   "preferences": [
     {
       "Id": "a0w0x0000014pvyAAA",
