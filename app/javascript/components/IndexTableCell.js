@@ -24,7 +24,8 @@ const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {
       )
     }
   } else {
-    return val
+    // Avoid rendering issues by converting undefined to null.
+    return val === undefined ? null : val
   }
 }
 

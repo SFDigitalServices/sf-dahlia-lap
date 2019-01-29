@@ -171,7 +171,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
               <YesNoRadioGroupField
                 label='Recurring Assistance'
                 field='recurring_assistance'
-                uniqId={(values && values.id) || 'new'}
+                uniqId={(!isEmpty(values) && values.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
                 className='rental-assistance-recurring'

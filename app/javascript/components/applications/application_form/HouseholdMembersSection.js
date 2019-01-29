@@ -1,5 +1,6 @@
 import React from 'react'
 import HouseholdMemberForm from './HouseholdMemberForm'
+import { isEmpty } from 'lodash'
 
 const HouseholdMembersSection = ({ formApi, editValues }) => {
   return (
@@ -7,7 +8,7 @@ const HouseholdMembersSection = ({ formApi, editValues }) => {
       <div className='row'>
         <h3>Household Members</h3>
       </div>
-      { formApi.values.household_members && formApi.values.household_members.map((member, i) => (
+      { !isEmpty(formApi.values.household_members) && formApi.values.household_members.map((member, i) => (
         <div className='border-bottom margin-bottom--2x' key={i}>
           <HouseholdMemberForm i={i} formApi={formApi} />
           <div className='row'>

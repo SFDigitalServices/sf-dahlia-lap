@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { isEmpty } from 'lodash'
 import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
@@ -55,7 +55,7 @@ const ApplicationPage = (props) => {
 
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      {application && <ApplicationDetails {...props} />}
+      {!isEmpty(application) && <ApplicationDetails {...props} />}
     </CardLayout>
   )
 }

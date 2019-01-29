@@ -31,9 +31,7 @@ const tableFields = {
     'label': 'Total Household Size'
   },
   'application_submission_type': {
-    'label': 'Application Submission Type',
-    'editable': true,
-    'editable_options': ['Electronic', 'Paper']
+    'label': 'Application Submission Type'
   }
 }
 

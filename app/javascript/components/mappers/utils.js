@@ -3,11 +3,11 @@ import moment from 'moment'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 export const mapShape = (mapper, value) => {
-  if (value) { return mapper(value) } else { return undefined }
+  if (value) { return mapper(value) } else { return {} }
 }
 
 export const mapList = (mapper, list) => {
-  if (list) { return list.map(mapper) } else { return undefined }
+  if (list) { return list.map(mapper) } else { return [] }
 }
 
 export const compactShape = obj => omitBy(obj, isUndefined)

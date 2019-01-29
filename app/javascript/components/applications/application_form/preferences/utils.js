@@ -1,4 +1,4 @@
-import { get, map, concat, pickBy } from 'lodash'
+import { get, map, concat, pickBy, isEmpty } from 'lodash'
 import { domainDateOfBirthToApi } from '~/components/mappers/utils'
 
 export const naturalKeyFromPreference = (p) => {
@@ -10,7 +10,7 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (p) => {
-  if (p && p.application_member) {
+  if (!isEmpty(p) && !isEmpty(p.application_member)) {
     return `${p.application_member.first_name} ${p.application_member.last_name}`
   } else {
     return null

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, NestedForm, Text, Select } from 'react-form'
+import { isEmpty } from 'lodash'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
@@ -20,7 +21,7 @@ const validateError = validate({
 
 const PrimaryApplicantSection = ({ formApi, editValues }) => {
   let autofillValues = {}
-  if (editValues && !formApi.values.primaryApplicant) {
+  if (!isEmpty(editValues) && !formApi.values.primaryApplicant) {
     autofillValues = editValues.applicant
   }
   return (

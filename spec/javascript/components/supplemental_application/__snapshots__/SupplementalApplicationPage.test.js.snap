@@ -1446,7 +1446,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
   <SupplementalApplicationPage
     application={
       Object {
-        "alternate_contact": undefined,
+        "alternate_contact": Object {},
         "annual_income": 110000,
         "answered_community_screening": null,
         "applicant": Object {
@@ -1539,9 +1539,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "is_lottery_complete": false,
         "lease": undefined,
         "listing": Object {
+          "account": Object {},
+          "building": Object {},
           "id": "a0W0x000000GhJUEA0",
+          "listing_lottery_preferences": Array [],
           "name": "Test 5/30",
+          "open_houses": Array [],
+          "owner": Object {},
           "reserved_community_type": null,
+          "units": Array [],
         },
         "lottery_number": "00191270",
         "lottery_number_manual": null,
@@ -1552,8 +1558,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "number_of_seniors": 3,
         "preferences": Array [
           Object {
-            "application": undefined,
-            "application_member": undefined,
+            "application": Object {},
+            "application_member": Object {},
             "application_member_date_of_birth": null,
             "application_member_first_name": null,
             "application_member_last_name": null,
@@ -1595,6 +1601,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "total_monthly_rent": null,
       }
     }
+    availableUnits={Array []}
     onSubmit={[Function]}
     statusHistory={
       Array [
@@ -1612,6 +1619,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         },
       ]
     }
+    units={Array []}
   >
     <CardLayout
       pageHeader={
@@ -1887,7 +1895,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "amiCharts": Array [],
                         "amis": Object {},
                         "application": Object {
-                          "alternate_contact": undefined,
+                          "alternate_contact": Object {},
                           "annual_income": 110000,
                           "answered_community_screening": null,
                           "applicant": Object {
@@ -1980,9 +1988,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "is_lottery_complete": false,
                           "lease": undefined,
                           "listing": Object {
+                            "account": Object {},
+                            "building": Object {},
                             "id": "a0W0x000000GhJUEA0",
+                            "listing_lottery_preferences": Array [],
                             "name": "Test 5/30",
+                            "open_houses": Array [],
+                            "owner": Object {},
                             "reserved_community_type": null,
+                            "units": Array [],
                           },
                           "lottery_number": "00191270",
                           "lottery_number_manual": null,
@@ -1993,8 +2007,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "number_of_seniors": 3,
                           "preferences": Array [
                             Object {
-                              "application": undefined,
-                              "application_member": undefined,
+                              "application": Object {},
+                              "application_member": Object {},
                               "application_member_date_of_birth": null,
                               "application_member_first_name": null,
                               "application_member_last_name": null,
@@ -2103,7 +2117,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             "zip_code": "33026",
                           },
                         ],
-                        "availableUnits": undefined,
+                        "availableUnits": Array [],
                         "confirmedPreferencesFailed": false,
                         "fileBaseUrl": undefined,
                         "handleCloseRentalAssistancePanel": [Function],
@@ -2156,7 +2170,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         <t
                           defaultValues={
                             Object {
-                              "alternate_contact": undefined,
+                              "alternate_contact": Object {},
                               "annual_income": 110000,
                               "answered_community_screening": null,
                               "applicant": Object {
@@ -2249,9 +2263,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "is_lottery_complete": false,
                               "lease": undefined,
                               "listing": Object {
+                                "account": Object {},
+                                "building": Object {},
                                 "id": "a0W0x000000GhJUEA0",
+                                "listing_lottery_preferences": Array [],
                                 "name": "Test 5/30",
+                                "open_houses": Array [],
+                                "owner": Object {},
                                 "reserved_community_type": null,
+                                "units": Array [],
                               },
                               "lottery_number": "00191270",
                               "lottery_number_manual": null,
@@ -2262,8 +2282,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "number_of_seniors": 3,
                               "preferences": Array [
                                 Object {
-                                  "application": undefined,
-                                  "application_member": undefined,
+                                  "application": Object {},
+                                  "application_member": Object {},
                                   "application_member_date_of_birth": null,
                                   "application_member_first_name": null,
                                   "application_member_last_name": null,
@@ -2310,7 +2330,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           <Connect(t)
                             defaultValues={
                               Object {
-                                "alternate_contact": undefined,
+                                "alternate_contact": Object {},
                                 "annual_income": 110000,
                                 "answered_community_screening": null,
                                 "applicant": Object {
@@ -2403,9 +2423,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "is_lottery_complete": false,
                                 "lease": undefined,
                                 "listing": Object {
+                                  "account": Object {},
+                                  "building": Object {},
                                   "id": "a0W0x000000GhJUEA0",
+                                  "listing_lottery_preferences": Array [],
                                   "name": "Test 5/30",
+                                  "open_houses": Array [],
+                                  "owner": Object {},
                                   "reserved_community_type": null,
+                                  "units": Array [],
                                 },
                                 "lottery_number": "00191270",
                                 "lottery_number_manual": null,
@@ -2416,8 +2442,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "number_of_seniors": 3,
                                 "preferences": Array [
                                   Object {
-                                    "application": undefined,
-                                    "application_member": undefined,
+                                    "application": Object {},
+                                    "application_member": Object {},
                                     "application_member_date_of_birth": null,
                                     "application_member_first_name": null,
                                     "application_member_last_name": null,
@@ -2473,7 +2499,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             <t
                               defaultValues={
                                 Object {
-                                  "alternate_contact": undefined,
+                                  "alternate_contact": Object {},
                                   "annual_income": 110000,
                                   "answered_community_screening": null,
                                   "applicant": Object {
@@ -2566,9 +2592,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "is_lottery_complete": false,
                                   "lease": undefined,
                                   "listing": Object {
+                                    "account": Object {},
+                                    "building": Object {},
                                     "id": "a0W0x000000GhJUEA0",
+                                    "listing_lottery_preferences": Array [],
                                     "name": "Test 5/30",
+                                    "open_houses": Array [],
+                                    "owner": Object {},
                                     "reserved_community_type": null,
+                                    "units": Array [],
                                   },
                                   "lottery_number": "00191270",
                                   "lottery_number_manual": null,
@@ -2579,8 +2611,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "number_of_seniors": 3,
                                   "preferences": Array [
                                     Object {
-                                      "application": undefined,
-                                      "application_member": undefined,
+                                      "application": Object {},
+                                      "application_member": Object {},
                                       "application_member_date_of_birth": null,
                                       "application_member_first_name": null,
                                       "application_member_last_name": null,
@@ -2638,7 +2670,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "validationFailed": Object {},
                                   "validationFailures": 0,
                                   "values": Object {
-                                    "alternate_contact": undefined,
+                                    "alternate_contact": Object {},
                                     "annual_income": 110000,
                                     "answered_community_screening": null,
                                     "applicant": Object {
@@ -2731,9 +2763,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "is_lottery_complete": false,
                                     "lease": undefined,
                                     "listing": Object {
+                                      "account": Object {},
+                                      "building": Object {},
                                       "id": "a0W0x000000GhJUEA0",
+                                      "listing_lottery_preferences": Array [],
                                       "name": "Test 5/30",
+                                      "open_houses": Array [],
+                                      "owner": Object {},
                                       "reserved_community_type": null,
+                                      "units": Array [],
                                     },
                                     "lottery_number": "00191270",
                                     "lottery_number_manual": null,
@@ -2744,8 +2782,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "number_of_seniors": 3,
                                     "preferences": Array [
                                       Object {
-                                        "application": undefined,
-                                        "application_member": undefined,
+                                        "application": Object {},
+                                        "application_member": Object {},
                                         "application_member_date_of_birth": null,
                                         "application_member_first_name": null,
                                         "application_member_last_name": null,
@@ -2835,7 +2873,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "amiCharts": Array [],
                                         "amis": Object {},
                                         "application": Object {
-                                          "alternate_contact": undefined,
+                                          "alternate_contact": Object {},
                                           "annual_income": 110000,
                                           "answered_community_screening": null,
                                           "applicant": Object {
@@ -2928,9 +2966,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "is_lottery_complete": false,
                                           "lease": undefined,
                                           "listing": Object {
+                                            "account": Object {},
+                                            "building": Object {},
                                             "id": "a0W0x000000GhJUEA0",
+                                            "listing_lottery_preferences": Array [],
                                             "name": "Test 5/30",
+                                            "open_houses": Array [],
+                                            "owner": Object {},
                                             "reserved_community_type": null,
+                                            "units": Array [],
                                           },
                                           "lottery_number": "00191270",
                                           "lottery_number_manual": null,
@@ -2941,8 +2985,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "number_of_seniors": 3,
                                           "preferences": Array [
                                             Object {
-                                              "application": undefined,
-                                              "application_member": undefined,
+                                              "application": Object {},
+                                              "application_member": Object {},
                                               "application_member_date_of_birth": null,
                                               "application_member_first_name": null,
                                               "application_member_last_name": null,
@@ -3051,7 +3095,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "zip_code": "33026",
                                           },
                                         ],
-                                        "availableUnits": undefined,
+                                        "availableUnits": Array [],
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
                                         "handleCloseRentalAssistancePanel": [Function],
@@ -3277,7 +3321,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 <ConfirmedPreferencesSection
                                   application={
                                     Object {
-                                      "alternate_contact": undefined,
+                                      "alternate_contact": Object {},
                                       "annual_income": 110000,
                                       "answered_community_screening": null,
                                       "applicant": Object {
@@ -3370,9 +3414,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "is_lottery_complete": false,
                                       "lease": undefined,
                                       "listing": Object {
+                                        "account": Object {},
+                                        "building": Object {},
                                         "id": "a0W0x000000GhJUEA0",
+                                        "listing_lottery_preferences": Array [],
                                         "name": "Test 5/30",
+                                        "open_houses": Array [],
+                                        "owner": Object {},
                                         "reserved_community_type": null,
+                                        "units": Array [],
                                       },
                                       "lottery_number": "00191270",
                                       "lottery_number_manual": null,
@@ -3383,8 +3433,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "number_of_seniors": 3,
                                       "preferences": Array [
                                         Object {
-                                          "application": undefined,
-                                          "application_member": undefined,
+                                          "application": Object {},
+                                          "application_member": Object {},
                                           "application_member_date_of_birth": null,
                                           "application_member_first_name": null,
                                           "application_member_last_name": null,
@@ -3460,7 +3510,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "validationFailed": Object {},
                                       "validationFailures": 0,
                                       "values": Object {
-                                        "alternate_contact": undefined,
+                                        "alternate_contact": Object {},
                                         "annual_income": 110000,
                                         "answered_community_screening": null,
                                         "applicant": Object {
@@ -3553,9 +3603,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "is_lottery_complete": false,
                                         "lease": undefined,
                                         "listing": Object {
+                                          "account": Object {},
+                                          "building": Object {},
                                           "id": "a0W0x000000GhJUEA0",
+                                          "listing_lottery_preferences": Array [],
                                           "name": "Test 5/30",
+                                          "open_houses": Array [],
+                                          "owner": Object {},
                                           "reserved_community_type": null,
+                                          "units": Array [],
                                         },
                                         "lottery_number": "00191270",
                                         "lottery_number_manual": null,
@@ -3566,8 +3622,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "number_of_seniors": 3,
                                         "preferences": Array [
                                           Object {
-                                            "application": undefined,
-                                            "application_member": undefined,
+                                            "application": Object {},
+                                            "application_member": Object {},
                                             "application_member_date_of_birth": null,
                                             "application_member_first_name": null,
                                             "application_member_last_name": null,
@@ -3644,7 +3700,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         <ContextComponent
                                           application={
                                             Object {
-                                              "alternate_contact": undefined,
+                                              "alternate_contact": Object {},
                                               "annual_income": 110000,
                                               "answered_community_screening": null,
                                               "applicant": Object {
@@ -3737,9 +3793,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "is_lottery_complete": false,
                                               "lease": undefined,
                                               "listing": Object {
+                                                "account": Object {},
+                                                "building": Object {},
                                                 "id": "a0W0x000000GhJUEA0",
+                                                "listing_lottery_preferences": Array [],
                                                 "name": "Test 5/30",
+                                                "open_houses": Array [],
+                                                "owner": Object {},
                                                 "reserved_community_type": null,
+                                                "units": Array [],
                                               },
                                               "lottery_number": "00191270",
                                               "lottery_number_manual": null,
@@ -3750,8 +3812,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "number_of_seniors": 3,
                                               "preferences": Array [
                                                 Object {
-                                                  "application": undefined,
-                                                  "application_member": undefined,
+                                                  "application": Object {},
+                                                  "application_member": Object {},
                                                   "application_member_date_of_birth": null,
                                                   "application_member_first_name": null,
                                                   "application_member_last_name": null,
@@ -3826,7 +3888,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "validationFailed": Object {},
                                               "validationFailures": 0,
                                               "values": Object {
-                                                "alternate_contact": undefined,
+                                                "alternate_contact": Object {},
                                                 "annual_income": 110000,
                                                 "answered_community_screening": null,
                                                 "applicant": Object {
@@ -3919,9 +3981,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "is_lottery_complete": false,
                                                 "lease": undefined,
                                                 "listing": Object {
+                                                  "account": Object {},
+                                                  "building": Object {},
                                                   "id": "a0W0x000000GhJUEA0",
+                                                  "listing_lottery_preferences": Array [],
                                                   "name": "Test 5/30",
+                                                  "open_houses": Array [],
+                                                  "owner": Object {},
                                                   "reserved_community_type": null,
+                                                  "units": Array [],
                                                 },
                                                 "lottery_number": "00191270",
                                                 "lottery_number_manual": null,
@@ -3932,8 +4000,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "number_of_seniors": 3,
                                                 "preferences": Array [
                                                   Object {
-                                                    "application": undefined,
-                                                    "application_member": undefined,
+                                                    "application": Object {},
+                                                    "application_member": Object {},
                                                     "application_member_date_of_birth": null,
                                                     "application_member_first_name": null,
                                                     "application_member_last_name": null,
@@ -3983,7 +4051,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           <PreferencesTable
                                             application={
                                               Object {
-                                                "alternate_contact": undefined,
+                                                "alternate_contact": Object {},
                                                 "annual_income": 110000,
                                                 "answered_community_screening": null,
                                                 "applicant": Object {
@@ -4076,9 +4144,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "is_lottery_complete": false,
                                                 "lease": undefined,
                                                 "listing": Object {
+                                                  "account": Object {},
+                                                  "building": Object {},
                                                   "id": "a0W0x000000GhJUEA0",
+                                                  "listing_lottery_preferences": Array [],
                                                   "name": "Test 5/30",
+                                                  "open_houses": Array [],
+                                                  "owner": Object {},
                                                   "reserved_community_type": null,
+                                                  "units": Array [],
                                                 },
                                                 "lottery_number": "00191270",
                                                 "lottery_number_manual": null,
@@ -4089,8 +4163,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "number_of_seniors": 3,
                                                 "preferences": Array [
                                                   Object {
-                                                    "application": undefined,
-                                                    "application_member": undefined,
+                                                    "application": Object {},
+                                                    "application_member": Object {},
                                                     "application_member_date_of_birth": null,
                                                     "application_member_first_name": null,
                                                     "application_member_last_name": null,
@@ -4165,7 +4239,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "validationFailed": Object {},
                                                 "validationFailures": 0,
                                                 "values": Object {
-                                                  "alternate_contact": undefined,
+                                                  "alternate_contact": Object {},
                                                   "annual_income": 110000,
                                                   "answered_community_screening": null,
                                                   "applicant": Object {
@@ -4258,9 +4332,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
                                                   "listing": Object {
+                                                    "account": Object {},
+                                                    "building": Object {},
                                                     "id": "a0W0x000000GhJUEA0",
+                                                    "listing_lottery_preferences": Array [],
                                                     "name": "Test 5/30",
+                                                    "open_houses": Array [],
+                                                    "owner": Object {},
                                                     "reserved_community_type": null,
+                                                    "units": Array [],
                                                   },
                                                   "lottery_number": "00191270",
                                                   "lottery_number_manual": null,
@@ -4271,8 +4351,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
-                                                      "application": undefined,
-                                                      "application_member": undefined,
+                                                      "application": Object {},
+                                                      "application_member": Object {},
                                                       "application_member_date_of_birth": null,
                                                       "application_member_first_name": null,
                                                       "application_member_last_name": null,
@@ -4323,7 +4403,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "amiCharts": Array [],
                                                 "amis": Object {},
                                                 "application": Object {
-                                                  "alternate_contact": undefined,
+                                                  "alternate_contact": Object {},
                                                   "annual_income": 110000,
                                                   "answered_community_screening": null,
                                                   "applicant": Object {
@@ -4416,9 +4496,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
                                                   "listing": Object {
+                                                    "account": Object {},
+                                                    "building": Object {},
                                                     "id": "a0W0x000000GhJUEA0",
+                                                    "listing_lottery_preferences": Array [],
                                                     "name": "Test 5/30",
+                                                    "open_houses": Array [],
+                                                    "owner": Object {},
                                                     "reserved_community_type": null,
+                                                    "units": Array [],
                                                   },
                                                   "lottery_number": "00191270",
                                                   "lottery_number_manual": null,
@@ -4429,8 +4515,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
-                                                      "application": undefined,
-                                                      "application_member": undefined,
+                                                      "application": Object {},
+                                                      "application_member": Object {},
                                                       "application_member_date_of_birth": null,
                                                       "application_member_first_name": null,
                                                       "application_member_last_name": null,
@@ -4539,7 +4625,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "zip_code": "33026",
                                                   },
                                                 ],
-                                                "availableUnits": undefined,
+                                                "availableUnits": Array [],
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
                                                 "handleCloseRentalAssistancePanel": [Function],
@@ -4735,7 +4821,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "validationFailed": Object {},
                                       "validationFailures": 0,
                                       "values": Object {
-                                        "alternate_contact": undefined,
+                                        "alternate_contact": Object {},
                                         "annual_income": 110000,
                                         "answered_community_screening": null,
                                         "applicant": Object {
@@ -4828,9 +4914,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "is_lottery_complete": false,
                                         "lease": undefined,
                                         "listing": Object {
+                                          "account": Object {},
+                                          "building": Object {},
                                           "id": "a0W0x000000GhJUEA0",
+                                          "listing_lottery_preferences": Array [],
                                           "name": "Test 5/30",
+                                          "open_houses": Array [],
+                                          "owner": Object {},
                                           "reserved_community_type": null,
+                                          "units": Array [],
                                         },
                                         "lottery_number": "00191270",
                                         "lottery_number_manual": null,
@@ -4841,8 +4933,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "number_of_seniors": 3,
                                         "preferences": Array [
                                           Object {
-                                            "application": undefined,
-                                            "application_member": undefined,
+                                            "application": Object {},
+                                            "application_member": Object {},
                                             "application_member_date_of_birth": null,
                                             "application_member_first_name": null,
                                             "application_member_last_name": null,
@@ -5606,7 +5698,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "validationFailed": Object {},
                                                 "validationFailures": 0,
                                                 "values": Object {
-                                                  "alternate_contact": undefined,
+                                                  "alternate_contact": Object {},
                                                   "annual_income": 110000,
                                                   "answered_community_screening": null,
                                                   "applicant": Object {
@@ -5699,9 +5791,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
                                                   "listing": Object {
+                                                    "account": Object {},
+                                                    "building": Object {},
                                                     "id": "a0W0x000000GhJUEA0",
+                                                    "listing_lottery_preferences": Array [],
                                                     "name": "Test 5/30",
+                                                    "open_houses": Array [],
+                                                    "owner": Object {},
                                                     "reserved_community_type": null,
+                                                    "units": Array [],
                                                   },
                                                   "lottery_number": "00191270",
                                                   "lottery_number_manual": null,
@@ -5712,8 +5810,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
-                                                      "application": undefined,
-                                                      "application_member": undefined,
+                                                      "application": Object {},
+                                                      "application_member": Object {},
                                                       "application_member_date_of_birth": null,
                                                       "application_member_first_name": null,
                                                       "application_member_last_name": null,
@@ -6156,7 +6254,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "validationFailed": Object {},
                                                 "validationFailures": 0,
                                                 "values": Object {
-                                                  "alternate_contact": undefined,
+                                                  "alternate_contact": Object {},
                                                   "annual_income": 110000,
                                                   "answered_community_screening": null,
                                                   "applicant": Object {
@@ -6249,9 +6347,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
                                                   "listing": Object {
+                                                    "account": Object {},
+                                                    "building": Object {},
                                                     "id": "a0W0x000000GhJUEA0",
+                                                    "listing_lottery_preferences": Array [],
                                                     "name": "Test 5/30",
+                                                    "open_houses": Array [],
+                                                    "owner": Object {},
                                                     "reserved_community_type": null,
+                                                    "units": Array [],
                                                   },
                                                   "lottery_number": "00191270",
                                                   "lottery_number_manual": null,
@@ -6262,8 +6366,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "number_of_seniors": 3,
                                                   "preferences": Array [
                                                     Object {
-                                                      "application": undefined,
-                                                      "application_member": undefined,
+                                                      "application": Object {},
+                                                      "application_member": Object {},
                                                       "application_member_date_of_birth": null,
                                                       "application_member_first_name": null,
                                                       "application_member_last_name": null,
@@ -6491,7 +6595,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "amiCharts": Array [],
                                                               "amis": Object {},
                                                               "application": Object {
-                                                                "alternate_contact": undefined,
+                                                                "alternate_contact": Object {},
                                                                 "annual_income": 110000,
                                                                 "answered_community_screening": null,
                                                                 "applicant": Object {
@@ -6584,9 +6688,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 "is_lottery_complete": false,
                                                                 "lease": undefined,
                                                                 "listing": Object {
+                                                                  "account": Object {},
+                                                                  "building": Object {},
                                                                   "id": "a0W0x000000GhJUEA0",
+                                                                  "listing_lottery_preferences": Array [],
                                                                   "name": "Test 5/30",
+                                                                  "open_houses": Array [],
+                                                                  "owner": Object {},
                                                                   "reserved_community_type": null,
+                                                                  "units": Array [],
                                                                 },
                                                                 "lottery_number": "00191270",
                                                                 "lottery_number_manual": null,
@@ -6597,8 +6707,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 "number_of_seniors": 3,
                                                                 "preferences": Array [
                                                                   Object {
-                                                                    "application": undefined,
-                                                                    "application_member": undefined,
+                                                                    "application": Object {},
+                                                                    "application_member": Object {},
                                                                     "application_member_date_of_birth": null,
                                                                     "application_member_first_name": null,
                                                                     "application_member_last_name": null,
@@ -6707,7 +6817,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                   "zip_code": "33026",
                                                                 },
                                                               ],
-                                                              "availableUnits": undefined,
+                                                              "availableUnits": Array [],
                                                               "confirmedPreferencesFailed": false,
                                                               "fileBaseUrl": undefined,
                                                               "handleCloseRentalAssistancePanel": [Function],
@@ -7279,7 +7389,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "amiCharts": Array [],
                                                   "amis": Object {},
                                                   "application": Object {
-                                                    "alternate_contact": undefined,
+                                                    "alternate_contact": Object {},
                                                     "annual_income": 110000,
                                                     "answered_community_screening": null,
                                                     "applicant": Object {
@@ -7372,9 +7482,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "is_lottery_complete": false,
                                                     "lease": undefined,
                                                     "listing": Object {
+                                                      "account": Object {},
+                                                      "building": Object {},
                                                       "id": "a0W0x000000GhJUEA0",
+                                                      "listing_lottery_preferences": Array [],
                                                       "name": "Test 5/30",
+                                                      "open_houses": Array [],
+                                                      "owner": Object {},
                                                       "reserved_community_type": null,
+                                                      "units": Array [],
                                                     },
                                                     "lottery_number": "00191270",
                                                     "lottery_number_manual": null,
@@ -7385,8 +7501,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "number_of_seniors": 3,
                                                     "preferences": Array [
                                                       Object {
-                                                        "application": undefined,
-                                                        "application_member": undefined,
+                                                        "application": Object {},
+                                                        "application_member": Object {},
                                                         "application_member_date_of_birth": null,
                                                         "application_member_first_name": null,
                                                         "application_member_last_name": null,
@@ -7495,7 +7611,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       "zip_code": "33026",
                                                     },
                                                   ],
-                                                  "availableUnits": undefined,
+                                                  "availableUnits": Array [],
                                                   "confirmedPreferencesFailed": false,
                                                   "fileBaseUrl": undefined,
                                                   "handleCloseRentalAssistancePanel": [Function],
@@ -8363,7 +8479,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "amiCharts": Array [],
                                             "amis": Object {},
                                             "application": Object {
-                                              "alternate_contact": undefined,
+                                              "alternate_contact": Object {},
                                               "annual_income": 110000,
                                               "answered_community_screening": null,
                                               "applicant": Object {
@@ -8456,9 +8572,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "is_lottery_complete": false,
                                               "lease": undefined,
                                               "listing": Object {
+                                                "account": Object {},
+                                                "building": Object {},
                                                 "id": "a0W0x000000GhJUEA0",
+                                                "listing_lottery_preferences": Array [],
                                                 "name": "Test 5/30",
+                                                "open_houses": Array [],
+                                                "owner": Object {},
                                                 "reserved_community_type": null,
+                                                "units": Array [],
                                               },
                                               "lottery_number": "00191270",
                                               "lottery_number_manual": null,
@@ -8469,8 +8591,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "number_of_seniors": 3,
                                               "preferences": Array [
                                                 Object {
-                                                  "application": undefined,
-                                                  "application_member": undefined,
+                                                  "application": Object {},
+                                                  "application_member": Object {},
                                                   "application_member_date_of_birth": null,
                                                   "application_member_first_name": null,
                                                   "application_member_last_name": null,
@@ -8579,7 +8701,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "zip_code": "33026",
                                               },
                                             ],
-                                            "availableUnits": undefined,
+                                            "availableUnits": Array [],
                                             "confirmedPreferencesFailed": false,
                                             "fileBaseUrl": undefined,
                                             "handleCloseRentalAssistancePanel": [Function],
@@ -8778,7 +8900,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "amiCharts": Array [],
                                         "amis": Object {},
                                         "application": Object {
-                                          "alternate_contact": undefined,
+                                          "alternate_contact": Object {},
                                           "annual_income": 110000,
                                           "answered_community_screening": null,
                                           "applicant": Object {
@@ -8871,9 +8993,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "is_lottery_complete": false,
                                           "lease": undefined,
                                           "listing": Object {
+                                            "account": Object {},
+                                            "building": Object {},
                                             "id": "a0W0x000000GhJUEA0",
+                                            "listing_lottery_preferences": Array [],
                                             "name": "Test 5/30",
+                                            "open_houses": Array [],
+                                            "owner": Object {},
                                             "reserved_community_type": null,
+                                            "units": Array [],
                                           },
                                           "lottery_number": "00191270",
                                           "lottery_number_manual": null,
@@ -8884,8 +9012,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "number_of_seniors": 3,
                                           "preferences": Array [
                                             Object {
-                                              "application": undefined,
-                                              "application_member": undefined,
+                                              "application": Object {},
+                                              "application_member": Object {},
                                               "application_member_date_of_birth": null,
                                               "application_member_first_name": null,
                                               "application_member_last_name": null,
@@ -8994,7 +9122,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "zip_code": "33026",
                                           },
                                         ],
-                                        "availableUnits": undefined,
+                                        "availableUnits": Array [],
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
                                         "handleCloseRentalAssistancePanel": [Function],
