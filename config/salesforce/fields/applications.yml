@@ -154,6 +154,8 @@ applications:
     Alternate_Contact__r.Alternate_Contact_Type_Other__c:
       label: 'Relationship - Other'
     Number_of_Dependents__c:
+    Number_of_Seniors__c:
+    Number_of_Minors__c:
     Alternate_Contact__r.Residence_Address__c:
     Alternate_Contact__r.Street__c:
     Alternate_Contact__r.City__c:

@@ -43,6 +43,8 @@ module Force
       { custom_api: 'monthlyIncome', domain: 'monthly_income', salesforce: 'Monthly_Income' },
       { custom_api: 'name', domain: 'name', salesforce: 'Name' },
       { custom_api: 'numberOfDependents', domain: 'number_of_dependents', salesforce: 'Number_of_Dependents' },
+      { custom_api: 'numberOfSeniors', domain: 'number_of_seniors', salesforce: 'Number_of_Seniors' },
+      { custom_api: 'numberOfMinors', domain: 'number_of_minors', salesforce: 'Number_of_Minors' },
       { custom_api: 'otherHousingCounselingAgency', domain: '', salesforce: 'Other' },
       { custom_api: 'primaryApplicantContact', domain: 'primary_applicant_contact', salesforce: 'Primary_Applicant' },
       { custom_api: 'processingStatus', domain: 'processing_status', salesforce: 'Processing_Status' },

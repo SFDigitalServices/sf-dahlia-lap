@@ -13,6 +13,7 @@ RSpec.describe ApplicationsController, type: :controller do
       it 'should return a domain application snapshot' do
         VCR.use_cassette('applications_controller/show/lease_up_application') do
           get :show, params: { id: lease_up_application_id }
+
           domain_application = assigns(:application)
           expect(domain_application).to eq(expected_lease_up_app)
           expect(domain_application.is_snapshot).to be true
