@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { mapValues, map, first, compact } from 'lodash'
+import { compact, first, isNil, mapValues, map } from 'lodash'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -45,10 +45,23 @@ const isValidDate = (dateOfBirth) => {
   }
 }
 
+const isValidCurrency = (value) => {
+  if (isNil(value)) {
+    return true
+  } else {
+    if (/[^0-9$,.]/.test(value)) {
+      return false
+    } else {
+      return true
+    }
+  }
+}
+
 const isPresent = (value) => !!value
 
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isValidDate = decorateValidator(isValidDate)
+validate.isValidCurrency = decorateValidator(isValidCurrency)
 validate.isPresent = decorateValidator(isPresent)
 validate.list = (fn) => (list) => map(list, fn)
 validate.any = (...fns) => (value) => {
