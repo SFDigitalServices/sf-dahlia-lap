@@ -1,11 +1,11 @@
 import React from 'react'
 import { find, isNil } from 'lodash'
-import { Text } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { formatPercent } from '~/utils/utils'
 import YesNoRadioGroup from '../YesNoRadioGroup'
+import { Field } from '~/utils/form/Field'
 
 const getAMI = ({numHousehold, chartName, chartYear, amis}) => {
   let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'numOfHousehold': numHousehold})
@@ -18,10 +18,11 @@ const getAMIPercent = ({income, ami}) => {
   if (!income) {
     return 'Enter HH Income'
   }
-  if (isNil(ami)) {
+  let incomeFloat = Number(income.replace(/[$,]+/g, ''))
+  if (isNil(ami) || Number.isNaN(incomeFloat)) {
     return ''
   }
-  return formatPercent(income / Number(ami))
+  return formatPercent(incomeFloat / Number(ami))
 }
 
 const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
@@ -37,16 +38,20 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group label='Household Assets'>
-            <Text field='household_assets'
+          <FormGrid.Group >
+            <Field.Text field='household_assets'
+              label='Household Assets'
               placeholder='Enter Amount'
+              errorMessage={(label, error) => error}
             />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group label='Confirmed Annual Income'>
-            <Text field='confirmed_household_annual_income'
+          <FormGrid.Group >
+            <Field.Text field='confirmed_household_annual_income'
+              label='Confirmed Annual Income'
               placeholder='Enter Amount'
+              errorMessage={(label, error) => error}
             />
             <span className='form-note shift-up' id='household-annual-income'>
               Not Including % of Assets
@@ -54,9 +59,11 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group label='Final Household Annual Income'>
-            <Text field='hh_total_income_with_assets_annual'
+          <FormGrid.Group>
+            <Field.Text field='hh_total_income_with_assets_annual'
+              label='Final Household Annual Income'
               placeholder='Enter Amount'
+              errorMessage={(label, error) => error}
             />
             <span className='form-note shift-up' id='final-household-annual-income'>Includes % of assets if applicable</span>
           </FormGrid.Group>

@@ -17,6 +17,13 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import validate from '~/utils/form/validations'
+
+const validateError = (values) => ({
+  household_assets: validate.isValidCurrency('Please enter a valid dollar amount.')(values.household_assets),
+  confirmed_household_annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.confirmed_household_annual_income),
+  hh_total_income_with_assets_annual: validate.isValidCurrency('Please enter a valid dollar amount.')(values.hh_total_income_with_assets_annual)
+})
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
@@ -141,7 +148,7 @@ class SupplementalApplicationContainer extends React.Component {
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={onSubmit} defaultValues={application}>
+        <Form onSubmit={onSubmit} defaultValues={application} validateError={validateError}>
           {formApi => (
             <React.Fragment>
               <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
