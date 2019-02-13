@@ -1,5 +1,5 @@
 import React from 'react'
-import { find, isNil } from 'lodash'
+import { find, isNil, isString } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
@@ -18,7 +18,7 @@ const getAMIPercent = ({income, ami}) => {
   if (!income) {
     return 'Enter HH Income'
   }
-  let incomeFloat = Number(income.replace(/[$,]+/g, ''))
+  let incomeFloat = isString(income) ? Number(income.replace(/[$,]+/g, '')) : income
   if (isNil(ami) || Number.isNaN(incomeFloat)) {
     return ''
   }
