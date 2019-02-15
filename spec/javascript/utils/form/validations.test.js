@@ -57,4 +57,37 @@ describe('validate', () => {
       expect(validate.isValidDate(FAILED_VALIDATION_MSG)(['2010', '01z', '12'])).toEqual(FAILED_VALIDATION_MSG)
     })
   })
+  describe('isValidCurrency', () => {
+    describe('passes validation', () => {
+      test('when a number is entered', () => {
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)(2000)).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)(2000.5)).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('2000.5')).toEqual(null)
+      })
+      test('when a currency string is entered', () => {
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$2000')).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$2,000')).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$2000.53')).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('2,000')).toEqual(null)
+      })
+      // TODO: Enhance currency validation to exclude these cases.
+      test('when any string with $s and ,s is entered', () => {
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$2000$')).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$2,000,')).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$')).toEqual(null)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)(',')).toEqual(null)
+      })
+    })
+    describe('fails validation', () => {
+      test('when a string contains letters is entered', () => {
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('zzz')).toEqual(FAILED_VALIDATION_MSG)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('2000.5z')).toEqual(FAILED_VALIDATION_MSG)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('a130')).toEqual(FAILED_VALIDATION_MSG)
+      })
+      test('when a string containing other characters is entered', () => {
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('%2000')).toEqual(FAILED_VALIDATION_MSG)
+        expect(validate.isValidCurrency(FAILED_VALIDATION_MSG)('$2,000;')).toEqual(FAILED_VALIDATION_MSG)
+      })
+    })
+  })
 })
