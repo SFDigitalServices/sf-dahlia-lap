@@ -106,6 +106,7 @@ Array [
         className="loading-panel"
       >
         <form
+          onChange={[Function]}
           onSubmit={[Function]}
           style={
             Object {
@@ -2117,6 +2118,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             "zip_code": "33026",
                           },
                         ],
+                        "assignSupplementalAppTouched": [Function],
                         "availableUnits": Array [],
                         "confirmedPreferencesFailed": false,
                         "fileBaseUrl": undefined,
@@ -2859,6 +2861,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               }
                             >
                               <form
+                                onChange={[Function]}
                                 onSubmit={[Function]}
                                 style={
                                   Object {
@@ -3095,6 +3098,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "zip_code": "33026",
                                           },
                                         ],
+                                        "assignSupplementalAppTouched": [Function],
                                         "availableUnits": Array [],
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
@@ -4625,6 +4629,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "zip_code": "33026",
                                                   },
                                                 ],
+                                                "assignSupplementalAppTouched": [Function],
                                                 "availableUnits": Array [],
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
@@ -6817,6 +6822,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                   "zip_code": "33026",
                                                                 },
                                                               ],
+                                                              "assignSupplementalAppTouched": [Function],
                                                               "availableUnits": Array [],
                                                               "confirmedPreferencesFailed": false,
                                                               "fileBaseUrl": undefined,
@@ -7611,6 +7617,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       "zip_code": "33026",
                                                     },
                                                   ],
+                                                  "assignSupplementalAppTouched": [Function],
                                                   "availableUnits": Array [],
                                                   "confirmedPreferencesFailed": false,
                                                   "fileBaseUrl": undefined,
@@ -8701,6 +8708,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "zip_code": "33026",
                                               },
                                             ],
+                                            "assignSupplementalAppTouched": [Function],
                                             "availableUnits": Array [],
                                             "confirmedPreferencesFailed": false,
                                             "fileBaseUrl": undefined,
@@ -9122,6 +9130,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "zip_code": "33026",
                                           },
                                         ],
+                                        "assignSupplementalAppTouched": [Function],
                                         "availableUnits": Array [],
                                         "confirmedPreferencesFailed": false,
                                         "fileBaseUrl": undefined,
