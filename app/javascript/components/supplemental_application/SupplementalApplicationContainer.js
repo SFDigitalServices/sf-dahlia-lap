@@ -136,7 +136,8 @@ class SupplementalApplicationContainer extends React.Component {
       statusModal,
       handleStatusModalClose,
       handleStatusModalStatusChange,
-      handleStatusModalSubmit
+      handleStatusModalSubmit,
+      assignSupplementalAppTouched
     } = store
 
     return (
@@ -144,7 +145,7 @@ class SupplementalApplicationContainer extends React.Component {
         <Form onSubmit={onSubmit} defaultValues={application}>
           {formApi => (
             <React.Fragment>
-              <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
+              <form onSubmit={formApi.submitForm} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }}>
                 <StatusUpdateSection />
                 <ConfirmedPreferencesSection
                   application={application}

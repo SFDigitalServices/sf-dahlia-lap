@@ -42,6 +42,7 @@ class SupplementalApplicationPage extends React.Component {
       // Salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
       confirmedPreferencesFailed: false,
+      supplementalAppTouched: false,
       amis: {},
       amiCharts: [],
       loading: false,
@@ -274,7 +275,13 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   openLeaveConfirmationModal = () => {
-    this.setState({ leaveConfirmationModal: { isOpen: true } })
+    if (this.state.supplementalAppTouched) {
+      this.setState({ leaveConfirmationModal: { isOpen: true } })
+    }
+  }
+
+  assignSupplementalAppTouched = () => {
+    this.setState({ supplementalAppTouched: true })
   }
 
   handleStatusModalClose = () => {
@@ -313,6 +320,7 @@ class SupplementalApplicationPage extends React.Component {
     }
 
     const context = {
+      assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       application: persistedApplication,
       applicationMembers: getApplicationMembers(persistedApplication),
       amis: amis,
