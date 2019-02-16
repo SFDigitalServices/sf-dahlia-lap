@@ -1313,6 +1313,7 @@ Array [
               <button
                 className="button primary small save-btn"
                 disabled={false}
+                id="save-supplemental-application"
                 type="submit"
               >
                 Save
@@ -10896,6 +10897,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         <button
                                           className="button primary small save-btn"
                                           disabled={false}
+                                          id="save-supplemental-application"
                                           type="submit"
                                         >
                                           Save
