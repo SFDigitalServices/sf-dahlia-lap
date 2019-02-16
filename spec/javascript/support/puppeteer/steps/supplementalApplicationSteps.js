@@ -29,6 +29,44 @@ const testStatusModalUpdate = async (page) => {
   expect(latestComment).toBe(COMMENT)
 }
 
+const generateRandomCurrency = () => {
+  const val = (Math.random() * 1000).toFixed(2)
+  // TODO We could improve this by adding commas to the currency string too.
+  return {'currency': `$${val}`, 'float': val}
+}
+
+const enterValue = async (page, selector, value) => {
+  // Wait for the field to appear
+  await page.waitForSelector(selector)
+  // Clear the value that's there
+  await page.$eval(selector, (el) => { el.value = '' })
+  // Enter the value
+  await page.type(selector, value)
+}
+
+const getValue = async (page, selector) => {
+  await page.waitForSelector(selector)
+  const input = await page.$(selector)
+  const valueHandle = await input.getProperty('value')
+  return valueHandle.jsonValue()
+}
+
+const savePage = async (page) => {
+  const selector = '#save-supplemental-application'
+  // To allow waitForNavigation to work post-save, we need to scroll
+  //   down to the save button, then wait for the url to update to the scrollable anchor
+  // FIXME this will cause issues if we use savePage when we're already at the
+  //   anchor #status-history-section
+  await page.focus(selector)
+  await page.waitForNavigation()
+
+  await page.click(selector)
+}
+
 export default {
+  enterValue,
+  generateRandomCurrency,
+  getValue,
+  savePage,
   testStatusModalUpdate
 }

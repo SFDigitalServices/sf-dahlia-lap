@@ -120,6 +120,7 @@ const ActionButtons = withContext(({ loading, store }) => {
         <button
           className='button primary small save-btn'
           type='submit'
+          id='save-supplemental-application'
           disabled={loading}>
           Save
         </button>
