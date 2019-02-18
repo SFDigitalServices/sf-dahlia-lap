@@ -30,7 +30,7 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi }) => {
+const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, formApi }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
   const onSaveWithPreferenceIndex = () => {
@@ -50,6 +50,7 @@ const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi
           preferenceIndex={preferenceIndex}
           preference={preference}
           formApi={formApi}
+          applicationMembers={applicationMembers}
         />
         <FormGrid.Row expand={false}>
           <div className='form-grid_item column'>

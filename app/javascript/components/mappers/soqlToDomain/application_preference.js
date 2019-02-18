@@ -9,6 +9,7 @@ export const mapApplicationPreference = (value) => {
     application: mapShape(mapApplication, value.Application),
     listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),
     application_member: mapShape(mapApplicationMember, value.Application_Member),
+    application_member_id: value.Application_Member.Id,
     id: value.Id,
     name: value.Name,
     preference_name: value.Preference_Name,
@@ -21,9 +22,6 @@ export const mapApplicationPreference = (value) => {
     preference_lottery_rank: value.Preference_Lottery_Rank,
     listing_preference_id: value.Listing_Preference_ID,
     receives_preference: value.Receives_Preference,
-    application_member_first_name: value['Application_Member.First_Name'], // TODO:  remove this in favor of nested object already present.
-    application_member_last_name: value['Application_Member.Last_Name'],
-    application_member_date_of_birth: value['Application_Member.Date_of_Birth'],
     individual_preference: value.Individual_preference,
     certificate_number: value.Certificate_Number,
     preference_order: value.Preference_Order,
