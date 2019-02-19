@@ -5,15 +5,12 @@ import FormGrid from '~/components/molecules/FormGrid'
 import { FormItem, Comment, SelectStatus } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
-import { map } from 'lodash'
 
 const {
   preferenceProofOptionsDefault
 } = formOptions
 
-export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, applicationMembers }) => {
-  const memberOption = (member) => { return { value: member.id, label: `${member.first_name} ${member.last_name}` } }
-  let applicationMembersOptions = map(applicationMembers, memberOption)
+export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
     <React.Fragment>
       <FormGrid.Row expand={false}>
