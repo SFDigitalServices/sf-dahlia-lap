@@ -10,7 +10,7 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (id, householdMembers) => {
-  let member = find(householdMembers, { 'id': id })
+  let member = find(householdMembers, { 'id': id }) || {}
   return `${member.first_name} ${member.last_name}`
 }
 
