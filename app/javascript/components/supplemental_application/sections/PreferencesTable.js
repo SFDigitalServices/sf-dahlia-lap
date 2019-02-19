@@ -13,6 +13,7 @@ import {
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { withContext } from '../context'
+import { memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -32,22 +33,22 @@ const matchingPreference = (row) => (preference) => {
 
 /** Presenter **/
 
-const buildRow = (proofFiles, fileBaseUrl) => preference => {
+const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => preference => {
   return [
     { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
     { content: getPreferenceName(preference) },
-    { content: preference.person_who_claimed_name },
+    { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
     { content: preference.preference_lottery_rank, classes: ['text-right'] },
     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
     { content: preference.post_lottery_validation }
   ]
 }
 
-const buildRows = (application, fileBaseUrl) => {
+const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return map(onlyValid(sortedPreferences), buildRow(proofFiles, fileBaseUrl))
+  return map(onlyValid(sortedPreferences), buildRow(proofFiles, applicationMembers, fileBaseUrl))
 }
 
 const columns = [
@@ -68,6 +69,8 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
   }
   const handleOnSave = async (preferenceIndex, application) => {
     const response = await onSave(preferenceIndex, application)
+    // TODO: UPDATE THIS RESPONSE SO IT RETURNS THE PREFERENCE VALUE
+    console.log(response)
     response && handleOnClose()
   }
 
@@ -90,7 +93,7 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
 }
 
 const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave, onPanelClose, formApi }) => {
-  const rows = buildRows(application, fileBaseUrl)
+  const rows = buildRows(application, applicationMembers, fileBaseUrl)
   return (
     <div className='preferences-table'>
       <TableWrapper>
