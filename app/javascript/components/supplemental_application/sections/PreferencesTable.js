@@ -69,8 +69,6 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
   }
   const handleOnSave = async (preferenceIndex, application) => {
     const response = await onSave(preferenceIndex, application)
-    // TODO: UPDATE THIS RESPONSE SO IT RETURNS THE PREFERENCE VALUE
-    console.log(response)
     response && handleOnClose()
   }
 
