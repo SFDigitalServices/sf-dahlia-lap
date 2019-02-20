@@ -9,7 +9,7 @@ export const mapApplicationPreference = (value) => {
     application: mapShape(mapApplication, value.Application),
     listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),
     application_member: mapShape(mapApplicationMember, value.Application_Member),
-    application_member_id: mapShape(mapApplicationMember, value.Application_Member).Id,
+    application_member_id: mapShape(mapApplicationMember, value.Application_Member).id,
     id: value.Id,
     name: value.Name,
     preference_name: value.Preference_Name,
