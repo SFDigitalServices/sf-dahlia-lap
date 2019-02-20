@@ -274,9 +274,11 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: false })
   }
 
-  openLeaveConfirmationModal = () => {
+  handleLeaveSuppAppTab = () => {
     if (this.state.supplementalAppTouched) {
       this.setState({ leaveConfirmationModal: { isOpen: true } })
+    } else {
+      window.location.href = appPaths.toApplication(this.state.persistedApplication.id)
     }
   }
 
@@ -314,7 +316,7 @@ class SupplementalApplicationPage extends React.Component {
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id), onClick: this.openLeaveConfirmationModal },
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id), onClick: this.handleLeaveSuppAppTab },
         { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
