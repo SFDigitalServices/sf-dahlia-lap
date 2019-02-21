@@ -14,7 +14,7 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationM
           Assisted Housing Preference
           </div>
         </FormItem>
-        <FormItem label='HH Member on Proof'>
+        <FormItem label='Name on Lease'>
           <Select field={buildFieldId(preferenceIndex, 'application_member_id')} options={applicationMembersOptions} placeholder='Select One' />
         </FormItem>
         <FormItem label='Status'>
