@@ -74,6 +74,8 @@
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["lcov"],
     "testMatch": [
       "**/__tests__/**/*.js?(x)",
       "**/?(*.)+(spec|test|e2e).js?(x)"
