@@ -1,0 +1,9 @@
+version: "2"
+exclude_patterns:
+  - "lib/assets"
+  # code climate complains a bunch about our toolkit.css -- is it useful to validate our CSS?
+  - "app/assets/stylesheets"
+checks:
+  method-complexity:
+    config:
+      threshold: 8
