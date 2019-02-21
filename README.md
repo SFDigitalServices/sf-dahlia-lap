@@ -1,7 +1,8 @@
 # DAHLIA Partners
 
 A portal for leasing agents, sales agents, and developers to manage listings and applications.
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/maintainability)](https://codeclimate.com/github/Exygy/sf-dahlia-lap/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/test_coverage)](https://codeclimate.com/github/Exygy/sf-dahlia-lap/test_coverage)
 Cross-browser testing done with <a href="https://www.browserstack.com/"><img src="./Browserstack-logo@2x.png?raw=true" height="36" ></a>
 
 ## Setup
