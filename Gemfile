@@ -48,6 +48,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'vcr'
   gem 'rails-controller-testing'
+  gem 'simplecov', require: false
 end
 
 group :development do
