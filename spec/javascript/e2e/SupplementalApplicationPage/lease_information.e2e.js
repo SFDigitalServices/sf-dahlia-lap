@@ -36,7 +36,7 @@ describe('SupplementalApplicationPage lease section', () => {
     // Wait for page to load
     await page.waitForNavigation()
 
-    // Verify that the values are there (as numbers, not currency)
+    // Verify that the values are there (they will be returned from salesforce as numbers, not currency)
     expect(await supplementalApplicationSteps.getValue(page, rentSelector)).toEqual(String(rentValue.float))
     expect(await supplementalApplicationSteps.getValue(page, parkingRentSelector)).toEqual(parkingRentValue.float)
     expect(await supplementalApplicationSteps.getValue(page, tenantContributionSelector)).toEqual(tenantContributionValue.float)

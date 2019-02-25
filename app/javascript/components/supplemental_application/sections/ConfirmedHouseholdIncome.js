@@ -18,9 +18,12 @@ const getAMIPercent = ({income, ami}) => {
   if (!income) {
     return 'Enter HH Income'
   }
-  let incomeFloat = isString(income) ? Number(income.replace(/[$,]+/g, '')) : income
-  if (isNil(ami) || Number.isNaN(incomeFloat)) {
+  if (isNil(ami)) {
     return ''
+  }
+  let incomeFloat = isString(income) ? Number(income.replace(/[$,]+/g, '')) : income
+  if (Number.isNaN(incomeFloat)) {
+    return 'Fix HH Income'
   }
   return formatPercent(incomeFloat / Number(ami))
 }
