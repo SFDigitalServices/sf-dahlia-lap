@@ -5,7 +5,7 @@ import formUtils from '~/utils/formUtils'
 import FormGrid from '~/components/molecules/FormGrid'
 import { FormItem, Comment, SelectStatus } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
-import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
+import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 
 const {
   preferenceProofOptionsLiveSf,
@@ -43,7 +43,7 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
   }
 
   render () {
-    const { preferenceIndex, preference } = this.props
+    const { preferenceIndex, applicationMembersOptions } = this.props
 
     return (
       <React.Fragment>
@@ -61,11 +61,7 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
               onChange={this.updatePrefProofOptions} />
           </FormItem>
           <FormItem label='HH Member on Proof'>
-            {/*
-              TODO: Add ability for users to change application member on pref.
-              For now, we just show the current app member in a read-only field.
-            */}
-            <input value={memberNameFromPref(preference)} disabled />
+            <Select field={buildFieldId(preferenceIndex, 'application_member_id')} options={applicationMembersOptions} placeholder='Select One' />
           </FormItem>
           <FormItem label='Type of Proof'>
             <Select
