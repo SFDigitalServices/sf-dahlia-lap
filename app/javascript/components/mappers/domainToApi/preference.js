@@ -4,7 +4,7 @@ import { createFieldMapper } from '~/utils/objectUtils'
 export const preferenceFieldMapper = {
   'recordtype_developername': 'recordTypeDevName',
   id: 'shortformPreferenceID',
-  appMemberID: (preference) => get(preference, 'application_member.id'),
+  appMemberID: (preference) => get(preference, 'application_member_id'),
   certificate_number: 'certificateNumber',
   individual_preference: 'individualPreference',
   lw_type_of_proof: 'lwPreferenceProof',

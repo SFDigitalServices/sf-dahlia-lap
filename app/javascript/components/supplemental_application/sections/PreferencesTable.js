@@ -13,6 +13,7 @@ import {
 } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { withContext } from '../context'
+import { memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -32,22 +33,22 @@ const matchingPreference = (row) => (preference) => {
 
 /** Presenter **/
 
-const buildRow = (proofFiles, fileBaseUrl) => preference => {
+const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => preference => {
   return [
     { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
     { content: getPreferenceName(preference) },
-    { content: preference.person_who_claimed_name },
+    { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
     { content: preference.preference_lottery_rank, classes: ['text-right'] },
     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
     { content: preference.post_lottery_validation }
   ]
 }
 
-const buildRows = (application, fileBaseUrl) => {
+const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return map(onlyValid(sortedPreferences), buildRow(proofFiles, fileBaseUrl))
+  return map(onlyValid(sortedPreferences), buildRow(proofFiles, applicationMembers, fileBaseUrl))
 }
 
 const columns = [
@@ -60,7 +61,7 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row, toggle) => {
+const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose, formApi) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
   const handleOnClose = (preferenceIndex) => {
     toggle()
@@ -74,6 +75,7 @@ const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row
   return (
     <Panel
       application={application}
+      applicationMembers={applicationMembers}
       preferenceIndex={preferenceIndex}
       onSave={handleOnSave}
       onClose={handleOnClose}
@@ -88,8 +90,8 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
     <ExpanderButton label='Edit' onClick={expandedRowToggler} id={`${kebabCase(prefName)}-edit`} />)
 }
 
-const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
-  const rows = buildRows(application, fileBaseUrl)
+const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave, onPanelClose, formApi }) => {
+  const rows = buildRows(application, applicationMembers, fileBaseUrl)
   return (
     <div className='preferences-table'>
       <TableWrapper>
@@ -98,7 +100,7 @@ const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, form
           rows={rows}
           rowKeyIndex={1}
           expanderRenderer={expanderAction}
-          expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
+          expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose, formApi)}
         />
       </TableWrapper>
     </div>)

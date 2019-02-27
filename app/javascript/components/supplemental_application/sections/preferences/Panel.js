@@ -1,5 +1,5 @@
 import React from 'react'
-import { cond, stubTrue, constant } from 'lodash'
+import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import DefaultPanel from './DefaultPanel'
@@ -30,9 +30,11 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi }) => {
+const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, formApi }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
+  const memberOption = (member) => { return { value: member.id, label: `${member.first_name} ${member.last_name}` } }
+  let applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
     onSave(preferenceIndex, formApi.values)
   }
@@ -50,6 +52,7 @@ const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi
           preferenceIndex={preferenceIndex}
           preference={preference}
           formApi={formApi}
+          applicationMembersOptions={applicationMembersOptions}
         />
         <FormGrid.Row expand={false}>
           <div className='form-grid_item column'>

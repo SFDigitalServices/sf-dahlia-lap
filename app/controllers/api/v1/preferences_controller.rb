@@ -20,6 +20,7 @@ module Api
       def preference_params
         params.require(:preference).permit(
           :id,
+          :application_member_id,
           :individual_preference,
           :post_lottery_validation,
           :type_of_proof,
