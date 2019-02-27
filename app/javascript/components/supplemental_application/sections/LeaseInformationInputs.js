@@ -38,10 +38,18 @@ const toggleNoPreferenceUsed = (formApi, value) => {
   formApi.setValue('no_preference_used', !value)
 }
 
+const validateLeaseCurrency = (value) => {
+  let maxRentValue = Math.pow(10, 5)
+  return (
+    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+    validate.isUnderMaxValue(maxRentValue)(`Value must be under ${maxRentValue}.`)(value)
+  )
+}
+
 const validateError = (values) => ({
-  total_monthly_rent_without_parking: validate.isValidCurrency('Please enter a valid dollar amount.')(values.total_monthly_rent_without_parking),
-  monthly_parking_rent: validate.isValidCurrency('Please enter a valid dollar amount.')(values.monthly_parking_rent),
-  monthly_tenant_contribution: validate.isValidCurrency('Please enter a valid dollar amount.')(values.monthly_tenant_contribution)
+  total_monthly_rent_without_parking: validateLeaseCurrency(values.total_monthly_rent_without_parking),
+  monthly_parking_rent: validateLeaseCurrency(values.monthly_parking_rent),
+  monthly_tenant_contribution: validateLeaseCurrency(values.monthly_tenant_contribution)
 })
 
 const LeaseInformationInputs = ({ formApi, store }) => {

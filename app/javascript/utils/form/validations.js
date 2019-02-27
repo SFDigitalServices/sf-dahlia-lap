@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { compact, first, isNil, mapValues, map } from 'lodash'
+import { compact, first, isNil, isString, mapValues, map } from 'lodash'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -49,12 +49,22 @@ const isValidCurrency = (value) => {
   if (isNil(value)) {
     return true
   } else {
-    if (/[^0-9$,.]/.test(value)) {
-      return false
-    } else {
-      return true
-    }
+    return !(/[^0-9$,.]/.test(value))
   }
+}
+
+const isUnderMaxValue = maxValue => value => {
+  if (isNil(value)) {
+    return true
+  }
+  let incomeFloat = isString(value) ? Number(value.replace(/[$,]+/g, '')) : value
+  if (Number.isNaN(incomeFloat)) {
+    return false
+  }
+  if (incomeFloat < maxValue) {
+    return true
+  }
+  return false
 }
 
 const isPresent = (value) => !!value
@@ -62,6 +72,7 @@ const isPresent = (value) => !!value
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isValidDate = decorateValidator(isValidDate)
 validate.isValidCurrency = decorateValidator(isValidCurrency)
+validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal))
 validate.isPresent = decorateValidator(isPresent)
 validate.list = (fn) => (list) => map(list, fn)
 validate.any = (...fns) => (value) => {
