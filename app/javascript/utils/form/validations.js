@@ -57,7 +57,8 @@ const isUnderMaxValue = maxValue => value => {
   if (isNil(value)) {
     return true
   }
-  let incomeFloat = isString(value) ? Number(value.replace(/[$,]+/g, '')) : value
+  let incomeFloat = isString(value) ? parseFloat(value.replace(/[$,]+/g, '')) : value
+  console.log('value', value, 'incomeFloat', incomeFloat)
   if (Number.isNaN(incomeFloat)) {
     return false
   }

@@ -98,4 +98,31 @@ describe('validate', () => {
       })
     })
   })
+  describe('passes validation', () => {
+    test('when null is passed', () => {
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(null)).toEqual(null)
+    })
+    test('when a number under the max value is entered', () => {
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9)).toEqual(null)
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9.99)).toEqual(null)
+    })
+    test('when a currency string with a value under the max is entered', () => {
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9')).toEqual(null)
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9.99')).toEqual(null)
+    })
+  })
+  describe('fails validation', () => {
+    test('when a float cannot be parsed', () => {
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$')).toEqual(VALIDATION_MSG)
+    })
+    test('when a number is passed with a value greater than the max', () => {
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(11)).toEqual(VALIDATION_MSG)
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(10.01)).toEqual(VALIDATION_MSG)
+    })
+    test('when a currency string is passed with a value greater than the max', () => {
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$11')).toEqual(VALIDATION_MSG)
+      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$10.01')).toEqual(VALIDATION_MSG)
+    })
+  })
 })

@@ -293,7 +293,6 @@ Array [
                             id="assistance_amount"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            type="number"
                             value="100"
                           />
                         </div>
@@ -569,7 +568,6 @@ Array [
             id="assistance_amount"
             onBlur={[Function]}
             onChange={[Function]}
-            type="number"
             value=""
           />
         </div>
@@ -947,7 +945,6 @@ Array [
                             id="assistance_amount"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            type="number"
                             value="100"
                           />
                         </div>
@@ -1331,7 +1328,6 @@ Array [
                             id="assistance_amount"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            type="number"
                             value="100"
                           />
                         </div>
