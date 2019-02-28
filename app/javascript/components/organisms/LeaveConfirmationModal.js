@@ -13,7 +13,7 @@ class LeaveConfirmationModal extends React.Component {
     return (
       <Modal isOpen={isOpen} handleClose={handleClose}>
         <Modal.Body hidden={isOpen} handleClose={handleClose}>
-          <Modal.Header title={'Are you sure you want to leave this page?'} />
+          <Modal.Header id={'leave-confirmation-modal'} title={'Are you sure you want to leave this page?'} />
           <Modal.Content>
             <p>You will lose your unsaved changes.</p>
           </Modal.Content>
