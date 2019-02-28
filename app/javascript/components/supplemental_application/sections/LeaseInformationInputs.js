@@ -39,10 +39,9 @@ const toggleNoPreferenceUsed = (formApi, value) => {
 }
 
 const validateLeaseCurrency = (value) => {
-  let maxRentValue = Math.pow(10, 5)
   return (
     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(maxRentValue)(`Value must be under ${maxRentValue}.`)(value)
+    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
   )
 }
 

@@ -20,10 +20,9 @@ import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate from '~/utils/form/validations'
 
 const validateIncomeCurrency = (value) => {
-  let maxIncomeValue = Math.pow(10, 15)
   return (
     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(maxIncomeValue)(`Value must be under ${maxIncomeValue}.`)(value)
+    validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
   )
 }
 

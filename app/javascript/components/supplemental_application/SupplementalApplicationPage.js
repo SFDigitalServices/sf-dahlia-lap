@@ -4,6 +4,7 @@ import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'l
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
+import { currencyToFloat } from '~/utils/utils'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
 import Alerts from '~/components/Alerts'
@@ -204,6 +205,8 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveNewRentalAssistance = async (rentalAssistance) => {
+    // Salesforce does not accept currency strings. TODO: Move this into the form
+    rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
     const response = await this.handleRentalAssistanceAction(apiService.createRentalAssistance)(
       rentalAssistance,
       this.state.persistedApplication.id
@@ -223,6 +226,8 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleUpdateRentalAssistance = async (rentalAssistance) => {
+    // Salesforce does not accept currency strings. TODO: Move this into the form
+    rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
     if (rentalAssistance.type_of_assistance !== 'Other') {
       rentalAssistance.other_assistance_name = null
     }
