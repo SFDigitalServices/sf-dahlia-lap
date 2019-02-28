@@ -48,7 +48,7 @@ const StatusUpdateSection = withContext(({ store }) => {
   )
 })
 
-const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
+const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
@@ -62,6 +62,7 @@ const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirm
         )}
         <PreferencesTable
           application={application}
+          applicationMembers={applicationMembers}
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
           onPanelClose={onDismissError}
@@ -140,6 +141,7 @@ class SupplementalApplicationContainer extends React.Component {
     const { store } = this.props
     const {
       application,
+      applicationMembers,
       fileBaseUrl,
       onSavePreference,
       confirmedPreferencesFailed,
@@ -163,6 +165,7 @@ class SupplementalApplicationContainer extends React.Component {
                 <StatusUpdateSection />
                 <ConfirmedPreferencesSection
                   application={application}
+                  applicationMembers={applicationMembers}
                   fileBaseUrl={fileBaseUrl}
                   onSave={onSavePreference}
                   onDismissError={onDismissError}
