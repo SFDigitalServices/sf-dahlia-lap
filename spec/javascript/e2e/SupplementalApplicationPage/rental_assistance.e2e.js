@@ -39,7 +39,8 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     // Fill out the new rental assistance form
     await page.select('.rental-assistance-new-form .rental-assistance-type', typeVal)
     await page.click('#recurring_assistance-new-yes')
-    await page.type('.rental-assistance-new-form #assistance_amount', `${amount}`)
+    // Enter the amount, as a string with "$" in it to test saving a currency value
+    await page.type('.rental-assistance-new-form #assistance_amount', `$${amount}`)
     await page.select('.rental-assistance-new-form .rental-assistance-recipient', recipientVal)
 
     // Save the new rental assistance form
@@ -93,7 +94,8 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
     // Enter a new amount value
     const amount = parseInt(prevAmountValue) + 100
-    await page.type('.rental-assistance-edit-form #assistance_amount', `${amount}`)
+    // Enter the amount, as a string with "$" in it to test saving a currency value
+    await page.type('.rental-assistance-edit-form #assistance_amount', `$${amount}`)
 
     // Save the edit rental assistance form
     await page.click('.rental-assistance-edit-form button.primary')
