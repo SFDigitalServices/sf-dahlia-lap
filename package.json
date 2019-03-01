@@ -65,15 +65,16 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "unit": "jest --testPathPattern=.*.test.js$",
+    "unit": "jest --testPathPattern=.*.test.js$ --coverage",
     "e2e": "jest --testPathPattern=.*e2e.* --runInBand",
     "test:all": "jest",
-    "test:unit": "jest --testPathPattern=.*.test.js$",
+    "test:unit": "jest --testPathPattern=.*.test.js$ --coverage",
     "test:e2e": "jest --testPathPattern=.*e2e.* --runInBand",
     "lint": "standard \"./**/*.js\" | snazzy",
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy"
   },
   "jest": {
+    "coverageReporters": ["lcov"],
     "testMatch": [
       "**/__tests__/**/*.js?(x)",
       "**/?(*.)+(spec|test|e2e).js?(x)"
