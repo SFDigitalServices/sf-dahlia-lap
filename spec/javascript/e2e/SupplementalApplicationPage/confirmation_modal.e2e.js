@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 
-import utils from '../support/puppeteer/utils'
+import utils from '../../support/puppeteer/utils'
 import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
@@ -18,6 +18,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
     // Click on the Senior Houshold Input under Confirmed Household
     await page.click('#reserved_senior-yes')
+    await page.click('#reserved_senior-no')
 
     // Click on Original Short Form Application Tab
     await page.click('.tabs li:nth-child(1)')

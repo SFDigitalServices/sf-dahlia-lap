@@ -67,6 +67,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                 >
                   <header
                     class="modal-inner margin-top"
+                    id="leave-confirmation-modal"
                   >
                     <h1
                       class="modal-title t-gamma no-margin"
@@ -249,10 +250,12 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                   role="dialog"
                 >
                   <Component
+                    id="leave-confirmation-modal"
                     title="Are you sure you want to leave this page?"
                   >
                     <header
                       className="modal-inner margin-top"
+                      id="leave-confirmation-modal"
                     >
                       <h1
                         className="modal-title t-gamma no-margin"
