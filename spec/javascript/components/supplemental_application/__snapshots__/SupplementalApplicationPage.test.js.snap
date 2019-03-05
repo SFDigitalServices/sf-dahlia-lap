@@ -887,24 +887,6 @@ Array [
                   className="form-group"
                 >
                   <label
-                    htmlFor=""
-                  >
-                    Total Monthly Rent
-                  </label>
-                  <div
-                    className="text-value"
-                  >
-                    Total Unit & Parking Rent
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid_item small-12 medium-6 large-3 column"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
                     className="form-label"
                     htmlFor="monthly_tenant_contribution"
                   >
@@ -8910,39 +8892,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 </Field>
                                                               </Wrapper>
                                                             </div>
-                                                          </Component>
-                                                          <Component
-                                                            label="Total Monthly Rent"
-                                                            text="Total Unit & Parking Rent"
-                                                          >
-                                                            <Component>
-                                                              <div
-                                                                className="form-grid_item small-12 medium-6 large-3 column"
-                                                              >
-                                                                <Component
-                                                                  label="Total Monthly Rent"
-                                                                >
-                                                                  <div
-                                                                    className="form-group"
-                                                                  >
-                                                                    <label
-                                                                      htmlFor=""
-                                                                    >
-                                                                      Total Monthly Rent
-                                                                    </label>
-                                                                    <Plain
-                                                                      text="Total Unit & Parking Rent"
-                                                                    >
-                                                                      <div
-                                                                        className="text-value"
-                                                                      >
-                                                                        Total Unit & Parking Rent
-                                                                      </div>
-                                                                    </Plain>
-                                                                  </div>
-                                                                </Component>
-                                                              </div>
-                                                            </Component>
                                                           </Component>
                                                           <Component>
                                                             <div
