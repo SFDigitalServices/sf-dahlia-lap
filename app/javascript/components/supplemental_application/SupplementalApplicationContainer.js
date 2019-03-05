@@ -17,6 +17,20 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import validate from '~/utils/form/validations'
+
+const validateIncomeCurrency = (value) => {
+  return (
+    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+    validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
+  )
+}
+
+const validateError = (values) => ({
+  household_assets: validateIncomeCurrency(values.household_assets),
+  confirmed_household_annual_income: validateIncomeCurrency(values.confirmed_household_annual_income),
+  hh_total_income_with_assets_annual: validateIncomeCurrency(values.hh_total_income_with_assets_annual)
+})
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
@@ -72,11 +86,11 @@ const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
   )
 }
 
-const LeaseInformationSection = () => {
+const LeaseInformationSection = ({formApi}) => {
   return (
     <ContentSection title='Lease Information'>
       <ContentSection.Content borderBottom>
-        <LeaseInformationInputs />
+        <LeaseInformationInputs formApi={formApi} />
       </ContentSection.Content>
       <ContentSection.Sub
         title='Rental Assistance Information'
@@ -114,6 +128,7 @@ const ActionButtons = withContext(({ loading, store }) => {
         <button
           className='button primary small save-btn'
           type='submit'
+          id='save-supplemental-application'
           disabled={loading}>
           Save
         </button>
@@ -143,7 +158,7 @@ class SupplementalApplicationContainer extends React.Component {
 
     return (
       <Loading isLoading={loading}>
-        <Form onSubmit={onSubmit} defaultValues={application}>
+        <Form onSubmit={onSubmit} defaultValues={application} validateError={validateError}>
           {formApi => (
             <React.Fragment>
               <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
@@ -158,7 +173,7 @@ class SupplementalApplicationContainer extends React.Component {
                   formApi={formApi}
                 />
                 <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-                <LeaseInformationSection />
+                <LeaseInformationSection formApi={formApi} />
                 <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
                 <div className='padding-bottom--2x margin-bottom--2x' />
                 <ActionButtons loading={loading} />
