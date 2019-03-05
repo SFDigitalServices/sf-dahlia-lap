@@ -30,7 +30,8 @@ const testStatusModalUpdate = async (page) => {
 }
 
 const generateRandomCurrency = () => {
-  const val = (Math.random() * 1000).toFixed(2)
+  // Round to the nearest hundredth, then convert back to float.
+  const val = Number.parseFloat((Math.random() * 1000).toFixed(2))
   // TODO We could improve this by adding commas to the currency string too.
   return {'currency': `$${val}`, 'float': val}
 }

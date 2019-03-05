@@ -38,8 +38,8 @@ describe('SupplementalApplicationPage lease section', () => {
 
     // Verify that the values are there (they will be returned from salesforce as numbers, not currency)
     expect(await supplementalApplicationSteps.getValue(page, rentSelector)).toEqual(String(rentValue.float))
-    expect(await supplementalApplicationSteps.getValue(page, parkingRentSelector)).toEqual(parkingRentValue.float)
-    expect(await supplementalApplicationSteps.getValue(page, tenantContributionSelector)).toEqual(tenantContributionValue.float)
+    expect(await supplementalApplicationSteps.getValue(page, parkingRentSelector)).toEqual(String(parkingRentValue.float))
+    expect(await supplementalApplicationSteps.getValue(page, tenantContributionSelector)).toEqual(String(tenantContributionValue.float))
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
