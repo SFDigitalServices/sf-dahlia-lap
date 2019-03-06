@@ -67,6 +67,10 @@ describe('validate', () => {
   })
   describe('isValidCurrency', () => {
     describe('passes validation', () => {
+      test('when a null or empty string is passed', () => {
+        expect(validate.isValidCurrency(VALIDATION_MSG)(null)).toEqual(null)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('')).toEqual(null)
+      })
       test('when a number is entered', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)(2000)).toEqual(null)
         expect(validate.isValidCurrency(VALIDATION_MSG)(2000.5)).toEqual(null)
@@ -99,8 +103,9 @@ describe('validate', () => {
     })
   })
   describe('passes validation', () => {
-    test('when null is passed', () => {
+    test('when null or empty string is passed', () => {
       expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(null)).toEqual(null)
+      expect(validate.isUnderMaxValue('')(VALIDATION_MSG)(null)).toEqual(null)
     })
     test('when a number under the max value is entered', () => {
       expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9)).toEqual(null)
