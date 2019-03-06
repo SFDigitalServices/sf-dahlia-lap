@@ -16,15 +16,29 @@ describe('SupplementalApplicationPage confirm modal', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-    // Click on the Senior Houshold Input under Confirmed Household
-    await page.click('#reserved_senior-yes')
-    await page.click('#reserved_senior-no')
+    // Change value for ada priorities, mobility impairments
+    await page.click('input#has_ada_priorities_selected\\.mobility_impairments')
 
     // Click on Original Short Form Application Tab
     await page.click('.tabs li:nth-child(1)')
 
     const hasConfirmModal = await utils.isPresent(page, '#leave-confirmation-modal')
     expect(hasConfirmModal).toBe(true)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
+  test('should not show pop up if there was not a change in an application field', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+
+    page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
+
+    const hasConfirmModal = await utils.isPresent(page, '#leave-confirmation-modal')
+    expect(hasConfirmModal).toBe(false)
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
