@@ -12,6 +12,7 @@ import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import YesNoRadioGroup from '../YesNoRadioGroup'
 import formUtils from '~/utils/formUtils'
 import { withField, Field } from '~/utils/form/Field'
+import validate from '~/utils/form/validations'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -132,11 +133,12 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
   )
 })
 
-const isRequired = (value, message) => isEmpty(value) ? message : null
-
 const validateError = (values) => {
   return {
-    type_of_assistance: isRequired(values.type_of_assistance, 'is required.')
+    type_of_assistance: validate.isPresent('Please select a type of assistance.')(values.type_of_assistance),
+    assistance_amount: (
+      validate.isValidCurrency('Please enter a valid dollar amount.')(values.assistance_amount) ||
+      validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(values.assistance_amount))
   }
 }
 
@@ -165,6 +167,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
                 field='type_of_assistance'
                 options={typeOfAssistanceOptions}
                 className='rental-assistance-type'
+                errorMessage={(label, error) => error}
               />
             </FormGrid.Item>
             <FormGrid.Item>
@@ -181,7 +184,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
               <Field.Text
                 label='Assistance Amount'
                 field='assistance_amount'
-                type='number'
+                errorMessage={(label, error) => error}
               />
             </FormGrid.Item>
             <FormGrid.Item>

@@ -5,12 +5,10 @@ import CardLayout from '../layouts/CardLayout'
 import mapProps from '~/utils/mapProps'
 import { mapListing } from '~/components/mappers/soqlToDomain/listing'
 import { saveApplication } from './actions'
-import { parseHouseholdIncome } from './application_form/utils'
 
 const ApplicationNewForm = ({ listing }) => {
   const saveNewApplication = async (submitType, submittedValues, application, listing, editPage) => {
     submittedValues.listing = { id: listing.id }
-    submittedValues.annual_income = parseHouseholdIncome(submittedValues.annual_income)
     return saveApplication(submitType, submittedValues, application, listing, editPage)
   }
 

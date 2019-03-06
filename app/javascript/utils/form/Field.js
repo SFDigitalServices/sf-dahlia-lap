@@ -11,7 +11,6 @@ export const BlockNote = ({ value }) => (
 
 export const Field = ({ formApi, field, label, blockNote, errorMessage, children }) => {
   const className = errorClassName(formApi, field)
-
   return (
     <div className={classNames('form-group', className)}>
       <label className='form-label' htmlFor={field}>
