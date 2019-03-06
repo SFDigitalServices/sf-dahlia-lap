@@ -70,14 +70,14 @@ const LeaseInformationInputs = ({ formApi, store }) => {
               <FormGrid.Row paddingBottom>
                 <FormGrid.Item>
                   <Field.Text
-                    label='Monthly Unit Rent'
+                    label='Monthly Rent'
                     field='total_monthly_rent_without_parking'
                     placeholder='Enter Amount'
                     errorMessage={(label, error) => error} />
                 </FormGrid.Item>
                 <FormGrid.Item>
                   <Field.Text
-                    label='Monthly Parking Rent'
+                    label='Monthly Parking Cost'
                     field='monthly_parking_rent'
                     placeholder='Enter Amount'
                     errorMessage={(label, error) => error} />
