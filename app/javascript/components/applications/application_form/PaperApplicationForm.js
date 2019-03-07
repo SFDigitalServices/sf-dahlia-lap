@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
+import { forEach, some, isObjectLike, isNil, isEmpty, includes, omitBy } from 'lodash'
 import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -94,6 +94,10 @@ class PaperApplicationForm extends React.Component {
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true, failed: false })
+
+    // remove empty string values from alternate contact due to Salesforce validation
+    submittedValues.alternate_contact = omitBy(submittedValues.alternate_contact, (v, k) => isEmpty(v))
+
     await onSubmit(submitType, submittedValues, application, listing, editPage)
     this.setState({ loading: false })
   }
