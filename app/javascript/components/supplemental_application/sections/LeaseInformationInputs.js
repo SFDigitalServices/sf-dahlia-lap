@@ -1,6 +1,6 @@
 import React from 'react'
 import { Checkbox, Form, NestedForm, Select, Text } from 'react-form'
-import { filter, map, toSafeInteger } from 'lodash'
+import { filter, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { pluck, decorateComponents } from '~/utils/utils'
@@ -22,17 +22,6 @@ const CustomFormGrid = decorateComponents(INPUTS, Component => {
     </FormGrid.Item>
   )
 })
-
-const getTotalMonthlyRent = (values) => {
-  const monthlyUnitRent = values.total_monthly_rent_without_parking
-  const monthlyParkingRent = values.monthly_parking_rent
-
-  if (monthlyUnitRent || monthlyParkingRent) {
-    return toSafeInteger(monthlyUnitRent) + toSafeInteger(monthlyParkingRent)
-  } else {
-    return 'Total Unit & Parking Rent'
-  }
-}
 
 const toggleNoPreferenceUsed = (formApi, value) => {
   formApi.setValue('no_preference_used', !value)
@@ -60,7 +49,6 @@ const LeaseInformationInputs = ({ formApi, store }) => {
     <NestedForm field='lease' >
       <Form defaultValues={formApi.values['lease']} validateError={validateError}>
         { nestedFormApi => {
-          const totalMonthlyRent = getTotalMonthlyRent(nestedFormApi.values)
           return (
             <React.Fragment>
               <FormGrid.Row paddingBottom>
@@ -82,21 +70,18 @@ const LeaseInformationInputs = ({ formApi, store }) => {
               <FormGrid.Row paddingBottom>
                 <FormGrid.Item>
                   <Field.Text
-                    label='Monthly Unit Rent'
+                    label='Monthly Rent'
                     field='total_monthly_rent_without_parking'
                     placeholder='Enter Amount'
                     errorMessage={(label, error) => error} />
                 </FormGrid.Item>
                 <FormGrid.Item>
                   <Field.Text
-                    label='Monthly Parking Rent'
+                    label='Monthly Parking Cost'
                     field='monthly_parking_rent'
                     placeholder='Enter Amount'
                     errorMessage={(label, error) => error} />
                 </FormGrid.Item>
-                <CustomFormGrid.Plain
-                  label='Total Monthly Rent'
-                  text={String(totalMonthlyRent)} />
                 <FormGrid.Item>
                   <Field.Text
                     label='Monthly Tenant Contribution'
