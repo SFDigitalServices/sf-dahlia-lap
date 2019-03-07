@@ -43,19 +43,22 @@ const AlternateContactSection = ({editValues}) => {
               <div className='form-group'>
                 <div className='small-4 columns'>
                   <Field.Text
-                    id='first_name'
+                    id='alt_first_name'
                     label='First Name'
                     field='first_name'
                     errorMessage={(label, error) => error}
                   />
                 </div>
                 <div className='small-4 columns'>
-                  <label>Middle Name</label>
-                  <Text field='middle_name' />
+                  <Field.Text
+                    id='alt_middle_name'
+                    label='Middle Name'
+                    field='middle_name'
+                  />
                 </div>
                 <div className='small-4 columns'>
                   <Field.Text
-                    id='last_name'
+                    id='alt_last_name'
                     label='Last Name'
                     field='last_name'
                     errorMessage={(label, error) => error}

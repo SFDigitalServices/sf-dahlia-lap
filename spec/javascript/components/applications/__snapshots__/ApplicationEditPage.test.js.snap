@@ -462,38 +462,65 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        First Name
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="Federic"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="first_name"
+                        >
+                          First Name 
+                        </label>
+                        <input
+                          className=""
+                          id="alt_first_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="Federic"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Middle Name
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="Daaaa"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="middle_name"
+                        >
+                          Middle Name 
+                        </label>
+                        <input
+                          className=""
+                          id="alt_middle_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="Daaaa"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Last Name
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="dayan"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="last_name"
+                        >
+                          Last Name 
+                        </label>
+                        <input
+                          className=""
+                          id="alt_last_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="dayan"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1695,38 +1722,65 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        First Name
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="Federic"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="first_name"
+                        >
+                          First Name 
+                        </label>
+                        <input
+                          className=""
+                          id="alt_first_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="Federic"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Middle Name
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="Daaaa"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="middle_name"
+                        >
+                          Middle Name 
+                        </label>
+                        <input
+                          className=""
+                          id="alt_middle_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="Daaaa"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Last Name
-                      </label>
-                      <input
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="dayan"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="last_name"
+                        >
+                          Last Name 
+                        </label>
+                        <input
+                          className=""
+                          id="alt_last_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          value="dayan"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

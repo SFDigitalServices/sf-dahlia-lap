@@ -200,4 +200,22 @@ describe('ApplicationNewPage', () => {
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
+  test('should create a new application with live/work preference successfully', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    await page.type('#alt_middle_name', LAST_NAME)
+
+    await page.click('.save-btn')
+    const hasAltFirstNameError = await utils.isPresent(page, '#alt_first_name.error')
+    const hasAltLastNameError = await utils.isPresent(page, '#alt_last_name.error')
+    expect(hasAltFirstNameError).toBe(true)
+    expect(hasAltLastNameError).toBe(true)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
 })
