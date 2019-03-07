@@ -21,7 +21,7 @@ const validateError = (formValues) => {
 
 const validateFirstLastName = (formValues, field, fieldName) => {
   // if there are any filled in alt contact fields, validate for first and last name
-  if (!isEmpty(values(formValues))) {
+  if (!isEmpty(values(formValues).filter(Boolean))) {
     return validate.isPresent(`Please enter a ${fieldName}.`)(field)
   }
 }
