@@ -1,14 +1,30 @@
 import React from 'react'
-import { isEmpty } from 'lodash'
+import { isEmpty, values } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import { mailingAddressFieldMap } from './utils'
+import validate from '~/utils/form/validations'
+import { Field } from '~/utils/form/Field'
 
 const {
   alternateContactOptions,
   phoneTypeOptions
 } = formOptions
+
+const validateError = (formValues) => {
+  return {
+    first_name: validateFirstLastName(formValues, formValues.first_name, 'First Name'),
+    last_name: validateFirstLastName(formValues, formValues.last_name, 'Last Name')
+  }
+}
+
+const validateFirstLastName = (formValues, field, fieldName) => {
+  // if there are any filled in alt contact fields, validate for first and last name
+  if (!isEmpty(values(formValues))) {
+    return validate.isPresent(`Please enter a ${fieldName}.`)(field)
+  }
+}
 
 const AlternateContactSection = ({editValues}) => {
   let autofillValues = {}
@@ -17,7 +33,7 @@ const AlternateContactSection = ({editValues}) => {
   }
   return (
     <NestedForm field='alternate_contact'>
-      <Form defaultValues={autofillValues}>
+      <Form defaultValues={autofillValues} validateError={validateError}>
         { formApi => (
           <div className='border-bottom margin-bottom--2x'>
             <div className='row'>
@@ -26,16 +42,24 @@ const AlternateContactSection = ({editValues}) => {
             <div className='row'>
               <div className='form-group'>
                 <div className='small-4 columns'>
-                  <label>First Name</label>
-                  <Text field='first_name' />
+                  <Field.Text
+                    id='first_name'
+                    label='First Name'
+                    field='first_name'
+                    errorMessage={(label, error) => error}
+                  />
                 </div>
                 <div className='small-4 columns'>
                   <label>Middle Name</label>
                   <Text field='middle_name' />
                 </div>
                 <div className='small-4 columns'>
-                  <label>Last Name</label>
-                  <Text field='last_name' />
+                  <Field.Text
+                    id='last_name'
+                    label='Last Name'
+                    field='last_name'
+                    errorMessage={(label, error) => error}
+                  />
                 </div>
               </div>
             </div>
