@@ -846,7 +846,7 @@ Array [
                     className="form-label"
                     htmlFor="total_monthly_rent_without_parking"
                   >
-                    Monthly Unit Rent 
+                    Monthly Rent 
                   </label>
                   <input
                     className=""
@@ -868,7 +868,7 @@ Array [
                     className="form-label"
                     htmlFor="monthly_parking_rent"
                   >
-                    Monthly Parking Rent 
+                    Monthly Parking Cost 
                   </label>
                   <input
                     className=""
@@ -878,24 +878,6 @@ Array [
                     placeholder="Enter Amount"
                     value=""
                   />
-                </div>
-              </div>
-              <div
-                className="form-grid_item small-12 medium-6 large-3 column"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    htmlFor=""
-                  >
-                    Total Monthly Rent
-                  </label>
-                  <div
-                    className="text-value"
-                  >
-                    Total Unit & Parking Rent
-                  </div>
                 </div>
               </div>
               <div
@@ -8608,7 +8590,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <Wrapper
                                                                 errorMessage={[Function]}
                                                                 field="total_monthly_rent_without_parking"
-                                                                label="Monthly Unit Rent"
+                                                                label="Monthly Rent"
                                                                 placeholder="Enter Amount"
                                                               >
                                                                 <Field
@@ -8654,7 +8636,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "warnings": Object {},
                                                                     }
                                                                   }
-                                                                  label="Monthly Unit Rent"
+                                                                  label="Monthly Rent"
                                                                 >
                                                                   <div
                                                                     className="form-group"
@@ -8663,7 +8645,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       className="form-label"
                                                                       htmlFor="total_monthly_rent_without_parking"
                                                                     >
-                                                                      Monthly Unit Rent 
+                                                                      Monthly Rent 
                                                                     </label>
                                                                     <r
                                                                       className=""
@@ -8749,7 +8731,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                           "warnings": Object {},
                                                                         }
                                                                       }
-                                                                      label="Monthly Unit Rent"
+                                                                      label="Monthly Rent"
                                                                     />
                                                                   </div>
                                                                 </Field>
@@ -8763,7 +8745,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <Wrapper
                                                                 errorMessage={[Function]}
                                                                 field="monthly_parking_rent"
-                                                                label="Monthly Parking Rent"
+                                                                label="Monthly Parking Cost"
                                                                 placeholder="Enter Amount"
                                                               >
                                                                 <Field
@@ -8809,7 +8791,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "warnings": Object {},
                                                                     }
                                                                   }
-                                                                  label="Monthly Parking Rent"
+                                                                  label="Monthly Parking Cost"
                                                                 >
                                                                   <div
                                                                     className="form-group"
@@ -8818,7 +8800,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       className="form-label"
                                                                       htmlFor="monthly_parking_rent"
                                                                     >
-                                                                      Monthly Parking Rent 
+                                                                      Monthly Parking Cost 
                                                                     </label>
                                                                     <r
                                                                       className=""
@@ -8904,45 +8886,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                           "warnings": Object {},
                                                                         }
                                                                       }
-                                                                      label="Monthly Parking Rent"
+                                                                      label="Monthly Parking Cost"
                                                                     />
                                                                   </div>
                                                                 </Field>
                                                               </Wrapper>
                                                             </div>
-                                                          </Component>
-                                                          <Component
-                                                            label="Total Monthly Rent"
-                                                            text="Total Unit & Parking Rent"
-                                                          >
-                                                            <Component>
-                                                              <div
-                                                                className="form-grid_item small-12 medium-6 large-3 column"
-                                                              >
-                                                                <Component
-                                                                  label="Total Monthly Rent"
-                                                                >
-                                                                  <div
-                                                                    className="form-group"
-                                                                  >
-                                                                    <label
-                                                                      htmlFor=""
-                                                                    >
-                                                                      Total Monthly Rent
-                                                                    </label>
-                                                                    <Plain
-                                                                      text="Total Unit & Parking Rent"
-                                                                    >
-                                                                      <div
-                                                                        className="text-value"
-                                                                      >
-                                                                        Total Unit & Parking Rent
-                                                                      </div>
-                                                                    </Plain>
-                                                                  </div>
-                                                                </Component>
-                                                              </div>
-                                                            </Component>
                                                           </Component>
                                                           <Component>
                                                             <div
