@@ -1,5 +1,5 @@
 import React from 'react'
-import { isEmpty, values } from 'lodash'
+import { isEmpty, values, forEach } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
@@ -13,6 +13,10 @@ const {
 } = formOptions
 
 const validateError = (formValues) => {
+  // remove empty string values from alternate contact due to Salesforce validation
+  forEach(formValues, (v, k) => {
+    if (isEmpty(v)) { delete formValues[k] }
+  })
   return {
     first_name: validateFirstLastName(formValues, formValues.first_name, 'First Name'),
     last_name: validateFirstLastName(formValues, formValues.last_name, 'Last Name')
