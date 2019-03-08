@@ -1,5 +1,5 @@
 import React from 'react'
-import { isEmpty, values, forEach } from 'lodash'
+import { isEmpty, values, forEach, size } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
@@ -17,6 +17,9 @@ const validateError = (formValues) => {
   forEach(formValues, (v, k) => {
     if (isEmpty(v)) { delete formValues[k] }
   })
+  // delete id if other fields are empty
+  if (size(formValues) === 1 && !isEmpty(formValues.id)) { delete formValues.id }
+
   return {
     first_name: validateFirstLastName(formValues, formValues.first_name, 'First Name'),
     last_name: validateFirstLastName(formValues, formValues.last_name, 'Last Name')
