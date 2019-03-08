@@ -36,9 +36,10 @@ describe('SupplementalApplicationPage confirm modal', () => {
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
+    await page.waitForNavigation()
 
-    const hasConfirmModal = await utils.isPresent(page, '#leave-confirmation-modal')
-    expect(hasConfirmModal).toBe(false)
+    // Verify that we're now on the application snapshot page
+    expect(page.url()).toBe(`http://localhost:3000/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
