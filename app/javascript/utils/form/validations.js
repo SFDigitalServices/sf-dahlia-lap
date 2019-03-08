@@ -54,7 +54,7 @@ const isValidCurrency = (value) => {
 }
 
 const isUnderMaxValue = maxValue => value => {
-  if (isNil(value)) {
+  if (isNil(value) || value === '') {
     return true
   }
   let incomeFloat = isString(value) ? parseFloat(value.replace(/[$,]+/g, '')) : value
