@@ -94,6 +94,7 @@ class PaperApplicationForm extends React.Component {
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true, failed: false })
+
     await onSubmit(submitType, submittedValues, application, listing, editPage)
     this.setState({ loading: false })
   }
