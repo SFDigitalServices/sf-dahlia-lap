@@ -200,4 +200,43 @@ describe('ApplicationNewPage', () => {
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
+  test('should bring up an alternate contact error message only if values are present but not first or last name', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    // Fill out primary applicant required fields
+    await page.type('#first_name', FIRST_NAME)
+    await page.type('#last_name', LAST_NAME)
+    await page.type('#date_of_birth_month', DOB_MONTH)
+    await page.type('#date_of_birth_day', DOB_DAY)
+    await page.type('#date_of_birth_year', DOB_YEAR)
+
+    // Fill out one unrequired field on the alternate contact section
+    await page.type('#alt_middle_name', 'A')
+
+    await page.click('.save-btn')
+
+    const hasAltFirstNameError = await utils.isPresent(page, '#alt_first_name.error')
+    const hasAltLastNameError = await utils.isPresent(page, '#alt_last_name.error')
+    expect(hasAltFirstNameError).toBe(true)
+    expect(hasAltLastNameError).toBe(true)
+
+    // Clear alternate contact middle name
+    await page.focus('#alt_middle_name')
+    await page.keyboard.press('Backspace')
+
+    // Save the application
+    await page.click('.save-btn')
+    await page.waitForNavigation()
+    await sharedSteps.waitForApp(page)
+
+    const hasApplicationDetails = await utils.isPresent(page, '.application-details')
+    expect(hasApplicationDetails).toBe(true)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
 })
