@@ -58,8 +58,8 @@ Modal.Body = ({ children, handleClose, hidden }) => (
   </div>
 )
 
-Modal.Header = ({ title }) => (
-  <header className='modal-inner margin-top'>
+Modal.Header = ({ id, title }) => (
+  <header id={id} className='modal-inner margin-top'>
     <h1 className='modal-title t-gamma no-margin'>{title}</h1>
   </header>
 )

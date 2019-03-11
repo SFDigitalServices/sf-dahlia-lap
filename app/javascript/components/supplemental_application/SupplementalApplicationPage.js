@@ -43,6 +43,7 @@ class SupplementalApplicationPage extends React.Component {
       // Salesforce. This is the latest saved copy.
       persistedApplication: cloneDeep(props.application),
       confirmedPreferencesFailed: false,
+      supplementalAppTouched: false,
       amis: {},
       amiCharts: [],
       loading: false,
@@ -278,8 +279,16 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: false })
   }
 
-  openLeaveConfirmationModal = () => {
-    this.setState({ leaveConfirmationModal: { isOpen: true } })
+  handleLeaveSuppAppTab = () => {
+    if (this.state.supplementalAppTouched) {
+      this.setState({ leaveConfirmationModal: { isOpen: true } })
+    } else {
+      window.location.href = appPaths.toApplication(this.state.persistedApplication.id)
+    }
+  }
+
+  assignSupplementalAppTouched = () => {
+    this.setState({ supplementalAppTouched: true })
   }
 
   handleStatusModalClose = () => {
@@ -312,12 +321,13 @@ class SupplementalApplicationPage extends React.Component {
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id), onClick: this.openLeaveConfirmationModal },
+        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id), onClick: this.handleLeaveSuppAppTab },
         { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
       ]
     }
 
     const context = {
+      assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       application: persistedApplication,
       applicationMembers: getApplicationMembers(persistedApplication),
       amis: amis,
