@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 12 Mar 2019 21:56:08 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=WeedYeSZSbC0lCZkFWF35g;Path=/;Domain=.salesforce.com;Expires=Sat,
+        11-May-2019 21:56:08 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D210000009rvpEAA/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1552427768491","signature":"dqYxgiHqbaBCdQwh5XcaIjbLtR9wpSmWpmHkUT3WSEY="}'
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 21:56:08 GMT
+- request:
+    method: post
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/apexrest/LeasingAgentPortal/shortForm"
+    body:
+      encoding: UTF-8
+      string: '{"applicationSubmissionType":"Paper","applicationSubmittedDate":"2019-03-12","status":"Submitted","listingID":"a0W0P00000GbyuQ","annualIncome":"110000","applicationLanguage":"English","primaryApplicant":{"firstName":"Test","lastName":"Supp
+        app test","email":"eee@eeee.com","DOB":"1950-01-01","address":"123 MAIN ST","city":"SAN
+        FRANCISCO","state":"CA","zip":"94105-1804"},"householdMembers":[{"firstName":"member","lastName":"test","DOB":"1976-06-11"}]}'
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 12 Mar 2019 21:56:09 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D210000009rvpm";
+      Expect-Ct:
+      - max-age=0; report-uri="https://a.forcesslreports.com/Expect-CT-report/00D210000009rvpm";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=bn-JnaNESha9s1lqULnEJA;Path=/;Domain=.salesforce.com;Expires=Sat,
+        11-May-2019 21:56:09 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalMonthlyRent":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iageAAA","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxUQAR","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iagfAAA","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxyQAB","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iaggAAA","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w0mQAB","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iaghAAA","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w1BQAR","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iagiAAA","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRPiaQAH","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iagjAAA","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRQGzQAP","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iagkAAA","requiresProof":false,"recordTypeDevName":"Custom","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRQKlQAP","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w21000001iaglAAA","requiresProof":false,"recordTypeDevName":"ADHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001RbKCJQA3","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o210000029JWHAA2","address":null}],"referral":null,"processingStatus":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"race":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lastName":"Supp
+        app test","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"email":"eee@eeee.com","DOB":"1950-01-01","contactId":"0032100000jn3gEAAQ","city":"SAN
+        FRANCISCO","candidateScore":null,"appMemberType":"Primary Applicant","appMemberId":"a0n21000003mD3eAAE","applicationId":"a0o210000029JWHAA2","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"123
+        MAIN ST"},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-00315738","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00315738","listingID":"a0W0P00000GbyuQUAR","isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"id":"a0o210000029JWHAA2","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"race":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lastName":"test","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"email":null,"DOB":"1976-06-11","contactId":null,"city":null,"candidateScore":null,"appMemberType":"Household
+        Member","appMemberId":"a0n21000003mD3dAAE","applicationId":"a0o210000029JWHAA2","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null}],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":null,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"finalHouseholdIncome":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 21:56:11 GMT
+recorded_with: VCR 4.0.0
