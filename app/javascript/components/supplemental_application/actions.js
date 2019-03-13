@@ -1,26 +1,18 @@
 import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
+import { isEmpty } from 'lodash'
 
 export const updateApplicationAction = async (application) => {
   let lease = application['lease']
-  if (lease) {
-    // map it right
-    console.log('pre-mapped lease', lease)
-    let leaseApi = domainToApi.mapLease(lease)
-    console.log('post-mapped lease', leaseApi)
-
-    // submit it
+  if (!isEmpty(lease)) {
     let applicationId = application['id']
-    let leaseResponse = await apiService.createOrUpdateLease(leaseApi, applicationId)
-    await console.log('LEASE RESPONSE', leaseResponse)
+    let leaseApi = domainToApi.mapLease(lease)
+    await apiService.createOrUpdateLease(leaseApi, applicationId)
   }
-  console.log('pre-mapped application', application)
   const applicationApi = domainToApi.buildApplicationShape(application)
-  console.log('post-mapped application', applicationApi)
   const applicationResponse = await apiService.submitApplication(applicationApi)
-  // How to deal with error handling here?
-
+  // TODO: Implement error handling that checks for lease and app success #164615072
   return applicationResponse
 }
 
