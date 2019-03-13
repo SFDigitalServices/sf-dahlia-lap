@@ -2,11 +2,13 @@
 
 module Api
   module V1
-    # RESTful JSON API for rental assistance actions
-    class LeaseController < ApiController
-      def submit
-        lease = lease_params[:lease]
-        lease[:application_id] = lease[:id]
+    # RESTful JSON API for lease actions
+    class LeasesController < ApiController
+      # All requests are creates since we do not know if the lease exists until we check.
+      def create
+        puts 'LEASE PARAMS', lease_params
+        lease = lease_params
+        puts 'LEASE', lease
         lease[:primary_applicant_contact] = lease[:primaryApplicantContact]
 
         if lease[:id]
@@ -19,16 +21,23 @@ module Api
           # lease may still exist. For example, if the user created rental assistances
           # from the supp app page, that will have created a blank lease before the
           # entire supp app form was saved.
-          existing_lease = soql_lease_service.application_lease(lease[:id])
+          existing_lease = soql_lease_service.application_lease(params[:application_id])
           if existing_lease.present?
             response = rest_lease_service.update(lease.merge(id: existing_lease[:id]))
           else
-            response = rest_lease_service.create(lease)
+            response = rest_lease_service.create(lease.merge(application_id: params[:application_id]))
           end
         end
 
+        if response
+          # TODO: Figure out what all the different responses will be
+          # return consistent answer, either id or true/false
+          render json: { lease: response }
+        else
+          render status: 422, json: false
+        end
+
         logger.debug "lease submit response: #{response}"
-        response
       end
 
       def lease_params
