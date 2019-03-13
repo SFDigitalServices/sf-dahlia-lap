@@ -148,7 +148,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalClose = () => {
-    console.log('trying to close status modal')
     this.updateStatusModal({isOpen: false})
   }
 
