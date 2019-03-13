@@ -148,6 +148,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalClose = () => {
+    console.log('trying to close status modal')
     this.updateStatusModal({isOpen: false})
   }
 
@@ -291,7 +292,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ supplementalAppTouched: true })
   }
 
-  handleStatusModalClose = () => {
+  handleLeaveModalClose = () => {
     this.setState({ leaveConfirmationModal: { isOpen: false } })
   }
 
@@ -366,7 +367,7 @@ class SupplementalApplicationPage extends React.Component {
         </CardLayout>
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}
-          handleClose={this.handleStatusModalClose}
+          handleClose={this.handleLeaveModalClose}
           destination={appPaths.toApplication(persistedApplication.id)} />
       </Context.Provider>
     )
