@@ -3,17 +3,28 @@ import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 import { isEmpty } from 'lodash'
 
-export const updateApplicationAction = async (application) => {
-  let lease = application['lease']
-  if (!isEmpty(lease)) {
-    let applicationId = application['id']
-    let leaseApi = domainToApi.mapLease(lease)
-    await apiService.createOrUpdateLease(leaseApi, applicationId)
-  }
+export const updateApplication = async (application) => {
+  const leasePromise = updateLease(application['lease'], application['id'])
+
   const applicationApi = domainToApi.buildApplicationShape(application)
-  const applicationResponse = await apiService.submitApplication(applicationApi)
-  // TODO: Implement error handling that checks for lease and app success #164615072
-  return applicationResponse
+  const appPromise = apiService.submitApplication(applicationApi)
+
+  const [appResponse, leaseResponse] = await Promise.all([appPromise, leasePromise])
+  console.log('returning with a response', appResponse, leaseResponse)
+  return appResponse !== false && leaseResponse !== false
+}
+
+const updateLease = async (lease, applicationId) => {
+  if (!isEmpty(lease)) {
+    let leaseApi = domainToApi.mapLease(lease)
+    if (lease['id']) {
+      return apiService.updateLease(leaseApi, applicationId)
+    } else {
+      return apiService.createLease(leaseApi, applicationId)
+    }
+  } else {
+    return true
+  }
 }
 
 export const getAMIAction = async ({chartType, chartYear}) => {

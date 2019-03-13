@@ -110,13 +110,21 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
   return apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
 }
 
-// TODO: consider just calling it create if we don't have the id, and update if we do have the id?
-const createOrUpdateLease = async (lease, applicationId) => {
+const createLease = async (lease, applicationId) => {
   const postData = {
     lease: lease,
     application_id: applicationId
   }
   return apiCall('post', `/leases`, postData)
+}
+
+const updateLease = async (lease, applicationId) => {
+  const id = lease.id
+  const putData = {
+    lease: lease,
+    application_id: applicationId
+  }
+  return apiCall('put', `/leases/${id}`, putData)
 }
 
 export default {
@@ -131,5 +139,6 @@ export default {
   createRentalAssistance,
   updateRentalAssistance,
   deleteRentalAssistance,
-  createOrUpdateLease
+  createLease,
+  updateLease
 }
