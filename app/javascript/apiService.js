@@ -110,21 +110,16 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
   return apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
 }
 
-const createLease = async (lease, applicationId) => {
-  const postData = {
+const createOrUpdateLease = async (lease, applicationId) => {
+  const data = {
     lease: lease,
     application_id: applicationId
   }
-  return apiCall('post', `/leases`, postData)
-}
-
-const updateLease = async (lease, applicationId) => {
-  const id = lease.id
-  const putData = {
-    lease: lease,
-    application_id: applicationId
+  if (lease['id']) {
+    return apiCall('put', `/leases/${lease['id']}`, data)
+  } else {
+    return apiCall('post', `/leases`, data)
   }
-  return apiCall('put', `/leases/${id}`, putData)
 }
 
 export default {
@@ -139,6 +134,5 @@ export default {
   createRentalAssistance,
   updateRentalAssistance,
   deleteRentalAssistance,
-  createLease,
-  updateLease
+  createOrUpdateLease
 }

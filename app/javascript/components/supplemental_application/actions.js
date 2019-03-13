@@ -17,11 +17,7 @@ export const updateApplication = async (application) => {
 const updateLease = async (lease, applicationId) => {
   if (!isEmpty(lease)) {
     let leaseApi = domainToApi.mapLease(lease)
-    if (lease['id']) {
-      return apiService.updateLease(leaseApi, applicationId)
-    } else {
-      return apiService.createLease(leaseApi, applicationId)
-    }
+    return apiService.createOrUpdateLease(leaseApi, applicationId)
   } else {
     return true
   }
