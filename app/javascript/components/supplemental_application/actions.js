@@ -3,9 +3,25 @@ import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 
 export const updateApplicationAction = async (application) => {
+  let lease = application['lease']
+  if (lease) {
+    // map it right
+    console.log('pre-mapped lease', lease)
+    let leaseApi = domainToApi.mapLease(lease)
+    console.log('post-mapped lease', leaseApi)
+
+    // submit it
+    let applicationId = application['id']
+    let leaseResponse = await apiService.createOrUpdateLease(leaseApi, applicationId)
+    await console.log('LEASE RESPONSE', leaseResponse)
+  }
+  console.log('pre-mapped application', application)
   const applicationApi = domainToApi.buildApplicationShape(application)
-  const response = await apiService.submitApplication(applicationApi)
-  return response
+  console.log('post-mapped application', applicationApi)
+  const applicationResponse = await apiService.submitApplication(applicationApi)
+  // How to deal with error handling here?
+
+  return applicationResponse
 }
 
 export const getAMIAction = async ({chartType, chartYear}) => {

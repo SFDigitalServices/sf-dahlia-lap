@@ -28,15 +28,7 @@ const updateFlaggedApplication = async (data) => {
 
 const submitApplication = async (data) => {
   let postData = { application: data }
-  console.log('data being submitted', data)
-
-  // FIXME Move this to a mapping stage (this is just for testing)
-  let applicationId = data['id']
-  let lease = data['lease']
-  if (lease) {
-    let leaseResponse = await createOrUpdateLease(lease, applicationId)
-    await console.log('LEASE RESPONSE', leaseResponse)
-  }
+  console.log('application data', data)
   return apiCall('post', '/short-form/submit', postData)
 }
 
@@ -138,5 +130,6 @@ export default {
   createFieldUpdateComment,
   createRentalAssistance,
   updateRentalAssistance,
-  deleteRentalAssistance
+  deleteRentalAssistance,
+  createOrUpdateLease
 }
