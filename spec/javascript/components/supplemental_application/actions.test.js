@@ -1,4 +1,4 @@
-import { updateApplicationAction } from 'components/supplemental_application/actions'
+import { updateApplication } from 'components/supplemental_application/actions'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 import mockSupplementalSubmitPayload from '../../fixtures/supplemental_submit_payload'
@@ -17,7 +17,7 @@ jest.mock('apiService', () => {
 describe('actions', () => {
   test('it should submit to shortForm', async () => {
     const applicationDomain = mapApplication(supplementalApplication)
-    const response = await updateApplicationAction(applicationDomain)
+    const response = await updateApplication(applicationDomain)
 
     expect(response).toEqual(true)
     expect(mockFn.mock.calls.length).toEqual(1)
