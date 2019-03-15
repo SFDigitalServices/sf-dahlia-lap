@@ -128,4 +128,25 @@ describe('SupplementalApplicationPage', () => {
     // when the dropdown menu is open
     expect(wrapper).toMatchSnapshot()
   })
+  test('should allow the status update modal to open and close', async () => {
+    const wrapper = mount(
+      <SupplementalApplicationPage
+        application={supplementalApplication}
+        statusHistory={statusHistory}
+      />
+    )
+
+    // Click on the add a comment button to open
+    // the status update modal
+    wrapper.find('div.status-update_footer > button').simulate('click')
+
+    // Expect modal to be open
+    expect(wrapper.find('#status-comment').exists()).toBeTruthy()
+
+    // Click Close
+    wrapper.find('div.modal-button_item.modal-button_secondary > button').simulate('click')
+
+    // Expect modal to be closed
+    expect(wrapper.find('#status-comment').exists()).toBe(false)
+  })
 })
