@@ -112,13 +112,12 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
 
 const createOrUpdateLease = async (lease, applicationId) => {
   const data = {
-    lease: lease,
-    application_id: applicationId
+    lease: lease
   }
   if (lease['id']) {
-    return apiCall('put', `/leases/${lease['id']}`, data)
+    return apiCall('put', `/applications/${applicationId}/leases/${lease['id']}`, data)
   } else {
-    return apiCall('post', `/leases`, data)
+    return apiCall('post', `/applications/${applicationId}/leases`, data)
   }
 }
 

@@ -34,7 +34,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'ami' => 'ami#get'
 
-      resources :applications, only: %w[index update]
+      resources :applications, only: %w[index update] do
+        resources :leases, only: %w[create update]
+      end
 
       scope '/field-update-comments' do
         post 'create' => 'field_update_comments#create'
@@ -49,7 +51,6 @@ Rails.application.routes.draw do
       resources :preferences, only: %w[update]
 
       resources :rental_assistances, path: '/rental-assistances', only: %w[create update destroy]
-      resources :leases, path: '/leases', only: %w[create update]
 
       scope '/short-form' do
         post 'submit' => 'short_form#submit'

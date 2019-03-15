@@ -1,0 +1,251 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 Mar 2019 21:05:51 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=YzgallPOSOOsSaJ_HsO3Mg;Path=/;Domain=.salesforce.com;Expires=Tue,
+        14-May-2019 21:05:51 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D210000009rvpEAA/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1552683952332","signature":"P8q43Z2OO1Z/79VrzCbgnm1h0JOd1OLz56CAgkGqJkM="}'
+    http_version: 
+  recorded_at: Fri, 15 Mar 2019 21:05:52 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o210000027w7EAAQ%27)"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 Mar 2019 21:05:52 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D210000009rvpm";
+      Expect-Ct:
+      - max-age=0; report-uri="https://a.forcesslreports.com/Expect-CT-report/00D210000009rvpm";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=VLt1O1SsRmqDv1l8GcZgcg;Path=/;Domain=.salesforce.com;Expires=Tue,
+        14-May-2019 21:05:52 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=1453/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a1321000000qBsrAAE"},"Id":"a1321000000qBsrAAE","Unit__c":null,"Lease_Start_Date__c":null,"Lease_Status__c":"Draft","Monthly_Parking_Rent__c":100.0,"Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":10.0,"Monthly_Tenant_Contribution__c":0.0}]}'
+    http_version: 
+  recorded_at: Fri, 15 Mar 2019 21:05:52 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o210000027w7EAAQ%27)"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 Mar 2019 21:05:53 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D210000009rvpm";
+      Expect-Ct:
+      - max-age=0; report-uri="https://a.forcesslreports.com/Expect-CT-report/00D210000009rvpm";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=Ou8BQyO8S1qvG8dOpPhGXQ;Path=/;Domain=.salesforce.com;Expires=Tue,
+        14-May-2019 21:05:53 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=1454/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"totalSize":1,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Fri, 15 Mar 2019 21:05:53 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 Mar 2019 21:05:53 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=Oml3L2LGSzqt9yRIi_KRLA;Path=/;Domain=.salesforce.com;Expires=Tue,
+        14-May-2019 21:05:53 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D210000009rvpEAA/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1552683953724","signature":"GlusyLBzJ+SI4u4m21/sJYrMuCvFjkIqwZ8+Xn5XBDk="}'
+    http_version: 
+  recorded_at: Fri, 15 Mar 2019 21:05:53 GMT
+- request:
+    method: patch
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a1321000000qBsrAAE"
+    body:
+      encoding: UTF-8
+      string: '{"Monthly_Parking_Rent__c":"100","No_Preference_Used__c":false}'
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 15 Mar 2019 21:05:54 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D210000009rvpm";
+      Expect-Ct:
+      - max-age=0; report-uri="https://a.forcesslreports.com/Expect-CT-report/00D210000009rvpm";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=gK2kkKLYTpGGgkKkMeFXdg;Path=/;Domain=.salesforce.com;Expires=Tue,
+        14-May-2019 21:05:54 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=1453/5000000
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 15 Mar 2019 21:05:54 GMT
+recorded_with: VCR 4.0.0
