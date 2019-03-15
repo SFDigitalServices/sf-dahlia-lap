@@ -75,6 +75,7 @@
   },
   "jest": {
     "coverageReporters": ["lcov"],
+    "clearMocks": true,
     "testMatch": [
       "**/__tests__/**/*.js?(x)",
       "**/?(*.)+(spec|test|e2e).js?(x)"
