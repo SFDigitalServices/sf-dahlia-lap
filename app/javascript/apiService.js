@@ -1,4 +1,4 @@
-import request from '~/api/request'
+import { apiCall } from '~/api/request'
 
 const updateFlaggedApplication = async (data) => {
   let putData = {
@@ -10,17 +10,17 @@ const updateFlaggedApplication = async (data) => {
       Comments__c: data.comments
     }
   }
-  let response = await request.apiCall('put', '/flagged-applications/update', putData)
+  let response = await apiCall('put', '/flagged-applications/update', putData)
   return response.result
 }
 
 const submitApplication = async (data) => {
   let postData = { application: data }
-  return request.apiCall('post', '/short-form/submit', postData)
+  return apiCall('post', '/short-form/submit', postData)
 }
 
 const fetchApplications = async ({ page, filters }) => {
-  return request.apiCall('get', '/applications', {
+  return apiCall('get', '/applications', {
     params: {
       page,
       ...filters
@@ -30,7 +30,7 @@ const fetchApplications = async ({ page, filters }) => {
 
 const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
   // Fetch applications associated with a lease up listing.
-  return request.apiCall('get', '/lease-ups/applications', {
+  return apiCall('get', '/lease-ups/applications', {
     params: {
       listing_id: listingId,
       page: page,
@@ -40,7 +40,7 @@ const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
 }
 
 const getAMI = async ({ chartType, chartYear }) => {
-  return request.apiCall('get', '/ami', {
+  return apiCall('get', '/ami', {
     params: {
       chartType: chartType,
       year: chartYear,
@@ -57,21 +57,21 @@ const createFieldUpdateComment = async (data) => {
       Application__c: data.applicationId
     }
   }
-  return request.apiCall('post', '/field-update-comments/create', postData)
+  return apiCall('post', '/field-update-comments/create', postData)
 }
 
 const updatePreference = async (preference) => {
   const postData = {
     preference: preference
   }
-  return request.apiCall('put', `/preferences/${preference.id}`, postData)
+  return apiCall('put', `/preferences/${preference.id}`, postData)
 }
 
 const updateApplication = async (application) => {
   const postData = {
     application: application
   }
-  return request.apiCall('put', `/applications/${application.id}`, postData)
+  return apiCall('put', `/applications/${application.id}`, postData)
 }
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -79,7 +79,7 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
-  return request.apiCall('post', '/rental-assistances', postData)
+  return apiCall('post', '/rental-assistances', postData)
 }
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -87,11 +87,11 @@ const updateRentalAssistance = async (rentalAssistance, applicationId) => {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
-  return request.apiCall('put', `/rental-assistances/${rentalAssistance.id}`, putData)
+  return apiCall('put', `/rental-assistances/${rentalAssistance.id}`, putData)
 }
 
 const deleteRentalAssistance = async (rentalAssistanceId) => {
-  return request.apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
+  return apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
 }
 
 export const createOrUpdateLease = async (lease, applicationId) => {
@@ -100,9 +100,9 @@ export const createOrUpdateLease = async (lease, applicationId) => {
     lease: lease
   }
   if (leaseId) {
-    return request.apiCall('put', `/applications/${applicationId}/leases/${leaseId}`, data)
+    return apiCall('put', `/applications/${applicationId}/leases/${leaseId}`, data)
   } else {
-    return request.apiCall('post', `/applications/${applicationId}/leases`, data)
+    return apiCall('post', `/applications/${applicationId}/leases`, data)
   }
 }
 

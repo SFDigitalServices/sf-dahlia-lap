@@ -12,7 +12,6 @@ export const updateApplication = async (application) => {
   const appPromise = apiService.submitApplication(applicationApi)
 
   const [appResponse, leaseResponse] = await Promise.all([appPromise, leasePromise])
-  console.log('returning with a response', appResponse, leaseResponse)
   return appResponse !== false && leaseResponse !== false
 }
 
