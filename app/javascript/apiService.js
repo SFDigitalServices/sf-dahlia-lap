@@ -60,18 +60,18 @@ const createFieldUpdateComment = async (data) => {
   return request.apiCall('post', '/field-update-comments/create', postData)
 }
 
-const updatePreference = async (data) => {
+const updatePreference = async (preference) => {
   const postData = {
-    preference: data
+    preference: preference
   }
-  return request.apiCall('put', `/preferences/${data.id}`, postData)
+  return request.apiCall('put', `/preferences/${preference.id}`, postData)
 }
 
-const updateApplication = async (data) => {
+const updateApplication = async (application) => {
   const postData = {
-    application: data
+    application: application
   }
-  return request.apiCall('put', `/applications/${data.id}`, postData)
+  return request.apiCall('put', `/applications/${application.id}`, postData)
 }
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
