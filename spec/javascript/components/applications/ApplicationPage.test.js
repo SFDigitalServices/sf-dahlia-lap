@@ -1,14 +1,12 @@
 import React from 'react'
 import { clone } from 'lodash'
 import ApplicationPage from 'components/applications/ApplicationPage'
-import sharedHooks from '../../support/sharedHooks'
 import domainApplication from '../../fixtures/domain_application'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 
 describe('ApplicationPage', () => {
   describe('should render', () => {
-    sharedHooks.useFakeTimers()
     const flaggedAppCardSelector = '#content-card-flagged_applications'
 
     test('without error and as expected', () => {
