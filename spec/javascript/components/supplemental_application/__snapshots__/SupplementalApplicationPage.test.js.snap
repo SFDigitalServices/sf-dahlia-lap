@@ -555,7 +555,6 @@ Array [
                     >
                       <input
                         checked={true}
-                        className={undefined}
                         id="housing_voucher_or_subsidy-undefined-yes"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -573,7 +572,6 @@ Array [
                     >
                       <input
                         checked={false}
-                        className={undefined}
                         id="housing_voucher_or_subsidy-undefined-no"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -699,7 +697,6 @@ Array [
                     aria-describedby="ami-HUD Unadjusted"
                     className="text-value"
                     id="ami-HUD Unadjusted"
-                    tabIndex={undefined}
                   >
                     Enter HH Income
                   </div>
@@ -727,7 +724,6 @@ Array [
                     aria-describedby="ami-Non-Hera"
                     className="text-value"
                     id="ami-Non-Hera"
-                    tabIndex={undefined}
                   >
                     Enter HH Income
                   </div>
@@ -825,7 +821,6 @@ Array [
                       Select One
                     </option>
                     <option
-                      disabled={undefined}
                       value={1}
                     >
                       None
@@ -969,61 +964,51 @@ Array [
                       Select One
                     </option>
                     <option
-                      disabled={undefined}
                       value={1}
                     >
                       0
                     </option>
                     <option
-                      disabled={undefined}
                       value={2}
                     >
                       1
                     </option>
                     <option
-                      disabled={undefined}
                       value={3}
                     >
                       2
                     </option>
                     <option
-                      disabled={undefined}
                       value={4}
                     >
                       3
                     </option>
                     <option
-                      disabled={undefined}
                       value={5}
                     >
                       4
                     </option>
                     <option
-                      disabled={undefined}
                       value={6}
                     >
                       5
                     </option>
                     <option
-                      disabled={undefined}
                       value={7}
                     >
                       6
                     </option>
                     <option
-                      disabled={undefined}
                       value={8}
                     >
                       7
                     </option>
                     <option
-                      disabled={undefined}
                       value={9}
                     >
                       8
                     </option>
                     <option
-                      disabled={undefined}
                       value={10}
                     >
                       9
@@ -1055,61 +1040,51 @@ Array [
                       Select One
                     </option>
                     <option
-                      disabled={undefined}
                       value={1}
                     >
                       0
                     </option>
                     <option
-                      disabled={undefined}
                       value={2}
                     >
                       1
                     </option>
                     <option
-                      disabled={undefined}
                       value={3}
                     >
                       2
                     </option>
                     <option
-                      disabled={undefined}
                       value={4}
                     >
                       3
                     </option>
                     <option
-                      disabled={undefined}
                       value={5}
                     >
                       4
                     </option>
                     <option
-                      disabled={undefined}
                       value={6}
                     >
                       5
                     </option>
                     <option
-                      disabled={undefined}
                       value={7}
                     >
                       6
                     </option>
                     <option
-                      disabled={undefined}
                       value={8}
                     >
                       7
                     </option>
                     <option
-                      disabled={undefined}
                       value={9}
                     >
                       8
                     </option>
                     <option
-                      disabled={undefined}
                       value={10}
                     >
                       9
@@ -1147,61 +1122,51 @@ Array [
                       Select One
                     </option>
                     <option
-                      disabled={undefined}
                       value={1}
                     >
                       0
                     </option>
                     <option
-                      disabled={undefined}
                       value={2}
                     >
                       1
                     </option>
                     <option
-                      disabled={undefined}
                       value={3}
                     >
                       2
                     </option>
                     <option
-                      disabled={undefined}
                       value={4}
                     >
                       3
                     </option>
                     <option
-                      disabled={undefined}
                       value={5}
                     >
                       4
                     </option>
                     <option
-                      disabled={undefined}
                       value={6}
                     >
                       5
                     </option>
                     <option
-                      disabled={undefined}
                       value={7}
                     >
                       6
                     </option>
                     <option
-                      disabled={undefined}
                       value={8}
                     >
                       7
                     </option>
                     <option
-                      disabled={undefined}
                       value={9}
                     >
                       8
                     </option>
                     <option
-                      disabled={undefined}
                       value={10}
                     >
                       9
@@ -1233,19 +1198,16 @@ Array [
                       Select One
                     </option>
                     <option
-                      disabled={undefined}
                       value={1}
                     >
                       Single
                     </option>
                     <option
-                      disabled={undefined}
                       value={2}
                     >
                       Married
                     </option>
                     <option
-                      disabled={undefined}
                       value={3}
                     >
                       Domestic Partner
@@ -1268,7 +1230,6 @@ Array [
               <div
                 className="dropdown dropdown-inline"
                 onClick={[Function]}
-                style={undefined}
               >
                 <button
                   aria-expanded="false"

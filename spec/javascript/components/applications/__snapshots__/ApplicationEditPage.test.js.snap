@@ -71,25 +71,21 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         English
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Chinese
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Spanish
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Filipino
@@ -225,19 +221,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Home
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Cell
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Work
@@ -545,25 +538,21 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Family Member
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Friend
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Social Worker or Housing Counselor
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Other
@@ -640,19 +629,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Home
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Cell
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Work
@@ -1170,19 +1156,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         true
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         false
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Left Blank
@@ -1331,25 +1314,21 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         English
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Chinese
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Spanish
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Filipino
@@ -1485,19 +1464,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Home
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Cell
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Work
@@ -1805,25 +1781,21 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Family Member
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Friend
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Social Worker or Housing Counselor
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Other
@@ -1900,19 +1872,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Home
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Cell
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Work
@@ -2388,13 +2357,11 @@ Array [
                             Select One...
                           </option>
                           <option
-                            disabled={undefined}
                             value={1}
                           >
                             Certificate of Preference (COP)
                           </option>
                           <option
-                            disabled={undefined}
                             value={2}
                           >
                             Alice Griffith Housing Development Resident
@@ -2438,13 +2405,11 @@ Array [
                                   Select One...
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={1}
                                 >
                                   karen jones
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={2}
                                 >
                                   diego maradona
@@ -2483,43 +2448,36 @@ Array [
                                   Select One...
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={1}
                                 >
                                   Letter from SFHA verifying address
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={2}
                                 >
                                   CA ID or Driver's License
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={3}
                                 >
                                   Telephone bill (landline only)
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={4}
                                 >
                                   Cable and internet bill
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={5}
                                 >
                                   Paystub (listing home address)
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={6}
                                 >
                                   Public benefits record
                                 </option>
                                 <option
-                                  disabled={undefined}
                                   value={7}
                                 >
                                   School record
@@ -2728,19 +2686,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         true
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         false
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Left Blank
