@@ -42,14 +42,14 @@ module Api
         # TODO: Also require application_id
         params.require(:lease).permit(
           :id,
-          :unit,
-          :lease_status,
           :lease_start_date,
+          :lease_status,
           :monthly_parking_rent,
-          :preference_used,
-          :no_preference_used,
-          :total_monthly_rent_without_parking,
           :monthly_tenant_contribution,
+          :no_preference_used,
+          :preference_used,
+          :total_monthly_rent_without_parking,
+          :unit,
         )
       end
 
