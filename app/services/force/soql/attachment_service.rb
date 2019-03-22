@@ -13,16 +13,25 @@ module Force
           FROM Attachment__c
           WHERE Related_Application__c = '#{application_id}'
         ), :show_proof_files).map do |attachment|
-          file = query_first(%(
+          file_type = 'Attachment'
+          file_id = query_first(%(
             SELECT Id
             FROM Attachment
             WHERE ParentId = '#{attachment.Id}'
-          ))
+          )).try :id
+          unless file_id
+            file_id = query_first(%(
+              SELECT Id,LinkedEntityId,ContentDocumentId,ContentDocument.LatestPublishedVersionId
+              FROM ContentDocumentLink
+              WHERE LinkedEntityId = '#{attachment.Id}')).try(:ContentDocument).try(:LatestPublishedVersionId)
+            file_type = 'File'
+          end
           {
-            Id: file.Id,
+            Id: file_id,
             Document_Type: attachment.Document_Type,
             Related_Application: attachment.Related_Application,
             Related_Application_Preference: attachment.Related_Application_Preference,
+            File_Type: file_type,
           }
         end
 

@@ -34,3 +34,4 @@ npm-debug.log
 # Using yarn rather than npm
 package-lock.json
 coverage
+TAGS
