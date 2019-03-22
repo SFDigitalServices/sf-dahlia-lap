@@ -27,20 +27,20 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+  // FIXME: Uncomment once snapshots are present again
+  // test('should not show pop up if there was not a change in an application field', async () => {
+  //   let browser = await puppeteer.launch({ headless: HEADLESS })
+  //   let page = await browser.newPage()
 
-  test('should not show pop up if there was not a change in an application field', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+  //   await sharedSteps.loginAsAgent(page)
+  //   await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-    await sharedSteps.loginAsAgent(page)
-    await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+  //   page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
+  //   await page.waitForNavigation()
 
-    page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
-    await page.waitForNavigation()
+  //   // Verify that we're now on the application snapshot page
+  //   expect(page.url()).toBe(`http://localhost:3000/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
-    // Verify that we're now on the application snapshot page
-    expect(page.url()).toBe(`http://localhost:3000/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
-
-    await browser.close()
-  }, DEFAULT_E2E_TIME_OUT)
+  //   await browser.close()
+  // }, DEFAULT_E2E_TIME_OUT)
 })
