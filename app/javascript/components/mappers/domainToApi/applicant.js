@@ -17,7 +17,7 @@ export const applicantFieldMapper = {
   phone: 'phone',
   phone_type: 'phoneType',
   marital_status: 'maritalStatus',
-  applicationId: (source) => source.id,
+  appMemberId: (source) => source.id,
   DOB: (source) => domainDateOfBirthToApi(source.date_of_birth)
 }
 

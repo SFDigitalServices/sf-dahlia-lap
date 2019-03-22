@@ -28,7 +28,7 @@ export default {
     maritalStatus: undefined,
     phone: '9548883321',
     phoneType: 'Cell',
-    applicationId: 'a0n0x000000AbE6AAK' },
+    appMemberId: 'a0n0x000000AbE6AAK' },
   householdMembers:
   [ { DOB: '1976-06-11',
       firstName: 'diego',
