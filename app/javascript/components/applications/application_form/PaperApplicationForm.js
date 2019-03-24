@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
 import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
-import EligibilitySection from './EligibilitySection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -133,7 +132,6 @@ class PaperApplicationForm extends React.Component {
                       message='Please resolve any errors before saving the application.' />
                   )}
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
-                  <EligibilitySection editValues={application} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
