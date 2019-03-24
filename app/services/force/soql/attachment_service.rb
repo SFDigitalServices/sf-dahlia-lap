@@ -8,22 +8,11 @@ module Force
       FIELDS = load_fields(FIELD_NAME).freeze
 
       def app_proof_files(application_id)
-        result = parsed_index_query(%(
-          SELECT #{query_fields(:show_proof_files)}
-          FROM Attachment__c
-          WHERE Related_Application__c = '#{application_id}'
-        ), :show_proof_files).map do |attachment|
+        result = attachments_query(application_id).map do |attachment|
           file_type = 'Attachment'
-          file_id = query_first(%(
-            SELECT Id
-            FROM Attachment
-            WHERE ParentId = '#{attachment.Id}'
-          )).try :id
+          file_id = attachment_query(attachment).try :id
           unless file_id
-            file_id = query_first(%(
-              SELECT Id,LinkedEntityId,ContentDocumentId,ContentDocument.LatestPublishedVersionId
-              FROM ContentDocumentLink
-              WHERE LinkedEntityId = '#{attachment.Id}')).try(:ContentDocument).try(:LatestPublishedVersionId)
+            file_id = file_query(attachment).try(:ContentDocument).try(:LatestPublishedVersionId)
             file_type = 'File'
           end
           {
@@ -36,6 +25,33 @@ module Force
         end
 
         result.map { |r| Force::Attachment.from_salesforce(r).to_domain }
+      end
+
+      private
+
+      def attachments_query(application_id)
+        parsed_index_query(%(
+          SELECT #{query_fields(:show_proof_files)}
+          FROM Attachment__c
+          WHERE Related_Application__c = '#{application_id}'
+        ), :show_proof_files)
+      end
+
+      # 'Old' way of getting attachments. We need it to keep old applications attachments working.
+      def attachment_query(attachment)
+        query_first(%(
+          SELECT Id
+          FROM Attachment
+          WHERE ParentId = '#{attachment.Id}'
+        ))
+      end
+
+      # 'New' way of getting files from attachments
+      def file_query(attachment)
+        query_first(%(
+          SELECT Id,LinkedEntityId,ContentDocumentId,ContentDocument.LatestPublishedVersionId
+          FROM ContentDocumentLink
+          WHERE LinkedEntityId = '#{attachment.Id}'))
       end
     end
   end
