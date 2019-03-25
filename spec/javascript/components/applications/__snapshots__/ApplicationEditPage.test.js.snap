@@ -149,7 +149,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="elizabeth"
                       />
                     </div>
                     <div
@@ -399,7 +399,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Mailing St"
                         />
                       </div>
                       <div
@@ -411,7 +411,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -683,7 +683,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Alternate Mailing St"
                         />
                       </div>
                       <div
@@ -695,7 +695,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -1685,7 +1685,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="elizabeth"
                       />
                     </div>
                     <div
@@ -1935,7 +1935,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Mailing St"
                         />
                       </div>
                       <div
@@ -1947,7 +1947,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -2219,7 +2219,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Alternate Mailing St"
                         />
                       </div>
                       <div
@@ -2231,7 +2231,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
