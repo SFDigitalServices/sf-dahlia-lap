@@ -11,8 +11,8 @@ export default {
   householdVouchersSubsidies: 'true',
   agreeToTerms: true,
   adaPrioritiesSelected: 'Vision impairments;Mobility impairments;Hearing impairments',
-  primaryApplicant:
-  { DOB: '1950-01-01',
+  primaryApplicant: {
+    DOB: '1950-01-01',
     email: 'eee@eeee.com',
     firstName: 'karen',
     lastName: 'jones',
@@ -28,7 +28,14 @@ export default {
     maritalStatus: undefined,
     phone: '9548883321',
     phoneType: 'Cell',
-    appMemberId: 'a0n0x000000AbE6AAK' },
+    appMemberId: 'a0n0x000000AbE6AAK',
+    ethnicity: 'Decline to state',
+    race: 'Decline to state',
+    gender: 'Decline to state',
+    genderOther: 'gender other',
+    sexualOrientation: 'Decline to state',
+    sexualOrientationOther: 'sexual orientation other'
+  },
   householdMembers:
   [ { DOB: '1976-06-11',
       firstName: 'diego',

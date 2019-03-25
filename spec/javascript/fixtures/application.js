@@ -31,7 +31,13 @@ const application = {
     "Mailing_Street": "123 MAIN ST",
     "Mailing_City": "SAN FRANCISCO",
     "Mailing_State": "CA",
-    "Mailing_Zip_Code": "94105-1804"
+    "Mailing_Zip_Code": "94105-1804",
+    "Ethnicity": "Decline to state",
+    "Race": "Decline to state",
+    "Gender": "Decline to state",
+    "Gender_Other": "gender other",
+    "Sexual_Orientation": "Decline to state",
+    "Sexual_Orientation_Other": "sexual orientation other"
   },
   "Alternate_Contact": {
     "attributes": {

@@ -142,7 +142,7 @@ class PaperApplicationForm extends React.Component {
                     editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  <DemographicInfoSection defaultValues={application['demographics']} />
+                  <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
                   <AgreeToTerms />
                 </div>
                 <div className='button-pager'>
