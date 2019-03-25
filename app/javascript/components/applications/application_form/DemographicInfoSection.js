@@ -9,10 +9,10 @@ let {
   ethnicityOptions
 } = formOptions
 
-const DemographicInfoSection = () => {
+const DemographicInfoSection = ({ defaultValues }) => {
   return (
     <NestedForm field='demographics'>
-      <Form>
+      <Form defaultValues={defaultValues}>
         { formApi => (
           <div className='border-bottom margin-bottom--2x'>
             <h3>Demographic Information</h3>
