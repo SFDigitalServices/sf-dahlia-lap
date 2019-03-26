@@ -37,7 +37,8 @@ const payload = {
        phone: '9548883321',
        phoneType: 'Cell',
        maritalStatus: 'Married',
-       applicationId: 'a0n0x000000AbE6AAK' },
+       appMemberId: 'a0n0x000000AbE6AAK',
+      },
     shortFormPreferences:
      [ { recordTypeDevName: 'AG',
          shortformPreferenceID: 'a0w0x0000014pvyAAA',
