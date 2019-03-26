@@ -9,7 +9,6 @@ class Api::V1::ShortFormController < ApiController
     short_form_validator = ShortFormValidator.new(application_api_params)
 
     if short_form_validator.valid?
-      submit_lease if application_api_params.key?(:lease)
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
       render json: { application: application }
