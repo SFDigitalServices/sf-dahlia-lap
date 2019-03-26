@@ -10,7 +10,7 @@ module Force
       def app_proof_files(application_id)
         result = attachments_query(application_id).map do |attachment|
           file_type = 'Attachment'
-          file_id = attachment_query(attachment).try :id
+          file_id = attachment_query(attachment).try :Id
           unless file_id
             file_id = file_query(attachment).try(:ContentDocument).try(:LatestPublishedVersionId)
             file_type = 'File'

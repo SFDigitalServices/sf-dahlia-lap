@@ -705,7 +705,7 @@ Array [
           <ul>
             <li>
               <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx1"
+                href={null}
                 target="_blank"
               >
                 Namexxx1
@@ -713,7 +713,7 @@ Array [
             </li>
             <li>
               <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
+                href={null}
                 target="_blank"
               >
                 Namexxx2
