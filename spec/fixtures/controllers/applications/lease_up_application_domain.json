@@ -108,7 +108,8 @@
     },
     {
       "zip_code": null,
-      "state": null,"recordtype_developername": "L_W",
+      "state": null,
+      "recordtype_developername": "L_W",
       "type_of_proof": "Telephone bill",
       "post_lottery_validation": null,
       "opt_out": false,

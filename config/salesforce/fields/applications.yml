@@ -141,6 +141,12 @@ applications:
     Applicant__r.Mailing_State__c:
     Applicant__r.Mailing_Zip_Code__c:
     Applicant__r.Marital_Status__c:
+    Applicant__r.Ethnicity__c:
+    Applicant__r.Race__c:
+    Applicant__r.Gender__c:
+    Applicant__r.Gender_Other__c:
+    Applicant__r.Sexual_Orientation__c:
+    Applicant__r.Sexual_Orientation_Other__c:
     Alternate_Contact__r.Id:
     Alternate_Contact__r.First_Name__c:
     Alternate_Contact__r.Middle_Name__c:

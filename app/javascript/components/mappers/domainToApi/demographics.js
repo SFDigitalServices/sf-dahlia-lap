@@ -9,4 +9,4 @@ export const demographicsFieldMapper = {
   sexual_orientation_other: 'sexualOrientationOther'
 }
 
-export const mapPreference = createFieldMapper(demographicsFieldMapper)
+export const mapDemographics = createFieldMapper(demographicsFieldMapper)

@@ -1,11 +1,12 @@
 import { split, snakeCase, fromPairs } from 'lodash'
-import { mapShape, mapList } from '../utils'
 import { mapApplicationMember } from './application_member'
-import { mapFlaggedApplication } from './flagged_application'
-import { mapUser } from './user'
-import { mapListing } from './listing'
 import { mapApplicationPreference } from './application_preference'
 import { mapAttachment } from './attachment'
+import { mapDemographics } from './demographics'
+import { mapFlaggedApplication } from './flagged_application'
+import { mapListing } from './listing'
+import { mapUser } from './user'
+import { mapShape, mapList } from '../utils'
 
 const parseList = text => split(text, ';')
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
@@ -13,6 +14,7 @@ const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 export const mapApplication = (a) => {
   return {
     applicant: mapShape(mapApplicationMember, a.Applicant),
+    demographics: mapShape(mapDemographics, a.Applicant),
     primary_applicant_contact: a.Primary_Applicant,
     alternate_contact: mapShape(mapApplicationMember, a.Alternate_Contact),
     listing: mapShape(mapListing, a.Listing),

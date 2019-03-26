@@ -13,8 +13,8 @@ const application = {
     "Id": "a0n0x000000AbE6AAK",
     "First_Name": "karen",
     "Last_Name": "jones",
-    "Middle_Name": null,
-    "Name": "karen jones",
+    "Middle_Name": "elizabeth",
+    "Name": "karen elizabeth jones",
     "Date_of_Birth": "1950-01-01",
     "Phone_Type": "Cell",
     "Phone": "9548883321",
@@ -27,11 +27,17 @@ const application = {
     "City": "SAN FRANCISCO",
     "State": "CA",
     "Zip_Code": "94105-1804",
-    "Mailing_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-    "Mailing_Street": "123 MAIN ST",
-    "Mailing_City": "SAN FRANCISCO",
+    "Mailing_Address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+    "Mailing_Street": "123 Mailing St",
+    "Mailing_City": "SF Mailing",
     "Mailing_State": "CA",
-    "Mailing_Zip_Code": "94105-1804"
+    "Mailing_Zip_Code": "94105-1804",
+    "Ethnicity": "Decline to state",
+    "Race": "Decline to state",
+    "Gender": "Decline to state",
+    "Gender_Other": "gender other",
+    "Sexual_Orientation": "Decline to state",
+    "Sexual_Orientation_Other": "sexual orientation other"
   },
   "Alternate_Contact": {
     "attributes": {
@@ -48,9 +54,9 @@ const application = {
     "Agency_Name": null,
     "Alternate_Contact_Type": "Friend",
     "Alternate_Contact_Type_Other": null,
-    "Mailing_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-    "Mailing_Street": "123 MAIN ST",
-    "Mailing_City": "SAN FRANCISCO",
+    "Mailing_Address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+    "Mailing_Street": "123 Alternate Mailing St",
+    "Mailing_City": "SF Mailing",
     "Mailing_State": "CA",
     "Mailing_Zip_Code": "94105-1804",
   },
@@ -64,7 +70,7 @@ const application = {
     "Reserved_community_type": null
   },
   "Status": "Submitted",
-  "Total_Household_Size": 1,
+  "Total_Household_Size": 2,
   "Application_Submission_Type": "Electronic",
   "Application_Submitted_Date": "2018-06-19",
   "CreatedBy": {
@@ -134,7 +140,8 @@ const application = {
       "Street": "9 de julio",
       "City": "buenos aires",
       "State": "fl",
-      "Zip_Code": "33026"
+      "Zip_Code": "33026",
+      "Residence_Address": "9 de julio, buenos aires, fl, 33026"
     }
   ],
   "flagged_applications": [
