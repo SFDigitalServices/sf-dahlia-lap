@@ -41,7 +41,7 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
   end
 
   describe '#update' do
-    it 'updates a lease successfuly' do
+    it 'updates a lease successfully' do
       VCR.use_cassette('api/v1/leases/update/app-with-lease') do
         params = {
           id: application_with_lease,
