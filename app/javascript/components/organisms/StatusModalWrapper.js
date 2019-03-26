@@ -60,6 +60,7 @@ class StatusModalWrapper extends React.Component {
               rows='10'
               placeholder='Add a comment'
               aria-describedby='status-comment-label'
+              maxLength='50'
               className={formUtils.submitErrors(formApi).comment ? 'error' : ''} />
             {formUtils.submitErrors(formApi).comment && <small className='error'>{formApi.errors.comment}</small>}
           </div>
