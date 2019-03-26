@@ -32,7 +32,13 @@
     "Mailing_City": "Testville",
     "Mailing_State": "CA",
     "Mailing_Zip_Code": "00000",
-    "Marital_Status": "Single"
+    "Marital_Status": "Single",
+    "Ethnicity": null,
+    "Race": null,
+    "Gender": null,
+    "Gender_Other": null,
+    "Sexual_Orientation": null,
+    "Sexual_Orientation_Other": null
   },
   "Primary_Applicant": "0030P00002HAKDJQA5",
   "Alternate_Contact": null,
@@ -41,14 +47,14 @@
       "type": "Listing",
       "url": "/services/data/v43.0/sobjects/Listing/a0W0P00000GbyuQUAR"
     },
-    "Name": "LAP Test Listing (Do not Modify) - Yellow Acres",
+    "Name": "Partners Test Listing (do not modify) - Yellow Acres",
     "Id": "a0W0P00000GbyuQUAR",
     "Reserved_community_type": null
   },
   "Status": "Submitted",
   "Total_Household_Size": 1.0,
   "Application_Submission_Type": "Electronic",
-  "Application_Submitted_Date": "2019-01-17",
+  "Application_Submitted_Date": "2019-03-26",
   "CreatedBy": {
     "attributes": {
       "type": "User",
@@ -57,9 +63,9 @@
     "Name": "DAHLIA API"
   },
   "Annual_Income": 5000.0,
-  "Confirmed_Household_Annual_Income": null,
-  "Household_Assets": 200.0,
-  "HH_Total_Income_with_Assets_Annual": 6000.0,
+  "Confirmed_Household_Annual_Income": 174.08,
+  "Household_Assets": 689.51,
+  "HH_Total_Income_with_Assets_Annual": 261.37,
   "Monthly_Income": null,
   "Is_Lottery_Complete": true,
   "Housing_Voucher_or_Subsidy": "true",
@@ -124,10 +130,10 @@
       "Name": "AP-0000826199",
       "Preference_Name": "Live or Work in San Francisco Preference",
       "Person_who_claimed_Name": "Automated Test Lease Up Application (do not modify)",
-      "Type_of_proof": "Paystub with employer address",
+      "Type_of_proof": "Telephone bill",
       "Opt_Out": false,
       "Lottery_Status": "None",
-      "Preference_Lottery_Rank": 14.0,
+      "Preference_Lottery_Rank": 13.0,
       "Listing_Preference_ID": "a0l0P00001Q1w1BQAR",
       "Receives_Preference": true,
       "Application_Member": {
@@ -140,7 +146,7 @@
         "Date_of_Birth": "1989-01-05",
         "Id": "a0n0P00000D3qIZQAZ"
       },
-      "Individual_preference": "Work in SF",
+      "Individual_preference": "Live in SF",
       "Certificate_Number": null,
       "Preference_Order": 4.0,
       "RecordType": {
@@ -150,7 +156,7 @@
         },
         "DeveloperName": "L_W"
       },
-      "LW_Type_of_Proof": "Paystub with employer address",
+      "LW_Type_of_Proof": "Telephone bill",
       "City": null,
       "State": null,
       "Street": null,
@@ -272,7 +278,7 @@
       "Type_of_proof": "Lease and rent proof",
       "Opt_Out": false,
       "Lottery_Status": "None",
-      "Preference_Lottery_Rank": 6.0,
+      "Preference_Lottery_Rank": 5.0,
       "Listing_Preference_ID": "a0l0P00001Q1w0mQAB",
       "Receives_Preference": true,
       "Application_Member": {
@@ -392,10 +398,10 @@
     "unit": "a0b0P00001HIHrnQAH",
     "lease_start_date": "2019-01-01",
     "lease_status": "Draft",
-    "monthly_parking_rent": 456.0,
+    "monthly_parking_rent": 545.6,
     "preference_used": null,
     "no_preference_used": true,
-    "total_monthly_rent_without_parking": 123.0,
-    "monthly_tenant_contribution": 789.0
+    "total_monthly_rent_without_parking": 600.86,
+    "monthly_tenant_contribution": 467.87
   }
 }

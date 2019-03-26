@@ -116,7 +116,7 @@ class PaperApplicationForm extends React.Component {
   }
 
   render () {
-    const { listing, application, editPage } = this.props
+    const { listing, application } = this.props
     const { loading, failed } = this.state
     return (
       <div>
@@ -142,7 +142,7 @@ class PaperApplicationForm extends React.Component {
                     editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  {!editPage && <DemographicInfoSection />}
+                  <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
                   <AgreeToTerms />
                 </div>
                 <div className='button-pager'>

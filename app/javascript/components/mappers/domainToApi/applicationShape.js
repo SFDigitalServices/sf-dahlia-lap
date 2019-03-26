@@ -5,6 +5,7 @@ import { preferenceFieldMapper } from './preference'
 import { householdMembersFieldMapper } from './householdMember'
 import { alternateContactFieldMapper } from './alternateContact'
 import { demographicsFieldMapper } from './demographics'
+import { extend } from 'lodash'
 
 export const applicationShape = {
   ...applicationFieldMapper,
@@ -19,11 +20,14 @@ export const applicationShape = {
 }
 
 export const buildApplicationShape = application => {
-  return omitEmpty(
+  const mappedApplication = omitEmpty(
     mapFields(applicationShape, {}, application),
     [
       'alternateContact',
       'adaPrioritiesSelected',
       'demographics'
     ])
+  mappedApplication['primaryApplicant'] = extend(mappedApplication['primaryApplicant'], mappedApplication['demographics'])
+  delete mappedApplication['demographics']
+  return mappedApplication
 }
