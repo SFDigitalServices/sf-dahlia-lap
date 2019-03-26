@@ -27,7 +27,6 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
-
   test('should not show pop up if there was not a change in an application field', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()

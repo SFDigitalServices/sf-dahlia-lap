@@ -145,7 +145,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="elizabeth"
                       />
                     </div>
                     <div
@@ -392,7 +392,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Mailing St"
                         />
                       </div>
                       <div
@@ -404,7 +404,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -669,7 +669,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Alternate Mailing St"
                         />
                       </div>
                       <div
@@ -681,7 +681,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -1175,6 +1175,282 @@ Array [
                 </div>
               </div>
               <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <h3>
+                  Demographic Information
+                </h3>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Ethnicity
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={3}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Hispanic/Latino
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Not Hispanic/Latino
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Race
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={11}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        American Indian/Alaskan Native
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Asian
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Black/African American
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Native Hawaiian/Other Pacific Islander
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={5}
+                      >
+                        White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={6}
+                      >
+                        American Indian/Alaskan Native and Black/African American
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={7}
+                      >
+                        American Indian/Alaskan Native and White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={8}
+                      >
+                        Asian and White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={9}
+                      >
+                        Black/African American and White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={10}
+                      >
+                        Other/Multiracial
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={11}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Gender
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={7}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Female
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Male
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Genderqueer/Gender Non-binary
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Trans Female
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={5}
+                      >
+                        Trans Male
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={6}
+                      >
+                        Not Listed
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={7}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Gender Specify (if not listed)
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="gender other"
+                    />
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Sexual Orientation
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={6}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Bisexual
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Gay/Lesbian/Same-Gender Loving
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Questioning/Unsure
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Straight/Heterosexual
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={5}
+                      >
+                        Not listed
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={6}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Sexual Orientation (if not listed)
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="sexual orientation other"
+                    />
+                  </div>
+                </div>
+                <div
+                  className="row"
+                />
+              </div>
+              <div
                 className="checkbox-group"
                 role="group"
               >
@@ -1388,7 +1664,7 @@ Array [
                       <input
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value=""
+                        value="elizabeth"
                       />
                     </div>
                     <div
@@ -1635,7 +1911,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Mailing St"
                         />
                       </div>
                       <div
@@ -1647,7 +1923,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -1912,7 +2188,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="123 MAIN ST"
+                          value="123 Alternate Mailing St"
                         />
                       </div>
                       <div
@@ -1924,7 +2200,7 @@ Array [
                         <input
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="SAN FRANCISCO"
+                          value="SF Mailing"
                         />
                       </div>
                       <div
@@ -2703,6 +2979,282 @@ Array [
                     </select>
                   </div>
                 </div>
+              </div>
+              <div
+                className="border-bottom margin-bottom--2x"
+              >
+                <h3>
+                  Demographic Information
+                </h3>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Ethnicity
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={3}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Hispanic/Latino
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Not Hispanic/Latino
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Race
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={11}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        American Indian/Alaskan Native
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Asian
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Black/African American
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Native Hawaiian/Other Pacific Islander
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={5}
+                      >
+                        White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={6}
+                      >
+                        American Indian/Alaskan Native and Black/African American
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={7}
+                      >
+                        American Indian/Alaskan Native and White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={8}
+                      >
+                        Asian and White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={9}
+                      >
+                        Black/African American and White
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={10}
+                      >
+                        Other/Multiracial
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={11}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Gender
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={7}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Female
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Male
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Genderqueer/Gender Non-binary
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Trans Female
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={5}
+                      >
+                        Trans Male
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={6}
+                      >
+                        Not Listed
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={7}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Gender Specify (if not listed)
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="gender other"
+                    />
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Sexual Orientation
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={6}
+                    >
+                      <option
+                        disabled={true}
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={1}
+                      >
+                        Bisexual
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={2}
+                      >
+                        Gay/Lesbian/Same-Gender Loving
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={3}
+                      >
+                        Questioning/Unsure
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={4}
+                      >
+                        Straight/Heterosexual
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={5}
+                      >
+                        Not listed
+                      </option>
+                      <option
+                        disabled={undefined}
+                        value={6}
+                      >
+                        Decline to state
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <label>
+                      Sexual Orientation (if not listed)
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value="sexual orientation other"
+                    />
+                  </div>
+                </div>
+                <div
+                  className="row"
+                />
               </div>
               <div
                 className="checkbox-group"
