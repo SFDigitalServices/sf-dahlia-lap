@@ -1,5 +1,4 @@
 import apiService from '~/apiService'
-// import requestThing from '~/api/requestThing'
 
 const mockApiCallFn = jest.fn()
 
