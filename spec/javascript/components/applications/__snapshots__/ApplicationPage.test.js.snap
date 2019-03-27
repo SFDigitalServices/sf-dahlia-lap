@@ -713,7 +713,7 @@ Array [
             </li>
             <li>
               <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
+                href="undefined/sfc/servlet.shepherd/version/download/xxxx2"
                 target="_blank"
               >
                 Namexxx2

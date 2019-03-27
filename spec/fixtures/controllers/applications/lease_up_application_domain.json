@@ -58,7 +58,7 @@
     "mailing_address": "123 Test St, Testville, CA, 00000"
   },
   "household_members": [],
-  "preferences": [
+  "preferences" : [
     {
       "zip_code": null,
       "state": null,
@@ -69,8 +69,7 @@
       "lw_type_of_proof": null,
       "listing_preference_id": "a0l0P00001Q1vxUQAR",
       "individual_preference": null,
-      "city": null,
-      "certificate_number": null,
+      "city": null, "certificate_number": null,
       "application_member_id": null,
       "street": null,
       "preference_name": "Certificate of Preference (COP)"
@@ -79,8 +78,7 @@
       "zip_code": null,
       "state": null,
       "recordtype_developername": "DTHP",
-      "type_of_proof": null,
-      "post_lottery_validation": null,
+      "type_of_proof": null, "post_lottery_validation": null,
       "opt_out": false,
       "lw_type_of_proof": null,
       "listing_preference_id": "a0l0P00001Q1vxyQAB",
@@ -188,8 +186,7 @@
       "application_member_id": null,
       "street": null,
       "preference_name": "Anti-Displacement Housing Preference (ADHP)"
-    }
-  ],
+    }],
   "is_snapshot": true,
   "listing": {
     "id": "a0W0P00000GbyuQUAR",
@@ -200,13 +197,15 @@
       "id": "00P0P00000t0P3vUAE",
       "document_type": "Copy of Lease",
       "related_application": "a0o0P00000GZazOQAT",
-      "related_application_preference": "a0w0P00000OUJc2QAH"
+      "related_application_preference": "a0w0P00000OUJc2QAH",
+      "file_type": "Attachment"
     },
     {
       "id": "00P0P00000t0P40UAE",
       "document_type": "Letter from employer",
       "related_application": "a0o0P00000GZazOQAT",
-      "related_application_preference": "a0w0P00000OUJc3QAH"
+      "related_application_preference": "a0w0P00000OUJc3QAH",
+      "file_type": "Attachment"
     }
   ],
   "flagged_applications": [],

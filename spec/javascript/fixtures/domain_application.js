@@ -96,11 +96,13 @@ const application = {
   'proof_files': [
     {
       'id': 'xxxx1',
-      'document_type': 'Namexxx1'
+      'document_type': 'Namexxx1',
+      'file_type': 'Attachment'
     },
     {
       'id': 'xxxx2',
-      'document_type': 'Namexxx2'
+      'document_type': 'Namexxx2',
+      'file_type': 'File'
     }
   ],
   'household_members': [

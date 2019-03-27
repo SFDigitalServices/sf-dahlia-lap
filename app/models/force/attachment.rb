@@ -12,6 +12,7 @@ module Force
       { domain: 'id', salesforce: 'Id' },
       { domain: 'related_application', salesforce: 'Related_Application' },
       { domain: 'related_application_preference', salesforce: 'Related_Application_Preference' },
+      { domain: 'file_type', salesforce: 'File_Type' },
     ].freeze
   end
 end
