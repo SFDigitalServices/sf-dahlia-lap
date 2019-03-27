@@ -1,13 +1,11 @@
 import React from 'react'
 import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
-import sharedHooks from '../../../support/sharedHooks'
 import domainApplication from '../../../fixtures/domain_application'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 
 describe('ApplicationDetails', () => {
   describe('should render', () => {
-    sharedHooks.useFakeTimers()
     test('without error and as expected', () => {
       const fileBaseUrl = 'http://www.someurl.com'
 
