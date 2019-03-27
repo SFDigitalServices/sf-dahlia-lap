@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",
-    "babel-jest": "^22.4.3",
+    "babel-jest": "^23.6.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
@@ -56,7 +56,7 @@
     "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "7.4.0",
-    "jest": "^22.4.3",
+    "jest": "^23.6.0",
     "react-test-renderer": "^16.3.2",
     "sinon": "^4.5.0",
     "snazzy": "^7.1.1",
@@ -66,10 +66,8 @@
   },
   "scripts": {
     "unit": "jest --testPathPattern=.*.test.js$ --coverage",
-    "e2e": "jest --testPathPattern=.*e2e.* --runInBand",
+    "e2e": "jest --testPathPattern=.*e2e.* --runInBand. --forceExit",
     "test:all": "jest",
-    "test:unit": "jest --testPathPattern=.*.test.js$ --coverage",
-    "test:e2e": "jest --testPathPattern=.*e2e.* --runInBand",
     "lint": "standard \"./**/*.js\" | snazzy",
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy"
   },

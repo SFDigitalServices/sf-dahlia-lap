@@ -140,13 +140,11 @@ Array [
                     Preference
                   </option>
                   <option
-                    disabled={undefined}
                     value={1}
                   >
                     All Preferences
                   </option>
                   <option
-                    disabled={undefined}
                     value={2}
                   >
                     General
@@ -198,55 +196,46 @@ Array [
                     Status
                   </option>
                   <option
-                    disabled={undefined}
                     value={1}
                   >
                     No Status
                   </option>
                   <option
-                    disabled={undefined}
                     value={2}
                   >
                     Processing
                   </option>
                   <option
-                    disabled={undefined}
                     value={3}
                   >
                     Withdrawn
                   </option>
                   <option
-                    disabled={undefined}
                     value={4}
                   >
                     Appealed
                   </option>
                   <option
-                    disabled={undefined}
                     value={5}
                   >
                     Waitlisted
                   </option>
                   <option
-                    disabled={undefined}
                     value={6}
                   >
                     Disqualified
                   </option>
                   <option
-                    disabled={undefined}
                     value={7}
                   >
                     Approved
                   </option>
                   <option
-                    disabled={undefined}
                     value={8}
                   >
                     Lease Signed
                   </option>
                   <option
-                    disabled={undefined}
                     value={9}
                   >
                     All Status
@@ -273,7 +262,6 @@ Array [
         <div
           className="rt-table"
           role="grid"
-          style={undefined}
         >
           <div
             className="rt-thead -header"
@@ -286,7 +274,6 @@ Array [
             <div
               className="rt-tr"
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-th td-min-narrow rt-resizable-header"
@@ -3581,7 +3568,6 @@ Array [
         >
           <div
             className="-pagination"
-            style={undefined}
           >
             <div
               className="-previous"
@@ -3798,13 +3784,11 @@ Array [
                     Preference
                   </option>
                   <option
-                    disabled={undefined}
                     value={1}
                   >
                     All Preferences
                   </option>
                   <option
-                    disabled={undefined}
                     value={2}
                   >
                     General
@@ -3856,55 +3840,46 @@ Array [
                     Status
                   </option>
                   <option
-                    disabled={undefined}
                     value={1}
                   >
                     No Status
                   </option>
                   <option
-                    disabled={undefined}
                     value={2}
                   >
                     Processing
                   </option>
                   <option
-                    disabled={undefined}
                     value={3}
                   >
                     Withdrawn
                   </option>
                   <option
-                    disabled={undefined}
                     value={4}
                   >
                     Appealed
                   </option>
                   <option
-                    disabled={undefined}
                     value={5}
                   >
                     Waitlisted
                   </option>
                   <option
-                    disabled={undefined}
                     value={6}
                   >
                     Disqualified
                   </option>
                   <option
-                    disabled={undefined}
                     value={7}
                   >
                     Approved
                   </option>
                   <option
-                    disabled={undefined}
                     value={8}
                   >
                     Lease Signed
                   </option>
                   <option
-                    disabled={undefined}
                     value={9}
                   >
                     All Status
@@ -3931,7 +3906,6 @@ Array [
         <div
           className="rt-table"
           role="grid"
-          style={undefined}
         >
           <div
             className="rt-thead -header"
@@ -3944,7 +3918,6 @@ Array [
             <div
               className="rt-tr"
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-th td-min-narrow rt-resizable-header"
@@ -7239,7 +7212,6 @@ Array [
         >
           <div
             className="-pagination"
-            style={undefined}
           >
             <div
               className="-previous"
@@ -7456,13 +7428,11 @@ Array [
                     Preference
                   </option>
                   <option
-                    disabled={undefined}
                     value={1}
                   >
                     All Preferences
                   </option>
                   <option
-                    disabled={undefined}
                     value={2}
                   >
                     General
@@ -7514,55 +7484,46 @@ Array [
                     Status
                   </option>
                   <option
-                    disabled={undefined}
                     value={1}
                   >
                     No Status
                   </option>
                   <option
-                    disabled={undefined}
                     value={2}
                   >
                     Processing
                   </option>
                   <option
-                    disabled={undefined}
                     value={3}
                   >
                     Withdrawn
                   </option>
                   <option
-                    disabled={undefined}
                     value={4}
                   >
                     Appealed
                   </option>
                   <option
-                    disabled={undefined}
                     value={5}
                   >
                     Waitlisted
                   </option>
                   <option
-                    disabled={undefined}
                     value={6}
                   >
                     Disqualified
                   </option>
                   <option
-                    disabled={undefined}
                     value={7}
                   >
                     Approved
                   </option>
                   <option
-                    disabled={undefined}
                     value={8}
                   >
                     Lease Signed
                   </option>
                   <option
-                    disabled={undefined}
                     value={9}
                   >
                     All Status
@@ -7589,7 +7550,6 @@ Array [
         <div
           className="rt-table"
           role="grid"
-          style={undefined}
         >
           <div
             className="rt-thead -header"
@@ -7602,7 +7562,6 @@ Array [
             <div
               className="rt-tr"
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-th td-min-narrow rt-resizable-header"
@@ -10897,7 +10856,6 @@ Array [
         >
           <div
             className="-pagination"
-            style={undefined}
           >
             <div
               className="-previous"
