@@ -134,6 +134,7 @@ Array [
                         <input
                           className=""
                           id="first_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="karen"
@@ -147,6 +148,7 @@ Array [
                         Middle Name
                       </label>
                       <input
+                        maxLength={50}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""
@@ -172,6 +174,7 @@ Array [
                         <input
                           className=""
                           id="last_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="jones"
@@ -186,14 +189,24 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Email
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="eee@eeee.com"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="email"
+                      >
+                        Email 
+                      </label>
+                      <input
+                        className=""
+                        id="email"
+                        maxLength={50}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="eee@eeee.com"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -202,6 +215,7 @@ Array [
                       Phone
                     </label>
                     <input
+                      maxLength={40}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="9548883321"
@@ -331,6 +345,7 @@ Array [
                           Street Address
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="123 MAIN ST"
@@ -343,6 +358,7 @@ Array [
                           City
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="SAN FRANCISCO"
@@ -355,7 +371,7 @@ Array [
                           State
                         </label>
                         <input
-                          maxLength="2"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="CA"
@@ -368,6 +384,7 @@ Array [
                           Zip
                         </label>
                         <input
+                          maxLength={15}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="94105-1804"
@@ -397,6 +414,7 @@ Array [
                           Street Address
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="123 MAIN ST"
@@ -409,6 +427,7 @@ Array [
                           City
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="SAN FRANCISCO"
@@ -421,7 +440,7 @@ Array [
                           State
                         </label>
                         <input
-                          maxLength="2"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="CA"
@@ -434,6 +453,7 @@ Array [
                           Zip
                         </label>
                         <input
+                          maxLength={15}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="94105-1804"
@@ -474,6 +494,7 @@ Array [
                         <input
                           className=""
                           id="alt_first_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Federic"
@@ -495,6 +516,7 @@ Array [
                         <input
                           className=""
                           id="alt_middle_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Daaaa"
@@ -516,6 +538,7 @@ Array [
                         <input
                           className=""
                           id="alt_last_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="dayan"
@@ -577,6 +600,7 @@ Array [
                       Alternate Contact Type Other
                     </label>
                     <input
+                      maxLength={200}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value=""
@@ -589,6 +613,7 @@ Array [
                       Agency (if applicable)
                     </label>
                     <input
+                      maxLength={250}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value=""
@@ -601,14 +626,24 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Email
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="fede@eee.com"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="email"
+                      >
+                        Email 
+                      </label>
+                      <input
+                        className=""
+                        id="email"
+                        maxLength={50}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="fede@eee.com"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -617,6 +652,7 @@ Array [
                       Phone
                     </label>
                     <input
+                      maxLength={40}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="9954449943"
@@ -681,6 +717,7 @@ Array [
                           Street Address
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="123 MAIN ST"
@@ -693,6 +730,7 @@ Array [
                           City
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="SAN FRANCISCO"
@@ -705,7 +743,7 @@ Array [
                           State
                         </label>
                         <input
-                          maxLength="2"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="CA"
@@ -718,6 +756,7 @@ Array [
                           Zip
                         </label>
                         <input
+                          maxLength={15}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="94105-1804"
@@ -767,6 +806,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_first_name"
+                              maxLength={50}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="diego"
@@ -788,6 +828,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_middle_name"
+                              maxLength={50}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="m"
@@ -814,6 +855,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_last_name"
+                              maxLength={50}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="maradona"
@@ -908,6 +950,7 @@ Array [
                                   Street Address
                                 </label>
                                 <input
+                                  maxLength={75}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="9 de julio"
@@ -920,6 +963,7 @@ Array [
                                   City
                                 </label>
                                 <input
+                                  maxLength={75}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="buenos aires"
@@ -932,7 +976,7 @@ Array [
                                   State
                                 </label>
                                 <input
-                                  maxLength="2"
+                                  maxLength={2}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="fl"
@@ -945,6 +989,7 @@ Array [
                                   Zip
                                 </label>
                                 <input
+                                  maxLength={15}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="33026"
@@ -1146,6 +1191,7 @@ Array [
                       <input
                         className=""
                         id="annual_income"
+                        maxLength={16}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value={110000}
@@ -1394,6 +1440,7 @@ Array [
                         <input
                           className=""
                           id="first_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="karen"
@@ -1407,6 +1454,7 @@ Array [
                         Middle Name
                       </label>
                       <input
+                        maxLength={50}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""
@@ -1432,6 +1480,7 @@ Array [
                         <input
                           className=""
                           id="last_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="jones"
@@ -1446,14 +1495,24 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Email
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="eee@eeee.com"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="email"
+                      >
+                        Email 
+                      </label>
+                      <input
+                        className=""
+                        id="email"
+                        maxLength={50}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="eee@eeee.com"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -1462,6 +1521,7 @@ Array [
                       Phone
                     </label>
                     <input
+                      maxLength={40}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="9548883321"
@@ -1591,6 +1651,7 @@ Array [
                           Street Address
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="123 MAIN ST"
@@ -1603,6 +1664,7 @@ Array [
                           City
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="SAN FRANCISCO"
@@ -1615,7 +1677,7 @@ Array [
                           State
                         </label>
                         <input
-                          maxLength="2"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="CA"
@@ -1628,6 +1690,7 @@ Array [
                           Zip
                         </label>
                         <input
+                          maxLength={15}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="94105-1804"
@@ -1657,6 +1720,7 @@ Array [
                           Street Address
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="123 MAIN ST"
@@ -1669,6 +1733,7 @@ Array [
                           City
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="SAN FRANCISCO"
@@ -1681,7 +1746,7 @@ Array [
                           State
                         </label>
                         <input
-                          maxLength="2"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="CA"
@@ -1694,6 +1759,7 @@ Array [
                           Zip
                         </label>
                         <input
+                          maxLength={15}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="94105-1804"
@@ -1734,6 +1800,7 @@ Array [
                         <input
                           className=""
                           id="alt_first_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Federic"
@@ -1755,6 +1822,7 @@ Array [
                         <input
                           className=""
                           id="alt_middle_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Daaaa"
@@ -1776,6 +1844,7 @@ Array [
                         <input
                           className=""
                           id="alt_last_name"
+                          maxLength={50}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="dayan"
@@ -1837,6 +1906,7 @@ Array [
                       Alternate Contact Type Other
                     </label>
                     <input
+                      maxLength={200}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value=""
@@ -1849,6 +1919,7 @@ Array [
                       Agency (if applicable)
                     </label>
                     <input
+                      maxLength={250}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value=""
@@ -1861,14 +1932,24 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Email
-                    </label>
-                    <input
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="fede@eee.com"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="email"
+                      >
+                        Email 
+                      </label>
+                      <input
+                        className=""
+                        id="email"
+                        maxLength={50}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        value="fede@eee.com"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -1877,6 +1958,7 @@ Array [
                       Phone
                     </label>
                     <input
+                      maxLength={40}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="9954449943"
@@ -1941,6 +2023,7 @@ Array [
                           Street Address
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="123 MAIN ST"
@@ -1953,6 +2036,7 @@ Array [
                           City
                         </label>
                         <input
+                          maxLength={75}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="SAN FRANCISCO"
@@ -1965,7 +2049,7 @@ Array [
                           State
                         </label>
                         <input
-                          maxLength="2"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="CA"
@@ -1978,6 +2062,7 @@ Array [
                           Zip
                         </label>
                         <input
+                          maxLength={15}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="94105-1804"
@@ -2027,6 +2112,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_first_name"
+                              maxLength={50}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="diego"
@@ -2048,6 +2134,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_middle_name"
+                              maxLength={50}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="m"
@@ -2074,6 +2161,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_last_name"
+                              maxLength={50}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="maradona"
@@ -2168,6 +2256,7 @@ Array [
                                   Street Address
                                 </label>
                                 <input
+                                  maxLength={75}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="9 de julio"
@@ -2180,6 +2269,7 @@ Array [
                                   City
                                 </label>
                                 <input
+                                  maxLength={75}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="buenos aires"
@@ -2192,7 +2282,7 @@ Array [
                                   State
                                 </label>
                                 <input
-                                  maxLength="2"
+                                  maxLength={2}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="fl"
@@ -2205,6 +2295,7 @@ Array [
                                   Zip
                                 </label>
                                 <input
+                                  maxLength={15}
                                   onBlur={[Function]}
                                   onChange={[Function]}
                                   value="33026"
@@ -2551,6 +2642,7 @@ Array [
                               <input
                                 className=""
                                 id="preferences.0.street"
+                                maxLength={75}
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 value=""
@@ -2576,6 +2668,7 @@ Array [
                               <input
                                 className=""
                                 id="preferences.0.city"
+                                maxLength={75}
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 value=""
@@ -2603,6 +2696,7 @@ Array [
                                   <input
                                     className=""
                                     id="preferences.0.state"
+                                    maxLength={2}
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     value=""
@@ -2624,6 +2718,7 @@ Array [
                                   <input
                                     className=""
                                     id="preferences.0.zip_code"
+                                    maxLength={15}
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     value=""
@@ -2704,6 +2799,7 @@ Array [
                       <input
                         className=""
                         id="annual_income"
+                        maxLength={16}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value={110000}

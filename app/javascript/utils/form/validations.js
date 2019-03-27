@@ -46,14 +46,13 @@ const isValidDate = (dateOfBirth) => {
 }
 
 const isValidEmail = (email) => {
-  console.log('isValidEmail')
   let emailRegex = new RegExp([
     "[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+)*",
     '@',
     '(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?'
   ].join(''))
   if (email) {
-    return !emailRegex.test(email)
+    return emailRegex.test(email)
   }
 }
 
