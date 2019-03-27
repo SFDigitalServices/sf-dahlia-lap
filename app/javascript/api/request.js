@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export const apiCall = async (method, path, data) => {
-  console.log('calling the api call OK')
   if (process.env.NODE_ENV === 'test') {
     var err = Error('API should not be called in TEST')
     console.error(err)
