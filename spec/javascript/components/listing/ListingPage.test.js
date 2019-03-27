@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer'
 
 import _ from 'lodash'
 import modelsFactory from '../../factories/models'
-import sharedHooks from '../../support/sharedHooks'
 
 import ListingPage from 'components/listings/ListingPage'
 import ListingDetailsContentCard from 'components/listings/ListingDetailsContentCard'
@@ -20,7 +19,6 @@ import {
 import { mapListing } from '~/components/mappers/soqlToDomain'
 
 describe('ListingPage', () => {
-  sharedHooks.useFakeTimers()
   const listing = modelsFactory.listingDetail()
 
   test('should render succesfully', () => {

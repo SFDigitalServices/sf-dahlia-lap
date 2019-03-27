@@ -3003,7 +3003,6 @@ exports[`IndexTable should render IndexTable 1`] = `
   <div
     className="rt-table"
     role="grid"
-    style={undefined}
   >
     <div
       className="rt-thead -header"
@@ -3016,7 +3015,6 @@ exports[`IndexTable should render IndexTable 1`] = `
       <div
         className="rt-tr"
         role="row"
-        style={undefined}
       >
         <div
           className="rt-th"
@@ -3101,7 +3099,6 @@ exports[`IndexTable should render IndexTable 1`] = `
           className="rt-tr -odd"
           onClick={[Function]}
           role="row"
-          style={undefined}
         >
           <div
             className="rt-td rt-expandable"
@@ -3159,7 +3156,6 @@ exports[`IndexTable should render IndexTable 1`] = `
           className="rt-tr -even"
           onClick={[Function]}
           role="row"
-          style={undefined}
         >
           <div
             className="rt-td rt-expandable"
@@ -4224,7 +4220,6 @@ exports[`IndexTable should render IndexTable 1`] = `
   >
     <div
       className="-pagination"
-      style={undefined}
     >
       <div
         className="-previous"

@@ -5,7 +5,6 @@ import { clone } from 'lodash'
 import { mount } from 'enzyme'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
-import sharedHooks from '../../support/sharedHooks'
 import listing from '../../fixtures/listing'
 import application from '../../fixtures/application'
 import mockApplicationApiEditPayload from '../../fixtures/application_api_edit_payload'
@@ -39,8 +38,6 @@ describe('ApplicationEditPage', () => {
   })
 
   describe('should render', () => {
-    sharedHooks.useFakeTimers()
-
     test('successfully', () => {
       const wrapper = renderer.create(
         <ApplicationEditPage
