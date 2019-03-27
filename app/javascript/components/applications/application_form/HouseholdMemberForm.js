@@ -2,6 +2,7 @@ import React from 'react'
 import AddressForm from './AddressForm'
 import { Field } from '~/utils/form/Field'
 import { MultiDateField } from '~/utils/form/MultiDateField'
+import { maxLengthMap } from './utils'
 
 const HouseholdMemberForm = ({ i, formApi }) => {
   return (
@@ -15,6 +16,7 @@ const HouseholdMemberForm = ({ i, formApi }) => {
               field={`household_members.${i}.first_name`}
               blockNote='(required)'
               errorMessage={(label, error) => error}
+              maxLength={maxLengthMap['first_name']}
             />
           </div>
           <div className='small-2 columns'>
@@ -22,6 +24,7 @@ const HouseholdMemberForm = ({ i, formApi }) => {
               id={`household_members_${i}_middle_name`}
               label='Middle Name'
               field={`household_members.${i}.middle_name`}
+              maxLength={maxLengthMap['middle_name']}
             />
           </div>
           <div className='small-3 columns'>
@@ -31,6 +34,7 @@ const HouseholdMemberForm = ({ i, formApi }) => {
               field={`household_members.${i}.last_name`}
               blockNote='(required)'
               errorMessage={(label, error) => error}
+              maxLength={maxLengthMap['last_name']}
             />
           </div>
           <div className='small-4 columns form-date-of-birth'>

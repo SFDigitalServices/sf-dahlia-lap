@@ -6,7 +6,7 @@ import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
 import { MultiDateField } from '~/utils/form/MultiDateField'
-import { mailingAddressFieldMap } from './utils'
+import { mailingAddressFieldMap, maxLengthMap } from './utils'
 
 let { phoneTypeOptions } = formOptions
 
@@ -16,7 +16,8 @@ const validateError = validate({
     validate.isOldEnough('The primary applicant must be 18 years of age or older')
   ),
   first_name: validate.isPresent('Please enter a First Name'),
-  last_name: validate.isPresent('Please enter a Last Name')
+  last_name: validate.isPresent('Please enter a Last Name'),
+  email: validate.isValidEmail('Please enter a valid Email')
 })
 
 const PrimaryApplicantSection = ({ formApi, editValues }) => {
@@ -41,11 +42,12 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                     blockNote='(required)'
                     field='first_name'
                     errorMessage={(label, error) => error}
+                    maxLength={maxLengthMap['first_name']}
                   />
                 </div>
                 <div className='small-4 columns'>
                   <label>Middle Name</label>
-                  <Text field='middle_name' />
+                  <Text field='middle_name' maxLength={maxLengthMap['middle_name']} />
                 </div>
                 <div className='small-4 columns'>
                   <Field.Text
@@ -54,18 +56,24 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                     blockNote='(required)'
                     field='last_name'
                     errorMessage={(label, error) => error}
+                    maxLength={maxLengthMap['last_name']}
                   />
                 </div>
               </div>
             </div>
             <div className='row'>
               <div className='small-4 columns'>
-                <label>Email</label>
-                <Text field='email' />
+                <Field.Text
+                  id='email'
+                  label='Email'
+                  field='email'
+                  errorMessage={(label, error) => error}
+                  maxLength={maxLengthMap['email']}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Phone</label>
-                <Text field='phone' />
+                <Text field='phone' maxLength={maxLengthMap['phone']} />
               </div>
               <div className='small-4 columns'>
                 <label>Phone Type</label>

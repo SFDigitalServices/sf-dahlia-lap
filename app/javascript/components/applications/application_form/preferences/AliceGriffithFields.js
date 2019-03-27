@@ -5,6 +5,7 @@ import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
 import { Field } from '~/utils/form/Field'
+import { maxLengthMap } from '../utils'
 
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => (
@@ -20,6 +21,7 @@ const AddressRow = ({fieldId}) => (
           label='Alice Griffith Address'
           blockNote='(required)'
           field={fieldId('street')}
+          maxLength={maxLengthMap['address']}
         />
       </Column>
     </Row>
@@ -29,6 +31,7 @@ const AddressRow = ({fieldId}) => (
         <Field.Text
           label='City'
           field={fieldId('city')}
+          maxLength={maxLengthMap['city']}
         />
       </Column>
       <Column span={3} end form>
@@ -37,12 +40,14 @@ const AddressRow = ({fieldId}) => (
             <Field.Text
               label='State'
               field={fieldId('state')}
+              maxLength={maxLengthMap['state']}
             />
           </Column>
           <Column span={6} end>
             <Field.Text
               label='Zip'
               field={fieldId('zip_code')}
+              maxLength={maxLengthMap['zip']}
             />
           </Column>
         </Row>

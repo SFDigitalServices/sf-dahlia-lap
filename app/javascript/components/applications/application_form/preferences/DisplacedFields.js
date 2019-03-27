@@ -1,6 +1,7 @@
 import React from 'react'
 import { buildFieldId } from './utils'
 import { Field } from '~/utils/form/Field'
+import { maxLengthMap } from '../utils'
 
 const DisplacedFields = ({ formApi, householdMembers, i }) => {
   return (
@@ -17,6 +18,7 @@ const DisplacedFields = ({ formApi, householdMembers, i }) => {
         <Field.Text
           field={buildFieldId(i, 'certificate_number')}
           label='DTHP Certificate Number'
+          maxLength={maxLengthMap['certificate_number']}
         />
       </div>
       <div className='small-12 columns'>

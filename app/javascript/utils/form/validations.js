@@ -45,6 +45,18 @@ const isValidDate = (dateOfBirth) => {
   }
 }
 
+const isValidEmail = (email) => {
+  console.log('isValidEmail')
+  let emailRegex = new RegExp([
+    "[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+)*",
+    '@',
+    '(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?'
+  ].join(''))
+  if (email) {
+    return !emailRegex.test(email)
+  }
+}
+
 const isValidCurrency = (value) => {
   if (isNil(value)) {
     return true
@@ -69,6 +81,7 @@ const isUnderMaxValue = maxValue => value => {
 
 const isPresent = (value) => !!value
 
+validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isValidDate = decorateValidator(isValidDate)
 validate.isValidCurrency = decorateValidator(isValidCurrency)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Select } from 'react-form'
 import { Field } from '~/utils/form/Field'
+import { maxLengthMap } from './utils'
 
 const householdVouchersSubsidiesOptions = [
   {value: 'true', label: 'true'},
@@ -18,6 +19,7 @@ const HouseholdIncomeSection = () => {
             label='Annual Income'
             field='annual_income'
             errorMessage={(label, error) => error}
+            maxLength={maxLengthMap['income']}
           />
         </div>
         <div className='small-6 columns'>
