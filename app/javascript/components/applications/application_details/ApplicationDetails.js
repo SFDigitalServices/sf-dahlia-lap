@@ -14,11 +14,22 @@ import {
   reservedAndPriorityFields
 } from './fields'
 
+const FileDownloadUrl = (fileBaseUrl, file) => {
+  switch (file.file_type) {
+    case 'Attachment':
+      return `${fileBaseUrl}/servlet/servlet.FileDownload?file=${file.id}`
+    case 'File':
+      return `${fileBaseUrl}/sfc/servlet.shepherd/version/download/${file.id}`
+    default:
+      return null
+  }
+}
+
 const ProofListItems = ({ fileBaseUrl, files }) => map(files, (file) => {
   return (
     <li key={file.id}>
       <a target='_blank'
-        href={`${fileBaseUrl}/servlet/servlet.FileDownload?file=${file.id}`}>
+        href={FileDownloadUrl(fileBaseUrl, file)}>
         {file.document_type}
       </a>
     </li>)
