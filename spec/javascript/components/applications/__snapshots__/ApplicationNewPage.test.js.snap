@@ -127,7 +127,7 @@ Array [
                         <input
                           className=""
                           id="first_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value=""
@@ -141,7 +141,7 @@ Array [
                         Middle Name
                       </label>
                       <input
-                        maxLength={50}
+                        maxLength={20}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""
@@ -167,7 +167,7 @@ Array [
                         <input
                           className=""
                           id="last_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value=""
@@ -194,7 +194,7 @@ Array [
                       <input
                         className=""
                         id="email"
-                        maxLength={50}
+                        maxLength={40}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""
@@ -487,7 +487,7 @@ Array [
                         <input
                           className=""
                           id="alt_first_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value=""
@@ -509,7 +509,7 @@ Array [
                         <input
                           className=""
                           id="alt_middle_name"
-                          maxLength={50}
+                          maxLength={20}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value=""
@@ -531,7 +531,7 @@ Array [
                         <input
                           className=""
                           id="alt_last_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value=""
@@ -631,7 +631,7 @@ Array [
                       <input
                         className=""
                         id="email"
-                        maxLength={50}
+                        maxLength={40}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""

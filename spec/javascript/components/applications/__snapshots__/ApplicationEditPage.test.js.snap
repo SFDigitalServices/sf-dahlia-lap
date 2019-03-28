@@ -134,7 +134,7 @@ Array [
                         <input
                           className=""
                           id="first_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="karen"
@@ -148,7 +148,7 @@ Array [
                         Middle Name
                       </label>
                       <input
-                        maxLength={50}
+                        maxLength={20}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""
@@ -174,7 +174,7 @@ Array [
                         <input
                           className=""
                           id="last_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="jones"
@@ -201,7 +201,7 @@ Array [
                       <input
                         className=""
                         id="email"
-                        maxLength={50}
+                        maxLength={40}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value="eee@eeee.com"
@@ -494,7 +494,7 @@ Array [
                         <input
                           className=""
                           id="alt_first_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Federic"
@@ -516,7 +516,7 @@ Array [
                         <input
                           className=""
                           id="alt_middle_name"
-                          maxLength={50}
+                          maxLength={20}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Daaaa"
@@ -538,7 +538,7 @@ Array [
                         <input
                           className=""
                           id="alt_last_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="dayan"
@@ -638,7 +638,7 @@ Array [
                       <input
                         className=""
                         id="email"
-                        maxLength={50}
+                        maxLength={40}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value="fede@eee.com"
@@ -806,7 +806,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_first_name"
-                              maxLength={50}
+                              maxLength={40}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="diego"
@@ -828,7 +828,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_middle_name"
-                              maxLength={50}
+                              maxLength={20}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="m"
@@ -855,7 +855,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_last_name"
-                              maxLength={50}
+                              maxLength={40}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="maradona"
@@ -1440,7 +1440,7 @@ Array [
                         <input
                           className=""
                           id="first_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="karen"
@@ -1454,7 +1454,7 @@ Array [
                         Middle Name
                       </label>
                       <input
-                        maxLength={50}
+                        maxLength={20}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value=""
@@ -1480,7 +1480,7 @@ Array [
                         <input
                           className=""
                           id="last_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="jones"
@@ -1507,7 +1507,7 @@ Array [
                       <input
                         className=""
                         id="email"
-                        maxLength={50}
+                        maxLength={40}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value="eee@eeee.com"
@@ -1800,7 +1800,7 @@ Array [
                         <input
                           className=""
                           id="alt_first_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Federic"
@@ -1822,7 +1822,7 @@ Array [
                         <input
                           className=""
                           id="alt_middle_name"
-                          maxLength={50}
+                          maxLength={20}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="Daaaa"
@@ -1844,7 +1844,7 @@ Array [
                         <input
                           className=""
                           id="alt_last_name"
-                          maxLength={50}
+                          maxLength={40}
                           onBlur={[Function]}
                           onChange={[Function]}
                           value="dayan"
@@ -1944,7 +1944,7 @@ Array [
                       <input
                         className=""
                         id="email"
-                        maxLength={50}
+                        maxLength={40}
                         onBlur={[Function]}
                         onChange={[Function]}
                         value="fede@eee.com"
@@ -2112,7 +2112,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_first_name"
-                              maxLength={50}
+                              maxLength={40}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="diego"
@@ -2134,7 +2134,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_middle_name"
-                              maxLength={50}
+                              maxLength={20}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="m"
@@ -2161,7 +2161,7 @@ Array [
                             <input
                               className=""
                               id="household_members_0_last_name"
-                              maxLength={50}
+                              maxLength={40}
                               onBlur={[Function]}
                               onChange={[Function]}
                               value="maradona"
