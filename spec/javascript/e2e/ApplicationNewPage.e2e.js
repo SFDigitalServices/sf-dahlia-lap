@@ -5,12 +5,15 @@ import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
-  const FIRST_NAME = 'Some first name'
-  const LAST_NAME = 'Some last name'
-  const DATE_OF_BIRTH = '03/04/1983'
+  const LONG_FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
+  const LONG_LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!NOWOVER'
+
+  const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!'
+  const LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!'
   const DOB_MONTH = '03'
   const DOB_DAY = '04'
   const DOB_YEAR = '1983'
+  const DATE_OF_BIRTH = '03/04/1983'
 
   const HOUSEHOLD_MEMBER_FIRST_NAME = 'HM first name'
   const HOUSEHOLD_MEMBER_LAST_NAME = 'HM last name'
@@ -27,8 +30,8 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Enter in required information
-    await page.type('#first_name', FIRST_NAME)
-    await page.type('#last_name', LAST_NAME)
+    await page.type('#first_name', LONG_FIRST_NAME)
+    await page.type('#last_name', LONG_LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)

@@ -54,6 +54,7 @@ const isValidEmail = (email) => {
   if (email) {
     return emailRegex.test(email)
   }
+  return true
 }
 
 const isValidCurrency = (value) => {
