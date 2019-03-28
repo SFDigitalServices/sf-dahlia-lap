@@ -103,7 +103,6 @@ Array [
                   Any Listing
                 </option>
                 <option
-                  disabled={undefined}
                   value={1}
                 >
                   Any Listing
@@ -145,19 +144,16 @@ Array [
                   Submission Type
                 </option>
                 <option
-                  disabled={undefined}
                   value={1}
                 >
                   Paper
                 </option>
                 <option
-                  disabled={undefined}
                   value={2}
                 >
                   Electronic
                 </option>
                 <option
-                  disabled={undefined}
                   value={3}
                 >
                   Any type
@@ -184,7 +180,6 @@ Array [
       <div
         className="rt-table"
         role="grid"
-        style={undefined}
       >
         <div
           className="rt-thead -header"
@@ -197,7 +192,6 @@ Array [
           <div
             className="rt-tr"
             role="row"
-            style={undefined}
           >
             <div
               className="rt-th"
@@ -3345,7 +3339,6 @@ Array [
       >
         <div
           className="-pagination"
-          style={undefined}
         >
           <div
             className="-previous"

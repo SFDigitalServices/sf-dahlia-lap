@@ -64,25 +64,21 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         English
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Chinese
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Spanish
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Filipino
@@ -232,19 +228,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Home
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Cell
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Work
@@ -561,25 +554,21 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Family Member
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Friend
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Social Worker or Housing Counselor
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Other
@@ -669,19 +658,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Home
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Cell
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Work
@@ -964,19 +950,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         true
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         false
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Left Blank
@@ -1012,19 +995,16 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Hispanic/Latino
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Not Hispanic/Latino
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Decline to state
@@ -1049,67 +1029,56 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         American Indian/Alaskan Native
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Asian
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Black/African American
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Native Hawaiian/Other Pacific Islander
                       </option>
                       <option
-                        disabled={undefined}
                         value={5}
                       >
                         White
                       </option>
                       <option
-                        disabled={undefined}
                         value={6}
                       >
                         American Indian/Alaskan Native and Black/African American
                       </option>
                       <option
-                        disabled={undefined}
                         value={7}
                       >
                         American Indian/Alaskan Native and White
                       </option>
                       <option
-                        disabled={undefined}
                         value={8}
                       >
                         Asian and White
                       </option>
                       <option
-                        disabled={undefined}
                         value={9}
                       >
                         Black/African American and White
                       </option>
                       <option
-                        disabled={undefined}
                         value={10}
                       >
                         Other/Multiracial
                       </option>
                       <option
-                        disabled={undefined}
                         value={11}
                       >
                         Decline to state
@@ -1134,43 +1103,36 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Female
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Male
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Genderqueer/Gender Non-binary
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Trans Female
                       </option>
                       <option
-                        disabled={undefined}
                         value={5}
                       >
                         Trans Male
                       </option>
                       <option
-                        disabled={undefined}
                         value={6}
                       >
                         Not Listed
                       </option>
                       <option
-                        disabled={undefined}
                         value={7}
                       >
                         Decline to state
@@ -1208,37 +1170,31 @@ Array [
                         Select One...
                       </option>
                       <option
-                        disabled={undefined}
                         value={1}
                       >
                         Bisexual
                       </option>
                       <option
-                        disabled={undefined}
                         value={2}
                       >
                         Gay/Lesbian/Same-Gender Loving
                       </option>
                       <option
-                        disabled={undefined}
                         value={3}
                       >
                         Questioning/Unsure
                       </option>
                       <option
-                        disabled={undefined}
                         value={4}
                       >
                         Straight/Heterosexual
                       </option>
                       <option
-                        disabled={undefined}
                         value={5}
                       >
                         Not listed
                       </option>
                       <option
-                        disabled={undefined}
                         value={6}
                       >
                         Decline to state

@@ -308,7 +308,7 @@ Array [
                     Mailing Address
                   </h4>
                   <p>
-                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
+                    123 Mailing St, SF Mailing, CA, 94105-1804
                   </p>
                 </div>
               </div>
@@ -433,7 +433,7 @@ Array [
                     Mailing Address
                   </h4>
                   <p>
-                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
+                    123 Alternate Mailing St, SF Mailing, CA, 94105-1804
                   </p>
                 </div>
               </div>
@@ -713,7 +713,7 @@ Array [
             </li>
             <li>
               <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
+                href="undefined/sfc/servlet.shepherd/version/download/xxxx2"
                 target="_blank"
               >
                 Namexxx2

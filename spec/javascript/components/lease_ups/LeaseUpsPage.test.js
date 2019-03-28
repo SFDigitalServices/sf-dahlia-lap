@@ -2,7 +2,6 @@ import React from 'react'
 import { merge } from 'lodash'
 import renderer from 'react-test-renderer'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
-import sharedHooks from '../../support/sharedHooks'
 
 const mockfetchLeaseUpApplications = jest.fn()
 
@@ -70,8 +69,6 @@ describe('LeaseUpApplicationsPage', () => {
     Building_Street_Address: 'yyyy',
     Report_id: 'REPORT_ID'
   }
-
-  sharedHooks.useFakeTimers()
 
   test('Should render LeaseUpTable', () => {
     const wrapper = renderer.create(

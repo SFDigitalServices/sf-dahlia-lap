@@ -2,10 +2,11 @@ const application = {
   'id': 'a0o0x000000OcOzAAK',
   'name': 'APP-00191270',
   'applicant': {
+    'id': 'a0n0x000000AbE6AAK',
     'first_name': 'karen',
     'last_name': 'jones',
-    'middle_name': null,
-    'name': 'karen jones',
+    'middle_name': 'elizabeth',
+    'name': 'karen elizabeth jones',
     'date_of_birth': ['1950', '01', '01'],
     'phone_type': 'Cell',
     'phone': '9548883321',
@@ -17,11 +18,19 @@ const application = {
     'state': 'CA',
     'zip_code': '94105-1804',
     'residence_address': '123 MAIN ST, SAN FRANCISCO, CA, 94105-1804',
-    'mailing_street': '123 MAIN ST',
-    'mailing_city': 'SAN FRANCISCO',
+    'mailing_street': '123 Mailing St',
+    'mailing_city': 'SF Mailing',
     'mailing_state': 'CA',
     'mailing_zip_code': '94105-1804',
-    'mailing_address': '123 MAIN ST, SAN FRANCISCO, CA, 94105-1804'
+    'mailing_address': '123 Mailing St, SF Mailing, CA, 94105-1804'
+  },
+  'demographics': {
+    'ethnicity': 'Decline to state',
+    'gender': 'Decline to state',
+    'gender_other': 'gender other',
+    'race': 'Decline to state',
+    'sexual_orientation': 'Decline to state',
+    'sexual_orientation_other': 'sexual orientation other',
   },
   'alternate_contact': {
     'first_name': 'Federic',
@@ -32,12 +41,11 @@ const application = {
     'email': 'fede@eee.com',
     'alternate_contact_type': 'Friend',
     'alternate_contact_type_other': null,
-    'street': '123 MAIN ST',
-    'city': 'SAN FRANCISCO',
-    'state': 'CA',
-    'zip_code': '94105-1804',
-    'residence_address': '123 MAIN ST, SAN FRANCISCO, CA, 94105-1804',
-    'mailing_address': '123 MAIN ST, SAN FRANCISCO, CA, 94105-1804'
+    'mailing_street': '123 Alternate Mailing St',
+    'mailing_city': 'SF Mailing',
+    'mailing_state': 'CA',
+    'mailing_zip_code': '94105-1804',
+    'mailing_address': '123 Alternate Mailing St, SF Mailing, CA, 94105-1804'
   },
   'listing': {
     'name': 'Test 5/30',
@@ -88,11 +96,13 @@ const application = {
   'proof_files': [
     {
       'id': 'xxxx1',
-      'document_type': 'Namexxx1'
+      'document_type': 'Namexxx1',
+      'file_type': 'Attachment'
     },
     {
       'id': 'xxxx2',
-      'document_type': 'Namexxx2'
+      'document_type': 'Namexxx2',
+      'file_type': 'File'
     }
   ],
   'household_members': [
