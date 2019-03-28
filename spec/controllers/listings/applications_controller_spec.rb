@@ -31,6 +31,21 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
         get :new, params: { listing_id: valid_listing_id }
       end
 
+      listing = assigns(:listing)
+      expect(listing.isSale).to be_falsey
+      expect(listing.isRental).to be_truthy
+      expect(response.body).to have_react_component('ApplicationNewPage')
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'should render sale listing successfully' do
+      VCR.use_cassette('listings/applications_controller/new_sale') do
+        get :new, params: { listing_id: sale_listing_id }
+      end
+
+      listing = assigns(:listing)
+      expect(listing.isSale).to be_truthy
+      expect(listing.isRental).to be_falsey
       expect(response.body).to have_react_component('ApplicationNewPage')
       expect(response).to have_http_status(:success)
     end

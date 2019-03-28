@@ -37,7 +37,10 @@ export const applicationFieldMapper = {
   confirmedHouseholdAnnualIncome: (source) => currencyToFloat(source.confirmed_household_annual_income),
   HHTotalIncomeWithAssets: (source) => currencyToFloat(source.hh_total_income_with_assets_annual),
   totalMonthlyRent: (source) => currencyToFloat(source.total_monthly_rent),
-  adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected))
+  adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected)),
+  is_first_time_homebuyer: 'isFirstTimeHomebuyer',
+  has_completed_homebuyer_education: 'hasCompletedHomebuyerEducation',
+  has_loan_preapproval: 'hasLoanPreapproval'
 }
 
 export const mapApplication = createFieldMapper(applicationFieldMapper)
