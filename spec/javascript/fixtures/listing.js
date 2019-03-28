@@ -86,6 +86,8 @@ const listing = {
   "Office_Hours": null,
   "Information_Sessions": null,
   "Open_Houses": null,
+  "isSale": false,
+  "isRental": true,
   "Listing_Lottery_Preferences": [
     {
       "attributes": {
