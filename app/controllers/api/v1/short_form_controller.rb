@@ -52,6 +52,17 @@ class Api::V1::ShortFormController < ApiController
             :isFirstTimeHomebuyer,
             :hasCompletedHomebuyerEducation,
             :hasLoanPreapproval,
+            lease: %i[
+              id
+              unit
+              lease_status
+              lease_start_date
+              monthly_parking_rent
+              preference_used
+              no_preference_used
+              total_monthly_rent_without_parking
+              monthly_tenant_contribution
+            ],
             primaryApplicant: %i[
               contactId
               appMemberId
