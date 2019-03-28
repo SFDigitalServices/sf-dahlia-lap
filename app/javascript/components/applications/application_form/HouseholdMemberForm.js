@@ -2,7 +2,7 @@ import React from 'react'
 import AddressForm from './AddressForm'
 import { Field } from '~/utils/form/Field'
 import { MultiDateField } from '~/utils/form/MultiDateField'
-import { maxLengthMap } from './utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const HouseholdMemberForm = ({ i, formApi }) => {
   return (

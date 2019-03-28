@@ -1,7 +1,7 @@
 import React from 'react'
 import { buildFieldId } from './utils'
 import { Field } from '~/utils/form/Field'
-import { maxLengthMap } from '../utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
   return (

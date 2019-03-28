@@ -1,7 +1,7 @@
 import React from 'react'
 import formOptions from './formOptions'
 import { NestedForm, Form, Select, Text } from 'react-form'
-import { maxLengthMap } from './utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 let {
   genderOptions,

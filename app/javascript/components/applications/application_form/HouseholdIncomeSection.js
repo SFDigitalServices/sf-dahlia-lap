@@ -1,7 +1,7 @@
 import React from 'react'
 import { Select } from 'react-form'
 import { Field } from '~/utils/form/Field'
-import { maxLengthMap } from './utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const householdVouchersSubsidiesOptions = [
   {value: 'true', label: 'true'},

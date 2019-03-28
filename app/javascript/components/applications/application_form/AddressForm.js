@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-form'
 import { isEmpty } from 'lodash'
-import { maxLengthMap } from './utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
   // to do: refactor this to use props

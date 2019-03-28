@@ -5,7 +5,7 @@ import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
 import { Field } from '~/utils/form/Field'
-import { maxLengthMap } from '../utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => (

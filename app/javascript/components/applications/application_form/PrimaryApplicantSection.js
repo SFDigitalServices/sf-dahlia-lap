@@ -6,7 +6,8 @@ import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
 import { MultiDateField } from '~/utils/form/MultiDateField'
-import { mailingAddressFieldMap, maxLengthMap } from './utils'
+import { mailingAddressFieldMap } from './utils'
+import { maxLengthMap } from '~/utils/formUtils'
 
 let { phoneTypeOptions } = formOptions
 

@@ -3,9 +3,10 @@ import { isEmpty, values, forEach, size } from 'lodash'
 import { Form, NestedForm, Text, Select } from 'react-form'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import { mailingAddressFieldMap, maxLengthMap } from './utils'
+import { mailingAddressFieldMap } from './utils'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const {
   alternateContactOptions,
