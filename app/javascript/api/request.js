@@ -16,17 +16,17 @@ const apiCall = async (method, path, data) => {
 }
 
 export const get = async (path, data) => {
-  apiCall('get', path, data)
+  return apiCall('get', path, data)
 }
 
 export const post = async (path, data) => {
-  apiCall('post', path, data)
+  return apiCall('post', path, data)
 }
 
 export const destroy = async (path, data) => {
-  apiCall('delete', path, data)
+  return apiCall('delete', path, data)
 }
 
 export const put = async (path, data) => {
-  apiCall('put', path, data)
+  return apiCall('put', path, data)
 }
