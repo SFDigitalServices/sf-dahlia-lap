@@ -111,7 +111,7 @@ To run an individual test:
 
 You can debug all tests and Rails server in VS code.
 Go to debug view (⇧+⌘+D on Mac)
-Form the dropdown in left top corner pick what you want to debug:
+From the dropdown in left top corner pick what you want to debug:
 - Rails server: for running app
 - Jest: for any javascript test
 - Rspec: for ruby tests
