@@ -116,7 +116,7 @@ From the dropdown in left top corner pick what you want to debug:
 - Jest: for any javascript test
 - Rspec: for ruby tests
 
-For tests you can debug single file or whole suite. To enter debug click a brakepoint (red dot) left side to line numer of the file you want to debug and run the test with play button. In the debug console you can run any function to check the expected outcome. Also adding watch expressions is very helpful. You can use the bar that popups to jump to next lines of code, into the functions or continue.
+For tests you can debug a single file or the whole suite. To enter debug click a breakpoint (red dot) left side to line number of the file you want to debug and run the test with play button. In the debug console you can run any function to check the expected outcome. Also adding watch expressions is very helpful. You can use the bar that popups to jump to next lines of code, into the functions or continue.
 
 ### Debugging Javascript
 
