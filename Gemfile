@@ -49,6 +49,8 @@ group :development, :test do
   gem 'vcr'
   gem 'rails-controller-testing'
   gem 'simplecov', require: false
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :development do
