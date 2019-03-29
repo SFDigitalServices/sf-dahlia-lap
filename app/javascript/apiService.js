@@ -1,4 +1,4 @@
-import request from '~/api/request'
+import { get, post, put, destroy } from '~/api/request'
 
 const updateFlaggedApplication = async (data) => {
   let putData = {
@@ -10,17 +10,17 @@ const updateFlaggedApplication = async (data) => {
       Comments__c: data.comments
     }
   }
-  let response = await request.put('/flagged-applications/update', putData)
+  let response = await put('/flagged-applications/update', putData)
   return response.result
 }
 
 const submitApplication = async (data) => {
   let postData = { application: data }
-  return request.post('/short-form/submit', postData)
+  return post('/short-form/submit', postData)
 }
 
 const fetchApplications = async ({ page, filters }) => {
-  return request.get('/applications', {
+  return get('/applications', {
     params: {
       page,
       ...filters
@@ -30,7 +30,7 @@ const fetchApplications = async ({ page, filters }) => {
 
 const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
   // Fetch applications associated with a lease up listing.
-  return request.get('/lease-ups/applications', {
+  return get('/lease-ups/applications', {
     params: {
       listing_id: listingId,
       page: page,
@@ -40,7 +40,7 @@ const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
 }
 
 const getAMI = async ({ chartType, chartYear }) => {
-  return request.get('/ami', {
+  return get('/ami', {
     params: {
       chartType: chartType,
       year: chartYear,
@@ -57,21 +57,21 @@ const createFieldUpdateComment = async (data) => {
       Application__c: data.applicationId
     }
   }
-  return request.post('/field-update-comments/create', postData)
+  return post('/field-update-comments/create', postData)
 }
 
 const updatePreference = async (preference) => {
   const postData = {
     preference: preference
   }
-  return request.put(`/preferences/${preference.id}`, postData)
+  return put(`/preferences/${preference.id}`, postData)
 }
 
 const updateApplication = async (application) => {
   const postData = {
     application: application
   }
-  return request.put(`/applications/${application.id}`, postData)
+  return put(`/applications/${application.id}`, postData)
 }
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -79,7 +79,7 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
-  return request.post('/rental-assistances', postData)
+  return post('/rental-assistances', postData)
 }
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -87,11 +87,11 @@ const updateRentalAssistance = async (rentalAssistance, applicationId) => {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
-  return request.put(`/rental-assistances/${rentalAssistance.id}`, putData)
+  return put(`/rental-assistances/${rentalAssistance.id}`, putData)
 }
 
 const deleteRentalAssistance = async (rentalAssistanceId) => {
-  return request.destroy(`/rental-assistances/${rentalAssistanceId}`)
+  return destroy(`/rental-assistances/${rentalAssistanceId}`)
 }
 
 export const createOrUpdateLease = async (lease, applicationId) => {
@@ -100,9 +100,9 @@ export const createOrUpdateLease = async (lease, applicationId) => {
     lease: lease
   }
   if (leaseId) {
-    return request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+    return put(`/applications/${applicationId}/leases/${leaseId}`, data)
   } else {
-    return request.post(`/applications/${applicationId}/leases`, data)
+    return post(`/applications/${applicationId}/leases`, data)
   }
 }
 
