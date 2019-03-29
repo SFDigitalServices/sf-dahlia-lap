@@ -1,14 +1,23 @@
 import apiService from '~/apiService'
 
-const mockApiCallFn = jest.fn()
+const mockPostFn = jest.fn()
+const mockPutFn = jest.fn()
 
 jest.mock('api/request', () => {
-  const mockApiCall = async (method, path, data) => {
-    mockApiCallFn(method, path, data)
+  const mockPost = async (path, data) => {
+    mockPostFn(path, data)
     return true
   }
 
-  return { apiCall: mockApiCall }
+  const mockPut = async (path, data) => {
+    mockPutFn(path, data)
+    return true
+  }
+
+  return {
+    post: mockPost,
+    put: mockPut
+  }
 })
 
 describe('apiService', () => {
@@ -25,8 +34,8 @@ describe('apiService', () => {
 
       var result = apiService.createOrUpdateLease(lease, fakeAppId)
       expect(result).resolves.toEqual(true)
-      expect(mockApiCallFn.mock.calls.length).toEqual(1)
-      expect(mockApiCallFn.mock.calls[0]).toEqual(['put', `/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
+      expect(mockPutFn.mock.calls.length).toEqual(1)
+      expect(mockPutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
     })
     test('should submit post request to create lease if no id is provided', () => {
       var lease = {
@@ -35,8 +44,8 @@ describe('apiService', () => {
       var expectedData = {'lease': lease}
       var result = apiService.createOrUpdateLease(lease, fakeAppId)
       expect(result).resolves.toEqual(true)
-      expect(mockApiCallFn.mock.calls.length).toEqual(1)
-      expect(mockApiCallFn.mock.calls[0]).toEqual(['post', `/applications/${fakeAppId}/leases`, expectedData])
+      expect(mockPostFn.mock.calls.length).toEqual(1)
+      expect(mockPostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData])
     })
   })
 })
