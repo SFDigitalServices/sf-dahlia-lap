@@ -961,7 +961,7 @@ Array [
                             id="household_members_0_relationship_to_applicant"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            value={0}
+                            value={4}
                           >
                             <option
                               disabled={true}
@@ -2560,7 +2560,7 @@ Array [
                             id="household_members_0_relationship_to_applicant"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            value={0}
+                            value={4}
                           >
                             <option
                               disabled={true}

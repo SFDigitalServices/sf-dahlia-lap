@@ -44,7 +44,8 @@ export default {
       address: '9 de julio',
       city: 'buenos aires',
       state: 'fl',
-      zip: '33026' } ],
+      zip: '33026',
+      relationship: 'Child' } ],
   shortFormPreferences: [],
   alternateContact:
   { firstName: 'Federic',
