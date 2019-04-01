@@ -941,6 +941,113 @@ Array [
                         </div>
                       </div>
                     </div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="small-6 columns"
+                      >
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="household_members.0.relationship_to_applicant"
+                          >
+                            Relationship to Applicant 
+                          </label>
+                          <select
+                            className=""
+                            id="household_members_0_relationship_to_applicant"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value={0}
+                          >
+                            <option
+                              disabled={true}
+                              value={0}
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value={1}
+                            >
+                              Spouse
+                            </option>
+                            <option
+                              value={2}
+                            >
+                              Registered Domestic Partner
+                            </option>
+                            <option
+                              value={3}
+                            >
+                              Parent
+                            </option>
+                            <option
+                              value={4}
+                            >
+                              Child
+                            </option>
+                            <option
+                              value={5}
+                            >
+                              Sibling
+                            </option>
+                            <option
+                              value={6}
+                            >
+                              Cousin
+                            </option>
+                            <option
+                              value={7}
+                            >
+                              Aunt
+                            </option>
+                            <option
+                              value={8}
+                            >
+                              Uncle
+                            </option>
+                            <option
+                              value={9}
+                            >
+                              Nephew
+                            </option>
+                            <option
+                              value={10}
+                            >
+                              Niece
+                            </option>
+                            <option
+                              value={11}
+                            >
+                              Grandparent
+                            </option>
+                            <option
+                              value={12}
+                            >
+                              Great Grandparent
+                            </option>
+                            <option
+                              value={13}
+                            >
+                              In-Law
+                            </option>
+                            <option
+                              value={14}
+                            >
+                              Friend
+                            </option>
+                            <option
+                              value={15}
+                            >
+                              Other
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div
                     className="row"
@@ -2430,6 +2537,113 @@ Array [
                               </div>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="small-6 columns"
+                      >
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="household_members.0.relationship_to_applicant"
+                          >
+                            Relationship to Applicant 
+                          </label>
+                          <select
+                            className=""
+                            id="household_members_0_relationship_to_applicant"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value={0}
+                          >
+                            <option
+                              disabled={true}
+                              value={0}
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value={1}
+                            >
+                              Spouse
+                            </option>
+                            <option
+                              value={2}
+                            >
+                              Registered Domestic Partner
+                            </option>
+                            <option
+                              value={3}
+                            >
+                              Parent
+                            </option>
+                            <option
+                              value={4}
+                            >
+                              Child
+                            </option>
+                            <option
+                              value={5}
+                            >
+                              Sibling
+                            </option>
+                            <option
+                              value={6}
+                            >
+                              Cousin
+                            </option>
+                            <option
+                              value={7}
+                            >
+                              Aunt
+                            </option>
+                            <option
+                              value={8}
+                            >
+                              Uncle
+                            </option>
+                            <option
+                              value={9}
+                            >
+                              Nephew
+                            </option>
+                            <option
+                              value={10}
+                            >
+                              Niece
+                            </option>
+                            <option
+                              value={11}
+                            >
+                              Grandparent
+                            </option>
+                            <option
+                              value={12}
+                            >
+                              Great Grandparent
+                            </option>
+                            <option
+                              value={13}
+                            >
+                              In-Law
+                            </option>
+                            <option
+                              value={14}
+                            >
+                              Friend
+                            </option>
+                            <option
+                              value={15}
+                            >
+                              Other
+                            </option>
+                          </select>
                         </div>
                       </div>
                     </div>
