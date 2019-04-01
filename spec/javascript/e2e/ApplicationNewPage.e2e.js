@@ -30,6 +30,8 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Enter in required information
+    // Type in the long strings past character limit, the test will make sure
+    // the truncated version which is within the character limit gets saved
     await page.type('#first_name', LONG_FIRST_NAME)
     await page.type('#last_name', LONG_LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)

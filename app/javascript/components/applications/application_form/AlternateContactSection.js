@@ -80,15 +80,24 @@ const AlternateContactSection = ({editValues}) => {
             <div className='row'>
               <div className='small-4 columns'>
                 <label>Alternate Contact Type</label>
-                <Select field='alternate_contact_type' options={alternateContactOptions} />
+                <Select
+                  field='alternate_contact_type'
+                  options={alternateContactOptions}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Alternate Contact Type Other</label>
-                <Text field='alternate_contact_type_other' maxLength={maxLengthMap['alternate_contact_type_other']} />
+                <Text
+                  field='alternate_contact_type_other'
+                  maxLength={maxLengthMap['alternate_contact_type_other']}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Agency (if applicable)</label>
-                <Text field='agency_name' maxLength={maxLengthMap['agency_name']} />
+                <Text
+                  field='agency_name'
+                  maxLength={maxLengthMap['agency_name']}
+                />
               </div>
             </div>
             <div className='row'>
@@ -103,14 +112,21 @@ const AlternateContactSection = ({editValues}) => {
               </div>
               <div className='small-4 columns'>
                 <label>Phone</label>
-                <Text field='phone' maxLength={maxLengthMap['phone']} />
+                <Text
+                  field='phone'
+                  maxLength={maxLengthMap['phone']}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Phone Type</label>
                 <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
-            <AddressForm title='Mailing Address' memberType='alternateContact' fieldMap={mailingAddressFieldMap} />
+            <AddressForm
+              title='Mailing Address'
+              memberType='alternateContact'
+              fieldMap={mailingAddressFieldMap}
+            />
           </div>
         )}
       </Form>
