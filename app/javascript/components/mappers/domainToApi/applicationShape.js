@@ -5,7 +5,6 @@ import { preferenceFieldMapper } from './preference'
 import { householdMembersFieldMapper } from './householdMember'
 import { alternateContactFieldMapper } from './alternateContact'
 import { demographicsFieldMapper } from './demographics'
-import { leaseFieldMapper } from './lease'
 import { extend } from 'lodash'
 
 export const applicationShape = {
@@ -13,7 +12,6 @@ export const applicationShape = {
   listingID: (source) => source.listing.id,
   alternateContact: shapeMapper('alternate_contact', alternateContactFieldMapper),
   demographics: shapeMapper('demographics', demographicsFieldMapper),
-  lease: shapeMapper('lease', leaseFieldMapper),
   ...{
     primaryApplicant: shapeMapper('applicant', applicantFieldMapper),
     shortFormPreferences: listMapper('preferences', preferenceFieldMapper),
@@ -27,8 +25,7 @@ export const buildApplicationShape = application => {
     [
       'alternateContact',
       'adaPrioritiesSelected',
-      'demographics',
-      'lease'
+      'demographics'
     ])
   mappedApplication['primaryApplicant'] = extend(mappedApplication['primaryApplicant'], mappedApplication['demographics'])
   delete mappedApplication['demographics']
