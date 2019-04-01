@@ -1398,6 +1398,7 @@ Array [
                       Gender Specify (if not listed)
                     </label>
                     <input
+                      maxLength={100}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="gender other"
@@ -1459,6 +1460,7 @@ Array [
                       Sexual Orientation (if not listed)
                     </label>
                     <input
+                      maxLength={100}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="sexual orientation other"
@@ -3227,6 +3229,7 @@ Array [
                       Gender Specify (if not listed)
                     </label>
                     <input
+                      maxLength={100}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="gender other"
@@ -3288,6 +3291,7 @@ Array [
                       Sexual Orientation (if not listed)
                     </label>
                     <input
+                      maxLength={100}
                       onBlur={[Function]}
                       onChange={[Function]}
                       value="sexual orientation other"
