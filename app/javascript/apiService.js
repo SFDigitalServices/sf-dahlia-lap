@@ -1,16 +1,4 @@
-import axios from 'axios'
-
-const apiCall = async (method, path, data) => {
-  if (process.env.NODE_ENV === 'test') { throw new Error('API should not be called in TEST') }
-
-  try {
-    const request = await axios[method](`/api/v1${path}`, data)
-    return request.data
-  } catch (e) {
-    console.warn(e)
-    return false
-  }
-}
+import { request } from '~/api/request'
 
 const updateFlaggedApplication = async (data) => {
   let putData = {
@@ -22,17 +10,17 @@ const updateFlaggedApplication = async (data) => {
       Comments__c: data.comments
     }
   }
-  let response = await apiCall('put', '/flagged-applications/update', putData)
+  let response = await request.put('/flagged-applications/update', putData)
   return response.result
 }
 
 const submitApplication = async (data) => {
   let postData = { application: data }
-  return apiCall('post', '/short-form/submit', postData)
+  return request.post('/short-form/submit', postData)
 }
 
 const fetchApplications = async ({ page, filters }) => {
-  return apiCall('get', '/applications', {
+  return request.get('/applications', {
     params: {
       page,
       ...filters
@@ -42,7 +30,7 @@ const fetchApplications = async ({ page, filters }) => {
 
 const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
   // Fetch applications associated with a lease up listing.
-  return apiCall('get', '/lease-ups/applications', {
+  return request.get('/lease-ups/applications', {
     params: {
       listing_id: listingId,
       page: page,
@@ -52,7 +40,7 @@ const fetchLeaseUpApplications = async (listingId, page, {filters}) => {
 }
 
 const getAMI = async ({ chartType, chartYear }) => {
-  return apiCall('get', '/ami', {
+  return request.get('/ami', {
     params: {
       chartType: chartType,
       year: chartYear,
@@ -69,23 +57,21 @@ const createFieldUpdateComment = async (data) => {
       Application__c: data.applicationId
     }
   }
-  return apiCall('post', '/field-update-comments/create', postData)
+  return request.post('/field-update-comments/create', postData)
 }
 
-const updatePreference = async (data) => {
-  const id = data.id
+const updatePreference = async (preference) => {
   const postData = {
-    preference: data
+    preference: preference
   }
-  return apiCall('put', `/preferences/${id}`, postData)
+  return request.put(`/preferences/${preference.id}`, postData)
 }
 
-const updateApplication = async (data) => {
-  const id = data.id
+const updateApplication = async (application) => {
   const postData = {
-    application: data
+    application: application
   }
-  return apiCall('put', `/applications/${id}`, postData)
+  return request.put(`/applications/${application.id}`, postData)
 }
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -93,20 +79,31 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
-  return apiCall('post', '/rental-assistances', postData)
+  return request.post('/rental-assistances', postData)
 }
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
-  const id = rentalAssistance.id
   const putData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
-  return apiCall('put', `/rental-assistances/${id}`, putData)
+  return request.put(`/rental-assistances/${rentalAssistance.id}`, putData)
 }
 
 const deleteRentalAssistance = async (rentalAssistanceId) => {
-  return apiCall('delete', `/rental-assistances/${rentalAssistanceId}`)
+  return request.destroy(`/rental-assistances/${rentalAssistanceId}`)
+}
+
+export const createOrUpdateLease = async (lease, applicationId) => {
+  const leaseId = lease['id']
+  const data = {
+    lease: lease
+  }
+  if (leaseId) {
+    return request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+  } else {
+    return request.post(`/applications/${applicationId}/leases`, data)
+  }
 }
 
 export default {
@@ -120,5 +117,6 @@ export default {
   createFieldUpdateComment,
   createRentalAssistance,
   updateRentalAssistance,
-  deleteRentalAssistance
+  deleteRentalAssistance,
+  createOrUpdateLease
 }
