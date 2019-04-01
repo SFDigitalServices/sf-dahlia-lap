@@ -32,15 +32,24 @@ const DemographicInfoSection = ({ defaultValues }) => {
               </div>
               <div className='small-6 columns'>
                 <label>Gender Specify (if not listed)</label>
-                <Text field='gender_other' maxLength={maxLengthMap['gender_other']} />
+                <Text
+                  field='gender_other'
+                  maxLength={maxLengthMap['gender_other']}
+                />
               </div>
               <div className='small-6 columns'>
                 <label>Sexual Orientation</label>
-                <Select field='sexual_orientation' options={sexualOrientationOptions} />
+                <Select
+                  field='sexual_orientation'
+                  options={sexualOrientationOptions}
+                />
               </div>
               <div className='small-6 columns'>
                 <label>Sexual Orientation (if not listed)</label>
-                <Text field='sexual_orientation_other' maxLength={maxLengthMap['sexual_orientation_other']} />
+                <Text
+                  field='sexual_orientation_other'
+                  maxLength={maxLengthMap['sexual_orientation_other']}
+                />
               </div>
             </div>
             <div className='row' />

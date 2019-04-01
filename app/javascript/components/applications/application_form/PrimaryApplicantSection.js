@@ -48,7 +48,10 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                 </div>
                 <div className='small-4 columns'>
                   <label>Middle Name</label>
-                  <Text field='middle_name' maxLength={maxLengthMap['middle_name']} />
+                  <Text
+                    field='middle_name'
+                    maxLength={maxLengthMap['middle_name']}
+                  />
                 </div>
                 <div className='small-4 columns'>
                   <Field.Text
@@ -93,8 +96,15 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                 />
               </div>
             </div>
-            <AddressForm title='Home Address' memberType='primaryApplicant' />
-            <AddressForm title='Mailing Address' memberType='primaryApplicant' fieldMap={mailingAddressFieldMap} />
+            <AddressForm
+              title='Home Address'
+              memberType='primaryApplicant'
+            />
+            <AddressForm
+              title='Mailing Address'
+              memberType='primaryApplicant'
+              fieldMap={mailingAddressFieldMap}
+            />
           </div>
         )}
       </Form>
