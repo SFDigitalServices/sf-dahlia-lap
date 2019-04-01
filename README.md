@@ -106,3 +106,18 @@ To run all tests (unit and e2e):
 To run an individual test:
 
 `yarn test:all path/to/test`
+
+## Debugging
+
+You can debug all tests and Rails server in VS code.
+Go to debug view (⇧+⌘+D on Mac)
+From the dropdown in left top corner pick what you want to debug:
+- Rails server: for running app
+- Jest: for any javascript test
+- Rspec: for ruby tests
+
+For tests you can debug a single file or the whole suite. To enter debug click a breakpoint (red dot) left side to line number of the file you want to debug and run the test with play button. In the debug console you can run any function to check the expected outcome. Also adding watch expressions is very helpful. You can use the bar that popups to jump to next lines of code, into the functions or continue.
+
+### Debugging Javascript
+
+To debug javascript, run Rails server in the prefered way. Go to browser and open inspector (⌥+⌘+I). Go to Sources tab and press ⌘+P to search for a file that you want to debug eg. PaperApplicationForm. Click line number to set a breakpoint in the place you want to debug. You can also add watch expressions, step into or over lines like in VS code debugger.
