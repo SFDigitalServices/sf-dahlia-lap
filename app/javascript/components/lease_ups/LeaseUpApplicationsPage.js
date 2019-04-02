@@ -109,7 +109,6 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   updateStatusModal = (values) => {
-    console.log('updateStatusModal being called with', values)
     this.setState(prevState => {
       return {
         statusModal: {
