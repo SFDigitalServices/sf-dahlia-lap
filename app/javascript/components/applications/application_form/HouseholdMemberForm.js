@@ -2,6 +2,11 @@ import React from 'react'
 import AddressForm from './AddressForm'
 import { Field } from '~/utils/form/Field'
 import { MultiDateField } from '~/utils/form/MultiDateField'
+import formOptions from '~/components/applications/application_form/formOptions'
+
+const {
+  relationshipOptions
+} = formOptions
 
 const HouseholdMemberForm = ({ i, formApi }) => {
   return (
@@ -50,6 +55,16 @@ const HouseholdMemberForm = ({ i, formApi }) => {
           <AddressForm
             memberType='householdMember'
             nestedField={`household_members.${i}`} />
+        </div>
+      </div>
+      <div className='row'>
+        <div className='small-6 columns'>
+          <Field.Select
+            label='Relationship to Applicant'
+            field={`household_members.${i}.relationship_to_applicant`}
+            id={`household_members_${i}_relationship_to_applicant`}
+            options={relationshipOptions}
+          />
         </div>
       </div>
     </div>

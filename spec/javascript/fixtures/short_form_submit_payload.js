@@ -60,7 +60,8 @@ const payload = {
          address: '9 de julio',
          city: 'buenos aires',
          state: 'fl',
-         zip: '33026' } ]
+         zip: '33026',
+         relationship: 'Child' } ]
 }
 
 export default payload
