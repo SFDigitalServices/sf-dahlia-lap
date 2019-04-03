@@ -5,11 +5,11 @@ import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
-  const LONG_FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
-  const LONG_LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!NOWOVER'
+  const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
+  const LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!NOWOVER'
 
-  const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!'
-  const LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!'
+  const TRUNCATED_FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!'
+  const TRUNCATED_LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!'
   const DOB_MONTH = '03'
   const DOB_DAY = '04'
   const DOB_YEAR = '1983'
@@ -32,8 +32,8 @@ describe('ApplicationNewPage', () => {
     // Enter in required information
     // Type in the long strings past character limit, the test will make sure
     // the truncated version which is within the character limit gets saved
-    await page.type('#first_name', LONG_FIRST_NAME)
-    await page.type('#last_name', LONG_LAST_NAME)
+    await page.type('#first_name', FIRST_NAME)
+    await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
@@ -55,8 +55,8 @@ describe('ApplicationNewPage', () => {
     expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
     const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
 
-    expect(values).toContain(FIRST_NAME)
-    expect(values).toContain(LAST_NAME)
+    expect(values).toContain(TRUNCATED_FIRST_NAME)
+    expect(values).toContain(TRUNCATED_LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
     expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
 
@@ -92,8 +92,8 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
-    await page.type('#first_name', FIRST_NAME)
-    await page.type('#last_name', LAST_NAME)
+    await page.type('#first_name', TRUNCATED_FIRST_NAME)
+    await page.type('#last_name', TRUNCATED_LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
@@ -117,8 +117,8 @@ describe('ApplicationNewPage', () => {
 
     // We get all the application attributes values
     const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
-    expect(values).toContain(FIRST_NAME)
-    expect(values).toContain(LAST_NAME)
+    expect(values).toContain(TRUNCATED_FIRST_NAME)
+    expect(values).toContain(TRUNCATED_LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
     const tableValues = await page.$$eval('.content-card table', elms => elms.map(e => e.textContent))
     expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_FIRST_NAME)
@@ -136,8 +136,8 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Enter non-household member required fields
-    await page.type('#first_name', FIRST_NAME)
-    await page.type('#last_name', LAST_NAME)
+    await page.type('#first_name', TRUNCATED_FIRST_NAME)
+    await page.type('#last_name', TRUNCATED_LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
@@ -167,8 +167,8 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
-    await page.type('#first_name', FIRST_NAME)
-    await page.type('#last_name', LAST_NAME)
+    await page.type('#first_name', TRUNCATED_FIRST_NAME)
+    await page.type('#last_name', TRUNCATED_LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
@@ -200,7 +200,7 @@ describe('ApplicationNewPage', () => {
     // Find the live/work table row, then check its content
     const tableRows = await page.$$eval('#content-card-preferences table tr', trs => trs.map((tr) => tr.textContent))
     const liveWorkRow = tableRows.filter(s => s.includes('Live or Work in San Francisco Preference'))
-    expect(liveWorkRow[0]).toContain(`${FIRST_NAME} ${LAST_NAME}`)
+    expect(liveWorkRow[0]).toContain(`${TRUNCATED_FIRST_NAME} ${TRUNCATED_LAST_NAME}`)
     expect(liveWorkRow[0]).toContain('Telephone bill')
 
     await browser.close()
@@ -214,8 +214,8 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
-    await page.type('#first_name', FIRST_NAME)
-    await page.type('#last_name', LAST_NAME)
+    await page.type('#first_name', TRUNCATED_FIRST_NAME)
+    await page.type('#last_name', TRUNCATED_LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
