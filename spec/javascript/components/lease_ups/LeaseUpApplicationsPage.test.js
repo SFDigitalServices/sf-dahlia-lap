@@ -6,6 +6,13 @@ import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPag
 
 const mockfetchLeaseUpApplications = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
+
+const tick = () => {
+  return new Promise(resolve => {
+    setTimeout(resolve, 0)
+  })
+}
+
 const buildMockApplicationWithPreference = (uniqId, attributes = {}) => {
   return merge({
     'Id': uniqId,
@@ -129,33 +136,31 @@ describe('LeaseUpApplicationsPage status modal', () => {
   test('Should show a closeable alert on apiService request failure', async (done) => {
     // How to get the mock function to be called? I added a bunch of logging but it doesn't seem to be calling the
 
-    const wrapper = await mount(
+    const wrapper = mount(
       <LeaseUpApplicationsPage listing={listing} />
     )
-    setTimeout(() => {
-      wrapper.update()
+    await tick()
+    wrapper.update()
 
-      let openModalWrapper = openStatusModal(wrapper)
-      // Expect the modal to be open
-      expect(openModalWrapper.find('textarea#status-comment').exists()).toBeTruthy()
+    let openModalWrapper = openStatusModal(wrapper)
 
-      // Click the submit button
+    // Expect the modal to be open
+    expect(openModalWrapper.find('textarea#status-comment').exists()).toBeTruthy()
 
-      wrapper.find('textarea#status-comment').simulate('change', {target: {value: 'Sample comment value'}})
-      console.log(openModalWrapper.find('div.modal-button_item.modal-button_primary > button').debug())
-      openModalWrapper.find('div.modal-button_item.modal-button_primary > button').simulate('click')
-      console.log(openModalWrapper.find('.modal-inner').debug())
+    // Click the submit button
 
-      // Expect that mock createFieldUpdateComment is called
-      // expect(mockCreateFieldUpdateComment.mock.calls.length).toBe(1)
+    wrapper.find('textarea#status-comment').simulate('change', {target: {value: 'Sample comment value'}})
+    console.log(openModalWrapper.find('div.modal-button_item.modal-button_primary > button').debug())
+    openModalWrapper.find('div.modal-button_item.modal-button_primary > button').simulate('submit')
+    await tick()
+    expect(mockCreateFieldUpdateComment.mock.calls.length).toBe(1)
 
-      // Expect the alert message to be showing
+    // Expect the alert message to be showing
 
-      // Click "close" on the alert message
+    // Click "close" on the alert message
 
-      // Expect alert message to be closed
+    // Expect alert message to be closed
 
-      done()
-    }, 2000)
+    done()
   })
 })
