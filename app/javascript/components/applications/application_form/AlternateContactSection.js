@@ -6,6 +6,7 @@ import AddressForm from './AddressForm'
 import { mailingAddressFieldMap } from './utils'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const {
   alternateContactOptions,
@@ -54,6 +55,7 @@ const AlternateContactSection = ({editValues}) => {
                     label='First Name'
                     field='first_name'
                     errorMessage={(label, error) => error}
+                    maxLength={maxLengthMap['first_name']}
                   />
                 </div>
                 <div className='small-4 columns'>
@@ -61,6 +63,7 @@ const AlternateContactSection = ({editValues}) => {
                     id='alt_middle_name'
                     label='Middle Name'
                     field='middle_name'
+                    maxLength={maxLengthMap['middle_name']}
                   />
                 </div>
                 <div className='small-4 columns'>
@@ -69,6 +72,7 @@ const AlternateContactSection = ({editValues}) => {
                     label='Last Name'
                     field='last_name'
                     errorMessage={(label, error) => error}
+                    maxLength={maxLengthMap['last_name']}
                   />
                 </div>
               </div>
@@ -76,32 +80,53 @@ const AlternateContactSection = ({editValues}) => {
             <div className='row'>
               <div className='small-4 columns'>
                 <label>Alternate Contact Type</label>
-                <Select field='alternate_contact_type' options={alternateContactOptions} />
+                <Select
+                  field='alternate_contact_type'
+                  options={alternateContactOptions}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Alternate Contact Type Other</label>
-                <Text field='alternate_contact_type_other' />
+                <Text
+                  field='alternate_contact_type_other'
+                  maxLength={maxLengthMap['alternate_contact_type_other']}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Agency (if applicable)</label>
-                <Text field='agency_name' />
+                <Text
+                  field='agency_name'
+                  maxLength={maxLengthMap['agency_name']}
+                />
               </div>
             </div>
             <div className='row'>
               <div className='small-4 columns'>
-                <label>Email</label>
-                <Text field='email' />
+                <Field.Text
+                  id='email'
+                  label='Email'
+                  field='email'
+                  errorMessage={(label, error) => error}
+                  maxLength={maxLengthMap['email']}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Phone</label>
-                <Text field='phone' />
+                <Text
+                  field='phone'
+                  maxLength={maxLengthMap['phone']}
+                />
               </div>
               <div className='small-4 columns'>
                 <label>Phone Type</label>
                 <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
-            <AddressForm title='Mailing Address' memberType='alternateContact' fieldMap={mailingAddressFieldMap} />
+            <AddressForm
+              title='Mailing Address'
+              memberType='alternateContact'
+              fieldMap={mailingAddressFieldMap}
+            />
           </div>
         )}
       </Form>
