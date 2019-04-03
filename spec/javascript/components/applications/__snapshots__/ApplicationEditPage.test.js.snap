@@ -39,6 +39,7 @@ Array [
       <div>
         <form
           id="shortForm"
+          noValidate={true}
           onSubmit={[Function]}
         >
           <div
@@ -278,10 +279,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_month"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="MM"
-                          type="number"
                           value="01"
                         />
                       </div>
@@ -291,10 +293,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_day"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="DD"
-                          type="number"
                           value="01"
                         />
                       </div>
@@ -304,10 +307,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_year"
+                          maxLength={4}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="YYYY"
-                          type="number"
                           value="1950"
                         />
                       </div>
@@ -871,10 +875,11 @@ Array [
                               <input
                                 className=""
                                 id="household_members_0_date_of_birth_month"
+                                maxLength={2}
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                pattern="\\\\d*"
                                 placeholder="MM"
-                                type="number"
                                 value="06"
                               />
                             </div>
@@ -884,10 +889,11 @@ Array [
                               <input
                                 className=""
                                 id="household_members_0_date_of_birth_day"
+                                maxLength={2}
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                pattern="\\\\d*"
                                 placeholder="DD"
-                                type="number"
                                 value="11"
                               />
                             </div>
@@ -897,10 +903,11 @@ Array [
                               <input
                                 className=""
                                 id="household_members_0_date_of_birth_year"
+                                maxLength={4}
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                pattern="\\\\d*"
                                 placeholder="YYYY"
-                                type="number"
                                 value="1976"
                               />
                             </div>
@@ -1686,6 +1693,7 @@ Array [
       <div>
         <form
           id="shortForm"
+          noValidate={true}
           onSubmit={[Function]}
         >
           <div
@@ -1925,10 +1933,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_month"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="MM"
-                          type="number"
                           value="01"
                         />
                       </div>
@@ -1938,10 +1947,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_day"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="DD"
-                          type="number"
                           value="01"
                         />
                       </div>
@@ -1951,10 +1961,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_year"
+                          maxLength={4}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="YYYY"
-                          type="number"
                           value="1950"
                         />
                       </div>
@@ -2518,10 +2529,11 @@ Array [
                               <input
                                 className=""
                                 id="household_members_0_date_of_birth_month"
+                                maxLength={2}
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                pattern="\\\\d*"
                                 placeholder="MM"
-                                type="number"
                                 value="06"
                               />
                             </div>
@@ -2531,10 +2543,11 @@ Array [
                               <input
                                 className=""
                                 id="household_members_0_date_of_birth_day"
+                                maxLength={2}
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                pattern="\\\\d*"
                                 placeholder="DD"
-                                type="number"
                                 value="11"
                               />
                             </div>
@@ -2544,10 +2557,11 @@ Array [
                               <input
                                 className=""
                                 id="household_members_0_date_of_birth_year"
+                                maxLength={4}
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                pattern="\\\\d*"
                                 placeholder="YYYY"
-                                type="number"
                                 value="1976"
                               />
                             </div>

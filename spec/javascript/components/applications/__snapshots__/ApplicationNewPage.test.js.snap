@@ -32,6 +32,7 @@ Array [
       <div>
         <form
           id="shortForm"
+          noValidate={true}
           onSubmit={[Function]}
         >
           <div
@@ -271,10 +272,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_month"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="MM"
-                          type="number"
                           value=""
                         />
                       </div>
@@ -284,10 +286,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_day"
+                          maxLength={2}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="DD"
-                          type="number"
                           value=""
                         />
                       </div>
@@ -297,10 +300,11 @@ Array [
                         <input
                           className=""
                           id="date_of_birth_year"
+                          maxLength={4}
                           onBlur={[Function]}
                           onChange={[Function]}
+                          pattern="\\\\d*"
                           placeholder="YYYY"
-                          type="number"
                           value=""
                         />
                       </div>
