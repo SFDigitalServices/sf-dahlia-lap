@@ -8,7 +8,7 @@ import { currencyToFloat } from '~/utils/utils'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
 import Alerts from '~/components/Alerts'
-import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } from './actions'
+import { updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import { getAMIAction } from '~/components/supplemental_application/actions'
@@ -76,8 +76,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-
-    const response = await updateApplicationAction(application)
+    const response = await updateApplication(application)
 
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
@@ -167,7 +166,7 @@ class SupplementalApplicationPage extends React.Component {
       comment: submittedValues.comment,
       applicationId: this.state.persistedApplication.id
     }
-    const appResponse = await updateApplicationAction(fromApplication)
+    const appResponse = await updateApplication(fromApplication)
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (appResponse === false || commentResponse === false) {
@@ -395,7 +394,7 @@ const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availab
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
-    onSubmit: (values) => updateApplicationAction(values),
+    onSubmit: (values) => updateApplication(values),
     fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
     availableUnits: mapList(mapUnit, availableUnits),

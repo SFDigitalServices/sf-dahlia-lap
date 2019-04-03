@@ -9,6 +9,7 @@ export const householdMembersFieldMapper = {
   city: 'city',
   state: 'state',
   zip_code: 'zip',
+  relationship_to_applicant: 'relationship',
   DOB: (source) => domainDateOfBirthToApi(source.date_of_birth)
 }
 

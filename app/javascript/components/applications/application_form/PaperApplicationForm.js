@@ -96,7 +96,6 @@ class PaperApplicationForm extends React.Component {
     this.setState({ submittedValues, loading: true, failed: false })
 
     await onSubmit(submitType, submittedValues, application, listing, editPage)
-    this.setState({ loading: false })
   }
 
   hasErrors = (errors) => {
@@ -148,7 +147,7 @@ class PaperApplicationForm extends React.Component {
                 <div className='button-pager'>
                   <div className='button-pager_row primary'>
                     <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
-                      Save
+                      {loading ? 'Saving…' : 'Save'}
                     </button>
                     <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
                       Save and New
