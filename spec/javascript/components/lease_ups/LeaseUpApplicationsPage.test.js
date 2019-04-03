@@ -1,7 +1,5 @@
 import React from 'react'
-import { merge } from 'lodash'
 import { mount } from 'enzyme'
-import renderer from 'react-test-renderer'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 
 const mockfetchLeaseUpApplications = jest.fn()
@@ -26,12 +24,12 @@ jest.mock('apiService', () => {
   }
 })
 
-const buildMockApplicationWithPreference = (uniqId, attributes = {}) => {
-  return merge({
+const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
+  return {
     'Id': uniqId,
     'Processing_Status': 'processing',
-    'Preference_Order': '1',
-    'Preference_Lottery_Rank': '1',
+    'Preference_Order': prefOrder,
+    'Preference_Lottery_Rank': prefRank,
     'Listing_Preference_ID': {
       'Record_Type_For_App_Preferences': 'COP'
     },
@@ -48,36 +46,21 @@ const buildMockApplicationWithPreference = (uniqId, attributes = {}) => {
         'Email': `some email ${uniqId}`
       }
     }
-  }, attributes)
+  }
 }
 
 let mockApplications = [
-  buildMockApplicationWithPreference(1, {
-    'Preference_Order': '2',
-    'Preference_Lottery_Rank': '2'
-  }),
-  buildMockApplicationWithPreference(2, {
-    'Preference_Order': '2',
-    'Preference_Lottery_Rank': '1'
-  }),
-  buildMockApplicationWithPreference(3, {
-    'Preference_Order': '3',
-    'Preference_Lottery_Rank': '1'
-  }),
-  buildMockApplicationWithPreference(4, {
-    'Preference_Order': '1',
-    'Preference_Lottery_Rank': '2'
-  }),
-  buildMockApplicationWithPreference(3, {
-    'Preference_Order': '1',
-    'Preference_Lottery_Rank': '1'
-  })
+  buildMockApplicationWithPreference(1, '2', '2'),
+  buildMockApplicationWithPreference(2, '2', '1'),
+  buildMockApplicationWithPreference(3, '3', '1'),
+  buildMockApplicationWithPreference(4, '1', '2'),
+  buildMockApplicationWithPreference(5, '1', '1')
 ]
 
 const listing = {
-  Id: '1',
-  Name: 'xxxx',
-  Building_Street_Address: 'yyyy',
+  Id: 'listingId',
+  Name: 'listingName',
+  Building_Street_Address: 'buildingAddress',
   Report_id: 'REPORT_ID'
 }
 
@@ -88,99 +71,73 @@ const openStatusModal = (wrapper) => {
   return wrapper
 }
 
+let wrapper
+
 describe('LeaseUpApplicationsPage', () => {
-  test('Should render LeaseUpTable', (done) => {
-    const wrapper = renderer.create(
+  beforeEach(async () => {
+    wrapper = await mount(
       <LeaseUpApplicationsPage listing={listing} />
     )
-    setTimeout(() => {
-      expect(wrapper.toJSON()).toMatchSnapshot()
-      done()
-    }, 2000)
+    await tick()
+    wrapper.update()
+  })
+  test('Should render LeaseUpTable', async () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+  test('Should render address when present', async () => {
+    expect(wrapper.find('div.rt-tbody .rt-tr-group').first().text()).toContain('1316 BURNETT')
   })
 
-  test('Should render address when present', (done) => {
-    const wrapper = mount(
-      <LeaseUpApplicationsPage listing={listing} />
-    )
-    setTimeout(() => {
-      wrapper.update()
-      expect(wrapper.find('div.rt-tbody .rt-tr-group').first().text()).toContain('1316 BURNETT')
-      done()
-    }, 2000)
-  })
-})
+  describe('StatusModal', () => {
+    const openModalSelector = '.ReactModal__Content--after-open'
+    const commentBoxSelector = 'textarea#status-comment'
+    const updateButtonSelector = 'div.modal-button_item.modal-button_primary > button'
 
-describe('LeaseUpApplicationsPage status modal', () => {
-  test('Can be opened and closed', async (done) => {
-    const wrapper = await mount(
-      <LeaseUpApplicationsPage listing={listing} />
-    )
-    setTimeout(() => {
-      wrapper.update()
+    test('Can be opened and closed', async () => {
+      openStatusModal(wrapper)
 
-      let openModalWrapper = openStatusModal(wrapper)
       // Expect the modal to be open
-      expect(openModalWrapper.find('.ReactModal__Content--after-open').exists()).toBeTruthy()
+      expect(wrapper.find(openModalSelector).exists()).toBeTruthy()
 
       // Click the close button
-      openModalWrapper.find('.close-reveal-modal').simulate('click')
+      wrapper.find('.close-reveal-modal').simulate('click')
 
       // Expect the modal to be closed
-      expect(openModalWrapper.find('.ReactModal__Content--after-open').exists()).toBe(false)
-      done()
-    }, 2000)
-  })
+      expect(wrapper.find(openModalSelector).exists()).toBe(false)
+    })
+    test('Should call createFieldUpdateComment and close on successful submit', async () => {
+      mockCreateFieldUpdateComment.mockReturnValueOnce(true)
+      openStatusModal(wrapper)
 
-  test('Should call createFieldUpdateComment and close on successful submit', async () => {
-    // How to get the mock function to be called? I added a bunch of logging but it doesn't seem to be calling the
-    mockCreateFieldUpdateComment.mockReturnValueOnce(true)
+      // Fill out the comment form and submit
+      wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
+      wrapper.find(updateButtonSelector).simulate('submit')
+      await tick()
+      wrapper.update()
 
-    const wrapper = mount(
-      <LeaseUpApplicationsPage listing={listing} />
-    )
-    await tick()
-    wrapper.update()
+      // Expect createFieldUpdateComment was called and modal is closed
+      expect(mockCreateFieldUpdateComment.mock.calls.length).toBe(1)
+      expect(wrapper.find(openModalSelector).exists()).toBe(false)
+    })
 
-    // Open the modal
-    let openModalWrapper = openStatusModal(wrapper)
+    test('Should open closeable alert modal on failed submit', async () => {
+      mockCreateFieldUpdateComment.mockReturnValueOnce(false)
+      openStatusModal(wrapper)
 
-    // Fill out the comment form and submit
-    wrapper.find('textarea#status-comment').simulate('change', {target: {value: 'Sample comment value'}})
-    openModalWrapper.find('div.modal-button_item.modal-button_primary > button').simulate('submit')
-    await tick()
-    wrapper.update()
+      // Fill out the comment and submit
+      wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
+      wrapper.find(updateButtonSelector).simulate('submit')
+      await tick()
+      wrapper.update()
 
-    // Expect createFieldUpdateComment was called and modal is closed
-    expect(mockCreateFieldUpdateComment.mock.calls.length).toBe(1)
-    expect(openModalWrapper.find('.ReactModal__Content--after-open').exists()).toBe(false)
-  })
+      // Expect alert message to be present
+      expect(wrapper.find('.alert-body').exists()).toBeTruthy()
 
-  test('Should open closeable alert modal on failed submit', async () => {
-    mockCreateFieldUpdateComment.mockReturnValueOnce(false)
+      // Close the alert message
+      wrapper.find('.alert-box-and-notice button.close').simulate('click')
 
-    const wrapper = mount(
-      <LeaseUpApplicationsPage listing={listing} />
-    )
-    await tick()
-    wrapper.update()
-
-    // Open the modal
-    let openModalWrapper = openStatusModal(wrapper)
-
-    // Fill out the comment and submit
-    wrapper.find('textarea#status-comment').simulate('change', {target: {value: 'Sample comment value'}})
-    openModalWrapper.find('div.modal-button_item.modal-button_primary > button').simulate('submit')
-    await tick()
-    wrapper.update()
-
-    // Expect alert message to be present
-    expect(openModalWrapper.find('.alert-body').exists()).toBeTruthy()
-
-    // Close the alert message
-    openModalWrapper.find('.alert-box-and-notice button.close').simulate('click')
-
-    // Expect alert to be closed
-    expect(openModalWrapper.find('.alert-body').exists()).toBe(false)
+      // Expect alert to be closed
+      expect(wrapper.find('.alert-body').exists()).toBe(false)
+    })
   })
 })
