@@ -122,7 +122,7 @@ class PaperApplicationForm extends React.Component {
       <div>
         <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={validateError}>
           { formApi => (
-            <form onSubmit={formApi.submitForm} id='shortForm'>
+            <form onSubmit={formApi.submitForm} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
                   { failed && (
