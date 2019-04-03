@@ -13,6 +13,19 @@ const tick = () => {
   })
 }
 
+jest.mock('apiService', () => {
+  return {
+    fetchLeaseUpApplications: async (data) => {
+      mockfetchLeaseUpApplications(data)
+      return Promise.resolve({'records': mockApplications})
+    },
+    createFieldUpdateComment: async (data) => {
+      var response = mockCreateFieldUpdateComment(data)
+      return Promise.resolve(response)
+    }
+  }
+})
+
 const buildMockApplicationWithPreference = (uniqId, attributes = {}) => {
   return merge({
     'Id': uniqId,
@@ -61,20 +74,6 @@ let mockApplications = [
   })
 ]
 
-jest.mock('apiService', () => {
-  return {
-    fetchLeaseUpApplications: async (data) => {
-      mockfetchLeaseUpApplications(data)
-      return Promise.resolve({'records': mockApplications})
-    },
-    createFieldUpdateComment: async (data) => {
-      console.log('trying to update field update comment')
-      mockCreateFieldUpdateComment(data)
-      return Promise.resolve(true)
-    }
-  }
-})
-
 const listing = {
   Id: '1',
   Name: 'xxxx',
@@ -122,19 +121,20 @@ describe('LeaseUpApplicationsPage status modal', () => {
 
       let openModalWrapper = openStatusModal(wrapper)
       // Expect the modal to be open
-      expect(openModalWrapper.find('textarea#status-comment').exists()).toBeTruthy()
+      expect(openModalWrapper.find('.ReactModal__Content--after-open').exists()).toBeTruthy()
 
       // Click the close button
       openModalWrapper.find('.close-reveal-modal').simulate('click')
 
       // Expect the modal to be closed
-      expect(openModalWrapper.find('textarea#status-comments').exists()).toBe(false)
+      expect(openModalWrapper.find('.ReactModal__Content--after-open').exists()).toBe(false)
       done()
     }, 2000)
   })
 
-  test('Should show a closeable alert on apiService request failure', async (done) => {
+  test('Should call createFieldUpdateComment and close on successful submit', async () => {
     // How to get the mock function to be called? I added a bunch of logging but it doesn't seem to be calling the
+    mockCreateFieldUpdateComment.mockReturnValueOnce(true)
 
     const wrapper = mount(
       <LeaseUpApplicationsPage listing={listing} />
@@ -142,25 +142,45 @@ describe('LeaseUpApplicationsPage status modal', () => {
     await tick()
     wrapper.update()
 
+    // Open the modal
     let openModalWrapper = openStatusModal(wrapper)
 
-    // Expect the modal to be open
-    expect(openModalWrapper.find('textarea#status-comment').exists()).toBeTruthy()
-
-    // Click the submit button
-
+    // Fill out the comment form and submit
     wrapper.find('textarea#status-comment').simulate('change', {target: {value: 'Sample comment value'}})
-    console.log(openModalWrapper.find('div.modal-button_item.modal-button_primary > button').debug())
     openModalWrapper.find('div.modal-button_item.modal-button_primary > button').simulate('submit')
     await tick()
+    wrapper.update()
+
+    // Expect createFieldUpdateComment was called and modal is closed
     expect(mockCreateFieldUpdateComment.mock.calls.length).toBe(1)
+    expect(openModalWrapper.find('.ReactModal__Content--after-open').exists()).toBe(false)
+  })
 
-    // Expect the alert message to be showing
+  test('Should open closeable alert modal on failed submit', async () => {
+    mockCreateFieldUpdateComment.mockReturnValueOnce(false)
 
-    // Click "close" on the alert message
+    const wrapper = mount(
+      <LeaseUpApplicationsPage listing={listing} />
+    )
+    await tick()
+    wrapper.update()
 
-    // Expect alert message to be closed
+    // Open the modal
+    let openModalWrapper = openStatusModal(wrapper)
 
-    done()
+    // Fill out the comment and submit
+    wrapper.find('textarea#status-comment').simulate('change', {target: {value: 'Sample comment value'}})
+    openModalWrapper.find('div.modal-button_item.modal-button_primary > button').simulate('submit')
+    await tick()
+    wrapper.update()
+
+    // Expect alert message to be present
+    expect(openModalWrapper.find('.alert-body').exists()).toBeTruthy()
+
+    // Close the alert message
+    openModalWrapper.find('.alert-box-and-notice button.close').simulate('click')
+
+    // Expect alert to be closed
+    expect(openModalWrapper.find('.alert-body').exists()).toBe(false)
   })
 })
