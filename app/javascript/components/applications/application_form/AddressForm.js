@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text } from 'react-form'
 import { isEmpty } from 'lodash'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
   // to do: refactor this to use props
@@ -32,19 +33,31 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
         <div className='form-group'>
           <div className='small-6 columns'>
             <label>Street Address</label>
-            <Text field={buildField(memberType, nestedField, fieldMap, 'address')} />
+            <Text
+              field={buildField(memberType, nestedField, fieldMap, 'address')}
+              maxLength={maxLengthMap['address']}
+            />
           </div>
           <div className='small-6 columns'>
             <label>City</label>
-            <Text field={buildField(memberType, nestedField, fieldMap, 'city')} />
+            <Text
+              field={buildField(memberType, nestedField, fieldMap, 'city')}
+              maxLength={maxLengthMap['city']}
+            />
           </div>
           <div className='small-6 columns'>
             <label>State</label>
-            <Text maxLength='2' field={buildField(memberType, nestedField, fieldMap, 'state')} />
+            <Text
+              field={buildField(memberType, nestedField, fieldMap, 'state')}
+              maxLength={maxLengthMap['state']}
+            />
           </div>
           <div className='small-6 columns'>
             <label>Zip</label>
-            <Text field={buildField(memberType, nestedField, fieldMap, 'zip')} />
+            <Text
+              field={buildField(memberType, nestedField, fieldMap, 'zip')}
+              maxLength={maxLengthMap['zip']}
+            />
           </div>
         </div>
       </div>

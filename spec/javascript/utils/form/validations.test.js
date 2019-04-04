@@ -22,6 +22,18 @@ describe('validate', () => {
       })
     })
   })
+  describe('isValidEmail', () => {
+    describe('passes validation if email', () => {
+      test('is valid', () => {
+        expect(validate.isValidEmail(VALIDATION_MSG)('test.test@test.com.uk')).toEqual(null)
+      })
+    })
+    describe('fails validation if email', () => {
+      test('is not a valid email', () => {
+        expect(validate.isValidEmail(VALIDATION_MSG)('test.com')).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
   describe('isValidDate', () => {
     describe('passes validation', () => {
       test('if date is valid and 0-padded', () => {

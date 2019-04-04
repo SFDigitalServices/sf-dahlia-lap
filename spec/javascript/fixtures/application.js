@@ -135,7 +135,7 @@ const application = {
       "First_Name": "diego",
       "Last_Name": "maradona",
       "Middle_Name": "m",
-      "Relationship_to_Applicant": null,
+      "Relationship_to_Applicant": "Child",
       "Date_of_Birth": "1976-06-11",
       "Street": "9 de julio",
       "City": "buenos aires",

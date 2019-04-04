@@ -1,6 +1,7 @@
 import React from 'react'
 import { buildFieldId } from './utils'
 import { Field } from '~/utils/form/Field'
+import { maxLengthMap } from '~/utils/formUtils'
 
 const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
   return (
@@ -17,6 +18,7 @@ const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
         <Field.Text
           field={buildFieldId(i, 'certificate_number')}
           label='COP Certificate Number'
+          maxLength={maxLengthMap['certificate_number']}
         />
       </div>
       <div className='small-12 columns'>
