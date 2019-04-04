@@ -39,7 +39,6 @@ const AlternateContactSection = ({editValues}) => {
   if (!isEmpty(editValues) && editValues.alternate_contact) {
     autofillValues = editValues.alternate_contact
   }
-  console.log(alternateContactOptions)
   return (
     <NestedForm field='alternate_contact'>
       <Form defaultValues={autofillValues} validateError={validateError}>
