@@ -2,7 +2,7 @@ import _ from 'lodash'
 
 const labelize = (options) => (
   _.map(options, (option) => (
-    { value: option, label: option }
+    { value: option.hasOwnProperty('value') ? option.value : option, label: option.label || option }
   ))
 )
 
@@ -14,12 +14,14 @@ const applicationLanguageOptions = labelize([
 ])
 
 const phoneTypeOptions = labelize([
+  {'label': 'Select One...', 'value': ''}, // allow non-disabled default
   'Home',
   'Cell',
   'Work'
 ])
 
 const alternateContactOptions = labelize([
+  {'label': 'Select One...', 'value': ''}, // allow non-disabled default
   'Family Member',
   'Friend',
   'Social Worker or Housing Counselor',
