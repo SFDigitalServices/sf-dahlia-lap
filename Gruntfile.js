@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 
     // Delete the old toolkit.css
     clean: {
-      css: ['<%= applicationAssetsPath %>/stylesheets/toolkit-lap.css']
+      css: ['<%= applicationAssetsPath %>/stylesheets/toolkit.css']
     },
 
     // Copy the latest compiled toolkit.css file from the pattern library into our app
@@ -16,8 +16,8 @@ module.exports = function (grunt) {
       main: {
         files: [
           {
-            src: '<%= patternLibraryPath %>/dist/assets/toolkit/styles/toolkit-lap.css',
-            dest: '<%= applicationAssetsPath %>/stylesheets/toolkit-lap.scss'
+            src: '<%= patternLibraryPath %>/dist/assets/toolkit/styles/toolkit.css',
+            dest: '<%= applicationAssetsPath %>/stylesheets/toolkit.scss'
           }
         ]
       }
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
               replacement: '//fonts.googleapis.com'
             },
             {
-              match: /"\.\.\/images\/([a-zA-Z0-9\-_]*\.(png|jpg|svg))"/g,
+              match: /"\.\.\/images\/([a-zA-Z0-9\-_@]*\.(png|jpg|svg))"/g,
               replacement: "asset-path('$1')"
             }
           ],
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             flatten: true,
-            src: ['<%= applicationAssetsPath %>/stylesheets/toolkit-lap.scss'],
+            src: ['<%= applicationAssetsPath %>/stylesheets/toolkit.scss'],
             dest: '<%= applicationAssetsPath %>/stylesheets/'
           }
         ]
