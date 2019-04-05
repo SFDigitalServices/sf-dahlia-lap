@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field } from '~/utils/form/Field'
+
 const EligibilitySection = ({listing}) => {
   const isFirstTimeHomebuyerMarkup = () => {
     return (
@@ -9,6 +10,8 @@ const EligibilitySection = ({listing}) => {
           label='Not owned property in last three years'
           blockNote='(required)'
           field='is_first_time_homebuyer'
+          errorMessage={(label, error) => error}
+          ariaLabelledby='prereqs'
           labelLast={'true'} />
       </div>
     )
@@ -22,6 +25,8 @@ const EligibilitySection = ({listing}) => {
           label={`Completed homebuyers' education`}
           blockNote='(required)'
           field='has_completed_homebuyer_education'
+          errorMessage={(label, error) => error}
+          ariaLabelledby='prereqs'
           labelLast={'true'} />
       </div>
     )
@@ -35,6 +40,8 @@ const EligibilitySection = ({listing}) => {
           label='A loan pre-approval letter from a MOHCD-approved lender'
           blockNote='(required)'
           field='has_loan_preapproval'
+          errorMessage={(label, error) => error}
+          ariaLabelledby='prereqs'
           labelLast={'true'} />
       </div>
     )
@@ -47,6 +54,11 @@ const EligibilitySection = ({listing}) => {
           <h3>Eligibility Information</h3>
         </div>
         <div className='row'>
+          <div className='form-group'>
+            <div className='columns'>
+              <strong className='t-small c-steel' id='prereqs'>The applicant has&hellip;</strong>
+            </div>
+          </div>
           <div className='form-group'>
             {isFirstTimeHomebuyerMarkup()}
             {completedHomebuyersEducationMarkup()}

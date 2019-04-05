@@ -80,6 +80,9 @@ const isUnderMaxValue = maxValue => value => {
 }
 
 const isPresent = (value) => !!value
+const isChecked = (value) => {
+  return !!value && value !== 'on'
+}
 
 validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
@@ -87,6 +90,7 @@ validate.isValidDate = decorateValidator(isValidDate)
 validate.isValidCurrency = decorateValidator(isValidCurrency)
 validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal))
 validate.isPresent = decorateValidator(isPresent)
+validate.isChecked = decorateValidator(isChecked)
 validate.list = (fn) => (list) => map(list, fn)
 validate.any = (...fns) => (value) => {
   return first(
