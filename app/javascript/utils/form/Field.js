@@ -36,12 +36,12 @@ export const Field = ({ formApi, field, label, blockNote, labelLast, errorMessag
 export const withField = (input) => {
   class Wrapper extends React.Component {
     render () {
-      const { field, errorMessage, label, blockNote, className, labelLast, ...rest } = this.props
+      const { field, errorMessage, label, blockNote, className, labelLast, ariaLabelledby, ...rest } = this.props
       const { formApi } = this.context // Old context API used by react-form
 
       return (
         <Field formApi={formApi} field={field} label={label} blockNote={blockNote} labelLast={labelLast} errorMessage={errorMessage}>
-          {(f, errorClassNames) => (input(f, classNames(className, errorClassNames), {key: field + '_children', ...rest}))}
+          {(f, errorClassNames) => (input(f, classNames(className, errorClassNames), {key: field + '_children', 'aria-labelledby': ariaLabelledby, ...rest}))}
         </Field>
       )
     }

@@ -86,7 +86,7 @@ describe('PaperApplicationForm', () => {
         listing.is_rental = false
       })
 
-      test('section should be empty', async () => {
+      test('should show Eligibility Section', async () => {
         const wrapper = mount(
           <PaperApplicationForm
             listing={listing}

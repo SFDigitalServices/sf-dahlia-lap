@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
+import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
   const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
@@ -241,6 +241,69 @@ describe('ApplicationNewPage', () => {
 
     const hasApplicationDetails = await utils.isPresent(page, '.application-details')
     expect(hasApplicationDetails).toBe(true)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
+  test('should fail a new sale application', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
+
+    await page.type('#first_name', FIRST_NAME)
+    await page.type('#last_name', LAST_NAME)
+    await page.type('#date_of_birth_month', DOB_MONTH)
+    await page.type('#date_of_birth_day', DOB_DAY)
+    await page.type('#date_of_birth_year', DOB_YEAR)
+
+    await page.click('.save-btn')
+    await page.waitForSelector('.alert-box')
+
+    const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toContain('Field is required')
+
+    const hasAlertBox = await utils.isPresent(page, '.alert-box')
+    expect(hasAlertBox).toBe(true)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
+  test('should create a new sale application successfully', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
+
+    await page.type('#first_name', FIRST_NAME)
+    await page.type('#last_name', LAST_NAME)
+    await page.type('#date_of_birth_month', DOB_MONTH)
+    await page.type('#date_of_birth_day', DOB_DAY)
+    await page.type('#date_of_birth_year', DOB_YEAR)
+
+    // elegibility section checkboxes
+    await page.click('#has_loan_preapproval')
+    await page.click('#has_completed_homebuyer_education')
+    await page.click('#is_first_time_homebuyer')
+
+    // Save the application
+    await page.click('.save-btn')
+    await page.waitForNavigation()
+    await sharedSteps.waitForApp(page)
+
+    const hasApplicationDetails = await utils.isPresent(page, '.application-details')
+    expect(hasApplicationDetails).toBe(true)
+
+    // Verify that the values match on the application view page
+    expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
+    const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
+
+    expect(values).toContain(TRUNCATED_FIRST_NAME)
+    expect(values).toContain(TRUNCATED_LAST_NAME)
+    expect(values).toContain(DATE_OF_BIRTH)
+    expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
