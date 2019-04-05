@@ -21,6 +21,8 @@ module Force
 
     def to_salesforce
       salesforce_fields = super
+      # Convert array date into string
+      salesforce_fields['Lease_Start_Date'] = date_to_salesforce(@fields.domain['lease_start_date'])
 
       # Add the "__c" suffix back onto Salesforce field names
       field_names = salesforce_fields.keys
@@ -39,6 +41,24 @@ module Force
       end
 
       salesforce_fields
+    end
+
+    def to_domain
+      domain_fields = super
+      @fields.domain['lease_start_date']
+      domain_fields.lease_start_date = date_to_domain(@fields.domain['lease_start_date'])
+      domain_fields
+    end
+
+    def date_to_domain(api_date)
+      # Convert string date into array
+      return nil unless api_date
+      api_date.split('-')
+    end
+
+    def date_to_salesforce(domain_date)
+      lease_date = Date.new(domain_date[0].to_i, domain_date[1].to_i, domain_date[2].to_i)
+      lease_date.strftime('%F')
     end
   end
 end

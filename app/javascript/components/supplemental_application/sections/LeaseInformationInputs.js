@@ -3,6 +3,7 @@ import { Checkbox, Form, NestedForm, Select, Text } from 'react-form'
 import { filter, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
+import { MultiDateField } from '~/utils/form/MultiDateField'
 import { pluck, decorateComponents } from '~/utils/utils'
 import formUtils from '~/utils/formUtils'
 import { withContext } from '../context'
@@ -35,6 +36,7 @@ const validateLeaseCurrency = (value) => {
 }
 
 const validateError = (values) => ({
+  lease_start_date: validate.isValidDate('Please enter a valid date.')(values.lease_start_date),
   total_monthly_rent_without_parking: validateLeaseCurrency(values.total_monthly_rent_without_parking),
   monthly_parking_rent: validateLeaseCurrency(values.monthly_parking_rent),
   monthly_tenant_contribution: validateLeaseCurrency(values.monthly_tenant_contribution)
@@ -55,13 +57,15 @@ const LeaseInformationInputs = ({ formApi, store }) => {
                 <CustomFormGrid.Select
                   label='Assigned Unit Number'
                   field='unit' options={availableUnitsOptions} placeholder='Select One' />
-                <CustomFormGrid.Text
-                  field='lease_start_date'
-                  label='Lease Start Date'
-                  type='date'
-                  pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}'
-                  placeholder='YYYY-MM-DD'
-                />
+                <FormGrid.Item>
+                  <MultiDateField
+                    id='lease_start_date'
+                    field='lease_start_date'
+                    formApi={formApi}
+                    label='Lease Start Date'
+                    errorMessage={(label, error) => error}
+                  />
+                </FormGrid.Item>
                 <CustomFormGrid.Select
                   label='Preference Used'
                   onChange={(value) => toggleNoPreferenceUsed(nestedFormApi, value)}
