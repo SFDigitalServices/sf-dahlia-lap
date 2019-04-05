@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { compact, first, isNil, isString, mapValues, map } from 'lodash'
+import { compact, first, isEmpty, isNil, isString, mapValues, map } from 'lodash'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -35,13 +35,15 @@ const isOldEnough = (dateOfBirth) => {
   }
 }
 
-const isValidDate = (dateOfBirth) => {
-  if (dateOfBirth) {
+const isValidDate = (date) => {
+  if (date && !isEmpty(compact(date))) {
     // Verify that the year is in a valid range
-    if (dateOfBirth[0] < 1900) return false
-    // Check that the date is valid and not in the future
-    const dobString = dateOfBirth.join('-')
-    return moment(dobString, 'YYYY-M-D', true).isValid() && (moment().diff(dobString, 'days') > 0)
+    if (date[0] < 1900) return false
+    // Check that the date is valid
+    const dateString = date.join('-')
+    return moment(dateString, 'YYYY-M-D', true).isValid()
+  } else {
+    return true
   }
 }
 
@@ -79,7 +81,9 @@ const isUnderMaxValue = maxValue => value => {
   return false
 }
 
-const isPresent = (value) => !!value
+const isPresent = (value) => {
+  return Array.isArray(value) ? !isEmpty(compact(value)) : !!value
+}
 
 validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)

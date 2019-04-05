@@ -61,7 +61,7 @@ const LeaseInformationInputs = ({ formApi, store }) => {
                   <MultiDateField
                     id='lease_start_date'
                     field='lease_start_date'
-                    formApi={formApi}
+                    formApi={nestedFormApi}
                     label='Lease Start Date'
                     errorMessage={(label, error) => error}
                   />

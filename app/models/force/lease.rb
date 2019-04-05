@@ -57,6 +57,7 @@ module Force
     end
 
     def date_to_salesforce(domain_date)
+      return nil unless domain_date&.any?(&:present?)
       lease_date = Date.new(domain_date[0].to_i, domain_date[1].to_i, domain_date[2].to_i)
       lease_date.strftime('%F')
     end

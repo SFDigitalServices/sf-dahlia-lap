@@ -784,17 +784,55 @@ Array [
                   className="form-group"
                 >
                   <label
-                    htmlFor=""
+                    className="form-label"
+                    htmlFor="lease_start_date"
                   >
-                    Lease Start Date
+                    Lease Start Date 
                   </label>
-                  <input
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                    placeholder="YYYY-MM-DD"
-                    type="date"
-                    value=""
+                  <div
+                    className="form-group-month"
+                  >
+                    <input
+                      className=""
+                      id="lease_start_date_month"
+                      maxLength={2}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      pattern="\\\\d*"
+                      placeholder="MM"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="form-group-day"
+                  >
+                    <input
+                      className=""
+                      id="lease_start_date_day"
+                      maxLength={2}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      pattern="\\\\d*"
+                      placeholder="DD"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="form-group-year"
+                  >
+                    <input
+                      className=""
+                      id="lease_start_date_year"
+                      maxLength={4}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      pattern="\\\\d*"
+                      placeholder="YYYY"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="d-inline-block"
                   />
                 </div>
               </div>
@@ -8348,6 +8386,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           "asyncValidations": 0,
                                                           "asyncWarnings": Object {},
                                                           "errors": Object {
+                                                            "lease_start_date": null,
                                                             "monthly_parking_rent": null,
                                                             "monthly_tenant_contribution": null,
                                                             "total_monthly_rent_without_parking": null,
@@ -8477,34 +8516,85 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             </Component>
                                                           </Component>
                                                           <Component
-                                                            field="lease_start_date"
-                                                            label="Lease Start Date"
-                                                            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                                                            placeholder="YYYY-MM-DD"
-                                                            type="date"
+                                                            className="form-date-of-birth"
                                                           >
-                                                            <Component>
-                                                              <div
-                                                                className="form-grid_item small-12 medium-6 large-3 column"
+                                                            <div
+                                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                                            >
+                                                              <MultiDateField
+                                                                errorMessage={[Function]}
+                                                                field="lease_start_date"
+                                                                formApi={
+                                                                  Object {
+                                                                    "addValue": [Function],
+                                                                    "asyncValidations": 0,
+                                                                    "doneValidatingField": [Function],
+                                                                    "errors": Object {
+                                                                      "lease_start_date": null,
+                                                                      "monthly_parking_rent": null,
+                                                                      "monthly_tenant_contribution": null,
+                                                                      "total_monthly_rent_without_parking": null,
+                                                                    },
+                                                                    "format": [Function],
+                                                                    "getError": [Function],
+                                                                    "getSuccess": [Function],
+                                                                    "getTouched": [Function],
+                                                                    "getValue": [Function],
+                                                                    "getWarning": [Function],
+                                                                    "registerAsyncValidation": [Function],
+                                                                    "removeValue": [Function],
+                                                                    "reset": [Function],
+                                                                    "resetAll": [Function],
+                                                                    "setAllValues": [Function],
+                                                                    "setError": [Function],
+                                                                    "setSuccess": [Function],
+                                                                    "setTouched": [Function],
+                                                                    "setValue": [Function],
+                                                                    "setWarning": [Function],
+                                                                    "submitForm": [Function],
+                                                                    "submits": 0,
+                                                                    "submitted": false,
+                                                                    "successes": Object {},
+                                                                    "swapValues": [Function],
+                                                                    "touched": Object {},
+                                                                    "validating": Object {},
+                                                                    "validatingField": [Function],
+                                                                    "validationFailed": Object {},
+                                                                    "validationFailures": 0,
+                                                                    "values": Object {},
+                                                                    "warnings": Object {},
+                                                                  }
+                                                                }
+                                                                id="lease_start_date"
+                                                                label="Lease Start Date"
                                                               >
-                                                                <Component
-                                                                  label="Lease Start Date"
+                                                                <div
+                                                                  className="form-group"
                                                                 >
-                                                                  <div
-                                                                    className="form-group"
+                                                                  <label
+                                                                    className="form-label"
+                                                                    htmlFor="lease_start_date"
                                                                   >
-                                                                    <label
-                                                                      htmlFor=""
-                                                                    >
-                                                                      Lease Start Date
-                                                                    </label>
+                                                                    Lease Start Date 
+                                                                  </label>
+                                                                  <div
+                                                                    className="form-group-month"
+                                                                  >
                                                                     <r
-                                                                      field="lease_start_date"
-                                                                      pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                                                                      placeholder="YYYY-MM-DD"
-                                                                      type="date"
+                                                                      className=""
+                                                                      field={
+                                                                        Array [
+                                                                          "lease_start_date",
+                                                                          1,
+                                                                        ]
+                                                                      }
+                                                                      id="lease_start_date_month"
+                                                                      maxLength={2}
+                                                                      pattern="\\\\d*"
+                                                                      placeholder="MM"
                                                                     >
                                                                       <t
+                                                                        className=""
                                                                         fieldApi={
                                                                           Object {
                                                                             "doneValidatingField": [Function],
@@ -8525,24 +8615,189 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                             "validatingField": [Function],
                                                                           }
                                                                         }
-                                                                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                                                                        placeholder="YYYY-MM-DD"
-                                                                        type="date"
+                                                                        id="lease_start_date_month"
+                                                                        maxLength={2}
+                                                                        pattern="\\\\d*"
+                                                                        placeholder="MM"
                                                                       >
                                                                         <input
+                                                                          className=""
+                                                                          id="lease_start_date_month"
+                                                                          maxLength={2}
                                                                           onBlur={[Function]}
                                                                           onChange={[Function]}
-                                                                          pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                                                                          placeholder="YYYY-MM-DD"
-                                                                          type="date"
+                                                                          pattern="\\\\d*"
+                                                                          placeholder="MM"
                                                                           value=""
                                                                         />
                                                                       </t>
                                                                     </r>
                                                                   </div>
-                                                                </Component>
-                                                              </div>
-                                                            </Component>
+                                                                  <div
+                                                                    className="form-group-day"
+                                                                  >
+                                                                    <r
+                                                                      className=""
+                                                                      field={
+                                                                        Array [
+                                                                          "lease_start_date",
+                                                                          2,
+                                                                        ]
+                                                                      }
+                                                                      id="lease_start_date_day"
+                                                                      maxLength={2}
+                                                                      pattern="\\\\d*"
+                                                                      placeholder="DD"
+                                                                    >
+                                                                      <t
+                                                                        className=""
+                                                                        fieldApi={
+                                                                          Object {
+                                                                            "doneValidatingField": [Function],
+                                                                            "getError": [Function],
+                                                                            "getSuccess": [Function],
+                                                                            "getTouched": [Function],
+                                                                            "getValue": [Function],
+                                                                            "getWarning": [Function],
+                                                                            "registerAsyncValidation": [Function],
+                                                                            "reset": [Function],
+                                                                            "setError": [Function],
+                                                                            "setSuccess": [Function],
+                                                                            "setTouched": [Function],
+                                                                            "setValue": [Function],
+                                                                            "setWarning": [Function],
+                                                                            "submits": 0,
+                                                                            "submitted": false,
+                                                                            "validatingField": [Function],
+                                                                          }
+                                                                        }
+                                                                        id="lease_start_date_day"
+                                                                        maxLength={2}
+                                                                        pattern="\\\\d*"
+                                                                        placeholder="DD"
+                                                                      >
+                                                                        <input
+                                                                          className=""
+                                                                          id="lease_start_date_day"
+                                                                          maxLength={2}
+                                                                          onBlur={[Function]}
+                                                                          onChange={[Function]}
+                                                                          pattern="\\\\d*"
+                                                                          placeholder="DD"
+                                                                          value=""
+                                                                        />
+                                                                      </t>
+                                                                    </r>
+                                                                  </div>
+                                                                  <div
+                                                                    className="form-group-year"
+                                                                  >
+                                                                    <r
+                                                                      className=""
+                                                                      field={
+                                                                        Array [
+                                                                          "lease_start_date",
+                                                                          0,
+                                                                        ]
+                                                                      }
+                                                                      id="lease_start_date_year"
+                                                                      maxLength={4}
+                                                                      pattern="\\\\d*"
+                                                                      placeholder="YYYY"
+                                                                    >
+                                                                      <t
+                                                                        className=""
+                                                                        fieldApi={
+                                                                          Object {
+                                                                            "doneValidatingField": [Function],
+                                                                            "getError": [Function],
+                                                                            "getSuccess": [Function],
+                                                                            "getTouched": [Function],
+                                                                            "getValue": [Function],
+                                                                            "getWarning": [Function],
+                                                                            "registerAsyncValidation": [Function],
+                                                                            "reset": [Function],
+                                                                            "setError": [Function],
+                                                                            "setSuccess": [Function],
+                                                                            "setTouched": [Function],
+                                                                            "setValue": [Function],
+                                                                            "setWarning": [Function],
+                                                                            "submits": 0,
+                                                                            "submitted": false,
+                                                                            "validatingField": [Function],
+                                                                          }
+                                                                        }
+                                                                        id="lease_start_date_year"
+                                                                        maxLength={4}
+                                                                        pattern="\\\\d*"
+                                                                        placeholder="YYYY"
+                                                                      >
+                                                                        <input
+                                                                          className=""
+                                                                          id="lease_start_date_year"
+                                                                          maxLength={4}
+                                                                          onBlur={[Function]}
+                                                                          onChange={[Function]}
+                                                                          pattern="\\\\d*"
+                                                                          placeholder="YYYY"
+                                                                          value=""
+                                                                        />
+                                                                      </t>
+                                                                    </r>
+                                                                  </div>
+                                                                  <div
+                                                                    className="d-inline-block"
+                                                                  >
+                                                                    <FormError
+                                                                      errorMessage={[Function]}
+                                                                      field="lease_start_date"
+                                                                      formApi={
+                                                                        Object {
+                                                                          "addValue": [Function],
+                                                                          "asyncValidations": 0,
+                                                                          "doneValidatingField": [Function],
+                                                                          "errors": Object {
+                                                                            "lease_start_date": null,
+                                                                            "monthly_parking_rent": null,
+                                                                            "monthly_tenant_contribution": null,
+                                                                            "total_monthly_rent_without_parking": null,
+                                                                          },
+                                                                          "format": [Function],
+                                                                          "getError": [Function],
+                                                                          "getSuccess": [Function],
+                                                                          "getTouched": [Function],
+                                                                          "getValue": [Function],
+                                                                          "getWarning": [Function],
+                                                                          "registerAsyncValidation": [Function],
+                                                                          "removeValue": [Function],
+                                                                          "reset": [Function],
+                                                                          "resetAll": [Function],
+                                                                          "setAllValues": [Function],
+                                                                          "setError": [Function],
+                                                                          "setSuccess": [Function],
+                                                                          "setTouched": [Function],
+                                                                          "setValue": [Function],
+                                                                          "setWarning": [Function],
+                                                                          "submitForm": [Function],
+                                                                          "submits": 0,
+                                                                          "submitted": false,
+                                                                          "successes": Object {},
+                                                                          "swapValues": [Function],
+                                                                          "touched": Object {},
+                                                                          "validating": Object {},
+                                                                          "validatingField": [Function],
+                                                                          "validationFailed": Object {},
+                                                                          "validationFailures": 0,
+                                                                          "values": Object {},
+                                                                          "warnings": Object {},
+                                                                        }
+                                                                      }
+                                                                      label="Lease Start Date"
+                                                                    />
+                                                                  </div>
+                                                                </div>
+                                                              </MultiDateField>
+                                                            </div>
                                                           </Component>
                                                           <Component
                                                             field="preference_used"
@@ -8672,6 +8927,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "asyncValidations": 0,
                                                                       "doneValidatingField": [Function],
                                                                       "errors": Object {
+                                                                        "lease_start_date": null,
                                                                         "monthly_parking_rent": null,
                                                                         "monthly_tenant_contribution": null,
                                                                         "total_monthly_rent_without_parking": null,
@@ -8767,6 +9023,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                           "asyncValidations": 0,
                                                                           "doneValidatingField": [Function],
                                                                           "errors": Object {
+                                                                            "lease_start_date": null,
                                                                             "monthly_parking_rent": null,
                                                                             "monthly_tenant_contribution": null,
                                                                             "total_monthly_rent_without_parking": null,
@@ -8827,6 +9084,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "asyncValidations": 0,
                                                                       "doneValidatingField": [Function],
                                                                       "errors": Object {
+                                                                        "lease_start_date": null,
                                                                         "monthly_parking_rent": null,
                                                                         "monthly_tenant_contribution": null,
                                                                         "total_monthly_rent_without_parking": null,
@@ -8922,6 +9180,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                           "asyncValidations": 0,
                                                                           "doneValidatingField": [Function],
                                                                           "errors": Object {
+                                                                            "lease_start_date": null,
                                                                             "monthly_parking_rent": null,
                                                                             "monthly_tenant_contribution": null,
                                                                             "total_monthly_rent_without_parking": null,
@@ -8982,6 +9241,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       "asyncValidations": 0,
                                                                       "doneValidatingField": [Function],
                                                                       "errors": Object {
+                                                                        "lease_start_date": null,
                                                                         "monthly_parking_rent": null,
                                                                         "monthly_tenant_contribution": null,
                                                                         "total_monthly_rent_without_parking": null,
@@ -9077,6 +9337,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                           "asyncValidations": 0,
                                                                           "doneValidatingField": [Function],
                                                                           "errors": Object {
+                                                                            "lease_start_date": null,
                                                                             "monthly_parking_rent": null,
                                                                             "monthly_tenant_contribution": null,
                                                                             "total_monthly_rent_without_parking": null,
