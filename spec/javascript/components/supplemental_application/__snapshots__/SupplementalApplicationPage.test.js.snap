@@ -8515,9 +8515,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               </div>
                                                             </Component>
                                                           </Component>
-                                                          <Component
-                                                            className="form-date-of-birth"
-                                                          >
+                                                          <Component>
                                                             <div
                                                               className="form-grid_item small-12 medium-6 large-3 column"
                                                             >
