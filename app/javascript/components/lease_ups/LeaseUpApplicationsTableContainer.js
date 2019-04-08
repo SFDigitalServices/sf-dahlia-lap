@@ -18,8 +18,6 @@ class LeaseUpTableContainer extends React.Component {
 
   setStatusModalStatus = (value) => this.props.store.updateStatusModal({status: value})
 
-  hideStatusModalAlert = () => this.props.store.updateStatusModal('showAlert', false)
-
   leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
     this.props.store.updateStatusModal({
       applicationId: applicationId,
@@ -94,8 +92,7 @@ class LeaseUpTableContainer extends React.Component {
           submitButton='Update'
           onStatusChange={this.setStatusModalStatus}
           onSubmit={this.createStatusUpdate}
-          onClose={this.closeStatusModal}
-          onAlertCloseClick={this.hideStatusModalAlert} />
+          onClose={this.closeStatusModal} />
       </div>
     )
   }
