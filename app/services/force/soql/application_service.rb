@@ -20,6 +20,7 @@ module Force
 
         if opts[:preference] == 'general'
           query_scope.where_eq('General_Lottery__c', 'true')
+                     .where('General_Lottery_Rank__c != NULL')
                      .order_by('General_Lottery_Rank__c')
         end
 
