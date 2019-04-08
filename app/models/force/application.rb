@@ -90,10 +90,6 @@ module Force
       salesforce_fields = super
       add_salesforce_suffix(salesforce_fields)
     end
-
-    def add_salesforce_suffix(salesforce_fields)
-      super
-    end
   end
 end
 # rubocop:enable Metrics/LineLength

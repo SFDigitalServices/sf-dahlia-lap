@@ -47,10 +47,6 @@ module Force
       domain_fields
     end
 
-    def add_salesforce_suffix(salesforce_fields)
-      super
-    end
-
     def self.date_to_domain(api_date)
       # Convert string date into array
       return nil if api_date.blank?
