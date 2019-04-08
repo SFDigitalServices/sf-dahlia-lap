@@ -45,14 +45,17 @@ describe('validate', () => {
       test('if date is valid and values are integers', () => {
         expect(validate.isValidDate(VALIDATION_MSG)([2000, 2, 9])).toEqual(null)
       })
+      test('if date is in the future', () => {
+        const futureYear = moment().add(1, 'years').year()
+        expect(validate.isValidDate(VALIDATION_MSG)([futureYear, '01', '12'])).toEqual(null)
+      })
+      test('if date is empty', () => {
+        expect(validate.isValidDate(VALIDATION_MSG)(['', '', ''])).toEqual(null)
+      })
     })
     describe('fails validation', () => {
       test('if date is a leap day in the wrong year', () => {
         expect(validate.isValidDate(VALIDATION_MSG)(['1999', '02', '29'])).toEqual(VALIDATION_MSG)
-      })
-      test('if date is in the future', () => {
-        const futureYear = moment().add(1, 'years').year()
-        expect(validate.isValidDate(VALIDATION_MSG)([futureYear, '01', '12'])).toEqual(VALIDATION_MSG)
       })
       test('if date is too far in the past', () => {
         expect(validate.isValidDate(VALIDATION_MSG)(['1899', '01', '12'])).toEqual(VALIDATION_MSG)
@@ -113,33 +116,59 @@ describe('validate', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)('$2,000;')).toEqual(VALIDATION_MSG)
       })
     })
+    describe('passes validation', () => {
+      test('when null or empty string is passed', () => {
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(null)).toEqual(null)
+        expect(validate.isUnderMaxValue('')(VALIDATION_MSG)(null)).toEqual(null)
+      })
+      test('when a number under the max value is entered', () => {
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9)).toEqual(null)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9.99)).toEqual(null)
+      })
+      test('when a currency string with a value under the max is entered', () => {
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9')).toEqual(null)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9.99')).toEqual(null)
+      })
+    })
+    describe('fails validation', () => {
+      test('when a float cannot be parsed', () => {
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$')).toEqual(VALIDATION_MSG)
+      })
+      test('when a number is passed with a value greater than the max', () => {
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(11)).toEqual(VALIDATION_MSG)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(10.01)).toEqual(VALIDATION_MSG)
+      })
+      test('when a currency string is passed with a value greater than the max', () => {
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$11')).toEqual(VALIDATION_MSG)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$10.01')).toEqual(VALIDATION_MSG)
+      })
+    })
   })
-  describe('passes validation', () => {
-    test('when null or empty string is passed', () => {
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(null)).toEqual(null)
-      expect(validate.isUnderMaxValue('')(VALIDATION_MSG)(null)).toEqual(null)
+  describe('isPresent', () => {
+    describe('passes validation on ', () => {
+      test('a non-empty string', () => {
+        expect(validate.isPresent(VALIDATION_MSG)('something')).toEqual(null)
+      })
+      test('an integer', () => {
+        expect(validate.isPresent(VALIDATION_MSG)(9)).toEqual(null)
+      })
+      test('an array with values in it', () => {
+        expect(validate.isPresent(VALIDATION_MSG)(['1', '2', '3'])).toEqual(null)
+      })
     })
-    test('when a number under the max value is entered', () => {
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9)).toEqual(null)
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9.99)).toEqual(null)
-    })
-    test('when a currency string with a value under the max is entered', () => {
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9')).toEqual(null)
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9.99')).toEqual(null)
-    })
-  })
-  describe('fails validation', () => {
-    test('when a float cannot be parsed', () => {
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$')).toEqual(VALIDATION_MSG)
-    })
-    test('when a number is passed with a value greater than the max', () => {
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(11)).toEqual(VALIDATION_MSG)
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(10.01)).toEqual(VALIDATION_MSG)
-    })
-    test('when a currency string is passed with a value greater than the max', () => {
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$11')).toEqual(VALIDATION_MSG)
-      expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$10.01')).toEqual(VALIDATION_MSG)
+    describe('fails validation on ', () => {
+      test('an empty string', () => {
+        expect(validate.isPresent(VALIDATION_MSG)('')).toEqual(VALIDATION_MSG)
+      })
+      test('null or undefined', () => {
+        expect(validate.isPresent(VALIDATION_MSG)(null)).toEqual(VALIDATION_MSG)
+        expect(validate.isPresent(VALIDATION_MSG)(undefined)).toEqual(VALIDATION_MSG)
+      })
+      test('an array of empty values or empty array', () => {
+        expect(validate.isPresent(VALIDATION_MSG)(['', '', ''])).toEqual(VALIDATION_MSG)
+        expect(validate.isPresent(VALIDATION_MSG)([])).toEqual(VALIDATION_MSG)
+      })
     })
   })
 })
