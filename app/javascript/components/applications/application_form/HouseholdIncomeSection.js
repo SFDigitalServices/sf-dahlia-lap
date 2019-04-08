@@ -2,12 +2,11 @@ import React from 'react'
 import { Select } from 'react-form'
 import { Field } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
+import formOptions from './formOptions'
 
-const householdVouchersSubsidiesOptions = [
-  {value: 'true', label: 'true'},
-  {value: 'false', label: 'false'},
-  {value: 'Left Blank', label: 'Left Blank'}
-]
+const {
+  householdVouchersSubsidiesOptions
+} = formOptions
 
 const HouseholdIncomeSection = () => {
   return (
