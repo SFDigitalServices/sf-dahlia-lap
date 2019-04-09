@@ -262,7 +262,7 @@ describe('ApplicationNewPage', () => {
     await page.waitForSelector('.alert-box')
 
     const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toContain('Field is required')
+    expect(errors).toContain('The applicant cannot qualify for the listing unless this is true.')
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
@@ -303,7 +303,6 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(TRUNCATED_FIRST_NAME)
     expect(values).toContain(TRUNCATED_LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
-    expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

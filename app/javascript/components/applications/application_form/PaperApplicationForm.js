@@ -121,9 +121,9 @@ class PaperApplicationForm extends React.Component {
     }
     if (listing.is_sale) {
       validations = {
-        is_first_time_homebuyer: validate.isChecked('Field is required')(values.is_first_time_homebuyer),
-        has_completed_homebuyer_education: validate.isChecked('Field is required')(values.has_completed_homebuyer_education),
-        has_loan_preapproval: validate.isChecked('Field is required')(values.has_loan_preapproval),
+        is_first_time_homebuyer: validate.isChecked('The applicant cannot qualify for the listing unless this is true.')(values.is_first_time_homebuyer),
+        has_completed_homebuyer_education: validate.isChecked('The applicant cannot qualify for the listing unless this is true.')(values.has_completed_homebuyer_education),
+        has_loan_preapproval: validate.isChecked('The applicant cannot qualify for the listing unless this is true.')(values.has_loan_preapproval),
         ...validations
       }
     }
