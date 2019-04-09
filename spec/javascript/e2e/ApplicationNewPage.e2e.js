@@ -76,7 +76,7 @@ describe('ApplicationNewPage', () => {
     const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
     expect(errors).toContain('Please enter a First Name')
     expect(errors).toContain('Please enter a Last Name')
-    expect(errors).toContain('Please enter a valid Date of Birth')
+    expect(errors).toContain('Please enter a Date of Birth')
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
@@ -151,7 +151,7 @@ describe('ApplicationNewPage', () => {
     const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
     expect(errors).toContain('Please enter a First Name')
     expect(errors).toContain('Please enter a Last Name')
-    expect(errors).toContain('Please enter a valid Date of Birth')
+    expect(errors).toContain('Please enter a Date of Birth')
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)

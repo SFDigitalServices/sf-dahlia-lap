@@ -68,7 +68,10 @@ const buildHouseholdMemberValidations = (householdMembers) => {
     householdMemberValidations[index] = member === '' ? {} : {
       first_name: validate.isPresent('Please enter a First Name')(member.first_name),
       last_name: validate.isPresent('Please enter a Last Name')(member.last_name),
-      date_of_birth: validate.isValidDate('Please enter a valid Date of Birth')(member.date_of_birth)
+      date_of_birth: (
+        validate.isPresent('Please enter a Date of Birth')(member.date_of_birth) ||
+        validate.isValidDate('Please enter a valid Date of Birth')(member.date_of_birth)
+      )
     }
   })
   return householdMemberValidations

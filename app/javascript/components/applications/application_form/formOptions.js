@@ -1,9 +1,11 @@
 import _ from 'lodash'
 
 const labelize = (options) => (
-  _.map(options, (option) => (
-    { value: option, label: option }
-  ))
+  [{'label': 'Select One...', 'value': ''}].concat(
+    _.map(options, (option) => (
+      { value: option.hasOwnProperty('value') ? option.value : option, label: option.label || option }
+    ))
+  )
 )
 
 const applicationLanguageOptions = labelize([
@@ -158,6 +160,12 @@ const listingReferralOptions = labelize([
   'Other'
 ])
 
+const householdVouchersSubsidiesOptions = labelize([
+  {value: 'true', label: 'True'},
+  {value: 'false', label: 'False'},
+  'Left Blank'
+])
+
 const adaPriorityValueToLabelMap = {
   mobility_impairments: 'Mobility impairments',
   vision_impairments: 'Vision impairments',
@@ -187,6 +195,7 @@ export default {
   preferenceProofOptionsWorkInSf,
   priorityOptions,
   listingReferralOptions,
+  householdVouchersSubsidiesOptions,
   yesNoOptions,
   adaPriorityValueToLabelMap
 }
