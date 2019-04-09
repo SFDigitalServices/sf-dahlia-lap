@@ -126,6 +126,7 @@ class PaperApplicationForm extends React.Component {
         has_completed_homebuyer_education: validate.isChecked(checkboxErrorMessage)(values.has_completed_homebuyer_education),
         has_loan_preapproval: validate.isChecked(checkboxErrorMessage)(values.has_loan_preapproval),
         lending_agent: validate.isPresent('Please select a lender.')(values.lending_agent),
+        lending_institution: validate.isPresent('Please select a lending institution.')(values.lending_institution),
         ...validations
       }
     }

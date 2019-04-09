@@ -72,6 +72,7 @@ class EligibilitySection extends React.Component {
           blockNote='(required)'
           id='lending_institution'
           field='lending_institution'
+          errorMessage={(_, error) => error}
           options={map(lendingInstitutions, (_, key) => ({label: key, value: key}))}
           onChange={this.handleSelectInstitution}
         />
