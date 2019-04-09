@@ -1,13 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field } from '~/utils/form/Field'
-import { map } from 'lodash'
+import { map, each, some } from 'lodash'
 
 class EligibilitySection extends React.Component {
   constructor (props) {
     super(props)
+    const { lendingInstitutions, formApi } = props
+    let lenders = []
+
+    if (formApi.values.lending_agent) {
+      each(lendingInstitutions, (agents, institution) => {
+        if (some(agents, { 'Id': formApi.values.lending_agent })) {
+          lenders = map(agents, (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
+          formApi.setValue('lending_institution', institution)
+        }
+      })
+    }
     this.state = {
-      lenders: []
+      lenders: lenders
     }
   }
 

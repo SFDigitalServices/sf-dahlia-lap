@@ -87,9 +87,6 @@ const isChecked = (value) => {
 const isPresent = (value) => {
   return Array.isArray(value) ? !isEmpty(compact(value)) : !!value
 }
-const isChecked = (value) => {
-  return !!value && value !== 'on'
-}
 
 validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
