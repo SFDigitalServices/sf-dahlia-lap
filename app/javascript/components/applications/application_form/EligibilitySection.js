@@ -19,7 +19,7 @@ class EligibilitySection extends React.Component {
           label='Not owned property in last three years'
           blockNote='(required)'
           field='is_first_time_homebuyer'
-          errorMessage={(label, error) => error}
+          errorMessage={(_, error) => error}
           ariaLabelledby='prereqs'
           labelLast={'true'} />
       </div>
@@ -34,7 +34,7 @@ class EligibilitySection extends React.Component {
           label={`Completed homebuyers' education`}
           blockNote='(required)'
           field='has_completed_homebuyer_education'
-          errorMessage={(label, error) => error}
+          errorMessage={(_, error) => error}
           ariaLabelledby='prereqs'
           labelLast={'true'} />
       </div>
@@ -49,7 +49,7 @@ class EligibilitySection extends React.Component {
           label='A loan pre-approval letter from a MOHCD-approved lender'
           blockNote='(required)'
           field='has_loan_preapproval'
-          errorMessage={(label, error) => error}
+          errorMessage={(_, error) => error}
           ariaLabelledby='prereqs'
           labelLast={'true'} />
       </div>
@@ -94,9 +94,29 @@ class EligibilitySection extends React.Component {
     )
   }
 
-  render () {
-    const { listing, lendingInstitutions } = this.props
+  checkboxesMarkup = () => {
+    return (
+      <div className='form-group'>
+        {this.isFirstTimeHomebuyerMarkup()}
+        {this.completedHomebuyersEducationMarkup()}
+        {this.loanPreapprovalMarkup()}
+      </div>
+    )
+  }
+
+  lenderSelectsMarkup = () => {
+    const { lendingInstitutions } = this.props
     const { lenders } = this.state
+    return (
+      <div className='form-group'>
+        {this.lendingInstitutionMarkup(lendingInstitutions)}
+        {this.lenderMarkup(lenders)}
+      </div>
+    )
+  }
+
+  render () {
+    const { listing } = this.props
     if (listing.is_sale) {
       return (
         <div className='border-bottom margin-bottom--2x'>
@@ -109,17 +129,10 @@ class EligibilitySection extends React.Component {
                 <strong className='t-small c-steel' id='prereqs'>The applicant has&hellip;</strong>
               </div>
             </div>
-            <div className='form-group'>
-              {this.isFirstTimeHomebuyerMarkup()}
-              {this.completedHomebuyersEducationMarkup()}
-              {this.loanPreapprovalMarkup()}
-            </div>
+            {this.checkboxesMarkup()}
           </div>
           <div className='row'>
-            <div className='form-group'>
-              {this.lendingInstitutionMarkup(lendingInstitutions)}
-              {this.lenderMarkup(lenders)}
-            </div>
+            {this.lenderSelectsMarkup()}
           </div>
         </div>
       )
