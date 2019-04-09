@@ -44,6 +44,10 @@ module Force
       ))
     end
 
+    def sale?(listing)
+      listing.Tenure == 'New sale' || listing.Tenure == 'Resale'
+    end
+
     private
 
     # we want to map all fields server side in future
@@ -53,10 +57,6 @@ module Force
         listing.isRental = !listing.isSale
       end
       listing
-    end
-
-    def sale?(listing)
-      listing.Tenure == 'New sale' || listing.Tenure == 'Resale'
     end
   end
 end

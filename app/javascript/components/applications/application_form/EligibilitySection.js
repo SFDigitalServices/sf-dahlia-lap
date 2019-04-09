@@ -1,8 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Field } from '~/utils/form/Field'
+import { map } from 'lodash'
 
-const EligibilitySection = ({listing}) => {
-  const isFirstTimeHomebuyerMarkup = () => {
+class EligibilitySection extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      lenders: []
+    }
+  }
+
+  isFirstTimeHomebuyerMarkup = () => {
     return (
       <div className='small-12 columns'>
         <Field.Checkbox
@@ -17,7 +26,7 @@ const EligibilitySection = ({listing}) => {
     )
   }
 
-  const completedHomebuyersEducationMarkup = () => {
+  completedHomebuyersEducationMarkup = () => {
     return (
       <div className='small-12 columns'>
         <Field.Checkbox
@@ -32,9 +41,9 @@ const EligibilitySection = ({listing}) => {
     )
   }
 
-  const loanPreapprovalMarkup = () => {
+  loanPreapprovalMarkup = () => {
     return (
-      <div className='small-12 columns margin-bottom--2x'>
+      <div className='small-12 columns margin-bottom'>
         <Field.Checkbox
           id='has_loan_preapproval'
           label='A loan pre-approval letter from a MOHCD-approved lender'
@@ -47,29 +56,82 @@ const EligibilitySection = ({listing}) => {
     )
   }
 
-  if (listing.is_sale) {
+  handleSelectInstitution = (institution) => {
+    const { lendingInstitutions, formApi } = this.props
+    const lenders = map(lendingInstitutions[institution], (lender) => ({label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id}))
+    // reset lending_agent select
+    formApi.setValue('lending_agent', null)
+    this.setState({lenders: lenders})
+  }
+
+  lendingInstitutionMarkup = (lendingInstitutions) => {
     return (
-      <div className='border-bottom margin-bottom--2x'>
-        <div className='row'>
-          <h3>Eligibility Information</h3>
-        </div>
-        <div className='row'>
-          <div className='form-group'>
-            <div className='columns'>
-              <strong className='t-small c-steel' id='prereqs'>The applicant has&hellip;</strong>
-            </div>
-          </div>
-          <div className='form-group'>
-            {isFirstTimeHomebuyerMarkup()}
-            {completedHomebuyersEducationMarkup()}
-            {loanPreapprovalMarkup()}
-          </div>
-        </div>
+      <div className='small-6 columns'>
+        <Field.Select
+          label='Name of Lending Institution'
+          blockNote='(required)'
+          id='lending_institution'
+          field='lending_institution'
+          options={map(lendingInstitutions, (_, key) => ({label: key, value: key}))}
+          onChange={this.handleSelectInstitution}
+        />
       </div>
     )
-  } else {
-    return null
   }
+
+  lenderMarkup = (lenders) => {
+    return (
+      <div className='small-6 columns margin-bottom--2x'>
+        <Field.Select
+          label='Name of Lender'
+          blockNote='(required)'
+          id='lending_agent'
+          field='lending_agent'
+          errorMessage={(_, error) => error}
+          options={lenders}
+        />
+      </div>
+    )
+  }
+
+  render () {
+    const { listing, lendingInstitutions } = this.props
+    const { lenders } = this.state
+    if (listing.is_sale) {
+      return (
+        <div className='border-bottom margin-bottom--2x'>
+          <div className='row'>
+            <h3>Eligibility Information</h3>
+          </div>
+          <div className='row'>
+            <div className='form-group'>
+              <div className='columns'>
+                <strong className='t-small c-steel' id='prereqs'>The applicant has&hellip;</strong>
+              </div>
+            </div>
+            <div className='form-group'>
+              {this.isFirstTimeHomebuyerMarkup()}
+              {this.completedHomebuyersEducationMarkup()}
+              {this.loanPreapprovalMarkup()}
+            </div>
+          </div>
+          <div className='row'>
+            <div className='form-group'>
+              {this.lendingInstitutionMarkup(lendingInstitutions)}
+              {this.lenderMarkup(lenders)}
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
+}
+
+EligibilitySection.propTypes = {
+  listing: PropTypes.object.isRequired,
+  lendingInstitutions: PropTypes.object.isRequired
 }
 
 export default EligibilitySection
