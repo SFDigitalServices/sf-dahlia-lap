@@ -40,7 +40,8 @@ export const applicationFieldMapper = {
   adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected)),
   is_first_time_homebuyer: 'isFirstTimeHomebuyer',
   has_completed_homebuyer_education: 'hasCompletedHomebuyerEducation',
-  has_loan_preapproval: 'hasLoanPreapproval'
+  has_loan_preapproval: 'hasLoanPreapproval',
+  lending_agent: 'lendingAgent'
 }
 
 export const mapApplication = createFieldMapper(applicationFieldMapper)

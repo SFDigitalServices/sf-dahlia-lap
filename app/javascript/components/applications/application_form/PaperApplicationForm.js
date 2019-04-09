@@ -124,6 +124,7 @@ class PaperApplicationForm extends React.Component {
         is_first_time_homebuyer: validate.isChecked('The applicant cannot qualify for the listing unless this is true.')(values.is_first_time_homebuyer),
         has_completed_homebuyer_education: validate.isChecked('The applicant cannot qualify for the listing unless this is true.')(values.has_completed_homebuyer_education),
         has_loan_preapproval: validate.isChecked('The applicant cannot qualify for the listing unless this is true.')(values.has_loan_preapproval),
+        lending_agent: validate.isPresent('Please select a lender.')(values.lending_agent),
         ...validations
       }
     }
@@ -131,7 +132,7 @@ class PaperApplicationForm extends React.Component {
   }
 
   render () {
-    const { listing, application } = this.props
+    const { listing, application, lendingInstitutions } = this.props
     const { loading, failed } = this.state
     return (
       <div>
@@ -147,7 +148,7 @@ class PaperApplicationForm extends React.Component {
                       message='Please resolve any errors before saving the application.' />
                   )}
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
-                  <EligibilitySection listing={listing} />
+                  <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
@@ -184,7 +185,8 @@ class PaperApplicationForm extends React.Component {
 }
 
 PaperApplicationForm.propTypes = {
-  listing: PropTypes.object.isRequired
+  listing: PropTypes.object.isRequired,
+  lendingInstitutions: PropTypes.object.isRequired
 }
 
 export default PaperApplicationForm
