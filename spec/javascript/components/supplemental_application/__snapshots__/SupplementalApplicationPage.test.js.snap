@@ -1513,7 +1513,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "has_ada_priorities_selected": Object {
           "": true,
         },
+        "has_completed_homebuyer_education": undefined,
         "has_developmental_disability": null,
+        "has_loan_preapproval": undefined,
         "has_military_service": null,
         "hh_total_income_with_assets_annual": undefined,
         "household_assets": null,
@@ -1554,6 +1556,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         ],
         "housing_voucher_or_subsidy": "true",
         "id": "a0o0x000000OcOzAAK",
+        "is_first_time_homebuyer": undefined,
         "is_lottery_complete": false,
         "lease": undefined,
         "listing": Object {
@@ -1968,7 +1971,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "has_ada_priorities_selected": Object {
                             "": true,
                           },
+                          "has_completed_homebuyer_education": undefined,
                           "has_developmental_disability": null,
+                          "has_loan_preapproval": undefined,
                           "has_military_service": null,
                           "hh_total_income_with_assets_annual": undefined,
                           "household_assets": null,
@@ -2009,6 +2014,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           ],
                           "housing_voucher_or_subsidy": "true",
                           "id": "a0o0x000000OcOzAAK",
+                          "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
                           "lease": undefined,
                           "listing": Object {
@@ -2250,7 +2256,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "has_ada_priorities_selected": Object {
                                 "": true,
                               },
+                              "has_completed_homebuyer_education": undefined,
                               "has_developmental_disability": null,
+                              "has_loan_preapproval": undefined,
                               "has_military_service": null,
                               "hh_total_income_with_assets_annual": undefined,
                               "household_assets": null,
@@ -2291,6 +2299,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               ],
                               "housing_voucher_or_subsidy": "true",
                               "id": "a0o0x000000OcOzAAK",
+                              "is_first_time_homebuyer": undefined,
                               "is_lottery_complete": false,
                               "lease": undefined,
                               "listing": Object {
@@ -2417,7 +2426,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "has_ada_priorities_selected": Object {
                                   "": true,
                                 },
+                                "has_completed_homebuyer_education": undefined,
                                 "has_developmental_disability": null,
+                                "has_loan_preapproval": undefined,
                                 "has_military_service": null,
                                 "hh_total_income_with_assets_annual": undefined,
                                 "household_assets": null,
@@ -2458,6 +2469,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 ],
                                 "housing_voucher_or_subsidy": "true",
                                 "id": "a0o0x000000OcOzAAK",
+                                "is_first_time_homebuyer": undefined,
                                 "is_lottery_complete": false,
                                 "lease": undefined,
                                 "listing": Object {
@@ -2593,7 +2605,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "has_ada_priorities_selected": Object {
                                     "": true,
                                   },
+                                  "has_completed_homebuyer_education": undefined,
                                   "has_developmental_disability": null,
+                                  "has_loan_preapproval": undefined,
                                   "has_military_service": null,
                                   "hh_total_income_with_assets_annual": undefined,
                                   "household_assets": null,
@@ -2634,6 +2648,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   ],
                                   "housing_voucher_or_subsidy": "true",
                                   "id": "a0o0x000000OcOzAAK",
+                                  "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
                                   "lease": undefined,
                                   "listing": Object {
@@ -2958,7 +2973,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_ada_priorities_selected": Object {
                                             "": true,
                                           },
+                                          "has_completed_homebuyer_education": undefined,
                                           "has_developmental_disability": null,
+                                          "has_loan_preapproval": undefined,
                                           "has_military_service": null,
                                           "hh_total_income_with_assets_annual": undefined,
                                           "household_assets": null,
@@ -2999,6 +3016,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           ],
                                           "housing_voucher_or_subsidy": "true",
                                           "id": "a0o0x000000OcOzAAK",
+                                          "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
                                           "lease": undefined,
                                           "listing": Object {
@@ -3413,7 +3431,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "has_ada_priorities_selected": Object {
                                         "": true,
                                       },
+                                      "has_completed_homebuyer_education": undefined,
                                       "has_developmental_disability": null,
+                                      "has_loan_preapproval": undefined,
                                       "has_military_service": null,
                                       "hh_total_income_with_assets_annual": undefined,
                                       "household_assets": null,
@@ -3454,6 +3474,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       ],
                                       "housing_voucher_or_subsidy": "true",
                                       "id": "a0o0x000000OcOzAAK",
+                                      "is_first_time_homebuyer": undefined,
                                       "is_lottery_complete": false,
                                       "lease": undefined,
                                       "listing": Object {
@@ -3851,7 +3872,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "has_ada_priorities_selected": Object {
                                                 "": true,
                                               },
+                                              "has_completed_homebuyer_education": undefined,
                                               "has_developmental_disability": null,
+                                              "has_loan_preapproval": undefined,
                                               "has_military_service": null,
                                               "hh_total_income_with_assets_annual": undefined,
                                               "household_assets": null,
@@ -3892,6 +3915,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               ],
                                               "housing_voucher_or_subsidy": "true",
                                               "id": "a0o0x000000OcOzAAK",
+                                              "is_first_time_homebuyer": undefined,
                                               "is_lottery_complete": false,
                                               "lease": undefined,
                                               "listing": Object {
@@ -4261,7 +4285,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "has_ada_priorities_selected": Object {
                                                   "": true,
                                                 },
+                                                "has_completed_homebuyer_education": undefined,
                                                 "has_developmental_disability": null,
+                                                "has_loan_preapproval": undefined,
                                                 "has_military_service": null,
                                                 "hh_total_income_with_assets_annual": undefined,
                                                 "household_assets": null,
@@ -4302,6 +4328,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 ],
                                                 "housing_voucher_or_subsidy": "true",
                                                 "id": "a0o0x000000OcOzAAK",
+                                                "is_first_time_homebuyer": undefined,
                                                 "is_lottery_complete": false,
                                                 "lease": undefined,
                                                 "listing": Object {
@@ -4672,7 +4699,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "has_ada_priorities_selected": Object {
                                                     "": true,
                                                   },
+                                                  "has_completed_homebuyer_education": undefined,
                                                   "has_developmental_disability": null,
+                                                  "has_loan_preapproval": undefined,
                                                   "has_military_service": null,
                                                   "hh_total_income_with_assets_annual": undefined,
                                                   "household_assets": null,
@@ -4713,6 +4742,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   ],
                                                   "housing_voucher_or_subsidy": "true",
                                                   "id": "a0o0x000000OcOzAAK",
+                                                  "is_first_time_homebuyer": undefined,
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
                                                   "listing": Object {
@@ -8114,7 +8144,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "has_ada_priorities_selected": Object {
                                                     "": true,
                                                   },
+                                                  "has_completed_homebuyer_education": undefined,
                                                   "has_developmental_disability": null,
+                                                  "has_loan_preapproval": undefined,
                                                   "has_military_service": null,
                                                   "hh_total_income_with_assets_annual": undefined,
                                                   "household_assets": null,
@@ -8155,6 +8187,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   ],
                                                   "housing_voucher_or_subsidy": "true",
                                                   "id": "a0o0x000000OcOzAAK",
+                                                  "is_first_time_homebuyer": undefined,
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
                                                   "listing": Object {
@@ -9493,7 +9526,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "has_ada_priorities_selected": Object {
                                                       "": true,
                                                     },
+                                                    "has_completed_homebuyer_education": undefined,
                                                     "has_developmental_disability": null,
+                                                    "has_loan_preapproval": undefined,
                                                     "has_military_service": null,
                                                     "hh_total_income_with_assets_annual": undefined,
                                                     "household_assets": null,
@@ -9534,6 +9569,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     ],
                                                     "housing_voucher_or_subsidy": "true",
                                                     "id": "a0o0x000000OcOzAAK",
+                                                    "is_first_time_homebuyer": undefined,
                                                     "is_lottery_complete": false,
                                                     "lease": undefined,
                                                     "listing": Object {
@@ -10590,7 +10626,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "has_ada_priorities_selected": Object {
                                                 "": true,
                                               },
+                                              "has_completed_homebuyer_education": undefined,
                                               "has_developmental_disability": null,
+                                              "has_loan_preapproval": undefined,
                                               "has_military_service": null,
                                               "hh_total_income_with_assets_annual": undefined,
                                               "household_assets": null,
@@ -10631,6 +10669,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               ],
                                               "housing_voucher_or_subsidy": "true",
                                               "id": "a0o0x000000OcOzAAK",
+                                              "is_first_time_homebuyer": undefined,
                                               "is_lottery_complete": false,
                                               "lease": undefined,
                                               "listing": Object {
@@ -11018,7 +11057,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_ada_priorities_selected": Object {
                                             "": true,
                                           },
+                                          "has_completed_homebuyer_education": undefined,
                                           "has_developmental_disability": null,
+                                          "has_loan_preapproval": undefined,
                                           "has_military_service": null,
                                           "hh_total_income_with_assets_annual": undefined,
                                           "household_assets": null,
@@ -11059,6 +11100,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           ],
                                           "housing_voucher_or_subsidy": "true",
                                           "id": "a0o0x000000OcOzAAK",
+                                          "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
                                           "lease": undefined,
                                           "listing": Object {
