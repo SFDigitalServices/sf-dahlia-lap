@@ -85,17 +85,7 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
-
-      # Add the "__c" suffix back onto Salesforce field names
-      field_names = salesforce_fields.keys
-      field_names.each do |field_name|
-        unless %w[Id Name].include?(field_name) || field_name.end_with?('__c')
-          salesforce_fields["#{field_name}__c"] = salesforce_fields[field_name]
-          salesforce_fields.delete(field_name)
-        end
-      end
-
-      salesforce_fields
+      add_salesforce_suffix(salesforce_fields)
     end
   end
 end

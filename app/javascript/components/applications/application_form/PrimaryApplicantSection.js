@@ -13,6 +13,7 @@ let { phoneTypeOptions } = formOptions
 
 const validateError = validate({
   date_of_birth: validate.any(
+    validate.isPresent('Please enter a Date of Birth'),
     validate.isValidDate('Please enter a valid Date of Birth'),
     validate.isOldEnough('The primary applicant must be 18 years of age or older')
   ),

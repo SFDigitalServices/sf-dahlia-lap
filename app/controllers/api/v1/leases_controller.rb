@@ -42,7 +42,7 @@ module Api
         # TODO: Also require application_id
         params.require(:lease).permit(
           :id,
-          :lease_start_date,
+          { lease_start_date: [] },
           :lease_status,
           :monthly_parking_rent,
           :monthly_tenant_contribution,

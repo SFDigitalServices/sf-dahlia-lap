@@ -101,7 +101,9 @@ class LeaseUpApplicationsPage extends React.Component {
     } else {
       this.updateStatusModal({
         loading: false,
-        showAlert: true
+        showAlert: true,
+        alertMsg: 'We were unable to make the update, please try again.',
+        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
       })
     }
   }
