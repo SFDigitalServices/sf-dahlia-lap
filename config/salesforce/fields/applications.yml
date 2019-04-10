@@ -174,6 +174,9 @@ applications:
     Alternate_Contact__r.Mailing_Zip_Code__c:
     Alternate_Contact__r.Marital_Status__c:
     Processing_Status__c:
+    Is_First_Time_Homebuyer__c:
+    Has_Completed_Homebuyer_Education__c:
+    Has_Loan_Pre_approval__c:
 
 flagged_record_sets:
   pending_review_fields:
