@@ -1559,6 +1559,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "is_first_time_homebuyer": undefined,
         "is_lottery_complete": false,
         "lease": undefined,
+        "lending_agent": undefined,
         "listing": Object {
           "account": Object {},
           "building": Object {},
@@ -2017,6 +2018,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
                           "lease": undefined,
+                          "lending_agent": undefined,
                           "listing": Object {
                             "account": Object {},
                             "building": Object {},
@@ -2302,6 +2304,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "is_first_time_homebuyer": undefined,
                               "is_lottery_complete": false,
                               "lease": undefined,
+                              "lending_agent": undefined,
                               "listing": Object {
                                 "account": Object {},
                                 "building": Object {},
@@ -2472,6 +2475,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "is_first_time_homebuyer": undefined,
                                 "is_lottery_complete": false,
                                 "lease": undefined,
+                                "lending_agent": undefined,
                                 "listing": Object {
                                   "account": Object {},
                                   "building": Object {},
@@ -2651,6 +2655,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
                                   "lease": undefined,
+                                  "lending_agent": undefined,
                                   "listing": Object {
                                     "account": Object {},
                                     "building": Object {},
@@ -3019,6 +3024,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
                                           "lease": undefined,
+                                          "lending_agent": undefined,
                                           "listing": Object {
                                             "account": Object {},
                                             "building": Object {},
@@ -3477,6 +3483,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "is_first_time_homebuyer": undefined,
                                       "is_lottery_complete": false,
                                       "lease": undefined,
+                                      "lending_agent": undefined,
                                       "listing": Object {
                                         "account": Object {},
                                         "building": Object {},
@@ -3918,6 +3925,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "is_first_time_homebuyer": undefined,
                                               "is_lottery_complete": false,
                                               "lease": undefined,
+                                              "lending_agent": undefined,
                                               "listing": Object {
                                                 "account": Object {},
                                                 "building": Object {},
@@ -4331,6 +4339,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "is_first_time_homebuyer": undefined,
                                                 "is_lottery_complete": false,
                                                 "lease": undefined,
+                                                "lending_agent": undefined,
                                                 "listing": Object {
                                                   "account": Object {},
                                                   "building": Object {},
@@ -4745,6 +4754,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "is_first_time_homebuyer": undefined,
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
+                                                  "lending_agent": undefined,
                                                   "listing": Object {
                                                     "account": Object {},
                                                     "building": Object {},
@@ -8190,6 +8200,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "is_first_time_homebuyer": undefined,
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
+                                                  "lending_agent": undefined,
                                                   "listing": Object {
                                                     "account": Object {},
                                                     "building": Object {},
@@ -9572,6 +9583,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "is_first_time_homebuyer": undefined,
                                                     "is_lottery_complete": false,
                                                     "lease": undefined,
+                                                    "lending_agent": undefined,
                                                     "listing": Object {
                                                       "account": Object {},
                                                       "building": Object {},
@@ -10672,6 +10684,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "is_first_time_homebuyer": undefined,
                                               "is_lottery_complete": false,
                                               "lease": undefined,
+                                              "lending_agent": undefined,
                                               "listing": Object {
                                                 "account": Object {},
                                                 "building": Object {},
@@ -11103,6 +11116,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
                                           "lease": undefined,
+                                          "lending_agent": undefined,
                                           "listing": Object {
                                             "account": Object {},
                                             "building": Object {},
