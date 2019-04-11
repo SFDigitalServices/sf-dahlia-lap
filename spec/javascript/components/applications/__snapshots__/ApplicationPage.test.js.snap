@@ -305,6 +305,18 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
+                    Second Phone Type
+                  </h4>
+                  <p>
+                    None
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
                     Email
                   </h4>
                   <p>
