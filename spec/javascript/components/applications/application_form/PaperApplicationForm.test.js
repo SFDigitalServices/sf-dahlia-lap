@@ -8,6 +8,7 @@ import listing from '../../../fixtures/listing'
 import application from '../../../fixtures/domain_application'
 
 const mockSubmitApplication = jest.fn()
+const applicationWithInvalidAnnualIncome = clone(application)
 
 jest.mock('apiService', () => {
   return {
@@ -19,11 +20,12 @@ jest.mock('apiService', () => {
 })
 
 describe('PaperApplicationForm', () => {
+  beforeEach(() => {
+    applicationWithInvalidAnnualIncome['annual_income'] = 'foo'
+  })
+
   describe('should validate fields correctly: ', () => {
     test('Annual Income', async () => {
-      const applicationWithInvalidAnnualIncome = clone(application)
-      applicationWithInvalidAnnualIncome['annual_income'] = 'foo'
-
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
@@ -62,6 +64,37 @@ describe('PaperApplicationForm', () => {
         `${errorMsgWrapperSel} > ` +
         `${errorMsgSel}.error`
       expect(wrapper.find(errorElementsSel).text()).toEqual('Please enter a valid dollar amount.')
+    })
+  })
+
+  describe('should render EligibilitySection correctly', () => {
+    describe('rental listing', () => {
+      test('section should be empty', async () => {
+        const wrapper = mount(
+          <PaperApplicationForm
+            listing={listing}
+            application={applicationWithInvalidAnnualIncome}
+          />
+        )
+        expect(wrapper.text()).not.toContain('Eligibility Information')
+      })
+    })
+
+    describe('sale listing', () => {
+      beforeEach(() => {
+        listing.is_sale = true
+        listing.is_rental = false
+      })
+
+      test('should show Eligibility Section', async () => {
+        const wrapper = mount(
+          <PaperApplicationForm
+            listing={listing}
+            application={applicationWithInvalidAnnualIncome}
+          />
+        )
+        expect(wrapper.text()).toContain('Eligibility Information')
+      })
     })
   })
 })

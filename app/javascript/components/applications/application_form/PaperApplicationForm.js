@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
 import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
+import EligibilitySection from './EligibilitySection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import AlternateContactSection from './AlternateContactSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
@@ -76,12 +77,6 @@ const buildHouseholdMemberValidations = (householdMembers) => {
   return householdMemberValidations
 }
 
-const validateError = (values) => ({
-  preferences: buildPrefValidations(values.preferences),
-  annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
-  household_members: buildHouseholdMemberValidations(values.household_members)
-})
-
 class PaperApplicationForm extends React.Component {
   constructor (props) {
     super(props)
@@ -117,12 +112,31 @@ class PaperApplicationForm extends React.Component {
     if (failed) { window.scrollTo(0, 0) }
   }
 
+  validateError = (values) => {
+    const { listing } = this.props
+    let validations = {
+      preferences: buildPrefValidations(values.preferences),
+      annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
+      household_members: buildHouseholdMemberValidations(values.household_members)
+    }
+    if (listing.is_sale) {
+      const checkboxErrorMessage = 'The applicant cannot qualify for the listing unless this is true.'
+      validations = {
+        is_first_time_homebuyer: validate.isChecked(checkboxErrorMessage)(values.is_first_time_homebuyer),
+        has_completed_homebuyer_education: validate.isChecked(checkboxErrorMessage)(values.has_completed_homebuyer_education),
+        has_loan_preapproval: validate.isChecked(checkboxErrorMessage)(values.has_loan_preapproval),
+        ...validations
+      }
+    }
+    return validations
+  }
+
   render () {
     const { listing, application } = this.props
     const { loading, failed } = this.state
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={validateError}>
+        <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={this.validateError}>
           { formApi => (
             <form onSubmit={formApi.submitForm} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
@@ -134,6 +148,7 @@ class PaperApplicationForm extends React.Component {
                       message='Please resolve any errors before saving the application.' />
                   )}
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
+                  <EligibilitySection listing={listing} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
