@@ -97,7 +97,7 @@ describe('PaperApplicationForm', () => {
         expect(wrapper.text()).toContain('Eligibility Information')
       })
 
-      test('lenders should be filled out', async () => {
+      test('should allow lending institution and lending agent to be filled out', async () => {
         const wrapper = mount(
           <PaperApplicationForm
             listing={listing}
@@ -115,7 +115,7 @@ describe('PaperApplicationForm', () => {
         expect(wrapper.text()).not.toContain('Please select a lender.')
       })
 
-      describe('with lending agent field filled', () => {
+      describe('lending institution and lender dropdowns should be filled out', () => {
         beforeEach(() => {
           applicationWithInvalidAnnualIncome.lending_agent = '003U000001Wnp5gIAB'
         })
