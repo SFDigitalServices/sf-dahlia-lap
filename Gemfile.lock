@@ -271,6 +271,8 @@ GEM
     selenium-webdriver (3.6.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    sentry-raven (2.6.3)
+      faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.11.0)
     simplecov (0.16.1)
       docile (~> 1.1)
@@ -368,6 +370,7 @@ DEPENDENCIES
   ruby-debug-ide
   sass-rails (~> 5.0)
   selenium-webdriver
+  sentry-raven
   simplecov
   slim-rails (~> 3.1)
   spring
@@ -385,4 +388,4 @@ RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   1.17.3
+   2.0.1

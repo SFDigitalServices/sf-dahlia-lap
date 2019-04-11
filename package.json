@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
+    "@sentry/browser": "^5.0.7",
     "axios": "^0.17.0",
     "babel-core": "^6.26.2",
     "babel-loader": "^7.1.2",
@@ -72,7 +73,9 @@
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy"
   },
   "jest": {
-    "coverageReporters": ["lcov"],
+    "coverageReporters": [
+      "lcov"
+    ],
     "clearMocks": true,
     "testMatch": [
       "**/__tests__/**/*.js?(x)",
