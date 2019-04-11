@@ -33,7 +33,7 @@ class PreferencesSection extends React.Component {
           autofillPreferences.push(editPreference)
         }
       })
-      formApi.values.preferences = autofillPreferences
+      formApi.setValue('preferences', autofillPreferences)
     }
   }
 

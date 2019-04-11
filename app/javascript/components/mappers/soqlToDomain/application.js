@@ -57,6 +57,7 @@ export const mapApplication = (a) => {
     reserved_senior: a.Reserved_Senior,
     is_first_time_homebuyer: a.Is_First_Time_Homebuyer,
     has_completed_homebuyer_education: a.Has_Completed_Homebuyer_Education,
-    has_loan_preapproval: a.Has_Loan_Pre_approval
+    has_loan_preapproval: a.Has_Loan_Pre_approval,
+    lending_agent: a.Lending_Agent
   }
 }

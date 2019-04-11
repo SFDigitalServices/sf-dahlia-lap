@@ -6,6 +6,7 @@ import { mount } from 'enzyme'
 import PaperApplicationForm from 'components/applications/application_form/PaperApplicationForm'
 import listing from '../../../fixtures/listing'
 import application from '../../../fixtures/domain_application'
+import lendingInstitutions from '../../../fixtures/lending_institutions'
 
 const mockSubmitApplication = jest.fn()
 const applicationWithInvalidAnnualIncome = clone(application)
@@ -94,6 +95,43 @@ describe('PaperApplicationForm', () => {
           />
         )
         expect(wrapper.text()).toContain('Eligibility Information')
+      })
+
+      test('should allow lending institution and lending agent to be filled out', async () => {
+        const wrapper = mount(
+          <PaperApplicationForm
+            listing={listing}
+            lendingInstitutions={lendingInstitutions}
+            application={applicationWithInvalidAnnualIncome}
+          />
+        )
+        wrapper.find('#lending_institution select').simulate('change', { target: { value: 1 } })
+        expect(wrapper.text()).toContain('Hilary Byrde')
+        wrapper.find('form').first().simulate('submit')
+        expect(wrapper.text()).toContain('Please select a lender.')
+        expect(wrapper.text()).toContain('The applicant cannot qualify for the listing unless this is true.')
+        wrapper.find('#lending_agent select').simulate('change', { target: { value: 1 } })
+        wrapper.find('form').first().simulate('submit')
+        expect(wrapper.text()).not.toContain('Please select a lender.')
+      })
+
+      describe('lending institution and lender dropdowns should be filled out', () => {
+        beforeEach(() => {
+          applicationWithInvalidAnnualIncome.lending_agent = '003U000001Wnp5gIAB'
+        })
+
+        test('lender select should be filled out', async () => {
+          const wrapper = mount(
+            <PaperApplicationForm
+              listing={listing}
+              lendingInstitutions={lendingInstitutions}
+              application={applicationWithInvalidAnnualIncome}
+            />
+          )
+          await wait(100)
+          expect(wrapper.find('#lending_institution select').props().value).toEqual(1)
+          expect(wrapper.find('#lending_agent select').props().value).toEqual(1)
+        })
       })
     })
   })
