@@ -225,6 +225,18 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
+                    Middle Name
+                  </h4>
+                  <p>
+                    elizabeth
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
                     Last Name
                   </h4>
                   <p>
@@ -263,6 +275,18 @@ Array [
               <div
                 className="content-card"
               >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Phone Type
+                  </h4>
+                  <p>
+                    Cell
+                  </p>
+                </div>
                 <div
                   className="margin-bottom--half"
                 >
@@ -350,6 +374,18 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
+                    Middle Name
+                  </h4>
+                  <p>
+                    Daaaa
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
                     Last Name
                   </h4>
                   <p>
@@ -374,10 +410,10 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
-                    Agency Name
+                    Phone Type
                   </h4>
                   <p>
-                    None
+                    Cell
                   </p>
                 </div>
               </div>
@@ -388,6 +424,18 @@ Array [
               <div
                 className="content-card"
               >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Agency Name
+                  </h4>
+                  <p>
+                    None
+                  </p>
+                </div>
                 <div
                   className="margin-bottom--half"
                 >
