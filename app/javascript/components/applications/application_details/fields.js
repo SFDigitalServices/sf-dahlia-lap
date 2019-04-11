@@ -15,8 +15,8 @@ export const applicationDataFields = [
 
 export const primaryApplicantFields = [
   'first_name',
-  'last_name',
   'middle_name',
+  'last_name',
   'date_of_birth',
   'phone',
   'phone_type',
@@ -28,8 +28,8 @@ export const primaryApplicantFields = [
 
 export const alternateContactFields = [
   'first_name',
-  'last_name',
   'middle_name',
+  'last_name',
   'phone',
   'phone_type',
   'agency_name',
