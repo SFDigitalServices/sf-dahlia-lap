@@ -16,6 +16,8 @@ export const applicantFieldMapper = {
   mailing_zip_code: 'mailingZip',
   phone: 'phone',
   phone_type: 'phoneType',
+  second_phone: 'alternatePhone',
+  second_phone_type: 'alternatePhoneType',
   marital_status: 'maritalStatus',
   appMemberId: (source) => source.id,
   DOB: (source) => domainDateOfBirthToApi(source.date_of_birth)

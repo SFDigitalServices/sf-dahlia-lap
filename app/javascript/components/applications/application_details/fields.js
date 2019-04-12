@@ -18,10 +18,11 @@ export const primaryApplicantFields = [
   'middle_name',
   'last_name',
   'date_of_birth',
+  'email',
   'phone',
   'phone_type',
   'second_phone',
-  'email',
+  'second_phone_type',
   'residence_address',
   'mailing_address'
 ]
