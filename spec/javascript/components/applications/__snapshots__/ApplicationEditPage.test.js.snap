@@ -208,7 +208,7 @@ Array [
                     className="small-4 columns"
                   >
                     <label>
-                      Phone
+                      Primary Phone Number
                     </label>
                     <input
                       maxLength={40}
@@ -221,7 +221,7 @@ Array [
                     className="small-4 columns"
                   >
                     <label>
-                      Phone Type
+                      Primary Phone Number- Type
                     </label>
                     <select
                       onBlur={[Function]}
@@ -317,6 +317,52 @@ Array [
                         className="d-inline-block"
                       />
                     </div>
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Second Phone Number
+                    </label>
+                    <input
+                      maxLength={40}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Second Phone Number- Type
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={0}
+                    >
+                      <option
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        value={1}
+                      >
+                        Home
+                      </option>
+                      <option
+                        value={2}
+                      >
+                        Cell
+                      </option>
+                      <option
+                        value={3}
+                      >
+                        Work
+                      </option>
+                    </select>
                   </div>
                 </div>
                 <div>
@@ -1852,7 +1898,7 @@ Array [
                     className="small-4 columns"
                   >
                     <label>
-                      Phone
+                      Primary Phone Number
                     </label>
                     <input
                       maxLength={40}
@@ -1865,7 +1911,7 @@ Array [
                     className="small-4 columns"
                   >
                     <label>
-                      Phone Type
+                      Primary Phone Number- Type
                     </label>
                     <select
                       onBlur={[Function]}
@@ -1961,6 +2007,52 @@ Array [
                         className="d-inline-block"
                       />
                     </div>
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Second Phone Number
+                    </label>
+                    <input
+                      maxLength={40}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Second Phone Number- Type
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={0}
+                    >
+                      <option
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        value={1}
+                      >
+                        Home
+                      </option>
+                      <option
+                        value={2}
+                      >
+                        Cell
+                      </option>
+                      <option
+                        value={3}
+                      >
+                        Work
+                      </option>
+                    </select>
                   </div>
                 </div>
                 <div>
