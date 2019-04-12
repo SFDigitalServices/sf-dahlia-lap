@@ -52,6 +52,7 @@ class Api::V1::ShortFormController < ApiController
             :isFirstTimeHomebuyer,
             :hasCompletedHomebuyerEducation,
             :hasLoanPreapproval,
+            :lendingAgent,
             primaryApplicant: %i[
               contactId
               appMemberId

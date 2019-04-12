@@ -12,7 +12,9 @@ module Listings
       @fields = soql_application_service.index_fields
     end
 
-    def new; end
+    def new
+      @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
+    end
 
     private
 
@@ -30,6 +32,10 @@ module Listings
 
     def soql_application_service
       Force::Soql::ApplicationService.new(current_user)
+    end
+
+    def lending_institutions
+      Force::CustomApi::LendingInstitutionsService.new(current_user).lending_institutions
     end
   end
 end
