@@ -1,4 +1,5 @@
 import React from 'react'
+import * as Sentry from '@sentry/browser'
 
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
@@ -51,6 +52,7 @@ const layout = {
 }
 
 const ListingsPage = ({ page, listings }) => {
+  Sentry.captureException(new Error('This is my fake error message 3'))
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />
