@@ -68,7 +68,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.find(errorElementsSel).text()).toEqual('Please enter a valid dollar amount.')
     })
 
-    test('should validate language', async () => {
+    test('Language', async () => {
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
