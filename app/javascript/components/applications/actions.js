@@ -9,6 +9,7 @@ export const saveApplication = async (submitType, submittedValues, application, 
 
   if (response === false) {
     window.alert('There was an error on submit. Please check values and try again.')
+    return response
   }
 
   if (submitType === 'Save') {
