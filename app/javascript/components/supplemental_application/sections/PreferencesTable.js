@@ -21,8 +21,7 @@ const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
-    return !pref.receives_preference ||
-           pref.lottery_status === 'Invalid for lottery'
+    return !pref.receives_preference
   })
 }
 
