@@ -32,6 +32,7 @@ describe('ApplicationNewPage', () => {
     // Enter in required information
     // Type in the long strings past character limit, the test will make sure
     // the truncated version which is within the character limit gets saved
+    await page.select('#application_language', '1')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
@@ -77,6 +78,7 @@ describe('ApplicationNewPage', () => {
     expect(errors).toContain('Please enter a First Name')
     expect(errors).toContain('Please enter a Last Name')
     expect(errors).toContain('Please enter a Date of Birth')
+    expect(errors).toContain('Please select a language.')
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
@@ -91,6 +93,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
+    await page.select('#application_language', '1')
     // Fill out primary applicant required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -135,6 +138,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
+    await page.select('#application_language', '1')
     // Enter non-household member required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -166,6 +170,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
+    await page.select('#application_language', '1')
     // Fill out primary applicant required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -213,6 +218,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
+    await page.select('#application_language', '1')
     // Fill out primary applicant required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -252,6 +258,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
+    await page.select('#application_language', '1')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
@@ -277,6 +284,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
+    await page.select('#application_language', '1')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)

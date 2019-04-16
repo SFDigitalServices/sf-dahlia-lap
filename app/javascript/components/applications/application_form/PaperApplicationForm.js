@@ -117,7 +117,8 @@ class PaperApplicationForm extends React.Component {
     let validations = {
       preferences: buildPrefValidations(values.preferences),
       annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
-      household_members: buildHouseholdMemberValidations(values.household_members)
+      household_members: buildHouseholdMemberValidations(values.household_members),
+      application_language: validate.isPresent('Please select a language.')(values.application_language)
     }
     if (listing.is_sale) {
       const checkboxErrorMessage = 'The applicant cannot qualify for the listing unless this is true.'
