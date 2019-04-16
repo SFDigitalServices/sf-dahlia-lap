@@ -8,7 +8,7 @@ export const saveApplication = async (submitType, submittedValues, application, 
   const response = await apiService.submitApplication(applicationData)
 
   if (response === false) {
-    window.alert('There was an error on submit. Please check values and try again.')
+    window.alert('An error has occurred. Please try to save again. Contact MOHCD if you still have problems.')
     return response
   }
 
