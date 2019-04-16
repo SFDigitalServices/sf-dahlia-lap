@@ -283,10 +283,12 @@ describe('ApplicationNewPage', () => {
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
 
-    // elegibility section checkboxes
+    // elegibility section fields
     await page.click('#has_loan_preapproval')
     await page.click('#has_completed_homebuyer_education')
     await page.click('#is_first_time_homebuyer')
+    await page.select('#lending_institution', '1')
+    await page.select('#lending_agent', '1')
 
     // Save the application
     await page.click('.save-btn')

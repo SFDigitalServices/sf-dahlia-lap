@@ -177,6 +177,7 @@ applications:
     Is_First_Time_Homebuyer__c:
     Has_Completed_Homebuyer_Education__c:
     Has_Loan_Pre_approval__c:
+    Lending_Agent__c:
 
 flagged_record_sets:
   pending_review_fields:
