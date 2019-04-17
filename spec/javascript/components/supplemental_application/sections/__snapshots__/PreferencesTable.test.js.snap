@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreferencesTable should render a table of only preferences that the application receives (Receives_Preference = true)  1`] = `
+<div
+  className="preferences-table"
+>
+  <div
+    className="form-grid row expand"
+  >
+    <div
+      className="small-12 column"
+    >
+      <div
+        className="scrollable-table-container-under-xlarge"
+      >
+        <table
+          className="td-light td-plain th-plain"
+          role="grid"
+        >
+          <thead>
+            <tr>
+              <th
+                className=""
+                scope="col"
+              >
+                
+              </th>
+              <th
+                className=""
+                scope="col"
+              >
+                Preference Name
+              </th>
+              <th
+                className=""
+                scope="col"
+              >
+                Person Who Claimed
+              </th>
+              <th
+                className="text-right"
+                scope="col"
+              >
+                Preference Rank
+              </th>
+              <th
+                className=""
+                scope="col"
+              >
+                Type of proof
+              </th>
+              <th
+                className=""
+                scope="col"
+              >
+                Status
+              </th>
+              <th
+                className=""
+                scope="col"
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              aria-expanded={false}
+              className="tr-expand"
+              id="alice-griffith-housing-development-resident-row"
+            >
+              <td
+                className=""
+              />
+              <td
+                className=""
+              >
+                Alice Griffith Housing Development Resident
+              </td>
+              <td
+                className=""
+              >
+                karen jones
+              </td>
+              <td
+                className="text-right"
+              />
+              <td
+                className=""
+              >
+                <ul />
+              </td>
+              <td
+                className=""
+              />
+              <td />
+            </tr>
+            <tr
+              aria-hidden={true}
+              className="tr-expand-content"
+              id="alice-griffith-housing-development-resident-panel"
+            >
+              <td
+                className="td-expand-nested no-padding"
+                colSpan={7}
+              >
+                <div
+                  className="app-editable expand-wide scrollable-table-nested"
+                >
+                  <div />
+                  <div
+                    className="form-grid row"
+                  >
+                    <div
+                      className="form-grid_item column"
+                    >
+                      <button
+                        className="button primary tiny margin-right margin-bottom-none save-panel-btn"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        className="button secondary tiny margin-bottom-none"
+                        disabled={false}
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
