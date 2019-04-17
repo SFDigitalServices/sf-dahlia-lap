@@ -1,6 +1,6 @@
-/* global SENTRY_PUBLIC_DSN */
+/* global SENTRY_DSN */
 import * as Sentry from '@sentry/browser'
 
 Sentry.init({
-  dsn: SENTRY_PUBLIC_DSN
+  dsn: SENTRY_DSN
 })
