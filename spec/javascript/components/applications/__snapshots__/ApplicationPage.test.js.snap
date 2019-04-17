@@ -614,13 +614,26 @@ Array [
             </thead>
             <tbody>
               <tr>
-                <td />
+                <td>
+                  true
+                </td>
                 <td>
                   Alice Griffith Housing Development Resident
                 </td>
                 <td>
                   None
                 </td>
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  Neighborhood Resident Housing Preference (NRHP)
+                </td>
+                <td />
                 <td />
                 <td />
                 <td />
