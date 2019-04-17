@@ -57,40 +57,54 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Language Submitted In
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={1}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="application_language"
                       >
-                        Select One...
-                      </option>
-                      <option
+                        Language Submitted In 
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          (required)
+                        </span>
+                      </label>
+                      <select
+                        className=""
+                        id="application_language"
+                        onBlur={[Function]}
+                        onChange={[Function]}
                         value={1}
                       >
-                        English
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Chinese
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Spanish
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Filipino
-                      </option>
-                    </select>
+                        <option
+                          value={0}
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value={1}
+                        >
+                          English
+                        </option>
+                        <option
+                          value={2}
+                        >
+                          Chinese
+                        </option>
+                        <option
+                          value={3}
+                        >
+                          Spanish
+                        </option>
+                        <option
+                          value={4}
+                        >
+                          Filipino
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1747,40 +1761,54 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Language Submitted In
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={1}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="application_language"
                       >
-                        Select One...
-                      </option>
-                      <option
+                        Language Submitted In 
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          (required)
+                        </span>
+                      </label>
+                      <select
+                        className=""
+                        id="application_language"
+                        onBlur={[Function]}
+                        onChange={[Function]}
                         value={1}
                       >
-                        English
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Chinese
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Spanish
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Filipino
-                      </option>
-                    </select>
+                        <option
+                          value={0}
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value={1}
+                        >
+                          English
+                        </option>
+                        <option
+                          value={2}
+                        >
+                          Chinese
+                        </option>
+                        <option
+                          value={3}
+                        >
+                          Spanish
+                        </option>
+                        <option
+                          value={4}
+                        >
+                          Filipino
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
