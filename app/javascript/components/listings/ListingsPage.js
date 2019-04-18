@@ -52,7 +52,7 @@ const layout = {
 }
 
 const ListingsPage = ({ page, listings }) => {
-  Sentry.captureException(new Error('This is my fake error message with sourcemaps?'))
+  Sentry.captureException(new Error('This is my fake error message with sourcemaps hopefully'))
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />
