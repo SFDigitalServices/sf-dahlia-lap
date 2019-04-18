@@ -12,6 +12,7 @@ module Force
       def self.lending_institutions(client)
         return @institutions if @institutions
 
+        Rails.logger.info 'Fetching Lending Institutions from SalesForce.'
         response = client.get('/services/apexrest/agents/').body
         @institutions = map_institutions(response)
       end
