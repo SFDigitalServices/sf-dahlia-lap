@@ -93,7 +93,10 @@ class PaperApplicationForm extends React.Component {
 
     this.setState({ submittedValues, loading: true, failed: false })
 
-    await onSubmit(submitType, submittedValues, application, listing, editPage)
+    const response = await onSubmit(submitType, submittedValues, application, listing, editPage)
+    if (response === false) {
+      this.setState({ loading: false, failed: true })
+    }
   }
 
   hasErrors = (errors) => {
