@@ -8,6 +8,7 @@ module Force
         self.class.lending_institutions(@client)
       end
 
+      # Lending institutions are memoized on class level. Once loaded, they will not be updated till server reboot.
       def self.lending_institutions(client)
         return @institutions if @institutions
 
