@@ -5,23 +5,28 @@ module Force
     # Provide Salesforce custom API interactions for rental assistances
     class LendingInstitutionsService < Force::Base
       def lending_institutions
+        self.class.lending_institutions(@client)
+      end
+
+      # Lending institutions are memoized on class level. Once loaded, they will not be updated till server reboot.
+      def self.lending_institutions(client)
         return @institutions if @institutions
 
-        response = @client.get('/services/apexrest/agents/').body
+        Rails.logger.info 'Fetching Lending Institutions from SalesForce.'
+        response = client.get('/services/apexrest/agents/').body
         @institutions = map_institutions(response)
       end
 
-      private
-
-      def map_agent(agent)
+      def self.map_agent(agent)
         return unless agent.present? && agent['BMR_Certified__c']
 
         status = agent['Lending_Agent_Status__c'].present? &&
                  agent['Lending_Agent_Status__c'] == 'Active'
         agent.slice('Id', 'FirstName', 'LastName').merge('Active' => status)
       end
+      private_class_method :map_agent
 
-      def map_institution_agents(institution)
+      def self.map_institution_agents(institution)
         return unless institution['Contacts']
 
         institution['Contacts'].each_with_object([]) do |agent, arr|
@@ -29,8 +34,9 @@ module Force
           arr
         end.compact
       end
+      private_class_method :map_institution_agents
 
-      def map_institutions(data)
+      def self.map_institutions(data)
         return [] unless data
 
         data.each_with_object({}) do |institution, institutions|
@@ -39,6 +45,7 @@ module Force
           institutions
         end
       end
+      private_class_method :map_institutions
     end
   end
 end
