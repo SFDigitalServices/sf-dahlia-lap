@@ -77,11 +77,11 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                 />
               </div>
               <div className='small-4 columns'>
-                <label>Phone</label>
+                <label>Primary Phone Number</label>
                 <Text field='phone' maxLength={maxLengthMap['phone']} />
               </div>
               <div className='small-4 columns'>
-                <label>Phone Type</label>
+                <label>Primary Phone Number- Type</label>
                 <Select field='phone_type' options={phoneTypeOptions} />
               </div>
             </div>
@@ -95,6 +95,14 @@ const PrimaryApplicantSection = ({ formApi, editValues }) => {
                   blockNote='(required)'
                   errorMessage={(label, error) => error}
                 />
+              </div>
+              <div className='small-4 columns'>
+                <label>Second Phone Number</label>
+                <Text field='second_phone' maxLength={maxLengthMap['phone']} />
+              </div>
+              <div className='small-4 columns'>
+                <label>Second Phone Number- Type</label>
+                <Select field='second_phone_type' options={phoneTypeOptions} />
               </div>
             </div>
             <AddressForm

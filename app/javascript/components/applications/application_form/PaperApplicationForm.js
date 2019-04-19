@@ -93,7 +93,10 @@ class PaperApplicationForm extends React.Component {
 
     this.setState({ submittedValues, loading: true, failed: false })
 
-    await onSubmit(submitType, submittedValues, application, listing, editPage)
+    const response = await onSubmit(submitType, submittedValues, application, listing, editPage)
+    if (response === false) {
+      this.setState({ loading: false, failed: true })
+    }
   }
 
   hasErrors = (errors) => {
@@ -117,7 +120,8 @@ class PaperApplicationForm extends React.Component {
     let validations = {
       preferences: buildPrefValidations(values.preferences),
       annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
-      household_members: buildHouseholdMemberValidations(values.household_members)
+      household_members: buildHouseholdMemberValidations(values.household_members),
+      application_language: validate.isPresent('Please select a language.')(values.application_language)
     }
     if (listing.is_sale) {
       const checkboxErrorMessage = 'The applicant cannot qualify for the listing unless this is true.'
@@ -125,6 +129,8 @@ class PaperApplicationForm extends React.Component {
         is_first_time_homebuyer: validate.isChecked(checkboxErrorMessage)(values.is_first_time_homebuyer),
         has_completed_homebuyer_education: validate.isChecked(checkboxErrorMessage)(values.has_completed_homebuyer_education),
         has_loan_preapproval: validate.isChecked(checkboxErrorMessage)(values.has_loan_preapproval),
+        lending_agent: validate.isPresent('Please select a lender.')(values.lending_agent),
+        lending_institution: validate.isPresent('Please select a lending institution.')(values.lending_institution),
         ...validations
       }
     }
@@ -132,7 +138,7 @@ class PaperApplicationForm extends React.Component {
   }
 
   render () {
-    const { listing, application } = this.props
+    const { listing, application, lendingInstitutions } = this.props
     const { loading, failed } = this.state
     return (
       <div>
@@ -148,7 +154,7 @@ class PaperApplicationForm extends React.Component {
                       message='Please resolve any errors before saving the application.' />
                   )}
                   <ApplicationLanguageSection editValues={application} formApi={formApi} />
-                  <EligibilitySection listing={listing} />
+                  <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} formApi={formApi} />
                   <PrimaryApplicantSection editValues={application} formApi={formApi} />
                   <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
@@ -185,7 +191,8 @@ class PaperApplicationForm extends React.Component {
 }
 
 PaperApplicationForm.propTypes = {
-  listing: PropTypes.object.isRequired
+  listing: PropTypes.object.isRequired,
+  lendingInstitutions: PropTypes.object.isRequired
 }
 
 export default PaperApplicationForm

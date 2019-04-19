@@ -6,7 +6,7 @@ import mapProps from '~/utils/mapProps'
 import { mapListing, mapApplication } from '~/components/mappers/soqlToDomain'
 import { saveApplication } from './actions'
 
-const ApplicationEditPageForm = ({ listing, application, editPage }) => {
+const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstitutions }) => {
   const saveEditApplication = async (submitType, submittedValues, application, listing, editPage) => {
     return saveApplication(submitType, submittedValues, application, listing, editPage)
   }
@@ -15,11 +15,12 @@ const ApplicationEditPageForm = ({ listing, application, editPage }) => {
       listing={listing}
       application={application}
       editPage={editPage}
-      onSubmit={saveEditApplication} />
+      onSubmit={saveEditApplication}
+      lendingInstitutions={lendingInstitutions} />
   )
 }
 
-const ApplicationEditPage = ({ listing, application, editPage }) => {
+const ApplicationEditPage = ({ listing, application, editPage, lendingInstitutions }) => {
   const pageHeader = {
     title: 'Edit Application',
     content: `Application lottery number: ${application.lottery_number}. For listing: ${listing.name}`
@@ -30,15 +31,17 @@ const ApplicationEditPage = ({ listing, application, editPage }) => {
       <ApplicationEditPageForm
         listing={listing}
         application={application}
-        editPage={editPage} />
+        editPage={editPage}
+        lendingInstitutions={lendingInstitutions} />
     </CardLayout>
   )
 }
 
-const mapProperties = ({ listing, application, editPage }) => {
+const mapProperties = ({ listing, application, editPage, lendingInstitutions }) => {
   return {
     listing: mapListing(listing),
     application: mapApplication(application),
+    lendingInstitutions: lendingInstitutions,
     editPage
   }
 }

@@ -63,9 +63,9 @@
     "Name": "DAHLIA API"
   },
   "Annual_Income": 5000.0,
-  "Confirmed_Household_Annual_Income": 250.12,
-  "Household_Assets": 277.38,
-  "HH_Total_Income_with_Assets_Annual": 224.86,
+  "Confirmed_Household_Annual_Income": 243.73,
+  "Household_Assets": 253.19,
+  "HH_Total_Income_with_Assets_Annual": 853.42,
   "Has_Completed_Homebuyer_Education": false,
   "Has_Loan_Pre_approval": false,
   "Is_First_Time_Homebuyer": false,
@@ -89,6 +89,7 @@
   "Number_of_Seniors": null,
   "Number_of_Minors": null,
   "Processing_Status": "Withdrawn",
+  "Lending_Agent": null,
   "preferences": [
     {
       "attributes": {
@@ -405,10 +406,10 @@
       "01"
     ],
     "lease_status": "Draft",
-    "monthly_parking_rent": 761.57,
+    "monthly_parking_rent": 898.86,
     "preference_used": null,
     "no_preference_used": true,
-    "total_monthly_rent_without_parking": 448.12,
-    "monthly_tenant_contribution": 561.7
+    "total_monthly_rent_without_parking": 766.86,
+    "monthly_tenant_contribution": 787.84
   }
 }
