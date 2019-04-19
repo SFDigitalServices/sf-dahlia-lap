@@ -57,7 +57,8 @@ class SupplementalApplicationPage extends React.Component {
       showNewRentalAssistancePanel: false,
       showAddRentalAssistanceBtn: true,
       rentalAssistanceLoading: false,
-      rentalAssistances: props.rentalAssistances
+      rentalAssistances: props.rentalAssistances,
+      rentalAssistanceFormApis: []
     }
   }
 
@@ -76,11 +77,12 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
+    console.log('form apis in handle save application', this.state.rentalAssistanceFormApis)
     const response = await updateApplication(application)
 
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
-      window.location.reload()
+      // window.location.reload()
     } else {
       Alerts.error()
       this.setLoading(false)
@@ -186,6 +188,15 @@ class SupplementalApplicationPage extends React.Component {
 
   handleCloseRentalAssistancePanel = () => {
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
+  }
+
+  addRentalAssistanceFormApi = (formApi) => {
+    console.log('setting the updated state in addRentalAssistanceFormApi')
+    this.setState(prev => {
+      return {
+        rentalAssistanceFormApis: [...prev.rentalAssistanceFormApis, formApi]
+      }
+    })
   }
 
   handleRentalAssistanceAction = (action) => {
@@ -355,7 +366,8 @@ class SupplementalApplicationPage extends React.Component {
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleSaveNewRentalAssistance: this.handleSaveNewRentalAssistance,
       handleUpdateRentalAssistance: this.handleUpdateRentalAssistance,
-      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
+      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
+      addRentalAssistanceFormApi: this.addRentalAssistanceFormApi
     }
 
     return (
