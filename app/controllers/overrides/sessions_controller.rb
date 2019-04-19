@@ -3,6 +3,13 @@
 module Overrides
   # Overrides to DeviseTokenAuth
   class SessionsController < Devise::SessionsController
+
+    def create
+      session['admin'] = resource.admin
+      p session
+      super
+    end
+
     def destroy
       @salesforce_logout_host = current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']
       Force::Base.new(current_user).revoke_token
