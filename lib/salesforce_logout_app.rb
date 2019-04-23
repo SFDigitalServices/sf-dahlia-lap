@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # Handles Salesforce logouts when user session is timed out.
-class SalesforceLougoutApp < Devise::FailureApp
+class SalesforceLogoutApp < Devise::FailureApp
   def redirect
     store_location!
     message = warden.message || warden_options[:message]
