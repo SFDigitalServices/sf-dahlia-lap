@@ -3,7 +3,6 @@
 # Root controller from which all our Rails controllers inherit.
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  after_action :logout_of_salesforce
 
   rescue_from Restforce::UnauthorizedError,
               Restforce::AuthenticationError do
@@ -22,17 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def logout_of_salesforce
-    p 'WE ARE AT logout_of_salesforce'
-    p session['flash']
-    if session['flash'] && session['flash']['flashes'] && session['flash']['flashes']['timedout']
-      p "at logoutof salesforce timedout"
-      @salesforce_logout_host = session['admin'] ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']
-      session['flash']['flashes'] = {}
-      redirect_to "#{@salesforce_logout_host}/secur/logout.jsp" && return
-    end
-  end
 
   def file_base_url
     current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']
