@@ -142,115 +142,9 @@ const validateError = (values) => {
   }
 }
 
-class TestRentalAssistanceComponent extends React.Component {
-  componentDidMount () {
-    console.log('component mounted!')
-    const { addRentalAssistanceFormApi } = this.props.store
-    console.log('addRentalAssistanceFormApi?', addRentalAssistanceFormApi)
-    addRentalAssistanceFormApi(this.props.formApi)
+const AddRentalAssistanceForm = withContext(({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, store }) => {
+  const { addRentalAssistanceFormApi } = store
 
-  }
-  render () {
-    const {
-      loading,
-      onClose,
-      applicationMembers,
-      onDelete,
-      isNew,
-      applicationMembersOptions,
-      values,
-      formApi,
-      store
-    } = this.props
-    const { addRentalAssistanceFormApi } = store
-    return (
-      <div className={classNames(
-        'app-editable expand-wide scrollable-table-nested',
-        {
-          'rental-assistance-new-form': isNew,
-          'rental-assistance-edit-form': !isNew
-        }
-      )}>
-        <FormGrid.Row expand={false}>
-          <FormGrid.Item>
-            <Field.Select
-              label='Type of Assistance'
-              field='type_of_assistance'
-              options={typeOfAssistanceOptions}
-              className='rental-assistance-type'
-              errorMessage={(label, error) => error}
-            />
-          </FormGrid.Item>
-          <FormGrid.Item>
-            <YesNoRadioGroupField
-              label='Recurring Assistance'
-              field='recurring_assistance'
-              uniqId={(!isEmpty(values) && values.id) || 'new'}
-              trueValue='Yes'
-              falseValue='No'
-              className='rental-assistance-recurring'
-            />
-          </FormGrid.Item>
-          <FormGrid.Item>
-            <Field.Text
-              label='Assistance Amount'
-              field='assistance_amount'
-              errorMessage={(label, error) => error}
-            />
-          </FormGrid.Item>
-          <FormGrid.Item>
-            <Field.Select
-              label='Recipient'
-              field='recipient'
-              options={applicationMembersOptions}
-              className='rental-assistance-recipient'
-            />
-          </FormGrid.Item>
-        </FormGrid.Row>
-        {isOther(formApi.values) && (
-          <FormGrid.Row expand={false}>
-            <FormGrid.Item>
-              <Field.Text
-                label='Other Assistance Name'
-                field='other_assistance_name' />
-            </FormGrid.Item>
-          </FormGrid.Row>
-        )}
-        <FormGrid.Row expand={false}>
-          <div className='form-grid_item column'>
-            <button
-              className='button primary tiny margin-right margin-bottom-none'
-              type='button'
-              onClick={formApi.submitForm}
-              disabled={loading}>
-              Save
-            </button>
-            <button
-              className='button secondary tiny margin-right margin-bottom-none'
-              type='button'
-              onClick={onClose}
-              disabled={loading}>
-              Cancel
-            </button>
-            {!isNew && (
-              <button
-                className='button alert-fill tiny margin-bottom-none right'
-                type='button'
-                onClick={onDelete}
-                disabled={loading}>
-                Delete
-              </button>
-            )}
-          </div>
-        </FormGrid.Row>
-      </div>
-    )
-  }
-}
-
-const AddRentalAssitanceWithContext = withContext(TestRentalAssistanceComponent)
-
-const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
   const applicationMembersOptions = applicationMembers.map(member => (
     {
       label: `${member.first_name} ${member.last_name}`,
@@ -258,21 +152,106 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
     }
   ))
 
+  // react-form allows us to pass a prop to Form called getApi. this prop
+  // is a function. react-form will call the given function with the form's
+  // api. this allows us to access the api and use it elsewhere to trigger
+  // a submit on this form via the api's submitForm function.
+  // (see (https://github.com/react-tools/react-form/blob/c3a6d1af7475337b93234092317a08305acb452c/src/components/ReduxForm.js#L75))
+  const getApi = (api) => {
+    addRentalAssistanceFormApi(api)
+  }
 
   return (
-    <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
-      <AddRentalAssitanceWithContext
-        loading={loading}
-        onClose={onClose}
-        applicationMembers={applicationMembers}
-        onDelete={onDelete}
-        isNew={isNew}
-        applicationMembersOptions={applicationMembersOptions}
-        values={values}
-        />
+    <Form
+      defaultValues={values}
+      getApi={getApi}
+      onSubmit={onSave}
+      validateError={validateError}>
+      {formApi => (
+        <div className={classNames(
+          'app-editable expand-wide scrollable-table-nested',
+          {
+            'rental-assistance-new-form': isNew,
+            'rental-assistance-edit-form': !isNew
+          }
+        )}>
+          <FormGrid.Row expand={false}>
+            <FormGrid.Item>
+              <Field.Select
+                label='Type of Assistance'
+                field='type_of_assistance'
+                options={typeOfAssistanceOptions}
+                className='rental-assistance-type'
+                errorMessage={(label, error) => error}
+              />
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <YesNoRadioGroupField
+                label='Recurring Assistance'
+                field='recurring_assistance'
+                uniqId={(!isEmpty(values) && values.id) || 'new'}
+                trueValue='Yes'
+                falseValue='No'
+                className='rental-assistance-recurring'
+              />
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <Field.Text
+                label='Assistance Amount'
+                field='assistance_amount'
+                errorMessage={(label, error) => error}
+              />
+            </FormGrid.Item>
+            <FormGrid.Item>
+              <Field.Select
+                label='Recipient'
+                field='recipient'
+                options={applicationMembersOptions}
+                className='rental-assistance-recipient'
+              />
+            </FormGrid.Item>
+          </FormGrid.Row>
+          {isOther(formApi.values) && (
+            <FormGrid.Row expand={false}>
+              <FormGrid.Item>
+                <Field.Text
+                  label='Other Assistance Name'
+                  field='other_assistance_name' />
+              </FormGrid.Item>
+            </FormGrid.Row>
+          )}
+          <FormGrid.Row expand={false}>
+            <div className='form-grid_item column'>
+              <button
+                className='button primary tiny margin-right margin-bottom-none'
+                type='button'
+                onClick={formApi.submitForm}
+                disabled={loading}>
+                Save
+              </button>
+              <button
+                className='button secondary tiny margin-right margin-bottom-none'
+                type='button'
+                onClick={onClose}
+                disabled={loading}>
+                Cancel
+              </button>
+              {!isNew && (
+                <button
+                  className='button alert-fill tiny margin-bottom-none right'
+                  type='button'
+                  onClick={onDelete}
+                  disabled={loading}>
+                  Delete
+                </button>
+              )}
+            </div>
+          </FormGrid.Row>
+        </div>
+      )}
     </Form>
   )
-}
+})
 
 const RentalAssistance = ({ store }) => {
   const {

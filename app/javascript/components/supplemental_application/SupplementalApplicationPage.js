@@ -77,12 +77,15 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    console.log('form apis in handle save application', this.state.rentalAssistanceFormApis)
     const response = await updateApplication(application)
+
+    this.state.rentalAssistanceFormApis.forEach((api) => {
+      api.submitForm()
+    })
 
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
-      // window.location.reload()
+      window.location.reload()
     } else {
       Alerts.error()
       this.setLoading(false)
@@ -190,11 +193,12 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 
-  addRentalAssistanceFormApi = (formApi) => {
-    console.log('setting the updated state in addRentalAssistanceFormApi')
+  addRentalAssistanceFormApi = (ref) => {
     this.setState(prev => {
+      const newRefs = prev.rentalAssistanceFormApis
+      newRefs.push(ref)
       return {
-        rentalAssistanceFormApis: [...prev.rentalAssistanceFormApis, formApi]
+        rentalAssistanceFormApis: newRefs
       }
     })
   }
