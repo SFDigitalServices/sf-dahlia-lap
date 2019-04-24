@@ -3364,6 +3364,7 @@ Array [
                 className="-pageJump"
               >
                 <input
+                  aria-label="jump to page"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyPress={[Function]}

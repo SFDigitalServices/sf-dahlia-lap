@@ -60,6 +60,7 @@ exports[`IndexTable rows should be expandable 1`] = `
         "Header": undefined,
         "Pivot": undefined,
         "PivotValue": undefined,
+        "Placeholder": undefined,
         "aggregate": undefined,
         "className": "",
         "filterAll": false,
@@ -72,6 +73,7 @@ exports[`IndexTable rows should be expandable 1`] = `
         "getProps": [Function],
         "headerClassName": "",
         "headerStyle": Object {},
+        "minResizeWidth": 11,
         "minWidth": 100,
         "resizable": undefined,
         "show": true,
@@ -113,6 +115,7 @@ exports[`IndexTable rows should be expandable 1`] = `
     defaultExpanded={Object {}}
     defaultFilterMethod={[Function]}
     defaultFiltered={Array []}
+    defaultPage={0}
     defaultPageSize={20}
     defaultResized={Array []}
     defaultSortDesc={false}
@@ -166,6 +169,7 @@ exports[`IndexTable rows should be expandable 1`] = `
     ofText="of"
     onFetchData={[Function]}
     originalKey="_original"
+    pageJumpText="jump to page"
     pageSizeOptions={
       Array [
         5,
@@ -183,6 +187,7 @@ exports[`IndexTable rows should be expandable 1`] = `
     previousText="Previous"
     resizable={true}
     resolveData={[Function]}
+    rowsSelectorText="rows per page"
     rowsText="rows"
     showPageJump={true}
     showPageSizeOptions={true}
@@ -399,11 +404,108 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <div
-                            className="rt-expander -open"
+                          <ExpanderComponent
+                            classes={
+                              Array [
+                                undefined,
+                                "",
+                                undefined,
+                              ]
+                            }
+                            column={
+                              Object {
+                                "Aggregated": undefined,
+                                "Cell": undefined,
+                                "Expander": undefined,
+                                "Filter": undefined,
+                                "Footer": undefined,
+                                "Header": undefined,
+                                "Pivot": undefined,
+                                "PivotValue": undefined,
+                                "Placeholder": undefined,
+                                "accessor": [Function],
+                                "aggregate": undefined,
+                                "className": "",
+                                "expander": true,
+                                "filterAll": false,
+                                "filterMethod": undefined,
+                                "filterable": false,
+                                "footerClassName": "",
+                                "footerStyle": Object {},
+                                "getFooterProps": [Function],
+                                "getHeaderProps": [Function],
+                                "getProps": [Function],
+                                "headerClassName": "",
+                                "headerStyle": Object {},
+                                "minResizeWidth": 11,
+                                "minWidth": 100,
+                                "resizable": false,
+                                "show": true,
+                                "sortMethod": undefined,
+                                "sortable": false,
+                                "style": Object {},
+                                "width": 35,
+                              }
+                            }
+                            columnProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            expandable={true}
+                            expander={true}
+                            index={0}
+                            isExpanded={true}
+                            level={0}
+                            maxWidth={35}
+                            nestingPath={
+                              Array [
+                                0,
+                              ]
+                            }
+                            original={
+                              Object {
+                                "first_name": "xxx1",
+                                "last_name": "zzz1",
+                              }
+                            }
+                            page={0}
+                            pageSize={20}
+                            resized={Array []}
+                            row={
+                              Object {
+                                "_index": 0,
+                                "_nestingLevel": 0,
+                                "_original": Object {
+                                  "first_name": "xxx1",
+                                  "last_name": "zzz1",
+                                },
+                                "_subRows": undefined,
+                                "_viewIndex": 0,
+                                "first_name": "xxx1",
+                                "last_name": "zzz1",
+                              }
+                            }
+                            show={true}
+                            styles={Object {}}
+                            tdProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            viewIndex={0}
+                            width={35}
                           >
-                            •
-                          </div>
+                            <div
+                              className="rt-expander -open"
+                            >
+                              •
+                            </div>
+                          </ExpanderComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -430,12 +532,106 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <IndexTableCell
-                            attrs={Object {}}
-                            val="xxx1"
+                          <Cell
+                            classes={
+                              Array [
+                                undefined,
+                                "",
+                                undefined,
+                              ]
+                            }
+                            column={
+                              Object {
+                                "Aggregated": undefined,
+                                "Cell": [Function],
+                                "Expander": undefined,
+                                "Filter": undefined,
+                                "Footer": undefined,
+                                "Header": "first name",
+                                "Pivot": undefined,
+                                "PivotValue": undefined,
+                                "Placeholder": undefined,
+                                "accessor": [Function],
+                                "aggregate": undefined,
+                                "className": "",
+                                "filterAll": false,
+                                "filterMethod": [Function],
+                                "filterable": undefined,
+                                "footerClassName": "",
+                                "footerStyle": Object {},
+                                "getFooterProps": [Function],
+                                "getHeaderProps": [Function],
+                                "getProps": [Function],
+                                "headerClassName": "",
+                                "headerStyle": Object {},
+                                "id": "first_name",
+                                "minResizeWidth": 11,
+                                "minWidth": 100,
+                                "resizable": undefined,
+                                "show": true,
+                                "sortMethod": undefined,
+                                "sortable": undefined,
+                                "style": Object {},
+                              }
+                            }
+                            columnProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            index={0}
+                            isExpanded={true}
+                            level={0}
+                            nestingPath={
+                              Array [
+                                0,
+                              ]
+                            }
+                            original={
+                              Object {
+                                "first_name": "xxx1",
+                                "last_name": "zzz1",
+                              }
+                            }
+                            page={0}
+                            pageSize={20}
+                            resized={Array []}
+                            row={
+                              Object {
+                                "_index": 0,
+                                "_nestingLevel": 0,
+                                "_original": Object {
+                                  "first_name": "xxx1",
+                                  "last_name": "zzz1",
+                                },
+                                "_subRows": undefined,
+                                "_viewIndex": 0,
+                                "first_name": "xxx1",
+                                "last_name": "zzz1",
+                              }
+                            }
+                            show={true}
+                            styles={Object {}}
+                            tdProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            value="xxx1"
+                            viewIndex={0}
+                            width={100}
                           >
-                            xxx1
-                          </IndexTableCell>
+                            <IndexTableCell
+                              attrs={Object {}}
+                              val="xxx1"
+                            >
+                              xxx1
+                            </IndexTableCell>
+                          </Cell>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -462,12 +658,106 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <IndexTableCell
-                            attrs={Object {}}
-                            val="zzz1"
+                          <Cell
+                            classes={
+                              Array [
+                                undefined,
+                                "",
+                                undefined,
+                              ]
+                            }
+                            column={
+                              Object {
+                                "Aggregated": undefined,
+                                "Cell": [Function],
+                                "Expander": undefined,
+                                "Filter": undefined,
+                                "Footer": undefined,
+                                "Header": "last name",
+                                "Pivot": undefined,
+                                "PivotValue": undefined,
+                                "Placeholder": undefined,
+                                "accessor": [Function],
+                                "aggregate": undefined,
+                                "className": "",
+                                "filterAll": false,
+                                "filterMethod": [Function],
+                                "filterable": undefined,
+                                "footerClassName": "",
+                                "footerStyle": Object {},
+                                "getFooterProps": [Function],
+                                "getHeaderProps": [Function],
+                                "getProps": [Function],
+                                "headerClassName": "",
+                                "headerStyle": Object {},
+                                "id": "last_name",
+                                "minResizeWidth": 11,
+                                "minWidth": 100,
+                                "resizable": undefined,
+                                "show": true,
+                                "sortMethod": undefined,
+                                "sortable": undefined,
+                                "style": Object {},
+                              }
+                            }
+                            columnProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            index={0}
+                            isExpanded={true}
+                            level={0}
+                            nestingPath={
+                              Array [
+                                0,
+                              ]
+                            }
+                            original={
+                              Object {
+                                "first_name": "xxx1",
+                                "last_name": "zzz1",
+                              }
+                            }
+                            page={0}
+                            pageSize={20}
+                            resized={Array []}
+                            row={
+                              Object {
+                                "_index": 0,
+                                "_nestingLevel": 0,
+                                "_original": Object {
+                                  "first_name": "xxx1",
+                                  "last_name": "zzz1",
+                                },
+                                "_subRows": undefined,
+                                "_viewIndex": 0,
+                                "first_name": "xxx1",
+                                "last_name": "zzz1",
+                              }
+                            }
+                            show={true}
+                            styles={Object {}}
+                            tdProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            value="zzz1"
+                            viewIndex={0}
+                            width={100}
                           >
-                            zzz1
-                          </IndexTableCell>
+                            <IndexTableCell
+                              attrs={Object {}}
+                              val="zzz1"
+                            >
+                              zzz1
+                            </IndexTableCell>
+                          </Cell>
                         </div>
                       </TdComponent>
                     </div>
@@ -528,11 +818,107 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <div
-                            className="rt-expander"
+                          <ExpanderComponent
+                            classes={
+                              Array [
+                                undefined,
+                                "",
+                                undefined,
+                              ]
+                            }
+                            column={
+                              Object {
+                                "Aggregated": undefined,
+                                "Cell": undefined,
+                                "Expander": undefined,
+                                "Filter": undefined,
+                                "Footer": undefined,
+                                "Header": undefined,
+                                "Pivot": undefined,
+                                "PivotValue": undefined,
+                                "Placeholder": undefined,
+                                "accessor": [Function],
+                                "aggregate": undefined,
+                                "className": "",
+                                "expander": true,
+                                "filterAll": false,
+                                "filterMethod": undefined,
+                                "filterable": false,
+                                "footerClassName": "",
+                                "footerStyle": Object {},
+                                "getFooterProps": [Function],
+                                "getHeaderProps": [Function],
+                                "getProps": [Function],
+                                "headerClassName": "",
+                                "headerStyle": Object {},
+                                "minResizeWidth": 11,
+                                "minWidth": 100,
+                                "resizable": false,
+                                "show": true,
+                                "sortMethod": undefined,
+                                "sortable": false,
+                                "style": Object {},
+                                "width": 35,
+                              }
+                            }
+                            columnProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            expandable={true}
+                            expander={true}
+                            index={1}
+                            level={0}
+                            maxWidth={35}
+                            nestingPath={
+                              Array [
+                                1,
+                              ]
+                            }
+                            original={
+                              Object {
+                                "first_name": "xxx2",
+                                "last_name": "zzz2",
+                              }
+                            }
+                            page={0}
+                            pageSize={20}
+                            resized={Array []}
+                            row={
+                              Object {
+                                "_index": 1,
+                                "_nestingLevel": 0,
+                                "_original": Object {
+                                  "first_name": "xxx2",
+                                  "last_name": "zzz2",
+                                },
+                                "_subRows": undefined,
+                                "_viewIndex": 1,
+                                "first_name": "xxx2",
+                                "last_name": "zzz2",
+                              }
+                            }
+                            show={true}
+                            styles={Object {}}
+                            tdProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            viewIndex={1}
+                            width={35}
                           >
-                            •
-                          </div>
+                            <div
+                              className="rt-expander"
+                            >
+                              •
+                            </div>
+                          </ExpanderComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -559,12 +945,105 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <IndexTableCell
-                            attrs={Object {}}
-                            val="xxx2"
+                          <Cell
+                            classes={
+                              Array [
+                                undefined,
+                                "",
+                                undefined,
+                              ]
+                            }
+                            column={
+                              Object {
+                                "Aggregated": undefined,
+                                "Cell": [Function],
+                                "Expander": undefined,
+                                "Filter": undefined,
+                                "Footer": undefined,
+                                "Header": "first name",
+                                "Pivot": undefined,
+                                "PivotValue": undefined,
+                                "Placeholder": undefined,
+                                "accessor": [Function],
+                                "aggregate": undefined,
+                                "className": "",
+                                "filterAll": false,
+                                "filterMethod": [Function],
+                                "filterable": undefined,
+                                "footerClassName": "",
+                                "footerStyle": Object {},
+                                "getFooterProps": [Function],
+                                "getHeaderProps": [Function],
+                                "getProps": [Function],
+                                "headerClassName": "",
+                                "headerStyle": Object {},
+                                "id": "first_name",
+                                "minResizeWidth": 11,
+                                "minWidth": 100,
+                                "resizable": undefined,
+                                "show": true,
+                                "sortMethod": undefined,
+                                "sortable": undefined,
+                                "style": Object {},
+                              }
+                            }
+                            columnProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            index={1}
+                            level={0}
+                            nestingPath={
+                              Array [
+                                1,
+                              ]
+                            }
+                            original={
+                              Object {
+                                "first_name": "xxx2",
+                                "last_name": "zzz2",
+                              }
+                            }
+                            page={0}
+                            pageSize={20}
+                            resized={Array []}
+                            row={
+                              Object {
+                                "_index": 1,
+                                "_nestingLevel": 0,
+                                "_original": Object {
+                                  "first_name": "xxx2",
+                                  "last_name": "zzz2",
+                                },
+                                "_subRows": undefined,
+                                "_viewIndex": 1,
+                                "first_name": "xxx2",
+                                "last_name": "zzz2",
+                              }
+                            }
+                            show={true}
+                            styles={Object {}}
+                            tdProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            value="xxx2"
+                            viewIndex={1}
+                            width={100}
                           >
-                            xxx2
-                          </IndexTableCell>
+                            <IndexTableCell
+                              attrs={Object {}}
+                              val="xxx2"
+                            >
+                              xxx2
+                            </IndexTableCell>
+                          </Cell>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -591,12 +1070,105 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <IndexTableCell
-                            attrs={Object {}}
-                            val="zzz2"
+                          <Cell
+                            classes={
+                              Array [
+                                undefined,
+                                "",
+                                undefined,
+                              ]
+                            }
+                            column={
+                              Object {
+                                "Aggregated": undefined,
+                                "Cell": [Function],
+                                "Expander": undefined,
+                                "Filter": undefined,
+                                "Footer": undefined,
+                                "Header": "last name",
+                                "Pivot": undefined,
+                                "PivotValue": undefined,
+                                "Placeholder": undefined,
+                                "accessor": [Function],
+                                "aggregate": undefined,
+                                "className": "",
+                                "filterAll": false,
+                                "filterMethod": [Function],
+                                "filterable": undefined,
+                                "footerClassName": "",
+                                "footerStyle": Object {},
+                                "getFooterProps": [Function],
+                                "getHeaderProps": [Function],
+                                "getProps": [Function],
+                                "headerClassName": "",
+                                "headerStyle": Object {},
+                                "id": "last_name",
+                                "minResizeWidth": 11,
+                                "minWidth": 100,
+                                "resizable": undefined,
+                                "show": true,
+                                "sortMethod": undefined,
+                                "sortable": undefined,
+                                "style": Object {},
+                              }
+                            }
+                            columnProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            index={1}
+                            level={0}
+                            nestingPath={
+                              Array [
+                                1,
+                              ]
+                            }
+                            original={
+                              Object {
+                                "first_name": "xxx2",
+                                "last_name": "zzz2",
+                              }
+                            }
+                            page={0}
+                            pageSize={20}
+                            resized={Array []}
+                            row={
+                              Object {
+                                "_index": 1,
+                                "_nestingLevel": 0,
+                                "_original": Object {
+                                  "first_name": "xxx2",
+                                  "last_name": "zzz2",
+                                },
+                                "_subRows": undefined,
+                                "_viewIndex": 1,
+                                "first_name": "xxx2",
+                                "last_name": "zzz2",
+                              }
+                            }
+                            show={true}
+                            styles={Object {}}
+                            tdProps={
+                              Object {
+                                "className": undefined,
+                                "rest": Object {},
+                                "style": undefined,
+                              }
+                            }
+                            value="zzz2"
+                            viewIndex={1}
+                            width={100}
                           >
-                            zzz2
-                          </IndexTableCell>
+                            <IndexTableCell
+                              attrs={Object {}}
+                              val="zzz2"
+                            >
+                              zzz2
+                            </IndexTableCell>
+                          </Cell>
                         </div>
                       </TdComponent>
                     </div>
@@ -604,7 +1176,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="0"
+                key="pad-0"
               >
                 <div
                   className="rt-tr-group"
@@ -641,9 +1213,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -668,9 +1242,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -695,9 +1271,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -705,7 +1283,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="1"
+                key="pad-1"
               >
                 <div
                   className="rt-tr-group"
@@ -742,9 +1320,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -769,9 +1349,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -796,9 +1378,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -806,7 +1390,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="2"
+                key="pad-2"
               >
                 <div
                   className="rt-tr-group"
@@ -843,9 +1427,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -870,9 +1456,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -897,9 +1485,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -907,7 +1497,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="3"
+                key="pad-3"
               >
                 <div
                   className="rt-tr-group"
@@ -944,9 +1534,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -971,9 +1563,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -998,9 +1592,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1008,7 +1604,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="4"
+                key="pad-4"
               >
                 <div
                   className="rt-tr-group"
@@ -1045,9 +1641,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1072,9 +1670,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1099,9 +1699,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1109,7 +1711,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="5"
+                key="pad-5"
               >
                 <div
                   className="rt-tr-group"
@@ -1146,9 +1748,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1173,9 +1777,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1200,9 +1806,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1210,7 +1818,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="6"
+                key="pad-6"
               >
                 <div
                   className="rt-tr-group"
@@ -1247,9 +1855,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1274,9 +1884,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1301,9 +1913,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1311,7 +1925,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="7"
+                key="pad-7"
               >
                 <div
                   className="rt-tr-group"
@@ -1348,9 +1962,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1375,9 +1991,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1402,9 +2020,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1412,7 +2032,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="8"
+                key="pad-8"
               >
                 <div
                   className="rt-tr-group"
@@ -1449,9 +2069,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1476,9 +2098,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1503,9 +2127,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1513,7 +2139,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="9"
+                key="pad-9"
               >
                 <div
                   className="rt-tr-group"
@@ -1550,9 +2176,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1577,9 +2205,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1604,9 +2234,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1614,7 +2246,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="10"
+                key="pad-10"
               >
                 <div
                   className="rt-tr-group"
@@ -1651,9 +2283,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1678,9 +2312,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1705,9 +2341,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1715,7 +2353,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="11"
+                key="pad-11"
               >
                 <div
                   className="rt-tr-group"
@@ -1752,9 +2390,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1779,9 +2419,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1806,9 +2448,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1816,7 +2460,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="12"
+                key="pad-12"
               >
                 <div
                   className="rt-tr-group"
@@ -1853,9 +2497,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1880,9 +2526,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1907,9 +2555,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -1917,7 +2567,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="13"
+                key="pad-13"
               >
                 <div
                   className="rt-tr-group"
@@ -1954,9 +2604,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -1981,9 +2633,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2008,9 +2662,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -2018,7 +2674,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="14"
+                key="pad-14"
               >
                 <div
                   className="rt-tr-group"
@@ -2055,9 +2711,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2082,9 +2740,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2109,9 +2769,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -2119,7 +2781,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="15"
+                key="pad-15"
               >
                 <div
                   className="rt-tr-group"
@@ -2156,9 +2818,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2183,9 +2847,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2210,9 +2876,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -2220,7 +2888,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="16"
+                key="pad-16"
               >
                 <div
                   className="rt-tr-group"
@@ -2257,9 +2925,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2284,9 +2954,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2311,9 +2983,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -2321,7 +2995,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 </div>
               </TrGroupComponent>
               <TrGroupComponent
-                key="17"
+                key="pad-17"
               >
                 <div
                   className="rt-tr-group"
@@ -2358,9 +3032,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2385,9 +3061,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                       <TdComponent
@@ -2412,9 +3090,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                             }
                           }
                         >
-                          <span>
-                             
-                          </span>
+                          <PadRowComponent>
+                            <span>
+                               
+                            </span>
+                          </PadRowComponent>
                         </div>
                       </TdComponent>
                     </div>
@@ -2433,10 +3113,12 @@ exports[`IndexTable rows should be expandable 1`] = `
           ExpanderComponent={[Function]}
           FilterComponent={[Function]}
           LoadingComponent={[Function]}
+          NextComponent={[Function]}
           NoDataComponent={[Function]}
           PadRowComponent={[Function]}
           PaginationComponent={[Function]}
           PivotValueComponent={[Function]}
+          PreviousComponent={[Function]}
           ResizerComponent={[Function]}
           SubComponent={[Function]}
           TableComponent={[Function]}
@@ -2459,6 +3141,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "Header": undefined,
                 "Pivot": undefined,
                 "PivotValue": undefined,
+                "Placeholder": undefined,
                 "accessor": [Function],
                 "aggregate": undefined,
                 "className": "",
@@ -2473,6 +3156,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "getProps": [Function],
                 "headerClassName": "",
                 "headerStyle": Object {},
+                "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": false,
                 "show": true,
@@ -2490,6 +3174,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "Header": "first name",
                 "Pivot": undefined,
                 "PivotValue": undefined,
+                "Placeholder": undefined,
                 "accessor": [Function],
                 "aggregate": undefined,
                 "className": "",
@@ -2504,6 +3189,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "headerClassName": "",
                 "headerStyle": Object {},
                 "id": "first_name",
+                "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": undefined,
                 "show": true,
@@ -2520,6 +3206,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "Header": "last name",
                 "Pivot": undefined,
                 "PivotValue": undefined,
+                "Placeholder": undefined,
                 "accessor": [Function],
                 "aggregate": undefined,
                 "className": "",
@@ -2534,6 +3221,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "headerClassName": "",
                 "headerStyle": Object {},
                 "id": "last_name",
+                "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": undefined,
                 "show": true,
@@ -2554,6 +3242,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "Header": undefined,
                 "Pivot": undefined,
                 "PivotValue": undefined,
+                "Placeholder": undefined,
                 "accessor": [Function],
                 "aggregate": undefined,
                 "className": "",
@@ -2568,6 +3257,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "getProps": [Function],
                 "headerClassName": "",
                 "headerStyle": Object {},
+                "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": false,
                 "show": true,
@@ -2585,6 +3275,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "Header": "first name",
                 "Pivot": undefined,
                 "PivotValue": undefined,
+                "Placeholder": undefined,
                 "accessor": [Function],
                 "aggregate": undefined,
                 "className": "",
@@ -2599,6 +3290,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "headerClassName": "",
                 "headerStyle": Object {},
                 "id": "first_name",
+                "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": undefined,
                 "show": true,
@@ -2615,6 +3307,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "Header": "last name",
                 "Pivot": undefined,
                 "PivotValue": undefined,
+                "Placeholder": undefined,
                 "accessor": [Function],
                 "aggregate": undefined,
                 "className": "",
@@ -2629,6 +3322,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "headerClassName": "",
                 "headerStyle": Object {},
                 "id": "last_name",
+                "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": undefined,
                 "show": true,
@@ -2653,6 +3347,7 @@ exports[`IndexTable rows should be expandable 1`] = `
               "Header": undefined,
               "Pivot": undefined,
               "PivotValue": undefined,
+              "Placeholder": undefined,
               "aggregate": undefined,
               "className": "",
               "filterAll": false,
@@ -2665,6 +3360,7 @@ exports[`IndexTable rows should be expandable 1`] = `
               "getProps": [Function],
               "headerClassName": "",
               "headerStyle": Object {},
+              "minResizeWidth": 11,
               "minWidth": 100,
               "resizable": undefined,
               "show": true,
@@ -2707,6 +3403,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           defaultExpanded={Object {}}
           defaultFilterMethod={[Function]}
           defaultFiltered={Array []}
+          defaultPage={0}
           defaultPageSize={20}
           defaultResized={Array []}
           defaultSortDesc={false}
@@ -2755,6 +3452,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           hasHeaderGroups={false}
           headerGroups={Array []}
           indexKey="_index"
+          isTop={false}
           loading={false}
           loadingText="Loading..."
           multiSort={true}
@@ -2767,6 +3465,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           onPageSizeChange={[Function]}
           originalKey="_original"
           page={0}
+          pageJumpText="jump to page"
           pageSize={20}
           pageSizeOptions={
             Array [
@@ -2784,6 +3483,10 @@ exports[`IndexTable rows should be expandable 1`] = `
           pivotIDKey="_pivotID"
           pivotValKey="_pivotVal"
           previousText="Previous"
+          renderCurrentPage={[Function]}
+          renderPageJump={[Function]}
+          renderPageSizeOptions={[Function]}
+          renderTotalPagesCount={[Function]}
           resizable={true}
           resized={Array []}
           resolveData={[Function]}
@@ -2813,6 +3516,7 @@ exports[`IndexTable rows should be expandable 1`] = `
               },
             ]
           }
+          rowsSelectorText="rows per page"
           rowsText="rows"
           showPageJump={true}
           showPageSizeOptions={true}
@@ -2882,6 +3586,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                   className="-pageJump"
                 >
                   <input
+                    aria-label="jump to page"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onKeyPress={[Function]}
@@ -2902,6 +3607,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 className="select-wrap -pageSizeOptions"
               >
                 <select
+                  aria-label="rows per page"
                   onChange={[Function]}
                   value={20}
                 >
@@ -2909,49 +3615,37 @@ exports[`IndexTable rows should be expandable 1`] = `
                     key="0"
                     value={5}
                   >
-                    5
-                     
-                    rows
+                    5 rows
                   </option>
                   <option
                     key="1"
                     value={10}
                   >
-                    10
-                     
-                    rows
+                    10 rows
                   </option>
                   <option
                     key="2"
                     value={20}
                   >
-                    20
-                     
-                    rows
+                    20 rows
                   </option>
                   <option
                     key="3"
                     value={25}
                   >
-                    25
-                     
-                    rows
+                    25 rows
                   </option>
                   <option
                     key="4"
                     value={50}
                   >
-                    50
-                     
-                    rows
+                    50 rows
                   </option>
                   <option
                     key="5"
                     value={100}
                   >
-                    100
-                     
-                    rows
+                    100 rows
                   </option>
                 </select>
               </span>
@@ -4245,6 +4939,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="-pageJump"
           >
             <input
+              aria-label="jump to page"
               onBlur={[Function]}
               onChange={[Function]}
               onKeyPress={[Function]}
@@ -4265,50 +4960,39 @@ exports[`IndexTable should render IndexTable 1`] = `
           className="select-wrap -pageSizeOptions"
         >
           <select
+            aria-label="rows per page"
             onChange={[Function]}
             value={20}
           >
             <option
               value={5}
             >
-              5
-               
-              rows
+              5 rows
             </option>
             <option
               value={10}
             >
-              10
-               
-              rows
+              10 rows
             </option>
             <option
               value={20}
             >
-              20
-               
-              rows
+              20 rows
             </option>
             <option
               value={25}
             >
-              25
-               
-              rows
+              25 rows
             </option>
             <option
               value={50}
             >
-              50
-               
-              rows
+              50 rows
             </option>
             <option
               value={100}
             >
-              100
-               
-              rows
+              100 rows
             </option>
           </select>
         </span>
