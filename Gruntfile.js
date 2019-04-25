@@ -16,7 +16,7 @@ module.exports = function (grunt) {
       main: {
         files: [
           {
-            src: '<%= patternLibraryPath %>/dist/assets/toolkit/styles/toolkit.css',
+            src: '<%= patternLibraryPath %>/dist/toolkit/styles/toolkit.css',
             dest: '<%= applicationAssetsPath %>/stylesheets/toolkit.scss'
           }
         ]
