@@ -81,7 +81,7 @@ const application = {
       'type_of_proof': null,
       'opt_out': null,
       'listing_preference_id': 'a0l0x000000RI8nAAG',
-      'receives_preference': null,
+      'receives_preference': true,
       'individual_preference': null,
       'certificate_number': null,
       'preference_order': 0,
@@ -90,8 +90,26 @@ const application = {
       'state': null,
       'zip_code': null,
       'street': null,
-      'recordtype_developername': 'AG'
-    }
+      'recordtype_developername': 'AG',
+      'application_member_id': 'a0n0x000000AbE6AAK'
+    },
+    {
+      "zip_code": null,
+      "state": null,
+      "recordtype_developername": "NRHP",
+      "type_of_proof": null,
+      "post_lottery_validation": null,
+      "opt_out": false,
+      "lw_type_of_proof": null,
+      "listing_preference_id": "a0l0P00001QRQGzQAP",
+      'receives_preference': false,
+      "individual_preference": null,
+      "city": null,
+      "certificate_number": null,
+      "application_member_id": "a0n0x000000AbE6AAK",
+      "street": null,
+      "preference_name": "Neighborhood Resident Housing Preference (NRHP)"
+    },
   ],
   'proof_files': [
     {
