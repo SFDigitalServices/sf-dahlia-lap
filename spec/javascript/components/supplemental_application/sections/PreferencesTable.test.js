@@ -1,5 +1,5 @@
+/* global mount */
 import React from 'react'
-import renderer from 'react-test-renderer'
 import PreferencesTable from '~/components/supplemental_application/sections/PreferencesTable'
 import application from '../../../fixtures/domain_application'
 
@@ -11,8 +11,7 @@ const formApi = {}
 
 describe('PreferencesTable', () => {
   test('should render a table of only preferences that the application receives (Receives_Preference = true) ', () => {
-    // const context = cloneDeep(baseContext)
-    const component = renderer.create(
+    const wrapper = mount(
       <PreferencesTable
         application={application}
         applicationMembers={applicationMembers}
@@ -23,7 +22,6 @@ describe('PreferencesTable', () => {
       />
     )
 
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+    expect(wrapper.find('#alice-griffith-housing-development-resident-row').exists()).toBeTruthy()
   })
 })
