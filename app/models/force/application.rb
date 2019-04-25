@@ -55,6 +55,10 @@ module Force
       { custom_api: 'subStatus', domain: 'sub_status', salesforce: 'Sub_Status' },
       { custom_api: '', domain: 'total_household_size', salesforce: 'Total_Household_Size' },
       { custom_api: 'totalMonthlyRent', domain: 'total_monthly_rent', salesforce: 'Total_Monthly_Rent' },
+      { custom_api: 'isFirstTimeHomebuyer', domain: 'is_first_time_homebuyer', salesforce: 'Is_First_Time_Homebuyer' },
+      { custom_api: 'hasCompletedHomebuyerEducation', domain: 'has_completed_homebuyer_education', salesforce: 'Has_Completed_Homebuyer_Education' },
+      { custom_api: 'hasLoanPreapproval', domain: 'has_loan_preapproval', salesforce: 'Has_Loan_Pre_approval' },
+      { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: 'Lending_Agent' },
     ].freeze
 
     def to_domain

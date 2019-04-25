@@ -18,6 +18,7 @@ class ApplicationsController < ApplicationController
   def edit
     @application = soql_application_service.application(params[:id])
     @listing = listing_service.listing(@application.Listing.Id)
+    @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
   end
 
   private
@@ -98,5 +99,9 @@ class ApplicationsController < ApplicationController
     # Return a domain-formatted application with additional
     # domain-formatted info added onto it
     application
+  end
+
+  def lending_institutions
+    Force::CustomApi::LendingInstitutionsService.new(current_user).lending_institutions
   end
 end

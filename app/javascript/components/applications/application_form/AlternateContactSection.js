@@ -23,7 +23,8 @@ const validateError = (formValues) => {
 
   return {
     first_name: validateFirstLastName(formValues, formValues.first_name, 'First Name'),
-    last_name: validateFirstLastName(formValues, formValues.last_name, 'Last Name')
+    last_name: validateFirstLastName(formValues, formValues.last_name, 'Last Name'),
+    email: validate.isValidEmail('Please enter a valid Email')(formValues.email)
   }
 }
 

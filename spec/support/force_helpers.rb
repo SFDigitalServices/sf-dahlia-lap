@@ -2,6 +2,7 @@
 
 module ForceHelpers
   YELLOW_ACRES_LISTING_ID = 'a0W0P00000GbyuQ'
+  SALE_LISTING_ID = 'a0W0P00000GlKfBUAV'
 
   NON_LEASE_UP_APPLICATION_ID = 'a0o0P00000Fv20MQAR'
 
@@ -9,6 +10,10 @@ module ForceHelpers
 
   def valid_listing_id
     YELLOW_ACRES_LISTING_ID
+  end
+
+  def sale_listing_id
+    SALE_LISTING_ID
   end
 
   # This listing ID follows the Salesforce ID format conventions

@@ -11,3 +11,6 @@ export const DEFAULT_E2E_TIME_OUT = 60000 // 1 minute
 
 // Change to false to see tests running on browser locally
 export const HEADLESS = true
+
+// Default to Sale Test Listing Homeownership Acres on Full
+export const SALE_LISTING_ID = process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlKfBUAV'

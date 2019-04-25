@@ -1335,8 +1335,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "Phone_Type": "Cell",
         "Primary_Language": null,
         "Residence_Address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-        "Second_Phone": null,
-        "Second_Phone_Type": null,
+        "Second_Phone": "9548883321",
+        "Second_Phone_Type": "Home",
         "State": "CA",
         "Street": "123 MAIN ST",
         "Zip_Code": "94105-1804",
@@ -1486,8 +1486,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
           "primary_language": null,
           "relationship_to_applicant": undefined,
           "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-          "second_phone": null,
-          "second_phone_type": null,
+          "second_phone": "9548883321",
+          "second_phone_type": "Home",
           "state": "CA",
           "street": "123 MAIN ST",
           "zip_code": "94105-1804",
@@ -1513,7 +1513,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "has_ada_priorities_selected": Object {
           "": true,
         },
+        "has_completed_homebuyer_education": undefined,
         "has_developmental_disability": null,
+        "has_loan_preapproval": undefined,
         "has_military_service": null,
         "hh_total_income_with_assets_annual": undefined,
         "household_assets": null,
@@ -1554,8 +1556,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         ],
         "housing_voucher_or_subsidy": "true",
         "id": "a0o0x000000OcOzAAK",
+        "is_first_time_homebuyer": undefined,
         "is_lottery_complete": false,
         "lease": undefined,
+        "lending_agent": undefined,
         "listing": Object {
           "account": Object {},
           "building": Object {},
@@ -1941,8 +1945,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             "primary_language": null,
                             "relationship_to_applicant": undefined,
                             "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                            "second_phone": null,
-                            "second_phone_type": null,
+                            "second_phone": "9548883321",
+                            "second_phone_type": "Home",
                             "state": "CA",
                             "street": "123 MAIN ST",
                             "zip_code": "94105-1804",
@@ -1968,7 +1972,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "has_ada_priorities_selected": Object {
                             "": true,
                           },
+                          "has_completed_homebuyer_education": undefined,
                           "has_developmental_disability": null,
+                          "has_loan_preapproval": undefined,
                           "has_military_service": null,
                           "hh_total_income_with_assets_annual": undefined,
                           "household_assets": null,
@@ -2009,8 +2015,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           ],
                           "housing_voucher_or_subsidy": "true",
                           "id": "a0o0x000000OcOzAAK",
+                          "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
                           "lease": undefined,
+                          "lending_agent": undefined,
                           "listing": Object {
                             "account": Object {},
                             "building": Object {},
@@ -2099,8 +2107,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             "primary_language": null,
                             "relationship_to_applicant": undefined,
                             "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                            "second_phone": null,
-                            "second_phone_type": null,
+                            "second_phone": "9548883321",
+                            "second_phone_type": "Home",
                             "state": "CA",
                             "street": "123 MAIN ST",
                             "zip_code": "94105-1804",
@@ -2223,8 +2231,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "primary_language": null,
                                 "relationship_to_applicant": undefined,
                                 "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                "second_phone": null,
-                                "second_phone_type": null,
+                                "second_phone": "9548883321",
+                                "second_phone_type": "Home",
                                 "state": "CA",
                                 "street": "123 MAIN ST",
                                 "zip_code": "94105-1804",
@@ -2250,7 +2258,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "has_ada_priorities_selected": Object {
                                 "": true,
                               },
+                              "has_completed_homebuyer_education": undefined,
                               "has_developmental_disability": null,
+                              "has_loan_preapproval": undefined,
                               "has_military_service": null,
                               "hh_total_income_with_assets_annual": undefined,
                               "household_assets": null,
@@ -2291,8 +2301,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               ],
                               "housing_voucher_or_subsidy": "true",
                               "id": "a0o0x000000OcOzAAK",
+                              "is_first_time_homebuyer": undefined,
                               "is_lottery_complete": false,
                               "lease": undefined,
+                              "lending_agent": undefined,
                               "listing": Object {
                                 "account": Object {},
                                 "building": Object {},
@@ -2390,8 +2402,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "primary_language": null,
                                   "relationship_to_applicant": undefined,
                                   "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                  "second_phone": null,
-                                  "second_phone_type": null,
+                                  "second_phone": "9548883321",
+                                  "second_phone_type": "Home",
                                   "state": "CA",
                                   "street": "123 MAIN ST",
                                   "zip_code": "94105-1804",
@@ -2417,7 +2429,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "has_ada_priorities_selected": Object {
                                   "": true,
                                 },
+                                "has_completed_homebuyer_education": undefined,
                                 "has_developmental_disability": null,
+                                "has_loan_preapproval": undefined,
                                 "has_military_service": null,
                                 "hh_total_income_with_assets_annual": undefined,
                                 "household_assets": null,
@@ -2458,8 +2472,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 ],
                                 "housing_voucher_or_subsidy": "true",
                                 "id": "a0o0x000000OcOzAAK",
+                                "is_first_time_homebuyer": undefined,
                                 "is_lottery_complete": false,
                                 "lease": undefined,
+                                "lending_agent": undefined,
                                 "listing": Object {
                                   "account": Object {},
                                   "building": Object {},
@@ -2566,8 +2582,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "primary_language": null,
                                     "relationship_to_applicant": undefined,
                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                    "second_phone": null,
-                                    "second_phone_type": null,
+                                    "second_phone": "9548883321",
+                                    "second_phone_type": "Home",
                                     "state": "CA",
                                     "street": "123 MAIN ST",
                                     "zip_code": "94105-1804",
@@ -2593,7 +2609,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "has_ada_priorities_selected": Object {
                                     "": true,
                                   },
+                                  "has_completed_homebuyer_education": undefined,
                                   "has_developmental_disability": null,
+                                  "has_loan_preapproval": undefined,
                                   "has_military_service": null,
                                   "hh_total_income_with_assets_annual": undefined,
                                   "household_assets": null,
@@ -2634,8 +2652,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   ],
                                   "housing_voucher_or_subsidy": "true",
                                   "id": "a0o0x000000OcOzAAK",
+                                  "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
                                   "lease": undefined,
+                                  "lending_agent": undefined,
                                   "listing": Object {
                                     "account": Object {},
                                     "building": Object {},
@@ -2750,8 +2770,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "phone_type": "Cell",
                                       "primary_language": null,
                                       "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                      "second_phone": null,
-                                      "second_phone_type": null,
+                                      "second_phone": "9548883321",
+                                      "second_phone_type": "Home",
                                       "state": "CA",
                                       "street": "123 MAIN ST",
                                       "zip_code": "94105-1804",
@@ -2931,8 +2951,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "primary_language": null,
                                             "relationship_to_applicant": undefined,
                                             "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                            "second_phone": null,
-                                            "second_phone_type": null,
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
                                             "state": "CA",
                                             "street": "123 MAIN ST",
                                             "zip_code": "94105-1804",
@@ -2958,7 +2978,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_ada_priorities_selected": Object {
                                             "": true,
                                           },
+                                          "has_completed_homebuyer_education": undefined,
                                           "has_developmental_disability": null,
+                                          "has_loan_preapproval": undefined,
                                           "has_military_service": null,
                                           "hh_total_income_with_assets_annual": undefined,
                                           "household_assets": null,
@@ -2999,8 +3021,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           ],
                                           "housing_voucher_or_subsidy": "true",
                                           "id": "a0o0x000000OcOzAAK",
+                                          "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
                                           "lease": undefined,
+                                          "lending_agent": undefined,
                                           "listing": Object {
                                             "account": Object {},
                                             "building": Object {},
@@ -3089,8 +3113,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "primary_language": null,
                                             "relationship_to_applicant": undefined,
                                             "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                            "second_phone": null,
-                                            "second_phone_type": null,
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
                                             "state": "CA",
                                             "street": "123 MAIN ST",
                                             "zip_code": "94105-1804",
@@ -3386,8 +3410,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "primary_language": null,
                                         "relationship_to_applicant": undefined,
                                         "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                        "second_phone": null,
-                                        "second_phone_type": null,
+                                        "second_phone": "9548883321",
+                                        "second_phone_type": "Home",
                                         "state": "CA",
                                         "street": "123 MAIN ST",
                                         "zip_code": "94105-1804",
@@ -3413,7 +3437,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "has_ada_priorities_selected": Object {
                                         "": true,
                                       },
+                                      "has_completed_homebuyer_education": undefined,
                                       "has_developmental_disability": null,
+                                      "has_loan_preapproval": undefined,
                                       "has_military_service": null,
                                       "hh_total_income_with_assets_annual": undefined,
                                       "household_assets": null,
@@ -3454,8 +3480,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       ],
                                       "housing_voucher_or_subsidy": "true",
                                       "id": "a0o0x000000OcOzAAK",
+                                      "is_first_time_homebuyer": undefined,
                                       "is_lottery_complete": false,
                                       "lease": undefined,
+                                      "lending_agent": undefined,
                                       "listing": Object {
                                         "account": Object {},
                                         "building": Object {},
@@ -3546,8 +3574,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "primary_language": null,
                                         "relationship_to_applicant": undefined,
                                         "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                        "second_phone": null,
-                                        "second_phone_type": null,
+                                        "second_phone": "9548883321",
+                                        "second_phone_type": "Home",
                                         "state": "CA",
                                         "street": "123 MAIN ST",
                                         "zip_code": "94105-1804",
@@ -3658,8 +3686,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "phone_type": "Cell",
                                           "primary_language": null,
                                           "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                          "second_phone": null,
-                                          "second_phone_type": null,
+                                          "second_phone": "9548883321",
+                                          "second_phone_type": "Home",
                                           "state": "CA",
                                           "street": "123 MAIN ST",
                                           "zip_code": "94105-1804",
@@ -3824,8 +3852,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "primary_language": null,
                                                 "relationship_to_applicant": undefined,
                                                 "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                "second_phone": null,
-                                                "second_phone_type": null,
+                                                "second_phone": "9548883321",
+                                                "second_phone_type": "Home",
                                                 "state": "CA",
                                                 "street": "123 MAIN ST",
                                                 "zip_code": "94105-1804",
@@ -3851,7 +3879,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "has_ada_priorities_selected": Object {
                                                 "": true,
                                               },
+                                              "has_completed_homebuyer_education": undefined,
                                               "has_developmental_disability": null,
+                                              "has_loan_preapproval": undefined,
                                               "has_military_service": null,
                                               "hh_total_income_with_assets_annual": undefined,
                                               "household_assets": null,
@@ -3892,8 +3922,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               ],
                                               "housing_voucher_or_subsidy": "true",
                                               "id": "a0o0x000000OcOzAAK",
+                                              "is_first_time_homebuyer": undefined,
                                               "is_lottery_complete": false,
                                               "lease": undefined,
+                                              "lending_agent": undefined,
                                               "listing": Object {
                                                 "account": Object {},
                                                 "building": Object {},
@@ -3984,8 +4016,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "primary_language": null,
                                                 "relationship_to_applicant": undefined,
                                                 "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                "second_phone": null,
-                                                "second_phone_type": null,
+                                                "second_phone": "9548883321",
+                                                "second_phone_type": "Home",
                                                 "state": "CA",
                                                 "street": "123 MAIN ST",
                                                 "zip_code": "94105-1804",
@@ -4095,8 +4127,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "phone_type": "Cell",
                                                   "primary_language": null,
                                                   "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                  "second_phone": null,
-                                                  "second_phone_type": null,
+                                                  "second_phone": "9548883321",
+                                                  "second_phone_type": "Home",
                                                   "state": "CA",
                                                   "street": "123 MAIN ST",
                                                   "zip_code": "94105-1804",
@@ -4234,8 +4266,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "primary_language": null,
                                                   "relationship_to_applicant": undefined,
                                                   "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                  "second_phone": null,
-                                                  "second_phone_type": null,
+                                                  "second_phone": "9548883321",
+                                                  "second_phone_type": "Home",
                                                   "state": "CA",
                                                   "street": "123 MAIN ST",
                                                   "zip_code": "94105-1804",
@@ -4261,7 +4293,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "has_ada_priorities_selected": Object {
                                                   "": true,
                                                 },
+                                                "has_completed_homebuyer_education": undefined,
                                                 "has_developmental_disability": null,
+                                                "has_loan_preapproval": undefined,
                                                 "has_military_service": null,
                                                 "hh_total_income_with_assets_annual": undefined,
                                                 "household_assets": null,
@@ -4302,8 +4336,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 ],
                                                 "housing_voucher_or_subsidy": "true",
                                                 "id": "a0o0x000000OcOzAAK",
+                                                "is_first_time_homebuyer": undefined,
                                                 "is_lottery_complete": false,
                                                 "lease": undefined,
+                                                "lending_agent": undefined,
                                                 "listing": Object {
                                                   "account": Object {},
                                                   "building": Object {},
@@ -4394,8 +4430,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "primary_language": null,
                                                   "relationship_to_applicant": undefined,
                                                   "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                  "second_phone": null,
-                                                  "second_phone_type": null,
+                                                  "second_phone": "9548883321",
+                                                  "second_phone_type": "Home",
                                                   "state": "CA",
                                                   "street": "123 MAIN ST",
                                                   "zip_code": "94105-1804",
@@ -4505,8 +4541,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "phone_type": "Cell",
                                                     "primary_language": null,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -4645,8 +4681,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "primary_language": null,
                                                     "relationship_to_applicant": undefined,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -4672,7 +4708,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "has_ada_priorities_selected": Object {
                                                     "": true,
                                                   },
+                                                  "has_completed_homebuyer_education": undefined,
                                                   "has_developmental_disability": null,
+                                                  "has_loan_preapproval": undefined,
                                                   "has_military_service": null,
                                                   "hh_total_income_with_assets_annual": undefined,
                                                   "household_assets": null,
@@ -4713,8 +4751,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   ],
                                                   "housing_voucher_or_subsidy": "true",
                                                   "id": "a0o0x000000OcOzAAK",
+                                                  "is_first_time_homebuyer": undefined,
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
+                                                  "lending_agent": undefined,
                                                   "listing": Object {
                                                     "account": Object {},
                                                     "building": Object {},
@@ -4803,8 +4843,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "primary_language": null,
                                                     "relationship_to_applicant": undefined,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -5077,8 +5117,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "phone_type": "Cell",
                                           "primary_language": null,
                                           "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                          "second_phone": null,
-                                          "second_phone_type": null,
+                                          "second_phone": "9548883321",
+                                          "second_phone_type": "Home",
                                           "state": "CA",
                                           "street": "123 MAIN ST",
                                           "zip_code": "94105-1804",
@@ -5937,8 +5977,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "phone_type": "Cell",
                                                     "primary_language": null,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -6278,8 +6318,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                     "phone_type": "Cell",
                                                                     "primary_language": null,
                                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                    "second_phone": null,
-                                                                    "second_phone_type": null,
+                                                                    "second_phone": "9548883321",
+                                                                    "second_phone_type": "Home",
                                                                     "state": "CA",
                                                                     "street": "123 MAIN ST",
                                                                     "zip_code": "94105-1804",
@@ -6389,6 +6429,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <label
                                                                 className="form-label"
                                                                 htmlFor="household_assets"
+                                                                key="household_assets_label"
                                                               >
                                                                 Household Assets 
                                                               </label>
@@ -6396,6 +6437,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 className=""
                                                                 field="household_assets"
                                                                 id="household_assets"
+                                                                key="household_assets_children"
                                                                 placeholder="Enter Amount"
                                                               >
                                                                 <t
@@ -6506,8 +6548,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         "phone_type": "Cell",
                                                                         "primary_language": null,
                                                                         "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                        "second_phone": null,
-                                                                        "second_phone_type": null,
+                                                                        "second_phone": "9548883321",
+                                                                        "second_phone_type": "Home",
                                                                         "state": "CA",
                                                                         "street": "123 MAIN ST",
                                                                         "zip_code": "94105-1804",
@@ -6705,8 +6747,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                     "phone_type": "Cell",
                                                                     "primary_language": null,
                                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                    "second_phone": null,
-                                                                    "second_phone_type": null,
+                                                                    "second_phone": "9548883321",
+                                                                    "second_phone_type": "Home",
                                                                     "state": "CA",
                                                                     "street": "123 MAIN ST",
                                                                     "zip_code": "94105-1804",
@@ -6816,6 +6858,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <label
                                                                 className="form-label"
                                                                 htmlFor="confirmed_household_annual_income"
+                                                                key="confirmed_household_annual_income_label"
                                                               >
                                                                 Confirmed Annual Income 
                                                               </label>
@@ -6823,6 +6866,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 className=""
                                                                 field="confirmed_household_annual_income"
                                                                 id="confirmed_household_annual_income"
+                                                                key="confirmed_household_annual_income_children"
                                                                 placeholder="Enter Amount"
                                                               >
                                                                 <t
@@ -6933,8 +6977,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         "phone_type": "Cell",
                                                                         "primary_language": null,
                                                                         "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                        "second_phone": null,
-                                                                        "second_phone_type": null,
+                                                                        "second_phone": "9548883321",
+                                                                        "second_phone_type": "Home",
                                                                         "state": "CA",
                                                                         "street": "123 MAIN ST",
                                                                         "zip_code": "94105-1804",
@@ -7138,8 +7182,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                     "phone_type": "Cell",
                                                                     "primary_language": null,
                                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                    "second_phone": null,
-                                                                    "second_phone_type": null,
+                                                                    "second_phone": "9548883321",
+                                                                    "second_phone_type": "Home",
                                                                     "state": "CA",
                                                                     "street": "123 MAIN ST",
                                                                     "zip_code": "94105-1804",
@@ -7249,6 +7293,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               <label
                                                                 className="form-label"
                                                                 htmlFor="hh_total_income_with_assets_annual"
+                                                                key="hh_total_income_with_assets_annual_label"
                                                               >
                                                                 Final Household Annual Income 
                                                               </label>
@@ -7256,6 +7301,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                 className=""
                                                                 field="hh_total_income_with_assets_annual"
                                                                 id="hh_total_income_with_assets_annual"
+                                                                key="hh_total_income_with_assets_annual_children"
                                                                 placeholder="Enter Amount"
                                                               >
                                                                 <t
@@ -7366,8 +7412,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                         "phone_type": "Cell",
                                                                         "primary_language": null,
                                                                         "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                                        "second_phone": null,
-                                                                        "second_phone_type": null,
+                                                                        "second_phone": "9548883321",
+                                                                        "second_phone_type": "Home",
                                                                         "state": "CA",
                                                                         "street": "123 MAIN ST",
                                                                         "zip_code": "94105-1804",
@@ -7571,8 +7617,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "phone_type": "Cell",
                                           "primary_language": null,
                                           "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                          "second_phone": null,
-                                          "second_phone_type": null,
+                                          "second_phone": "9548883321",
+                                          "second_phone_type": "Home",
                                           "state": "CA",
                                           "street": "123 MAIN ST",
                                           "zip_code": "94105-1804",
@@ -7768,8 +7814,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "phone_type": "Cell",
                                                   "primary_language": null,
                                                   "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                  "second_phone": null,
-                                                  "second_phone_type": null,
+                                                  "second_phone": "9548883321",
+                                                  "second_phone_type": "Home",
                                                   "state": "CA",
                                                   "street": "123 MAIN ST",
                                                   "zip_code": "94105-1804",
@@ -7943,8 +7989,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "phone_type": "Cell",
                                                     "primary_language": null,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -8081,8 +8127,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "primary_language": null,
                                                     "relationship_to_applicant": undefined,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -8108,7 +8154,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "has_ada_priorities_selected": Object {
                                                     "": true,
                                                   },
+                                                  "has_completed_homebuyer_education": undefined,
                                                   "has_developmental_disability": null,
+                                                  "has_loan_preapproval": undefined,
                                                   "has_military_service": null,
                                                   "hh_total_income_with_assets_annual": undefined,
                                                   "household_assets": null,
@@ -8149,8 +8197,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   ],
                                                   "housing_voucher_or_subsidy": "true",
                                                   "id": "a0o0x000000OcOzAAK",
+                                                  "is_first_time_homebuyer": undefined,
                                                   "is_lottery_complete": false,
                                                   "lease": undefined,
+                                                  "lending_agent": undefined,
                                                   "listing": Object {
                                                     "account": Object {},
                                                     "building": Object {},
@@ -8239,8 +8289,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "primary_language": null,
                                                     "relationship_to_applicant": undefined,
                                                     "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                    "second_phone": null,
-                                                    "second_phone_type": null,
+                                                    "second_phone": "9548883321",
+                                                    "second_phone_type": "Home",
                                                     "state": "CA",
                                                     "street": "123 MAIN ST",
                                                     "zip_code": "94105-1804",
@@ -8968,6 +9018,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                     <label
                                                                       className="form-label"
                                                                       htmlFor="total_monthly_rent_without_parking"
+                                                                      key="total_monthly_rent_without_parking_label"
                                                                     >
                                                                       Monthly Rent 
                                                                     </label>
@@ -8975,6 +9026,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       className=""
                                                                       field="total_monthly_rent_without_parking"
                                                                       id="total_monthly_rent_without_parking"
+                                                                      key="total_monthly_rent_without_parking_children"
                                                                       placeholder="Enter Amount"
                                                                     >
                                                                       <t
@@ -9125,6 +9177,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                     <label
                                                                       className="form-label"
                                                                       htmlFor="monthly_parking_rent"
+                                                                      key="monthly_parking_rent_label"
                                                                     >
                                                                       Monthly Parking Cost 
                                                                     </label>
@@ -9132,6 +9185,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       className=""
                                                                       field="monthly_parking_rent"
                                                                       id="monthly_parking_rent"
+                                                                      key="monthly_parking_rent_children"
                                                                       placeholder="Enter Amount"
                                                                     >
                                                                       <t
@@ -9282,6 +9336,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                     <label
                                                                       className="form-label"
                                                                       htmlFor="monthly_tenant_contribution"
+                                                                      key="monthly_tenant_contribution_label"
                                                                     >
                                                                       Monthly Tenant Contribution 
                                                                     </label>
@@ -9289,6 +9344,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                                       className=""
                                                                       field="monthly_tenant_contribution"
                                                                       id="monthly_tenant_contribution"
+                                                                      key="monthly_tenant_contribution_children"
                                                                       placeholder="Enter Amount"
                                                                     >
                                                                       <t
@@ -9454,8 +9510,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       "primary_language": null,
                                                       "relationship_to_applicant": undefined,
                                                       "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                      "second_phone": null,
-                                                      "second_phone_type": null,
+                                                      "second_phone": "9548883321",
+                                                      "second_phone_type": "Home",
                                                       "state": "CA",
                                                       "street": "123 MAIN ST",
                                                       "zip_code": "94105-1804",
@@ -9481,7 +9537,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     "has_ada_priorities_selected": Object {
                                                       "": true,
                                                     },
+                                                    "has_completed_homebuyer_education": undefined,
                                                     "has_developmental_disability": null,
+                                                    "has_loan_preapproval": undefined,
                                                     "has_military_service": null,
                                                     "hh_total_income_with_assets_annual": undefined,
                                                     "household_assets": null,
@@ -9522,8 +9580,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     ],
                                                     "housing_voucher_or_subsidy": "true",
                                                     "id": "a0o0x000000OcOzAAK",
+                                                    "is_first_time_homebuyer": undefined,
                                                     "is_lottery_complete": false,
                                                     "lease": undefined,
+                                                    "lending_agent": undefined,
                                                     "listing": Object {
                                                       "account": Object {},
                                                       "building": Object {},
@@ -9612,8 +9672,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       "primary_language": null,
                                                       "relationship_to_applicant": undefined,
                                                       "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                      "second_phone": null,
-                                                      "second_phone_type": null,
+                                                      "second_phone": "9548883321",
+                                                      "second_phone_type": "Home",
                                                       "state": "CA",
                                                       "street": "123 MAIN ST",
                                                       "zip_code": "94105-1804",
@@ -10551,8 +10611,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "primary_language": null,
                                                 "relationship_to_applicant": undefined,
                                                 "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                "second_phone": null,
-                                                "second_phone_type": null,
+                                                "second_phone": "9548883321",
+                                                "second_phone_type": "Home",
                                                 "state": "CA",
                                                 "street": "123 MAIN ST",
                                                 "zip_code": "94105-1804",
@@ -10578,7 +10638,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "has_ada_priorities_selected": Object {
                                                 "": true,
                                               },
+                                              "has_completed_homebuyer_education": undefined,
                                               "has_developmental_disability": null,
+                                              "has_loan_preapproval": undefined,
                                               "has_military_service": null,
                                               "hh_total_income_with_assets_annual": undefined,
                                               "household_assets": null,
@@ -10619,8 +10681,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               ],
                                               "housing_voucher_or_subsidy": "true",
                                               "id": "a0o0x000000OcOzAAK",
+                                              "is_first_time_homebuyer": undefined,
                                               "is_lottery_complete": false,
                                               "lease": undefined,
+                                              "lending_agent": undefined,
                                               "listing": Object {
                                                 "account": Object {},
                                                 "building": Object {},
@@ -10709,8 +10773,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "primary_language": null,
                                                 "relationship_to_applicant": undefined,
                                                 "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                                "second_phone": null,
-                                                "second_phone_type": null,
+                                                "second_phone": "9548883321",
+                                                "second_phone_type": "Home",
                                                 "state": "CA",
                                                 "street": "123 MAIN ST",
                                                 "zip_code": "94105-1804",
@@ -10979,8 +11043,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "primary_language": null,
                                             "relationship_to_applicant": undefined,
                                             "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                            "second_phone": null,
-                                            "second_phone_type": null,
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
                                             "state": "CA",
                                             "street": "123 MAIN ST",
                                             "zip_code": "94105-1804",
@@ -11006,7 +11070,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_ada_priorities_selected": Object {
                                             "": true,
                                           },
+                                          "has_completed_homebuyer_education": undefined,
                                           "has_developmental_disability": null,
+                                          "has_loan_preapproval": undefined,
                                           "has_military_service": null,
                                           "hh_total_income_with_assets_annual": undefined,
                                           "household_assets": null,
@@ -11047,8 +11113,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           ],
                                           "housing_voucher_or_subsidy": "true",
                                           "id": "a0o0x000000OcOzAAK",
+                                          "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
                                           "lease": undefined,
+                                          "lending_agent": undefined,
                                           "listing": Object {
                                             "account": Object {},
                                             "building": Object {},
@@ -11137,8 +11205,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "primary_language": null,
                                             "relationship_to_applicant": undefined,
                                             "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                            "second_phone": null,
-                                            "second_phone_type": null,
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
                                             "state": "CA",
                                             "street": "123 MAIN ST",
                                             "zip_code": "94105-1804",
@@ -11375,6 +11443,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       onRequestClose={[Function]}
                                       parentSelector={[Function]}
                                       portalClassName="ReactModalPortal"
+                                      role="dialog"
                                       shouldCloseOnEsc={true}
                                       shouldCloseOnOverlayClick={true}
                                       shouldFocusAfterRender={true}
@@ -11443,6 +11512,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           onRequestClose={[Function]}
                                           parentSelector={[Function]}
                                           portalClassName="ReactModalPortal"
+                                          role="dialog"
                                           shouldCloseOnEsc={true}
                                           shouldCloseOnOverlayClick={true}
                                           shouldFocusAfterRender={true}
@@ -11505,6 +11575,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
           onRequestClose={[Function]}
           parentSelector={[Function]}
           portalClassName="ReactModalPortal"
+          role="dialog"
           shouldCloseOnEsc={true}
           shouldCloseOnOverlayClick={true}
           shouldFocusAfterRender={true}
@@ -11573,6 +11644,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
               onRequestClose={[Function]}
               parentSelector={[Function]}
               portalClassName="ReactModalPortal"
+              role="dialog"
               shouldCloseOnEsc={true}
               shouldCloseOnOverlayClick={true}
               shouldFocusAfterRender={true}

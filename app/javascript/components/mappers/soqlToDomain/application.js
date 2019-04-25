@@ -54,6 +54,10 @@ export const mapApplication = (a) => {
     number_of_minors: a.Number_of_Minors,
     processing_status: a.Processing_Status,
     status_last_updated: a.Status_Last_Updated,
-    reserved_senior: a.Reserved_Senior
+    reserved_senior: a.Reserved_Senior,
+    is_first_time_homebuyer: a.Is_First_Time_Homebuyer,
+    has_completed_homebuyer_education: a.Has_Completed_Homebuyer_Education,
+    has_loan_preapproval: a.Has_Loan_Pre_approval,
+    lending_agent: a.Lending_Agent
   }
 }

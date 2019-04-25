@@ -15,12 +15,13 @@ module Force
 
     def listing(id)
       show_fields = query_fields(:show)
-      query_first(%(
+      listing = query_first(%(
         SELECT #{show_fields},
         #{subqueries}
         FROM Listing__c
         WHERE Id='#{id}'
       ))
+      map_listing(listing)
     end
 
     def subqueries
@@ -41,6 +42,21 @@ module Force
         FROM Unit__c
         WHERE Listing__c = '#{listing_id}'
       ))
+    end
+
+    def sale?(listing)
+      listing.Tenure == 'New sale' || listing.Tenure == 'Resale'
+    end
+
+    private
+
+    # we want to map all fields server side in future
+    def map_listing(listing)
+      if listing
+        listing.isSale = sale?(listing)
+        listing.isRental = !listing.isSale
+      end
+      listing
     end
   end
 end

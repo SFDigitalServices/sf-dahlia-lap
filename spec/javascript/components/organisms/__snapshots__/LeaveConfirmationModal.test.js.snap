@@ -18,6 +18,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
       onRequestClose={[MockFunction]}
       parentSelector={[Function]}
       portalClassName="ReactModalPortal"
+      role="dialog"
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
       shouldFocusAfterRender={true}
@@ -51,12 +52,12 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
             class="ReactModalPortal"
           >
             <div
-              aria-modal="true"
               class="ReactModal__Overlay ReactModal__Overlay--after-open"
               style="position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.3);"
             >
               <div
                 class="ReactModal__Content ReactModal__Content--after-open"
+                role="dialog"
                 style="position: fixed; top: 50%; left: 50%; border: 0px; background: rgb(255, 255, 255); overflow: visible; border-radius: 4px; outline: none; padding: 0px; opacity: 1; min-height: 10rem; transform: translate(-50%,-50%); width: 600px;"
                 tabindex="-1"
               >
@@ -169,6 +170,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
           onRequestClose={[MockFunction]}
           parentSelector={[Function]}
           portalClassName="ReactModalPortal"
+          role="dialog"
           shouldCloseOnEsc={true}
           shouldCloseOnOverlayClick={true}
           shouldFocusAfterRender={true}
@@ -197,7 +199,6 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
           }
         >
           <div
-            aria-modal="true"
             className="ReactModal__Overlay ReactModal__Overlay--after-open"
             onClick={[Function]}
             onMouseDown={[Function]}
@@ -218,6 +219,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
               onKeyDown={[Function]}
               onMouseDown={[Function]}
               onMouseUp={[Function]}
+              role="dialog"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",

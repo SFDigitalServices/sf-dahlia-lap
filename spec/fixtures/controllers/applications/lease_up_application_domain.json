@@ -25,6 +25,10 @@
   "annual_income": 5000.0,
   "terms_acknowledged": true,
   "has_ada_priorities_selected": null,
+  "has_completed_homebuyer_education": false,
+  "has_loan_preapproval": false,
+  "is_first_time_homebuyer": false,
+  "lending_agent": null,
   "applicant": {
     "zip_code": "00000",
     "state": "CA",

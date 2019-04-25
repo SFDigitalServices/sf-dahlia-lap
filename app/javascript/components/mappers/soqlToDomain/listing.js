@@ -79,6 +79,8 @@ export const mapListing = (l) => {
     nflagged_applications: l.nFlagged_Applications,
     units_available: l.Units_Available,
     lease_signed_application: l.Lease_Signed_Application,
-    last_modified_date: l.LastModifiedDate
+    last_modified_date: l.LastModifiedDate,
+    is_sale: l.isSale,
+    is_rental: l.isRental
   })
 }

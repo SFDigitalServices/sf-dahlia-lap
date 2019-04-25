@@ -54,7 +54,7 @@
   "Status": "Submitted",
   "Total_Household_Size": 1.0,
   "Application_Submission_Type": "Electronic",
-  "Application_Submitted_Date": "2019-03-26",
+  "Application_Submitted_Date": "2019-04-09",
   "CreatedBy": {
     "attributes": {
       "type": "User",
@@ -63,9 +63,12 @@
     "Name": "DAHLIA API"
   },
   "Annual_Income": 5000.0,
-  "Confirmed_Household_Annual_Income": 174.08,
-  "Household_Assets": 689.51,
-  "HH_Total_Income_with_Assets_Annual": 261.37,
+  "Confirmed_Household_Annual_Income": 243.73,
+  "Household_Assets": 253.19,
+  "HH_Total_Income_with_Assets_Annual": 853.42,
+  "Has_Completed_Homebuyer_Education": false,
+  "Has_Loan_Pre_approval": false,
+  "Is_First_Time_Homebuyer": false,
   "Monthly_Income": null,
   "Is_Lottery_Complete": true,
   "Housing_Voucher_or_Subsidy": "true",
@@ -85,7 +88,8 @@
   "Number_of_Dependents": 1.0,
   "Number_of_Seniors": null,
   "Number_of_Minors": null,
-  "Processing_Status": "Processing",
+  "Processing_Status": "Withdrawn",
+  "Lending_Agent": null,
   "preferences": [
     {
       "attributes": {
@@ -161,7 +165,7 @@
       "State": null,
       "Street": null,
       "Zip_Code": null,
-      "Post_Lottery_Validation": "Unconfirmed",
+      "Post_Lottery_Validation": "Confirmed",
       "Total_Household_Rent": 0.0
     },
     {
@@ -306,7 +310,7 @@
       "State": null,
       "Street": null,
       "Zip_Code": null,
-      "Post_Lottery_Validation": "Unconfirmed",
+      "Post_Lottery_Validation": "Confirmed",
       "Total_Household_Rent": 0.0
     },
     {
@@ -396,12 +400,16 @@
   "lease": {
     "id": "a130P000005TeZrQAK",
     "unit": "a0b0P00001HIHrnQAH",
-    "lease_start_date": ["2019", "01", "01"],
+    "lease_start_date": [
+      "2019",
+      "01",
+      "01"
+    ],
     "lease_status": "Draft",
-    "monthly_parking_rent": 545.6,
+    "monthly_parking_rent": 898.86,
     "preference_used": null,
     "no_preference_used": true,
-    "total_monthly_rent_without_parking": 600.86,
-    "monthly_tenant_contribution": 467.87
+    "total_monthly_rent_without_parking": 766.86,
+    "monthly_tenant_contribution": 787.84
   }
 }
