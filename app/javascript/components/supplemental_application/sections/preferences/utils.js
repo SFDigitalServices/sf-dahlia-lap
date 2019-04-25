@@ -54,7 +54,7 @@ export const getPreferenceName = (preference) => {
   }
 }
 
-export const statusOptions = formUtils.toOptions(['Confirmed', 'Unconfirmed', 'Invalid'])
+export const statusOptions = formUtils.toOptions(['Unconfirmed', 'Confirmed', 'Invalid'])
 
 export const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
 

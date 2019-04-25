@@ -2106,6 +2106,7 @@ Array [
                 className="-pageJump"
               >
                 <input
+                  aria-label="jump to page"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyPress={[Function]}
@@ -2126,50 +2127,39 @@ Array [
               className="select-wrap -pageSizeOptions"
             >
               <select
+                aria-label="rows per page"
                 onChange={[Function]}
                 value={20}
               >
                 <option
                   value={5}
                 >
-                  5
-                   
-                  rows
+                  5 rows
                 </option>
                 <option
                   value={10}
                 >
-                  10
-                   
-                  rows
+                  10 rows
                 </option>
                 <option
                   value={20}
                 >
-                  20
-                   
-                  rows
+                  20 rows
                 </option>
                 <option
                   value={25}
                 >
-                  25
-                   
-                  rows
+                  25 rows
                 </option>
                 <option
                   value={50}
                 >
-                  50
-                   
-                  rows
+                  50 rows
                 </option>
                 <option
                   value={100}
                 >
-                  100
-                   
-                  rows
+                  100 rows
                 </option>
               </select>
             </span>

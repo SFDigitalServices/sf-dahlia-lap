@@ -23,6 +23,7 @@ jest.mock('apiService', () => {
 describe('PaperApplicationForm', () => {
   beforeEach(() => {
     applicationWithInvalidAnnualIncome['annual_income'] = 'foo'
+    applicationWithInvalidAnnualIncome['application_language'] = null
   })
 
   describe('should validate fields correctly: ', () => {
@@ -65,6 +66,23 @@ describe('PaperApplicationForm', () => {
         `${errorMsgWrapperSel} > ` +
         `${errorMsgSel}.error`
       expect(wrapper.find(errorElementsSel).text()).toEqual('Please enter a valid dollar amount.')
+    })
+
+    test('Language', async () => {
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          application={applicationWithInvalidAnnualIncome}
+        />
+      )
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).toContain('Please select a language.')
+      wrapper.find('#application_language select').simulate('change', { target: { value: 1 } })
+      wrapper.find('form').first().simulate('submit')
+      expect(wrapper.text()).not.toContain('Please select a language.')
     })
   })
 
