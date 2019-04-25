@@ -31,6 +31,7 @@ describe('validate', () => {
     describe('fails validation if email', () => {
       test('is not a valid email', () => {
         expect(validate.isValidEmail(VALIDATION_MSG)('test.com')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidEmail(VALIDATION_MSG)('test@test.com`')).toEqual(VALIDATION_MSG)
       })
     })
   })
