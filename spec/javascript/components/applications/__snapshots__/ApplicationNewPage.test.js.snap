@@ -50,40 +50,54 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Language Submitted In
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={0}
+                    <div
+                      className="form-group"
                     >
-                      <option
+                      <label
+                        className="form-label"
+                        htmlFor="application_language"
+                      >
+                        Language Submitted In 
+                        <span
+                          className="checkbox-block_note no-margin"
+                        >
+                          (required)
+                        </span>
+                      </label>
+                      <select
+                        className=""
+                        id="application_language"
+                        onBlur={[Function]}
+                        onChange={[Function]}
                         value={0}
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
-                      >
-                        English
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Chinese
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Spanish
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Filipino
-                      </option>
-                    </select>
+                        <option
+                          value={0}
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value={1}
+                        >
+                          English
+                        </option>
+                        <option
+                          value={2}
+                        >
+                          Chinese
+                        </option>
+                        <option
+                          value={3}
+                        >
+                          Spanish
+                        </option>
+                        <option
+                          value={4}
+                        >
+                          Filipino
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -201,7 +215,7 @@ Array [
                     className="small-4 columns"
                   >
                     <label>
-                      Phone
+                      Primary Phone Number
                     </label>
                     <input
                       maxLength={40}
@@ -214,7 +228,7 @@ Array [
                     className="small-4 columns"
                   >
                     <label>
-                      Phone Type
+                      Primary Phone Number- Type
                     </label>
                     <select
                       onBlur={[Function]}
@@ -310,6 +324,52 @@ Array [
                         className="d-inline-block"
                       />
                     </div>
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Second Phone Number
+                    </label>
+                    <input
+                      maxLength={40}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="small-4 columns"
+                  >
+                    <label>
+                      Second Phone Number- Type
+                    </label>
+                    <select
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      value={0}
+                    >
+                      <option
+                        value={0}
+                      >
+                        Select One...
+                      </option>
+                      <option
+                        value={1}
+                      >
+                        Home
+                      </option>
+                      <option
+                        value={2}
+                      >
+                        Cell
+                      </option>
+                      <option
+                        value={3}
+                      >
+                        Work
+                      </option>
+                    </select>
                   </div>
                 </div>
                 <div>

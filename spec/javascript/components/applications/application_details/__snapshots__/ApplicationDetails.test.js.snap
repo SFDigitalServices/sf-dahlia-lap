@@ -176,6 +176,18 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
             <h4
               className="t-sans t-small t-bold no-margin"
             >
+              Middle Name
+            </h4>
+            <p>
+              elizabeth
+            </p>
+          </div>
+          <div
+            className="margin-bottom--half"
+          >
+            <h4
+              className="t-sans t-small t-bold no-margin"
+            >
               Last Name
             </h4>
             <p>
@@ -200,10 +212,10 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
             <h4
               className="t-sans t-small t-bold no-margin"
             >
-              Phone
+              Email
             </h4>
             <p>
-              9548883321
+              eee@eeee.com
             </p>
           </div>
         </div>
@@ -214,6 +226,30 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
         <div
           className="content-card"
         >
+          <div
+            className="margin-bottom--half"
+          >
+            <h4
+              className="t-sans t-small t-bold no-margin"
+            >
+              Phone
+            </h4>
+            <p>
+              9548883321
+            </p>
+          </div>
+          <div
+            className="margin-bottom--half"
+          >
+            <h4
+              className="t-sans t-small t-bold no-margin"
+            >
+              Phone Type
+            </h4>
+            <p>
+              Cell
+            </p>
+          </div>
           <div
             className="margin-bottom--half"
           >
@@ -232,10 +268,10 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
             <h4
               className="t-sans t-small t-bold no-margin"
             >
-              Email
+              Second Phone Type
             </h4>
             <p>
-              eee@eeee.com
+              None
             </p>
           </div>
           <div
@@ -301,6 +337,18 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
             <h4
               className="t-sans t-small t-bold no-margin"
             >
+              Middle Name
+            </h4>
+            <p>
+              Daaaa
+            </p>
+          </div>
+          <div
+            className="margin-bottom--half"
+          >
+            <h4
+              className="t-sans t-small t-bold no-margin"
+            >
               Last Name
             </h4>
             <p>
@@ -325,10 +373,10 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
             <h4
               className="t-sans t-small t-bold no-margin"
             >
-              Agency Name
+              Phone Type
             </h4>
             <p>
-              None
+              Cell
             </p>
           </div>
         </div>
@@ -339,6 +387,18 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
         <div
           className="content-card"
         >
+          <div
+            className="margin-bottom--half"
+          >
+            <h4
+              className="t-sans t-small t-bold no-margin"
+            >
+              Agency Name
+            </h4>
+            <p>
+              None
+            </p>
+          </div>
           <div
             className="margin-bottom--half"
           >

@@ -129,6 +129,7 @@ GEM
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    newrelic_rpm (6.2.0.354)
     nio4r (2.3.1)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
@@ -350,6 +351,7 @@ DEPENDENCIES
   hashie (~> 3.5)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  newrelic_rpm
   omniauth-salesforce (~> 1.0)
   overcommit
   pg (~> 0.21.0)
