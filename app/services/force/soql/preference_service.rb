@@ -44,6 +44,7 @@ module Force
                .select(query_fields(:app_preferences_for_listing))
                .where("Listing_Preference_ID__c IN (#{listing_subquery(opts[:listing_id])})")
                .where('Preference_Lottery_Rank__c != NULL')
+               .where_eq('Receives_Preference__c', true)
                .paginate(opts)
                .order_by('Preference_Order__c', 'Preference_Lottery_Rank__c')
                .transform_results { |results| massage(results) }

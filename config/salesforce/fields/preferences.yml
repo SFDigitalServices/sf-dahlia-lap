@@ -41,6 +41,7 @@ preferences:
     Preference_Order__c:
     Post_Lottery_Validation__c:
     Preference_Lottery_Rank__c:
+    Receives_Preference__c:
     Application__r.Processing_Status__c:
       label: 'Lease Up Status'
     LastModifiedDate:
