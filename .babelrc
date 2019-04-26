@@ -1,31 +1,30 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false,
         "targets": {
           "browsers": "> 1%",
           "uglify": true
         },
-        "useBuiltIns": true
+        "useBuiltIns": false
       }
     ],
-    "react"
+    "@babel/react"
   ],
   "plugins": [
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    "transform-async-to-generator",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-async-to-generator",
     ["babel-plugin-root-import", {
       "rootPathSuffix": "app/javascript"
     }],
-    ["transform-runtime", {
-      "polyfill": false,
+    ["@babel/plugin-transform-runtime", {
       "regenerator": true
     }],
     [
-      "transform-class-properties",
+      "@babel/plugin-proposal-class-properties",
       {
         "spec": true
       }
@@ -33,20 +32,19 @@
   ],
   "env": {
     "test": {
-      "presets": [["env"], "react"],
+      "presets": [["@babel/env"], "@babel/react"],
       "plugins": [
-        "syntax-dynamic-import",
-        "transform-object-rest-spread",
-        "transform-async-to-generator",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-async-to-generator",
         ["babel-plugin-root-import", {
           "rootPathSuffix": "app/javascript"
         }],
-        ["transform-runtime", {
-          "polyfill": false,
+        ["@babel/plugin-transform-runtime", {
           "regenerator": true
         }],
         [
-          "transform-class-properties",
+          "@babel/plugin-proposal-class-properties",
           {
             "spec": true
           }
