@@ -1,5 +1,5 @@
 import React from 'react'
-import { map, reject, isEmpty, overSome, findIndex, orderBy, kebabCase } from 'lodash'
+import { map, reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -21,9 +21,7 @@ const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
-    return !pref.receives_preference ||
-           pref.lottery_status === 'Invalid for lottery' ||
-           isEmpty(pref.application_member)
+    return !pref.receives_preference
   })
 }
 
