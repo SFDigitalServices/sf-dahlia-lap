@@ -11,7 +11,8 @@ import {
   alternateContactFields,
   householdMembersFields,
   applicationPreferencesFields,
-  reservedAndPriorityFields
+  reservedAndPriorityFields,
+  applicationEligibilityFields
 } from './fields'
 
 const FileDownloadUrl = (fileBaseUrl, file) => {
@@ -42,8 +43,26 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   const Table = (props) => (
     <ApplicationDetailsContentTable data={application} {...props} />
   )
+  const EligibilityCard = ({application, fields, labelMapper}) => {
+    if (application.listing.is_sale) {
+      return (
+        <ApplicationCard
+          title='Eligibility'
+          fields={fields}
+          labelMapper={labelMapper}
+        />
+      )
+    } else {
+      return null
+    }
+  }
   return (
     <div className='application-details'>
+      <EligibilityCard
+        application={application}
+        fields={applicationEligibilityFields}
+        labelMapper={fields}
+      />
       <ApplicationCard
         title='Application Data'
         fields={applicationDataFields}

@@ -1,13 +1,16 @@
 import React from 'react'
-import { map } from 'lodash'
+import { map, isBoolean } from 'lodash'
 import { buildFields } from '~/utils/fieldSpecs'
 import arrayUtils from '~/utils/arrayUtils'
 
 var generateContent = (dataCollection, entry, i) => {
   if (dataCollection == null) { return }
 
-  const { value, label } = entry
-
+  const { label } = entry
+  let { value } = entry
+  if (isBoolean(value)) {
+    value = value ? 'Yes' : 'No'
+  }
   return (
     <div className='margin-bottom--half' key={i}>
       <h4 className='t-sans t-small t-bold no-margin'>
