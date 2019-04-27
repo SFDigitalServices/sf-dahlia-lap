@@ -1,5 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+require 'salesforce_logout_app'
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -167,7 +168,12 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  # config.timeout_in = 30.minutes
+  config.timeout_in = 30.minutes
+
+  # Adds a failure app that logs out the users from salesforce
+  config.warden do |manager|
+    manager.failure_app = SalesforceLogoutApp
+  end
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -288,4 +294,9 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+end
+
+# Pass a message to warden if user is an admin
+Warden::Manager.before_logout do |user,auth,opts|
+  auth.params[:admin] = user.admin?
 end

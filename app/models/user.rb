@@ -4,7 +4,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
-  devise :omniauthable, :trackable
+  devise :omniauthable, :trackable, :timeoutable
 
   def self.from_omniauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid, email: auth.extra.username).first ||
