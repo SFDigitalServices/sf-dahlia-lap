@@ -72,9 +72,9 @@ describe('ApplicationPage', () => {
           fields={fields} />
       )
       // Should have Eligibility section
-      expect(wrapper.find('.content-card_title').first().text()).toEqual('Eligibility')
+      expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
       // Should fill in Name of Lender
-      expect(wrapper.find('.content-card').first().text()).toContain('Jason Lockhart')
+      expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
     })
   })
 })

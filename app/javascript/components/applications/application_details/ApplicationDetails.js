@@ -43,26 +43,9 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   const Table = (props) => (
     <ApplicationDetailsContentTable data={application} {...props} />
   )
-  const EligibilityCard = ({application, fields, labelMapper}) => {
-    if (application.listing.is_sale) {
-      return (
-        <ApplicationCard
-          title='Eligibility'
-          fields={fields}
-          labelMapper={labelMapper}
-        />
-      )
-    } else {
-      return null
-    }
-  }
+
   return (
     <div className='application-details'>
-      <EligibilityCard
-        application={application}
-        fields={applicationEligibilityFields}
-        labelMapper={fields}
-      />
       <ApplicationCard
         title='Application Data'
         fields={applicationDataFields}
@@ -73,6 +56,14 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
         title='Primary Applicant'
         fields={primaryApplicantFields}
       />
+      { application.listing.is_sale && (
+        <ApplicationDetailsContentCard
+          title='Eligibility'
+          dataCollection={application}
+          fields={applicationEligibilityFields}
+          labelMapper={fields}
+        />)
+      }
       <ApplicationDetailsContentCard
         dataCollection={application.alternate_contact}
         title='Alternate Contact'
