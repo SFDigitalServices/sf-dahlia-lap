@@ -61,6 +61,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
           title='Eligibility'
           dataCollection={application}
           fields={applicationEligibilityFields}
+          splitOn={3}
           labelMapper={fields}
         />)
       }

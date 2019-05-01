@@ -21,10 +21,10 @@ var generateContent = (dataCollection, entry, i) => {
   )
 }
 
-const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMapper }) => {
+const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMapper, splitOn }) => {
   const entries = buildFields(dataCollection, fields, { defaultValue: 'None' })
   const contents = map(entries, (entry, idx) => generateContent(dataCollection, entry, idx))
-  const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
+  const { firstHalf, secondHalf } = arrayUtils.split(contents, splitOn)
   return (
     <div className='content-card padding-bottom-none margin-bottom--half bg-trans'>
       <h4 className='content-card_title t-serif'>{title}</h4>
