@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
-import { Form } from 'react-form'
+// import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import EligibilitySection from './EligibilitySection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -14,6 +14,8 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
+import { Form, Field } from 'react-final-form'
+
 
 const fieldRequiredMsg = 'is required'
 
@@ -94,6 +96,7 @@ class PaperApplicationForm extends React.Component {
     this.setState({ submittedValues, loading: true, failed: false })
 
     const response = await onSubmit(submitType, submittedValues, application, listing, editPage)
+    // console.log(response)
     if (response === false) {
       this.setState({ loading: false, failed: true })
     }
@@ -109,10 +112,16 @@ class PaperApplicationForm extends React.Component {
     })
   }
 
-  saveSubmitType = (type, formApi) => {
-    const failed = this.hasErrors(formApi.errors)
-    this.setState({submitType: type, failed})
-    if (failed) { window.scrollTo(0, 0) }
+  // saveSubmitType = (type, formApi) => {
+  //   const failed = this.hasErrors(formApi.errors)
+  //   this.setState({submitType: type, failed})
+  //   if (failed) { window.scrollTo(0, 0) }
+  // }
+
+  saveSubmitType = (type) => {
+    // const failed = this.hasErrors(formApi.errors)
+    this.setState({submitType: type})
+    // if (failed) { window.scrollTo(0, 0) }
   }
 
   validateError = (values) => {
@@ -142,9 +151,31 @@ class PaperApplicationForm extends React.Component {
     const { loading, failed } = this.state
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={this.validateError}>
-          { formApi => (
-            <form onSubmit={formApi.submitForm} id='shortForm' noValidate>
+        <Form
+          onSubmit={this.submitShortForm}
+          initialValues={application}
+          validate={ values => {
+            const errors = {applicant: {date_of_birth: {}}}
+            console.log('values', values)
+            if (values.applicant.date_of_birth) {
+              let DOB = [values.applicant.date_of_birth.year, values.applicant.date_of_birth.month, values.applicant.date_of_birth.day]
+              console.log(DOB)
+              if (validate.isPresent('Please enter a Date of Birth')(DOB)) {
+                errors.applicant.date_of_birth.month = 'Not right'
+              }
+            } else {
+              errors.applicant.date_of_birth.month = 'Shouldnt be empty!'
+            }
+            console.log(errors)
+            // date_of_birth: validate.any(
+            //   validate.isPresent('Please enter a Date of Birth'),
+            //   validate.isValidDate('Please enter a valid Date of Birth'),
+            //   validate.isOldEnough('The primary applicant must be 18 years of age or older')
+            // ),
+            return errors
+          }}
+          render={({ handleSubmit, form, submitting, pristine, values }) => (
+            <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
                   { failed && (
@@ -153,10 +184,10 @@ class PaperApplicationForm extends React.Component {
                       onCloseClick={() => this.setState({failed: false})}
                       message='Please resolve any errors before saving the application.' />
                   )}
-                  <ApplicationLanguageSection editValues={application} formApi={formApi} />
-                  <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} formApi={formApi} />
-                  <PrimaryApplicantSection editValues={application} formApi={formApi} />
-                  <AlternateContactSection editValues={application} />
+                  {/* <ApplicationLanguageSection editValues={application} formApi={formApi} /> */}
+                  {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} formApi={formApi} /> */}
+                  <PrimaryApplicantSection form={form} />
+                  {/* <AlternateContactSection editValues={application} />
                   <HouseholdMembersSection editValues={application} formApi={formApi} />
                   <ReservedPrioritySection editValues={application} listing={listing} />
                   <PreferencesSection
@@ -166,14 +197,20 @@ class PaperApplicationForm extends React.Component {
                   />
                   <HouseholdIncomeSection />
                   <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
-                  <AgreeToTerms />
+                  <AgreeToTerms /> */}
                 </div>
                 <div className='button-pager'>
                   <div className='button-pager_row primary'>
-                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
+                    {/* <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
                       {loading ? 'Saving…' : 'Save'}
                     </button>
                     <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
+                      Save and New
+                    </button> */}
+                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
+                      {loading ? 'Saving…' : 'Save'}
+                    </button>
+                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
                       Save and New
                     </button>
                   </div>
@@ -184,7 +221,7 @@ class PaperApplicationForm extends React.Component {
               </div>
             </form>
           )}
-        </Form>
+        />
       </div>
     )
   }

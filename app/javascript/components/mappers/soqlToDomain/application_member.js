@@ -34,5 +34,5 @@ const dateOfBirthToDomain = (dateOfBirth) => {
   // Convert 'YYYY-MM-DD' string to domain format [YYYY, MM, DD]
   if (!dateOfBirth) return null
   const dateParts = dateOfBirth.split('-')
-  return [dateParts[0], dateParts[1], dateParts[2]]
+  return {year: dateParts[0], month: dateParts[1], day: dateParts[2]}
 }

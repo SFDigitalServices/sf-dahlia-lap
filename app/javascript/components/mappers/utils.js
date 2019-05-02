@@ -15,5 +15,6 @@ export const compactShape = obj => omitBy(obj, isUndefined)
 export const domainDateOfBirthToApi = (dateOfBirth) => {
   // Convert domain DOB [YYYY, MM, DD] to API format ('YYYY-MM-DD')
   // Create moment and reformat to ensure that the integers are padded.
-  return dateOfBirth && moment(dateOfBirth.join('-'), API_DATE_FORMAT).format(API_DATE_FORMAT)
+  let DOB = [dateOfBirth.year, dateOfBirth.month, dateOfBirth.day]
+  return dateOfBirth && moment(DOB.join('-'), API_DATE_FORMAT).format(API_DATE_FORMAT)
 }
