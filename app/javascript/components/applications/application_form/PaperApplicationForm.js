@@ -156,22 +156,16 @@ class PaperApplicationForm extends React.Component {
           initialValues={application}
           validate={ values => {
             const errors = {applicant: {date_of_birth: {}}}
-            console.log('values', values)
             if (values.applicant.date_of_birth) {
               let DOB = [values.applicant.date_of_birth.year, values.applicant.date_of_birth.month, values.applicant.date_of_birth.day]
-              console.log(DOB)
-              if (validate.isPresent('Please enter a Date of Birth')(DOB)) {
-                errors.applicant.date_of_birth.month = 'Not right'
-              }
+              errors.applicant.date_of_birth.all = validate.any(
+                validate.isPresent('Please enter a Date of Birth'),
+                validate.isValidDate('Please enter a valid Date of Birth'),
+                validate.isOldEnough('The primary applicant must be 18 years of age or older')
+              )(DOB)
             } else {
-              errors.applicant.date_of_birth.month = 'Shouldnt be empty!'
+              errors.applicant.date_of_birth.all = 'Shouldnt be empty!'
             }
-            console.log(errors)
-            // date_of_birth: validate.any(
-            //   validate.isPresent('Please enter a Date of Birth'),
-            //   validate.isValidDate('Please enter a valid Date of Birth'),
-            //   validate.isOldEnough('The primary applicant must be 18 years of age or older')
-            // ),
             return errors
           }}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
