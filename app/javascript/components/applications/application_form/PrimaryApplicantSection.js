@@ -5,9 +5,10 @@ import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
-import { FieldWrapper, SelectField } from '~/utils/form/Field2'
-import { MultiDateField } from '~/utils/form/MultiDateField'
-import { MultiDateField2 } from '~/utils/form/MultiDateField2'
+import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
+
+// import { MultiDateField } from '~/utils/form/MultiDateField'
+import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
 import { maxLengthMap } from '~/utils/formUtils'
 
@@ -25,8 +26,6 @@ const validationMapper = {
 }
 
 const PrimaryApplicantSection = ({form}) => {
-  console.log('form', form)
-  console.log('form state', form.getState())
   return (
     <div className='border-bottom margin-bottom--2x'>
       <div className='row'>
@@ -89,7 +88,7 @@ const PrimaryApplicantSection = ({form}) => {
       </div>
       <div className='row'>
         <div className='small-4 columns form-date-of-birth'>
-          <MultiDateField2
+          <MultiDateField
             form={form}
             fieldName='applicant.date_of_birth'
             label='Date of Birth'
