@@ -91,6 +91,12 @@ const PrimaryApplicantSection = ({form}) => {
             fieldName='applicant.second_phone'
             maxLength={maxLengthMap['phone']} />
         </div>
+        <div className='small-4 columns'>
+          <SelectField
+            fieldName='applicant.second_phone_type'
+            label='Second Phone Number- Type'
+            options={phoneTypeOptions} />
+        </div>
       </div>
       <AddressForm
         title='Home Address'
