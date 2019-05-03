@@ -29,7 +29,7 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
   </Field>
 )
 
-export const SelectField = ({ type, fieldName, label, blockNote, validation, placeholder, maxLength, id, options }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, options }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>

@@ -155,10 +155,11 @@ class PaperApplicationForm extends React.Component {
           onSubmit={this.submitShortForm}
           initialValues={application}
           validate={ values => {
+            // TODO: pull this validation out into separate file and fix is present
             const errors = {applicant: {date_of_birth: {}}}
             if (values.applicant && values.applicant.date_of_birth) {
               let DOB = [values.applicant.date_of_birth.year, values.applicant.date_of_birth.month, values.applicant.date_of_birth.day]
-              console.log(errors)
+              console.log('DOB', DOB)
               errors.applicant.date_of_birth.all = validate.any(
                 validate.isPresent('Please enter a Date of Birth'),
                 validate.isValidDate('Please enter a valid Date of Birth'),
@@ -177,11 +178,11 @@ class PaperApplicationForm extends React.Component {
                       onCloseClick={() => this.setState({failed: false})}
                       message='Please resolve any errors before saving the application.' />
                   )}
-                  {/* <ApplicationLanguageSection editValues={application} formApi={formApi} /> */}
-                  {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} formApi={formApi} /> */}
+                  <ApplicationLanguageSection />
+                  {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} /> */}
                   <PrimaryApplicantSection form={form} />
-                  {/* <AlternateContactSection editValues={application} />
-                  <HouseholdMembersSection editValues={application} formApi={formApi} />
+                  {/* <AlternateContactSection /> */}
+                  {/* <HouseholdMembersSection editValues={application} formApi={formApi} />
                   <ReservedPrioritySection editValues={application} listing={listing} />
                   <PreferencesSection
                     formApi={formApi}

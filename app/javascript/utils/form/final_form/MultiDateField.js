@@ -2,11 +2,13 @@ import React from 'react'
 import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import { FieldWrapper } from '~/utils/form/final_form/Field'
-import reactFormUtils from '~/utils/reactFormUtils'
 
 
 export const MultiDateField = ({ form, fieldName, label, blockNote }) => {
-  const error = form.getState && form.getState().errors.applicant && form.getState().errors.applicant.date_of_birth.all
+  const error = form.getState &&
+    form.getState().errors.applicant &&
+    form.getState().errors.applicant.date_of_birth &&
+    form.getState().errors.applicant.date_of_birth.all
   return (
     <div className={(error && 'error') || ''}>
       <label className='form-label' htmlFor={fieldName}>

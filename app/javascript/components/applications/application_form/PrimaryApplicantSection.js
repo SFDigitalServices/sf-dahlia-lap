@@ -4,7 +4,6 @@ import { isEmpty } from 'lodash'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
-import { Field } from '~/utils/form/Field'
 import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 
 // import { MultiDateField } from '~/utils/form/MultiDateField'
@@ -13,17 +12,6 @@ import { mailingAddressFieldMap } from './utils'
 import { maxLengthMap } from '~/utils/formUtils'
 
 let { phoneTypeOptions } = formOptions
-
-const validationMapper = {
-  date_of_birth: validate.any(
-    validate.isPresent('Please enter a Date of Birth'),
-    validate.isValidDate('Please enter a valid Date of Birth'),
-    validate.isOldEnough('The primary applicant must be 18 years of age or older')
-  ),
-  first_name: validate.isPresent('Please enter a First Name'),
-  last_name: validate.isPresent('Please enter a Last Name'),
-  email: validate.isValidEmail('Please enter a valid Email')
-}
 
 const PrimaryApplicantSection = ({form}) => {
   return (
@@ -107,12 +95,8 @@ const PrimaryApplicantSection = ({form}) => {
             fieldName='applicant.second_phone'
             maxLength={maxLengthMap['phone']} />
         </div>
-        {/* <div className='small-4 columns'>
-          <label>Second Phone Number- Type</label>
-          <Select field='second_phone_type' options={phoneTypeOptions} />
-        </div> */}
       </div>
-      {/* <AddressForm
+      <AddressForm
         title='Home Address'
         memberType='primaryApplicant'
       />
@@ -120,7 +104,7 @@ const PrimaryApplicantSection = ({form}) => {
         title='Mailing Address'
         memberType='primaryApplicant'
         fieldMap={mailingAddressFieldMap}
-      /> */}
+      />
     </div>
   )
 }
