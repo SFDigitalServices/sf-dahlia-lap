@@ -159,12 +159,12 @@ class PaperApplicationForm extends React.Component {
             const errors = {applicant: {date_of_birth: {}}}
             if (values.applicant && values.applicant.date_of_birth) {
               let DOB = [values.applicant.date_of_birth.year, values.applicant.date_of_birth.month, values.applicant.date_of_birth.day]
-              console.log('DOB', DOB)
               errors.applicant.date_of_birth.all = validate.any(
-                validate.isPresent('Please enter a Date of Birth'),
                 validate.isValidDate('Please enter a valid Date of Birth'),
                 validate.isOldEnough('The primary applicant must be 18 years of age or older')
               )(DOB)
+            } else {
+              errors.applicant.date_of_birth.all = 'Not present'
             }
             return errors
           }}
@@ -181,7 +181,7 @@ class PaperApplicationForm extends React.Component {
                   <ApplicationLanguageSection />
                   {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} /> */}
                   <PrimaryApplicantSection form={form} />
-                  {/* <AlternateContactSection /> */}
+                  <AlternateContactSection />
                   {/* <HouseholdMembersSection editValues={application} formApi={formApi} />
                   <ReservedPrioritySection editValues={application} listing={listing} />
                   <PreferencesSection
