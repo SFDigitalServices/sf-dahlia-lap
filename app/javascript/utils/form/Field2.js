@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field } from 'react-final-form'
+import forEach from 'lodash'
 
 
 export const BlockNote = ({ value }) => (
@@ -21,6 +22,29 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
             type={type}
             maxLength={maxLength}
             placeholder={placeholder} />
+          {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
+        </div>
+      </React.Fragment>
+    )}
+  </Field>
+)
+
+export const SelectField = ({ type, fieldName, label, blockNote, validation, placeholder, maxLength, id, options }) => (
+  <Field name={fieldName} validate={validation} component='select'>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <div className={(meta.error && meta.touched && 'error') || ''} >
+          <label htmlFor={`form-${fieldName}`}>
+            {label}
+            {blockNote && <BlockNote value={blockNote} />}
+          </label>
+          <select {...input}
+            onChange={ (value) => input.onChange(value)}
+            id={id || `form-${fieldName}`}
+            name={input.name}
+            className={(meta.error && meta.touched && 'error') || ''}>
+            { options.map( (option) => generateHtmlOption(option))}
+          </select>
           {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
         </div>
       </React.Fragment>
@@ -99,11 +123,21 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
 //   })
 // )
 
+const generateHtmlOption = (option) => (
+  <option key={option.value} value={option.value}>{option.label}</option>
+)
+
 // const decorateSelect = () => (
-//   withField((name, className, rest) => {
-//     return <Field component="select" id={name} name={name} className={className} {...rest} />
+//     return (
+//       <Field component="select" id={name} name={name} className={className} {...rest}>
+//         <option value="tuna">🐟 Tuna</option>
+//         <option value="pineapple">🍍 Pineapple</option>
+//       </Field>
+//     )
 //   })
 // )
+
+
 
 // FieldWrapper.Select = decorateSelect()
 // FieldWrapper.Text = decorateInput("text")

@@ -5,7 +5,7 @@ import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
 import { Field } from '~/utils/form/Field'
-import { FieldWrapper } from '~/utils/form/Field2'
+import { FieldWrapper, SelectField } from '~/utils/form/Field2'
 import { MultiDateField } from '~/utils/form/MultiDateField'
 import { MultiDateField2 } from '~/utils/form/MultiDateField2'
 import { mailingAddressFieldMap } from './utils'
@@ -25,6 +25,8 @@ const validationMapper = {
 }
 
 const PrimaryApplicantSection = ({form}) => {
+  console.log('form', form)
+  console.log('form state', form.getState())
   return (
     <div className='border-bottom margin-bottom--2x'>
       <div className='row'>
@@ -78,9 +80,12 @@ const PrimaryApplicantSection = ({form}) => {
             label='Primary Phone Number'
             maxLength={maxLengthMap['phone']} />
         </div>
-        {/* <div className='small-4 columns'>
-          <Select field='phone_type' options={phoneTypeOptions} />
-        </div> */}
+        <div className='small-4 columns'>
+          <SelectField
+            fieldName='applicant.phone_type'
+            label='Primary Phone Number- Type'
+            options={phoneTypeOptions} />
+        </div>
       </div>
       <div className='row'>
         <div className='small-4 columns form-date-of-birth'>
