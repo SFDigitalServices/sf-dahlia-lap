@@ -4,12 +4,13 @@ import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
+import validate from '~/utils/form/validations'
 
 const {
   relationshipOptions
 } = formOptions
 
-const HouseholdMemberForm = ({name, index}) => {
+const HouseholdMemberForm = ({name, index, form}) => {
   console.log('name', name, 'index', index)
   return (
     <div>
@@ -62,9 +63,9 @@ const HouseholdMemberForm = ({name, index}) => {
       </div>
       <div className='row'>
         <div className='small-12 columns'>
-          {/*<AddressForm
+          <AddressForm
             memberType='householdMember'
-            nestedField={`household_members`} />*/}
+            nestedField={`household_members`} />
         </div>
       </div>
       <div className='row'>

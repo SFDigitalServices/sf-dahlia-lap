@@ -21,7 +21,7 @@ const HouseholdMembersSection = ({ form, editValues }) => {
               console.log('name outside', name)
               return (
               <div key={name}>
-                <HouseholdMemberForm name={name} index={index} />
+                <HouseholdMemberForm form={form} name={name} index={index} />
               </div>
 
             )})}

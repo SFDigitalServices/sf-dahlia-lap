@@ -79,7 +79,7 @@ const AlternateContactSection = ({editValues}) => {
         <div className='small-4 columns'>
           <SelectField
             fieldName='alternate_contact.alternate_contact_type'
-            label='Alternate Contact Typ'
+            label='Alternate Contact Type'
             options={alternateContactOptions} />
         </div>
         <div className='small-4 columns'>
