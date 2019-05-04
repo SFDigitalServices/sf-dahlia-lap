@@ -1,42 +1,46 @@
 import React from 'react'
 import AddressForm from './AddressForm'
-import { Field } from '~/utils/form/Field'
-import { MultiDateField } from '~/utils/form/MultiDateField'
 import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from '~/components/applications/application_form/formOptions'
+import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
+import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 
 const {
   relationshipOptions
 } = formOptions
 
-const HouseholdMemberForm = ({ i, formApi }) => {
+const HouseholdMemberForm = ({name, index}) => {
+  console.log('name', name, 'index', index)
   return (
     <div>
       <div className='row'>
         <div className='form-group'>
           <div className='small-3 columns'>
-            <Field.Text
-              id={`household_members_${i}_first_name`}
+            <FieldWrapper
+              type='text'
+              id={`household_members_${index}_first_name`}
               label='First Name'
-              field={`household_members.${i}.first_name`}
+              fieldName={`${name}.first_name`}
               blockNote='(required)'
               errorMessage={(label, error) => error}
               maxLength={maxLengthMap['first_name']}
             />
           </div>
           <div className='small-2 columns'>
-            <Field.Text
-              id={`household_members_${i}_middle_name`}
+            <FieldWrapper
+              type='text'
+              id={`household_members_${index}_middle_name`}
               label='Middle Name'
-              field={`household_members.${i}.middle_name`}
+              fieldName={`${name}.middle_name`}
               maxLength={maxLengthMap['middle_name']}
             />
           </div>
           <div className='small-3 columns'>
-            <Field.Text
-              id={`household_members_${i}_last_name`}
+            <FieldWrapper
+              type='text'
+              id={`household_members_${index}_last_name`}
               label='Last Name'
-              field={`household_members.${i}.last_name`}
+              fieldName={`${name}.last_name`}
               blockNote='(required)'
               errorMessage={(label, error) => error}
               maxLength={maxLengthMap['last_name']}
@@ -44,29 +48,31 @@ const HouseholdMemberForm = ({ i, formApi }) => {
           </div>
           <div className='small-4 columns form-date-of-birth'>
             <MultiDateField
-              id={`household_members_${i}_date_of_birth`}
-              field={`household_members.${i}.date_of_birth`}
-              formApi={formApi}
+              form={form}
+              fieldName={`${name}.date_of_birth`}
               label='Date of Birth'
               blockNote='(required)'
-              errorMessage={(label, error) => error}
+              validation={validate.any(
+                validate.isPresent('Please enter a Date of Birth'),
+                validate.isValidDate('Please enter a valid Date of Birth'),
+              )}
             />
           </div>
         </div>
       </div>
       <div className='row'>
         <div className='small-12 columns'>
-          <AddressForm
+          {/*<AddressForm
             memberType='householdMember'
-            nestedField={`household_members.${i}`} />
+            nestedField={`household_members`} />*/}
         </div>
       </div>
       <div className='row'>
         <div className='small-6 columns'>
-          <Field.Select
+          <SelectField
             label='Relationship to Applicant'
-            field={`household_members.${i}.relationship_to_applicant`}
-            id={`household_members_${i}_relationship_to_applicant`}
+            fieldName={`${name}.relationship_to_applicant`}
+            id={`household_members_${index}_relationship_to_applicant`}
             options={relationshipOptions}
           />
         </div>

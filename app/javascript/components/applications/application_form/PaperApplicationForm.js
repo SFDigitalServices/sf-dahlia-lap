@@ -15,6 +15,8 @@ import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
 import { Form, Field } from 'react-final-form'
+import arrayMutators from 'final-form-arrays'
+
 
 
 const fieldRequiredMsg = 'is required'
@@ -168,52 +170,63 @@ class PaperApplicationForm extends React.Component {
             }
             return errors
           }}
-          render={({ handleSubmit, form, submitting, pristine, values }) => (
-            <form onSubmit={handleSubmit} id='shortForm' noValidate>
-              <div className='app-card form-card medium-centered'>
-                <div className='app-inner inset'>
-                  { failed && (
-                    <AlertBox
-                      invert
-                      onCloseClick={() => this.setState({failed: false})}
-                      message='Please resolve any errors before saving the application.' />
-                  )}
-                  <ApplicationLanguageSection />
-                  {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} /> */}
-                  <PrimaryApplicantSection form={form} />
-                  <AlternateContactSection />
-                  {/* <HouseholdMembersSection editValues={application} formApi={formApi} />
-                  <ReservedPrioritySection editValues={application} listing={listing} />
-                  <PreferencesSection
-                    formApi={formApi}
-                    listingPreferences={listing.listing_lottery_preferences}
-                    editValues={application}
-                  />
-                  <HouseholdIncomeSection />
-                  <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
-                  <AgreeToTerms /> */}
-                </div>
-                <div className='button-pager'>
-                  <div className='button-pager_row primary'>
-                    {/* <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
-                      {loading ? 'Saving…' : 'Save'}
-                    </button>
-                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
-                      Save and New
-                    </button> */}
-                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
-                      {loading ? 'Saving…' : 'Save'}
-                    </button>
-                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
-                      Save and New
-                    </button>
+          mutators={{
+            ...arrayMutators
+          }}
+          render={({
+            handleSubmit,
+            form: {
+              mutators: { push, pop }
+            },
+            form,
+            submitting,
+            pristine,
+            values }) => (
+              <form onSubmit={handleSubmit} id='shortForm' noValidate>
+                <div className='app-card form-card medium-centered'>
+                  <div className='app-inner inset'>
+                    { failed && (
+                      <AlertBox
+                        invert
+                        onCloseClick={() => this.setState({failed: false})}
+                        message='Please resolve any errors before saving the application.' />
+                    )}
+                    <ApplicationLanguageSection />
+                    {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} /> */}
+                    <PrimaryApplicantSection form={form} />
+                    <AlternateContactSection />
+                    <HouseholdMembersSection editValues={application} form={form} />
+                    {/*<ReservedPrioritySection editValues={application} listing={listing} />
+                    <PreferencesSection
+                      formApi={formApi}
+                      listingPreferences={listing.listing_lottery_preferences}
+                      editValues={application}
+                    />
+                    <HouseholdIncomeSection />
+                    <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
+                    <AgreeToTerms /> */}
                   </div>
-                  <div className='button-pager_row primary'>
-                    <a className='primary radius' href='/listings'>Cancel</a>
+                  <div className='button-pager'>
+                    <div className='button-pager_row primary'>
+                      {/* <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
+                        {loading ? 'Saving…' : 'Save'}
+                      </button>
+                      <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
+                        Save and New
+                      </button> */}
+                      <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
+                        {loading ? 'Saving…' : 'Save'}
+                      </button>
+                      <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
+                        Save and New
+                      </button>
+                    </div>
+                    <div className='button-pager_row primary'>
+                      <a className='primary radius' href='/listings'>Cancel</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
           )}
         />
       </div>
