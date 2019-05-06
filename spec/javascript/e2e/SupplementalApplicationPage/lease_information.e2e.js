@@ -26,9 +26,9 @@ describe('SupplementalApplicationPage lease section', () => {
     const tenantContributionValue = supplementalApplicationSteps.generateRandomCurrency()
 
     // Enter them
-    await supplementalApplicationSteps.enterValue(page, rentSelector, rentValue.currency)
-    await supplementalApplicationSteps.enterValue(page, parkingRentSelector, parkingRentValue.currency)
-    await supplementalApplicationSteps.enterValue(page, tenantContributionSelector, tenantContributionValue.currency)
+    await sharedSteps.enterValue(page, rentSelector, rentValue.currency)
+    await sharedSteps.enterValue(page, parkingRentSelector, parkingRentValue.currency)
+    await sharedSteps.enterValue(page, tenantContributionSelector, tenantContributionValue.currency)
 
     // Click save
     await supplementalApplicationSteps.savePage(page)
@@ -37,9 +37,9 @@ describe('SupplementalApplicationPage lease section', () => {
     await page.waitForNavigation()
 
     // Verify that the values are there (they will be returned from salesforce as numbers, not currency)
-    expect(await supplementalApplicationSteps.getValue(page, rentSelector)).toEqual(String(rentValue.float))
-    expect(await supplementalApplicationSteps.getValue(page, parkingRentSelector)).toEqual(String(parkingRentValue.float))
-    expect(await supplementalApplicationSteps.getValue(page, tenantContributionSelector)).toEqual(String(tenantContributionValue.float))
+    expect(await sharedSteps.getValue(page, rentSelector)).toEqual(String(rentValue.float))
+    expect(await sharedSteps.getValue(page, parkingRentSelector)).toEqual(String(parkingRentValue.float))
+    expect(await sharedSteps.getValue(page, tenantContributionSelector)).toEqual(String(tenantContributionValue.float))
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
