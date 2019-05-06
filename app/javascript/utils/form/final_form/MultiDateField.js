@@ -2,13 +2,18 @@ import React from 'react'
 import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import { FieldWrapper } from '~/utils/form/final_form/Field'
+import { some } from 'lodash'
 
 
 export const MultiDateField = ({ form, fieldName, label, blockNote }) => {
+  const touched = some(['.day', '.month', '.year'], type => {
+    return form.getState().touched[fieldName + type]
+  })
 
   const error = form.getState &&
     form.getState().errors[fieldName.split('.')[0]] &&
     form.getState().errors[fieldName.split('.')[0]]['date_of_birth'] &&
+    touched &&
     form.getState().errors[fieldName.split('.')[0]]['date_of_birth']['all']
   console.log('fieldName', fieldName)
   console.log('form state', form.getState())

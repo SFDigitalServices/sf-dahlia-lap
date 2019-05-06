@@ -166,7 +166,7 @@ class PaperApplicationForm extends React.Component {
                 validate.isOldEnough('The primary applicant must be 18 years of age or older')
               )(DOB)
             } else {
-              errors.applicant.date_of_birth.all = 'Not present'
+              errors.applicant.date_of_birth.all = 'Date of Birth is required'
             }
             return errors
           }}
