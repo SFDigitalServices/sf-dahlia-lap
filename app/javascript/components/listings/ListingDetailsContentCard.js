@@ -17,7 +17,7 @@ export const generateContent = (listing, entry, i) => {
 const ListingDetailsContentCard = ({ listing, title, fields }) => {
   const entries = buildFields(listing, fields)
   const contents = map(entries, (entry, idx) => generateContent(listing, entry, idx))
-  const { firstHalf, secondHalf } = arrayUtils.splitInHalf(contents)
+  const { firstHalf, secondHalf } = arrayUtils.split(contents)
 
   return (
     <div className='content-card padding-bottom-none margin-bottom--half bg-trans'>

@@ -57,7 +57,7 @@ module Force
 
       def application_listing(application_id)
         result = massage(query_first(%(
-          SELECT Listing__r.Id, Listing__r.Name, Listing__r.Status__c
+          SELECT Listing__r.Id, Listing__r.Name, Listing__r.Status__c, Listing__r.Tenure__c
           FROM Application__c
           WHERE Id = '#{application_id}'
         )))

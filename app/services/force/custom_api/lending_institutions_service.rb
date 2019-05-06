@@ -8,6 +8,16 @@ module Force
         self.class.lending_institutions(@client)
       end
 
+      def find_agent(agent_id)
+        lending_institutions.each_with_object({}) do |institution, memo|
+          agent = institution.last.find { |a| a['Id'] == agent_id }
+          if agent.present?
+            memo[:lending_institution] = institution.first
+            memo[:name_of_lender] = "#{agent['FirstName']} #{agent['LastName']}"
+          end
+        end
+      end
+
       # Lending institutions are memoized on class level. Once loaded, they will not be updated till server reboot.
       def self.lending_institutions(client)
         return @institutions if @institutions

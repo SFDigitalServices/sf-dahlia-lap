@@ -8,6 +8,8 @@ module ForceHelpers
 
   LEASE_UP_APPLICATION_ID = 'a0o0P00000GZazOQAT'
 
+  SALE_APPLICATION_ID = 'a0o0t000000lkg8AAA'
+
   def valid_listing_id
     YELLOW_ACRES_LISTING_ID
   end
@@ -29,5 +31,9 @@ module ForceHelpers
 
   def lease_up_application_id
     LEASE_UP_APPLICATION_ID
+  end
+
+  def sale_application_id
+    SALE_APPLICATION_ID
   end
 end
