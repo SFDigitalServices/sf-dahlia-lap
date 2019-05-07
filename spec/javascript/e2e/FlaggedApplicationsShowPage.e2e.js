@@ -17,23 +17,22 @@ describe('FlaggedApplicationsShowPage', () => {
     await sharedSteps.goto(page, `/applications/flagged/${FLAGGED_RECORD_SET_ID}`)
 
     const commentInputSelector = 'input[type="text"]'
-    const sampleComment = 'Test Commment'
+    const statusInputSelector = 'select'
     const openRowSelector = '.rt-expander.-open'
+
+    const sampleComment = sharedSteps.generateRandomString(10)
 
     // Open up a row
     await page.click('.rt-expander')
-    let hasCommentInput = await utils.isPresent(page, commentInputSelector)
-    expect(hasCommentInput).toBe(true)
+    expect(await utils.isPresent(page, openRowSelector)).toBe(true)
 
-    let hasOpenRow = await utils.isPresent(page, openRowSelector)
-    expect(hasOpenRow).toBe(true)
-
-    // Type
+    // Type a comment and verify that it's been typed
     await sharedSteps.enterValue(page, commentInputSelector, sampleComment)
+    expect(await sharedSteps.getInputValue(page, commentInputSelector)).toEqual(sampleComment)
 
-    // Verify that it's been typed
-    let value = await sharedSteps.getValue(page, commentInputSelector)
-    expect(value).toEqual(sampleComment)
+    // Update the comment status
+    const newStatus = await sharedSteps.getInputValue(page, sharedSteps.notSelectedOptionSelector(statusInputSelector))
+    await page.select(statusInputSelector, newStatus)
 
     // Save the change
     const saveButtonList = await page.$x("//button[contains(text(), 'Save Changes')]")
@@ -41,8 +40,18 @@ describe('FlaggedApplicationsShowPage', () => {
 
     // Expect the row to be closed
     await page.waitFor(() => !document.querySelector('.rt-expander.-open'))
-    hasOpenRow = await utils.isPresent(page, openRowSelector)
-    expect(hasOpenRow).toBe(false)
+    expect(await utils.isPresent(page, openRowSelector)).toBe(false)
+
+    // Refresh the page to make sure the values stuck
+    await sharedSteps.goto(page, `/applications/flagged/${FLAGGED_RECORD_SET_ID}`)
+
+    const commentDisplaySelector = 'div.rt-tbody > div:nth-child(1) > div > div:nth-child(7)'
+    const savedComment = await sharedSteps.getText(page, commentDisplaySelector)
+    expect(savedComment).toEqual(sampleComment)
+
+    const statusDisplaySelector = 'div.rt-tbody > div:nth-child(1) > div > div:nth-child(6)'
+    const savedStatus = await sharedSteps.getText(page, statusDisplaySelector)
+    expect(savedStatus).toEqual(newStatus)
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

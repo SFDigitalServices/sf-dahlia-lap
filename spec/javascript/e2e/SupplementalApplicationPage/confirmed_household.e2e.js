@@ -37,9 +37,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     await page.waitForNavigation()
 
     // Verify that the values are there (as numbers, not currency)
-    expect(await sharedSteps.getValue(page, hhAssetsSelector)).toEqual(String(hhAssetsValue.float))
-    expect(await sharedSteps.getValue(page, confirmedAnnualSelector)).toEqual(String(confirmedAnnualValue.float))
-    expect(await sharedSteps.getValue(page, finalHHAnnualSelector)).toEqual(String(finalHHAnnualValue.float))
+    expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual(String(hhAssetsValue.float))
+    expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual(String(confirmedAnnualValue.float))
+    expect(await sharedSteps.getInputValue(page, finalHHAnnualSelector)).toEqual(String(finalHHAnnualValue.float))
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

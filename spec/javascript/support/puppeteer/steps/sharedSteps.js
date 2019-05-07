@@ -36,11 +36,30 @@ const enterValue = async (page, selector, value) => {
   await page.type(selector, value)
 }
 
-const getValue = async (page, selector) => {
+const getInputValue = async (page, selector) => {
   await page.waitForSelector(selector)
   const input = await page.$(selector)
   const valueHandle = await input.getProperty('value')
   return valueHandle.jsonValue()
+}
+
+const getText = async (page, selector) => {
+  return page.$eval(selector, e => e.textContent)
+}
+
+const generateRandomString = (length) => {
+  // Due to 0s potentially present in the random number,
+  // there is a chance that this function could return a string shorter than the desired length.
+  // Source: https://stackoverflow.com/a/38622545
+  return Math.random().toString(36).substr(2, length)
+}
+
+const notSelectedOptionSelector = (fieldSelector) => {
+  return `${fieldSelector} option:not(:checked):not(:disabled)`
+}
+
+const selectedOptionSelector = (fieldSelector) => {
+  return `${fieldSelector} option:checked`
 }
 
 export default {
@@ -48,5 +67,9 @@ export default {
   goto,
   waitForApp,
   enterValue,
-  getValue
+  getInputValue,
+  getText,
+  generateRandomString,
+  notSelectedOptionSelector,
+  selectedOptionSelector
 }
