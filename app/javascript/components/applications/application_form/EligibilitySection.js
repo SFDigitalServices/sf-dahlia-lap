@@ -1,22 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from '~/utils/form/Field'
+import { CheckboxField } from '~/utils/form/final_form/Field'
 import { map, each, some } from 'lodash'
 
 class EligibilitySection extends React.Component {
   constructor (props) {
     super(props)
-    const { lendingInstitutions, formApi } = props
+    const { lendingInstitutions } = props
     let lenders = []
 
-    if (formApi.values.lending_agent) {
-      each(lendingInstitutions, (agents, institution) => {
-        if (some(agents, { 'Id': formApi.values.lending_agent })) {
-          lenders = map(agents, (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
-          formApi.setValue('lending_institution', institution)
-        }
-      })
-    }
+    // if (formApi.values.lending_agent) {
+    //   each(lendingInstitutions, (agents, institution) => {
+    //     if (some(agents, { 'Id': formApi.values.lending_agent })) {
+    //       lenders = map(agents, (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
+    //       formApi.setValue('lending_institution', institution)
+    //     }
+    //   })
+    // }
     this.state = {
       lenders: lenders
     }
@@ -25,14 +25,14 @@ class EligibilitySection extends React.Component {
   isFirstTimeHomebuyerMarkup = () => {
     return (
       <div className='small-12 columns'>
-        <Field.Checkbox
+        <CheckboxField
           id='is_first_time_homebuyer'
           label='Not owned property in last three years'
           blockNote='(required)'
-          field='is_first_time_homebuyer'
-          errorMessage={(_, error) => error}
+          fieldName='is_first_time_homebuyer'
+          // errorMessage={(_, error) => error}
           ariaLabelledby='prereqs'
-          labelLast={'true'} />
+          />
       </div>
     )
   }
@@ -40,14 +40,14 @@ class EligibilitySection extends React.Component {
   completedHomebuyersEducationMarkup = () => {
     return (
       <div className='small-12 columns'>
-        <Field.Checkbox
+        <CheckboxField
           id='has_completed_homebuyer_education'
           label={`Completed homebuyers' education`}
           blockNote='(required)'
-          field='has_completed_homebuyer_education'
-          errorMessage={(_, error) => error}
+          fieldName='has_completed_homebuyer_education'
+          // errorMessage={(_, error) => error}
           ariaLabelledby='prereqs'
-          labelLast={'true'} />
+          />
       </div>
     )
   }
@@ -55,24 +55,24 @@ class EligibilitySection extends React.Component {
   loanPreapprovalMarkup = () => {
     return (
       <div className='small-12 columns margin-bottom'>
-        <Field.Checkbox
+        <CheckboxField
           id='has_loan_preapproval'
           label='A loan pre-approval letter from a MOHCD-approved lender'
           blockNote='(required)'
-          field='has_loan_preapproval'
-          errorMessage={(_, error) => error}
+          fieldName='has_loan_preapproval'
+          // errorMessage={(_, error) => error}
           ariaLabelledby='prereqs'
-          labelLast={'true'} />
+          />
       </div>
     )
   }
 
   handleSelectInstitution = (institution) => {
-    const { lendingInstitutions, formApi } = this.props
-    const lenders = map(lendingInstitutions[institution], (lender) => ({label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id}))
-    // reset lending_agent select
-    formApi.setValue('lending_agent', null)
-    this.setState({lenders: lenders})
+    // const { lendingInstitutions, formApi } = this.props
+    // const lenders = map(lendingInstitutions[institution], (lender) => ({label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id}))
+    // // reset lending_agent select
+    // formApi.setValue('lending_agent', null)
+    // this.setState({lenders: lenders})
   }
 
   lendingInstitutionMarkup = (lendingInstitutions) => {
@@ -82,7 +82,7 @@ class EligibilitySection extends React.Component {
           label='Name of Lending Institution'
           blockNote='(required)'
           id='lending_institution'
-          field='lending_institution'
+          fieldName='lending_institution'
           errorMessage={(_, error) => error}
           options={map(lendingInstitutions, (_, key) => ({label: key, value: key}))}
           onChange={this.handleSelectInstitution}
@@ -144,7 +144,7 @@ class EligibilitySection extends React.Component {
             {this.checkboxesMarkup()}
           </div>
           <div className='row'>
-            {this.lenderSelectsMarkup()}
+            {/* {this.lenderSelectsMarkup()} */}
           </div>
         </div>
       )

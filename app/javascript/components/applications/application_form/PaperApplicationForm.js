@@ -179,7 +179,7 @@ class PaperApplicationForm extends React.Component {
                         message='Please resolve any errors before saving the application.' />
                     )}
                     <ApplicationLanguageSection />
-                    {/* <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} /> */}
+                    <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} />
                     <PrimaryApplicantSection form={form} />
                     <AlternateContactSection />
                     <HouseholdMembersSection editValues={application} form={form} />
