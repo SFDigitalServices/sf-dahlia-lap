@@ -21,7 +21,6 @@ class ApiController < ActionController::API
     else
       message = 'Not found.'
     end
-    p 'yo'
     Raven.capture_exception(e)
     logger.error "<< API Error >> #{message}"
     status_code = Rack::Utils::SYMBOL_TO_STATUS_CODE[status]
