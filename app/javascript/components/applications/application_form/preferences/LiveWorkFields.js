@@ -1,7 +1,7 @@
 import React from 'react'
 import formOptions from '../formOptions'
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
+import { SelectField } from '~/utils/form/final_form/Field'
 
 const {
   preferenceProofOptionsLiveSf,
@@ -27,26 +27,26 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Household Member with Proof'
           blockNote='(required)'
-          field={buildFieldId(i, 'naturalKey')}
+          fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Individual Preference'
           blockNote='(required)'
-          field={buildFieldId(i, 'individual_preference')}
+          fieldName={buildFieldId(i, 'individual_preference')}
           options={individualPreferenceOptions}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Type of Proof'
           blockNote='(required)'
-          field={buildFieldId(i, 'type_of_proof')}
+          fieldName={buildFieldId(i, 'type_of_proof')}
           options={getProofTypes(shortFormPreference.individual_preference)}
         />
       </div>

@@ -173,11 +173,11 @@ class PaperApplicationForm extends React.Component {
                     <AlternateContactSection />
                     <HouseholdMembersSection editValues={application} form={form} />
                     <ReservedPrioritySection listing={listing} />
-                    {/* <PreferencesSection
-                      formApi={formApi}
+                    <PreferencesSection
+                      form={form}
                       listingPreferences={listing.listing_lottery_preferences}
                       editValues={application}
-                    /> */}
+                    />
                     <HouseholdIncomeSection />
                     <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
                     {/* <AgreeToTerms /> */}

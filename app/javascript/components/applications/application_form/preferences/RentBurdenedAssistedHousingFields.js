@@ -1,6 +1,6 @@
 import React from 'react'
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
+import { SelectField } from '~/utils/form/final_form/Field'
 
 const individualPreferenceOptions = [
   {value: 'Assisted Housing', label: 'Assisted Housing'},
@@ -11,18 +11,18 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Name on Lease'
           blockNote='(required)'
-          field={buildFieldId(i, 'naturalKey')}
+          fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Individual Preference'
           blockNote='(required)'
-          field={buildFieldId(i, 'individual_preference')}
+          fieldName={buildFieldId(i, 'individual_preference')}
           options={individualPreferenceOptions}
         />
       </div>

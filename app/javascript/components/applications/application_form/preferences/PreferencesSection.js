@@ -1,27 +1,27 @@
 import React from 'react'
-import { forEach, isEmpty } from 'lodash'
+import { forEach, isEmpty, cloneDeep } from 'lodash'
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference, getFullHousehold } from './utils'
 
-const allPreferencesSelected = (formApi, listingPreferences) => {
-  if (formApi.values && !isEmpty(formApi.values.preferences) && listingPreferences) {
-    return formApi.values.preferences.length === listingPreferences.length
+const allPreferencesSelected = (form, listingPreferences) => {
+  if (form.getState().values && !isEmpty(form.getState().values.preferences) && listingPreferences) {
+    return form.getState().values.preferences.length === listingPreferences.length
   }
 }
 
-const hasHouseholdMembers = (formApi) => {
-  let hasPrimaryApplicant = !isEmpty(formApi.values) && !isEmpty(formApi.values.applicant) && formApi.values.applicant.first_name
-  let hasHouseholdMembers = !isEmpty(formApi.values) && !isEmpty(formApi.values.household_members)
+const hasHouseholdMembers = (form) => {
+  let hasPrimaryApplicant = !isEmpty(form.getState().values) && form.getState().valid && !isEmpty(form.getState().values.applicant) && form.getState().values.applicant.first_name
+  let hasHouseholdMembers = !isEmpty(form.getState().values) && !isEmpty(form.getState().values.household_members)
   return (hasHouseholdMembers || hasPrimaryApplicant)
 }
 
-const disableAddPreference = (formApi, listingPreferences) => {
-  return (allPreferencesSelected(formApi, listingPreferences) || !hasHouseholdMembers(formApi))
+const disableAddPreference = (form, listingPreferences) => {
+  return (allPreferencesSelected(form, listingPreferences) || !hasHouseholdMembers(form))
 }
 
 class PreferencesSection extends React.Component {
   componentDidMount () {
-    const { formApi, editValues } = this.props
+    const { form, editValues } = this.props
 
     let autofillPreferences = []
 
@@ -33,14 +33,25 @@ class PreferencesSection extends React.Component {
           autofillPreferences.push(editPreference)
         }
       })
-      formApi.setValue('preferences', autofillPreferences)
+      form.change('preferences', autofillPreferences)
+    }
+  }
+
+  addPreference = () => {
+    const { form } = this.props
+    if (form.getState().values.preferences) {
+      let preferences = cloneDeep(form.getState().values.preferences)
+      preferences.push('')
+      form.change('preferences', preferences)
+    } else {
+      form.change('preferences', [''])
     }
   }
 
   render () {
-    const { formApi, listingPreferences } = this.props
-    const fullHousehold = getFullHousehold(formApi.values)
-    const preferences = formApi.values.preferences
+    const { form, listingPreferences } = this.props
+    const fullHousehold = getFullHousehold(form.getState().values)
+    const preferences = form.getState().values.preferences
 
     return (
       <div className='border-bottom margin-bottom--2x'>
@@ -48,7 +59,7 @@ class PreferencesSection extends React.Component {
         {
           !isEmpty(preferences) && preferences.map((pref, i) => (
             <div className='border-bottom margin-bottom--2x' key={i}>
-              <PreferenceForm {...{i, pref, formApi, listingPreferences, fullHousehold}} />
+              <PreferenceForm {...{i, pref, form, listingPreferences, fullHousehold}} />
             </div>
           ))
         }
@@ -57,8 +68,8 @@ class PreferencesSection extends React.Component {
           <div className='form-group'>
             <div className='small-4 columns'>
               <button
-                onClick={() => formApi.addValue('preferences', '')}
-                disabled={disableAddPreference(formApi, listingPreferences)}
+                onClick={this.addPreference}
+                disabled={disableAddPreference(form, listingPreferences)}
                 type='button'
                 className='mb-4 mr-4 btn btn-success'
                 id='add-preference-button'>

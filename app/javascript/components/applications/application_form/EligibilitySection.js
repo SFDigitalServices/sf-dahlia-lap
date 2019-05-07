@@ -3,11 +3,6 @@ import PropTypes from 'prop-types'
 import { CheckboxField, SelectField } from '~/utils/form/final_form/Field'
 import { map, each, some } from 'lodash'
 import validate from '~/utils/form/validations'
-import formOptions from './formOptions'
-
-const {
-  labelize
-} = formOptions
 
 class EligibilitySection extends React.Component {
   constructor (props) {
@@ -92,7 +87,7 @@ class EligibilitySection extends React.Component {
           blockNote='(required)'
           id='lending_institution'
           fieldName='lending_institution'
-          options={labelize(institutionOptions)}
+          options={institutionOptions}
           onChange={this.handleSelectInstitution}
           validation={validate.isPresent('Please select a lending institution.')}
         />
@@ -108,7 +103,7 @@ class EligibilitySection extends React.Component {
           blockNote='(required)'
           id='lending_agent'
           fieldName='lending_agent'
-          options={labelize(lenders)}
+          options={lenders}
           validation={validate.isPresent('Please select a lender.')}
         />
       </div>

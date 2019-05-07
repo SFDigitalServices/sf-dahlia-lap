@@ -1,12 +1,20 @@
 import _ from 'lodash'
 
-const labelize = (options) => (
-  [{'label': 'Select One...', 'value': ''}].concat(
-    _.map(options, (option) => (
-      { value: option.hasOwnProperty('value') ? option.value : option, label: option.label || option }
-    ))
-  )
-)
+const labelize = (options) => {
+  if (!_.isEmpty(options)) {
+    let initialLabel = []
+    if (options[0].hasOwnProperty('value') && !_.isEmpty(options[0].value) || !options[0].hasOwnProperty('value') && !_.isEmpty(options[0])) {
+      initialLabel = [{'label': 'Select One...', 'value': ''}]
+    }
+    return initialLabel.concat(
+      _.map(options, (option) => (
+        { value: option.hasOwnProperty('value') ? option.value : option, label: option.label || option }
+      ))
+    )
+  } else {
+    return []
+  }
+}
 
 const applicationLanguageOptions = labelize([
   'English',

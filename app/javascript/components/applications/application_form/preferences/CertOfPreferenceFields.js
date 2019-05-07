@@ -1,22 +1,22 @@
 import React from 'react'
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
+import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 
-const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
+const CertOfPreferenceFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
-          field={buildFieldId(i, 'naturalKey')}
+        <SelectField
+          fieldName={buildFieldId(i, 'naturalKey')}
           label='Name of COP Holder'
           blockNote='(required)'
           options={householdMembers}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Text
-          field={buildFieldId(i, 'certificate_number')}
+        <FieldWrapper
+          fieldName={buildFieldId(i, 'certificate_number')}
           label='COP Certificate Number'
           maxLength={maxLengthMap['certificate_number']}
         />
