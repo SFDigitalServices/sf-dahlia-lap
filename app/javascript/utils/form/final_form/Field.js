@@ -29,7 +29,7 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
   </Field>
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, options }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, options, onChange }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
@@ -39,7 +39,10 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
             {blockNote && <BlockNote value={blockNote} />}
           </label>
           <select {...input}
-            onChange={ (value) => input.onChange(value)}
+            onChange={ (event) => {
+              input.onChange(event)
+              onChange && onChange(event)
+            }}
             id={id || `form-${fieldName}`}
             name={input.name}
             className={(meta.error && meta.touched && 'error') || ''}>
@@ -52,14 +55,15 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
   </Field>
 )
 
-export const CheckboxField = ({ fieldName, label, blockNote, validation, id }) => (
-  <Field name={fieldName} validate={validation} type='"checkbox"'>
+export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby }) => (
+  <Field name={fieldName} validate={validation} type='checkbox'>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={(meta.error && meta.touched && 'error') || ''} >
           <input {...input}
             type='checkbox'
             id={id || `form-${fieldName}`}
+            aria-labelledby={ariaLabelledby}
             className={(meta.error && meta.touched && 'error') || ''} />
           {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
           <label htmlFor={id || `form-${fieldName}`}>

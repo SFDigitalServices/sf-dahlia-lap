@@ -134,17 +134,6 @@ class PaperApplicationForm extends React.Component {
       household_members: buildHouseholdMemberValidations(values.household_members),
       application_language: validate.isPresent('Please select a language.')(values.application_language)
     }
-    if (listing.is_sale) {
-      const checkboxErrorMessage = 'The applicant cannot qualify for the listing unless this is true.'
-      validations = {
-        is_first_time_homebuyer: validate.isChecked(checkboxErrorMessage)(values.is_first_time_homebuyer),
-        has_completed_homebuyer_education: validate.isChecked(checkboxErrorMessage)(values.has_completed_homebuyer_education),
-        has_loan_preapproval: validate.isChecked(checkboxErrorMessage)(values.has_loan_preapproval),
-        lending_agent: validate.isPresent('Please select a lender.')(values.lending_agent),
-        lending_institution: validate.isPresent('Please select a lending institution.')(values.lending_institution),
-        ...validations
-      }
-    }
     return validations
   }
 
@@ -179,7 +168,7 @@ class PaperApplicationForm extends React.Component {
                         message='Please resolve any errors before saving the application.' />
                     )}
                     <ApplicationLanguageSection />
-                    <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} />
+                    <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} form={form} />
                     <PrimaryApplicantSection form={form} />
                     <AlternateContactSection />
                     <HouseholdMembersSection editValues={application} form={form} />

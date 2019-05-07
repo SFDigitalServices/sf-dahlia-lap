@@ -197,5 +197,6 @@ export default {
   listingReferralOptions,
   householdVouchersSubsidiesOptions,
   yesNoOptions,
-  adaPriorityValueToLabelMap
+  adaPriorityValueToLabelMap,
+  labelize
 }
