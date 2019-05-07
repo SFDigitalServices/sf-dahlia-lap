@@ -7,14 +7,6 @@ import {
   HEADLESS
 } from '../../support/puppeteer/consts'
 
-const getUnselectedOptSelector = (fieldSelector) => {
-  return `${fieldSelector} option:not(:checked):not(:disabled)`
-}
-
-const getSelectedOptSelector = (fieldSelector) => {
-  return `${fieldSelector} option:checked`
-}
-
 describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   test('should allow updates to live/work preference', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
@@ -36,21 +28,21 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     // Update the individual preference (select Live vs Work in SF)
     const individualPreferenceSelector = `${liveWorkExpandedPanelSelector} .individual-preference-select`
-    const unselectedPreferenceSelector = getUnselectedOptSelector(individualPreferenceSelector)
+    const unselectedPreferenceSelector = sharedSteps.notSelectedOptionSelector(individualPreferenceSelector)
     const prefToSetName = await page.$eval(unselectedPreferenceSelector, e => e.textContent)
     const prefToSetValue = await page.$eval(unselectedPreferenceSelector, e => e.value)
     await page.select(individualPreferenceSelector, prefToSetValue)
 
     // Update the type of proof
     const typeOfProofSelector = `${liveWorkExpandedPanelSelector} .type-of-proof-select`
-    const unselectedTypeOfProofSelector = getUnselectedOptSelector(typeOfProofSelector)
+    const unselectedTypeOfProofSelector = sharedSteps.notSelectedOptionSelector(typeOfProofSelector)
     const typeOfProofToSetName = await page.$eval(unselectedTypeOfProofSelector, e => e.textContent)
     const typeOfProofToSetValue = await page.$eval(unselectedTypeOfProofSelector, e => e.value)
     await page.select(typeOfProofSelector, typeOfProofToSetValue)
 
     // Update the preference status
     const prefStatusSelector = `${liveWorkExpandedPanelSelector} .preference-status-select`
-    const unselectedPrefStatusSelector = getUnselectedOptSelector(prefStatusSelector)
+    const unselectedPrefStatusSelector = sharedSteps.notSelectedOptionSelector(prefStatusSelector)
     const prefStatusToSetName = await page.$eval(unselectedPrefStatusSelector, e => e.textContent)
     const prefStatusToSetValue = await page.$eval(unselectedPrefStatusSelector, e => e.value)
     await page.select(prefStatusSelector, prefStatusToSetValue)
@@ -81,13 +73,13 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     // Check that the value entered for individual preference, type of proof, and status were successfully saved
     // and now appears in the preference panel
-    const currentIndividualPref = await page.$eval(getSelectedOptSelector(individualPreferenceSelector), e => e.textContent)
+    const currentIndividualPref = await page.$eval(sharedSteps.selectedOptionSelector(individualPreferenceSelector), e => e.textContent)
     expect(currentIndividualPref).toBe(prefToSetName)
 
-    const currentTypeOfProof = await page.$eval(getSelectedOptSelector(typeOfProofSelector), e => e.textContent)
+    const currentTypeOfProof = await page.$eval(sharedSteps.selectedOptionSelector(typeOfProofSelector), e => e.textContent)
     expect(currentTypeOfProof).toBe(typeOfProofToSetName)
 
-    const currentStatus = await page.$eval(getSelectedOptSelector(prefStatusSelector), e => e.textContent)
+    const currentStatus = await page.$eval(sharedSteps.selectedOptionSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
 
     await browser.close()
@@ -113,7 +105,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     // Update the preference status
     const prefStatusSelector = `${assistedHousingExpandedPanelSelector} .preference-status-select`
-    const unselectedPrefStatusSelector = getUnselectedOptSelector(prefStatusSelector)
+    const unselectedPrefStatusSelector = sharedSteps.notSelectedOptionSelector(prefStatusSelector)
     const prefStatusToSetName = await page.$eval(unselectedPrefStatusSelector, e => e.textContent)
     const prefStatusToSetValue = await page.$eval(unselectedPrefStatusSelector, e => e.value)
     await page.select(prefStatusSelector, prefStatusToSetValue)
@@ -141,7 +133,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     // Check that the value entered for status was successfully saved
     // and now appears in the preference panel
-    const currentStatus = await page.$eval(getSelectedOptSelector(prefStatusSelector), e => e.textContent)
+    const currentStatus = await page.$eval(sharedSteps.selectedOptionSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
 
     await browser.close()

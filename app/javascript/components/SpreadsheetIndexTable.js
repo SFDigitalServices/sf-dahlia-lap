@@ -66,6 +66,9 @@ class SpreadsheetIndexTable extends React.Component {
     return columns
   }
 
+  // Columns must be defined outside of ReactTable render (https://github.com/tannerlinsley/react-table/issues/1266)
+  columns = this.columnData()
+
   onCellChange = (cellInfo) => {
     return (e) => {
       var editData = [...this.state.editData]
@@ -154,7 +157,7 @@ class SpreadsheetIndexTable extends React.Component {
     // NOTE: sorting works oddly when expanded rows are open, so it is turned off
     return (
       <ReactTable
-        columns={this.columnData()}
+        columns={this.columns}
         data={this.state.persistedData}
         sortable={false}
         SubComponent={flaggedApplicationRow}

@@ -26,9 +26,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     const finalHHAnnualValue = supplementalApplicationSteps.generateRandomCurrency()
 
     // Enter them
-    await supplementalApplicationSteps.enterValue(page, hhAssetsSelector, hhAssetsValue.currency)
-    await supplementalApplicationSteps.enterValue(page, confirmedAnnualSelector, confirmedAnnualValue.currency)
-    await supplementalApplicationSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
+    await sharedSteps.enterValue(page, hhAssetsSelector, hhAssetsValue.currency)
+    await sharedSteps.enterValue(page, confirmedAnnualSelector, confirmedAnnualValue.currency)
+    await sharedSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
 
     // Click save
     await supplementalApplicationSteps.savePage(page)
@@ -37,9 +37,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     await page.waitForNavigation()
 
     // Verify that the values are there (as numbers, not currency)
-    expect(await supplementalApplicationSteps.getValue(page, hhAssetsSelector)).toEqual(String(hhAssetsValue.float))
-    expect(await supplementalApplicationSteps.getValue(page, confirmedAnnualSelector)).toEqual(String(confirmedAnnualValue.float))
-    expect(await supplementalApplicationSteps.getValue(page, finalHHAnnualSelector)).toEqual(String(finalHHAnnualValue.float))
+    expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual(String(hhAssetsValue.float))
+    expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual(String(confirmedAnnualValue.float))
+    expect(await sharedSteps.getInputValue(page, finalHHAnnualSelector)).toEqual(String(finalHHAnnualValue.float))
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

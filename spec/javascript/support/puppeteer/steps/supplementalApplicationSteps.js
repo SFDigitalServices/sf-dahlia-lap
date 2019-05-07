@@ -36,22 +36,6 @@ const generateRandomCurrency = () => {
   return {'currency': `$${val}`, 'float': val}
 }
 
-const enterValue = async (page, selector, value) => {
-  // Wait for the field to appear
-  await page.waitForSelector(selector)
-  // Clear the value that's there
-  await page.$eval(selector, (el) => { el.value = '' })
-  // Enter the value
-  await page.type(selector, value)
-}
-
-const getValue = async (page, selector) => {
-  await page.waitForSelector(selector)
-  const input = await page.$(selector)
-  const valueHandle = await input.getProperty('value')
-  return valueHandle.jsonValue()
-}
-
 const savePage = async (page) => {
   const selector = '#save-supplemental-application'
   // To allow waitForNavigation to work post-save, we need to scroll
@@ -65,9 +49,7 @@ const savePage = async (page) => {
 }
 
 export default {
-  enterValue,
   generateRandomCurrency,
-  getValue,
   savePage,
   testStatusModalUpdate
 }
