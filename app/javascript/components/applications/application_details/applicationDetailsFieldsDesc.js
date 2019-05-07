@@ -20,6 +20,7 @@ const fields = {
   },
   'annual_income': null,
   'monthly_income': null,
+  'is_first_time_homebuyer': null,
   'is_lottery_complete': null,
   'housing_voucher_or_subsidy': null,
   'referral_source': null,
@@ -30,6 +31,8 @@ const fields = {
   'general_lottery': null,
   'general_lottery_rank': null,
   'answered_community_screening': null,
+  'has_completed_homebuyer_education': null,
+  'has_loan_preapproval': null,
   'has_military_service': null,
   'has_developmental_disability': {
     'label': 'Has Developmental Disability'
@@ -75,7 +78,9 @@ const fields = {
   },
   'number_of_dependents': null,
   'number_of_seniors': null,
-  'number_of_minors': null
+  'number_of_minors': null,
+  'lending_institution': null,
+  'name_of_lender': null
 }
 
 export default fields

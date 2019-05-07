@@ -194,7 +194,8 @@
   "is_snapshot": true,
   "listing": {
     "id": "a0W0P00000GbyuQUAR",
-    "name": "Partners Test Listing (do not modify) - Yellow Acres"
+    "name": "Partners Test Listing (do not modify) - Yellow Acres",
+    "is_sale": false
   },
   "proof_files": [
     {

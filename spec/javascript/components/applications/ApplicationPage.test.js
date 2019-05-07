@@ -2,8 +2,10 @@ import React from 'react'
 import { clone } from 'lodash'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import domainApplication from '../../fixtures/domain_application'
+import saleApplication from '../../fixtures/sale_application'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
+import labelMapperFields from 'components/applications/application_details/applicationDetailsFieldsDesc'
 
 describe('ApplicationPage', () => {
   describe('should render', () => {
@@ -56,6 +58,23 @@ describe('ApplicationPage', () => {
       // Check that the row is there and contains the right rule name.
       expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
       expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()).toEqual('Name + DOB')
+    })
+
+    test('sale application', () => {
+      const saleAppt = clone(saleApplication)
+      const fields = clone(labelMapperFields)
+
+      const fileBaseUrl = 'http://www.someurl.com'
+      const wrapper = mount(
+        <ApplicationPage
+          application={saleAppt}
+          file_base_url={fileBaseUrl}
+          fields={fields} />
+      )
+      // Should have Eligibility section
+      expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
+      // Should fill in Name of Lender
+      expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
     })
   })
 })

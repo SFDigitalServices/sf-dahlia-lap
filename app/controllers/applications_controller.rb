@@ -71,7 +71,10 @@ class ApplicationsController < ApplicationController
     application.listing = {
       id: listing.Id,
       name: listing.Name,
+      is_sale: (listing.Tenure == 'New sale' || listing.Tenure == 'Resale'),
     }
+
+    map_lending_institution(application)
 
     # Add proof files
     application.proof_files = soql_attachment_service.app_proof_files(id)
@@ -103,5 +106,18 @@ class ApplicationsController < ApplicationController
 
   def lending_institutions
     Force::CustomApi::LendingInstitutionsService.new(current_user).lending_institutions
+  end
+
+  def map_lending_institution(application)
+    return unless application.listing[:is_sale]
+
+    agent = Force::CustomApi::LendingInstitutionsService.new(current_user).find_agent(application.lending_agent)
+    if agent.present?
+      application.lending_institution = agent[:lending_institution]
+      application.name_of_lender = agent[:name_of_lender]
+    else
+      application.lending_institution = 'None'
+      application.name_of_lender = 'None'
+    end
   end
 end
