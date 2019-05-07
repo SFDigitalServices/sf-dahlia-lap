@@ -183,7 +183,7 @@ class PaperApplicationForm extends React.Component {
                     <PrimaryApplicantSection form={form} />
                     <AlternateContactSection />
                     <HouseholdMembersSection editValues={application} form={form} />
-                    {/* <ReservedPrioritySection editValues={application} listing={listing} /> */}
+                    <ReservedPrioritySection listing={listing} />
                     {/* <PreferencesSection
                       formApi={formApi}
                       listingPreferences={listing.listing_lottery_preferences}
