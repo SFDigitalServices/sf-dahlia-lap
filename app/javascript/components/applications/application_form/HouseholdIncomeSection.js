@@ -1,6 +1,5 @@
 import React from 'react'
-import { Select } from 'react-form'
-import { Field } from '~/utils/form/Field'
+import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from './formOptions'
 
@@ -14,17 +13,17 @@ const HouseholdIncomeSection = () => {
       <h3>Declared Household Income</h3>
       <div className='row'>
         <div className='small-6 columns'>
-          <Field.Text
+          <FieldWrapper
+            type='text'
+            fieldName='annual_income'
             label='Annual Income'
-            field='annual_income'
-            errorMessage={(label, error) => error}
             maxLength={maxLengthMap['income']}
           />
         </div>
         <div className='small-6 columns'>
-          <label>Housing Voucher/ Subsidy</label>
-          <Select
-            field='housing_voucher_or_subsidy'
+          <SelectField
+            fieldName='housing_voucher_or_subsidy'
+            label='Housing Voucher/ Subsidy'
             options={householdVouchersSubsidiesOptions} />
         </div>
       </div>
