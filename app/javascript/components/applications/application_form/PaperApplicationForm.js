@@ -156,20 +156,7 @@ class PaperApplicationForm extends React.Component {
         <Form
           onSubmit={this.submitShortForm}
           initialValues={application}
-          validate={ values => {
-            // TODO: pull this validation out into separate file and fix is present
-            const errors = {applicant: {date_of_birth: {}}}
-            if (values.applicant && values.applicant.date_of_birth) {
-              let DOB = [values.applicant.date_of_birth.year, values.applicant.date_of_birth.month, values.applicant.date_of_birth.day]
-              errors.applicant.date_of_birth.all = validate.any(
-                validate.isValidDate('Please enter a valid Date of Birth'),
-                validate.isOldEnough('The primary applicant must be 18 years of age or older')
-              )(DOB)
-            } else {
-              errors.applicant.date_of_birth.all = 'Date of Birth is required'
-            }
-            return errors
-          }}
+          validate={validate.isValidDOB}
           mutators={{
             ...arrayMutators
           }}
