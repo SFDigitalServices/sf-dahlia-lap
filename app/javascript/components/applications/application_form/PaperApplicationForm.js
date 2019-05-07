@@ -183,15 +183,15 @@ class PaperApplicationForm extends React.Component {
                     <PrimaryApplicantSection form={form} />
                     <AlternateContactSection />
                     <HouseholdMembersSection editValues={application} form={form} />
-                    {/*<ReservedPrioritySection editValues={application} listing={listing} />
-                    <PreferencesSection
+                    {/* <ReservedPrioritySection editValues={application} listing={listing} /> */}
+                    {/* <PreferencesSection
                       formApi={formApi}
                       listingPreferences={listing.listing_lottery_preferences}
                       editValues={application}
-                    />
+                    /> */}
                     <HouseholdIncomeSection />
                     <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
-                    <AgreeToTerms /> */}
+                    {/* <AgreeToTerms /> */}
                   </div>
                   <div className='button-pager'>
                     <div className='button-pager_row primary'>
