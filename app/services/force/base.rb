@@ -13,7 +13,7 @@ module Force
     end
 
     def revoke_token
-      @client.get("/services/oauth2/revoke?token=#{@client.options[:oauth_token]}")
+      @client.try("/services/oauth2/revoke?token=#{@client.options[:oauth_token]}")
     end
 
     # cache a Salesforce SOQL query

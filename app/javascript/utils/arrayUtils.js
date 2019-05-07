@@ -37,15 +37,22 @@ class Cycle {
 
 const cycle = (value) => new Cycle(value)
 
-const splitInHalf = (array) => {
-  let halfLength = array.length / 2
-  let firstHalf = take(array, Math.floor(halfLength))
-  let secondHalf = takeRight(array, Math.ceil(halfLength))
+const split = (array, splitOn = null) => {
+  // Split array on an index. Splits in half by default
+  let firstHalf, secondHalf
+  if (splitOn != null) {
+    firstHalf = take(array, splitOn)
+    secondHalf = takeRight(array, array.length - splitOn)
+  } else {
+    let halfLength = array.length / 2
+    firstHalf = take(array, Math.floor(halfLength))
+    secondHalf = takeRight(array, Math.ceil(halfLength))
+  }
 
   return { firstHalf, secondHalf }
 }
 
 export default {
   cycle,
-  splitInHalf
+  split
 }
