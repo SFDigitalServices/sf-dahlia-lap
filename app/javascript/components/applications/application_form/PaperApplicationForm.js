@@ -139,6 +139,7 @@ class PaperApplicationForm extends React.Component {
 
   render () {
     const { listing, application, lendingInstitutions } = this.props
+    const initialValues = application ? application : {household_members: []}
     const { loading, failed } = this.state
     return (
       <div>
@@ -151,9 +152,7 @@ class PaperApplicationForm extends React.Component {
           }}
           render={({
             handleSubmit,
-            form: {
-              mutators: { push, pop }
-            },
+            mutators: { push, pop },
             form,
             submitting,
             pristine,
@@ -171,7 +170,7 @@ class PaperApplicationForm extends React.Component {
                     <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} form={form} />
                     <PrimaryApplicantSection form={form} />
                     <AlternateContactSection />
-                    <HouseholdMembersSection editValues={application} form={form} />
+                    <HouseholdMembersSection editValues={application} push={push} pop={pop} form={form} />
                     <ReservedPrioritySection listing={listing} />
                     {/* <PreferencesSection
                       formApi={formApi}
