@@ -29,9 +29,12 @@ module.exports = function (api) {
         require('@babel/preset-env').default,
         {
           forceAllTransforms: true,
-          useBuiltIns: 'entry',
+          useBuiltIns: false,
           modules: false,
-          exclude: ['transform-typeof-symbol']
+          exclude: ['transform-typeof-symbol'],
+          targets: {
+            browsers: '> 1%'
+          }
         }
       ],
       [
@@ -46,6 +49,7 @@ module.exports = function (api) {
       require('babel-plugin-macros'),
       require('@babel/plugin-syntax-dynamic-import').default,
       isTestEnv && require('babel-plugin-dynamic-import-node'),
+      require('@babel/plugin-transform-async-to-generator').default,
       require('@babel/plugin-transform-destructuring').default,
       [
         require('@babel/plugin-proposal-class-properties').default,
@@ -70,6 +74,12 @@ module.exports = function (api) {
         require('@babel/plugin-transform-regenerator').default,
         {
           async: false
+        }
+      ],
+      [
+        require('babel-plugin-root-import').default,
+        {
+          rootPathSuffix: 'app/javascript'
         }
       ],
       isProductionEnv && [
