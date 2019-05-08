@@ -5,20 +5,21 @@ import { FieldArray } from 'react-final-form-arrays'
 import validate from '~/utils/form/validations'
 import { Field } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
+import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 
 const memberValidate = (values) => {
-  console.log('validate', values)
-  if (!values) return
+  if (!values || !values.length) return;
   const errorsArray = []
+
   values.forEach(value => {
-    console.log('at validate', value)
-    const errors = {}
-    if (!value.first_name) errors.first_name = "First Name Required"
-    // if (!value.firstName) errors.firstName = "First Name Required"
-    errorsArray.push(errors)
-  })
-  console.log(errorsArray)
-  return errorsArray
+    if (value) {
+      const errors = {};
+      if (!value.first_name) errors.first_name = "First Name Required";
+      errorsArray.push(errors);
+    }
+  });
+
+  return errorsArray;
 }
 
 const HouseholdMembersSection = ({ form, push, pop }) => {

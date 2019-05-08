@@ -101,16 +101,16 @@ validate.any = (...fns) => (value) => {
     compact(
       map(fns, fn => fn(value))))
 }
-validate.isValidDOB = (values) => {
-  const errors = {applicant: {date_of_birth: {}}}
-  if (values.applicant && values.applicant.date_of_birth) {
-    let DOB = [values.applicant.date_of_birth.year, values.applicant.date_of_birth.month, values.applicant.date_of_birth.day]
-    errors.applicant.date_of_birth.all = validate.any(
+
+validate.isValidDOB = (person, errors) => {
+  if (person && person.date_of_birth) {
+    let DOB = [person.date_of_birth.year, person.date_of_birth.month, person.date_of_birth.day]
+    errors.date_of_birth.all = validate.any(
       validate.isValidDate('Please enter a valid Date of Birth'),
       validate.isOldEnough('The primary applicant must be 18 years of age or older')
     )(DOB)
   } else {
-    errors.applicant.date_of_birth.all = 'Date of Birth is required'
+    errors.date_of_birth.all = 'Date of Birth is required'
   }
   return errors
 }

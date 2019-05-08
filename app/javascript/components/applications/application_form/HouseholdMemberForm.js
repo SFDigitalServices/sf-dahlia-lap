@@ -62,9 +62,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
       </div>
       <div className='row'>
         <div className='small-12 columns'>
-          <AddressForm
-            memberType='householdMember'
-            nestedField={`household_members`} />
+          <AddressForm name={name} />
         </div>
       </div>
       <div className='row'>

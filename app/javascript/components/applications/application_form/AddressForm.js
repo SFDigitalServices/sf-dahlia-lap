@@ -3,18 +3,18 @@ import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { isEmpty } from 'lodash'
 import { maxLengthMap } from '~/utils/formUtils'
 
-const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
+const buildField = ( memberType, name, fieldMap, fieldKey) => {
   // to do: refactor this to use props
   if (memberType === 'primaryApplicant') {
     return `applicant.${fieldMap[fieldKey]}`
-  } else if (memberType === 'householdMember') {
-    return `${nestedField}.${fieldMap[fieldKey]}`
+  } else if (!isEmpty(name)) {
+    return `${name}.${fieldMap[fieldKey]}`
   } else if (memberType === 'alternateContact') {
     return `alternate_contact.${fieldMap[fieldKey]}`
   }
 }
 
-const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
+const AddressForm = ({ title, memberType, name, fieldMap }) => {
   if (isEmpty(fieldMap)) {
     fieldMap = {
       address: 'street',
@@ -35,7 +35,7 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
             <FieldWrapper
               type='text'
               label='Street Address'
-              fieldName={buildField(memberType, nestedField, fieldMap, 'address')}
+              fieldName={buildField(memberType, name, fieldMap, 'address')}
               maxLength={maxLengthMap['address']}
             />
           </div>
@@ -43,7 +43,7 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
             <FieldWrapper
               type='text'
               label='City'
-              fieldName={buildField(memberType, nestedField, fieldMap, 'city')}
+              fieldName={buildField(memberType, name, fieldMap, 'city')}
               maxLength={maxLengthMap['city']}
               />
           </div>
@@ -51,7 +51,7 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
             <FieldWrapper
               type='text'
               label='State'
-              fieldName={buildField(memberType, nestedField, fieldMap, 'state')}
+              fieldName={buildField(memberType, name, fieldMap, 'state')}
               maxLength={maxLengthMap['state']}
               />
           </div>
@@ -59,7 +59,7 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
             <FieldWrapper
               type='text'
               label='Zip'
-              fieldName={buildField(memberType, nestedField, fieldMap, 'zip')}
+              fieldName={buildField(memberType, name, fieldMap, 'zip')}
               maxLength={maxLengthMap['zip']}
             />
           </div>

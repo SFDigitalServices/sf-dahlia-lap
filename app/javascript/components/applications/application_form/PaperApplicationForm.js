@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
+import { forEach, some, isObjectLike, isNil, includes, last } from 'lodash'
 // import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import EligibilitySection from './EligibilitySection'
@@ -146,7 +146,18 @@ class PaperApplicationForm extends React.Component {
         <Form
           onSubmit={this.submitShortForm}
           initialValues={application}
-          validate={validate.isValidDOB}
+          validate={(values) => {
+            let errors = {applicant: {date_of_birth: {}}}
+            const membersErrors = []
+            // errors.household_members = []
+            validate.isValidDOB(values.applicant, errors.applicant)
+            forEach(values.household_members, (member) => {
+              membersErrors.push({date_of_birth: {}})
+              validate.isValidDOB(member, last(membersErrors))
+            })
+            // errors.household_members = membersErrors
+            return errors
+          }}
           mutators={{
             ...arrayMutators
           }}
