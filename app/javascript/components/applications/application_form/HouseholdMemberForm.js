@@ -23,7 +23,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
               label='First Name'
               fieldName={`${name}.first_name`}
               blockNote='(required)'
-              errorMessage={(label, error) => error}
+              // validation={validate.isPresent('Please enter a First Name')}
               maxLength={maxLengthMap['first_name']}
             />
           </div>
@@ -43,7 +43,6 @@ const HouseholdMemberForm = ({name, index, form}) => {
               label='Last Name'
               fieldName={`${name}.last_name`}
               blockNote='(required)'
-              errorMessage={(label, error) => error}
               maxLength={maxLengthMap['last_name']}
             />
           </div>
