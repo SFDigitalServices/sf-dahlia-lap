@@ -77,11 +77,6 @@ const PrimaryApplicantSection = ({form}) => {
             fieldName='applicant.date_of_birth'
             label='Date of Birth'
             blockNote='(required)'
-            validation={validate.any(
-              validate.isPresent('Please enter a Date of Birth'),
-              validate.isValidDate('Please enter a valid Date of Birth'),
-              validate.isOldEnough('The primary applicant must be 18 years of age or older')
-            )}
           />
         </div>
         <div className='small-4 columns'>

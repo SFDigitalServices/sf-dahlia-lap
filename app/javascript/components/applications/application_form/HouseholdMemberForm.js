@@ -23,7 +23,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
               label='First Name'
               fieldName={`${name}.first_name`}
               blockNote='(required)'
-              // validation={validate.isPresent('Please enter a First Name')}
+              validation={validate.isPresent('Please enter a First Name')}
               maxLength={maxLengthMap['first_name']}
             />
           </div>
@@ -44,18 +44,17 @@ const HouseholdMemberForm = ({name, index, form}) => {
               fieldName={`${name}.last_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['last_name']}
+              validation={validate.isPresent('Please enter a Last Name')}
             />
           </div>
           <div className='small-4 columns form-date-of-birth'>
             <MultiDateField
               form={form}
               fieldName={`${name}.date_of_birth`}
+              index={index}
+              formName='household_members'
               label='Date of Birth'
               blockNote='(required)'
-              validation={validate.any(
-                validate.isPresent('Please enter a Date of Birth'),
-                validate.isValidDate('Please enter a valid Date of Birth'),
-              )}
             />
           </div>
         </div>

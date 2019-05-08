@@ -62,22 +62,6 @@ const buildPrefValidations = (prefs) => {
   return prefValidations
 }
 
-const buildHouseholdMemberValidations = (householdMembers) => {
-  let householdMemberValidations = {}
-  forEach(householdMembers, (member, index) => {
-    // If member is empty, do not validate it.
-    householdMemberValidations[index] = member === '' ? {} : {
-      first_name: validate.isPresent('Please enter a First Name')(member.first_name),
-      last_name: validate.isPresent('Please enter a Last Name')(member.last_name),
-      date_of_birth: (
-        validate.isPresent('Please enter a Date of Birth')(member.date_of_birth) ||
-        validate.isValidDate('Please enter a valid Date of Birth')(member.date_of_birth)
-      )
-    }
-  })
-  return householdMemberValidations
-}
-
 class PaperApplicationForm extends React.Component {
   constructor (props) {
     super(props)
@@ -95,7 +79,6 @@ class PaperApplicationForm extends React.Component {
     this.setState({ submittedValues, loading: true, failed: false })
 
     const response = await onSubmit(submitType, submittedValues, application, listing, editPage)
-    // console.log(response)
     if (response === false) {
       this.setState({ loading: false, failed: true })
     }
@@ -128,15 +111,12 @@ class PaperApplicationForm extends React.Component {
     let validations = {
       preferences: buildPrefValidations(values.preferences),
       annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
-      household_members: buildHouseholdMemberValidations(values.household_members),
-      application_language: validate.isPresent('Please select a language.')(values.application_language)
     }
     return validations
   }
 
   render () {
     const { listing, application, lendingInstitutions } = this.props
-    const initialValues = application ? application : {household_members: []}
     const { loading, failed } = this.state
     return (
       <div>
@@ -144,15 +124,8 @@ class PaperApplicationForm extends React.Component {
           onSubmit={this.submitShortForm}
           initialValues={application}
           validate={(values) => {
-            let errors = {applicant: {date_of_birth: {}}}
-            const membersErrors = []
-            // errors.household_members = []
+            const errors = {applicant: {date_of_birth: {}}}
             validate.isValidDOB(values.applicant, errors.applicant)
-            forEach(values.household_members, (member) => {
-              membersErrors.push({date_of_birth: {}})
-              validate.isValidDOB(member, last(membersErrors))
-            })
-            // errors.household_members = membersErrors
             return errors
           }}
           mutators={{
@@ -178,7 +151,7 @@ class PaperApplicationForm extends React.Component {
                     <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} form={form} />
                     <PrimaryApplicantSection form={form} />
                     <AlternateContactSection />
-                    <HouseholdMembersSection editValues={application} push={push} pop={pop} form={form} />
+                    <HouseholdMembersSection editValues={application} form={form} />
                     <ReservedPrioritySection listing={listing} />
                     <PreferencesSection
                       form={form}

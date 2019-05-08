@@ -5,16 +5,19 @@ import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { some } from 'lodash'
 
 
-export const MultiDateField = ({ form, fieldName, label, blockNote }) => {
+export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote }) => {
   const touched = some(['.day', '.month', '.year'], type => {
     return form.getState().touched[fieldName + type]
   })
+  let errorField
+  if (formName) {
+    errorField = form.getState().errors[formName][index]
+  } else {
+    errorField = form.getState().errors[fieldName.split('.')[0]]
+  }
 
-  const error = form.getState &&
-    form.getState().errors[fieldName.split('.')[0]] &&
-    form.getState().errors[fieldName.split('.')[0]]['date_of_birth'] &&
-    touched &&
-    form.getState().errors[fieldName.split('.')[0]]['date_of_birth']['all']
+  const error = form && touched && errorField &&
+    errorField['date_of_birth'] && errorField['date_of_birth']['all']
   console.log('fieldName', fieldName)
   console.log('form state', form.getState())
   return (

@@ -1,28 +1,24 @@
 import React from 'react'
 import HouseholdMemberForm from './HouseholdMemberForm'
-import { isEmpty } from 'lodash'
+import { last } from 'lodash'
 import { FieldArray } from 'react-final-form-arrays'
 import validate from '~/utils/form/validations'
-import { Field } from 'react-final-form'
-import arrayMutators from 'final-form-arrays'
-import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 
 const memberValidate = (values) => {
   if (!values || !values.length) return;
-  const errorsArray = []
+  const membersErrors = []
 
   values.forEach(value => {
     if (value) {
-      const errors = {};
-      if (!value.first_name) errors.first_name = "First Name Required";
-      errorsArray.push(errors);
+      membersErrors.push({date_of_birth: {}})
+      validate.isValidDOB(value, last(membersErrors))
     }
   });
 
-  return errorsArray;
+  return membersErrors
 }
 
-const HouseholdMembersSection = ({ form, push, pop }) => {
+const HouseholdMembersSection = ({ form }) => {
   console.log('form values',form.getState().values)
   return (
     <div className='border-bottom margin-bottom--2x'>
@@ -49,7 +45,7 @@ const HouseholdMembersSection = ({ form, push, pop }) => {
               <div className='form-group'>
                 <div className='small-4 columns'>
                   <button
-                    onClick={() => push('household_members', {})}
+                    onClick={() => form.mutators.push('household_members', {})}
                     type='button'
                     className='mb-4 mr-4 btn btn-success'
                     id='add-additional-member'>
@@ -62,32 +58,6 @@ const HouseholdMembersSection = ({ form, push, pop }) => {
         }
       </FieldArray>
     </div>
-
-
-
-
-
-
-
-
-    //   { !isEmpty(formApi.values.household_members) && formApi.values.household_members.map((member, i) => (
-    //     <div className='border-bottom margin-bottom--2x' key={i}>
-    //       <HouseholdMemberForm i={i} formApi={formApi} />
-    //       <div className='row'>
-    //         <div className='form-group'>
-    //           <div className='small-4 columns'>
-    //             <button
-    //               onClick={() => formApi.removeValue('household_members', i)}
-    //               type='button'
-    //               className='mb-4 btn btn-danger'>
-    //                 Remove
-    //             </button>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   ))}
-
   )
 }
 
