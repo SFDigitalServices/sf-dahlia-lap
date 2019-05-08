@@ -1,12 +1,14 @@
 import React from 'react'
-import { Checkbox } from 'react-form'
+import { CheckboxField } from '~/utils/form/final_form/Field'
 
 const AgreeToTerms = () => (
   <div className='checkbox-group' role='group'>
     <div className='form-item' >
       <div className='checkbox'>
-        <Checkbox field='terms_acknowledged' id='agreeToTerms' name='agreeToTerms' />
-        <label htmlFor='agreeToTerms'>Signature on Terms of Agreement</label>
+        <CheckboxField
+          fieldName='terms_acknowledged'
+          id='agreeToTerms'
+          label='Signature on Terms of Agreement' />
       </div>
     </div>
   </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { forEach, some, isObjectLike, isNil, includes, last } from 'lodash'
-// import { Form } from 'react-form'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import EligibilitySection from './EligibilitySection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -14,10 +13,8 @@ import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
-import { Form, Field } from 'react-final-form'
+import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
-
-
 
 const fieldRequiredMsg = 'is required'
 
@@ -189,17 +186,11 @@ class PaperApplicationForm extends React.Component {
                       editValues={application}
                     />
                     <HouseholdIncomeSection />
-                    <DemographicInfoSection defaultValues={application ? application['demographics'] : {}} />
-                    {/* <AgreeToTerms /> */}
+                    <DemographicInfoSection />
+                    <AgreeToTerms />
                   </div>
                   <div className='button-pager'>
                     <div className='button-pager_row primary'>
-                      {/* <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
-                        {loading ? 'Saving…' : 'Save'}
-                      </button>
-                      <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
-                        Save and New
-                      </button> */}
                       <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
                         {loading ? 'Saving…' : 'Save'}
                       </button>
