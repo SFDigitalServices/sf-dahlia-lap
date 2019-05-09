@@ -1,6 +1,4 @@
 import React from 'react'
-import * as Sentry from '@sentry/browser'
-
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
@@ -52,7 +50,6 @@ const layout = {
 }
 
 const ListingsPage = ({ page, listings }) => {
-  Sentry.captureException(new Error('This is my fake error message with sourcemaps hopefully'))
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />
