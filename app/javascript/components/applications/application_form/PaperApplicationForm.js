@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { forEach, some, isObjectLike, isNil, includes, last } from 'lodash'
 import ApplicationLanguageSection from './ApplicationLanguageSection'
 import EligibilitySection from './EligibilitySection'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
@@ -15,52 +14,6 @@ import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
-
-const fieldRequiredMsg = 'is required'
-
-const preferenceRequiredFields = {
-  individual_preference: ['RB_AHP', 'L_W'],
-  type_of_proof: ['NRHP', 'L_W', 'AG'],
-  street: ['AG'],
-  city: ['AG'],
-  state: ['AG'],
-  zip_code: ['AG']
-}
-
-const preferenceRequiresField = (prefName, fieldName) => {
-  if (fieldName === 'naturalKey') {
-    return true
-  } else {
-    return includes(preferenceRequiredFields[fieldName], prefName)
-  }
-}
-
-// In react-form v2, a validation value of null indicates no
-// error, and a validation value of anything other than null
-// indicates an error.
-const getPrefFieldValidation = (pref, fieldName) => {
-  if (preferenceRequiresField(pref.recordtype_developername, fieldName)) {
-    return pref[fieldName] ? null : fieldRequiredMsg
-  } else {
-    return null
-  }
-}
-
-const buildPrefValidations = (prefs) => {
-  let prefValidations = {}
-  forEach(prefs, (pref, index) => {
-    prefValidations[index] = {
-      naturalKey: getPrefFieldValidation(pref, 'naturalKey'),
-      individual_preference: getPrefFieldValidation(pref, 'individual_preference'),
-      type_of_proof: getPrefFieldValidation(pref, 'type_of_proof'),
-      street: getPrefFieldValidation(pref, 'street'),
-      city: getPrefFieldValidation(pref, 'city'),
-      state: getPrefFieldValidation(pref, 'state'),
-      zip_code: getPrefFieldValidation(pref, 'zip_code')
-    }
-  })
-  return prefValidations
-}
 
 class PaperApplicationForm extends React.Component {
   constructor (props) {
@@ -84,36 +37,18 @@ class PaperApplicationForm extends React.Component {
     }
   }
 
-  hasErrors = (errors) => {
-    return some(errors, (value, key) => {
-      if (isObjectLike(value)) {
-        return this.hasErrors(value)
-      } else {
-        return !isNil(value)
-      }
-    })
-  }
-
-  // saveSubmitType = (type, formApi) => {
-  //   const failed = this.hasErrors(formApi.errors)
-  //   this.setState({submitType: type, failed})
-  //   if (failed) { window.scrollTo(0, 0) }
-  // }
-
   saveSubmitType = (type) => {
-    // const failed = this.hasErrors(formApi.errors)
     this.setState({submitType: type})
-    // if (failed) { window.scrollTo(0, 0) }
   }
 
-  validateError = (values) => {
-    const { listing } = this.props
-    let validations = {
-      preferences: buildPrefValidations(values.preferences),
-      annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
-    }
-    return validations
-  }
+  // TODO validation for annual_income
+  // validateError = (values) => {
+  //   const { listing } = this.props
+  //   let validations = {
+  //     annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
+  //   }
+  //   return validations
+  // }
 
   render () {
     const { listing, application, lendingInstitutions } = this.props

@@ -11,7 +11,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
   })
   let errorField
   if (formName) {
-    errorField = form.getState().errors[formName][index]
+    errorField = form.getState().errors[formName] ? form.getState().errors[formName][index] : null
   } else {
     errorField = form.getState().errors[fieldName.split('.')[0]]
   }

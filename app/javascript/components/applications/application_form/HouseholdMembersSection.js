@@ -29,7 +29,6 @@ const HouseholdMembersSection = ({ form }) => {
         {({ fields }) =>
           <React.Fragment>
             { fields.map((name, index) => {
-              console.log('name outside', name)
               return (
               <div key={name}>
                 <HouseholdMemberForm form={form} name={name} index={index} />

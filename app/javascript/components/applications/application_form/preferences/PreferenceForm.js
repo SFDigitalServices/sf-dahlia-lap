@@ -48,8 +48,8 @@ const removePreference = (form, i) => {
   form.change(FIELD_NAME, preferences)
 }
 
-const PreferenceForm = ({ i, pref, form, listingPreferences, fullHousehold }) => {
-  const selectedPreference = findSelectedPreference(i, form, listingPreferences)
+const PreferenceForm = ({ index, name, form, listingPreferences, fullHousehold }) => {
+  const selectedPreference = findSelectedPreference(index, form, listingPreferences)
   const preferencesNotSelected = findPreferencesNotSelected(form, listingPreferences, selectedPreference)
   const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
@@ -60,24 +60,23 @@ const PreferenceForm = ({ i, pref, form, listingPreferences, fullHousehold }) =>
         <Column span={6}>
           <label>Preference</label>
           <SelectField
-            fieldName={buildFieldId(i, 'listing_preference_id')}
+            fieldName={`${name}.listing_preference_id`}
             options={listingPreferencesOptions}
-            value={buildFieldId(i, 'listing_preference_id')}
-            id={`select-paper-preference-${i}`}
+            id={`select-paper-preference-${index}`}
           />
         </Column>
         <PreferenceAdditionalOptions
-          i={i}
-          shortFormPreference={pref}
+          i={index}
           listingPreferenceID={selectedPreference.listing_preference_id}
           listingPreferences={listingPreferences}
+          selectedPreference={selectedPreference}
           householdMembers={householdMembersOptions}
         />
       </Row>
       <Row>
         <Column span={4}>
           <button
-            onClick={() => removePreference(form, i)}
+            onClick={() => removePreference(form, index)}
             type='button'
             className='mb-4 btn btn-danger'>
               Remove

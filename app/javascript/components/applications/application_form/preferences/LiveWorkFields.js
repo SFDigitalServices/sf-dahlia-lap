@@ -23,7 +23,7 @@ const individualPreferenceOptions = [
   {value: 'Work in SF', label: 'Work in SF'}
 ]
 
-const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
+const LiveWorkFields = ({ i, householdMembers, selectedPreference }) => {
   return (
     <div>
       <div className='small-6 columns'>
@@ -47,7 +47,7 @@ const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
           label='Type of Proof'
           blockNote='(required)'
           fieldName={buildFieldId(i, 'type_of_proof')}
-          options={getProofTypes(shortFormPreference.individual_preference)}
+          options={getProofTypes(selectedPreference.individual_preference)}
         />
       </div>
       <div className='small-12 columns'>

@@ -1,7 +1,8 @@
 import React from 'react'
-import { forEach, isEmpty, cloneDeep } from 'lodash'
+import { forEach, isEmpty, includes } from 'lodash'
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference, getFullHousehold } from './utils'
+import { FieldArray } from 'react-final-form-arrays'
 
 const allPreferencesSelected = (form, listingPreferences) => {
   if (form.getState().values && !isEmpty(form.getState().values.preferences) && listingPreferences) {
@@ -17,6 +18,37 @@ const hasHouseholdMembers = (form) => {
 
 const disableAddPreference = (form, listingPreferences) => {
   return (allPreferencesSelected(form, listingPreferences) || !hasHouseholdMembers(form))
+}
+
+const fieldRequiredMsg = 'is required'
+
+const preferenceRequiredFields = {
+  individual_preference: ['RB_AHP', 'L_W'],
+  type_of_proof: ['NRHP', 'L_W', 'AG'],
+  street: ['AG'],
+  city: ['AG'],
+  state: ['AG'],
+  zip_code: ['AG']
+}
+
+const preferenceRequiresField = (prefName, fieldName) => {
+  if (fieldName === 'naturalKey') {
+    return true
+  } else {
+    return includes(preferenceRequiredFields[fieldName], prefName)
+  }
+}
+
+const validatePreference = (pref) => {
+  let errors = {}
+  const fields = ['naturalKey', 'individual_preference', 'type_of_proof', 'street', 'city', 'state', 'zip_code']
+  forEach(fields, (field) => {
+    if (preferenceRequiresField(pref.recordtype_developername, field) && isEmpty(pref[field])) {
+      errors[field] = fieldRequiredMsg
+    }
+  })
+
+  return errors
 }
 
 class PreferencesSection extends React.Component {
@@ -37,15 +69,12 @@ class PreferencesSection extends React.Component {
     }
   }
 
-  addPreference = () => {
-    const { form } = this.props
-    if (form.getState().values.preferences) {
-      let preferences = cloneDeep(form.getState().values.preferences)
-      preferences.push('')
-      form.change('preferences', preferences)
-    } else {
-      form.change('preferences', [''])
-    }
+  validatePreferences = (values) => {
+    let prefErrors = []
+    forEach(values, (value) => {
+      prefErrors.push(validatePreference(value))
+    })
+    return prefErrors
   }
 
   render () {
@@ -56,29 +85,32 @@ class PreferencesSection extends React.Component {
     return (
       <div className='border-bottom margin-bottom--2x'>
         <h3>Preferences</h3>
-        {
-          !isEmpty(preferences) && preferences.map((pref, i) => (
-            <div className='border-bottom margin-bottom--2x' key={i}>
-              <PreferenceForm {...{i, pref, form, listingPreferences, fullHousehold}} />
-            </div>
-          ))
-        }
-
-        <div className='row'>
-          <div className='form-group'>
-            <div className='small-4 columns'>
-              <button
-                onClick={this.addPreference}
-                disabled={disableAddPreference(form, listingPreferences)}
-                type='button'
-                className='mb-4 mr-4 btn btn-success'
-                id='add-preference-button'>
-                  + Add Preference
-              </button>
-            </div>
-          </div>
-        </div>
-
+        <FieldArray name='preferences' validate={this.validatePreferences}>
+          {({ fields }) =>
+            <React.Fragment>
+              { fields.map((name, index) => {
+                return (
+                  <div className='border-bottom margin-bottom--2x' key={name}>
+                    <PreferenceForm {...{index, name, form, listingPreferences, fullHousehold}} />
+                  </div>
+              )})}
+              <div className='row'>
+                <div className='form-group'>
+                  <div className='small-4 columns'>
+                    <button
+                      onClick={() => form.mutators.push('preferences', {})}
+                      disabled={disableAddPreference(form, listingPreferences)}
+                      type='button'
+                      className='mb-4 mr-4 btn btn-success'
+                      id='add-preference-button'>
+                        + Add Preference
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>
+          }
+        </FieldArray>
       </div>
     )
   }
