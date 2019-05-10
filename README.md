@@ -11,7 +11,7 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 
 ## Setup
 * Use Ruby 2.3.7 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
-* Install [Bundler](https://github.com/bundler/bundler) for this version of Ruby `gem install bundler -v 1.16.2`
+* Install [Bundler](https://github.com/bundler/bundler) for this version of Ruby `gem install bundler -v 2.0.1`
 * Use Node v8.10.x (npm v5.5.x)
 * Install Yarn (if you have Homebrew you can run `brew install yarn`)
 * Run `yarn install`
