@@ -284,7 +284,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)

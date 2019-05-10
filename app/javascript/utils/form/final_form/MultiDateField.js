@@ -4,7 +4,7 @@ import { maxLengthMap } from '~/utils/formUtils'
 import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { some } from 'lodash'
 
-export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote }) => {
+export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id }) => {
   const touched = some(['.day', '.month', '.year'], type => {
     return form.getState().touched[fieldName + type]
   })
@@ -18,7 +18,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
   const error = form && touched && errorField && errorField['date_of_birth'] && errorField['date_of_birth']['all']
   return (
     <div className={(error && 'error') || ''}>
-      <label className='form-label' htmlFor={fieldName}>
+      <label className='form-label' htmlFor={id || `form-${fieldName}`}>
         {`${label} `}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
@@ -26,6 +26,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         <FieldWrapper
           type='text'
           fieldName={`${fieldName}.month`}
+          id={`${id}_month` || `form-${fieldName}_month`}
           placeholder='MM'
           pattern='\d*'
           maxLength={maxLengthMap['month']} />
@@ -34,6 +35,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         <FieldWrapper
           type='text'
           fieldName={`${fieldName}.day`}
+          id={`${id}_day` || `form-${fieldName}_day`}
           placeholder='DD'
           pattern='\d*'
           maxLength={maxLengthMap['day']} />
@@ -42,6 +44,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         <FieldWrapper
           type='text'
           fieldName={`${fieldName}.year`}
+          id={`${id}_year` || `form-${fieldName}_year`}
           placeholder='YYYY'
           pattern='\d*'
           maxLength={maxLengthMap['year']} />

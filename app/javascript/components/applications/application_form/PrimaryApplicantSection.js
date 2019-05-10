@@ -21,6 +21,7 @@ const PrimaryApplicantSection = ({form}) => {
             <FieldWrapper
               type='text'
               fieldName='applicant.first_name'
+              id='first_name'
               label='First Name'
               blockNote='(required)'
               validation={validate.isPresent('Please enter a First Name')}
@@ -31,6 +32,7 @@ const PrimaryApplicantSection = ({form}) => {
             <FieldWrapper
               type='text'
               fieldName='applicant.middle_name'
+              id='middle_name'
               label='Middle Name'
               maxLength={maxLengthMap['middle_name']}
             />
@@ -39,6 +41,7 @@ const PrimaryApplicantSection = ({form}) => {
             <FieldWrapper
               type='text'
               fieldName='applicant.last_name'
+              id='last_name'
               label='Last Name'
               blockNote='(required)'
               validation={validate.isPresent('Please enter a Last Name')}
@@ -52,6 +55,7 @@ const PrimaryApplicantSection = ({form}) => {
           <FieldWrapper
             type='text'
             label='Email'
+            id='email'
             fieldName='applicant.email'
             maxLength={maxLengthMap['email']}
           />
@@ -60,12 +64,14 @@ const PrimaryApplicantSection = ({form}) => {
           <FieldWrapper
             type='text'
             fieldName='applicant.phone'
+            id='phone'
             label='Primary Phone Number'
             maxLength={maxLengthMap['phone']} />
         </div>
         <div className='small-4 columns'>
           <SelectField
             fieldName='applicant.phone_type'
+            id='phone_type'
             label='Primary Phone Number- Type'
             options={phoneTypeOptions} />
         </div>
@@ -75,6 +81,7 @@ const PrimaryApplicantSection = ({form}) => {
           <MultiDateField
             form={form}
             fieldName='applicant.date_of_birth'
+            id='date_of_birth'
             label='Date of Birth'
             blockNote='(required)'
           />
@@ -84,11 +91,13 @@ const PrimaryApplicantSection = ({form}) => {
             type='text'
             label='Second Phone Number'
             fieldName='applicant.second_phone'
+            id='second_phone'
             maxLength={maxLengthMap['phone']} />
         </div>
         <div className='small-4 columns'>
           <SelectField
             fieldName='applicant.second_phone_type'
+            id='second_phone_type'
             label='Second Phone Number- Type'
             options={phoneTypeOptions} />
         </div>
