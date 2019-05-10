@@ -4,8 +4,12 @@
 class ApiController < ActionController::API
   respond_to :json
 
-  rescue_from Faraday::ClientError do |e|
-    render_error(exception: e, status: :service_unavailable) # 503
+  rescue_from StandardError do |e|
+    if e.is_a?(Faraday::ConnectionFailed) || e.is_a?(Faraday::TimeoutError)
+      render_error(exception: e, status: :gateway_timeout) # for timeouts
+    else
+      render_error(exception: e, status: :service_unavailable)
+    end
   end
 
   def render_error(opts = {})
@@ -17,6 +21,7 @@ class ApiController < ActionController::API
     else
       message = 'Not found.'
     end
+    Raven.capture_exception(e)
     logger.error "<< API Error >> #{message}"
     status_code = Rack::Utils::SYMBOL_TO_STATUS_CODE[status]
     render json: { message: message, status: status_code }, status: status
