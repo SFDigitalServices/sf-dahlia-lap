@@ -11,7 +11,6 @@ const {
 } = formOptions
 
 const HouseholdMemberForm = ({name, index, form}) => {
-  console.log('name', name, 'index', index)
   return (
     <div>
       <div className='row'>

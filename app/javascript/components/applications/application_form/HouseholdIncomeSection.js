@@ -2,6 +2,7 @@ import React from 'react'
 import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from './formOptions'
+import validate from '~/utils/form/validations'
 
 const {
   householdVouchersSubsidiesOptions
@@ -16,8 +17,10 @@ const HouseholdIncomeSection = () => {
           <FieldWrapper
             type='text'
             fieldName='annual_income'
+            id='annual_income'
             label='Annual Income'
             maxLength={maxLengthMap['income']}
+            validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
           />
         </div>
         <div className='small-6 columns'>

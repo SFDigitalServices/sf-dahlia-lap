@@ -42,15 +42,6 @@ class PaperApplicationForm extends React.Component {
     this.setState({submitType: type})
   }
 
-  // TODO validation for annual_income
-  // validateError = (values) => {
-  //   const { listing } = this.props
-  //   let validations = {
-  //     annual_income: validate.isValidCurrency('Please enter a valid dollar amount.')(values.annual_income),
-  //   }
-  //   return validations
-  // }
-
   validateForm = (values) => {
     const errors = {applicant: {date_of_birth: {}}}
     validate.isValidDOB(values.applicant, errors.applicant)

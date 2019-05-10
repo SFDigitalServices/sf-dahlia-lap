@@ -39,33 +39,16 @@ describe('PaperApplicationForm', () => {
 
       await wait(100)
 
-      const formGroupSel = '.form-group'
-      const labelSel = 'label.form-label[htmlFor="annual_income"]'
-      const fieldWrapper1Sel = 'r[field="annual_income"]'
-      const fieldWrapper2Sel = 't#annual_income'
+      const labelSel = 'label[htmlFor="annual_income"]'
       const inputSel = 'input#annual_income'
-      const errorMsgWrapperSel = 'FormError[field="annual_income"]'
-      const errorMsgSel = 'span.small'
 
       // Check that the elements that make up the annual income field are
       // present and have the correct validation error classes
       const fieldElementsSel =
-        `${formGroupSel}.error > ` +
         `${labelSel} + ` +
-        `${fieldWrapper1Sel}.error > ` +
-        `${fieldWrapper2Sel}.error > ` +
         `${inputSel}.error`
       expect(wrapper.exists(fieldElementsSel)).toEqual(true)
-
-      // Check that the error message elements are present, have the
-      // correct error classes, and correct error message text
-      const errorElementsSel =
-        `${formGroupSel}.error > ` +
-        `${labelSel} + ` +
-        `${fieldWrapper1Sel}.error + ` +
-        `${errorMsgWrapperSel} > ` +
-        `${errorMsgSel}.error`
-      expect(wrapper.find(errorElementsSel).text()).toEqual('Please enter a valid dollar amount.')
+      expect(wrapper.text()).toContain('Please enter a valid dollar amount.')
     })
 
     test('Language', async () => {
@@ -80,7 +63,7 @@ describe('PaperApplicationForm', () => {
       await wait(100)
 
       expect(wrapper.text()).toContain('Please select a language.')
-      wrapper.find('#application_language select').simulate('change', { target: { value: 1 } })
+      wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
       wrapper.find('form').first().simulate('submit')
       expect(wrapper.text()).not.toContain('Please select a language.')
     })
@@ -123,7 +106,7 @@ describe('PaperApplicationForm', () => {
             application={applicationWithInvalidAnnualIncome}
           />
         )
-        wrapper.find('#lending_institution select').simulate('change', { target: { value: 1 } })
+        wrapper.find('#lending_institution select').simulate('change', { target: { value: 'First Republic Bank' } })
         expect(wrapper.text()).toContain('Hilary Byrde')
         wrapper.find('form').first().simulate('submit')
         expect(wrapper.text()).toContain('Please select a lender.')
@@ -147,8 +130,8 @@ describe('PaperApplicationForm', () => {
             />
           )
           await wait(100)
-          expect(wrapper.find('#lending_institution select').props().value).toEqual(1)
-          expect(wrapper.find('#lending_agent select').props().value).toEqual(1)
+          expect(wrapper.find('#lending_institution select').props().value).toEqual('First Republic Bank')
+          expect(wrapper.find('#lending_agent select').props().value).toEqual('003U000001Wnp5gIAB')
         })
       })
     })

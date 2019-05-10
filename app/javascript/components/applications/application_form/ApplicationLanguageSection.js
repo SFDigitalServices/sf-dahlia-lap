@@ -16,8 +16,9 @@ const ApplicationLanguageSection = ({ editValues }) => {
             label='Language Submitted In'
             blockNote='(required)'
             fieldName='application_language'
+            id='application_language'
             options={applicationLanguageOptions}
-            validation={validate.isPresent('Please select language')}
+            validation={validate.isPresent('Please select a language.')}
           />
         </div>
       </div>
