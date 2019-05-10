@@ -125,7 +125,7 @@ Array [
                         className=""
                       >
                         <label
-                          htmlFor="form-applicant.first_name"
+                          htmlFor="first_name"
                         >
                           First Name
                           <span
@@ -136,7 +136,7 @@ Array [
                         </label>
                         <input
                           className=""
-                          id="form-applicant.first_name"
+                          id="first_name"
                           maxLength={40}
                           name="applicant.first_name"
                           onBlur={[Function]}
@@ -154,13 +154,13 @@ Array [
                         className=""
                       >
                         <label
-                          htmlFor="form-applicant.middle_name"
+                          htmlFor="middle_name"
                         >
                           Middle Name
                         </label>
                         <input
                           className=""
-                          id="form-applicant.middle_name"
+                          id="middle_name"
                           maxLength={20}
                           name="applicant.middle_name"
                           onBlur={[Function]}
@@ -178,7 +178,7 @@ Array [
                         className=""
                       >
                         <label
-                          htmlFor="form-applicant.last_name"
+                          htmlFor="last_name"
                         >
                           Last Name
                           <span
@@ -189,7 +189,7 @@ Array [
                         </label>
                         <input
                           className=""
-                          id="form-applicant.last_name"
+                          id="last_name"
                           maxLength={40}
                           name="applicant.last_name"
                           onBlur={[Function]}
@@ -212,13 +212,13 @@ Array [
                       className=""
                     >
                       <label
-                        htmlFor="form-applicant.email"
+                        htmlFor="email"
                       >
                         Email
                       </label>
                       <input
                         className=""
-                        id="form-applicant.email"
+                        id="email"
                         maxLength={40}
                         name="applicant.email"
                         onBlur={[Function]}
@@ -236,13 +236,13 @@ Array [
                       className=""
                     >
                       <label
-                        htmlFor="form-applicant.phone"
+                        htmlFor="phone"
                       >
                         Primary Phone Number
                       </label>
                       <input
                         className=""
-                        id="form-applicant.phone"
+                        id="phone"
                         maxLength={40}
                         name="applicant.phone"
                         onBlur={[Function]}
@@ -260,13 +260,13 @@ Array [
                       className=""
                     >
                       <label
-                        htmlFor="form-applicant.phone_type"
+                        htmlFor="phone_type"
                       >
                         Primary Phone Number- Type
                       </label>
                       <select
                         className=""
-                        id="form-applicant.phone_type"
+                        id="phone_type"
                         name="applicant.phone_type"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -308,7 +308,7 @@ Array [
                     >
                       <label
                         className="form-label"
-                        htmlFor="applicant.date_of_birth"
+                        htmlFor="date_of_birth"
                       >
                         Date of Birth 
                         <span
@@ -324,11 +324,11 @@ Array [
                           className=""
                         >
                           <label
-                            htmlFor="form-applicant.date_of_birth.month"
+                            htmlFor="date_of_birth_month"
                           />
                           <input
                             className=""
-                            id="form-applicant.date_of_birth.month"
+                            id="date_of_birth_month"
                             maxLength={2}
                             name="applicant.date_of_birth.month"
                             onBlur={[Function]}
@@ -347,11 +347,11 @@ Array [
                           className=""
                         >
                           <label
-                            htmlFor="form-applicant.date_of_birth.day"
+                            htmlFor="date_of_birth_day"
                           />
                           <input
                             className=""
-                            id="form-applicant.date_of_birth.day"
+                            id="date_of_birth_day"
                             maxLength={2}
                             name="applicant.date_of_birth.day"
                             onBlur={[Function]}
@@ -370,11 +370,11 @@ Array [
                           className=""
                         >
                           <label
-                            htmlFor="form-applicant.date_of_birth.year"
+                            htmlFor="date_of_birth_year"
                           />
                           <input
                             className=""
-                            id="form-applicant.date_of_birth.year"
+                            id="date_of_birth_year"
                             maxLength={4}
                             name="applicant.date_of_birth.year"
                             onBlur={[Function]}
@@ -398,13 +398,13 @@ Array [
                       className=""
                     >
                       <label
-                        htmlFor="form-applicant.second_phone"
+                        htmlFor="second_phone"
                       >
                         Second Phone Number
                       </label>
                       <input
                         className=""
-                        id="form-applicant.second_phone"
+                        id="second_phone"
                         maxLength={40}
                         name="applicant.second_phone"
                         onBlur={[Function]}
@@ -422,13 +422,13 @@ Array [
                       className=""
                     >
                       <label
-                        htmlFor="form-applicant.second_phone_type"
+                        htmlFor="second_phone_type"
                       >
                         Second Phone Number- Type
                       </label>
                       <select
                         className=""
-                        id="form-applicant.second_phone_type"
+                        id="second_phone_type"
                         name="applicant.second_phone_type"
                         onBlur={[Function]}
                         onChange={[Function]}
