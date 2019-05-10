@@ -35,7 +35,7 @@ class EligibilitySection extends React.Component {
           fieldName='is_first_time_homebuyer'
           ariaLabelledby='prereqs'
           validation={validate.isChecked(this.checkboxErrorMessage)}
-          />
+        />
       </div>
     )
   }
@@ -50,7 +50,7 @@ class EligibilitySection extends React.Component {
           fieldName='has_completed_homebuyer_education'
           ariaLabelledby='prereqs'
           validation={validate.isChecked(this.checkboxErrorMessage)}
-          />
+        />
       </div>
     )
   }
@@ -65,7 +65,7 @@ class EligibilitySection extends React.Component {
           fieldName='has_loan_preapproval'
           ariaLabelledby='prereqs'
           validation={validate.isChecked(this.checkboxErrorMessage)}
-          />
+        />
       </div>
     )
   }

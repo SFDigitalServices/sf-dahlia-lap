@@ -80,7 +80,6 @@ class PreferencesSection extends React.Component {
   render () {
     const { form, listingPreferences } = this.props
     const fullHousehold = getFullHousehold(form.getState().values)
-    const preferences = form.getState().values.preferences
 
     return (
       <div className='border-bottom margin-bottom--2x'>
@@ -92,8 +91,9 @@ class PreferencesSection extends React.Component {
                 return (
                   <div className='border-bottom margin-bottom--2x' key={name}>
                     <PreferenceForm {...{index, name, form, listingPreferences, fullHousehold}} />
-                  </div>
-              )})}
+                  </div>)
+              })
+              }
               <div className='row'>
                 <div className='form-group'>
                   <div className='small-4 columns'>

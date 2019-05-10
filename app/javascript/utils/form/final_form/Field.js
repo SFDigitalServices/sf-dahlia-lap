@@ -42,14 +42,14 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
             {blockNote && <BlockNote value={blockNote} />}
           </label>
           <select {...input}
-            onChange={ (event) => {
+            onChange={(event) => {
               input.onChange(event)
               onChange && onChange(event)
             }}
             id={id || `form-${fieldName}`}
             name={input.name}
             className={(meta.error && meta.touched && 'error') || ''}>
-            { labelize(options).map( (option) => generateHtmlOption(option))}
+            { labelize(options).map((option) => generateHtmlOption(option))}
           </select>
           {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
         </div>

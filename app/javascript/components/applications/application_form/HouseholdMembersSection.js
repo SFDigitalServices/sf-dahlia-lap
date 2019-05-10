@@ -5,21 +5,19 @@ import { FieldArray } from 'react-final-form-arrays'
 import validate from '~/utils/form/validations'
 
 const memberValidate = (values) => {
-  if (!values || !values.length) return;
+  if (!values || !values.length) return
   const membersErrors = []
-
   values.forEach(value => {
     if (value) {
       membersErrors.push({date_of_birth: {}})
       validate.isValidDOB(value, last(membersErrors))
     }
-  });
+  })
 
   return membersErrors
 }
 
 const HouseholdMembersSection = ({ form }) => {
-  console.log('form values',form.getState().values)
   return (
     <div className='border-bottom margin-bottom--2x'>
       <div className='row'>
@@ -30,16 +28,17 @@ const HouseholdMembersSection = ({ form }) => {
           <React.Fragment>
             { fields.map((name, index) => {
               return (
-              <div key={name}>
-                <HouseholdMemberForm form={form} name={name} index={index} />
-                <button
-                  onClick={() => fields.remove(index)}
-                  type='button'
-                  className='mb-4 btn btn-danger'>
-                    Remove
-                </button>
-              </div>
-            )})}
+                <div key={name}>
+                  <HouseholdMemberForm form={form} name={name} index={index} />
+                  <button
+                    onClick={() => fields.remove(index)}
+                    type='button'
+                    className='mb-4 btn btn-danger'>
+                      Remove
+                  </button>
+                </div>
+              )
+            })}
             <div className='row'>
               <div className='form-group'>
                 <div className='small-4 columns'>

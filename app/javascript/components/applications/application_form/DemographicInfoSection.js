@@ -1,7 +1,6 @@
 import React from 'react'
 import formOptions from './formOptions'
-import { SelectField, FieldWrapper, } from '~/utils/form/final_form/Field'
-// import { NestedForm, Form, Select, Text } from 'react-form'
+import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 
 let {

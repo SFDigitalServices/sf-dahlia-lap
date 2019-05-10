@@ -3,7 +3,7 @@ import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { isEmpty } from 'lodash'
 import { maxLengthMap } from '~/utils/formUtils'
 
-const buildField = ( memberType, name, fieldMap, fieldKey) => {
+const buildField = (memberType, name, fieldMap, fieldKey) => {
   // to do: refactor this to use props
   if (memberType === 'primaryApplicant') {
     return `applicant.${fieldMap[fieldKey]}`
@@ -45,7 +45,7 @@ const AddressForm = ({ title, memberType, name, fieldMap }) => {
               label='City'
               fieldName={buildField(memberType, name, fieldMap, 'city')}
               maxLength={maxLengthMap['city']}
-              />
+            />
           </div>
           <div className='small-6 columns'>
             <FieldWrapper
@@ -53,7 +53,7 @@ const AddressForm = ({ title, memberType, name, fieldMap }) => {
               label='State'
               fieldName={buildField(memberType, name, fieldMap, 'state')}
               maxLength={maxLengthMap['state']}
-              />
+            />
           </div>
           <div className='small-6 columns'>
             <FieldWrapper

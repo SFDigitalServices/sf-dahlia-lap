@@ -14,6 +14,7 @@ import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
+import { isEmpty } from 'lodash'
 
 class PaperApplicationForm extends React.Component {
   constructor (props) {
@@ -50,6 +51,18 @@ class PaperApplicationForm extends React.Component {
   //   return validations
   // }
 
+  validateForm = (values) => {
+    const errors = {applicant: {date_of_birth: {}}}
+    validate.isValidDOB(values.applicant, errors.applicant)
+    if (values.alternate_contact && !isEmpty(values.alternate_contact)) {
+      errors.alternate_contact = {}
+      errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name.')(values.alternate_contact.first_name)
+      errors.alternate_contact.last_name = validate.isPresent('Please enter a Last Name.')(values.alternate_contact.last_name)
+      errors.alternate_contact.email = validate.isValidEmail('Please enter a valid Email')(values.alternate_contact.email)
+    }
+    return errors
+  }
+
   render () {
     const { listing, application, lendingInstitutions } = this.props
     const { loading, failed } = this.state
@@ -58,60 +71,50 @@ class PaperApplicationForm extends React.Component {
         <Form
           onSubmit={this.submitShortForm}
           initialValues={application}
-          validate={(values) => {
-            const errors = {applicant: {date_of_birth: {}}}
-            validate.isValidDOB(values.applicant, errors.applicant)
-            return errors
-          }}
+          validate={this.validateForm}
           mutators={{
             ...arrayMutators
           }}
-          render={({
-            handleSubmit,
-            mutators: { push, pop },
-            form,
-            submitting,
-            pristine,
-            values }) => (
-              <form onSubmit={handleSubmit} id='shortForm' noValidate>
-                <div className='app-card form-card medium-centered'>
-                  <div className='app-inner inset'>
-                    { failed && (
-                      <AlertBox
-                        invert
-                        onCloseClick={() => this.setState({failed: false})}
-                        message='Please resolve any errors before saving the application.' />
-                    )}
-                    <ApplicationLanguageSection />
-                    <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} form={form} />
-                    <PrimaryApplicantSection form={form} />
-                    <AlternateContactSection />
-                    <HouseholdMembersSection editValues={application} form={form} />
-                    <ReservedPrioritySection listing={listing} />
-                    <PreferencesSection
-                      form={form}
-                      listingPreferences={listing.listing_lottery_preferences}
-                      editValues={application}
-                    />
-                    <HouseholdIncomeSection />
-                    <DemographicInfoSection />
-                    <AgreeToTerms />
+          render={({ handleSubmit, form }) => (
+            <form onSubmit={handleSubmit} id='shortForm' noValidate>
+              <div className='app-card form-card medium-centered'>
+                <div className='app-inner inset'>
+                  { failed && (
+                    <AlertBox
+                      invert
+                      onCloseClick={() => this.setState({failed: false})}
+                      message='Please resolve any errors before saving the application.' />
+                  )}
+                  <ApplicationLanguageSection />
+                  <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} form={form} />
+                  <PrimaryApplicantSection form={form} />
+                  <AlternateContactSection />
+                  <HouseholdMembersSection editValues={application} form={form} />
+                  <ReservedPrioritySection listing={listing} />
+                  <PreferencesSection
+                    form={form}
+                    listingPreferences={listing.listing_lottery_preferences}
+                    editValues={application}
+                  />
+                  <HouseholdIncomeSection />
+                  <DemographicInfoSection />
+                  <AgreeToTerms />
+                </div>
+                <div className='button-pager'>
+                  <div className='button-pager_row primary'>
+                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
+                      {loading ? 'Saving…' : 'Save'}
+                    </button>
+                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
+                      Save and New
+                    </button>
                   </div>
-                  <div className='button-pager'>
-                    <div className='button-pager_row primary'>
-                      <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
-                        {loading ? 'Saving…' : 'Save'}
-                      </button>
-                      <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
-                        Save and New
-                      </button>
-                    </div>
-                    <div className='button-pager_row primary'>
-                      <a className='primary radius' href='/listings'>Cancel</a>
-                    </div>
+                  <div className='button-pager_row primary'>
+                    <a className='primary radius' href='/listings'>Cancel</a>
                   </div>
                 </div>
-              </form>
+              </div>
+            </form>
           )}
         />
       </div>

@@ -21,7 +21,7 @@ const validate = (rules, ifRules = null) => {
 /* Validations */
 
 const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
+  return fun(value) ? undefined : message
 }
 
 const decorateValidator = fn => message => validates(fn, message)

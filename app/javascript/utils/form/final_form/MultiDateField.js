@@ -4,7 +4,6 @@ import { maxLengthMap } from '~/utils/formUtils'
 import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { some } from 'lodash'
 
-
 export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote }) => {
   const touched = some(['.day', '.month', '.year'], type => {
     return form.getState().touched[fieldName + type]
@@ -16,10 +15,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
     errorField = form.getState().errors[fieldName.split('.')[0]]
   }
 
-  const error = form && touched && errorField &&
-    errorField['date_of_birth'] && errorField['date_of_birth']['all']
-  console.log('fieldName', fieldName)
-  console.log('form state', form.getState())
+  const error = form && touched && errorField && errorField['date_of_birth'] && errorField['date_of_birth']['all']
   return (
     <div className={(error && 'error') || ''}>
       <label className='form-label' htmlFor={fieldName}>

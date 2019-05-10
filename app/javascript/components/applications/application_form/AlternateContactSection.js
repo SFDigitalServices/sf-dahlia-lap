@@ -1,10 +1,8 @@
 import React from 'react'
-import { isEmpty, values, forEach, size } from 'lodash'
 import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import { mailingAddressFieldMap } from './utils'
-import validate from '~/utils/form/validations'
 import { maxLengthMap } from '~/utils/formUtils'
 
 const {
@@ -12,33 +10,7 @@ const {
   phoneTypeOptions
 } = formOptions
 
-const validateError = (formValues) => {
-  // remove empty string values from alternate contact due to Salesforce validation
-  forEach(formValues, (v, k) => {
-    if (isEmpty(v)) { delete formValues[k] }
-  })
-  // delete id if other fields are empty
-  if (size(formValues) === 1 && !isEmpty(formValues.id)) { delete formValues.id }
-
-  return {
-    first_name: validateFirstLastName(formValues, formValues.first_name, 'First Name'),
-    last_name: validateFirstLastName(formValues, formValues.last_name, 'Last Name'),
-    email: validate.isValidEmail('Please enter a valid Email')(formValues.email)
-  }
-}
-
-const validateFirstLastName = (formValues, field, fieldName) => {
-  // if there are any filled in alt contact fields, validate for first and last name
-  if (!isEmpty(values(formValues).filter(Boolean))) {
-    return validate.isPresent(`Please enter a ${fieldName}.`)(field)
-  }
-}
-
-const AlternateContactSection = ({editValues}) => {
-  let autofillValues = {}
-  if (!isEmpty(editValues) && editValues.alternate_contact) {
-    autofillValues = editValues.alternate_contact
-  }
+const AlternateContactSection = () => {
   return (
     <div className='border-bottom margin-bottom--2x'>
       <div className='row'>
@@ -122,7 +94,6 @@ const AlternateContactSection = ({editValues}) => {
             fieldName='alternate_contact.phone_type'
             label='Phone Type'
             options={phoneTypeOptions} />
-          {/* <Select field='phone_type' options={phoneTypeOptions} /> */}
         </div>
       </div>
       <AddressForm

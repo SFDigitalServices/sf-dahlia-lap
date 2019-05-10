@@ -1,13 +1,13 @@
 import React from 'react'
 import { SelectField } from '~/utils/form/final_form/Field'
-import { find, map, omitBy, sortBy, slice, cloneDeep } from 'lodash'
+import { find, map, omitBy, sortBy, cloneDeep } from 'lodash'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
 import FormGroup from '~/components/atoms/FormGroup'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap } from './values'
-import { FIELD_NAME, buildFieldId, buildHouseholdMembersOptions } from './utils'
+import { FIELD_NAME, buildHouseholdMembersOptions } from './utils'
 
 const setRecordTypeDevName = (i, form, matched) => {
   if (!!matched && matched.lottery_preference) {
@@ -44,7 +44,7 @@ const buildListingPreferencesOptions = (preferencesNotSelected) => {
 
 const removePreference = (form, i) => {
   let preferences = cloneDeep(form.getState().values[FIELD_NAME])
-  preferences.splice(i,1)
+  preferences.splice(i, 1)
   form.change(FIELD_NAME, preferences)
 }
 
