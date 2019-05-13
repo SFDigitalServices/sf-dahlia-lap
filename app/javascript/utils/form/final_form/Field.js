@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import formOptions from '~/components/applications/application_form/formOptions'
+import classNames from 'classnames'
 
 const {
   labelize
@@ -14,7 +15,7 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <React.Fragment>
-        <div className={(meta.error && meta.touched && 'error') || ''} >
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
           <label htmlFor={id || `form-${fieldName}`} className='form-label'>
             {label && `${label} `}
             {blockNote && <BlockNote value={blockNote} />}
@@ -36,7 +37,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
-        <div className={(meta.error && meta.touched && 'error') || ''} >
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
           <label htmlFor={id || `form-${fieldName}`} className='form-label'>
             {label && `${label} `}
             {blockNote && <BlockNote value={blockNote} />}
@@ -62,7 +63,7 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   <Field name={fieldName} validate={validation} type='checkbox'>
     {({ input, meta }) => (
       <React.Fragment>
-        <div className={(meta.error && meta.touched && 'error') || ''} >
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
           <input {...input}
             type='checkbox'
             id={id || `form-${fieldName}`}
