@@ -47,7 +47,6 @@
     "webpacker-react": "^0.3.2"
   },
   "devDependencies": {
-    "@sentry/webpack-plugin": "^1.6.2",
     "babel-eslint": "7.2.3",
     "babel-jest": "^24.7.1",
     "caniuse-lite": "^1.0.30000960",
