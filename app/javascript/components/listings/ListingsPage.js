@@ -4,6 +4,9 @@ import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 import { mapListing } from '~/components/mappers/soqlToDomain'
 
+// FIXME: Remove before merge
+import * as Sentry from '@sentry/browser'
+
 const tableFields = {
   'id': null,
   'name': {
@@ -50,6 +53,8 @@ const layout = {
 }
 
 const ListingsPage = ({ page, listings }) => {
+  // FIXME: Remove before merge
+  Sentry.captureException(new Error('Sample error'))
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />
