@@ -41,7 +41,22 @@ RSpec.describe ApplicationsController, type: :controller do
       end
 
       expect(response.body).to have_react_component('ApplicationPage')
+      expect(assigns(:application).listing['is_sale']).to be_falsey
       expect(response).to have_http_status(:success)
+    end
+
+    context 'with a sale application' do
+      let(:expected_sale_app) { fixture('controllers/applications/sale_application_domain.json') }
+
+      it 'should return a domain application' do
+        VCR.use_cassette('applications_controller/show/sale_application') do
+          get :show, params: { id: sale_application_id }
+
+          domain_application = assigns(:application)
+          expect(domain_application).to eq(expected_sale_app)
+          expect(assigns(:application).listing['is_sale']).to be_truthy
+        end
+      end
     end
   end
 end

@@ -72,7 +72,7 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
-
+gem "sentry-raven", "~> 2.9.0"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -94,7 +94,7 @@ gem "slim-rails", "~> 3.1"
 gem "hashie", "~> 3.5"
 
 # Added at 2017-10-29 23:29:10 -0700 by dkaplan:
-gem "webpacker", "~> 3.0"
+gem "webpacker", "~> 4.0"
 
 # Added at 2017-10-29 23:57:32 -0700 by dkaplan:
 gem "webpacker-react", "~> 0.3.2"

@@ -11,7 +11,8 @@ import {
   alternateContactFields,
   householdMembersFields,
   applicationPreferencesFields,
-  reservedAndPriorityFields
+  reservedAndPriorityFields,
+  applicationEligibilityFields
 } from './fields'
 
 const FileDownloadUrl = (fileBaseUrl, file) => {
@@ -42,6 +43,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
   const Table = (props) => (
     <ApplicationDetailsContentTable data={application} {...props} />
   )
+
   return (
     <div className='application-details'>
       <ApplicationCard
@@ -54,6 +56,15 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
         title='Primary Applicant'
         fields={primaryApplicantFields}
       />
+      { application.listing.is_sale && (
+        <ApplicationDetailsContentCard
+          title='Eligibility'
+          dataCollection={application}
+          fields={applicationEligibilityFields}
+          splitOn={3}
+          labelMapper={fields}
+        />)
+      }
       <ApplicationDetailsContentCard
         dataCollection={application.alternate_contact}
         title='Alternate Contact'

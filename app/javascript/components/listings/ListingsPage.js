@@ -1,5 +1,4 @@
 import React from 'react'
-
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
