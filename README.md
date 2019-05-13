@@ -17,13 +17,13 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * Run `yarn install`
 * Run `bundle install`
   - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
+  - if you need to run this command make sure you run `bundle install` again following the success of the postgres installation to install the remaining gems
 * Run `overcommit --install`
 * Create a `.env` file in the root directory and ask a team member for access to the local development secrets
 * Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
 
 ## To run server
-* `bin/webpack-dev-server --hot`
-* `rails s`
+* `yarn start`
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
 
 ## To update CSS from Pattern Library

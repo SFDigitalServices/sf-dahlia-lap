@@ -4,7 +4,6 @@ import { isEmpty } from 'lodash'
 import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentSection from '../molecules/ContentSection'
-import Loading from '../molecules/Loading'
 import DemographicsInputs from './sections/DemographicsInputs'
 import StatusList from './sections/StatusList'
 import StatusUpdate from '~/components/organisms/StatusUpdate'
@@ -130,7 +129,7 @@ const ActionButtons = withContext(({ loading, store }) => {
           type='submit'
           id='save-supplemental-application'
           disabled={loading}>
-          Save
+          {loading ? 'Saving…' : 'Save'}
         </button>
       </div>
     </div>)
@@ -158,37 +157,35 @@ class SupplementalApplicationContainer extends React.Component {
     } = store
 
     return (
-      <Loading isLoading={loading}>
-        <Form onSubmit={onSubmit} defaultValues={application} validateError={validateError}>
-          {formApi => (
-            <React.Fragment>
-              <form onSubmit={formApi.submitForm} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }}>
-                <StatusUpdateSection />
-                <ConfirmedPreferencesSection
-                  application={application}
-                  applicationMembers={applicationMembers}
-                  fileBaseUrl={fileBaseUrl}
-                  onSave={onSavePreference}
-                  onDismissError={onDismissError}
-                  confirmedPreferencesFailed={confirmedPreferencesFailed}
-                  formApi={formApi}
-                />
-                <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-                <LeaseInformationSection formApi={formApi} />
-                <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
-                <div className='padding-bottom--2x margin-bottom--2x' />
-                <ActionButtons loading={loading} />
-              </form>
-              <StatusModalWrapper
-                {...statusModal}
-                onClose={handleStatusModalClose}
-                onStatusChange={handleStatusModalStatusChange}
-                onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, formApi.values)}
+      <Form onSubmit={onSubmit} defaultValues={application} validateError={validateError}>
+        {formApi => (
+          <React.Fragment>
+            <form onSubmit={formApi.submitForm} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }}>
+              <StatusUpdateSection />
+              <ConfirmedPreferencesSection
+                application={application}
+                applicationMembers={applicationMembers}
+                fileBaseUrl={fileBaseUrl}
+                onSave={onSavePreference}
+                onDismissError={onDismissError}
+                confirmedPreferencesFailed={confirmedPreferencesFailed}
+                formApi={formApi}
               />
-            </React.Fragment>
-          )}
-        </Form>
-      </Loading>
+              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
+              <LeaseInformationSection formApi={formApi} />
+              <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
+              <div className='padding-bottom--2x margin-bottom--2x' />
+              <ActionButtons loading={loading} />
+            </form>
+            <StatusModalWrapper
+              {...statusModal}
+              onClose={handleStatusModalClose}
+              onStatusChange={handleStatusModalStatusChange}
+              onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, formApi.values)}
+            />
+          </React.Fragment>
+        )}
+      </Form>
     )
   }
 }
