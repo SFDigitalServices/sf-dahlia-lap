@@ -137,6 +137,7 @@ Array [
                 <button
                   aria-expanded="false"
                   className="button dropdown-button has-icon--right text-align-left tertiary small"
+                  disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
@@ -175,6 +176,7 @@ Array [
               >
                 <button
                   className="button tiny tertiary"
+                  disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
@@ -1269,6 +1271,7 @@ Array [
               <button
                 aria-expanded="false"
                 className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
+                disabled={false}
                 onClick={[Function]}
                 type="button"
               >
@@ -3198,6 +3201,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     <StatusUpdate
                                       comment="xxxx1"
                                       date="2018-05-10T19:54:11.000+0000"
+                                      loading={false}
                                       onAddCommentClick={[Function]}
                                       onStatusDropdownChange={[Function]}
                                       status="Approved"
@@ -3220,6 +3224,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "small",
                                               ]
                                             }
+                                            disabled={false}
                                             onChange={[Function]}
                                             status="Approved"
                                             styles={
@@ -3235,6 +3240,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   "small",
                                                 ]
                                               }
+                                              disabled={false}
                                               items={
                                                 Array [
                                                   Object {
@@ -3295,6 +3301,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <button
                                                   aria-expanded="false"
                                                   className="button dropdown-button has-icon--right text-align-left is-approved small"
+                                                  disabled={false}
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
@@ -3347,6 +3354,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           >
                                             <button
                                               className="button tiny tertiary"
+                                              disabled={false}
                                               onClick={[Function]}
                                               type="button"
                                             >
@@ -11293,6 +11301,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has-status-width",
                                         ]
                                       }
+                                      disabled={false}
                                       menuClasses={
                                         Array [
                                           "dropdown-menu-bottom",
@@ -11313,6 +11322,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "has-status-width",
                                           ]
                                         }
+                                        disabled={false}
                                         items={
                                           Array [
                                             Object {
@@ -11372,6 +11382,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           <button
                                             aria-expanded="false"
                                             className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
+                                            disabled={false}
                                             onClick={[Function]}
                                             type="button"
                                           >
