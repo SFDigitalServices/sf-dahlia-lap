@@ -108,9 +108,9 @@ describe('ApplicationNewPage', () => {
     // Fill out household member required fields
     await page.type('#household_members_0_first_name', HOUSEHOLD_MEMBER_FIRST_NAME)
     await page.type('#household_members_0_last_name', HOUSEHOLD_MEMBER_LAST_NAME)
-    await page.type('#form-household_members[0]\\.date_of_birth_month', HOUSEHOLD_MEMBER_DOB_MONTH)
-    await page.type('#form-household_members[0]\\.date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
-    await page.type('#form-household_members[0]\\.date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
+    await page.type('#household_members_0_date_of_birth_month', HOUSEHOLD_MEMBER_DOB_MONTH)
+    await page.type('#household_members_0_date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
+    await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
 
     await page.click('.save-btn')
     await page.waitForNavigation()
@@ -190,16 +190,16 @@ describe('ApplicationNewPage', () => {
     await page.select('#select-paper-preference-0', liveWorkDropdownValue)
 
     // Select the household member
-    await page.waitForSelector('#preferences\\.0\\.naturalKey')
-    await page.select('#preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_DAY}-${DOB_MONTH}`)
+    await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
+    await page.select('#form-preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
 
     // Select live vs work
     const liveDropDownValue = 'Live in SF'
-    await page.select('#preferences\\.0\\.individual_preference', liveDropDownValue)
+    await page.select('#form-preferences\\.0\\.individual_preference', liveDropDownValue)
 
     // Select type of proof
     const telephoneBillDropdownValue = 'Telephone bill'
-    await page.select('#preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
+    await page.select('#form-preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
 
     await page.click('.save-btn')
     await page.waitForNavigation()

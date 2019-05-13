@@ -2,6 +2,7 @@ import React from 'react'
 import formOptions from '../formOptions'
 import { buildFieldId } from './utils'
 import { SelectField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const {
   preferenceProofOptionsLiveSf,
@@ -32,6 +33,7 @@ const LiveWorkFields = ({ i, householdMembers, selectedPreference }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
+          validation={validate.isPresent('Household Member with Proof is required')}
         />
       </div>
       <div className='small-6 columns'>
@@ -40,6 +42,7 @@ const LiveWorkFields = ({ i, householdMembers, selectedPreference }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'individual_preference')}
           options={individualPreferenceOptions}
+          validation={validate.isPresent('Individual Preference is required')}
         />
       </div>
       <div className='small-6 columns'>
@@ -48,6 +51,7 @@ const LiveWorkFields = ({ i, householdMembers, selectedPreference }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'type_of_proof')}
           options={getProofTypes(selectedPreference.individual_preference)}
+          validation={validate.isPresent('Type of Proof is required')}
         />
       </div>
       <div className='small-12 columns'>

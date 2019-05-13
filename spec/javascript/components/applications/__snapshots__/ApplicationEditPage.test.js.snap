@@ -61,9 +61,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="application_language"
                       >
-                        Language Submitted In
+                        Language Submitted In 
                         <span
                           className="checkbox-block_note no-margin"
                         >
@@ -132,9 +133,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="first_name"
                         >
-                          First Name
+                          First Name 
                           <span
                             className="checkbox-block_note no-margin"
                           >
@@ -161,9 +163,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="middle_name"
                         >
-                          Middle Name
+                          Middle Name 
                         </label>
                         <input
                           className=""
@@ -185,9 +188,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="last_name"
                         >
-                          Last Name
+                          Last Name 
                           <span
                             className="checkbox-block_note no-margin"
                           >
@@ -219,9 +223,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="email"
                       >
-                        Email
+                        Email 
                       </label>
                       <input
                         className=""
@@ -243,9 +248,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="phone"
                       >
-                        Primary Phone Number
+                        Primary Phone Number 
                       </label>
                       <input
                         className=""
@@ -267,9 +273,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="phone_type"
                       >
-                        Primary Phone Number- Type
+                        Primary Phone Number- Type 
                       </label>
                       <select
                         className=""
@@ -331,6 +338,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="date_of_birth_month"
                           />
                           <input
@@ -354,6 +362,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="date_of_birth_day"
                           />
                           <input
@@ -377,6 +386,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="date_of_birth_year"
                           />
                           <input
@@ -405,9 +415,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="second_phone"
                       >
-                        Second Phone Number
+                        Second Phone Number 
                       </label>
                       <input
                         className=""
@@ -429,9 +440,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="second_phone_type"
                       >
-                        Second Phone Number- Type
+                        Second Phone Number- Type 
                       </label>
                       <select
                         className=""
@@ -487,9 +499,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.street"
                           >
-                            Street Address
+                            Street Address 
                           </label>
                           <input
                             className=""
@@ -511,9 +524,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.city"
                           >
-                            City
+                            City 
                           </label>
                           <input
                             className=""
@@ -535,9 +549,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.state"
                           >
-                            State
+                            State 
                           </label>
                           <input
                             className=""
@@ -559,9 +574,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.zip_code"
                           >
-                            Zip
+                            Zip 
                           </label>
                           <input
                             className=""
@@ -600,9 +616,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_street"
                           >
-                            Street Address
+                            Street Address 
                           </label>
                           <input
                             className=""
@@ -624,9 +641,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_city"
                           >
-                            City
+                            City 
                           </label>
                           <input
                             className=""
@@ -648,9 +666,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_state"
                           >
-                            State
+                            State 
                           </label>
                           <input
                             className=""
@@ -672,9 +691,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_zip_code"
                           >
-                            Zip
+                            Zip 
                           </label>
                           <input
                             className=""
@@ -716,9 +736,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="alt_first_name"
                         >
-                          First Name
+                          First Name 
                         </label>
                         <input
                           className=""
@@ -740,9 +761,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="alt_middle_name"
                         >
-                          Middle Name
+                          Middle Name 
                         </label>
                         <input
                           className=""
@@ -764,9 +786,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="alt_last_name"
                         >
-                          Last Name
+                          Last Name 
                         </label>
                         <input
                           className=""
@@ -793,9 +816,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.alternate_contact_type"
                       >
-                        Alternate Contact Type
+                        Alternate Contact Type 
                       </label>
                       <select
                         className=""
@@ -844,6 +868,7 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.alternate_contact_type_other"
                       />
                       <input
@@ -869,6 +894,7 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.agency_name"
                       />
                       <input
@@ -895,9 +921,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="email"
                       >
-                        Email
+                        Email 
                       </label>
                       <input
                         className=""
@@ -919,9 +946,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.phone"
                       >
-                        Phone
+                        Phone 
                       </label>
                       <input
                         className=""
@@ -943,9 +971,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.phone_type"
                       >
-                        Phone Type
+                        Phone Type 
                       </label>
                       <select
                         className=""
@@ -1001,9 +1030,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_street"
                           >
-                            Street Address
+                            Street Address 
                           </label>
                           <input
                             className=""
@@ -1025,9 +1055,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_city"
                           >
-                            City
+                            City 
                           </label>
                           <input
                             className=""
@@ -1049,9 +1080,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_state"
                           >
-                            State
+                            State 
                           </label>
                           <input
                             className=""
@@ -1073,9 +1105,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_zip_code"
                           >
-                            Zip
+                            Zip 
                           </label>
                           <input
                             className=""
@@ -1119,9 +1152,10 @@ Array [
                             className=""
                           >
                             <label
+                              className="form-label"
                               htmlFor="household_members_0_first_name"
                             >
-                              First Name
+                              First Name 
                               <span
                                 className="checkbox-block_note no-margin"
                               >
@@ -1148,9 +1182,10 @@ Array [
                             className=""
                           >
                             <label
+                              className="form-label"
                               htmlFor="household_members_0_middle_name"
                             >
-                              Middle Name
+                              Middle Name 
                             </label>
                             <input
                               className=""
@@ -1172,9 +1207,10 @@ Array [
                             className=""
                           >
                             <label
+                              className="form-label"
                               htmlFor="household_members_0_last_name"
                             >
-                              Last Name
+                              Last Name 
                               <span
                                 className="checkbox-block_note no-margin"
                               >
@@ -1202,7 +1238,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-household_members[0].date_of_birth"
+                              htmlFor="household_members_0_date_of_birth"
                             >
                               Date of Birth 
                               <span
@@ -1218,11 +1254,12 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_month"
+                                  className="form-label"
+                                  htmlFor="household_members_0_date_of_birth_month"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_month"
+                                  id="household_members_0_date_of_birth_month"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.month"
                                   onBlur={[Function]}
@@ -1241,11 +1278,12 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_day"
+                                  className="form-label"
+                                  htmlFor="household_members_0_date_of_birth_day"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_day"
+                                  id="household_members_0_date_of_birth_day"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.day"
                                   onBlur={[Function]}
@@ -1264,11 +1302,12 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_year"
+                                  className="form-label"
+                                  htmlFor="household_members_0_date_of_birth_year"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_year"
+                                  id="household_members_0_date_of_birth_year"
                                   maxLength={4}
                                   name="household_members[0].date_of_birth.year"
                                   onBlur={[Function]}
@@ -1312,9 +1351,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].street"
                                   >
-                                    Street Address
+                                    Street Address 
                                   </label>
                                   <input
                                     className=""
@@ -1336,9 +1376,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].city"
                                   >
-                                    City
+                                    City 
                                   </label>
                                   <input
                                     className=""
@@ -1360,9 +1401,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].state"
                                   >
-                                    State
+                                    State 
                                   </label>
                                   <input
                                     className=""
@@ -1384,9 +1426,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].zip_code"
                                   >
-                                    Zip
+                                    Zip 
                                   </label>
                                   <input
                                     className=""
@@ -1416,9 +1459,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="household_members_0_relationship_to_applicant"
                           >
-                            Relationship to Applicant
+                            Relationship to Applicant 
                           </label>
                           <select
                             className=""
@@ -1593,9 +1637,10 @@ Array [
                                 value={true}
                               />
                               <label
+                                className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.mobility_impairments"
                               >
-                                Mobility impairments
+                                Mobility impairments 
                               </label>
                             </div>
                           </div>
@@ -1621,9 +1666,10 @@ Array [
                                 value={true}
                               />
                               <label
+                                className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.vision_impairments"
                               >
-                                Vision impairments
+                                Vision impairments 
                               </label>
                             </div>
                           </div>
@@ -1649,9 +1695,10 @@ Array [
                                 value={true}
                               />
                               <label
+                                className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.hearing_impairments"
                               >
-                                Hearing impairments
+                                Hearing impairments 
                               </label>
                             </div>
                           </div>
@@ -1686,6 +1733,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="select-paper-preference-0"
                           />
                           <select
@@ -1771,9 +1819,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="annual_income"
                       >
-                        Annual Income
+                        Annual Income 
                       </label>
                       <input
                         className=""
@@ -1795,9 +1844,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-housing_voucher_or_subsidy"
                       >
-                        Housing Voucher/ Subsidy
+                        Housing Voucher/ Subsidy 
                       </label>
                       <select
                         className=""
@@ -1849,9 +1899,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.ethnicity"
                       >
-                        Ethnicity
+                        Ethnicity 
                       </label>
                       <select
                         className=""
@@ -1892,9 +1943,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.race"
                       >
-                        Race
+                        Race 
                       </label>
                       <select
                         className=""
@@ -1975,9 +2027,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.gender"
                       >
-                        Gender
+                        Gender 
                       </label>
                       <select
                         className=""
@@ -2038,9 +2091,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.gender_other"
                       >
-                        Gender Specify (if not listed)
+                        Gender Specify (if not listed) 
                       </label>
                       <input
                         className=""
@@ -2062,9 +2116,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.sexual_orientation"
                       >
-                        Sexual Orientation
+                        Sexual Orientation 
                       </label>
                       <select
                         className=""
@@ -2120,9 +2175,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.sexual_orientation_other"
                       >
-                        Sexual Orientation (if not listed)
+                        Sexual Orientation (if not listed) 
                       </label>
                       <input
                         className=""
@@ -2167,9 +2223,10 @@ Array [
                         value={true}
                       />
                       <label
+                        className="form-label"
                         htmlFor="agreeToTerms"
                       >
-                        Signature on Terms of Agreement
+                        Signature on Terms of Agreement 
                       </label>
                     </div>
                   </div>
@@ -2279,9 +2336,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="application_language"
                       >
-                        Language Submitted In
+                        Language Submitted In 
                         <span
                           className="checkbox-block_note no-margin"
                         >
@@ -2350,9 +2408,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="first_name"
                         >
-                          First Name
+                          First Name 
                           <span
                             className="checkbox-block_note no-margin"
                           >
@@ -2379,9 +2438,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="middle_name"
                         >
-                          Middle Name
+                          Middle Name 
                         </label>
                         <input
                           className=""
@@ -2403,9 +2463,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="last_name"
                         >
-                          Last Name
+                          Last Name 
                           <span
                             className="checkbox-block_note no-margin"
                           >
@@ -2437,9 +2498,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="email"
                       >
-                        Email
+                        Email 
                       </label>
                       <input
                         className=""
@@ -2461,9 +2523,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="phone"
                       >
-                        Primary Phone Number
+                        Primary Phone Number 
                       </label>
                       <input
                         className=""
@@ -2485,9 +2548,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="phone_type"
                       >
-                        Primary Phone Number- Type
+                        Primary Phone Number- Type 
                       </label>
                       <select
                         className=""
@@ -2549,6 +2613,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="date_of_birth_month"
                           />
                           <input
@@ -2572,6 +2637,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="date_of_birth_day"
                           />
                           <input
@@ -2595,6 +2661,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="date_of_birth_year"
                           />
                           <input
@@ -2623,9 +2690,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="second_phone"
                       >
-                        Second Phone Number
+                        Second Phone Number 
                       </label>
                       <input
                         className=""
@@ -2647,9 +2715,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="second_phone_type"
                       >
-                        Second Phone Number- Type
+                        Second Phone Number- Type 
                       </label>
                       <select
                         className=""
@@ -2705,9 +2774,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.street"
                           >
-                            Street Address
+                            Street Address 
                           </label>
                           <input
                             className=""
@@ -2729,9 +2799,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.city"
                           >
-                            City
+                            City 
                           </label>
                           <input
                             className=""
@@ -2753,9 +2824,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.state"
                           >
-                            State
+                            State 
                           </label>
                           <input
                             className=""
@@ -2777,9 +2849,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.zip_code"
                           >
-                            Zip
+                            Zip 
                           </label>
                           <input
                             className=""
@@ -2818,9 +2891,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_street"
                           >
-                            Street Address
+                            Street Address 
                           </label>
                           <input
                             className=""
@@ -2842,9 +2916,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_city"
                           >
-                            City
+                            City 
                           </label>
                           <input
                             className=""
@@ -2866,9 +2941,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_state"
                           >
-                            State
+                            State 
                           </label>
                           <input
                             className=""
@@ -2890,9 +2966,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-applicant.mailing_zip_code"
                           >
-                            Zip
+                            Zip 
                           </label>
                           <input
                             className=""
@@ -2934,9 +3011,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="alt_first_name"
                         >
-                          First Name
+                          First Name 
                         </label>
                         <input
                           className=""
@@ -2958,9 +3036,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="alt_middle_name"
                         >
-                          Middle Name
+                          Middle Name 
                         </label>
                         <input
                           className=""
@@ -2982,9 +3061,10 @@ Array [
                         className=""
                       >
                         <label
+                          className="form-label"
                           htmlFor="alt_last_name"
                         >
-                          Last Name
+                          Last Name 
                         </label>
                         <input
                           className=""
@@ -3011,9 +3091,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.alternate_contact_type"
                       >
-                        Alternate Contact Type
+                        Alternate Contact Type 
                       </label>
                       <select
                         className=""
@@ -3062,6 +3143,7 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.alternate_contact_type_other"
                       />
                       <input
@@ -3087,6 +3169,7 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.agency_name"
                       />
                       <input
@@ -3113,9 +3196,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="email"
                       >
-                        Email
+                        Email 
                       </label>
                       <input
                         className=""
@@ -3137,9 +3221,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.phone"
                       >
-                        Phone
+                        Phone 
                       </label>
                       <input
                         className=""
@@ -3161,9 +3246,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-alternate_contact.phone_type"
                       >
-                        Phone Type
+                        Phone Type 
                       </label>
                       <select
                         className=""
@@ -3219,9 +3305,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_street"
                           >
-                            Street Address
+                            Street Address 
                           </label>
                           <input
                             className=""
@@ -3243,9 +3330,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_city"
                           >
-                            City
+                            City 
                           </label>
                           <input
                             className=""
@@ -3267,9 +3355,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_state"
                           >
-                            State
+                            State 
                           </label>
                           <input
                             className=""
@@ -3291,9 +3380,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="form-alternate_contact.mailing_zip_code"
                           >
-                            Zip
+                            Zip 
                           </label>
                           <input
                             className=""
@@ -3337,9 +3427,10 @@ Array [
                             className=""
                           >
                             <label
+                              className="form-label"
                               htmlFor="household_members_0_first_name"
                             >
-                              First Name
+                              First Name 
                               <span
                                 className="checkbox-block_note no-margin"
                               >
@@ -3366,9 +3457,10 @@ Array [
                             className=""
                           >
                             <label
+                              className="form-label"
                               htmlFor="household_members_0_middle_name"
                             >
-                              Middle Name
+                              Middle Name 
                             </label>
                             <input
                               className=""
@@ -3390,9 +3482,10 @@ Array [
                             className=""
                           >
                             <label
+                              className="form-label"
                               htmlFor="household_members_0_last_name"
                             >
-                              Last Name
+                              Last Name 
                               <span
                                 className="checkbox-block_note no-margin"
                               >
@@ -3420,7 +3513,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-household_members[0].date_of_birth"
+                              htmlFor="household_members_0_date_of_birth"
                             >
                               Date of Birth 
                               <span
@@ -3436,11 +3529,12 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_month"
+                                  className="form-label"
+                                  htmlFor="household_members_0_date_of_birth_month"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_month"
+                                  id="household_members_0_date_of_birth_month"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.month"
                                   onBlur={[Function]}
@@ -3459,11 +3553,12 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_day"
+                                  className="form-label"
+                                  htmlFor="household_members_0_date_of_birth_day"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_day"
+                                  id="household_members_0_date_of_birth_day"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.day"
                                   onBlur={[Function]}
@@ -3482,11 +3577,12 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_year"
+                                  className="form-label"
+                                  htmlFor="household_members_0_date_of_birth_year"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_year"
+                                  id="household_members_0_date_of_birth_year"
                                   maxLength={4}
                                   name="household_members[0].date_of_birth.year"
                                   onBlur={[Function]}
@@ -3530,9 +3626,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].street"
                                   >
-                                    Street Address
+                                    Street Address 
                                   </label>
                                   <input
                                     className=""
@@ -3554,9 +3651,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].city"
                                   >
-                                    City
+                                    City 
                                   </label>
                                   <input
                                     className=""
@@ -3578,9 +3676,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].state"
                                   >
-                                    State
+                                    State 
                                   </label>
                                   <input
                                     className=""
@@ -3602,9 +3701,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-household_members[0].zip_code"
                                   >
-                                    Zip
+                                    Zip 
                                   </label>
                                   <input
                                     className=""
@@ -3634,9 +3734,10 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="household_members_0_relationship_to_applicant"
                           >
-                            Relationship to Applicant
+                            Relationship to Applicant 
                           </label>
                           <select
                             className=""
@@ -3811,9 +3912,10 @@ Array [
                                 value={true}
                               />
                               <label
+                                className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.mobility_impairments"
                               >
-                                Mobility impairments
+                                Mobility impairments 
                               </label>
                             </div>
                           </div>
@@ -3839,9 +3941,10 @@ Array [
                                 value={true}
                               />
                               <label
+                                className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.vision_impairments"
                               >
-                                Vision impairments
+                                Vision impairments 
                               </label>
                             </div>
                           </div>
@@ -3867,9 +3970,10 @@ Array [
                                 value={true}
                               />
                               <label
+                                className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.hearing_impairments"
                               >
-                                Hearing impairments
+                                Hearing impairments 
                               </label>
                             </div>
                           </div>
@@ -3904,6 +4008,7 @@ Array [
                           className=""
                         >
                           <label
+                            className="form-label"
                             htmlFor="select-paper-preference-0"
                           />
                           <select
@@ -3946,9 +4051,10 @@ Array [
                               className=""
                             >
                               <label
+                                className="form-label"
                                 htmlFor="alice-griffith-hh-member-on-proof"
                               >
-                                HH Member on Proof
+                                HH Member on Proof 
                                 <span
                                   className="checkbox-block_note no-margin"
                                 >
@@ -3989,9 +4095,10 @@ Array [
                               className=""
                             >
                               <label
+                                className="form-label"
                                 htmlFor="alice-griffith-type-of-proof"
                               >
-                                Type of Proof
+                                Type of Proof 
                                 <span
                                   className="checkbox-block_note no-margin"
                                 >
@@ -4061,9 +4168,10 @@ Array [
                               className=""
                             >
                               <label
+                                className="form-label"
                                 htmlFor="form-preferences.0.street"
                               >
-                                Alice Griffith Address
+                                Alice Griffith Address 
                                 <span
                                   className="checkbox-block_note no-margin"
                                 >
@@ -4093,9 +4201,10 @@ Array [
                               className=""
                             >
                               <label
+                                className="form-label"
                                 htmlFor="form-preferences.0.city"
                               >
-                                City
+                                City 
                               </label>
                               <input
                                 className=""
@@ -4122,9 +4231,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-preferences.0.state"
                                   >
-                                    State
+                                    State 
                                   </label>
                                   <input
                                     className=""
@@ -4145,9 +4255,10 @@ Array [
                                   className=""
                                 >
                                   <label
+                                    className="form-label"
                                     htmlFor="form-preferences.0.zip_code"
                                   >
-                                    Zip
+                                    Zip 
                                   </label>
                                   <input
                                     className=""
@@ -4227,9 +4338,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="annual_income"
                       >
-                        Annual Income
+                        Annual Income 
                       </label>
                       <input
                         className=""
@@ -4251,9 +4363,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-housing_voucher_or_subsidy"
                       >
-                        Housing Voucher/ Subsidy
+                        Housing Voucher/ Subsidy 
                       </label>
                       <select
                         className=""
@@ -4305,9 +4418,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.ethnicity"
                       >
-                        Ethnicity
+                        Ethnicity 
                       </label>
                       <select
                         className=""
@@ -4348,9 +4462,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.race"
                       >
-                        Race
+                        Race 
                       </label>
                       <select
                         className=""
@@ -4431,9 +4546,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.gender"
                       >
-                        Gender
+                        Gender 
                       </label>
                       <select
                         className=""
@@ -4494,9 +4610,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.gender_other"
                       >
-                        Gender Specify (if not listed)
+                        Gender Specify (if not listed) 
                       </label>
                       <input
                         className=""
@@ -4518,9 +4635,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.sexual_orientation"
                       >
-                        Sexual Orientation
+                        Sexual Orientation 
                       </label>
                       <select
                         className=""
@@ -4576,9 +4694,10 @@ Array [
                       className=""
                     >
                       <label
+                        className="form-label"
                         htmlFor="form-demographics.sexual_orientation_other"
                       >
-                        Sexual Orientation (if not listed)
+                        Sexual Orientation (if not listed) 
                       </label>
                       <input
                         className=""
@@ -4623,9 +4742,10 @@ Array [
                         value={true}
                       />
                       <label
+                        className="form-label"
                         htmlFor="agreeToTerms"
                       >
-                        Signature on Terms of Agreement
+                        Signature on Terms of Agreement 
                       </label>
                     </div>
                   </div>

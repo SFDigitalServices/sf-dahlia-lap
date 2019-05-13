@@ -1,6 +1,7 @@
 import React from 'react'
 import { buildFieldId } from './utils'
 import { SelectField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const DefaultPreferenceFields = ({ householdMembers, i }) => {
   return (
@@ -11,6 +12,7 @@ const DefaultPreferenceFields = ({ householdMembers, i }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
+          validation={validate.isPresent('Household Member with Proof is required')}
         />
       </div>
       <div className='small-12 columns' />

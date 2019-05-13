@@ -1,6 +1,7 @@
 import React from 'react'
 import { buildFieldId } from './utils'
 import { SelectField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const individualPreferenceOptions = [
   {value: 'Assisted Housing', label: 'Assisted Housing'},
@@ -16,6 +17,7 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
+          validation={validate.isPresent('Name on Lease is required')}
         />
       </div>
       <div className='small-6 columns'>
@@ -24,6 +26,7 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'individual_preference')}
           options={individualPreferenceOptions}
+          validation={validate.isPresent('Individual Preference is required')}
         />
       </div>
       <div className='small-12 columns'>

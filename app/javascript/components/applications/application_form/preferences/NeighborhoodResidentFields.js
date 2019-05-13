@@ -2,6 +2,7 @@ import React from 'react'
 import formOptions from '../formOptions'
 import { buildFieldId } from './utils'
 import { SelectField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const {
   preferenceProofOptionsNrhp
@@ -16,11 +17,13 @@ const NeighborhoodResidentFields = ({ householdMembers, i }) => {
           blockNote='(required)'
           fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
+          validation={validate.isPresent('Household Member with Proof is required')}
         />
         <SelectField
           label='Type of Proof'
           blockNote='(required)'
           fieldName={buildFieldId(i, 'type_of_proof')}
+          validation={validate.isPresent('Type of Proof is required')}
           options={preferenceProofOptionsNrhp}
         />
       </div>

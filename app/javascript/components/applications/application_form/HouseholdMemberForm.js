@@ -50,6 +50,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
             <MultiDateField
               form={form}
               fieldName={`${name}.date_of_birth`}
+              id={`household_members_${index}_date_of_birth`}
               index={index}
               formName='household_members'
               label='Date of Birth'

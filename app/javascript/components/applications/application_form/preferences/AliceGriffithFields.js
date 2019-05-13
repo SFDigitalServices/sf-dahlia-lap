@@ -6,6 +6,7 @@ import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
 import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
+import validate from '~/utils/form/validations'
 
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => (
@@ -22,6 +23,7 @@ const AddressRow = ({fieldId}) => (
           blockNote='(required)'
           fieldName={fieldId('street')}
           maxLength={maxLengthMap['address']}
+          validation={validate.isPresent('Street is required')}
         />
       </Column>
     </Row>
@@ -32,6 +34,7 @@ const AddressRow = ({fieldId}) => (
           label='City'
           fieldName={fieldId('city')}
           maxLength={maxLengthMap['city']}
+          validation={validate.isPresent('City is required')}
         />
       </Column>
       <Column span={3} end form>
@@ -41,6 +44,7 @@ const AddressRow = ({fieldId}) => (
               label='State'
               fieldName={fieldId('state')}
               maxLength={maxLengthMap['state']}
+              validation={validate.isPresent('State is required')}
             />
           </Column>
           <Column span={6} end>
@@ -48,6 +52,7 @@ const AddressRow = ({fieldId}) => (
               label='Zip'
               fieldName={fieldId('zip_code')}
               maxLength={maxLengthMap['zip']}
+              validation={validate.isPresent('Zip is required')}
             />
           </Column>
         </Row>
@@ -71,6 +76,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
             fieldName={fieldId('naturalKey')}
             options={householdMembers}
             value={fieldId('naturalKey')}
+            validation={validate.isPresent('HH Member on Proof is required')}
           />
         </Column>
         <Column span={3} form end>
@@ -81,6 +87,7 @@ const AliceGriffithFields = ({i, householdMembers}) => {
             fieldName={fieldId('type_of_proof')}
             options={typeOfProofOptions}
             value={fieldId('type_of_proof')}
+            validation={validate.isPresent('Type of Proof is required')}
           />
         </Column>
       </Row>

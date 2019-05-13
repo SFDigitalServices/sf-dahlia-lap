@@ -2,6 +2,7 @@ import React from 'react'
 import { buildFieldId } from './utils'
 import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
+import validate from '~/utils/form/validations'
 
 const DisplacedFields = ({ householdMembers, i }) => {
   return (
@@ -12,6 +13,7 @@ const DisplacedFields = ({ householdMembers, i }) => {
           label='Person Who Claimed'
           blockNote='(required)'
           options={householdMembers}
+          validation={validate.isPresent('Person Who Claimed is required')}
         />
       </div>
       <div className='small-6 columns'>

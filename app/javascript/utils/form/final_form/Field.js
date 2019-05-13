@@ -15,8 +15,8 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
     {({ input, meta }) => (
       <React.Fragment>
         <div className={(meta.error && meta.touched && 'error') || ''} >
-          <label htmlFor={id || `form-${fieldName}`}>
-            {label}
+          <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+            {label && `${label} `}
             {blockNote && <BlockNote value={blockNote} />}
           </label>
           <input {...input}
@@ -37,8 +37,8 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
     {({ input, meta }) => (
       <React.Fragment>
         <div className={(meta.error && meta.touched && 'error') || ''} >
-          <label htmlFor={id || `form-${fieldName}`}>
-            {label}
+          <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+            {label && `${label} `}
             {blockNote && <BlockNote value={blockNote} />}
           </label>
           <select {...input}
@@ -68,11 +68,11 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
             id={id || `form-${fieldName}`}
             aria-labelledby={ariaLabelledby}
             className={(meta.error && meta.touched && 'error') || ''} />
-          {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
-          <label htmlFor={id || `form-${fieldName}`}>
-            {label}
+          <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+            {label && `${label} `}
             {blockNote && <BlockNote value={blockNote} />}
           </label>
+          {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
         </div>
       </React.Fragment>
     )}
