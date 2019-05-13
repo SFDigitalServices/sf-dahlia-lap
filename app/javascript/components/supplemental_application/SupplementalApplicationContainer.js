@@ -106,10 +106,10 @@ const LeaseInformationSection = ({formApi}) => {
 }
 
 const StatusHistorySection = withContext(({ store }) => {
-  const { statusHistory, openAddStatusCommentModal } = store
+  const { statusHistory, openAddStatusCommentModal, loading } = store
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
-      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
+      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} commentDisabled={loading} />
     </ContentSection.Sub>
   )
 })
