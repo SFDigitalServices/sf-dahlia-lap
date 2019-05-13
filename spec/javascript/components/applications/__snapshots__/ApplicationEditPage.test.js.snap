@@ -1218,11 +1218,11 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_month"
+                                  htmlFor="form-household_members[0].date_of_birth_month"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_month"
+                                  id="form-household_members[0].date_of_birth_month"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.month"
                                   onBlur={[Function]}
@@ -1241,11 +1241,11 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_day"
+                                  htmlFor="form-household_members[0].date_of_birth_day"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_day"
+                                  id="form-household_members[0].date_of_birth_day"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.day"
                                   onBlur={[Function]}
@@ -1264,11 +1264,11 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_year"
+                                  htmlFor="form-household_members[0].date_of_birth_year"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_year"
+                                  id="form-household_members[0].date_of_birth_year"
                                   maxLength={4}
                                   name="household_members[0].date_of_birth.year"
                                   onBlur={[Function]}
@@ -3436,11 +3436,11 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_month"
+                                  htmlFor="form-household_members[0].date_of_birth_month"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_month"
+                                  id="form-household_members[0].date_of_birth_month"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.month"
                                   onBlur={[Function]}
@@ -3459,11 +3459,11 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_day"
+                                  htmlFor="form-household_members[0].date_of_birth_day"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_day"
+                                  id="form-household_members[0].date_of_birth_day"
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.day"
                                   onBlur={[Function]}
@@ -3482,11 +3482,11 @@ Array [
                                 className=""
                               >
                                 <label
-                                  htmlFor="undefined_year"
+                                  htmlFor="form-household_members[0].date_of_birth_year"
                                 />
                                 <input
                                   className=""
-                                  id="undefined_year"
+                                  id="form-household_members[0].date_of_birth_year"
                                   maxLength={4}
                                   name="household_members[0].date_of_birth.year"
                                   onBlur={[Function]}
