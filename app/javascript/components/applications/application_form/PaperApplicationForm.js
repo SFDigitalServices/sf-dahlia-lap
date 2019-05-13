@@ -38,8 +38,10 @@ class PaperApplicationForm extends React.Component {
     }
   }
 
-  saveSubmitType = (type) => {
-    this.setState({submitType: type})
+  saveSubmitType = (type, form) => {
+    const failed = form.getState().invalid
+    this.setState({submitType: type, failed: failed})
+    if (failed) { window.scrollTo(0, 0) }
   }
 
   validateForm = (values) => {
@@ -70,7 +72,7 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
-                  { (failed || form.getState().submitFailed) && (
+                  { failed && (
                     <AlertBox
                       invert
                       onCloseClick={() => this.setState({failed: false})}
@@ -93,7 +95,7 @@ class PaperApplicationForm extends React.Component {
                 </div>
                 <div className='button-pager'>
                   <div className='button-pager_row primary'>
-                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save')} disabled={loading}>
+                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', form)} disabled={loading}>
                       {loading ? 'Saving…' : 'Save'}
                     </button>
                     <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
