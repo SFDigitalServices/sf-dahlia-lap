@@ -3,7 +3,7 @@ import React from 'react'
 import { LEASE_UP_STATUS_OPTIONS, getLeaseUpStatusClass } from '~/utils/statusUtils'
 import Dropdown from '../molecules/Dropdown'
 
-const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperClasses, styles }) => {
+const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperClasses, styles, disabled }) => {
   let dropdownButtonClasses = [getLeaseUpStatusClass(status)]
   if (buttonClasses) dropdownButtonClasses.push(...buttonClasses)
 
@@ -16,7 +16,8 @@ const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperC
       buttonClasses={dropdownButtonClasses}
       menuClasses={menuClasses}
       wrapperClasses={wrapperClasses}
-      styles={styles} />
+      styles={styles}
+      disabled={disabled} />
   )
 }
 

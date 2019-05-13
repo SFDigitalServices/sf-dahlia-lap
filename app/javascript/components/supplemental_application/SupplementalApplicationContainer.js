@@ -32,7 +32,7 @@ const validateError = (values) => ({
 })
 
 const StatusUpdateSection = withContext(({ store }) => {
-  const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
+  const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
   let recentStatusUpdate = statusHistory && statusHistory[0] ? statusHistory[0] : {status: null, comment: null, date: null}
   return (
     <ContentSection.Content paddingBottomNone marginTop>
@@ -42,7 +42,9 @@ const StatusUpdateSection = withContext(({ store }) => {
         date={recentStatusUpdate.date}
         onStatusDropdownChange={openUpdateStatusModal}
         onAddCommentClick={openAddStatusCommentModal}
-        statusHistoryAnchor='#status-history-section' />
+        statusHistoryAnchor='#status-history-section'
+        loading={loading}
+      />
     </ContentSection.Content>
   )
 })
@@ -123,7 +125,9 @@ const ActionButtons = withContext(({ loading, store }) => {
           onChange={openUpdateStatusModal}
           buttonClasses={['small', 'has-status-width']}
           wrapperClasses={['dropdown-inline']}
-          menuClasses={['dropdown-menu-bottom']} />
+          menuClasses={['dropdown-menu-bottom']}
+          disabled={loading}
+        />
         <button
           className='button primary small save-btn'
           type='submit'

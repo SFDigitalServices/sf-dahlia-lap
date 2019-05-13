@@ -5,7 +5,7 @@ import PrettyTime from '../atoms/PrettyTime'
 import { getLeaseUpStatusClass } from '~/utils/statusUtils'
 import StatusDropdown from '../molecules/StatusDropdown'
 
-const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor }) => {
+const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor, loading }) => {
   return (
     <div className={`status-update expand-wide ${getLeaseUpStatusClass(status)}`}>
       <h3 className='status-update_title'>Update Status</h3>
@@ -14,7 +14,9 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
           status={status}
           onChange={onStatusDropdownChange}
           styles={{position: 'relative'}}
-          buttonClasses={['small']} />
+          buttonClasses={['small']}
+          disabled={loading}
+        />
       </div>
       <div className='status-update_message'>
         <div className='status-update_comment'>
@@ -29,7 +31,7 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
           }
         </div>
         <div className='status-update_footer'>
-          <button className='button tiny tertiary' type='button' onClick={onAddCommentClick}>
+          <button className='button tiny tertiary' type='button' onClick={onAddCommentClick} disabled={loading}>
             Add a comment
           </button>
           {
