@@ -1,6 +1,6 @@
 import React from 'react'
 import HouseholdMemberForm from './HouseholdMemberForm'
-import { last } from 'lodash'
+import { isEmpty } from 'lodash'
 import { FieldArray } from 'react-final-form-arrays'
 import validate from '~/utils/form/validations'
 
@@ -9,8 +9,13 @@ const memberValidate = (values) => {
   const membersErrors = []
   values.forEach(value => {
     if (value) {
-      membersErrors.push({date_of_birth: {}})
-      validate.isValidDOB(value, last(membersErrors))
+      const memberError = {date_of_birth: {}}
+      if (!isEmpty(value.first_name) || !isEmpty(value.last_name) || !isEmpty(value.date_of_birth)) {
+        validate.isValidDOB(value, memberError)
+        memberError.first_name = validate.isPresent('Please enter a First Name.')(value.first_name)
+        memberError.last_name = validate.isPresent('Please enter a Last Name.')(value.last_name)
+      }
+      membersErrors.push(memberError)
     }
   })
 
