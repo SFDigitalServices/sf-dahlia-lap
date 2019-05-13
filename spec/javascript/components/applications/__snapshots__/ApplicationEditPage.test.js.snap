@@ -1254,12 +1254,20 @@ Array [
                                 className=""
                               >
                                 <label
+<<<<<<< HEAD
                                   className="form-label"
                                   htmlFor="household_members_0_date_of_birth_month"
                                 />
                                 <input
                                   className=""
                                   id="household_members_0_date_of_birth_month"
+=======
+                                  htmlFor="form-household_members[0].date_of_birth_month"
+                                />
+                                <input
+                                  className=""
+                                  id="form-household_members[0].date_of_birth_month"
+>>>>>>> d92e4158761243a2271b4eea7ca52ee67c9eb7c2
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.month"
                                   onBlur={[Function]}
@@ -1278,12 +1286,20 @@ Array [
                                 className=""
                               >
                                 <label
+<<<<<<< HEAD
                                   className="form-label"
                                   htmlFor="household_members_0_date_of_birth_day"
                                 />
                                 <input
                                   className=""
                                   id="household_members_0_date_of_birth_day"
+=======
+                                  htmlFor="form-household_members[0].date_of_birth_day"
+                                />
+                                <input
+                                  className=""
+                                  id="form-household_members[0].date_of_birth_day"
+>>>>>>> d92e4158761243a2271b4eea7ca52ee67c9eb7c2
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.day"
                                   onBlur={[Function]}
@@ -1302,12 +1318,20 @@ Array [
                                 className=""
                               >
                                 <label
+<<<<<<< HEAD
                                   className="form-label"
                                   htmlFor="household_members_0_date_of_birth_year"
                                 />
                                 <input
                                   className=""
                                   id="household_members_0_date_of_birth_year"
+=======
+                                  htmlFor="form-household_members[0].date_of_birth_year"
+                                />
+                                <input
+                                  className=""
+                                  id="form-household_members[0].date_of_birth_year"
+>>>>>>> d92e4158761243a2271b4eea7ca52ee67c9eb7c2
                                   maxLength={4}
                                   name="household_members[0].date_of_birth.year"
                                   onBlur={[Function]}
@@ -3529,12 +3553,20 @@ Array [
                                 className=""
                               >
                                 <label
+<<<<<<< HEAD
                                   className="form-label"
                                   htmlFor="household_members_0_date_of_birth_month"
                                 />
                                 <input
                                   className=""
                                   id="household_members_0_date_of_birth_month"
+=======
+                                  htmlFor="form-household_members[0].date_of_birth_month"
+                                />
+                                <input
+                                  className=""
+                                  id="form-household_members[0].date_of_birth_month"
+>>>>>>> d92e4158761243a2271b4eea7ca52ee67c9eb7c2
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.month"
                                   onBlur={[Function]}
@@ -3553,12 +3585,20 @@ Array [
                                 className=""
                               >
                                 <label
+<<<<<<< HEAD
                                   className="form-label"
                                   htmlFor="household_members_0_date_of_birth_day"
                                 />
                                 <input
                                   className=""
                                   id="household_members_0_date_of_birth_day"
+=======
+                                  htmlFor="form-household_members[0].date_of_birth_day"
+                                />
+                                <input
+                                  className=""
+                                  id="form-household_members[0].date_of_birth_day"
+>>>>>>> d92e4158761243a2271b4eea7ca52ee67c9eb7c2
                                   maxLength={2}
                                   name="household_members[0].date_of_birth.day"
                                   onBlur={[Function]}
@@ -3577,12 +3617,20 @@ Array [
                                 className=""
                               >
                                 <label
+<<<<<<< HEAD
                                   className="form-label"
                                   htmlFor="household_members_0_date_of_birth_year"
                                 />
                                 <input
                                   className=""
                                   id="household_members_0_date_of_birth_year"
+=======
+                                  htmlFor="form-household_members[0].date_of_birth_year"
+                                />
+                                <input
+                                  className=""
+                                  id="form-household_members[0].date_of_birth_year"
+>>>>>>> d92e4158761243a2271b4eea7ca52ee67c9eb7c2
                                   maxLength={4}
                                   name="household_members[0].date_of_birth.year"
                                   onBlur={[Function]}
