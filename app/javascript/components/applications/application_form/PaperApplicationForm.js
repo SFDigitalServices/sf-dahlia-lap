@@ -70,7 +70,7 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
-                  { failed && (
+                  { (failed || form.getState().submitFailed) && (
                     <AlertBox
                       invert
                       onCloseClick={() => this.setState({failed: false})}

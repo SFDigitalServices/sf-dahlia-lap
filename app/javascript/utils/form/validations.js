@@ -110,7 +110,7 @@ validate.isValidDOB = (person, errors) => {
       validate.isOldEnough('The primary applicant must be 18 years of age or older')
     )(DOB)
   } else {
-    errors.date_of_birth.all = 'Date of Birth is required'
+    errors.date_of_birth.all = 'Please enter a Date of Birth'
   }
   return errors
 }

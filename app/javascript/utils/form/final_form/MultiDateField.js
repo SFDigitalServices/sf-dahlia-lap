@@ -26,7 +26,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         <FieldWrapper
           type='text'
           fieldName={`${fieldName}.month`}
-          id={`${id}_month` || `form-${fieldName}_month`}
+          id={id ? `${id}_month` : `form-${fieldName}_month`}
           placeholder='MM'
           pattern='\d*'
           maxLength={maxLengthMap['month']} />
@@ -35,7 +35,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         <FieldWrapper
           type='text'
           fieldName={`${fieldName}.day`}
-          id={`${id}_day` || `form-${fieldName}_day`}
+          id={id ? `${id}_day` : `form-${fieldName}_day`}
           placeholder='DD'
           pattern='\d*'
           maxLength={maxLengthMap['day']} />
@@ -44,7 +44,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         <FieldWrapper
           type='text'
           fieldName={`${fieldName}.year`}
-          id={`${id}_year` || `form-${fieldName}_year`}
+          id={id ? `${id}_year` : `form-${fieldName}_year`}
           placeholder='YYYY'
           pattern='\d*'
           maxLength={maxLengthMap['year']} />
