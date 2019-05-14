@@ -10880,6 +10880,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           className="app-inner inset-wide"
                                         >
                                           <StatusList
+                                            commentDisabled={false}
                                             items={
                                               Array [
                                                 Object {
@@ -10983,6 +10984,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <button
                                                   className="button tertiary tiny margin-bottom-none"
                                                   data-event=""
+                                                  disabled={false}
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
