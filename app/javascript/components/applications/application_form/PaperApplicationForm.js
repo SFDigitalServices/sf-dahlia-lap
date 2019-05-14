@@ -46,7 +46,7 @@ class PaperApplicationForm extends React.Component {
 
   validateForm = (values) => {
     const errors = {applicant: {date_of_birth: {}}}
-    validate.isValidDOB(values.applicant, errors.applicant)
+    validate.isValidDOB(values.applicant, errors.applicant, true)
     if (values.alternate_contact && !isEmpty(values.alternate_contact)) {
       errors.alternate_contact = {}
       errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name.')(values.alternate_contact.first_name)

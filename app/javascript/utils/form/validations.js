@@ -102,16 +102,21 @@ validate.any = (...fns) => (value) => {
       map(fns, fn => fn(value))))
 }
 
-validate.isValidDOB = (person, errors) => {
+validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
+  let errorMessage = 'Please enter a Date of Birth'
   if (person && person.date_of_birth) {
     let DOB = [person.date_of_birth.year, person.date_of_birth.month, person.date_of_birth.day]
-    errors.date_of_birth.all = validate.any(
-      validate.isValidDate('Please enter a valid Date of Birth'),
-      validate.isOldEnough('The primary applicant must be 18 years of age or older')
-    )(DOB)
-  } else {
-    errors.date_of_birth.all = 'Please enter a Date of Birth'
+    if (isPrimaryApplicant) {
+      errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(DOB)
+    } else {
+      errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'))(DOB)
+    }
   }
+  errors.date_of_birth.all = errorMessage
+  errors.date_of_birth.day = errorMessage
+  errors.date_of_birth.month = errorMessage
+  errors.date_of_birth.year = errorMessage
+
   return errors
 }
 

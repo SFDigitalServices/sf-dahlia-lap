@@ -15,11 +15,11 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <React.Fragment>
-        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-          <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+          {label && <label htmlFor={id || `form-${fieldName}`} className='form-label'>
             {label && `${label} `}
             {blockNote && <BlockNote value={blockNote} />}
-          </label>
+          </label>}
           <input {...input}
             id={id || `form-${fieldName}`}
             className={(meta.error && meta.touched && 'error') || ''}
@@ -33,15 +33,30 @@ export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, pl
   </Field>
 )
 
+export const InputWrapper = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
+  <Field name={fieldName} validate={validation}>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <input {...input}
+          id={id || `form-${fieldName}`}
+          className={(meta.error && meta.touched && 'error') || ''}
+          type={type}
+          maxLength={maxLength}
+          placeholder={placeholder} />
+      </React.Fragment>
+    )}
+  </Field>
+)
+
 export const SelectField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, options, onChange }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-          <label htmlFor={id || `form-${fieldName}`} className='form-label'>
-            {label && `${label} `}
+          { label && <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+            {`${label} `}
             {blockNote && <BlockNote value={blockNote} />}
-          </label>
+          </label>}
           <select {...input}
             onChange={(event) => {
               input.onChange(event)

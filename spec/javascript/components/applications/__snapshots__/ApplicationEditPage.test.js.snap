@@ -58,7 +58,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -130,7 +130,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -160,7 +160,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -185,7 +185,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -220,7 +220,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -245,7 +245,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -270,7 +270,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -318,7 +318,7 @@ Array [
                     className="small-4 columns form-date-of-birth"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -334,74 +334,50 @@ Array [
                       <div
                         className="form-group-month"
                       >
-                        <div
+                        <input
                           className=""
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="date_of_birth_month"
-                          />
-                          <input
-                            className=""
-                            id="date_of_birth_month"
-                            maxLength={2}
-                            name="applicant.date_of_birth.month"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="MM"
-                            type="text"
-                            value="01"
-                          />
-                        </div>
+                          id="date_of_birth_month"
+                          maxLength={2}
+                          name="applicant.date_of_birth.month"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="MM"
+                          type="text"
+                          value="01"
+                        />
                       </div>
                       <div
                         className="form-group-day"
                       >
-                        <div
+                        <input
                           className=""
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="date_of_birth_day"
-                          />
-                          <input
-                            className=""
-                            id="date_of_birth_day"
-                            maxLength={2}
-                            name="applicant.date_of_birth.day"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="DD"
-                            type="text"
-                            value="01"
-                          />
-                        </div>
+                          id="date_of_birth_day"
+                          maxLength={2}
+                          name="applicant.date_of_birth.day"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="DD"
+                          type="text"
+                          value="01"
+                        />
                       </div>
                       <div
                         className="form-group-year"
                       >
-                        <div
+                        <input
                           className=""
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="date_of_birth_year"
-                          />
-                          <input
-                            className=""
-                            id="date_of_birth_year"
-                            maxLength={4}
-                            name="applicant.date_of_birth.year"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="YYYY"
-                            type="text"
-                            value="1950"
-                          />
-                        </div>
+                          id="date_of_birth_year"
+                          maxLength={4}
+                          name="applicant.date_of_birth.year"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="YYYY"
+                          type="text"
+                          value="1950"
+                        />
                       </div>
                       <div
                         className="d-inline-block"
@@ -412,7 +388,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -437,7 +413,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -496,7 +472,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -521,7 +497,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -546,7 +522,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -571,7 +547,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -613,7 +589,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -638,7 +614,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -663,7 +639,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -688,7 +664,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -733,7 +709,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -758,7 +734,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -783,7 +759,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -813,7 +789,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -867,10 +843,6 @@ Array [
                     <div
                       className=""
                     >
-                      <label
-                        className="form-label"
-                        htmlFor="form-alternate_contact.alternate_contact_type_other"
-                      />
                       <input
                         className=""
                         id="form-alternate_contact.alternate_contact_type_other"
@@ -893,10 +865,6 @@ Array [
                     <div
                       className=""
                     >
-                      <label
-                        className="form-label"
-                        htmlFor="form-alternate_contact.agency_name"
-                      />
                       <input
                         className=""
                         id="form-alternate_contact.agency_name"
@@ -918,7 +886,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -943,7 +911,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -968,7 +936,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -1027,7 +995,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -1052,7 +1020,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -1077,7 +1045,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -1102,7 +1070,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -1149,7 +1117,7 @@ Array [
                           className="small-3 columns"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -1179,7 +1147,7 @@ Array [
                           className="small-2 columns"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -1204,7 +1172,7 @@ Array [
                           className="small-3 columns"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -1234,7 +1202,7 @@ Array [
                           className="small-4 columns form-date-of-birth"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -1250,74 +1218,50 @@ Array [
                             <div
                               className="form-group-month"
                             >
-                              <div
+                              <input
                                 className=""
-                              >
-                                <label
-                                  className="form-label"
-                                  htmlFor="household_members_0_date_of_birth_month"
-                                />
-                                <input
-                                  className=""
-                                  id="household_members_0_date_of_birth_month"
-                                  maxLength={2}
-                                  name="household_members[0].date_of_birth.month"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  placeholder="MM"
-                                  type="text"
-                                  value="06"
-                                />
-                              </div>
+                                id="household_members_0_date_of_birth_month"
+                                maxLength={2}
+                                name="household_members[0].date_of_birth.month"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="MM"
+                                type="text"
+                                value="06"
+                              />
                             </div>
                             <div
                               className="form-group-day"
                             >
-                              <div
+                              <input
                                 className=""
-                              >
-                                <label
-                                  className="form-label"
-                                  htmlFor="household_members_0_date_of_birth_day"
-                                />
-                                <input
-                                  className=""
-                                  id="household_members_0_date_of_birth_day"
-                                  maxLength={2}
-                                  name="household_members[0].date_of_birth.day"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  placeholder="DD"
-                                  type="text"
-                                  value="11"
-                                />
-                              </div>
+                                id="household_members_0_date_of_birth_day"
+                                maxLength={2}
+                                name="household_members[0].date_of_birth.day"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="DD"
+                                type="text"
+                                value="11"
+                              />
                             </div>
                             <div
                               className="form-group-year"
                             >
-                              <div
+                              <input
                                 className=""
-                              >
-                                <label
-                                  className="form-label"
-                                  htmlFor="household_members_0_date_of_birth_year"
-                                />
-                                <input
-                                  className=""
-                                  id="household_members_0_date_of_birth_year"
-                                  maxLength={4}
-                                  name="household_members[0].date_of_birth.year"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  placeholder="YYYY"
-                                  type="text"
-                                  value="1976"
-                                />
-                              </div>
+                                id="household_members_0_date_of_birth_year"
+                                maxLength={4}
+                                name="household_members[0].date_of_birth.year"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="YYYY"
+                                type="text"
+                                value="1976"
+                              />
                             </div>
                             <div
                               className="d-inline-block"
@@ -1348,7 +1292,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -1373,7 +1317,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -1398,7 +1342,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -1423,7 +1367,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -1456,7 +1400,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -1623,7 +1567,7 @@ Array [
                             className="checkbox"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <input
                                 checked={true}
@@ -1652,7 +1596,7 @@ Array [
                             className="checkbox"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <input
                                 checked={true}
@@ -1681,7 +1625,7 @@ Array [
                             className="checkbox"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <input
                                 checked={true}
@@ -1730,12 +1674,8 @@ Array [
                           Preference
                         </label>
                         <div
-                          className=""
+                          className="form-group"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="select-paper-preference-0"
-                          />
                           <select
                             className=""
                             id="select-paper-preference-0"
@@ -1816,7 +1756,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -1841,7 +1781,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -1896,7 +1836,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -1940,7 +1880,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2024,7 +1964,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2088,7 +2028,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2113,7 +2053,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2172,7 +2112,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2209,7 +2149,7 @@ Array [
                     className="checkbox"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <input
                         checked={true}
@@ -2333,7 +2273,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2405,7 +2345,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -2435,7 +2375,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -2460,7 +2400,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -2495,7 +2435,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2520,7 +2460,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2545,7 +2485,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2593,7 +2533,7 @@ Array [
                     className="small-4 columns form-date-of-birth"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2609,74 +2549,50 @@ Array [
                       <div
                         className="form-group-month"
                       >
-                        <div
+                        <input
                           className=""
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="date_of_birth_month"
-                          />
-                          <input
-                            className=""
-                            id="date_of_birth_month"
-                            maxLength={2}
-                            name="applicant.date_of_birth.month"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="MM"
-                            type="text"
-                            value="01"
-                          />
-                        </div>
+                          id="date_of_birth_month"
+                          maxLength={2}
+                          name="applicant.date_of_birth.month"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="MM"
+                          type="text"
+                          value="01"
+                        />
                       </div>
                       <div
                         className="form-group-day"
                       >
-                        <div
+                        <input
                           className=""
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="date_of_birth_day"
-                          />
-                          <input
-                            className=""
-                            id="date_of_birth_day"
-                            maxLength={2}
-                            name="applicant.date_of_birth.day"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="DD"
-                            type="text"
-                            value="01"
-                          />
-                        </div>
+                          id="date_of_birth_day"
+                          maxLength={2}
+                          name="applicant.date_of_birth.day"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="DD"
+                          type="text"
+                          value="01"
+                        />
                       </div>
                       <div
                         className="form-group-year"
                       >
-                        <div
+                        <input
                           className=""
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="date_of_birth_year"
-                          />
-                          <input
-                            className=""
-                            id="date_of_birth_year"
-                            maxLength={4}
-                            name="applicant.date_of_birth.year"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="YYYY"
-                            type="text"
-                            value="1950"
-                          />
-                        </div>
+                          id="date_of_birth_year"
+                          maxLength={4}
+                          name="applicant.date_of_birth.year"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="YYYY"
+                          type="text"
+                          value="1950"
+                        />
                       </div>
                       <div
                         className="d-inline-block"
@@ -2687,7 +2603,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2712,7 +2628,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -2771,7 +2687,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2796,7 +2712,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2821,7 +2737,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2846,7 +2762,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2888,7 +2804,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2913,7 +2829,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2938,7 +2854,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -2963,7 +2879,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -3008,7 +2924,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -3033,7 +2949,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -3058,7 +2974,7 @@ Array [
                       className="small-4 columns"
                     >
                       <div
-                        className=""
+                        className="form-group"
                       >
                         <label
                           className="form-label"
@@ -3088,7 +3004,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -3142,10 +3058,6 @@ Array [
                     <div
                       className=""
                     >
-                      <label
-                        className="form-label"
-                        htmlFor="form-alternate_contact.alternate_contact_type_other"
-                      />
                       <input
                         className=""
                         id="form-alternate_contact.alternate_contact_type_other"
@@ -3168,10 +3080,6 @@ Array [
                     <div
                       className=""
                     >
-                      <label
-                        className="form-label"
-                        htmlFor="form-alternate_contact.agency_name"
-                      />
                       <input
                         className=""
                         id="form-alternate_contact.agency_name"
@@ -3193,7 +3101,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -3218,7 +3126,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -3243,7 +3151,7 @@ Array [
                     className="small-4 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -3302,7 +3210,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -3327,7 +3235,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -3352,7 +3260,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -3377,7 +3285,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -3424,7 +3332,7 @@ Array [
                           className="small-3 columns"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -3454,7 +3362,7 @@ Array [
                           className="small-2 columns"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -3479,7 +3387,7 @@ Array [
                           className="small-3 columns"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -3509,7 +3417,7 @@ Array [
                           className="small-4 columns form-date-of-birth"
                         >
                           <div
-                            className=""
+                            className="form-group"
                           >
                             <label
                               className="form-label"
@@ -3525,74 +3433,50 @@ Array [
                             <div
                               className="form-group-month"
                             >
-                              <div
+                              <input
                                 className=""
-                              >
-                                <label
-                                  className="form-label"
-                                  htmlFor="household_members_0_date_of_birth_month"
-                                />
-                                <input
-                                  className=""
-                                  id="household_members_0_date_of_birth_month"
-                                  maxLength={2}
-                                  name="household_members[0].date_of_birth.month"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  placeholder="MM"
-                                  type="text"
-                                  value="06"
-                                />
-                              </div>
+                                id="household_members_0_date_of_birth_month"
+                                maxLength={2}
+                                name="household_members[0].date_of_birth.month"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="MM"
+                                type="text"
+                                value="06"
+                              />
                             </div>
                             <div
                               className="form-group-day"
                             >
-                              <div
+                              <input
                                 className=""
-                              >
-                                <label
-                                  className="form-label"
-                                  htmlFor="household_members_0_date_of_birth_day"
-                                />
-                                <input
-                                  className=""
-                                  id="household_members_0_date_of_birth_day"
-                                  maxLength={2}
-                                  name="household_members[0].date_of_birth.day"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  placeholder="DD"
-                                  type="text"
-                                  value="11"
-                                />
-                              </div>
+                                id="household_members_0_date_of_birth_day"
+                                maxLength={2}
+                                name="household_members[0].date_of_birth.day"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="DD"
+                                type="text"
+                                value="11"
+                              />
                             </div>
                             <div
                               className="form-group-year"
                             >
-                              <div
+                              <input
                                 className=""
-                              >
-                                <label
-                                  className="form-label"
-                                  htmlFor="household_members_0_date_of_birth_year"
-                                />
-                                <input
-                                  className=""
-                                  id="household_members_0_date_of_birth_year"
-                                  maxLength={4}
-                                  name="household_members[0].date_of_birth.year"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  placeholder="YYYY"
-                                  type="text"
-                                  value="1976"
-                                />
-                              </div>
+                                id="household_members_0_date_of_birth_year"
+                                maxLength={4}
+                                name="household_members[0].date_of_birth.year"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                placeholder="YYYY"
+                                type="text"
+                                value="1976"
+                              />
                             </div>
                             <div
                               className="d-inline-block"
@@ -3623,7 +3507,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -3648,7 +3532,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -3673,7 +3557,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -3698,7 +3582,7 @@ Array [
                                 className="small-6 columns"
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -3731,7 +3615,7 @@ Array [
                         className="small-6 columns"
                       >
                         <div
-                          className=""
+                          className="form-group"
                         >
                           <label
                             className="form-label"
@@ -3898,7 +3782,7 @@ Array [
                             className="checkbox"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <input
                                 checked={true}
@@ -3927,7 +3811,7 @@ Array [
                             className="checkbox"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <input
                                 checked={true}
@@ -3956,7 +3840,7 @@ Array [
                             className="checkbox"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <input
                                 checked={true}
@@ -4005,12 +3889,8 @@ Array [
                           Preference
                         </label>
                         <div
-                          className=""
+                          className="form-group"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="select-paper-preference-0"
-                          />
                           <select
                             className=""
                             id="select-paper-preference-0"
@@ -4048,7 +3928,7 @@ Array [
                             className="columns small-3  form-grid_item"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <label
                                 className="form-label"
@@ -4092,7 +3972,7 @@ Array [
                             className="columns small-3 end form-grid_item"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <label
                                 className="form-label"
@@ -4165,7 +4045,7 @@ Array [
                             className="columns small-6  form-grid_item"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <label
                                 className="form-label"
@@ -4198,7 +4078,7 @@ Array [
                             className="columns small-3  form-grid_item"
                           >
                             <div
-                              className=""
+                              className="form-group"
                             >
                               <label
                                 className="form-label"
@@ -4228,7 +4108,7 @@ Array [
                                 className="columns small-6  "
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -4252,7 +4132,7 @@ Array [
                                 className="columns small-6 end "
                               >
                                 <div
-                                  className=""
+                                  className="form-group"
                                 >
                                   <label
                                     className="form-label"
@@ -4335,7 +4215,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4360,7 +4240,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4415,7 +4295,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4459,7 +4339,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4543,7 +4423,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4607,7 +4487,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4632,7 +4512,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4691,7 +4571,7 @@ Array [
                     className="small-6 columns"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <label
                         className="form-label"
@@ -4728,7 +4608,7 @@ Array [
                     className="checkbox"
                   >
                     <div
-                      className=""
+                      className="form-group"
                     >
                       <input
                         checked={true}
