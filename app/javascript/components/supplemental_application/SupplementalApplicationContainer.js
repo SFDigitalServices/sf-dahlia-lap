@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form } from 'react-form'
+import { Form } from 'react-final-form'
+import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
 import ScrollableAnchor from 'react-scrollable-anchor'
 
@@ -16,20 +17,6 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
-import validate from '~/utils/form/validations'
-
-const validateIncomeCurrency = (value) => {
-  return (
-    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
-  )
-}
-
-const validateError = (values) => ({
-  household_assets: validateIncomeCurrency(values.household_assets),
-  confirmed_household_annual_income: validateIncomeCurrency(values.confirmed_household_annual_income),
-  hh_total_income_with_assets_annual: validateIncomeCurrency(values.hh_total_income_with_assets_annual)
-})
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -74,14 +61,14 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
   )
 }
 
-const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
+const ConfirmedHousehold = ({ amis, amiCharts, form }) => {
   return (
     <ContentSection title='Confirmed Household'>
       <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
         <ConfirmedUnits />
       </ContentSection.Sub>
       <ContentSection.Sub title='Confirmed Household Income'>
-        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi} />
+        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
       </ContentSection.Sub>
     </ContentSection>
   )
@@ -161,22 +148,28 @@ class SupplementalApplicationContainer extends React.Component {
     } = store
 
     return (
-      <Form onSubmit={onSubmit} defaultValues={application} validateError={validateError}>
-        {formApi => (
+
+      <Form
+        onSubmit={onSubmit}
+        initialValues={application}
+        mutators={{
+          ...arrayMutators
+        }}
+        render={({ handleSubmit, form }) => (
           <React.Fragment>
-            <form onSubmit={formApi.submitForm} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }}>
+            <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
               <StatusUpdateSection />
-              <ConfirmedPreferencesSection
+              {/* <ConfirmedPreferencesSection
                 application={application}
                 applicationMembers={applicationMembers}
                 fileBaseUrl={fileBaseUrl}
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
-                formApi={formApi}
-              />
-              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-              <LeaseInformationSection formApi={formApi} />
+                formApi={form}
+              /> */}
+              <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
+              {/* <LeaseInformationSection formApi={form} /> */}
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
@@ -185,11 +178,11 @@ class SupplementalApplicationContainer extends React.Component {
               {...statusModal}
               onClose={handleStatusModalClose}
               onStatusChange={handleStatusModalStatusChange}
-              onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, formApi.values)}
+              onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
             />
           </React.Fragment>
         )}
-      </Form>
+      />
     )
   }
 }
