@@ -8,13 +8,11 @@ const memberValidate = (values) => {
   if (!values || !values.length) return
   const membersErrors = []
   values.forEach(value => {
-    if (value) {
+    if (!isEmpty(value)) {
       const memberError = {date_of_birth: {}}
-      if (!isEmpty(value.first_name) || !isEmpty(value.last_name) || !isEmpty(value.date_of_birth)) {
-        validate.isValidDOB(value, memberError)
-        memberError.first_name = validate.isPresent('Please enter a First Name.')(value.first_name)
-        memberError.last_name = validate.isPresent('Please enter a Last Name.')(value.last_name)
-      }
+      validate.isValidDOB(value, memberError)
+      memberError.first_name = validate.isPresent('Please enter a First Name')(value.first_name)
+      memberError.last_name = validate.isPresent('Please enter a Last Name')(value.last_name)
       membersErrors.push(memberError)
     }
   })
