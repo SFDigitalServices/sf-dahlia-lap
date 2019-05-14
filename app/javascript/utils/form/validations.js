@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { compact, first, isEmpty, isNil, isString, mapValues, map } from 'lodash'
+import { compact, first, isEmpty, isNil, isString, mapValues, map, isNumber, inRange, toInteger } from 'lodash'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -105,17 +105,20 @@ validate.any = (...fns) => (value) => {
 validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
   let errorMessage = 'Please enter a Date of Birth'
   if (person && person.date_of_birth) {
-    let DOB = [person.date_of_birth.year, person.date_of_birth.month, person.date_of_birth.day]
+    const day = toInteger(person.date_of_birth.day)
+    const month = toInteger(person.date_of_birth.month)
+    const year = toInteger(person.date_of_birth.year)
+    let DOB = [year, month, day]
     if (isPrimaryApplicant) {
       errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(DOB)
     } else {
       errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'))(DOB)
     }
+    if (!(isNumber(day) && inRange(day, 1, 31))) errors.date_of_birth.day = errorMessage
+    if (!(isNumber(month) && inRange(month, 1, 12))) errors.date_of_birth.month = errorMessage
+    if (!(isNumber(year) && inRange(year, 1900, moment().year()))) errors.date_of_birth.year = errorMessage
   }
   errors.date_of_birth.all = errorMessage
-  errors.date_of_birth.day = errorMessage
-  errors.date_of_birth.month = errorMessage
-  errors.date_of_birth.year = errorMessage
 
   return errors
 }
