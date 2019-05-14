@@ -17,7 +17,6 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
-import validate from '~/utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -172,7 +171,6 @@ class SupplementalApplicationContainer extends React.Component {
       <Form
         onSubmit={onSubmit}
         initialValues={application}
-        validate={this.validateForm}
         mutators={{
           ...arrayMutators
         }}
@@ -180,21 +178,17 @@ class SupplementalApplicationContainer extends React.Component {
           <React.Fragment>
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
               <StatusUpdateSection />
-              <ConfirmedPreferencesSection
+              {/* <ConfirmedPreferencesSection
                 application={application}
                 applicationMembers={applicationMembers}
                 fileBaseUrl={fileBaseUrl}
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
-                form={form}
-              />
+                formApi={form}
+              /> */}
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
-              <LeaseInformationSection form={form} />
-            </form>
-            <RentalAssistanceSection form={form} />
-            <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
-              <DemographicsSection />
+              {/* <LeaseInformationSection formApi={form} /> */}
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
