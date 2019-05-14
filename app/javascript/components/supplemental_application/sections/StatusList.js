@@ -39,7 +39,7 @@ const sortByTimestamp = (item) => {
   return item.timestamp
 }
 
-const StatusList = ({items, onAddComment}) => {
+const StatusList = ({items, onAddComment, commentDisabled}) => {
   const orderedItems = sortBy(items, [sortByTimestamp])
 
   return (
@@ -51,7 +51,7 @@ const StatusList = ({items, onAddComment}) => {
         }
       </ul>
       <div className='status-list_footer'>
-        <button className='button tertiary tiny margin-bottom-none' type='button' data-event='' onClick={onAddComment}>Add a comment</button>
+        <button className='button tertiary tiny margin-bottom-none' type='button' data-event='' onClick={onAddComment} disabled={commentDisabled}>Add a comment</button>
       </div>
     </div>
   )
