@@ -194,92 +194,6 @@ Array [
           <h2
             className="app-card_h2"
           >
-            Confirmed Preferences
-          </h2>
-          <p
-            className="form-note max-width"
-          >
-            Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
-          </p>
-        </div>
-        <div
-          className="app-inner inset-wide"
-        >
-          <div
-            className="preferences-table"
-          >
-            <div
-              className="form-grid row expand"
-            >
-              <div
-                className="small-12 column"
-              >
-                <div
-                  className="scrollable-table-container-under-xlarge"
-                >
-                  <table
-                    className="td-light td-plain th-plain"
-                    role="grid"
-                  >
-                    <thead>
-                      <tr>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Preference Name
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Person Who Claimed
-                        </th>
-                        <th
-                          className="text-right"
-                          scope="col"
-                        >
-                          Preference Rank
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Type of proof
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Status
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody />
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
             Confirmed Household
           </h2>
         </div>
@@ -2627,6 +2541,39 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "total_monthly_rent": null,
                                 },
                                 "applicationMembers": Array [
+                                  Object {
+                                    "agency_name": undefined,
+                                    "alternate_contact_type": undefined,
+                                    "alternate_contact_type_other": undefined,
+                                    "city": "SAN FRANCISCO",
+                                    "date_of_birth": Object {
+                                      "day": "01",
+                                      "month": "01",
+                                      "year": "1950",
+                                    },
+                                    "email": "eee@eeee.com",
+                                    "first_name": "karen",
+                                    "id": "a0n0x000000AbE6AAK",
+                                    "last_name": "jones",
+                                    "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                    "mailing_city": "SAN FRANCISCO",
+                                    "mailing_state": "CA",
+                                    "mailing_street": "123 MAIN ST",
+                                    "mailing_zip_code": "94105-1804",
+                                    "marital_status": "Married",
+                                    "middle_name": null,
+                                    "name": "karen jones",
+                                    "phone": "9548883321",
+                                    "phone_type": "Cell",
+                                    "primary_language": null,
+                                    "relationship_to_applicant": undefined,
+                                    "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                    "second_phone": "9548883321",
+                                    "second_phone_type": "Home",
+                                    "state": "CA",
+                                    "street": "123 MAIN ST",
+                                    "zip_code": "94105-1804",
+                                  },
                                   Object {
                                     "agency_name": undefined,
                                     "alternate_contact_type": undefined,

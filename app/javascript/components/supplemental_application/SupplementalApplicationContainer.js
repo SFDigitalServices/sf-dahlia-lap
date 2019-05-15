@@ -188,7 +188,7 @@ class SupplementalApplicationContainer extends React.Component {
                 formApi={form}
               /> */}
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
-              {/* <LeaseInformationSection formApi={form} /> */}
+              <LeaseInformationSection form={form} />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
