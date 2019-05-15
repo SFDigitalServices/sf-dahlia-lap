@@ -57,6 +57,7 @@ const PrimaryApplicantSection = ({form}) => {
             label='Email'
             id='email'
             fieldName='applicant.email'
+            validation={validate.isValidEmail('Please enter a valid Email')}
             maxLength={maxLengthMap['email']}
           />
         </div>
