@@ -74,16 +74,16 @@ const ConfirmedHousehold = ({ amis, amiCharts, form }) => {
   )
 }
 
-const LeaseInformationSection = ({formApi}) => {
+const LeaseInformationSection = ({form}) => {
   return (
     <ContentSection title='Lease Information'>
       <ContentSection.Content borderBottom>
-        <LeaseInformationInputs formApi={formApi} />
+        {/* <LeaseInformationInputs form={form} /> */}
       </ContentSection.Content>
       <ContentSection.Sub
         title='Rental Assistance Information'
         description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-        <RentalAssistance />
+        {/* <RentalAssistance /> */}
       </ContentSection.Sub>
       <ContentSection.Sub title='Demographics'>
         <DemographicsInputs />
@@ -169,7 +169,7 @@ class SupplementalApplicationContainer extends React.Component {
                 formApi={form}
               /> */}
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
-              {/* <LeaseInformationSection formApi={form} /> */}
+              <LeaseInformationSection form={form} />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
