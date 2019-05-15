@@ -116,6 +116,7 @@ validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
     }
   }
   errors.date_of_birth.all = errorMessage
+  // Required for red highlighting around inputs
   errors.date_of_birth.day = errorMessage
   errors.date_of_birth.month = errorMessage
   errors.date_of_birth.year = errorMessage
