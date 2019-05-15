@@ -110,7 +110,7 @@ const PrimaryApplicantSection = ({form}) => {
       <AddressForm
         title='Mailing Address'
         fieldName='applicant'
-        fieldMap={mailingAddressFieldMap}
+        addressFieldMap={mailingAddressFieldMap}
       />
     </div>
   )

@@ -99,7 +99,7 @@ const AlternateContactSection = () => {
       <AddressForm
         title='Mailing Address'
         fieldName='alternate_contact'
-        fieldMap={mailingAddressFieldMap}
+        addressFieldMap={mailingAddressFieldMap}
       />
     </div>
   )

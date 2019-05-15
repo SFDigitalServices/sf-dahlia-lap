@@ -3,13 +3,13 @@ import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { isEmpty } from 'lodash'
 import { maxLengthMap } from '~/utils/formUtils'
 
-const buildField = (fieldName, fieldMap, fieldKey) => {
-  return `${fieldName}.${fieldMap[fieldKey]}`
+const buildField = (fieldName, addressFieldMap, addressFieldKey) => {
+  return `${fieldName}.${addressFieldMap[addressFieldKey]}`
 }
 
-const AddressForm = ({ title, fieldName, fieldMap }) => {
-  if (isEmpty(fieldMap)) {
-    fieldMap = {
+const AddressForm = ({ title, fieldName, addressFieldMap }) => {
+  if (isEmpty(addressFieldMap)) {
+    addressFieldMap = {
       address: 'street',
       city: 'city',
       state: 'state',
@@ -28,7 +28,7 @@ const AddressForm = ({ title, fieldName, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='Street Address'
-              fieldName={buildField(fieldName, fieldMap, 'address')}
+              fieldName={buildField(fieldName, addressFieldMap, 'address')}
               maxLength={maxLengthMap['address']}
             />
           </div>
@@ -36,7 +36,7 @@ const AddressForm = ({ title, fieldName, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='City'
-              fieldName={buildField(fieldName, fieldMap, 'city')}
+              fieldName={buildField(fieldName, addressFieldMap, 'city')}
               maxLength={maxLengthMap['city']}
             />
           </div>
@@ -44,7 +44,7 @@ const AddressForm = ({ title, fieldName, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='State'
-              fieldName={buildField(fieldName, fieldMap, 'state')}
+              fieldName={buildField(fieldName, addressFieldMap, 'state')}
               maxLength={maxLengthMap['state']}
             />
           </div>
@@ -52,7 +52,7 @@ const AddressForm = ({ title, fieldName, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='Zip'
-              fieldName={buildField(fieldName, fieldMap, 'zip')}
+              fieldName={buildField(fieldName, addressFieldMap, 'zip')}
               maxLength={maxLengthMap['zip']}
             />
           </div>
