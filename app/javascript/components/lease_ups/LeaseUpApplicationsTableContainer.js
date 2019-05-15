@@ -16,7 +16,12 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  setStatusModalStatus = (value) => this.props.store.updateStatusModal({status: value})
+  setStatusModalStatus = (value, key) => {
+    this.props.store.updateStatusModal({
+      [key || 'status']: value,
+      ...(!key ? { subStatus: '' } : {})
+    })
+  }
 
   leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
     this.props.store.updateStatusModal({
@@ -30,13 +35,14 @@ class LeaseUpTableContainer extends React.Component {
   createStatusUpdate = async (submittedValues) => {
     this.props.store.updateStatusModal({loading: true})
 
-    const { status, applicationId } = this.props.store.statusModal
+    const { status, applicationId, subStatus } = this.props.store.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
     if (status && comment) {
       const data = {
-        status: status,
-        comment: comment,
-        applicationId: applicationId
+        status,
+        comment,
+        applicationId,
+        ...(subStatus ? { subStatus } : {})
       }
 
       this.props.store.handleCreateStatusUpdate(data)

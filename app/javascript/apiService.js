@@ -54,7 +54,8 @@ const createFieldUpdateComment = async (data) => {
     field_update_comment: {
       Processing_Status__c: data.status,
       Processing_Comment__c: data.comment,
-      Application__c: data.applicationId
+      Application__c: data.applicationId,
+      ...(data.subStatus ? { Sub_Status__c: data.subStatus } : {})
     }
   }
   return request.post('/field-update-comments/create', postData)

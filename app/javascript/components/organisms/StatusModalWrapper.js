@@ -22,6 +22,7 @@ class StatusModalWrapper extends React.Component {
       onAlertCloseClick,
       loading,
       status,
+      subStatus,
       onStatusChange,
       header,
       submitButton
@@ -51,6 +52,19 @@ class StatusModalWrapper extends React.Component {
               buttonClasses={['margin-bottom--half', 'expand', 'small']}
               menuClasses={['form-modal_dropdown-menu']} />
             {!status && <small className='error'>Please provide a status.</small>}
+            {status && (
+              <React.Fragment>
+                <h2 className='form-label'>Status Detail</h2>
+                <StatusDropdown
+                  status={status}
+                  subStatus={subStatus}
+                  prompt={'Select One...'}
+                  showSubStatus
+                  onChange={onStatusChange}
+                  buttonClasses={['margin-bottom--half', 'expand', 'substatus']}
+                  menuClasses={['form-modal_dropdown-menu']} />
+              </React.Fragment>
+            )}
             <label className='sr-only' htmlFor='status-comment' id='status-comment-label'>Comment</label>
             <TextArea
               field='comment'
