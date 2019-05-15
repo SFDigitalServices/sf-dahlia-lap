@@ -1134,12 +1134,12 @@ Array [
                               className=""
                               id="household_members_0_first_name"
                               maxLength={40}
-                              name="household_members[0].first_name"
+                              name="undefined.first_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
                               type="text"
-                              value="diego"
+                              value=""
                             />
                           </div>
                         </div>
@@ -1159,12 +1159,12 @@ Array [
                               className=""
                               id="household_members_0_middle_name"
                               maxLength={20}
-                              name="household_members[0].middle_name"
+                              name="undefined.middle_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
                               type="text"
-                              value="m"
+                              value=""
                             />
                           </div>
                         </div>
@@ -1189,12 +1189,12 @@ Array [
                               className=""
                               id="household_members_0_last_name"
                               maxLength={40}
-                              name="household_members[0].last_name"
+                              name="undefined.last_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
                               type="text"
-                              value="maradona"
+                              value=""
                             />
                           </div>
                         </div>
@@ -1222,13 +1222,13 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_month"
                                 maxLength={2}
-                                name="household_members[0].date_of_birth.month"
+                                name="undefined.date_of_birth.month"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 placeholder="MM"
                                 type="text"
-                                value="06"
+                                value=""
                               />
                             </div>
                             <div
@@ -1238,13 +1238,13 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_day"
                                 maxLength={2}
-                                name="household_members[0].date_of_birth.day"
+                                name="undefined.date_of_birth.day"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 placeholder="DD"
                                 type="text"
-                                value="11"
+                                value=""
                               />
                             </div>
                             <div
@@ -1254,13 +1254,13 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_year"
                                 maxLength={4}
-                                name="household_members[0].date_of_birth.year"
+                                name="undefined.date_of_birth.year"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 placeholder="YYYY"
                                 type="text"
-                                value="1976"
+                                value=""
                               />
                             </div>
                             <div
@@ -1296,20 +1296,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].street"
+                                    htmlFor="form-undefined.street"
                                   >
                                     Street Address 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].street"
+                                    id="form-undefined.street"
                                     maxLength={75}
-                                    name="household_members[0].street"
+                                    name="undefined.street"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="9 de julio"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -1321,20 +1321,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].city"
+                                    htmlFor="form-undefined.city"
                                   >
                                     City 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].city"
+                                    id="form-undefined.city"
                                     maxLength={75}
-                                    name="household_members[0].city"
+                                    name="undefined.city"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="buenos aires"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -1346,20 +1346,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].state"
+                                    htmlFor="form-undefined.state"
                                   >
                                     State 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].state"
+                                    id="form-undefined.state"
                                     maxLength={2}
-                                    name="household_members[0].state"
+                                    name="undefined.state"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="fl"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -1371,20 +1371,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].zip_code"
+                                    htmlFor="form-undefined.zip_code"
                                   >
                                     Zip 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].zip_code"
+                                    id="form-undefined.zip_code"
                                     maxLength={15}
-                                    name="household_members[0].zip_code"
+                                    name="undefined.zip_code"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="33026"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -1411,11 +1411,11 @@ Array [
                           <select
                             className=""
                             id="household_members_0_relationship_to_applicant"
-                            name="household_members[0].relationship_to_applicant"
+                            name="undefined.relationship_to_applicant"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            value="Child"
+                            value=""
                           >
                             <option
                               value=""
@@ -3349,12 +3349,12 @@ Array [
                               className=""
                               id="household_members_0_first_name"
                               maxLength={40}
-                              name="household_members[0].first_name"
+                              name="undefined.first_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
                               type="text"
-                              value="diego"
+                              value=""
                             />
                           </div>
                         </div>
@@ -3374,12 +3374,12 @@ Array [
                               className=""
                               id="household_members_0_middle_name"
                               maxLength={20}
-                              name="household_members[0].middle_name"
+                              name="undefined.middle_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
                               type="text"
-                              value="m"
+                              value=""
                             />
                           </div>
                         </div>
@@ -3404,12 +3404,12 @@ Array [
                               className=""
                               id="household_members_0_last_name"
                               maxLength={40}
-                              name="household_members[0].last_name"
+                              name="undefined.last_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
                               type="text"
-                              value="maradona"
+                              value=""
                             />
                           </div>
                         </div>
@@ -3437,13 +3437,13 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_month"
                                 maxLength={2}
-                                name="household_members[0].date_of_birth.month"
+                                name="undefined.date_of_birth.month"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 placeholder="MM"
                                 type="text"
-                                value="06"
+                                value=""
                               />
                             </div>
                             <div
@@ -3453,13 +3453,13 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_day"
                                 maxLength={2}
-                                name="household_members[0].date_of_birth.day"
+                                name="undefined.date_of_birth.day"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 placeholder="DD"
                                 type="text"
-                                value="11"
+                                value=""
                               />
                             </div>
                             <div
@@ -3469,13 +3469,13 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_year"
                                 maxLength={4}
-                                name="household_members[0].date_of_birth.year"
+                                name="undefined.date_of_birth.year"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 placeholder="YYYY"
                                 type="text"
-                                value="1976"
+                                value=""
                               />
                             </div>
                             <div
@@ -3511,20 +3511,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].street"
+                                    htmlFor="form-undefined.street"
                                   >
                                     Street Address 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].street"
+                                    id="form-undefined.street"
                                     maxLength={75}
-                                    name="household_members[0].street"
+                                    name="undefined.street"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="9 de julio"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -3536,20 +3536,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].city"
+                                    htmlFor="form-undefined.city"
                                   >
                                     City 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].city"
+                                    id="form-undefined.city"
                                     maxLength={75}
-                                    name="household_members[0].city"
+                                    name="undefined.city"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="buenos aires"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -3561,20 +3561,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].state"
+                                    htmlFor="form-undefined.state"
                                   >
                                     State 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].state"
+                                    id="form-undefined.state"
                                     maxLength={2}
-                                    name="household_members[0].state"
+                                    name="undefined.state"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="fl"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -3586,20 +3586,20 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="form-household_members[0].zip_code"
+                                    htmlFor="form-undefined.zip_code"
                                   >
                                     Zip 
                                   </label>
                                   <input
                                     className=""
-                                    id="form-household_members[0].zip_code"
+                                    id="form-undefined.zip_code"
                                     maxLength={15}
-                                    name="household_members[0].zip_code"
+                                    name="undefined.zip_code"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     type="text"
-                                    value="33026"
+                                    value=""
                                   />
                                 </div>
                               </div>
@@ -3626,11 +3626,11 @@ Array [
                           <select
                             className=""
                             id="household_members_0_relationship_to_applicant"
-                            name="household_members[0].relationship_to_applicant"
+                            name="undefined.relationship_to_applicant"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            value="Child"
+                            value=""
                           >
                             <option
                               value=""

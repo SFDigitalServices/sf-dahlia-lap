@@ -3,18 +3,11 @@ import { FieldWrapper } from '~/utils/form/final_form/Field'
 import { isEmpty } from 'lodash'
 import { maxLengthMap } from '~/utils/formUtils'
 
-const buildField = (memberType, name, fieldMap, fieldKey) => {
-  // to do: refactor this to use props
-  if (memberType === 'primaryApplicant') {
-    return `applicant.${fieldMap[fieldKey]}`
-  } else if (!isEmpty(name)) {
-    return `${name}.${fieldMap[fieldKey]}`
-  } else if (memberType === 'alternateContact') {
-    return `alternate_contact.${fieldMap[fieldKey]}`
-  }
+const buildField = (fieldName, fieldMap, fieldKey) => {
+  return `${fieldName}.${fieldMap[fieldKey]}`
 }
 
-const AddressForm = ({ title, memberType, name, fieldMap }) => {
+const AddressForm = ({ title, fieldName, fieldMap }) => {
   if (isEmpty(fieldMap)) {
     fieldMap = {
       address: 'street',
@@ -35,7 +28,7 @@ const AddressForm = ({ title, memberType, name, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='Street Address'
-              fieldName={buildField(memberType, name, fieldMap, 'address')}
+              fieldName={buildField(fieldName, fieldMap, 'address')}
               maxLength={maxLengthMap['address']}
             />
           </div>
@@ -43,7 +36,7 @@ const AddressForm = ({ title, memberType, name, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='City'
-              fieldName={buildField(memberType, name, fieldMap, 'city')}
+              fieldName={buildField(fieldName, fieldMap, 'city')}
               maxLength={maxLengthMap['city']}
             />
           </div>
@@ -51,7 +44,7 @@ const AddressForm = ({ title, memberType, name, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='State'
-              fieldName={buildField(memberType, name, fieldMap, 'state')}
+              fieldName={buildField(fieldName, fieldMap, 'state')}
               maxLength={maxLengthMap['state']}
             />
           </div>
@@ -59,7 +52,7 @@ const AddressForm = ({ title, memberType, name, fieldMap }) => {
             <FieldWrapper
               type='text'
               label='Zip'
-              fieldName={buildField(memberType, name, fieldMap, 'zip')}
+              fieldName={buildField(fieldName, fieldMap, 'zip')}
               maxLength={maxLengthMap['zip']}
             />
           </div>

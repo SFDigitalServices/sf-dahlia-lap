@@ -105,11 +105,11 @@ const PrimaryApplicantSection = ({form}) => {
       </div>
       <AddressForm
         title='Home Address'
-        memberType='primaryApplicant'
+        fieldName='applicant'
       />
       <AddressForm
         title='Mailing Address'
-        memberType='primaryApplicant'
+        fieldName='applicant'
         fieldMap={mailingAddressFieldMap}
       />
     </div>

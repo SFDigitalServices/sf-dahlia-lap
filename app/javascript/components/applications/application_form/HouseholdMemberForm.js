@@ -9,7 +9,7 @@ const {
   relationshipOptions
 } = formOptions
 
-const HouseholdMemberForm = ({name, index, form}) => {
+const HouseholdMemberForm = ({fieldName, index, form}) => {
   return (
     <div>
       <div className='row'>
@@ -19,7 +19,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
               type='text'
               id={`household_members_${index}_first_name`}
               label='First Name'
-              fieldName={`${name}.first_name`}
+              fieldName={`${fieldName}.first_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['first_name']}
             />
@@ -29,7 +29,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
               type='text'
               id={`household_members_${index}_middle_name`}
               label='Middle Name'
-              fieldName={`${name}.middle_name`}
+              fieldName={`${fieldName}.middle_name`}
               maxLength={maxLengthMap['middle_name']}
             />
           </div>
@@ -38,7 +38,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
               type='text'
               id={`household_members_${index}_last_name`}
               label='Last Name'
-              fieldName={`${name}.last_name`}
+              fieldName={`${fieldName}.last_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['last_name']}
             />
@@ -46,7 +46,7 @@ const HouseholdMemberForm = ({name, index, form}) => {
           <div className='small-4 columns form-date-of-birth'>
             <MultiDateField
               form={form}
-              fieldName={`${name}.date_of_birth`}
+              fieldName={`${fieldName}.date_of_birth`}
               id={`household_members_${index}_date_of_birth`}
               index={index}
               formName='household_members'
@@ -58,14 +58,14 @@ const HouseholdMemberForm = ({name, index, form}) => {
       </div>
       <div className='row'>
         <div className='small-12 columns'>
-          <AddressForm name={name} />
+          <AddressForm fieldName={fieldName} />
         </div>
       </div>
       <div className='row'>
         <div className='small-6 columns'>
           <SelectField
             label='Relationship to Applicant'
-            fieldName={`${name}.relationship_to_applicant`}
+            fieldName={`${fieldName}.relationship_to_applicant`}
             id={`household_members_${index}_relationship_to_applicant`}
             options={relationshipOptions}
           />
