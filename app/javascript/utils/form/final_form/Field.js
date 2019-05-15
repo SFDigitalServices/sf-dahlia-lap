@@ -101,12 +101,12 @@ export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLab
     <div className={divClassName}>
       <React.Fragment>
         <Field name={fieldName} value={trueValue} type='radio'>
-        {({ input, meta }) => (
-          <p className='radio-inline'>
-            <input {...input} id={`${fieldName}-${uniqId}-yes`} className={inputClassName} type='radio' />
-            <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-yes`}>{trueLabel}</label>
-          </p>
-        )}
+          {({ input, meta }) => (
+            <p className='radio-inline'>
+              <input {...input} id={`${fieldName}-${uniqId}-yes`} className={inputClassName} type='radio' />
+              <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-yes`}>{trueLabel}</label>
+            </p>
+          )}
         </Field>
         <Field name={fieldName} value={falseValue} type='radio'>
           {({ input, meta }) => (
@@ -118,22 +118,6 @@ export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLab
         </Field>
       </React.Fragment>
     </div>
-  //   <div className={divClassName}>
-  //   <Field name={fieldName} type='radio'>
-  //     {({ input, meta }) => (
-  //       <React.Fragment>
-  //         <p className='radio-inline'>
-  //           <input {...input} value={trueValue} id={`${fieldName}-${uniqId}-yes`} className={inputClassName} key={`${fieldName}-${uniqId}-yes`} type='radio' />
-  //           <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-yes`}>{trueLabel}</label>
-  //         </p>
-  //         <p className='radio-inline'>
-  //           <input {...input} value={falseValue} id={`${fieldName}-${uniqId}-no`} className={inputClassName} key={`${fieldName}-${uniqId}-no`}  type='radio' />
-  //           <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-no`}>{falseLabel}</label>
-  //         </p>
-  //       </React.Fragment>
-  //     )}
-  //   </Field>
-  // </div>
   )
 }
 
