@@ -92,6 +92,7 @@ describe('LeaseUpApplicationsPage', () => {
     const openModalSelector = '.ReactModal__Content--after-open'
     const commentBoxSelector = 'textarea#status-comment'
     const updateButtonSelector = 'div.modal-button_item.modal-button_primary > button'
+    const subStatusSelector = '.form-modal_form_wrapper .dropdown.subStatus'
 
     test('Can be opened and closed', async () => {
       openStatusModal(wrapper)
@@ -105,9 +106,48 @@ describe('LeaseUpApplicationsPage', () => {
       // Expect the modal to be closed
       expect(wrapper.find(openModalSelector).exists()).toBe(false)
     })
+
+    test('Should display sub status options properly', async () => {
+      openStatusModal(wrapper)
+
+      // Expect the modal to be open
+      expect(wrapper.find(openModalSelector).exists()).toBeTruthy()
+      const status = await wrapper.find('.dropdown button').first().html()
+      if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
+        expect(wrapper.find(subStatusSelector).exists()).toBe(true)
+        const emptyStatus = wrapper.find(`${subStatusSelector} button`).html()
+        expect(emptyStatus.toLowerCase().includes('select one...')).toBe(true)
+      } else {
+        expect(wrapper.find(subStatusSelector).exists()).toBe(false)
+      }
+
+      // Click the close button
+      wrapper.find('.close-reveal-modal').simulate('click')
+
+      // Expect the modal to be closed
+      expect(wrapper.find(openModalSelector).exists()).toBe(false)
+    })
+
     test('Should call createFieldUpdateComment and close on successful submit', async () => {
       mockCreateFieldUpdateComment.mockReturnValueOnce(true)
       openStatusModal(wrapper)
+
+      const status = await wrapper.find('.dropdown button').first().html()
+      if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
+        expect(wrapper.find(subStatusSelector).exists()).toBe(true)
+        const emptyStatus = wrapper.find(`${subStatusSelector} button`).html()
+        expect(emptyStatus.toLowerCase().includes('select one...')).toBe(true)
+
+        wrapper.find(subStatusSelector).find('button').simulate('click')
+        await tick()
+        wrapper.find(`${subStatusSelector} .dropdown-menu li a`).first().simulate('click')
+        await tick()
+
+        const updatedStatus = wrapper.find(`${subStatusSelector} button`).html()
+        expect(updatedStatus.toLowerCase().includes('select one...')).toBe(false)
+      } else {
+        expect(wrapper.find(subStatusSelector).exists()).toBe(false)
+      }
 
       // Fill out the comment form and submit
       wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})

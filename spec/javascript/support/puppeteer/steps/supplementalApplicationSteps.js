@@ -10,8 +10,16 @@ const testStatusModalUpdate = async (page) => {
   await page.click('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a')
 
   if (newSelectedStatus.toLowerCase() !== 'processing' && newSelectedStatus.toLowerCase() !== 'lease signed') {
-    // If status has a subStatus value wait for that dropdown to be available
+    // If status has a subStatus value wait for that dropdown to be available and select one
     await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus')
+    await page.click('.form-modal_form_wrapper .dropdown.subStatus button')
+    const emptySubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
+    expect(emptySubStatus.toLowerCase().includes('select one...')).toBe(true)
+
+    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu')
+    await page.click('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu li a')
+    const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
+    expect(selectedSubStatus.toLowerCase().includes('select one...')).toBe(false)
   }
 
   // Enter a comment into the status modal comment field
