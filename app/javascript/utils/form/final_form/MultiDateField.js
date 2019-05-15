@@ -2,11 +2,11 @@ import React from 'react'
 import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import { InputWrapper } from '~/utils/form/final_form/Field'
-import { some } from 'lodash'
+import { every } from 'lodash'
 import classNames from 'classnames'
 
 export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id }) => {
-  const touched = some(['.day', '.month', '.year'], type => {
+  const touched = every(['.day', '.month', '.year'], type => {
     return form.getState().touched[fieldName + type]
   })
   let errorField

@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { compact, first, isEmpty, isNil, isString, mapValues, map, isNumber, inRange, toInteger } from 'lodash'
+import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -114,11 +114,11 @@ validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
     } else {
       errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'))(DOB)
     }
-    if (!(isNumber(day) && inRange(day, 1, 31))) errors.date_of_birth.day = errorMessage
-    if (!(isNumber(month) && inRange(month, 1, 12))) errors.date_of_birth.month = errorMessage
-    if (!(isNumber(year) && inRange(year, 1900, moment().year()))) errors.date_of_birth.year = errorMessage
   }
   errors.date_of_birth.all = errorMessage
+  errors.date_of_birth.day = errorMessage
+  errors.date_of_birth.month = errorMessage
+  errors.date_of_birth.year = errorMessage
 
   return errors
 }
