@@ -27,6 +27,7 @@ class LeaseUpApplicationsPage extends React.Component {
     statusModal: {
       isOpen: false,
       status: null,
+      subStatus: null,
       applicationId: null,
       showAlert: null,
       loading: false

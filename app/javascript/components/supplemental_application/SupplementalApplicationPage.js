@@ -150,8 +150,11 @@ class SupplementalApplicationPage extends React.Component {
     this.updateStatusModal({isOpen: false})
   }
 
-  handleStatusModalStatusChange = (value) => {
-    this.updateStatusModal({status: value})
+  handleStatusModalStatusChange = (value, key) => {
+    this.updateStatusModal({
+      [key || 'status']: value,
+      ...(!key ? { subStatus: '' } : {})
+    })
   }
 
   handleOpenRentalAssistancePanel = () => {
@@ -159,12 +162,14 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
+    const { statusModal: { status, subStatus }, persistedApplication } = this.state
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
     const data = {
-      status: this.state.statusModal.status,
+      status,
       comment: submittedValues.comment,
-      applicationId: this.state.persistedApplication.id
+      applicationId: persistedApplication.id,
+      ...(subStatus ? { subStatus } : {})
     }
     const appResponse = await updateApplication(fromApplication)
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
