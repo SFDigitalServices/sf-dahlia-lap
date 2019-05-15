@@ -9,6 +9,11 @@ const testStatusModalUpdate = async (page) => {
   const newSelectedStatus = await page.$eval('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a', e => e.textContent)
   await page.click('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a')
 
+  if (newSelectedStatus !== 'Pending' && newSelectedStatus !== 'Lease Signed') {
+    // If status has a subStatus value wait for that dropdown to be available
+    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus')
+  }
+
   // Enter a comment into the status modal comment field
   await page.type('#status-comment', COMMENT)
 

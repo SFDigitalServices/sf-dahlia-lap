@@ -62,7 +62,8 @@ class StatusModalWrapper extends React.Component {
                   showSubStatus
                   onChange={onStatusChange}
                   buttonClasses={['margin-bottom--half', 'expand', 'substatus']}
-                  menuClasses={['form-modal_dropdown-menu']} />
+                  menuClasses={['form-modal_dropdown-menu']}
+                  wrapperClasses={['subStatus']} />
               </React.Fragment>
             )}
             <label className='sr-only' htmlFor='status-comment' id='status-comment-label'>Comment</label>
