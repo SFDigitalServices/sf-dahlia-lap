@@ -6,11 +6,7 @@ import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 
 class Dropdown extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { expanded: false, style: { top: 40, left: 0 } }
-    this.handleClickOutside = this.handleClickOutside.bind(this)
-  }
+  state = { expanded: false, style: { top: 40, left: 0 } }
 
   componentDidMount () {
     document.addEventListener('mousedown', this.handleClickOutside)
@@ -64,7 +60,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  handleClickOutside (event) {
+  handleClickOutside = (event) => {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       this.setState({expanded: false})
     }
@@ -82,7 +78,8 @@ class Dropdown extends React.Component {
      styles,
      buttonClasses,
      wrapperClasses,
-     menuClasses = []
+     menuClasses = [],
+     disabled
    } = this.props
    const selectedItem = find(items, { value: value })
 
@@ -97,7 +94,8 @@ class Dropdown extends React.Component {
          onClick={this.toggleExpand}
          ref={(node) => { this.buttonRef = node }}
          className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
-         type='button'>
+         type='button'
+         disabled={disabled}>
          <span className='ui-icon ui-small'>
            <svg>
              <use xlinkHref='#i-arrow-down' />
