@@ -77,7 +77,7 @@ export const InputField = ({ type, fieldName, validation, placeholder, maxLength
   </Field>
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
@@ -94,7 +94,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
             }}
             id={id || `form-${fieldName}`}
             name={input.name}
-            className={(meta.error && meta.touched && 'error') || ''}>
+            className={classNames(className || 'form-group', (meta.error && meta.touched && 'error') || '')}>
             { labelize(options).map((option) => generateHtmlOption(option))}
           </select>
           <FieldError meta={meta} />
