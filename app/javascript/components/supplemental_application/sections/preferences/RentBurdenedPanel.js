@@ -1,8 +1,10 @@
 import React from 'react'
-import { Text } from 'react-form'
+import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field.js'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, SelectStatus } from './utils'
+import { FormItem } from './utils'
+import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
+import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
 
 export const RentBurdenedPanel = ({ preferenceIndex }) => (
   <FormGrid.Row expand={false}>
@@ -11,12 +13,14 @@ export const RentBurdenedPanel = ({ preferenceIndex }) => (
         Rent Burdened Housing Preference
       </div>
     </FormItem>
-    <FormItem label='Total Household Monthly Rent'>
-      <Text field='total_monthly_rent' type='number' />
+    <FormItem>
+      <FieldWrapper fieldName='total_monthly_rent' type='number' label='Total Household Monthly Rent' />
     </FormItem>
-    <FormItem label='Status'>
-      <SelectStatus
-        preferenceIndex={preferenceIndex}
+    <FormItem>
+      <SelectField
+        fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
+        options={statusOptions}
+        label='Status'
         className='preference-status-select' />
     </FormItem>
   </FormGrid.Row>
