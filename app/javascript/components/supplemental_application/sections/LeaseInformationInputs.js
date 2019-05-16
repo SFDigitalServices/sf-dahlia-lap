@@ -1,104 +1,98 @@
 import React from 'react'
-import { Checkbox, Form, NestedForm, Select, Text } from 'react-form'
 import { filter, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { MultiDateField } from '~/utils/form/MultiDateField'
-import { pluck, decorateComponents } from '~/utils/utils'
+import { pluck } from '~/utils/utils'
 import formUtils from '~/utils/formUtils'
 import { withContext } from '../context'
-import { Field } from '~/utils/form/Field'
-import validate from '~/utils/form/validations'
+import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field.js'
+import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
+// import validate from '~/utils/form/validations'
 
-const Plain = ({ text }) => <div className='text-value'>{text}</div>
-
-const INPUTS = { 'Select': Select, 'Text': Text, 'Plain': Plain, 'Checkbox': Checkbox }
-
-const CustomFormGrid = decorateComponents(INPUTS, Component => {
-  return ({ label, ...rest }) => (
-    <FormGrid.Item>
-      <FormGrid.Group label={label}>
-        <Component {...rest} />
-      </FormGrid.Group>
-    </FormGrid.Item>
-  )
-})
-
-const toggleNoPreferenceUsed = (formApi, value) => {
-  formApi.setValue('no_preference_used', !value)
+const toggleNoPreferenceUsed = (form, value) => {
+  form.change('no_preference_used', !value)
 }
 
-const validateLeaseCurrency = (value) => {
-  return (
-    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
-  )
-}
+// const validateLeaseCurrency = (value) => {
+//   return (
+//     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+//     validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
+//   )
+// }
 
-const validateError = (values) => ({
-  lease_start_date: validate.isValidDate('Please enter a valid date.')(values.lease_start_date),
-  total_monthly_rent_without_parking: validateLeaseCurrency(values.total_monthly_rent_without_parking),
-  monthly_parking_rent: validateLeaseCurrency(values.monthly_parking_rent),
-  monthly_tenant_contribution: validateLeaseCurrency(values.monthly_tenant_contribution)
-})
+// const validateError = (values) => ({
+//   lease_start_date: validate.isValidDate('Please enter a valid date.')(values.lease_start_date),
+//   total_monthly_rent_without_parking: validateLeaseCurrency(values.total_monthly_rent_without_parking),
+//   monthly_parking_rent: validateLeaseCurrency(values.monthly_parking_rent),
+//   monthly_tenant_contribution: validateLeaseCurrency(values.monthly_tenant_contribution)
+// })
 
-const LeaseInformationInputs = ({ formApi, store }) => {
+const LeaseInformationInputs = ({ form, store }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })
   const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
   return (
-    <NestedForm field='lease' >
-      <Form defaultValues={formApi.values['lease']} validateError={validateError}>
-        { nestedFormApi => {
-          return (
-            <React.Fragment>
-              <FormGrid.Row paddingBottom>
-                <CustomFormGrid.Select
-                  label='Assigned Unit Number'
-                  field='unit' options={availableUnitsOptions} placeholder='Select One' />
-                <FormGrid.Item>
-                  <MultiDateField
-                    id='lease_start_date'
-                    field='lease_start_date'
-                    formApi={nestedFormApi}
-                    label='Lease Start Date'
-                    errorMessage={(label, error) => error}
-                  />
-                </FormGrid.Item>
-                <CustomFormGrid.Select
-                  label='Preference Used'
-                  onChange={(value) => toggleNoPreferenceUsed(nestedFormApi, value)}
-                  field='preference_used' options={confirmedPreferenceOptions} placeholder='Select One' />
-              </FormGrid.Row>
-              <FormGrid.Row paddingBottom>
-                <FormGrid.Item>
-                  <Field.Text
-                    label='Monthly Rent'
-                    field='total_monthly_rent_without_parking'
-                    placeholder='Enter Amount'
-                    errorMessage={(label, error) => error} />
-                </FormGrid.Item>
-                <FormGrid.Item>
-                  <Field.Text
-                    label='Monthly Parking Cost'
-                    field='monthly_parking_rent'
-                    placeholder='Enter Amount'
-                    errorMessage={(label, error) => error} />
-                </FormGrid.Item>
-                <FormGrid.Item>
-                  <Field.Text
-                    label='Monthly Tenant Contribution'
-                    field='monthly_tenant_contribution'
-                    placeholder='Enter Amount'
-                    errorMessage={(label, error) => error} />
-                </FormGrid.Item>
-              </FormGrid.Row>
-            </React.Fragment>
-          )
-        }}
-      </Form>
-    </NestedForm>
+    <div>
+      {/* <Form
+        onSubmit={validateError}
+        initialValues={form.getState().values['lease']}
+        // validate={this.validateForm}
+        // mutators={{
+        //   ...arrayMutators
+        // }}
+        render={({ handleSubmit, form }) => (
+          <form onSubmit={handleSubmit} noValidate> */}
+      <React.Fragment>
+        <FormGrid.Row paddingBottom>
+          <FormGrid.Item>
+            <FormGrid.Group>
+              <SelectField
+                label='Assigned Unit Number'
+                fieldName='lease.unit'
+                options={availableUnitsOptions} />
+            </FormGrid.Group>
+          </FormGrid.Item>
+          <FormGrid.Item>
+            <MultiDateField
+              id='lease_start_date'
+              fieldName='lease.lease_start_date'
+              form={form}
+              label='Lease Start Date'
+            />
+          </FormGrid.Item>
+          <FormGrid.Item>
+            <FormGrid.Group>
+              <SelectField
+                label='Preference Used'
+                onChange={(value) => toggleNoPreferenceUsed(form, value)}
+                fieldName='lease.preference_used'
+                options={confirmedPreferenceOptions} />
+            </FormGrid.Group>
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row paddingBottom>
+          <FormGrid.Item>
+            <FieldWrapper
+              label='Monthly Rent'
+              fieldName='lease.total_monthly_rent_without_parking'
+              placeholder='Enter Amount' />
+          </FormGrid.Item>
+          <FormGrid.Item>
+            <FieldWrapper
+              label='Monthly Parking Cost'
+              fieldName='lease.monthly_parking_rent'
+              placeholder='Enter Amount' />
+          </FormGrid.Item>
+          <FormGrid.Item>
+            <FieldWrapper
+              label='Monthly Tenant Contribution'
+              fieldName='lease.monthly_tenant_contribution'
+              placeholder='Enter Amount' />
+          </FormGrid.Item>
+        </FormGrid.Row>
+      </React.Fragment>
+    </div>
   )
 }
 
