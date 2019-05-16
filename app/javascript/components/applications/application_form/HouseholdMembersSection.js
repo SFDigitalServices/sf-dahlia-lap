@@ -32,7 +32,7 @@ const HouseholdMembersSection = ({ form }) => {
             { fields.map((name, index) => {
               return (
                 <div key={name}>
-                  <HouseholdMemberForm form={form} name={name} index={index} />
+                  <HouseholdMemberForm form={form} fieldName={name} index={index} />
                   <button
                     onClick={() => fields.remove(index)}
                     type='button'
