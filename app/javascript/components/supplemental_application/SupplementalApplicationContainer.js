@@ -14,7 +14,7 @@ import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
-import RentalAssistance from './sections/RentalAssistance'
+// import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
@@ -178,15 +178,15 @@ class SupplementalApplicationContainer extends React.Component {
           <React.Fragment>
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
               <StatusUpdateSection />
-              {/* <ConfirmedPreferencesSection
+              <ConfirmedPreferencesSection
                 application={application}
                 applicationMembers={applicationMembers}
                 fileBaseUrl={fileBaseUrl}
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
-                formApi={form}
-              /> */}
+                form={form}
+              />
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
               <LeaseInformationSection form={form} />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
