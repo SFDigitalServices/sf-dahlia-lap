@@ -1,10 +1,11 @@
 import React from 'react'
-import { Select } from 'react-form'
+import { SelectField } from '~/utils/form/final_form/Field.js'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment, SelectStatus } from './utils'
+import { FormItem, Comment } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
+import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
 
 const {
   preferenceProofOptionsDefault
@@ -19,14 +20,23 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
             {preference.preference_name}
           </div>
         </FormItem>
-        <FormItem label='HH Member on Proof'>
-          <Select field={buildFieldId(preferenceIndex, 'application_member_id')} options={applicationMembersOptions} placeholder='Select One' />
+        <FormItem>
+          <SelectField
+            fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
+            options={applicationMembersOptions}
+            label='HH Member on Proof' />
         </FormItem>
-        <FormItem label='Type of Proof'>
-          <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={preferenceProofOptionsDefault} />
+        <FormItem>
+          <SelectField
+            fieldName={buildFieldId(preferenceIndex, 'type_of_proof')}
+            options={preferenceProofOptionsDefault}
+            label='Type of Proof' />
         </FormItem>
-        <FormItem label='Status'>
-          <SelectStatus preferenceIndex={preferenceIndex} />
+        <FormItem>
+          <SelectField
+            fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
+            options={statusOptions}
+            label='Status' />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>

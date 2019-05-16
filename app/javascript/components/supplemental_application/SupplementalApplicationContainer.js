@@ -14,7 +14,7 @@ import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
-import RentalAssistance from './sections/RentalAssistance'
+// import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
@@ -36,7 +36,7 @@ const StatusUpdateSection = withContext(({ store }) => {
   )
 })
 
-const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
+const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
@@ -54,7 +54,7 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
           onPanelClose={onDismissError}
-          formApi={formApi}
+          form={form}
         />
       </ContentSection.Content>
     </ContentSection>
@@ -78,7 +78,7 @@ const LeaseInformationSection = ({form}) => {
   return (
     <ContentSection title='Lease Information'>
       <ContentSection.Content borderBottom>
-        {/* <LeaseInformationInputs form={form} /> */}
+        <LeaseInformationInputs form={form} />
       </ContentSection.Content>
       <ContentSection.Sub
         title='Rental Assistance Information'
@@ -159,15 +159,15 @@ class SupplementalApplicationContainer extends React.Component {
           <React.Fragment>
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
               <StatusUpdateSection />
-              {/* <ConfirmedPreferencesSection
+              <ConfirmedPreferencesSection
                 application={application}
                 applicationMembers={applicationMembers}
                 fileBaseUrl={fileBaseUrl}
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
-                formApi={form}
-              /> */}
+                form={form}
+              />
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
               <LeaseInformationSection form={form} />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>

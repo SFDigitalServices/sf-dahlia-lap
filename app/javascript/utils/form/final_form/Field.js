@@ -48,7 +48,7 @@ export const InputWrapper = ({ type, fieldName, validation, placeholder, maxLeng
   </Field>
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, options, onChange }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
@@ -64,7 +64,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
             }}
             id={id || `form-${fieldName}`}
             name={input.name}
-            className={(meta.error && meta.touched && 'error') || ''}>
+            className={classNames(className || 'form-group', (meta.error && meta.touched && 'error') || '')}>
             { labelize(options).map((option) => generateHtmlOption(option))}
           </select>
           {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
