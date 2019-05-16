@@ -9,16 +9,12 @@ import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import validate from '~/utils/form/validations'
 
-const toggleNoPreferenceUsed = (form, value) => {
-  form.change('no_preference_used', !value)
-}
-
-const validateLeaseCurrency = (value) => {
-  return (
-    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
-  )
-}
+// const validateLeaseCurrency = (value) => {
+//   return (
+//     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+//     validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
+//   )
+// }
 
 const LeaseInformationInputs = ({ form, store }) => {
   const { availableUnits, application } = store
