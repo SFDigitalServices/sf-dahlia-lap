@@ -6,6 +6,7 @@ import { mapDemographics } from './demographics'
 import { mapFlaggedApplication } from './flagged_application'
 import { mapListing } from './listing'
 import { mapUser } from './user'
+import { mapLease } from './lease'
 import { mapShape, mapList } from '../utils'
 
 const parseList = text => split(text, ';')
@@ -22,7 +23,7 @@ export const mapApplication = (a) => {
     proof_files: mapList(mapAttachment, a.proof_files),
     household_members: mapList(mapApplicationMember, a.household_members),
     flagged_applications: mapList(mapFlaggedApplication, a.flagged_applications),
-    lease: a.lease,
+    lease: mapShape(mapLease, a.lease),
     createdby: mapShape(mapUser, a.CreatedBy),
     id: a.Id,
     name: a.Name,
