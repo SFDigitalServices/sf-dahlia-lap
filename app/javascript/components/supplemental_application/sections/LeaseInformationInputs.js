@@ -7,25 +7,18 @@ import formUtils from '~/utils/formUtils'
 import { withContext } from '../context'
 import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
-// import validate from '~/utils/form/validations'
+import validate from '~/utils/form/validations'
 
 const toggleNoPreferenceUsed = (form, value) => {
   form.change('no_preference_used', !value)
 }
 
-// const validateLeaseCurrency = (value) => {
-//   return (
-//     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-//     validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
-//   )
-// }
-
-// const validateError = (values) => ({
-//   lease_start_date: validate.isValidDate('Please enter a valid date.')(values.lease_start_date),
-//   total_monthly_rent_without_parking: validateLeaseCurrency(values.total_monthly_rent_without_parking),
-//   monthly_parking_rent: validateLeaseCurrency(values.monthly_parking_rent),
-//   monthly_tenant_contribution: validateLeaseCurrency(values.monthly_tenant_contribution)
-// })
+const validateLeaseCurrency = (value) => {
+  return (
+    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
+  )
+}
 
 const LeaseInformationInputs = ({ form, store }) => {
   const { availableUnits, application } = store
@@ -34,15 +27,6 @@ const LeaseInformationInputs = ({ form, store }) => {
   const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
   return (
     <div>
-      {/* <Form
-        onSubmit={validateError}
-        initialValues={form.getState().values['lease']}
-        // validate={this.validateForm}
-        // mutators={{
-        //   ...arrayMutators
-        // }}
-        render={({ handleSubmit, form }) => (
-          <form onSubmit={handleSubmit} noValidate> */}
       <React.Fragment>
         <FormGrid.Row paddingBottom>
           <FormGrid.Item>
@@ -58,8 +42,7 @@ const LeaseInformationInputs = ({ form, store }) => {
               id='lease_start_date'
               fieldName='lease.lease_start_date'
               form={form}
-              label='Lease Start Date'
-            />
+              label='Lease Start Date' />
           </FormGrid.Item>
           <FormGrid.Item>
             <FormGrid.Group>
@@ -76,19 +59,22 @@ const LeaseInformationInputs = ({ form, store }) => {
             <FieldWrapper
               label='Monthly Rent'
               fieldName='lease.total_monthly_rent_without_parking'
-              placeholder='Enter Amount' />
+              placeholder='Enter Amount'
+              validation={validateLeaseCurrency} />
           </FormGrid.Item>
           <FormGrid.Item>
             <FieldWrapper
               label='Monthly Parking Cost'
               fieldName='lease.monthly_parking_rent'
-              placeholder='Enter Amount' />
+              placeholder='Enter Amount'
+              validation={validateLeaseCurrency} />
           </FormGrid.Item>
           <FormGrid.Item>
             <FieldWrapper
               label='Monthly Tenant Contribution'
               fieldName='lease.monthly_tenant_contribution'
-              placeholder='Enter Amount' />
+              placeholder='Enter Amount'
+              validation={validateLeaseCurrency} />
           </FormGrid.Item>
         </FormGrid.Row>
       </React.Fragment>

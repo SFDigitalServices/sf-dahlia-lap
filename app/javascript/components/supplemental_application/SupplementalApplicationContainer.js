@@ -17,6 +17,7 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 // import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import validate from '~/utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -127,6 +128,15 @@ const ActionButtons = withContext(({ loading, store }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
+  validateForm = (values) => {
+    const errors = {lease: {}}
+    if (!isEmpty(values.lease)) {
+      errors.lease = {lease_start_date: {}}
+      validate.isValidDateObject(values.lease.lease_start_date, errors.lease.lease_start_date)
+    }
+    return errors
+  }
+
   render () {
     const { store } = this.props
     const {
@@ -152,6 +162,7 @@ class SupplementalApplicationContainer extends React.Component {
       <Form
         onSubmit={onSubmit}
         initialValues={application}
+        validate={this.validateForm}
         mutators={{
           ...arrayMutators
         }}

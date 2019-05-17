@@ -120,4 +120,20 @@ validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
   return errors
 }
 
+validate.isValidDateObject = (date, errors) => {
+  let errorMessage
+
+  if (!isEmpty(date)) {
+    const dateArray = [date.year, date.month, date.day]
+    errorMessage = validate.any(validate.isValidDate('Please enter a valid date.'))(dateArray)
+  }
+
+  errors.all = errorMessage
+  errors.day = errorMessage
+  errors.month = errorMessage
+  errors.year = errorMessage
+
+  return errors
+}
+
 export default validate
