@@ -1,21 +1,30 @@
 import _ from 'lodash'
 
 const labelize = (options) => {
-  if (!_.isEmpty(options)) {
-    let initialLabel = []
-    if ((options[0].hasOwnProperty('value') && !_.isEmpty(options[0].value)) || (!options[0].hasOwnProperty('value') && !_.isEmpty(options[0]))) {
-      initialLabel = [{'label': 'Select One...', 'value': ''}]
-    }
-    return initialLabel.concat(
-      _.map(options, (option) => (
-        { value: option.hasOwnProperty('value') ? option.value : option, label: option.label || option }
-      ))
-    )
-  } else {
-    return []
+  if (_.isEmpty(options)) return []
+
+  let emptyInitialOptionPresent =
+    _.isEmpty(options[0]) ||
+    (options[0].hasOwnProperty('value') && _.isEmpty(options[0].value))
+
+  let labelizedOptions = []
+  if (!emptyInitialOptionPresent) {
+    labelizedOptions.push({'value': '', 'label': 'Select One...'})
   }
+
+  return labelizedOptions.concat(
+    _.map(options, (option) => (
+      {
+        value: option.hasOwnProperty('value') ? option.value : option,
+        label: option.label || option
+      }
+    ))
+  )
 }
 
+// TODO: Remove the use of labelize on all the below options arrays once the
+// migration to react-final-form is complete. labelize is already being called
+// by the new react-final-form-based SelectField component.
 const applicationLanguageOptions = labelize([
   'English',
   'Chinese',
