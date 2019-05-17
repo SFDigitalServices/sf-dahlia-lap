@@ -194,6 +194,92 @@ Array [
           <h2
             className="app-card_h2"
           >
+            Confirmed Preferences
+          </h2>
+          <p
+            className="form-note max-width"
+          >
+            Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+          </p>
+        </div>
+        <div
+          className="app-inner inset-wide"
+        >
+          <div
+            className="preferences-table"
+          >
+            <div
+              className="form-grid row expand"
+            >
+              <div
+                className="small-12 column"
+              >
+                <div
+                  className="scrollable-table-container-under-xlarge"
+                >
+                  <table
+                    className="td-light td-plain th-plain"
+                    role="grid"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Preference Name
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Person Who Claimed
+                        </th>
+                        <th
+                          className="text-right"
+                          scope="col"
+                        >
+                          Preference Rank
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Type of proof
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Status
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody />
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner header-wide"
+        >
+          <h2
+            className="app-card_h2"
+          >
             Confirmed Household
           </h2>
         </div>
@@ -705,7 +791,215 @@ Array [
         </div>
         <div
           className="app-inner inset-wide border-bottom"
-        />
+        >
+          <div>
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="form-label"
+                      htmlFor="form-lease.unit"
+                    >
+                      Assigned Unit Number 
+                    </label>
+                    <select
+                      className="form-group"
+                      id="form-lease.unit"
+                      name="lease.unit"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="lease_start_date"
+                  >
+                    Lease Start Date 
+                  </label>
+                  <div
+                    className="form-group-month"
+                  >
+                    <input
+                      className=""
+                      id="lease_start_date_month"
+                      maxLength={2}
+                      name="lease.lease_start_date.month"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="MM"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="form-group-day"
+                  >
+                    <input
+                      className=""
+                      id="lease_start_date_day"
+                      maxLength={2}
+                      name="lease.lease_start_date.day"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="DD"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="form-group-year"
+                  >
+                    <input
+                      className=""
+                      id="lease_start_date_year"
+                      maxLength={4}
+                      name="lease.lease_start_date.year"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="YYYY"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    className="d-inline-block"
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="form-label"
+                      htmlFor="form-lease.preference_used"
+                    >
+                      Preference Used 
+                    </label>
+                    <select
+                      className="form-group"
+                      id="form-lease.preference_used"
+                      name="lease.preference_used"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      value=""
+                    >
+                      <option
+                        value={null}
+                      >
+                        None
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid row expand padding-bottom"
+            >
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-lease.total_monthly_rent_without_parking"
+                  >
+                    Monthly Rent 
+                  </label>
+                  <input
+                    className=""
+                    id="form-lease.total_monthly_rent_without_parking"
+                    name="lease.total_monthly_rent_without_parking"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-lease.monthly_parking_rent"
+                  >
+                    Monthly Parking Cost 
+                  </label>
+                  <input
+                    className=""
+                    id="form-lease.monthly_parking_rent"
+                    name="lease.monthly_parking_rent"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="form-grid_item small-12 medium-6 large-3 column"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-lease.monthly_tenant_contribution"
+                  >
+                    Monthly Tenant Contribution 
+                  </label>
+                  <input
+                    className=""
+                    id="form-lease.monthly_tenant_contribution"
+                    name="lease.monthly_tenant_contribution"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           className="app-inner subheader-wide"
         >
@@ -754,7 +1048,7 @@ Array [
                     Number of Dependents 
                   </label>
                   <select
-                    className=""
+                    className="form-group"
                     id="demographics-dependents"
                     name="number_of_dependents"
                     onBlur={[Function]}
@@ -832,7 +1126,7 @@ Array [
                     Number of Seniors 
                   </label>
                   <select
-                    className=""
+                    className="form-group"
                     id="demographics-seniors"
                     name="number_of_seniors"
                     onBlur={[Function]}
@@ -916,7 +1210,7 @@ Array [
                     Number of Minors 
                   </label>
                   <select
-                    className=""
+                    className="form-group"
                     id="demographics-minors"
                     name="number_of_minors"
                     onBlur={[Function]}
@@ -994,7 +1288,7 @@ Array [
                     Primary Applicant Marital Status 
                   </label>
                   <select
-                    className=""
+                    className="form-group"
                     id="demographics-marital-status"
                     name="applicant.marital_status"
                     onBlur={[Function]}
@@ -1331,7 +1625,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "id": "a0o0x000000OcOzAAK",
         "is_first_time_homebuyer": undefined,
         "is_lottery_complete": false,
-        "lease": undefined,
+        "lease": Object {},
         "lending_agent": undefined,
         "listing": Object {
           "account": Object {},
@@ -1790,7 +2084,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "id": "a0o0x000000OcOzAAK",
                           "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
-                          "lease": undefined,
+                          "lease": Object {},
                           "lending_agent": undefined,
                           "listing": Object {
                             "account": Object {},
@@ -2070,7 +2364,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "id": "a0o0x000000OcOzAAK",
                           "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
-                          "lease": undefined,
+                          "lease": Object {},
                           "lending_agent": undefined,
                           "listing": Object {
                             "account": Object {},
@@ -2148,6 +2442,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                       }
                       onSubmit={[Function]}
                       render={[Function]}
+                      validate={[Function]}
                     >
                       <form
                         id="shortForm"
@@ -2269,7 +2564,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "id": "a0o0x000000OcOzAAK",
                                   "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
-                                  "lease": undefined,
+                                  "lease": Object {},
                                   "lending_agent": undefined,
                                   "listing": Object {
                                     "account": Object {},
@@ -2628,6 +2923,1247 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             </Component>
                           </Component>
                         </ContextComponent>
+                        <ConfirmedPreferencesSection
+                          application={
+                            Object {
+                              "alternate_contact": Object {},
+                              "annual_income": 110000,
+                              "answered_community_screening": null,
+                              "applicant": Object {
+                                "agency_name": undefined,
+                                "alternate_contact_type": undefined,
+                                "alternate_contact_type_other": undefined,
+                                "city": "SAN FRANCISCO",
+                                "date_of_birth": Object {
+                                  "day": "01",
+                                  "month": "01",
+                                  "year": "1950",
+                                },
+                                "email": "eee@eeee.com",
+                                "first_name": "karen",
+                                "id": "a0n0x000000AbE6AAK",
+                                "last_name": "jones",
+                                "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                "mailing_city": "SAN FRANCISCO",
+                                "mailing_state": "CA",
+                                "mailing_street": "123 MAIN ST",
+                                "mailing_zip_code": "94105-1804",
+                                "marital_status": "Married",
+                                "middle_name": null,
+                                "name": "karen jones",
+                                "phone": "9548883321",
+                                "phone_type": "Cell",
+                                "primary_language": null,
+                                "relationship_to_applicant": undefined,
+                                "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                "second_phone": "9548883321",
+                                "second_phone_type": "Home",
+                                "state": "CA",
+                                "street": "123 MAIN ST",
+                                "zip_code": "94105-1804",
+                              },
+                              "application_language": "English",
+                              "application_submission_type": "Paper",
+                              "application_submitted_date": "2018-06-21",
+                              "confirmed_household_annual_income": 115000,
+                              "createdby": Object {
+                                "name": "Prod Vertiba",
+                              },
+                              "demographics": Object {
+                                "ethnicity": undefined,
+                                "gender": undefined,
+                                "gender_other": undefined,
+                                "race": undefined,
+                                "sexual_orientation": undefined,
+                                "sexual_orientation_other": undefined,
+                              },
+                              "flagged_applications": Array [],
+                              "general_lottery": true,
+                              "general_lottery_rank": null,
+                              "has_ada_priorities_selected": Object {
+                                "": true,
+                              },
+                              "has_completed_homebuyer_education": undefined,
+                              "has_developmental_disability": null,
+                              "has_loan_preapproval": undefined,
+                              "has_military_service": null,
+                              "hh_total_income_with_assets_annual": undefined,
+                              "household_assets": null,
+                              "household_members": Array [
+                                Object {
+                                  "agency_name": undefined,
+                                  "alternate_contact_type": undefined,
+                                  "alternate_contact_type_other": undefined,
+                                  "city": "buenos aires",
+                                  "date_of_birth": Object {
+                                    "day": "11",
+                                    "month": "06",
+                                    "year": "1976",
+                                  },
+                                  "email": undefined,
+                                  "first_name": "diego",
+                                  "id": "a0n0x000000XzchAAC",
+                                  "last_name": "maradona",
+                                  "mailing_address": undefined,
+                                  "mailing_city": undefined,
+                                  "mailing_state": undefined,
+                                  "mailing_street": undefined,
+                                  "mailing_zip_code": undefined,
+                                  "marital_status": undefined,
+                                  "middle_name": "m",
+                                  "name": "diego m maradona",
+                                  "phone": undefined,
+                                  "phone_type": undefined,
+                                  "primary_language": undefined,
+                                  "relationship_to_applicant": "Child",
+                                  "residence_address": undefined,
+                                  "second_phone": undefined,
+                                  "second_phone_type": undefined,
+                                  "state": "fl",
+                                  "street": "9 de julio",
+                                  "zip_code": "33026",
+                                },
+                              ],
+                              "housing_voucher_or_subsidy": "true",
+                              "id": "a0o0x000000OcOzAAK",
+                              "is_first_time_homebuyer": undefined,
+                              "is_lottery_complete": false,
+                              "lease": Object {},
+                              "lending_agent": undefined,
+                              "listing": Object {
+                                "account": Object {},
+                                "building": Object {},
+                                "id": "a0W0x000000GhJUEA0",
+                                "listing_lottery_preferences": Array [],
+                                "name": "Test 5/30",
+                                "open_houses": Array [],
+                                "owner": Object {},
+                                "reserved_community_type": null,
+                                "units": Array [],
+                              },
+                              "lottery_number": "00191270",
+                              "lottery_number_manual": null,
+                              "monthly_income": null,
+                              "name": "APP-00191270",
+                              "number_of_dependents": 2,
+                              "number_of_minors": 4,
+                              "number_of_seniors": 3,
+                              "preferences": Array [
+                                Object {
+                                  "application": Object {},
+                                  "application_member": Object {},
+                                  "application_member_id": undefined,
+                                  "certificate_number": null,
+                                  "city": null,
+                                  "id": "a0w0x0000014pvyAAA",
+                                  "individual_preference": null,
+                                  "listing_preference": Object {
+                                    "record_type_for_app_preferences": undefined,
+                                  },
+                                  "listing_preference_id": "a0l0x000000RI8nAAG",
+                                  "lottery_status": "None",
+                                  "lw_type_of_proof": null,
+                                  "name": "AP-0000612141",
+                                  "opt_out": null,
+                                  "person_who_claimed_name": null,
+                                  "post_lottery_validation": undefined,
+                                  "preference_lottery_rank": null,
+                                  "preference_name": "Alice Griffith Housing Development Resident",
+                                  "preference_order": 0,
+                                  "receives_preference": null,
+                                  "recordtype_developername": "AG",
+                                  "state": null,
+                                  "street": null,
+                                  "total_household_rent": "undefined",
+                                  "type_of_proof": null,
+                                  "zip_code": null,
+                                },
+                              ],
+                              "primary_applicant_contact": undefined,
+                              "processing_status": undefined,
+                              "proof_files": Array [],
+                              "referral_source": null,
+                              "reserved_senior": undefined,
+                              "status": "Submitted",
+                              "status_last_updated": undefined,
+                              "terms_acknowledged": true,
+                              "total_household_size": 1,
+                              "total_monthly_rent": null,
+                            }
+                          }
+                          applicationMembers={
+                            Array [
+                              Object {
+                                "agency_name": undefined,
+                                "alternate_contact_type": undefined,
+                                "alternate_contact_type_other": undefined,
+                                "city": "SAN FRANCISCO",
+                                "date_of_birth": Object {
+                                  "day": "01",
+                                  "month": "01",
+                                  "year": "1950",
+                                },
+                                "email": "eee@eeee.com",
+                                "first_name": "karen",
+                                "id": "a0n0x000000AbE6AAK",
+                                "last_name": "jones",
+                                "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                "mailing_city": "SAN FRANCISCO",
+                                "mailing_state": "CA",
+                                "mailing_street": "123 MAIN ST",
+                                "mailing_zip_code": "94105-1804",
+                                "marital_status": "Married",
+                                "middle_name": null,
+                                "name": "karen jones",
+                                "phone": "9548883321",
+                                "phone_type": "Cell",
+                                "primary_language": null,
+                                "relationship_to_applicant": undefined,
+                                "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                "second_phone": "9548883321",
+                                "second_phone_type": "Home",
+                                "state": "CA",
+                                "street": "123 MAIN ST",
+                                "zip_code": "94105-1804",
+                              },
+                              Object {
+                                "agency_name": undefined,
+                                "alternate_contact_type": undefined,
+                                "alternate_contact_type_other": undefined,
+                                "city": "buenos aires",
+                                "date_of_birth": Object {
+                                  "day": "11",
+                                  "month": "06",
+                                  "year": "1976",
+                                },
+                                "email": undefined,
+                                "first_name": "diego",
+                                "id": "a0n0x000000XzchAAC",
+                                "last_name": "maradona",
+                                "mailing_address": undefined,
+                                "mailing_city": undefined,
+                                "mailing_state": undefined,
+                                "mailing_street": undefined,
+                                "mailing_zip_code": undefined,
+                                "marital_status": undefined,
+                                "middle_name": "m",
+                                "name": "diego m maradona",
+                                "phone": undefined,
+                                "phone_type": undefined,
+                                "primary_language": undefined,
+                                "relationship_to_applicant": "Child",
+                                "residence_address": undefined,
+                                "second_phone": undefined,
+                                "second_phone_type": undefined,
+                                "state": "fl",
+                                "street": "9 de julio",
+                                "zip_code": "33026",
+                              },
+                            ]
+                          }
+                          confirmedPreferencesFailed={false}
+                          form={
+                            Object {
+                              "batch": [Function],
+                              "blur": [Function],
+                              "change": [Function],
+                              "focus": [Function],
+                              "getFieldState": [Function],
+                              "getRegisteredFields": [Function],
+                              "getState": [Function],
+                              "initialize": [Function],
+                              "isValidationPaused": [Function],
+                              "mutators": Object {
+                                "insert": [Function],
+                                "move": [Function],
+                                "pop": [Function],
+                                "push": [Function],
+                                "remove": [Function],
+                                "shift": [Function],
+                                "swap": [Function],
+                                "unshift": [Function],
+                                "update": [Function],
+                              },
+                              "pauseValidation": [Function],
+                              "registerField": [Function],
+                              "reset": [Function],
+                              "resumeValidation": [Function],
+                              "setConfig": [Function],
+                              "submit": [Function],
+                              "subscribe": [Function],
+                            }
+                          }
+                          onDismissError={[Function]}
+                          onSave={[Function]}
+                        >
+                          <ContentSection
+                            description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied."
+                            title="Confirmed Preferences"
+                          >
+                            <Component
+                              description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied."
+                              title="Confirmed Preferences"
+                            >
+                              <div
+                                className="app-inner header-wide"
+                              >
+                                <h2
+                                  className="app-card_h2"
+                                >
+                                  Confirmed Preferences
+                                </h2>
+                                <p
+                                  className="form-note max-width"
+                                >
+                                  Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+                                </p>
+                              </div>
+                            </Component>
+                            <Component>
+                              <div
+                                className="app-inner inset-wide"
+                              >
+                                <ContextComponent
+                                  application={
+                                    Object {
+                                      "alternate_contact": Object {},
+                                      "annual_income": 110000,
+                                      "answered_community_screening": null,
+                                      "applicant": Object {
+                                        "agency_name": undefined,
+                                        "alternate_contact_type": undefined,
+                                        "alternate_contact_type_other": undefined,
+                                        "city": "SAN FRANCISCO",
+                                        "date_of_birth": Object {
+                                          "day": "01",
+                                          "month": "01",
+                                          "year": "1950",
+                                        },
+                                        "email": "eee@eeee.com",
+                                        "first_name": "karen",
+                                        "id": "a0n0x000000AbE6AAK",
+                                        "last_name": "jones",
+                                        "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                        "mailing_city": "SAN FRANCISCO",
+                                        "mailing_state": "CA",
+                                        "mailing_street": "123 MAIN ST",
+                                        "mailing_zip_code": "94105-1804",
+                                        "marital_status": "Married",
+                                        "middle_name": null,
+                                        "name": "karen jones",
+                                        "phone": "9548883321",
+                                        "phone_type": "Cell",
+                                        "primary_language": null,
+                                        "relationship_to_applicant": undefined,
+                                        "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                        "second_phone": "9548883321",
+                                        "second_phone_type": "Home",
+                                        "state": "CA",
+                                        "street": "123 MAIN ST",
+                                        "zip_code": "94105-1804",
+                                      },
+                                      "application_language": "English",
+                                      "application_submission_type": "Paper",
+                                      "application_submitted_date": "2018-06-21",
+                                      "confirmed_household_annual_income": 115000,
+                                      "createdby": Object {
+                                        "name": "Prod Vertiba",
+                                      },
+                                      "demographics": Object {
+                                        "ethnicity": undefined,
+                                        "gender": undefined,
+                                        "gender_other": undefined,
+                                        "race": undefined,
+                                        "sexual_orientation": undefined,
+                                        "sexual_orientation_other": undefined,
+                                      },
+                                      "flagged_applications": Array [],
+                                      "general_lottery": true,
+                                      "general_lottery_rank": null,
+                                      "has_ada_priorities_selected": Object {
+                                        "": true,
+                                      },
+                                      "has_completed_homebuyer_education": undefined,
+                                      "has_developmental_disability": null,
+                                      "has_loan_preapproval": undefined,
+                                      "has_military_service": null,
+                                      "hh_total_income_with_assets_annual": undefined,
+                                      "household_assets": null,
+                                      "household_members": Array [
+                                        Object {
+                                          "agency_name": undefined,
+                                          "alternate_contact_type": undefined,
+                                          "alternate_contact_type_other": undefined,
+                                          "city": "buenos aires",
+                                          "date_of_birth": Object {
+                                            "day": "11",
+                                            "month": "06",
+                                            "year": "1976",
+                                          },
+                                          "email": undefined,
+                                          "first_name": "diego",
+                                          "id": "a0n0x000000XzchAAC",
+                                          "last_name": "maradona",
+                                          "mailing_address": undefined,
+                                          "mailing_city": undefined,
+                                          "mailing_state": undefined,
+                                          "mailing_street": undefined,
+                                          "mailing_zip_code": undefined,
+                                          "marital_status": undefined,
+                                          "middle_name": "m",
+                                          "name": "diego m maradona",
+                                          "phone": undefined,
+                                          "phone_type": undefined,
+                                          "primary_language": undefined,
+                                          "relationship_to_applicant": "Child",
+                                          "residence_address": undefined,
+                                          "second_phone": undefined,
+                                          "second_phone_type": undefined,
+                                          "state": "fl",
+                                          "street": "9 de julio",
+                                          "zip_code": "33026",
+                                        },
+                                      ],
+                                      "housing_voucher_or_subsidy": "true",
+                                      "id": "a0o0x000000OcOzAAK",
+                                      "is_first_time_homebuyer": undefined,
+                                      "is_lottery_complete": false,
+                                      "lease": Object {},
+                                      "lending_agent": undefined,
+                                      "listing": Object {
+                                        "account": Object {},
+                                        "building": Object {},
+                                        "id": "a0W0x000000GhJUEA0",
+                                        "listing_lottery_preferences": Array [],
+                                        "name": "Test 5/30",
+                                        "open_houses": Array [],
+                                        "owner": Object {},
+                                        "reserved_community_type": null,
+                                        "units": Array [],
+                                      },
+                                      "lottery_number": "00191270",
+                                      "lottery_number_manual": null,
+                                      "monthly_income": null,
+                                      "name": "APP-00191270",
+                                      "number_of_dependents": 2,
+                                      "number_of_minors": 4,
+                                      "number_of_seniors": 3,
+                                      "preferences": Array [
+                                        Object {
+                                          "application": Object {},
+                                          "application_member": Object {},
+                                          "application_member_id": undefined,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0x0000014pvyAAA",
+                                          "individual_preference": null,
+                                          "listing_preference": Object {
+                                            "record_type_for_app_preferences": undefined,
+                                          },
+                                          "listing_preference_id": "a0l0x000000RI8nAAG",
+                                          "lottery_status": "None",
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000612141",
+                                          "opt_out": null,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": undefined,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Alice Griffith Housing Development Resident",
+                                          "preference_order": 0,
+                                          "receives_preference": null,
+                                          "recordtype_developername": "AG",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "undefined",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                      ],
+                                      "primary_applicant_contact": undefined,
+                                      "processing_status": undefined,
+                                      "proof_files": Array [],
+                                      "referral_source": null,
+                                      "reserved_senior": undefined,
+                                      "status": "Submitted",
+                                      "status_last_updated": undefined,
+                                      "terms_acknowledged": true,
+                                      "total_household_size": 1,
+                                      "total_monthly_rent": null,
+                                    }
+                                  }
+                                  applicationMembers={
+                                    Array [
+                                      Object {
+                                        "agency_name": undefined,
+                                        "alternate_contact_type": undefined,
+                                        "alternate_contact_type_other": undefined,
+                                        "city": "SAN FRANCISCO",
+                                        "date_of_birth": Object {
+                                          "day": "01",
+                                          "month": "01",
+                                          "year": "1950",
+                                        },
+                                        "email": "eee@eeee.com",
+                                        "first_name": "karen",
+                                        "id": "a0n0x000000AbE6AAK",
+                                        "last_name": "jones",
+                                        "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                        "mailing_city": "SAN FRANCISCO",
+                                        "mailing_state": "CA",
+                                        "mailing_street": "123 MAIN ST",
+                                        "mailing_zip_code": "94105-1804",
+                                        "marital_status": "Married",
+                                        "middle_name": null,
+                                        "name": "karen jones",
+                                        "phone": "9548883321",
+                                        "phone_type": "Cell",
+                                        "primary_language": null,
+                                        "relationship_to_applicant": undefined,
+                                        "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                        "second_phone": "9548883321",
+                                        "second_phone_type": "Home",
+                                        "state": "CA",
+                                        "street": "123 MAIN ST",
+                                        "zip_code": "94105-1804",
+                                      },
+                                      Object {
+                                        "agency_name": undefined,
+                                        "alternate_contact_type": undefined,
+                                        "alternate_contact_type_other": undefined,
+                                        "city": "buenos aires",
+                                        "date_of_birth": Object {
+                                          "day": "11",
+                                          "month": "06",
+                                          "year": "1976",
+                                        },
+                                        "email": undefined,
+                                        "first_name": "diego",
+                                        "id": "a0n0x000000XzchAAC",
+                                        "last_name": "maradona",
+                                        "mailing_address": undefined,
+                                        "mailing_city": undefined,
+                                        "mailing_state": undefined,
+                                        "mailing_street": undefined,
+                                        "mailing_zip_code": undefined,
+                                        "marital_status": undefined,
+                                        "middle_name": "m",
+                                        "name": "diego m maradona",
+                                        "phone": undefined,
+                                        "phone_type": undefined,
+                                        "primary_language": undefined,
+                                        "relationship_to_applicant": "Child",
+                                        "residence_address": undefined,
+                                        "second_phone": undefined,
+                                        "second_phone_type": undefined,
+                                        "state": "fl",
+                                        "street": "9 de julio",
+                                        "zip_code": "33026",
+                                      },
+                                    ]
+                                  }
+                                  form={
+                                    Object {
+                                      "batch": [Function],
+                                      "blur": [Function],
+                                      "change": [Function],
+                                      "focus": [Function],
+                                      "getFieldState": [Function],
+                                      "getRegisteredFields": [Function],
+                                      "getState": [Function],
+                                      "initialize": [Function],
+                                      "isValidationPaused": [Function],
+                                      "mutators": Object {
+                                        "insert": [Function],
+                                        "move": [Function],
+                                        "pop": [Function],
+                                        "push": [Function],
+                                        "remove": [Function],
+                                        "shift": [Function],
+                                        "swap": [Function],
+                                        "unshift": [Function],
+                                        "update": [Function],
+                                      },
+                                      "pauseValidation": [Function],
+                                      "registerField": [Function],
+                                      "reset": [Function],
+                                      "resumeValidation": [Function],
+                                      "setConfig": [Function],
+                                      "submit": [Function],
+                                      "subscribe": [Function],
+                                    }
+                                  }
+                                  onPanelClose={[Function]}
+                                  onSave={[Function]}
+                                >
+                                  <PreferencesTable
+                                    application={
+                                      Object {
+                                        "alternate_contact": Object {},
+                                        "annual_income": 110000,
+                                        "answered_community_screening": null,
+                                        "applicant": Object {
+                                          "agency_name": undefined,
+                                          "alternate_contact_type": undefined,
+                                          "alternate_contact_type_other": undefined,
+                                          "city": "SAN FRANCISCO",
+                                          "date_of_birth": Object {
+                                            "day": "01",
+                                            "month": "01",
+                                            "year": "1950",
+                                          },
+                                          "email": "eee@eeee.com",
+                                          "first_name": "karen",
+                                          "id": "a0n0x000000AbE6AAK",
+                                          "last_name": "jones",
+                                          "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                          "mailing_city": "SAN FRANCISCO",
+                                          "mailing_state": "CA",
+                                          "mailing_street": "123 MAIN ST",
+                                          "mailing_zip_code": "94105-1804",
+                                          "marital_status": "Married",
+                                          "middle_name": null,
+                                          "name": "karen jones",
+                                          "phone": "9548883321",
+                                          "phone_type": "Cell",
+                                          "primary_language": null,
+                                          "relationship_to_applicant": undefined,
+                                          "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                          "second_phone": "9548883321",
+                                          "second_phone_type": "Home",
+                                          "state": "CA",
+                                          "street": "123 MAIN ST",
+                                          "zip_code": "94105-1804",
+                                        },
+                                        "application_language": "English",
+                                        "application_submission_type": "Paper",
+                                        "application_submitted_date": "2018-06-21",
+                                        "confirmed_household_annual_income": 115000,
+                                        "createdby": Object {
+                                          "name": "Prod Vertiba",
+                                        },
+                                        "demographics": Object {
+                                          "ethnicity": undefined,
+                                          "gender": undefined,
+                                          "gender_other": undefined,
+                                          "race": undefined,
+                                          "sexual_orientation": undefined,
+                                          "sexual_orientation_other": undefined,
+                                        },
+                                        "flagged_applications": Array [],
+                                        "general_lottery": true,
+                                        "general_lottery_rank": null,
+                                        "has_ada_priorities_selected": Object {
+                                          "": true,
+                                        },
+                                        "has_completed_homebuyer_education": undefined,
+                                        "has_developmental_disability": null,
+                                        "has_loan_preapproval": undefined,
+                                        "has_military_service": null,
+                                        "hh_total_income_with_assets_annual": undefined,
+                                        "household_assets": null,
+                                        "household_members": Array [
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "buenos aires",
+                                            "date_of_birth": Object {
+                                              "day": "11",
+                                              "month": "06",
+                                              "year": "1976",
+                                            },
+                                            "email": undefined,
+                                            "first_name": "diego",
+                                            "id": "a0n0x000000XzchAAC",
+                                            "last_name": "maradona",
+                                            "mailing_address": undefined,
+                                            "mailing_city": undefined,
+                                            "mailing_state": undefined,
+                                            "mailing_street": undefined,
+                                            "mailing_zip_code": undefined,
+                                            "marital_status": undefined,
+                                            "middle_name": "m",
+                                            "name": "diego m maradona",
+                                            "phone": undefined,
+                                            "phone_type": undefined,
+                                            "primary_language": undefined,
+                                            "relationship_to_applicant": "Child",
+                                            "residence_address": undefined,
+                                            "second_phone": undefined,
+                                            "second_phone_type": undefined,
+                                            "state": "fl",
+                                            "street": "9 de julio",
+                                            "zip_code": "33026",
+                                          },
+                                        ],
+                                        "housing_voucher_or_subsidy": "true",
+                                        "id": "a0o0x000000OcOzAAK",
+                                        "is_first_time_homebuyer": undefined,
+                                        "is_lottery_complete": false,
+                                        "lease": Object {},
+                                        "lending_agent": undefined,
+                                        "listing": Object {
+                                          "account": Object {},
+                                          "building": Object {},
+                                          "id": "a0W0x000000GhJUEA0",
+                                          "listing_lottery_preferences": Array [],
+                                          "name": "Test 5/30",
+                                          "open_houses": Array [],
+                                          "owner": Object {},
+                                          "reserved_community_type": null,
+                                          "units": Array [],
+                                        },
+                                        "lottery_number": "00191270",
+                                        "lottery_number_manual": null,
+                                        "monthly_income": null,
+                                        "name": "APP-00191270",
+                                        "number_of_dependents": 2,
+                                        "number_of_minors": 4,
+                                        "number_of_seniors": 3,
+                                        "preferences": Array [
+                                          Object {
+                                            "application": Object {},
+                                            "application_member": Object {},
+                                            "application_member_id": undefined,
+                                            "certificate_number": null,
+                                            "city": null,
+                                            "id": "a0w0x0000014pvyAAA",
+                                            "individual_preference": null,
+                                            "listing_preference": Object {
+                                              "record_type_for_app_preferences": undefined,
+                                            },
+                                            "listing_preference_id": "a0l0x000000RI8nAAG",
+                                            "lottery_status": "None",
+                                            "lw_type_of_proof": null,
+                                            "name": "AP-0000612141",
+                                            "opt_out": null,
+                                            "person_who_claimed_name": null,
+                                            "post_lottery_validation": undefined,
+                                            "preference_lottery_rank": null,
+                                            "preference_name": "Alice Griffith Housing Development Resident",
+                                            "preference_order": 0,
+                                            "receives_preference": null,
+                                            "recordtype_developername": "AG",
+                                            "state": null,
+                                            "street": null,
+                                            "total_household_rent": "undefined",
+                                            "type_of_proof": null,
+                                            "zip_code": null,
+                                          },
+                                        ],
+                                        "primary_applicant_contact": undefined,
+                                        "processing_status": undefined,
+                                        "proof_files": Array [],
+                                        "referral_source": null,
+                                        "reserved_senior": undefined,
+                                        "status": "Submitted",
+                                        "status_last_updated": undefined,
+                                        "terms_acknowledged": true,
+                                        "total_household_size": 1,
+                                        "total_monthly_rent": null,
+                                      }
+                                    }
+                                    applicationMembers={
+                                      Array [
+                                        Object {
+                                          "agency_name": undefined,
+                                          "alternate_contact_type": undefined,
+                                          "alternate_contact_type_other": undefined,
+                                          "city": "SAN FRANCISCO",
+                                          "date_of_birth": Object {
+                                            "day": "01",
+                                            "month": "01",
+                                            "year": "1950",
+                                          },
+                                          "email": "eee@eeee.com",
+                                          "first_name": "karen",
+                                          "id": "a0n0x000000AbE6AAK",
+                                          "last_name": "jones",
+                                          "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                          "mailing_city": "SAN FRANCISCO",
+                                          "mailing_state": "CA",
+                                          "mailing_street": "123 MAIN ST",
+                                          "mailing_zip_code": "94105-1804",
+                                          "marital_status": "Married",
+                                          "middle_name": null,
+                                          "name": "karen jones",
+                                          "phone": "9548883321",
+                                          "phone_type": "Cell",
+                                          "primary_language": null,
+                                          "relationship_to_applicant": undefined,
+                                          "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                          "second_phone": "9548883321",
+                                          "second_phone_type": "Home",
+                                          "state": "CA",
+                                          "street": "123 MAIN ST",
+                                          "zip_code": "94105-1804",
+                                        },
+                                        Object {
+                                          "agency_name": undefined,
+                                          "alternate_contact_type": undefined,
+                                          "alternate_contact_type_other": undefined,
+                                          "city": "buenos aires",
+                                          "date_of_birth": Object {
+                                            "day": "11",
+                                            "month": "06",
+                                            "year": "1976",
+                                          },
+                                          "email": undefined,
+                                          "first_name": "diego",
+                                          "id": "a0n0x000000XzchAAC",
+                                          "last_name": "maradona",
+                                          "mailing_address": undefined,
+                                          "mailing_city": undefined,
+                                          "mailing_state": undefined,
+                                          "mailing_street": undefined,
+                                          "mailing_zip_code": undefined,
+                                          "marital_status": undefined,
+                                          "middle_name": "m",
+                                          "name": "diego m maradona",
+                                          "phone": undefined,
+                                          "phone_type": undefined,
+                                          "primary_language": undefined,
+                                          "relationship_to_applicant": "Child",
+                                          "residence_address": undefined,
+                                          "second_phone": undefined,
+                                          "second_phone_type": undefined,
+                                          "state": "fl",
+                                          "street": "9 de julio",
+                                          "zip_code": "33026",
+                                        },
+                                      ]
+                                    }
+                                    form={
+                                      Object {
+                                        "batch": [Function],
+                                        "blur": [Function],
+                                        "change": [Function],
+                                        "focus": [Function],
+                                        "getFieldState": [Function],
+                                        "getRegisteredFields": [Function],
+                                        "getState": [Function],
+                                        "initialize": [Function],
+                                        "isValidationPaused": [Function],
+                                        "mutators": Object {
+                                          "insert": [Function],
+                                          "move": [Function],
+                                          "pop": [Function],
+                                          "push": [Function],
+                                          "remove": [Function],
+                                          "shift": [Function],
+                                          "swap": [Function],
+                                          "unshift": [Function],
+                                          "update": [Function],
+                                        },
+                                        "pauseValidation": [Function],
+                                        "registerField": [Function],
+                                        "reset": [Function],
+                                        "resumeValidation": [Function],
+                                        "setConfig": [Function],
+                                        "submit": [Function],
+                                        "subscribe": [Function],
+                                      }
+                                    }
+                                    onPanelClose={[Function]}
+                                    onSave={[Function]}
+                                    store={
+                                      Object {
+                                        "amiCharts": Array [],
+                                        "amis": Object {},
+                                        "application": Object {
+                                          "alternate_contact": Object {},
+                                          "annual_income": 110000,
+                                          "answered_community_screening": null,
+                                          "applicant": Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "SAN FRANCISCO",
+                                            "date_of_birth": Object {
+                                              "day": "01",
+                                              "month": "01",
+                                              "year": "1950",
+                                            },
+                                            "email": "eee@eeee.com",
+                                            "first_name": "karen",
+                                            "id": "a0n0x000000AbE6AAK",
+                                            "last_name": "jones",
+                                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "mailing_city": "SAN FRANCISCO",
+                                            "mailing_state": "CA",
+                                            "mailing_street": "123 MAIN ST",
+                                            "mailing_zip_code": "94105-1804",
+                                            "marital_status": "Married",
+                                            "middle_name": null,
+                                            "name": "karen jones",
+                                            "phone": "9548883321",
+                                            "phone_type": "Cell",
+                                            "primary_language": null,
+                                            "relationship_to_applicant": undefined,
+                                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
+                                            "state": "CA",
+                                            "street": "123 MAIN ST",
+                                            "zip_code": "94105-1804",
+                                          },
+                                          "application_language": "English",
+                                          "application_submission_type": "Paper",
+                                          "application_submitted_date": "2018-06-21",
+                                          "confirmed_household_annual_income": 115000,
+                                          "createdby": Object {
+                                            "name": "Prod Vertiba",
+                                          },
+                                          "demographics": Object {
+                                            "ethnicity": undefined,
+                                            "gender": undefined,
+                                            "gender_other": undefined,
+                                            "race": undefined,
+                                            "sexual_orientation": undefined,
+                                            "sexual_orientation_other": undefined,
+                                          },
+                                          "flagged_applications": Array [],
+                                          "general_lottery": true,
+                                          "general_lottery_rank": null,
+                                          "has_ada_priorities_selected": Object {
+                                            "": true,
+                                          },
+                                          "has_completed_homebuyer_education": undefined,
+                                          "has_developmental_disability": null,
+                                          "has_loan_preapproval": undefined,
+                                          "has_military_service": null,
+                                          "hh_total_income_with_assets_annual": undefined,
+                                          "household_assets": null,
+                                          "household_members": Array [
+                                            Object {
+                                              "agency_name": undefined,
+                                              "alternate_contact_type": undefined,
+                                              "alternate_contact_type_other": undefined,
+                                              "city": "buenos aires",
+                                              "date_of_birth": Object {
+                                                "day": "11",
+                                                "month": "06",
+                                                "year": "1976",
+                                              },
+                                              "email": undefined,
+                                              "first_name": "diego",
+                                              "id": "a0n0x000000XzchAAC",
+                                              "last_name": "maradona",
+                                              "mailing_address": undefined,
+                                              "mailing_city": undefined,
+                                              "mailing_state": undefined,
+                                              "mailing_street": undefined,
+                                              "mailing_zip_code": undefined,
+                                              "marital_status": undefined,
+                                              "middle_name": "m",
+                                              "name": "diego m maradona",
+                                              "phone": undefined,
+                                              "phone_type": undefined,
+                                              "primary_language": undefined,
+                                              "relationship_to_applicant": "Child",
+                                              "residence_address": undefined,
+                                              "second_phone": undefined,
+                                              "second_phone_type": undefined,
+                                              "state": "fl",
+                                              "street": "9 de julio",
+                                              "zip_code": "33026",
+                                            },
+                                          ],
+                                          "housing_voucher_or_subsidy": "true",
+                                          "id": "a0o0x000000OcOzAAK",
+                                          "is_first_time_homebuyer": undefined,
+                                          "is_lottery_complete": false,
+                                          "lease": Object {},
+                                          "lending_agent": undefined,
+                                          "listing": Object {
+                                            "account": Object {},
+                                            "building": Object {},
+                                            "id": "a0W0x000000GhJUEA0",
+                                            "listing_lottery_preferences": Array [],
+                                            "name": "Test 5/30",
+                                            "open_houses": Array [],
+                                            "owner": Object {},
+                                            "reserved_community_type": null,
+                                            "units": Array [],
+                                          },
+                                          "lottery_number": "00191270",
+                                          "lottery_number_manual": null,
+                                          "monthly_income": null,
+                                          "name": "APP-00191270",
+                                          "number_of_dependents": 2,
+                                          "number_of_minors": 4,
+                                          "number_of_seniors": 3,
+                                          "preferences": Array [
+                                            Object {
+                                              "application": Object {},
+                                              "application_member": Object {},
+                                              "application_member_id": undefined,
+                                              "certificate_number": null,
+                                              "city": null,
+                                              "id": "a0w0x0000014pvyAAA",
+                                              "individual_preference": null,
+                                              "listing_preference": Object {
+                                                "record_type_for_app_preferences": undefined,
+                                              },
+                                              "listing_preference_id": "a0l0x000000RI8nAAG",
+                                              "lottery_status": "None",
+                                              "lw_type_of_proof": null,
+                                              "name": "AP-0000612141",
+                                              "opt_out": null,
+                                              "person_who_claimed_name": null,
+                                              "post_lottery_validation": undefined,
+                                              "preference_lottery_rank": null,
+                                              "preference_name": "Alice Griffith Housing Development Resident",
+                                              "preference_order": 0,
+                                              "receives_preference": null,
+                                              "recordtype_developername": "AG",
+                                              "state": null,
+                                              "street": null,
+                                              "total_household_rent": "undefined",
+                                              "type_of_proof": null,
+                                              "zip_code": null,
+                                            },
+                                          ],
+                                          "primary_applicant_contact": undefined,
+                                          "processing_status": undefined,
+                                          "proof_files": Array [],
+                                          "referral_source": null,
+                                          "reserved_senior": undefined,
+                                          "status": "Submitted",
+                                          "status_last_updated": undefined,
+                                          "terms_acknowledged": true,
+                                          "total_household_size": 1,
+                                          "total_monthly_rent": null,
+                                        },
+                                        "applicationMembers": Array [
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "SAN FRANCISCO",
+                                            "date_of_birth": Object {
+                                              "day": "01",
+                                              "month": "01",
+                                              "year": "1950",
+                                            },
+                                            "email": "eee@eeee.com",
+                                            "first_name": "karen",
+                                            "id": "a0n0x000000AbE6AAK",
+                                            "last_name": "jones",
+                                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "mailing_city": "SAN FRANCISCO",
+                                            "mailing_state": "CA",
+                                            "mailing_street": "123 MAIN ST",
+                                            "mailing_zip_code": "94105-1804",
+                                            "marital_status": "Married",
+                                            "middle_name": null,
+                                            "name": "karen jones",
+                                            "phone": "9548883321",
+                                            "phone_type": "Cell",
+                                            "primary_language": null,
+                                            "relationship_to_applicant": undefined,
+                                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
+                                            "state": "CA",
+                                            "street": "123 MAIN ST",
+                                            "zip_code": "94105-1804",
+                                          },
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "buenos aires",
+                                            "date_of_birth": Object {
+                                              "day": "11",
+                                              "month": "06",
+                                              "year": "1976",
+                                            },
+                                            "email": undefined,
+                                            "first_name": "diego",
+                                            "id": "a0n0x000000XzchAAC",
+                                            "last_name": "maradona",
+                                            "mailing_address": undefined,
+                                            "mailing_city": undefined,
+                                            "mailing_state": undefined,
+                                            "mailing_street": undefined,
+                                            "mailing_zip_code": undefined,
+                                            "marital_status": undefined,
+                                            "middle_name": "m",
+                                            "name": "diego m maradona",
+                                            "phone": undefined,
+                                            "phone_type": undefined,
+                                            "primary_language": undefined,
+                                            "relationship_to_applicant": "Child",
+                                            "residence_address": undefined,
+                                            "second_phone": undefined,
+                                            "second_phone_type": undefined,
+                                            "state": "fl",
+                                            "street": "9 de julio",
+                                            "zip_code": "33026",
+                                          },
+                                        ],
+                                        "assignSupplementalAppTouched": [Function],
+                                        "availableUnits": Array [],
+                                        "confirmedPreferencesFailed": false,
+                                        "fileBaseUrl": undefined,
+                                        "handleCloseRentalAssistancePanel": [Function],
+                                        "handleDeleteRentalAssistance": [Function],
+                                        "handleOpenRentalAssistancePanel": [Function],
+                                        "handleSaveNewRentalAssistance": [Function],
+                                        "handleStatusModalClose": [Function],
+                                        "handleStatusModalStatusChange": [Function],
+                                        "handleStatusModalSubmit": [Function],
+                                        "handleUpdateRentalAssistance": [Function],
+                                        "hideAddRentalAssistanceBtn": [Function],
+                                        "loading": false,
+                                        "onDismissError": [Function],
+                                        "onSavePreference": [Function],
+                                        "onSubmit": [Function],
+                                        "openAddStatusCommentModal": [Function],
+                                        "openUpdateStatusModal": [Function],
+                                        "rentalAssistanceLoading": false,
+                                        "rentalAssistances": undefined,
+                                        "setLoading": [Function],
+                                        "showAddRentalAssistanceBtn": true,
+                                        "showNewRentalAssistancePanel": false,
+                                        "statusHistory": Array [
+                                          Object {
+                                            "comment": "xxxx1",
+                                            "date": "2018-05-10T19:54:11.000+0000",
+                                            "status": "Approved",
+                                            "timestamp": 1525982051,
+                                          },
+                                          Object {
+                                            "comment": "xxxx2",
+                                            "date": "2018-05-10T19:54:11.000+0000",
+                                            "status": "Pending",
+                                            "timestamp": 1525982051,
+                                          },
+                                        ],
+                                        "statusModal": Object {
+                                          "loading": false,
+                                          "status": undefined,
+                                        },
+                                      }
+                                    }
+                                  >
+                                    <div
+                                      className="preferences-table"
+                                    >
+                                      <TableWrapper>
+                                        <div
+                                          className="form-grid row expand"
+                                        >
+                                          <div
+                                            className="small-12 column"
+                                          >
+                                            <div
+                                              className="scrollable-table-container-under-xlarge"
+                                            >
+                                              <ExpandableTable
+                                                columns={
+                                                  Array [
+                                                    Object {
+                                                      "content": "",
+                                                    },
+                                                    Object {
+                                                      "content": "Preference Name",
+                                                    },
+                                                    Object {
+                                                      "content": "Person Who Claimed",
+                                                    },
+                                                    Object {
+                                                      "classes": Array [
+                                                        "text-right",
+                                                      ],
+                                                      "content": "Preference Rank",
+                                                    },
+                                                    Object {
+                                                      "content": "Type of proof",
+                                                    },
+                                                    Object {
+                                                      "content": "Status",
+                                                    },
+                                                    Object {
+                                                      "content": "Actions",
+                                                    },
+                                                  ]
+                                                }
+                                                expandedRowRenderer={[Function]}
+                                                expanderRenderer={[Function]}
+                                                rowKeyIndex={1}
+                                                rows={Array []}
+                                              >
+                                                <table
+                                                  className="td-light td-plain th-plain"
+                                                  role="grid"
+                                                >
+                                                  <thead>
+                                                    <tr>
+                                                      <th
+                                                        className=""
+                                                        key="0"
+                                                        scope="col"
+                                                      />
+                                                      <th
+                                                        className=""
+                                                        key="1"
+                                                        scope="col"
+                                                      >
+                                                        Preference Name
+                                                      </th>
+                                                      <th
+                                                        className=""
+                                                        key="2"
+                                                        scope="col"
+                                                      >
+                                                        Person Who Claimed
+                                                      </th>
+                                                      <th
+                                                        className="text-right"
+                                                        key="3"
+                                                        scope="col"
+                                                      >
+                                                        Preference Rank
+                                                      </th>
+                                                      <th
+                                                        className=""
+                                                        key="4"
+                                                        scope="col"
+                                                      >
+                                                        Type of proof
+                                                      </th>
+                                                      <th
+                                                        className=""
+                                                        key="5"
+                                                        scope="col"
+                                                      >
+                                                        Status
+                                                      </th>
+                                                      <th
+                                                        className=""
+                                                        key="6"
+                                                        scope="col"
+                                                      >
+                                                        Actions
+                                                      </th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody />
+                                                </table>
+                                              </ExpandableTable>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </TableWrapper>
+                                    </div>
+                                  </PreferencesTable>
+                                </ContextComponent>
+                              </div>
+                            </Component>
+                          </ContentSection>
+                        </ConfirmedPreferencesSection>
                         <ConfirmedHousehold
                           amiCharts={Array []}
                           amis={Object {}}
@@ -3971,7 +5507,1034 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             >
                               <div
                                 className="app-inner inset-wide border-bottom"
-                              />
+                              >
+                                <ContextComponent
+                                  form={
+                                    Object {
+                                      "batch": [Function],
+                                      "blur": [Function],
+                                      "change": [Function],
+                                      "focus": [Function],
+                                      "getFieldState": [Function],
+                                      "getRegisteredFields": [Function],
+                                      "getState": [Function],
+                                      "initialize": [Function],
+                                      "isValidationPaused": [Function],
+                                      "mutators": Object {
+                                        "insert": [Function],
+                                        "move": [Function],
+                                        "pop": [Function],
+                                        "push": [Function],
+                                        "remove": [Function],
+                                        "shift": [Function],
+                                        "swap": [Function],
+                                        "unshift": [Function],
+                                        "update": [Function],
+                                      },
+                                      "pauseValidation": [Function],
+                                      "registerField": [Function],
+                                      "reset": [Function],
+                                      "resumeValidation": [Function],
+                                      "setConfig": [Function],
+                                      "submit": [Function],
+                                      "subscribe": [Function],
+                                    }
+                                  }
+                                >
+                                  <LeaseInformationInputs
+                                    form={
+                                      Object {
+                                        "batch": [Function],
+                                        "blur": [Function],
+                                        "change": [Function],
+                                        "focus": [Function],
+                                        "getFieldState": [Function],
+                                        "getRegisteredFields": [Function],
+                                        "getState": [Function],
+                                        "initialize": [Function],
+                                        "isValidationPaused": [Function],
+                                        "mutators": Object {
+                                          "insert": [Function],
+                                          "move": [Function],
+                                          "pop": [Function],
+                                          "push": [Function],
+                                          "remove": [Function],
+                                          "shift": [Function],
+                                          "swap": [Function],
+                                          "unshift": [Function],
+                                          "update": [Function],
+                                        },
+                                        "pauseValidation": [Function],
+                                        "registerField": [Function],
+                                        "reset": [Function],
+                                        "resumeValidation": [Function],
+                                        "setConfig": [Function],
+                                        "submit": [Function],
+                                        "subscribe": [Function],
+                                      }
+                                    }
+                                    store={
+                                      Object {
+                                        "amiCharts": Array [],
+                                        "amis": Object {},
+                                        "application": Object {
+                                          "alternate_contact": Object {},
+                                          "annual_income": 110000,
+                                          "answered_community_screening": null,
+                                          "applicant": Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "SAN FRANCISCO",
+                                            "date_of_birth": Object {
+                                              "day": "01",
+                                              "month": "01",
+                                              "year": "1950",
+                                            },
+                                            "email": "eee@eeee.com",
+                                            "first_name": "karen",
+                                            "id": "a0n0x000000AbE6AAK",
+                                            "last_name": "jones",
+                                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "mailing_city": "SAN FRANCISCO",
+                                            "mailing_state": "CA",
+                                            "mailing_street": "123 MAIN ST",
+                                            "mailing_zip_code": "94105-1804",
+                                            "marital_status": "Married",
+                                            "middle_name": null,
+                                            "name": "karen jones",
+                                            "phone": "9548883321",
+                                            "phone_type": "Cell",
+                                            "primary_language": null,
+                                            "relationship_to_applicant": undefined,
+                                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
+                                            "state": "CA",
+                                            "street": "123 MAIN ST",
+                                            "zip_code": "94105-1804",
+                                          },
+                                          "application_language": "English",
+                                          "application_submission_type": "Paper",
+                                          "application_submitted_date": "2018-06-21",
+                                          "confirmed_household_annual_income": 115000,
+                                          "createdby": Object {
+                                            "name": "Prod Vertiba",
+                                          },
+                                          "demographics": Object {
+                                            "ethnicity": undefined,
+                                            "gender": undefined,
+                                            "gender_other": undefined,
+                                            "race": undefined,
+                                            "sexual_orientation": undefined,
+                                            "sexual_orientation_other": undefined,
+                                          },
+                                          "flagged_applications": Array [],
+                                          "general_lottery": true,
+                                          "general_lottery_rank": null,
+                                          "has_ada_priorities_selected": Object {
+                                            "": true,
+                                          },
+                                          "has_completed_homebuyer_education": undefined,
+                                          "has_developmental_disability": null,
+                                          "has_loan_preapproval": undefined,
+                                          "has_military_service": null,
+                                          "hh_total_income_with_assets_annual": undefined,
+                                          "household_assets": null,
+                                          "household_members": Array [
+                                            Object {
+                                              "agency_name": undefined,
+                                              "alternate_contact_type": undefined,
+                                              "alternate_contact_type_other": undefined,
+                                              "city": "buenos aires",
+                                              "date_of_birth": Object {
+                                                "day": "11",
+                                                "month": "06",
+                                                "year": "1976",
+                                              },
+                                              "email": undefined,
+                                              "first_name": "diego",
+                                              "id": "a0n0x000000XzchAAC",
+                                              "last_name": "maradona",
+                                              "mailing_address": undefined,
+                                              "mailing_city": undefined,
+                                              "mailing_state": undefined,
+                                              "mailing_street": undefined,
+                                              "mailing_zip_code": undefined,
+                                              "marital_status": undefined,
+                                              "middle_name": "m",
+                                              "name": "diego m maradona",
+                                              "phone": undefined,
+                                              "phone_type": undefined,
+                                              "primary_language": undefined,
+                                              "relationship_to_applicant": "Child",
+                                              "residence_address": undefined,
+                                              "second_phone": undefined,
+                                              "second_phone_type": undefined,
+                                              "state": "fl",
+                                              "street": "9 de julio",
+                                              "zip_code": "33026",
+                                            },
+                                          ],
+                                          "housing_voucher_or_subsidy": "true",
+                                          "id": "a0o0x000000OcOzAAK",
+                                          "is_first_time_homebuyer": undefined,
+                                          "is_lottery_complete": false,
+                                          "lease": Object {},
+                                          "lending_agent": undefined,
+                                          "listing": Object {
+                                            "account": Object {},
+                                            "building": Object {},
+                                            "id": "a0W0x000000GhJUEA0",
+                                            "listing_lottery_preferences": Array [],
+                                            "name": "Test 5/30",
+                                            "open_houses": Array [],
+                                            "owner": Object {},
+                                            "reserved_community_type": null,
+                                            "units": Array [],
+                                          },
+                                          "lottery_number": "00191270",
+                                          "lottery_number_manual": null,
+                                          "monthly_income": null,
+                                          "name": "APP-00191270",
+                                          "number_of_dependents": 2,
+                                          "number_of_minors": 4,
+                                          "number_of_seniors": 3,
+                                          "preferences": Array [
+                                            Object {
+                                              "application": Object {},
+                                              "application_member": Object {},
+                                              "application_member_id": undefined,
+                                              "certificate_number": null,
+                                              "city": null,
+                                              "id": "a0w0x0000014pvyAAA",
+                                              "individual_preference": null,
+                                              "listing_preference": Object {
+                                                "record_type_for_app_preferences": undefined,
+                                              },
+                                              "listing_preference_id": "a0l0x000000RI8nAAG",
+                                              "lottery_status": "None",
+                                              "lw_type_of_proof": null,
+                                              "name": "AP-0000612141",
+                                              "opt_out": null,
+                                              "person_who_claimed_name": null,
+                                              "post_lottery_validation": undefined,
+                                              "preference_lottery_rank": null,
+                                              "preference_name": "Alice Griffith Housing Development Resident",
+                                              "preference_order": 0,
+                                              "receives_preference": null,
+                                              "recordtype_developername": "AG",
+                                              "state": null,
+                                              "street": null,
+                                              "total_household_rent": "undefined",
+                                              "type_of_proof": null,
+                                              "zip_code": null,
+                                            },
+                                          ],
+                                          "primary_applicant_contact": undefined,
+                                          "processing_status": undefined,
+                                          "proof_files": Array [],
+                                          "referral_source": null,
+                                          "reserved_senior": undefined,
+                                          "status": "Submitted",
+                                          "status_last_updated": undefined,
+                                          "terms_acknowledged": true,
+                                          "total_household_size": 1,
+                                          "total_monthly_rent": null,
+                                        },
+                                        "applicationMembers": Array [
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "SAN FRANCISCO",
+                                            "date_of_birth": Object {
+                                              "day": "01",
+                                              "month": "01",
+                                              "year": "1950",
+                                            },
+                                            "email": "eee@eeee.com",
+                                            "first_name": "karen",
+                                            "id": "a0n0x000000AbE6AAK",
+                                            "last_name": "jones",
+                                            "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "mailing_city": "SAN FRANCISCO",
+                                            "mailing_state": "CA",
+                                            "mailing_street": "123 MAIN ST",
+                                            "mailing_zip_code": "94105-1804",
+                                            "marital_status": "Married",
+                                            "middle_name": null,
+                                            "name": "karen jones",
+                                            "phone": "9548883321",
+                                            "phone_type": "Cell",
+                                            "primary_language": null,
+                                            "relationship_to_applicant": undefined,
+                                            "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                                            "second_phone": "9548883321",
+                                            "second_phone_type": "Home",
+                                            "state": "CA",
+                                            "street": "123 MAIN ST",
+                                            "zip_code": "94105-1804",
+                                          },
+                                          Object {
+                                            "agency_name": undefined,
+                                            "alternate_contact_type": undefined,
+                                            "alternate_contact_type_other": undefined,
+                                            "city": "buenos aires",
+                                            "date_of_birth": Object {
+                                              "day": "11",
+                                              "month": "06",
+                                              "year": "1976",
+                                            },
+                                            "email": undefined,
+                                            "first_name": "diego",
+                                            "id": "a0n0x000000XzchAAC",
+                                            "last_name": "maradona",
+                                            "mailing_address": undefined,
+                                            "mailing_city": undefined,
+                                            "mailing_state": undefined,
+                                            "mailing_street": undefined,
+                                            "mailing_zip_code": undefined,
+                                            "marital_status": undefined,
+                                            "middle_name": "m",
+                                            "name": "diego m maradona",
+                                            "phone": undefined,
+                                            "phone_type": undefined,
+                                            "primary_language": undefined,
+                                            "relationship_to_applicant": "Child",
+                                            "residence_address": undefined,
+                                            "second_phone": undefined,
+                                            "second_phone_type": undefined,
+                                            "state": "fl",
+                                            "street": "9 de julio",
+                                            "zip_code": "33026",
+                                          },
+                                        ],
+                                        "assignSupplementalAppTouched": [Function],
+                                        "availableUnits": Array [],
+                                        "confirmedPreferencesFailed": false,
+                                        "fileBaseUrl": undefined,
+                                        "handleCloseRentalAssistancePanel": [Function],
+                                        "handleDeleteRentalAssistance": [Function],
+                                        "handleOpenRentalAssistancePanel": [Function],
+                                        "handleSaveNewRentalAssistance": [Function],
+                                        "handleStatusModalClose": [Function],
+                                        "handleStatusModalStatusChange": [Function],
+                                        "handleStatusModalSubmit": [Function],
+                                        "handleUpdateRentalAssistance": [Function],
+                                        "hideAddRentalAssistanceBtn": [Function],
+                                        "loading": false,
+                                        "onDismissError": [Function],
+                                        "onSavePreference": [Function],
+                                        "onSubmit": [Function],
+                                        "openAddStatusCommentModal": [Function],
+                                        "openUpdateStatusModal": [Function],
+                                        "rentalAssistanceLoading": false,
+                                        "rentalAssistances": undefined,
+                                        "setLoading": [Function],
+                                        "showAddRentalAssistanceBtn": true,
+                                        "showNewRentalAssistancePanel": false,
+                                        "statusHistory": Array [
+                                          Object {
+                                            "comment": "xxxx1",
+                                            "date": "2018-05-10T19:54:11.000+0000",
+                                            "status": "Approved",
+                                            "timestamp": 1525982051,
+                                          },
+                                          Object {
+                                            "comment": "xxxx2",
+                                            "date": "2018-05-10T19:54:11.000+0000",
+                                            "status": "Pending",
+                                            "timestamp": 1525982051,
+                                          },
+                                        ],
+                                        "statusModal": Object {
+                                          "loading": false,
+                                          "status": undefined,
+                                        },
+                                      }
+                                    }
+                                  >
+                                    <div>
+                                      <Component
+                                        expand={true}
+                                        paddingBottom={true}
+                                      >
+                                        <div
+                                          className="form-grid row expand padding-bottom"
+                                        >
+                                          <Component>
+                                            <div
+                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                            >
+                                              <Component>
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <SelectField
+                                                    fieldName="lease.unit"
+                                                    label="Assigned Unit Number"
+                                                    options={Array []}
+                                                  >
+                                                    <ReactFinalForm(Field)
+                                                      component="select"
+                                                      name="lease.unit"
+                                                    >
+                                                      <Field
+                                                        component="select"
+                                                        format={[Function]}
+                                                        name="lease.unit"
+                                                        parse={[Function]}
+                                                        reactFinalForm={
+                                                          Object {
+                                                            "batch": [Function],
+                                                            "blur": [Function],
+                                                            "change": [Function],
+                                                            "focus": [Function],
+                                                            "getFieldState": [Function],
+                                                            "getRegisteredFields": [Function],
+                                                            "getState": [Function],
+                                                            "initialize": [Function],
+                                                            "isValidationPaused": [Function],
+                                                            "mutators": Object {
+                                                              "insert": [Function],
+                                                              "move": [Function],
+                                                              "pop": [Function],
+                                                              "push": [Function],
+                                                              "remove": [Function],
+                                                              "shift": [Function],
+                                                              "swap": [Function],
+                                                              "unshift": [Function],
+                                                              "update": [Function],
+                                                            },
+                                                            "pauseValidation": [Function],
+                                                            "registerField": [Function],
+                                                            "reset": [Function],
+                                                            "resumeValidation": [Function],
+                                                            "setConfig": [Function],
+                                                            "submit": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="form-group"
+                                                        >
+                                                          <label
+                                                            className="form-label"
+                                                            htmlFor="form-lease.unit"
+                                                          >
+                                                            Assigned Unit Number 
+                                                          </label>
+                                                          <select
+                                                            className="form-group"
+                                                            id="form-lease.unit"
+                                                            name="lease.unit"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            value=""
+                                                          />
+                                                        </div>
+                                                      </Field>
+                                                    </ReactFinalForm(Field)>
+                                                  </SelectField>
+                                                </div>
+                                              </Component>
+                                            </div>
+                                          </Component>
+                                          <Component>
+                                            <div
+                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                            >
+                                              <MultiDateField
+                                                fieldName="lease.lease_start_date"
+                                                form={
+                                                  Object {
+                                                    "batch": [Function],
+                                                    "blur": [Function],
+                                                    "change": [Function],
+                                                    "focus": [Function],
+                                                    "getFieldState": [Function],
+                                                    "getRegisteredFields": [Function],
+                                                    "getState": [Function],
+                                                    "initialize": [Function],
+                                                    "isValidationPaused": [Function],
+                                                    "mutators": Object {
+                                                      "insert": [Function],
+                                                      "move": [Function],
+                                                      "pop": [Function],
+                                                      "push": [Function],
+                                                      "remove": [Function],
+                                                      "shift": [Function],
+                                                      "swap": [Function],
+                                                      "unshift": [Function],
+                                                      "update": [Function],
+                                                    },
+                                                    "pauseValidation": [Function],
+                                                    "registerField": [Function],
+                                                    "reset": [Function],
+                                                    "resumeValidation": [Function],
+                                                    "setConfig": [Function],
+                                                    "submit": [Function],
+                                                    "subscribe": [Function],
+                                                  }
+                                                }
+                                                id="lease_start_date"
+                                                label="Lease Start Date"
+                                              >
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <label
+                                                    className="form-label"
+                                                    htmlFor="lease_start_date"
+                                                  >
+                                                    Lease Start Date 
+                                                  </label>
+                                                  <div
+                                                    className="form-group-month"
+                                                  >
+                                                    <InputWrapper
+                                                      fieldName="lease.lease_start_date.month"
+                                                      id="lease_start_date_month"
+                                                      maxLength={2}
+                                                      pattern="\\\\d*"
+                                                      placeholder="MM"
+                                                      type="text"
+                                                    >
+                                                      <ReactFinalForm(Field)
+                                                        name="lease.lease_start_date.month"
+                                                      >
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="lease.lease_start_date.month"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                        >
+                                                          <input
+                                                            className=""
+                                                            id="lease_start_date_month"
+                                                            maxLength={2}
+                                                            name="lease.lease_start_date.month"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            placeholder="MM"
+                                                            type="text"
+                                                            value=""
+                                                          />
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </InputWrapper>
+                                                  </div>
+                                                  <div
+                                                    className="form-group-day"
+                                                  >
+                                                    <InputWrapper
+                                                      fieldName="lease.lease_start_date.day"
+                                                      id="lease_start_date_day"
+                                                      maxLength={2}
+                                                      pattern="\\\\d*"
+                                                      placeholder="DD"
+                                                      type="text"
+                                                    >
+                                                      <ReactFinalForm(Field)
+                                                        name="lease.lease_start_date.day"
+                                                      >
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="lease.lease_start_date.day"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                        >
+                                                          <input
+                                                            className=""
+                                                            id="lease_start_date_day"
+                                                            maxLength={2}
+                                                            name="lease.lease_start_date.day"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            placeholder="DD"
+                                                            type="text"
+                                                            value=""
+                                                          />
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </InputWrapper>
+                                                  </div>
+                                                  <div
+                                                    className="form-group-year"
+                                                  >
+                                                    <InputWrapper
+                                                      fieldName="lease.lease_start_date.year"
+                                                      id="lease_start_date_year"
+                                                      maxLength={4}
+                                                      pattern="\\\\d*"
+                                                      placeholder="YYYY"
+                                                      type="text"
+                                                    >
+                                                      <ReactFinalForm(Field)
+                                                        name="lease.lease_start_date.year"
+                                                      >
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="lease.lease_start_date.year"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                        >
+                                                          <input
+                                                            className=""
+                                                            id="lease_start_date_year"
+                                                            maxLength={4}
+                                                            name="lease.lease_start_date.year"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            placeholder="YYYY"
+                                                            type="text"
+                                                            value=""
+                                                          />
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </InputWrapper>
+                                                  </div>
+                                                  <div
+                                                    className="d-inline-block"
+                                                  />
+                                                </div>
+                                              </MultiDateField>
+                                            </div>
+                                          </Component>
+                                          <Component>
+                                            <div
+                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                            >
+                                              <Component>
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <SelectField
+                                                    fieldName="lease.preference_used"
+                                                    label="Preference Used"
+                                                    onChange={[Function]}
+                                                    options={
+                                                      Array [
+                                                        Object {
+                                                          "label": "None",
+                                                          "value": null,
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <ReactFinalForm(Field)
+                                                      component="select"
+                                                      name="lease.preference_used"
+                                                    >
+                                                      <Field
+                                                        component="select"
+                                                        format={[Function]}
+                                                        name="lease.preference_used"
+                                                        parse={[Function]}
+                                                        reactFinalForm={
+                                                          Object {
+                                                            "batch": [Function],
+                                                            "blur": [Function],
+                                                            "change": [Function],
+                                                            "focus": [Function],
+                                                            "getFieldState": [Function],
+                                                            "getRegisteredFields": [Function],
+                                                            "getState": [Function],
+                                                            "initialize": [Function],
+                                                            "isValidationPaused": [Function],
+                                                            "mutators": Object {
+                                                              "insert": [Function],
+                                                              "move": [Function],
+                                                              "pop": [Function],
+                                                              "push": [Function],
+                                                              "remove": [Function],
+                                                              "shift": [Function],
+                                                              "swap": [Function],
+                                                              "unshift": [Function],
+                                                              "update": [Function],
+                                                            },
+                                                            "pauseValidation": [Function],
+                                                            "registerField": [Function],
+                                                            "reset": [Function],
+                                                            "resumeValidation": [Function],
+                                                            "setConfig": [Function],
+                                                            "submit": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                      >
+                                                        <div
+                                                          className="form-group"
+                                                        >
+                                                          <label
+                                                            className="form-label"
+                                                            htmlFor="form-lease.preference_used"
+                                                          >
+                                                            Preference Used 
+                                                          </label>
+                                                          <select
+                                                            className="form-group"
+                                                            id="form-lease.preference_used"
+                                                            name="lease.preference_used"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            value=""
+                                                          >
+                                                            <option
+                                                              key="null"
+                                                              value={null}
+                                                            >
+                                                              None
+                                                            </option>
+                                                          </select>
+                                                        </div>
+                                                      </Field>
+                                                    </ReactFinalForm(Field)>
+                                                  </SelectField>
+                                                </div>
+                                              </Component>
+                                            </div>
+                                          </Component>
+                                        </div>
+                                      </Component>
+                                      <Component
+                                        expand={true}
+                                        paddingBottom={true}
+                                      >
+                                        <div
+                                          className="form-grid row expand padding-bottom"
+                                        >
+                                          <Component>
+                                            <div
+                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                            >
+                                              <FieldWrapper
+                                                fieldName="lease.total_monthly_rent_without_parking"
+                                                label="Monthly Rent"
+                                                placeholder="Enter Amount"
+                                                validation={[Function]}
+                                              >
+                                                <ReactFinalForm(Field)
+                                                  name="lease.total_monthly_rent_without_parking"
+                                                  validate={[Function]}
+                                                >
+                                                  <Field
+                                                    format={[Function]}
+                                                    name="lease.total_monthly_rent_without_parking"
+                                                    parse={[Function]}
+                                                    reactFinalForm={
+                                                      Object {
+                                                        "batch": [Function],
+                                                        "blur": [Function],
+                                                        "change": [Function],
+                                                        "focus": [Function],
+                                                        "getFieldState": [Function],
+                                                        "getRegisteredFields": [Function],
+                                                        "getState": [Function],
+                                                        "initialize": [Function],
+                                                        "isValidationPaused": [Function],
+                                                        "mutators": Object {
+                                                          "insert": [Function],
+                                                          "move": [Function],
+                                                          "pop": [Function],
+                                                          "push": [Function],
+                                                          "remove": [Function],
+                                                          "shift": [Function],
+                                                          "swap": [Function],
+                                                          "unshift": [Function],
+                                                          "update": [Function],
+                                                        },
+                                                        "pauseValidation": [Function],
+                                                        "registerField": [Function],
+                                                        "reset": [Function],
+                                                        "resumeValidation": [Function],
+                                                        "setConfig": [Function],
+                                                        "submit": [Function],
+                                                        "subscribe": [Function],
+                                                      }
+                                                    }
+                                                    validate={[Function]}
+                                                  >
+                                                    <div
+                                                      className="form-group"
+                                                    >
+                                                      <label
+                                                        className="form-label"
+                                                        htmlFor="form-lease.total_monthly_rent_without_parking"
+                                                      >
+                                                        Monthly Rent 
+                                                      </label>
+                                                      <input
+                                                        className=""
+                                                        id="form-lease.total_monthly_rent_without_parking"
+                                                        name="lease.total_monthly_rent_without_parking"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
+                                                        placeholder="Enter Amount"
+                                                        value=""
+                                                      />
+                                                    </div>
+                                                  </Field>
+                                                </ReactFinalForm(Field)>
+                                              </FieldWrapper>
+                                            </div>
+                                          </Component>
+                                          <Component>
+                                            <div
+                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                            >
+                                              <FieldWrapper
+                                                fieldName="lease.monthly_parking_rent"
+                                                label="Monthly Parking Cost"
+                                                placeholder="Enter Amount"
+                                                validation={[Function]}
+                                              >
+                                                <ReactFinalForm(Field)
+                                                  name="lease.monthly_parking_rent"
+                                                  validate={[Function]}
+                                                >
+                                                  <Field
+                                                    format={[Function]}
+                                                    name="lease.monthly_parking_rent"
+                                                    parse={[Function]}
+                                                    reactFinalForm={
+                                                      Object {
+                                                        "batch": [Function],
+                                                        "blur": [Function],
+                                                        "change": [Function],
+                                                        "focus": [Function],
+                                                        "getFieldState": [Function],
+                                                        "getRegisteredFields": [Function],
+                                                        "getState": [Function],
+                                                        "initialize": [Function],
+                                                        "isValidationPaused": [Function],
+                                                        "mutators": Object {
+                                                          "insert": [Function],
+                                                          "move": [Function],
+                                                          "pop": [Function],
+                                                          "push": [Function],
+                                                          "remove": [Function],
+                                                          "shift": [Function],
+                                                          "swap": [Function],
+                                                          "unshift": [Function],
+                                                          "update": [Function],
+                                                        },
+                                                        "pauseValidation": [Function],
+                                                        "registerField": [Function],
+                                                        "reset": [Function],
+                                                        "resumeValidation": [Function],
+                                                        "setConfig": [Function],
+                                                        "submit": [Function],
+                                                        "subscribe": [Function],
+                                                      }
+                                                    }
+                                                    validate={[Function]}
+                                                  >
+                                                    <div
+                                                      className="form-group"
+                                                    >
+                                                      <label
+                                                        className="form-label"
+                                                        htmlFor="form-lease.monthly_parking_rent"
+                                                      >
+                                                        Monthly Parking Cost 
+                                                      </label>
+                                                      <input
+                                                        className=""
+                                                        id="form-lease.monthly_parking_rent"
+                                                        name="lease.monthly_parking_rent"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
+                                                        placeholder="Enter Amount"
+                                                        value=""
+                                                      />
+                                                    </div>
+                                                  </Field>
+                                                </ReactFinalForm(Field)>
+                                              </FieldWrapper>
+                                            </div>
+                                          </Component>
+                                          <Component>
+                                            <div
+                                              className="form-grid_item small-12 medium-6 large-3 column"
+                                            >
+                                              <FieldWrapper
+                                                fieldName="lease.monthly_tenant_contribution"
+                                                label="Monthly Tenant Contribution"
+                                                placeholder="Enter Amount"
+                                                validation={[Function]}
+                                              >
+                                                <ReactFinalForm(Field)
+                                                  name="lease.monthly_tenant_contribution"
+                                                  validate={[Function]}
+                                                >
+                                                  <Field
+                                                    format={[Function]}
+                                                    name="lease.monthly_tenant_contribution"
+                                                    parse={[Function]}
+                                                    reactFinalForm={
+                                                      Object {
+                                                        "batch": [Function],
+                                                        "blur": [Function],
+                                                        "change": [Function],
+                                                        "focus": [Function],
+                                                        "getFieldState": [Function],
+                                                        "getRegisteredFields": [Function],
+                                                        "getState": [Function],
+                                                        "initialize": [Function],
+                                                        "isValidationPaused": [Function],
+                                                        "mutators": Object {
+                                                          "insert": [Function],
+                                                          "move": [Function],
+                                                          "pop": [Function],
+                                                          "push": [Function],
+                                                          "remove": [Function],
+                                                          "shift": [Function],
+                                                          "swap": [Function],
+                                                          "unshift": [Function],
+                                                          "update": [Function],
+                                                        },
+                                                        "pauseValidation": [Function],
+                                                        "registerField": [Function],
+                                                        "reset": [Function],
+                                                        "resumeValidation": [Function],
+                                                        "setConfig": [Function],
+                                                        "submit": [Function],
+                                                        "subscribe": [Function],
+                                                      }
+                                                    }
+                                                    validate={[Function]}
+                                                  >
+                                                    <div
+                                                      className="form-group"
+                                                    >
+                                                      <label
+                                                        className="form-label"
+                                                        htmlFor="form-lease.monthly_tenant_contribution"
+                                                      >
+                                                        Monthly Tenant Contribution 
+                                                      </label>
+                                                      <input
+                                                        className=""
+                                                        id="form-lease.monthly_tenant_contribution"
+                                                        name="lease.monthly_tenant_contribution"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
+                                                        placeholder="Enter Amount"
+                                                        value=""
+                                                      />
+                                                    </div>
+                                                  </Field>
+                                                </ReactFinalForm(Field)>
+                                              </FieldWrapper>
+                                            </div>
+                                          </Component>
+                                        </div>
+                                      </Component>
+                                    </div>
+                                  </LeaseInformationInputs>
+                                </ContextComponent>
+                              </div>
                             </Component>
                             <Component
                               description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
@@ -4112,7 +6675,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Number of Dependents 
                                                         </label>
                                                         <select
-                                                          className=""
+                                                          className="form-group"
                                                           id="demographics-dependents"
                                                           name="number_of_dependents"
                                                           onBlur={[Function]}
@@ -4267,7 +6830,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Number of Seniors 
                                                         </label>
                                                         <select
-                                                          className=""
+                                                          className="form-group"
                                                           id="demographics-seniors"
                                                           name="number_of_seniors"
                                                           onBlur={[Function]}
@@ -4428,7 +6991,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Number of Minors 
                                                         </label>
                                                         <select
-                                                          className=""
+                                                          className="form-group"
                                                           id="demographics-minors"
                                                           name="number_of_minors"
                                                           onBlur={[Function]}
@@ -4576,7 +7139,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Primary Applicant Marital Status 
                                                         </label>
                                                         <select
-                                                          className=""
+                                                          className="form-group"
                                                           id="demographics-marital-status"
                                                           name="applicant.marital_status"
                                                           onBlur={[Function]}
@@ -4738,7 +7301,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "id": "a0o0x000000OcOzAAK",
                                       "is_first_time_homebuyer": undefined,
                                       "is_lottery_complete": false,
-                                      "lease": undefined,
+                                      "lease": Object {},
                                       "lending_agent": undefined,
                                       "listing": Object {
                                         "account": Object {},
@@ -5172,7 +7735,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "id": "a0o0x000000OcOzAAK",
                                   "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
-                                  "lease": undefined,
+                                  "lease": Object {},
                                   "lending_agent": undefined,
                                   "listing": Object {
                                     "account": Object {},
