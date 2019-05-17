@@ -14,7 +14,7 @@ import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
-// import RentalAssistance from './sections/RentalAssistance'
+import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate from '~/utils/form/validations'
@@ -84,7 +84,7 @@ const LeaseInformationSection = ({form}) => {
       <ContentSection.Sub
         title='Rental Assistance Information'
         description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-        {/* <RentalAssistance /> */}
+        <RentalAssistance form={form} />
       </ContentSection.Sub>
       <ContentSection.Sub title='Demographics'>
         <DemographicsInputs />
