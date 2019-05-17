@@ -17,6 +17,7 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import validate from '~/utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -171,6 +172,7 @@ class SupplementalApplicationContainer extends React.Component {
       <Form
         onSubmit={onSubmit}
         initialValues={application}
+        validate={this.validateForm}
         mutators={{
           ...arrayMutators
         }}
