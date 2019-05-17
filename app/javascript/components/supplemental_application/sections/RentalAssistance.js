@@ -13,6 +13,7 @@ import YesNoRadioGroup from '../YesNoRadioGroup'
 import formUtils from '~/utils/formUtils'
 import { withField, Field } from '~/utils/form/Field'
 import validate from '~/utils/form/validations'
+import { FieldWrapper, SelectField, YesNoRadioField } from '~/utils/form/final_form/Field'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -61,8 +62,8 @@ class RentalAssistanceTable extends React.Component {
       <ExpanderButton label='Edit' onClick={handleEdit} />))
   }
 
-  expandedRowRenderer = (row, toggle, original) => {
-    return <Panel toggle={toggle} rentalAssistance={original} />
+  expandedRowRenderer = (row, toggle, original, form) => {
+    return <Panel toggle={toggle} rentalAssistance={original} form={form} />
   }
 
   buildRows = () => this.props.rentalAssistances.map(ra => {
@@ -95,7 +96,7 @@ class RentalAssistanceTable extends React.Component {
   }
 }
 
-const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
+const Panel = withContext(({ idx, rentalAssistance, toggle, store, form }) => {
   const {
     handleUpdateRentalAssistance,
     handleDeleteRentalAssistance,
@@ -128,6 +129,7 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
         onDelete={onDelete}
         applicationMembers={applicationMembers}
         loading={rentalAssistanceLoading}
+        form={form}
       />
     </ExpandablePanel>
   )
@@ -142,7 +144,7 @@ const validateError = (values) => {
   }
 }
 
-const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
+const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, form }) => {
   const applicationMembersOptions = applicationMembers.map(member => (
     {
       label: `${member.first_name} ${member.last_name}`,
@@ -151,8 +153,17 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
   ))
 
   return (
-    <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
-      {formApi => (
+    <Form
+    onSubmit={onSave}
+    initialValues={form.getState().values['rental_assistance']}
+    validate={this.validateForm}
+    mutators={{
+      ...arrayMutators
+    }}
+    render={({ handleSubmit, form }) => (
+      <form onSubmit={handleSubmit} noValidate>
+    {/* // <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
+    //   {formApi => ( */}
         <div className={classNames(
           'app-editable expand-wide scrollable-table-nested',
           {
@@ -162,18 +173,17 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
         )}>
           <FormGrid.Row expand={false}>
             <FormGrid.Item>
-              <Field.Select
+              <SelectField
                 label='Type of Assistance'
-                field='type_of_assistance'
+                fieldName='rental_assistance.type_of_assistance'
                 options={typeOfAssistanceOptions}
                 className='rental-assistance-type'
-                errorMessage={(label, error) => error}
               />
             </FormGrid.Item>
             <FormGrid.Item>
-              <YesNoRadioGroupField
+              <YesNoRadioField
                 label='Recurring Assistance'
-                field='recurring_assistance'
+                fieldName='recurring_assistance'
                 uniqId={(!isEmpty(values) && values.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
@@ -181,16 +191,15 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
               />
             </FormGrid.Item>
             <FormGrid.Item>
-              <Field.Text
+              <FieldWrapper
                 label='Assistance Amount'
-                field='assistance_amount'
-                errorMessage={(label, error) => error}
+                fieldName='assistance_amount'
               />
             </FormGrid.Item>
             <FormGrid.Item>
-              <Field.Select
+              <SelectField
                 label='Recipient'
-                field='recipient'
+                fieldName='recipient'
                 options={applicationMembersOptions}
                 className='rental-assistance-recipient'
               />
@@ -199,9 +208,9 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
           {isOther(formApi.values) && (
             <FormGrid.Row expand={false}>
               <FormGrid.Item>
-                <Field.Text
+                <FieldWrapper
                   label='Other Assistance Name'
-                  field='other_assistance_name' />
+                  fieldName='other_assistance_name' />
               </FormGrid.Item>
             </FormGrid.Row>
           )}
@@ -210,7 +219,7 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
               <button
                 className='button primary tiny margin-right margin-bottom-none'
                 type='button'
-                onClick={formApi.submitForm}
+                onClick={form.submit()}
                 disabled={loading}>
                 Save
               </button>
@@ -233,12 +242,12 @@ const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, application
             </div>
           </FormGrid.Row>
         </div>
-      )}
-    </Form>
+      {/* // )}
+    // </Form> */}
   )
 }
 
-const RentalAssistance = ({ store }) => {
+const RentalAssistance = ({ store, form }) => {
   const {
     rentalAssistances,
     applicationMembers,
@@ -267,6 +276,7 @@ const RentalAssistance = ({ store }) => {
           onClose={handleCloseRentalAssistancePanel}
           applicationMembers={applicationMembers}
           loading={rentalAssistanceLoading}
+          form={form}
           isNew
         />
       )}
