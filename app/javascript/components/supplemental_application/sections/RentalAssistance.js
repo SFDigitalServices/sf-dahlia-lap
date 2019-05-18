@@ -123,7 +123,6 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store, form }) => {
         onDelete={onDelete}
         applicationMembers={applicationMembers}
         loading={rentalAssistanceLoading}
-        form={form}
       />
     </ExpandablePanel>
   )
