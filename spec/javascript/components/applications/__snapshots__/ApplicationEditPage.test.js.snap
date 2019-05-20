@@ -74,32 +74,34 @@ Array [
                       <select
                         className=""
                         id="application_language"
+                        name="application_language"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value={1}
+                        onFocus={[Function]}
+                        value="English"
                       >
                         <option
-                          value={0}
+                          value=""
                         >
                           Select One...
                         </option>
                         <option
-                          value={1}
+                          value="English"
                         >
                           English
                         </option>
                         <option
-                          value={2}
+                          value="Chinese"
                         >
                           Chinese
                         </option>
                         <option
-                          value={3}
+                          value="Spanish"
                         >
                           Spanish
                         </option>
                         <option
-                          value={4}
+                          value="Filipino"
                         >
                           Filipino
                         </option>
@@ -145,8 +147,11 @@ Array [
                           className=""
                           id="first_name"
                           maxLength={40}
+                          name="applicant.first_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="karen"
                         />
                       </div>
@@ -154,15 +159,27 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Middle Name
-                      </label>
-                      <input
-                        maxLength={20}
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="elizabeth"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="middle_name"
+                        >
+                          Middle Name 
+                        </label>
+                        <input
+                          className=""
+                          id="middle_name"
+                          maxLength={20}
+                          name="applicant.middle_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
+                          value="elizabeth"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
@@ -185,8 +202,11 @@ Array [
                           className=""
                           id="last_name"
                           maxLength={40}
+                          name="applicant.last_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="jones"
                         />
                       </div>
@@ -212,8 +232,11 @@ Array [
                         className=""
                         id="email"
                         maxLength={40}
+                        name="applicant.email"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
                         value="eee@eeee.com"
                       />
                     </div>
@@ -221,48 +244,71 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Primary Phone Number
-                    </label>
-                    <input
-                      maxLength={40}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="9548883321"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="phone"
+                      >
+                        Primary Phone Number 
+                      </label>
+                      <input
+                        className=""
+                        id="phone"
+                        maxLength={40}
+                        name="applicant.phone"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="9548883321"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Primary Phone Number- Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={2}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="phone_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Primary Phone Number- Type 
+                      </label>
+                      <select
+                        className=""
+                        id="phone_type"
+                        name="applicant.phone_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Cell"
                       >
-                        Home
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Cell
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Work
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Home"
+                        >
+                          Home
+                        </option>
+                        <option
+                          value="Cell"
+                        >
+                          Cell
+                        </option>
+                        <option
+                          value="Work"
+                        >
+                          Work
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -292,10 +338,12 @@ Array [
                           className=""
                           id="date_of_birth_month"
                           maxLength={2}
+                          name="applicant.date_of_birth.month"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          pattern="\\\\d*"
+                          onFocus={[Function]}
                           placeholder="MM"
+                          type="text"
                           value="01"
                         />
                       </div>
@@ -306,10 +354,12 @@ Array [
                           className=""
                           id="date_of_birth_day"
                           maxLength={2}
+                          name="applicant.date_of_birth.day"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          pattern="\\\\d*"
+                          onFocus={[Function]}
                           placeholder="DD"
+                          type="text"
                           value="01"
                         />
                       </div>
@@ -320,10 +370,12 @@ Array [
                           className=""
                           id="date_of_birth_year"
                           maxLength={4}
+                          name="applicant.date_of_birth.year"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          pattern="\\\\d*"
+                          onFocus={[Function]}
                           placeholder="YYYY"
+                          type="text"
                           value="1950"
                         />
                       </div>
@@ -335,48 +387,71 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Second Phone Number
-                    </label>
-                    <input
-                      maxLength={40}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="second_phone"
+                      >
+                        Second Phone Number 
+                      </label>
+                      <input
+                        className=""
+                        id="second_phone"
+                        maxLength={40}
+                        name="applicant.second_phone"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value=""
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Second Phone Number- Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={0}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="second_phone_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Second Phone Number- Type 
+                      </label>
+                      <select
+                        className=""
+                        id="second_phone_type"
+                        name="applicant.second_phone_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value=""
                       >
-                        Home
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Cell
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Work
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Home"
+                        >
+                          Home
+                        </option>
+                        <option
+                          value="Cell"
+                        >
+                          Cell
+                        </option>
+                        <option
+                          value="Work"
+                        >
+                          Work
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -396,54 +471,102 @@ Array [
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Street Address
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="123 MAIN ST"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.street"
+                          >
+                            Street Address 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.street"
+                            maxLength={75}
+                            name="applicant.street"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="123 MAIN ST"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          City
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="SAN FRANCISCO"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.city"
+                          >
+                            City 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.city"
+                            maxLength={75}
+                            name="applicant.city"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="SAN FRANCISCO"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          State
-                        </label>
-                        <input
-                          maxLength={2}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="CA"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.state"
+                          >
+                            State 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.state"
+                            maxLength={2}
+                            name="applicant.state"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="CA"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Zip
-                        </label>
-                        <input
-                          maxLength={15}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="94105-1804"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.zip_code"
+                          >
+                            Zip 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.zip_code"
+                            maxLength={15}
+                            name="applicant.zip_code"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="94105-1804"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -465,54 +588,102 @@ Array [
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Street Address
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="123 Mailing St"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_street"
+                          >
+                            Street Address 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_street"
+                            maxLength={75}
+                            name="applicant.mailing_street"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="123 Mailing St"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          City
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="SF Mailing"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_city"
+                          >
+                            City 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_city"
+                            maxLength={75}
+                            name="applicant.mailing_city"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="SF Mailing"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          State
-                        </label>
-                        <input
-                          maxLength={2}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="CA"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_state"
+                          >
+                            State 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_state"
+                            maxLength={2}
+                            name="applicant.mailing_state"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="CA"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Zip
-                        </label>
-                        <input
-                          maxLength={15}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="94105-1804"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_zip_code"
+                          >
+                            Zip 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_zip_code"
+                            maxLength={15}
+                            name="applicant.mailing_zip_code"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="94105-1804"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -542,7 +713,7 @@ Array [
                       >
                         <label
                           className="form-label"
-                          htmlFor="first_name"
+                          htmlFor="alt_first_name"
                         >
                           First Name 
                         </label>
@@ -550,8 +721,11 @@ Array [
                           className=""
                           id="alt_first_name"
                           maxLength={40}
+                          name="alternate_contact.first_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="Federic"
                         />
                       </div>
@@ -564,7 +738,7 @@ Array [
                       >
                         <label
                           className="form-label"
-                          htmlFor="middle_name"
+                          htmlFor="alt_middle_name"
                         >
                           Middle Name 
                         </label>
@@ -572,8 +746,11 @@ Array [
                           className=""
                           id="alt_middle_name"
                           maxLength={20}
+                          name="alternate_contact.middle_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="Daaaa"
                         />
                       </div>
@@ -586,7 +763,7 @@ Array [
                       >
                         <label
                           className="form-label"
-                          htmlFor="last_name"
+                          htmlFor="alt_last_name"
                         >
                           Last Name 
                         </label>
@@ -594,8 +771,11 @@ Array [
                           className=""
                           id="alt_last_name"
                           maxLength={40}
+                          name="alternate_contact.last_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="dayan"
                         />
                       </div>
@@ -608,40 +788,51 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Alternate Contact Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={2}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-alternate_contact.alternate_contact_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Alternate Contact Type 
+                      </label>
+                      <select
+                        className=""
+                        id="form-alternate_contact.alternate_contact_type"
+                        name="alternate_contact.alternate_contact_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Friend"
                       >
-                        Family Member
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Friend
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Social Worker or Housing Counselor
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Other
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Family Member"
+                        >
+                          Family Member
+                        </option>
+                        <option
+                          value="Friend"
+                        >
+                          Friend
+                        </option>
+                        <option
+                          value="Social Worker or Housing Counselor"
+                        >
+                          Social Worker or Housing Counselor
+                        </option>
+                        <option
+                          value="Other"
+                        >
+                          Other
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -649,12 +840,21 @@ Array [
                     <label>
                       Alternate Contact Type Other
                     </label>
-                    <input
-                      maxLength={200}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className=""
+                    >
+                      <input
+                        className=""
+                        id="form-alternate_contact.alternate_contact_type_other"
+                        maxLength={200}
+                        name="alternate_contact.alternate_contact_type_other"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value=""
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -662,12 +862,21 @@ Array [
                     <label>
                       Agency (if applicable)
                     </label>
-                    <input
-                      maxLength={250}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className=""
+                    >
+                      <input
+                        className=""
+                        id="form-alternate_contact.agency_name"
+                        maxLength={250}
+                        name="alternate_contact.agency_name"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value=""
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -689,8 +898,11 @@ Array [
                         className=""
                         id="email"
                         maxLength={40}
+                        name="alternate_contact.email"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
                         value="fede@eee.com"
                       />
                     </div>
@@ -698,48 +910,71 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Phone
-                    </label>
-                    <input
-                      maxLength={40}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="9954449943"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-alternate_contact.phone"
+                      >
+                        Phone 
+                      </label>
+                      <input
+                        className=""
+                        id="form-alternate_contact.phone"
+                        maxLength={40}
+                        name="alternate_contact.phone"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="9954449943"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Phone Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={2}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-alternate_contact.phone_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Phone Type 
+                      </label>
+                      <select
+                        className=""
+                        id="form-alternate_contact.phone_type"
+                        name="alternate_contact.phone_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Cell"
                       >
-                        Home
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Cell
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Work
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Home"
+                        >
+                          Home
+                        </option>
+                        <option
+                          value="Cell"
+                        >
+                          Cell
+                        </option>
+                        <option
+                          value="Work"
+                        >
+                          Work
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -759,54 +994,102 @@ Array [
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Street Address
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="123 Alternate Mailing St"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_street"
+                          >
+                            Street Address 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_street"
+                            maxLength={75}
+                            name="alternate_contact.mailing_street"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="123 Alternate Mailing St"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          City
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="SF Mailing"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_city"
+                          >
+                            City 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_city"
+                            maxLength={75}
+                            name="alternate_contact.mailing_city"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="SF Mailing"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          State
-                        </label>
-                        <input
-                          maxLength={2}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="CA"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_state"
+                          >
+                            State 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_state"
+                            maxLength={2}
+                            name="alternate_contact.mailing_state"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="CA"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Zip
-                        </label>
-                        <input
-                          maxLength={15}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="94105-1804"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_zip_code"
+                          >
+                            Zip 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_zip_code"
+                            maxLength={15}
+                            name="alternate_contact.mailing_zip_code"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="94105-1804"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -822,9 +1105,7 @@ Array [
                     Household Members
                   </h3>
                 </div>
-                <div
-                  className="border-bottom margin-bottom--2x"
-                >
+                <div>
                   <div>
                     <div
                       className="row"
@@ -840,7 +1121,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.first_name"
+                              htmlFor="household_members_0_first_name"
                             >
                               First Name 
                               <span
@@ -853,8 +1134,11 @@ Array [
                               className=""
                               id="household_members_0_first_name"
                               maxLength={40}
+                              name="household_members[0].first_name"
                               onBlur={[Function]}
                               onChange={[Function]}
+                              onFocus={[Function]}
+                              type="text"
                               value="diego"
                             />
                           </div>
@@ -867,7 +1151,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.middle_name"
+                              htmlFor="household_members_0_middle_name"
                             >
                               Middle Name 
                             </label>
@@ -875,8 +1159,11 @@ Array [
                               className=""
                               id="household_members_0_middle_name"
                               maxLength={20}
+                              name="household_members[0].middle_name"
                               onBlur={[Function]}
                               onChange={[Function]}
+                              onFocus={[Function]}
+                              type="text"
                               value="m"
                             />
                           </div>
@@ -889,7 +1176,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.last_name"
+                              htmlFor="household_members_0_last_name"
                             >
                               Last Name 
                               <span
@@ -902,8 +1189,11 @@ Array [
                               className=""
                               id="household_members_0_last_name"
                               maxLength={40}
+                              name="household_members[0].last_name"
                               onBlur={[Function]}
                               onChange={[Function]}
+                              onFocus={[Function]}
+                              type="text"
                               value="maradona"
                             />
                           </div>
@@ -916,7 +1206,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.date_of_birth"
+                              htmlFor="household_members_0_date_of_birth"
                             >
                               Date of Birth 
                               <span
@@ -932,10 +1222,12 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_month"
                                 maxLength={2}
+                                name="household_members[0].date_of_birth.month"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                pattern="\\\\d*"
+                                onFocus={[Function]}
                                 placeholder="MM"
+                                type="text"
                                 value="06"
                               />
                             </div>
@@ -946,10 +1238,12 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_day"
                                 maxLength={2}
+                                name="household_members[0].date_of_birth.day"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                pattern="\\\\d*"
+                                onFocus={[Function]}
                                 placeholder="DD"
+                                type="text"
                                 value="11"
                               />
                             </div>
@@ -960,10 +1254,12 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_year"
                                 maxLength={4}
+                                name="household_members[0].date_of_birth.year"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                pattern="\\\\d*"
+                                onFocus={[Function]}
                                 placeholder="YYYY"
+                                type="text"
                                 value="1976"
                               />
                             </div>
@@ -995,54 +1291,102 @@ Array [
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  Street Address
-                                </label>
-                                <input
-                                  maxLength={75}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="9 de julio"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].street"
+                                  >
+                                    Street Address 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].street"
+                                    maxLength={75}
+                                    name="household_members[0].street"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="9 de julio"
+                                  />
+                                </div>
                               </div>
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  City
-                                </label>
-                                <input
-                                  maxLength={75}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="buenos aires"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].city"
+                                  >
+                                    City 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].city"
+                                    maxLength={75}
+                                    name="household_members[0].city"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="buenos aires"
+                                  />
+                                </div>
                               </div>
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  State
-                                </label>
-                                <input
-                                  maxLength={2}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="fl"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].state"
+                                  >
+                                    State 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].state"
+                                    maxLength={2}
+                                    name="household_members[0].state"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="fl"
+                                  />
+                                </div>
                               </div>
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  Zip
-                                </label>
-                                <input
-                                  maxLength={15}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="33026"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].zip_code"
+                                  >
+                                    Zip 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].zip_code"
+                                    maxLength={15}
+                                    name="household_members[0].zip_code"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="33026"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1060,94 +1404,96 @@ Array [
                         >
                           <label
                             className="form-label"
-                            htmlFor="household_members.0.relationship_to_applicant"
+                            htmlFor="household_members_0_relationship_to_applicant"
                           >
                             Relationship to Applicant 
                           </label>
                           <select
                             className=""
                             id="household_members_0_relationship_to_applicant"
+                            name="household_members[0].relationship_to_applicant"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            value={4}
+                            onFocus={[Function]}
+                            value="Child"
                           >
                             <option
-                              value={0}
+                              value=""
                             >
                               Select One...
                             </option>
                             <option
-                              value={1}
+                              value="Spouse"
                             >
                               Spouse
                             </option>
                             <option
-                              value={2}
+                              value="Registered Domestic Partner"
                             >
                               Registered Domestic Partner
                             </option>
                             <option
-                              value={3}
+                              value="Parent"
                             >
                               Parent
                             </option>
                             <option
-                              value={4}
+                              value="Child"
                             >
                               Child
                             </option>
                             <option
-                              value={5}
+                              value="Sibling"
                             >
                               Sibling
                             </option>
                             <option
-                              value={6}
+                              value="Cousin"
                             >
                               Cousin
                             </option>
                             <option
-                              value={7}
+                              value="Aunt"
                             >
                               Aunt
                             </option>
                             <option
-                              value={8}
+                              value="Uncle"
                             >
                               Uncle
                             </option>
                             <option
-                              value={9}
+                              value="Nephew"
                             >
                               Nephew
                             </option>
                             <option
-                              value={10}
+                              value="Niece"
                             >
                               Niece
                             </option>
                             <option
-                              value={11}
+                              value="Grandparent"
                             >
                               Grandparent
                             </option>
                             <option
-                              value={12}
+                              value="Great Grandparent"
                             >
                               Great Grandparent
                             </option>
                             <option
-                              value={13}
+                              value="In-Law"
                             >
                               In-Law
                             </option>
                             <option
-                              value={14}
+                              value="Friend"
                             >
                               Friend
                             </option>
                             <option
-                              value={15}
+                              value="Other"
                             >
                               Other
                             </option>
@@ -1156,25 +1502,13 @@ Array [
                       </div>
                     </div>
                   </div>
-                  <div
-                    className="row"
+                  <button
+                    className="mb-4 btn btn-danger"
+                    onClick={[Function]}
+                    type="button"
                   >
-                    <div
-                      className="form-group"
-                    >
-                      <div
-                        className="small-4 columns"
-                      >
-                        <button
-                          className="mb-4 btn btn-danger"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                    Remove
+                  </button>
                 </div>
                 <div
                   className="row"
@@ -1232,19 +1566,27 @@ Array [
                           <div
                             className="checkbox"
                           >
-                            <input
-                              checked={true}
-                              id="adaPrioritiesSelected-0"
-                              name="adaPrioritiesSelected"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <label
-                              htmlFor="adaPrioritiesSelected-0"
+                            <div
+                              className="form-group"
                             >
-                              Mobility impairments
-                            </label>
+                              <input
+                                checked={true}
+                                className=""
+                                id="form-has_ada_priorities_selected.mobility_impairments"
+                                name="has_ada_priorities_selected.mobility_impairments"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                                value={true}
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                              >
+                                Mobility impairments 
+                              </label>
+                            </div>
                           </div>
                         </div>
                         <div
@@ -1253,19 +1595,27 @@ Array [
                           <div
                             className="checkbox"
                           >
-                            <input
-                              checked={true}
-                              id="adaPrioritiesSelected-1"
-                              name="adaPrioritiesSelected"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <label
-                              htmlFor="adaPrioritiesSelected-1"
+                            <div
+                              className="form-group"
                             >
-                              Vision impairments
-                            </label>
+                              <input
+                                checked={true}
+                                className=""
+                                id="form-has_ada_priorities_selected.vision_impairments"
+                                name="has_ada_priorities_selected.vision_impairments"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                                value={true}
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                              >
+                                Vision impairments 
+                              </label>
+                            </div>
                           </div>
                         </div>
                         <div
@@ -1274,19 +1624,27 @@ Array [
                           <div
                             className="checkbox"
                           >
-                            <input
-                              checked={true}
-                              id="adaPrioritiesSelected-2"
-                              name="adaPrioritiesSelected"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <label
-                              htmlFor="adaPrioritiesSelected-2"
+                            <div
+                              className="form-group"
                             >
-                              Hearing impairments
-                            </label>
+                              <input
+                                checked={true}
+                                className=""
+                                id="form-has_ada_priorities_selected.hearing_impairments"
+                                name="has_ada_priorities_selected.hearing_impairments"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                                value={true}
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                              >
+                                Hearing impairments 
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1300,6 +1658,69 @@ Array [
                 <h3>
                   Preferences
                 </h3>
+                <div
+                  className="border-bottom margin-bottom--2x"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <div
+                      className="row "
+                    >
+                      <div
+                        className="columns small-6  "
+                      >
+                        <label>
+                          Preference
+                        </label>
+                        <div
+                          className="form-group"
+                        >
+                          <select
+                            className=""
+                            id="select-paper-preference-0"
+                            name="preferences[0].listing_preference_id"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            value=""
+                          >
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="a0l0P00001JEWXZQA5"
+                            >
+                              Certificate of Preference (COP)
+                            </option>
+                            <option
+                              value="a0l0x000000RI8nAAG"
+                            >
+                              Alice Griffith Housing Development Resident
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row "
+                    >
+                      <div
+                        className="columns small-4  "
+                      >
+                        <button
+                          className="mb-4 btn btn-danger"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="row"
                 >
@@ -1347,8 +1768,11 @@ Array [
                         className=""
                         id="annual_income"
                         maxLength={16}
+                        name="annual_income"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
                         value={110000}
                       />
                     </div>
@@ -1356,35 +1780,46 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Housing Voucher/ Subsidy
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={1}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-housing_voucher_or_subsidy"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Housing Voucher/ Subsidy 
+                      </label>
+                      <select
+                        className=""
+                        id="form-housing_voucher_or_subsidy"
+                        name="housing_voucher_or_subsidy"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="true"
                       >
-                        True
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        False
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Left Blank
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="true"
+                        >
+                          True
+                        </option>
+                        <option
+                          value="false"
+                        >
+                          False
+                        </option>
+                        <option
+                          value="Left Blank"
+                        >
+                          Left Blank
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1400,235 +1835,303 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Ethnicity
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={3}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.ethnicity"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Ethnicity 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.ethnicity"
+                        name="demographics.ethnicity"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
                       >
-                        Hispanic/Latino
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Not Hispanic/Latino
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Hispanic/Latino"
+                        >
+                          Hispanic/Latino
+                        </option>
+                        <option
+                          value="Not Hispanic/Latino"
+                        >
+                          Not Hispanic/Latino
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Race
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={11}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.race"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Race 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.race"
+                        name="demographics.race"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
                       >
-                        American Indian/Alaskan Native
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Asian
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Black/African American
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Native Hawaiian/Other Pacific Islander
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        White
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        American Indian/Alaskan Native and Black/African American
-                      </option>
-                      <option
-                        value={7}
-                      >
-                        American Indian/Alaskan Native and White
-                      </option>
-                      <option
-                        value={8}
-                      >
-                        Asian and White
-                      </option>
-                      <option
-                        value={9}
-                      >
-                        Black/African American and White
-                      </option>
-                      <option
-                        value={10}
-                      >
-                        Other/Multiracial
-                      </option>
-                      <option
-                        value={11}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="American Indian/Alaskan Native"
+                        >
+                          American Indian/Alaskan Native
+                        </option>
+                        <option
+                          value="Asian"
+                        >
+                          Asian
+                        </option>
+                        <option
+                          value="Black/African American"
+                        >
+                          Black/African American
+                        </option>
+                        <option
+                          value="Native Hawaiian/Other Pacific Islander"
+                        >
+                          Native Hawaiian/Other Pacific Islander
+                        </option>
+                        <option
+                          value="White"
+                        >
+                          White
+                        </option>
+                        <option
+                          value="American Indian/Alaskan Native and Black/African American"
+                        >
+                          American Indian/Alaskan Native and Black/African American
+                        </option>
+                        <option
+                          value="American Indian/Alaskan Native and White"
+                        >
+                          American Indian/Alaskan Native and White
+                        </option>
+                        <option
+                          value="Asian and White"
+                        >
+                          Asian and White
+                        </option>
+                        <option
+                          value="Black/African American and White"
+                        >
+                          Black/African American and White
+                        </option>
+                        <option
+                          value="Other/Multiracial"
+                        >
+                          Other/Multiracial
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Gender
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={7}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.gender"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Gender 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.gender"
+                        name="demographics.gender"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
                       >
-                        Female
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Male
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Genderqueer/Gender Non-binary
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Trans Female
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        Trans Male
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        Not Listed
-                      </option>
-                      <option
-                        value={7}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Female"
+                        >
+                          Female
+                        </option>
+                        <option
+                          value="Male"
+                        >
+                          Male
+                        </option>
+                        <option
+                          value="Genderqueer/Gender Non-binary"
+                        >
+                          Genderqueer/Gender Non-binary
+                        </option>
+                        <option
+                          value="Trans Female"
+                        >
+                          Trans Female
+                        </option>
+                        <option
+                          value="Trans Male"
+                        >
+                          Trans Male
+                        </option>
+                        <option
+                          value="Not Listed"
+                        >
+                          Not Listed
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Gender Specify (if not listed)
-                    </label>
-                    <input
-                      maxLength={100}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="gender other"
-                    />
-                  </div>
-                  <div
-                    className="small-6 columns"
-                  >
-                    <label>
-                      Sexual Orientation
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={6}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.gender_other"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
-                      >
-                        Bisexual
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Gay/Lesbian/Same-Gender Loving
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Questioning/Unsure
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Straight/Heterosexual
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        Not listed
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        Gender Specify (if not listed) 
+                      </label>
+                      <input
+                        className=""
+                        id="form-demographics.gender_other"
+                        maxLength={100}
+                        name="demographics.gender_other"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="gender other"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Sexual Orientation (if not listed)
-                    </label>
-                    <input
-                      maxLength={100}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="sexual orientation other"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.sexual_orientation"
+                      >
+                        Sexual Orientation 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.sexual_orientation"
+                        name="demographics.sexual_orientation"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
+                      >
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Bisexual"
+                        >
+                          Bisexual
+                        </option>
+                        <option
+                          value="Gay/Lesbian/Same-Gender Loving"
+                        >
+                          Gay/Lesbian/Same-Gender Loving
+                        </option>
+                        <option
+                          value="Questioning/Unsure"
+                        >
+                          Questioning/Unsure
+                        </option>
+                        <option
+                          value="Straight/Heterosexual"
+                        >
+                          Straight/Heterosexual
+                        </option>
+                        <option
+                          value="Not listed"
+                        >
+                          Not listed
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.sexual_orientation_other"
+                      >
+                        Sexual Orientation (if not listed) 
+                      </label>
+                      <input
+                        className=""
+                        id="form-demographics.sexual_orientation_other"
+                        maxLength={100}
+                        name="demographics.sexual_orientation_other"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="sexual orientation other"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1645,19 +2148,27 @@ Array [
                   <div
                     className="checkbox"
                   >
-                    <input
-                      checked={true}
-                      id="agreeToTerms"
-                      name="agreeToTerms"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="checkbox"
-                    />
-                    <label
-                      htmlFor="agreeToTerms"
+                    <div
+                      className="form-group"
                     >
-                      Signature on Terms of Agreement
-                    </label>
+                      <input
+                        checked={true}
+                        className=""
+                        id="agreeToTerms"
+                        name="terms_acknowledged"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="checkbox"
+                        value={true}
+                      />
+                      <label
+                        className="form-label"
+                        htmlFor="agreeToTerms"
+                      >
+                        Signature on Terms of Agreement 
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1778,32 +2289,34 @@ Array [
                       <select
                         className=""
                         id="application_language"
+                        name="application_language"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        value={1}
+                        onFocus={[Function]}
+                        value="English"
                       >
                         <option
-                          value={0}
+                          value=""
                         >
                           Select One...
                         </option>
                         <option
-                          value={1}
+                          value="English"
                         >
                           English
                         </option>
                         <option
-                          value={2}
+                          value="Chinese"
                         >
                           Chinese
                         </option>
                         <option
-                          value={3}
+                          value="Spanish"
                         >
                           Spanish
                         </option>
                         <option
-                          value={4}
+                          value="Filipino"
                         >
                           Filipino
                         </option>
@@ -1849,8 +2362,11 @@ Array [
                           className=""
                           id="first_name"
                           maxLength={40}
+                          name="applicant.first_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="karen"
                         />
                       </div>
@@ -1858,15 +2374,27 @@ Array [
                     <div
                       className="small-4 columns"
                     >
-                      <label>
-                        Middle Name
-                      </label>
-                      <input
-                        maxLength={20}
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="elizabeth"
-                      />
+                      <div
+                        className="form-group"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="middle_name"
+                        >
+                          Middle Name 
+                        </label>
+                        <input
+                          className=""
+                          id="middle_name"
+                          maxLength={20}
+                          name="applicant.middle_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
+                          value="elizabeth"
+                        />
+                      </div>
                     </div>
                     <div
                       className="small-4 columns"
@@ -1889,8 +2417,11 @@ Array [
                           className=""
                           id="last_name"
                           maxLength={40}
+                          name="applicant.last_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="jones"
                         />
                       </div>
@@ -1916,8 +2447,11 @@ Array [
                         className=""
                         id="email"
                         maxLength={40}
+                        name="applicant.email"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
                         value="eee@eeee.com"
                       />
                     </div>
@@ -1925,48 +2459,71 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Primary Phone Number
-                    </label>
-                    <input
-                      maxLength={40}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="9548883321"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="phone"
+                      >
+                        Primary Phone Number 
+                      </label>
+                      <input
+                        className=""
+                        id="phone"
+                        maxLength={40}
+                        name="applicant.phone"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="9548883321"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Primary Phone Number- Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={2}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="phone_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Primary Phone Number- Type 
+                      </label>
+                      <select
+                        className=""
+                        id="phone_type"
+                        name="applicant.phone_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Cell"
                       >
-                        Home
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Cell
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Work
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Home"
+                        >
+                          Home
+                        </option>
+                        <option
+                          value="Cell"
+                        >
+                          Cell
+                        </option>
+                        <option
+                          value="Work"
+                        >
+                          Work
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1996,10 +2553,12 @@ Array [
                           className=""
                           id="date_of_birth_month"
                           maxLength={2}
+                          name="applicant.date_of_birth.month"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          pattern="\\\\d*"
+                          onFocus={[Function]}
                           placeholder="MM"
+                          type="text"
                           value="01"
                         />
                       </div>
@@ -2010,10 +2569,12 @@ Array [
                           className=""
                           id="date_of_birth_day"
                           maxLength={2}
+                          name="applicant.date_of_birth.day"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          pattern="\\\\d*"
+                          onFocus={[Function]}
                           placeholder="DD"
+                          type="text"
                           value="01"
                         />
                       </div>
@@ -2024,10 +2585,12 @@ Array [
                           className=""
                           id="date_of_birth_year"
                           maxLength={4}
+                          name="applicant.date_of_birth.year"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          pattern="\\\\d*"
+                          onFocus={[Function]}
                           placeholder="YYYY"
+                          type="text"
                           value="1950"
                         />
                       </div>
@@ -2039,48 +2602,71 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Second Phone Number
-                    </label>
-                    <input
-                      maxLength={40}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="second_phone"
+                      >
+                        Second Phone Number 
+                      </label>
+                      <input
+                        className=""
+                        id="second_phone"
+                        maxLength={40}
+                        name="applicant.second_phone"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value=""
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Second Phone Number- Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={0}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="second_phone_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Second Phone Number- Type 
+                      </label>
+                      <select
+                        className=""
+                        id="second_phone_type"
+                        name="applicant.second_phone_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value=""
                       >
-                        Home
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Cell
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Work
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Home"
+                        >
+                          Home
+                        </option>
+                        <option
+                          value="Cell"
+                        >
+                          Cell
+                        </option>
+                        <option
+                          value="Work"
+                        >
+                          Work
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -2100,54 +2686,102 @@ Array [
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Street Address
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="123 MAIN ST"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.street"
+                          >
+                            Street Address 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.street"
+                            maxLength={75}
+                            name="applicant.street"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="123 MAIN ST"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          City
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="SAN FRANCISCO"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.city"
+                          >
+                            City 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.city"
+                            maxLength={75}
+                            name="applicant.city"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="SAN FRANCISCO"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          State
-                        </label>
-                        <input
-                          maxLength={2}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="CA"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.state"
+                          >
+                            State 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.state"
+                            maxLength={2}
+                            name="applicant.state"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="CA"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Zip
-                        </label>
-                        <input
-                          maxLength={15}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="94105-1804"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.zip_code"
+                          >
+                            Zip 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.zip_code"
+                            maxLength={15}
+                            name="applicant.zip_code"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="94105-1804"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2169,54 +2803,102 @@ Array [
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Street Address
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="123 Mailing St"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_street"
+                          >
+                            Street Address 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_street"
+                            maxLength={75}
+                            name="applicant.mailing_street"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="123 Mailing St"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          City
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="SF Mailing"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_city"
+                          >
+                            City 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_city"
+                            maxLength={75}
+                            name="applicant.mailing_city"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="SF Mailing"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          State
-                        </label>
-                        <input
-                          maxLength={2}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="CA"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_state"
+                          >
+                            State 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_state"
+                            maxLength={2}
+                            name="applicant.mailing_state"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="CA"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Zip
-                        </label>
-                        <input
-                          maxLength={15}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="94105-1804"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-applicant.mailing_zip_code"
+                          >
+                            Zip 
+                          </label>
+                          <input
+                            className=""
+                            id="form-applicant.mailing_zip_code"
+                            maxLength={15}
+                            name="applicant.mailing_zip_code"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="94105-1804"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2246,7 +2928,7 @@ Array [
                       >
                         <label
                           className="form-label"
-                          htmlFor="first_name"
+                          htmlFor="alt_first_name"
                         >
                           First Name 
                         </label>
@@ -2254,8 +2936,11 @@ Array [
                           className=""
                           id="alt_first_name"
                           maxLength={40}
+                          name="alternate_contact.first_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="Federic"
                         />
                       </div>
@@ -2268,7 +2953,7 @@ Array [
                       >
                         <label
                           className="form-label"
-                          htmlFor="middle_name"
+                          htmlFor="alt_middle_name"
                         >
                           Middle Name 
                         </label>
@@ -2276,8 +2961,11 @@ Array [
                           className=""
                           id="alt_middle_name"
                           maxLength={20}
+                          name="alternate_contact.middle_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="Daaaa"
                         />
                       </div>
@@ -2290,7 +2978,7 @@ Array [
                       >
                         <label
                           className="form-label"
-                          htmlFor="last_name"
+                          htmlFor="alt_last_name"
                         >
                           Last Name 
                         </label>
@@ -2298,8 +2986,11 @@ Array [
                           className=""
                           id="alt_last_name"
                           maxLength={40}
+                          name="alternate_contact.last_name"
                           onBlur={[Function]}
                           onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
                           value="dayan"
                         />
                       </div>
@@ -2312,40 +3003,51 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Alternate Contact Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={2}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-alternate_contact.alternate_contact_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Alternate Contact Type 
+                      </label>
+                      <select
+                        className=""
+                        id="form-alternate_contact.alternate_contact_type"
+                        name="alternate_contact.alternate_contact_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Friend"
                       >
-                        Family Member
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Friend
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Social Worker or Housing Counselor
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Other
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Family Member"
+                        >
+                          Family Member
+                        </option>
+                        <option
+                          value="Friend"
+                        >
+                          Friend
+                        </option>
+                        <option
+                          value="Social Worker or Housing Counselor"
+                        >
+                          Social Worker or Housing Counselor
+                        </option>
+                        <option
+                          value="Other"
+                        >
+                          Other
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -2353,12 +3055,21 @@ Array [
                     <label>
                       Alternate Contact Type Other
                     </label>
-                    <input
-                      maxLength={200}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className=""
+                    >
+                      <input
+                        className=""
+                        id="form-alternate_contact.alternate_contact_type_other"
+                        maxLength={200}
+                        name="alternate_contact.alternate_contact_type_other"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value=""
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
@@ -2366,12 +3077,21 @@ Array [
                     <label>
                       Agency (if applicable)
                     </label>
-                    <input
-                      maxLength={250}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value=""
-                    />
+                    <div
+                      className=""
+                    >
+                      <input
+                        className=""
+                        id="form-alternate_contact.agency_name"
+                        maxLength={250}
+                        name="alternate_contact.agency_name"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value=""
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -2393,8 +3113,11 @@ Array [
                         className=""
                         id="email"
                         maxLength={40}
+                        name="alternate_contact.email"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
                         value="fede@eee.com"
                       />
                     </div>
@@ -2402,48 +3125,71 @@ Array [
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Phone
-                    </label>
-                    <input
-                      maxLength={40}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="9954449943"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-alternate_contact.phone"
+                      >
+                        Phone 
+                      </label>
+                      <input
+                        className=""
+                        id="form-alternate_contact.phone"
+                        maxLength={40}
+                        name="alternate_contact.phone"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="9954449943"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-4 columns"
                   >
-                    <label>
-                      Phone Type
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={2}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-alternate_contact.phone_type"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Phone Type 
+                      </label>
+                      <select
+                        className=""
+                        id="form-alternate_contact.phone_type"
+                        name="alternate_contact.phone_type"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Cell"
                       >
-                        Home
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Cell
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Work
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Home"
+                        >
+                          Home
+                        </option>
+                        <option
+                          value="Cell"
+                        >
+                          Cell
+                        </option>
+                        <option
+                          value="Work"
+                        >
+                          Work
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -2463,54 +3209,102 @@ Array [
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Street Address
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="123 Alternate Mailing St"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_street"
+                          >
+                            Street Address 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_street"
+                            maxLength={75}
+                            name="alternate_contact.mailing_street"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="123 Alternate Mailing St"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          City
-                        </label>
-                        <input
-                          maxLength={75}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="SF Mailing"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_city"
+                          >
+                            City 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_city"
+                            maxLength={75}
+                            name="alternate_contact.mailing_city"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="SF Mailing"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          State
-                        </label>
-                        <input
-                          maxLength={2}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="CA"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_state"
+                          >
+                            State 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_state"
+                            maxLength={2}
+                            name="alternate_contact.mailing_state"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="CA"
+                          />
+                        </div>
                       </div>
                       <div
                         className="small-6 columns"
                       >
-                        <label>
-                          Zip
-                        </label>
-                        <input
-                          maxLength={15}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value="94105-1804"
-                        />
+                        <div
+                          className="form-group"
+                        >
+                          <label
+                            className="form-label"
+                            htmlFor="form-alternate_contact.mailing_zip_code"
+                          >
+                            Zip 
+                          </label>
+                          <input
+                            className=""
+                            id="form-alternate_contact.mailing_zip_code"
+                            maxLength={15}
+                            name="alternate_contact.mailing_zip_code"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="text"
+                            value="94105-1804"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2526,9 +3320,7 @@ Array [
                     Household Members
                   </h3>
                 </div>
-                <div
-                  className="border-bottom margin-bottom--2x"
-                >
+                <div>
                   <div>
                     <div
                       className="row"
@@ -2544,7 +3336,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.first_name"
+                              htmlFor="household_members_0_first_name"
                             >
                               First Name 
                               <span
@@ -2557,8 +3349,11 @@ Array [
                               className=""
                               id="household_members_0_first_name"
                               maxLength={40}
+                              name="household_members[0].first_name"
                               onBlur={[Function]}
                               onChange={[Function]}
+                              onFocus={[Function]}
+                              type="text"
                               value="diego"
                             />
                           </div>
@@ -2571,7 +3366,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.middle_name"
+                              htmlFor="household_members_0_middle_name"
                             >
                               Middle Name 
                             </label>
@@ -2579,8 +3374,11 @@ Array [
                               className=""
                               id="household_members_0_middle_name"
                               maxLength={20}
+                              name="household_members[0].middle_name"
                               onBlur={[Function]}
                               onChange={[Function]}
+                              onFocus={[Function]}
+                              type="text"
                               value="m"
                             />
                           </div>
@@ -2593,7 +3391,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.last_name"
+                              htmlFor="household_members_0_last_name"
                             >
                               Last Name 
                               <span
@@ -2606,8 +3404,11 @@ Array [
                               className=""
                               id="household_members_0_last_name"
                               maxLength={40}
+                              name="household_members[0].last_name"
                               onBlur={[Function]}
                               onChange={[Function]}
+                              onFocus={[Function]}
+                              type="text"
                               value="maradona"
                             />
                           </div>
@@ -2620,7 +3421,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="household_members.0.date_of_birth"
+                              htmlFor="household_members_0_date_of_birth"
                             >
                               Date of Birth 
                               <span
@@ -2636,10 +3437,12 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_month"
                                 maxLength={2}
+                                name="household_members[0].date_of_birth.month"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                pattern="\\\\d*"
+                                onFocus={[Function]}
                                 placeholder="MM"
+                                type="text"
                                 value="06"
                               />
                             </div>
@@ -2650,10 +3453,12 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_day"
                                 maxLength={2}
+                                name="household_members[0].date_of_birth.day"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                pattern="\\\\d*"
+                                onFocus={[Function]}
                                 placeholder="DD"
+                                type="text"
                                 value="11"
                               />
                             </div>
@@ -2664,10 +3469,12 @@ Array [
                                 className=""
                                 id="household_members_0_date_of_birth_year"
                                 maxLength={4}
+                                name="household_members[0].date_of_birth.year"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                pattern="\\\\d*"
+                                onFocus={[Function]}
                                 placeholder="YYYY"
+                                type="text"
                                 value="1976"
                               />
                             </div>
@@ -2699,54 +3506,102 @@ Array [
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  Street Address
-                                </label>
-                                <input
-                                  maxLength={75}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="9 de julio"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].street"
+                                  >
+                                    Street Address 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].street"
+                                    maxLength={75}
+                                    name="household_members[0].street"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="9 de julio"
+                                  />
+                                </div>
                               </div>
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  City
-                                </label>
-                                <input
-                                  maxLength={75}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="buenos aires"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].city"
+                                  >
+                                    City 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].city"
+                                    maxLength={75}
+                                    name="household_members[0].city"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="buenos aires"
+                                  />
+                                </div>
                               </div>
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  State
-                                </label>
-                                <input
-                                  maxLength={2}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="fl"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].state"
+                                  >
+                                    State 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].state"
+                                    maxLength={2}
+                                    name="household_members[0].state"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="fl"
+                                  />
+                                </div>
                               </div>
                               <div
                                 className="small-6 columns"
                               >
-                                <label>
-                                  Zip
-                                </label>
-                                <input
-                                  maxLength={15}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="33026"
-                                />
+                                <div
+                                  className="form-group"
+                                >
+                                  <label
+                                    className="form-label"
+                                    htmlFor="form-household_members[0].zip_code"
+                                  >
+                                    Zip 
+                                  </label>
+                                  <input
+                                    className=""
+                                    id="form-household_members[0].zip_code"
+                                    maxLength={15}
+                                    name="household_members[0].zip_code"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
+                                    value="33026"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2764,94 +3619,96 @@ Array [
                         >
                           <label
                             className="form-label"
-                            htmlFor="household_members.0.relationship_to_applicant"
+                            htmlFor="household_members_0_relationship_to_applicant"
                           >
                             Relationship to Applicant 
                           </label>
                           <select
                             className=""
                             id="household_members_0_relationship_to_applicant"
+                            name="household_members[0].relationship_to_applicant"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            value={4}
+                            onFocus={[Function]}
+                            value="Child"
                           >
                             <option
-                              value={0}
+                              value=""
                             >
                               Select One...
                             </option>
                             <option
-                              value={1}
+                              value="Spouse"
                             >
                               Spouse
                             </option>
                             <option
-                              value={2}
+                              value="Registered Domestic Partner"
                             >
                               Registered Domestic Partner
                             </option>
                             <option
-                              value={3}
+                              value="Parent"
                             >
                               Parent
                             </option>
                             <option
-                              value={4}
+                              value="Child"
                             >
                               Child
                             </option>
                             <option
-                              value={5}
+                              value="Sibling"
                             >
                               Sibling
                             </option>
                             <option
-                              value={6}
+                              value="Cousin"
                             >
                               Cousin
                             </option>
                             <option
-                              value={7}
+                              value="Aunt"
                             >
                               Aunt
                             </option>
                             <option
-                              value={8}
+                              value="Uncle"
                             >
                               Uncle
                             </option>
                             <option
-                              value={9}
+                              value="Nephew"
                             >
                               Nephew
                             </option>
                             <option
-                              value={10}
+                              value="Niece"
                             >
                               Niece
                             </option>
                             <option
-                              value={11}
+                              value="Grandparent"
                             >
                               Grandparent
                             </option>
                             <option
-                              value={12}
+                              value="Great Grandparent"
                             >
                               Great Grandparent
                             </option>
                             <option
-                              value={13}
+                              value="In-Law"
                             >
                               In-Law
                             </option>
                             <option
-                              value={14}
+                              value="Friend"
                             >
                               Friend
                             </option>
                             <option
-                              value={15}
+                              value="Other"
                             >
                               Other
                             </option>
@@ -2860,25 +3717,13 @@ Array [
                       </div>
                     </div>
                   </div>
-                  <div
-                    className="row"
+                  <button
+                    className="mb-4 btn btn-danger"
+                    onClick={[Function]}
+                    type="button"
                   >
-                    <div
-                      className="form-group"
-                    >
-                      <div
-                        className="small-4 columns"
-                      >
-                        <button
-                          className="mb-4 btn btn-danger"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                    Remove
+                  </button>
                 </div>
                 <div
                   className="row"
@@ -2936,19 +3781,27 @@ Array [
                           <div
                             className="checkbox"
                           >
-                            <input
-                              checked={true}
-                              id="adaPrioritiesSelected-0"
-                              name="adaPrioritiesSelected"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <label
-                              htmlFor="adaPrioritiesSelected-0"
+                            <div
+                              className="form-group"
                             >
-                              Mobility impairments
-                            </label>
+                              <input
+                                checked={true}
+                                className=""
+                                id="form-has_ada_priorities_selected.mobility_impairments"
+                                name="has_ada_priorities_selected.mobility_impairments"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                                value={true}
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                              >
+                                Mobility impairments 
+                              </label>
+                            </div>
                           </div>
                         </div>
                         <div
@@ -2957,19 +3810,27 @@ Array [
                           <div
                             className="checkbox"
                           >
-                            <input
-                              checked={true}
-                              id="adaPrioritiesSelected-1"
-                              name="adaPrioritiesSelected"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <label
-                              htmlFor="adaPrioritiesSelected-1"
+                            <div
+                              className="form-group"
                             >
-                              Vision impairments
-                            </label>
+                              <input
+                                checked={true}
+                                className=""
+                                id="form-has_ada_priorities_selected.vision_impairments"
+                                name="has_ada_priorities_selected.vision_impairments"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                                value={true}
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                              >
+                                Vision impairments 
+                              </label>
+                            </div>
                           </div>
                         </div>
                         <div
@@ -2978,19 +3839,27 @@ Array [
                           <div
                             className="checkbox"
                           >
-                            <input
-                              checked={true}
-                              id="adaPrioritiesSelected-2"
-                              name="adaPrioritiesSelected"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <label
-                              htmlFor="adaPrioritiesSelected-2"
+                            <div
+                              className="form-group"
                             >
-                              Hearing impairments
-                            </label>
+                              <input
+                                checked={true}
+                                className=""
+                                id="form-has_ada_priorities_selected.hearing_impairments"
+                                name="has_ada_priorities_selected.hearing_impairments"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                                value={true}
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                              >
+                                Hearing impairments 
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -3019,29 +3888,35 @@ Array [
                         <label>
                           Preference
                         </label>
-                        <select
-                          id="select-paper-preference-0"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          value={2}
+                        <div
+                          className="form-group"
                         >
-                          <option
-                            disabled={true}
-                            value={0}
+                          <select
+                            className=""
+                            id="select-paper-preference-0"
+                            name="preferences[0].listing_preference_id"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            value="a0l0x000000RI8nAAG"
                           >
-                            Select One...
-                          </option>
-                          <option
-                            value={1}
-                          >
-                            Certificate of Preference (COP)
-                          </option>
-                          <option
-                            value={2}
-                          >
-                            Alice Griffith Housing Development Resident
-                          </option>
-                        </select>
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="a0l0P00001JEWXZQA5"
+                            >
+                              Certificate of Preference (COP)
+                            </option>
+                            <option
+                              value="a0l0x000000RI8nAAG"
+                            >
+                              Alice Griffith Housing Development Resident
+                            </option>
+                          </select>
+                        </div>
                       </div>
                       <div
                         className="columns   "
@@ -3057,7 +3932,7 @@ Array [
                             >
                               <label
                                 className="form-label"
-                                htmlFor="preferences.0.naturalKey"
+                                htmlFor="alice-griffith-hh-member-on-proof"
                               >
                                 HH Member on Proof 
                                 <span
@@ -3069,23 +3944,24 @@ Array [
                               <select
                                 className=""
                                 id="alice-griffith-hh-member-on-proof"
+                                name="preferences.0.naturalKey"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                value={0}
+                                onFocus={[Function]}
+                                value="Flagby,Email,1981-05-04"
                               >
                                 <option
-                                  disabled={true}
-                                  value={0}
+                                  value=""
                                 >
                                   Select One...
                                 </option>
                                 <option
-                                  value={1}
+                                  value="karen,jones,1950-01-01"
                                 >
                                   karen jones
                                 </option>
                                 <option
-                                  value={2}
+                                  value="diego,maradona,1976-06-11"
                                 >
                                   diego maradona
                                 </option>
@@ -3100,7 +3976,7 @@ Array [
                             >
                               <label
                                 className="form-label"
-                                htmlFor="preferences.0.type_of_proof"
+                                htmlFor="alice-griffith-type-of-proof"
                               >
                                 Type of Proof 
                                 <span
@@ -3112,48 +3988,49 @@ Array [
                               <select
                                 className=""
                                 id="alice-griffith-type-of-proof"
+                                name="preferences.0.type_of_proof"
                                 onBlur={[Function]}
                                 onChange={[Function]}
-                                value={0}
+                                onFocus={[Function]}
+                                value=""
                               >
                                 <option
-                                  disabled={true}
-                                  value={0}
+                                  value=""
                                 >
                                   Select One...
                                 </option>
                                 <option
-                                  value={1}
+                                  value="Letter from SFHA verifying address"
                                 >
                                   Letter from SFHA verifying address
                                 </option>
                                 <option
-                                  value={2}
+                                  value="CA ID or Driver's License"
                                 >
                                   CA ID or Driver's License
                                 </option>
                                 <option
-                                  value={3}
+                                  value="Telephone bill (landline only)"
                                 >
                                   Telephone bill (landline only)
                                 </option>
                                 <option
-                                  value={4}
+                                  value="Cable and internet bill"
                                 >
                                   Cable and internet bill
                                 </option>
                                 <option
-                                  value={5}
+                                  value="Paystub (listing home address)"
                                 >
                                   Paystub (listing home address)
                                 </option>
                                 <option
-                                  value={6}
+                                  value="Public benefits record"
                                 >
                                   Public benefits record
                                 </option>
                                 <option
-                                  value={7}
+                                  value="School record"
                                 >
                                   School record
                                 </option>
@@ -3172,7 +4049,7 @@ Array [
                             >
                               <label
                                 className="form-label"
-                                htmlFor="preferences.0.street"
+                                htmlFor="form-preferences.0.street"
                               >
                                 Alice Griffith Address 
                                 <span
@@ -3183,10 +4060,13 @@ Array [
                               </label>
                               <input
                                 className=""
-                                id="preferences.0.street"
+                                id="form-preferences.0.street"
                                 maxLength={75}
+                                name="preferences.0.street"
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                onFocus={[Function]}
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -3203,16 +4083,19 @@ Array [
                             >
                               <label
                                 className="form-label"
-                                htmlFor="preferences.0.city"
+                                htmlFor="form-preferences.0.city"
                               >
                                 City 
                               </label>
                               <input
                                 className=""
-                                id="preferences.0.city"
+                                id="form-preferences.0.city"
                                 maxLength={75}
+                                name="preferences.0.city"
                                 onBlur={[Function]}
                                 onChange={[Function]}
+                                onFocus={[Function]}
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -3231,16 +4114,19 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="preferences.0.state"
+                                    htmlFor="form-preferences.0.state"
                                   >
                                     State 
                                   </label>
                                   <input
                                     className=""
-                                    id="preferences.0.state"
+                                    id="form-preferences.0.state"
                                     maxLength={2}
+                                    name="preferences.0.state"
                                     onBlur={[Function]}
                                     onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
                                     value=""
                                   />
                                 </div>
@@ -3253,16 +4139,19 @@ Array [
                                 >
                                   <label
                                     className="form-label"
-                                    htmlFor="preferences.0.zip_code"
+                                    htmlFor="form-preferences.0.zip_code"
                                   >
                                     Zip 
                                   </label>
                                   <input
                                     className=""
-                                    id="preferences.0.zip_code"
+                                    id="form-preferences.0.zip_code"
                                     maxLength={15}
+                                    name="preferences.0.zip_code"
                                     onBlur={[Function]}
                                     onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="text"
                                     value=""
                                   />
                                 </div>
@@ -3342,8 +4231,11 @@ Array [
                         className=""
                         id="annual_income"
                         maxLength={16}
+                        name="annual_income"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
                         value={110000}
                       />
                     </div>
@@ -3351,35 +4243,46 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Housing Voucher/ Subsidy
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={1}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-housing_voucher_or_subsidy"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Housing Voucher/ Subsidy 
+                      </label>
+                      <select
+                        className=""
+                        id="form-housing_voucher_or_subsidy"
+                        name="housing_voucher_or_subsidy"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="true"
                       >
-                        True
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        False
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Left Blank
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="true"
+                        >
+                          True
+                        </option>
+                        <option
+                          value="false"
+                        >
+                          False
+                        </option>
+                        <option
+                          value="Left Blank"
+                        >
+                          Left Blank
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3395,235 +4298,303 @@ Array [
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Ethnicity
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={3}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.ethnicity"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Ethnicity 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.ethnicity"
+                        name="demographics.ethnicity"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
                       >
-                        Hispanic/Latino
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Not Hispanic/Latino
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Hispanic/Latino"
+                        >
+                          Hispanic/Latino
+                        </option>
+                        <option
+                          value="Not Hispanic/Latino"
+                        >
+                          Not Hispanic/Latino
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Race
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={11}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.race"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Race 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.race"
+                        name="demographics.race"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
                       >
-                        American Indian/Alaskan Native
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Asian
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Black/African American
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Native Hawaiian/Other Pacific Islander
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        White
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        American Indian/Alaskan Native and Black/African American
-                      </option>
-                      <option
-                        value={7}
-                      >
-                        American Indian/Alaskan Native and White
-                      </option>
-                      <option
-                        value={8}
-                      >
-                        Asian and White
-                      </option>
-                      <option
-                        value={9}
-                      >
-                        Black/African American and White
-                      </option>
-                      <option
-                        value={10}
-                      >
-                        Other/Multiracial
-                      </option>
-                      <option
-                        value={11}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="American Indian/Alaskan Native"
+                        >
+                          American Indian/Alaskan Native
+                        </option>
+                        <option
+                          value="Asian"
+                        >
+                          Asian
+                        </option>
+                        <option
+                          value="Black/African American"
+                        >
+                          Black/African American
+                        </option>
+                        <option
+                          value="Native Hawaiian/Other Pacific Islander"
+                        >
+                          Native Hawaiian/Other Pacific Islander
+                        </option>
+                        <option
+                          value="White"
+                        >
+                          White
+                        </option>
+                        <option
+                          value="American Indian/Alaskan Native and Black/African American"
+                        >
+                          American Indian/Alaskan Native and Black/African American
+                        </option>
+                        <option
+                          value="American Indian/Alaskan Native and White"
+                        >
+                          American Indian/Alaskan Native and White
+                        </option>
+                        <option
+                          value="Asian and White"
+                        >
+                          Asian and White
+                        </option>
+                        <option
+                          value="Black/African American and White"
+                        >
+                          Black/African American and White
+                        </option>
+                        <option
+                          value="Other/Multiracial"
+                        >
+                          Other/Multiracial
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Gender
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={7}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.gender"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
+                        Gender 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.gender"
+                        name="demographics.gender"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
                       >
-                        Female
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Male
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Genderqueer/Gender Non-binary
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Trans Female
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        Trans Male
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        Not Listed
-                      </option>
-                      <option
-                        value={7}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Female"
+                        >
+                          Female
+                        </option>
+                        <option
+                          value="Male"
+                        >
+                          Male
+                        </option>
+                        <option
+                          value="Genderqueer/Gender Non-binary"
+                        >
+                          Genderqueer/Gender Non-binary
+                        </option>
+                        <option
+                          value="Trans Female"
+                        >
+                          Trans Female
+                        </option>
+                        <option
+                          value="Trans Male"
+                        >
+                          Trans Male
+                        </option>
+                        <option
+                          value="Not Listed"
+                        >
+                          Not Listed
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Gender Specify (if not listed)
-                    </label>
-                    <input
-                      maxLength={100}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="gender other"
-                    />
-                  </div>
-                  <div
-                    className="small-6 columns"
-                  >
-                    <label>
-                      Sexual Orientation
-                    </label>
-                    <select
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value={6}
+                    <div
+                      className="form-group"
                     >
-                      <option
-                        value={0}
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.gender_other"
                       >
-                        Select One...
-                      </option>
-                      <option
-                        value={1}
-                      >
-                        Bisexual
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        Gay/Lesbian/Same-Gender Loving
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        Questioning/Unsure
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        Straight/Heterosexual
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        Not listed
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        Decline to state
-                      </option>
-                    </select>
+                        Gender Specify (if not listed) 
+                      </label>
+                      <input
+                        className=""
+                        id="form-demographics.gender_other"
+                        maxLength={100}
+                        name="demographics.gender_other"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="gender other"
+                      />
+                    </div>
                   </div>
                   <div
                     className="small-6 columns"
                   >
-                    <label>
-                      Sexual Orientation (if not listed)
-                    </label>
-                    <input
-                      maxLength={100}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      value="sexual orientation other"
-                    />
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.sexual_orientation"
+                      >
+                        Sexual Orientation 
+                      </label>
+                      <select
+                        className=""
+                        id="form-demographics.sexual_orientation"
+                        name="demographics.sexual_orientation"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="Decline to state"
+                      >
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
+                        <option
+                          value="Bisexual"
+                        >
+                          Bisexual
+                        </option>
+                        <option
+                          value="Gay/Lesbian/Same-Gender Loving"
+                        >
+                          Gay/Lesbian/Same-Gender Loving
+                        </option>
+                        <option
+                          value="Questioning/Unsure"
+                        >
+                          Questioning/Unsure
+                        </option>
+                        <option
+                          value="Straight/Heterosexual"
+                        >
+                          Straight/Heterosexual
+                        </option>
+                        <option
+                          value="Not listed"
+                        >
+                          Not listed
+                        </option>
+                        <option
+                          value="Decline to state"
+                        >
+                          Decline to state
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div
+                    className="small-6 columns"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-demographics.sexual_orientation_other"
+                      >
+                        Sexual Orientation (if not listed) 
+                      </label>
+                      <input
+                        className=""
+                        id="form-demographics.sexual_orientation_other"
+                        maxLength={100}
+                        name="demographics.sexual_orientation_other"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="text"
+                        value="sexual orientation other"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3640,19 +4611,27 @@ Array [
                   <div
                     className="checkbox"
                   >
-                    <input
-                      checked={true}
-                      id="agreeToTerms"
-                      name="agreeToTerms"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="checkbox"
-                    />
-                    <label
-                      htmlFor="agreeToTerms"
+                    <div
+                      className="form-group"
                     >
-                      Signature on Terms of Agreement
-                    </label>
+                      <input
+                        checked={true}
+                        className=""
+                        id="agreeToTerms"
+                        name="terms_acknowledged"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="checkbox"
+                        value={true}
+                      />
+                      <label
+                        className="form-label"
+                        htmlFor="agreeToTerms"
+                      >
+                        Signature on Terms of Agreement 
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>

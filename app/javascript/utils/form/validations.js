@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { compact, first, isEmpty, isNil, isString, mapValues, map } from 'lodash'
+import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -21,7 +21,7 @@ const validate = (rules, ifRules = null) => {
 /* Validations */
 
 const validates = (fun, message) => (value) => {
-  return fun(value) ? null : message
+  return fun(value) ? undefined : message
 }
 
 const decorateValidator = fn => message => validates(fn, message)
@@ -100,6 +100,28 @@ validate.any = (...fns) => (value) => {
   return first(
     compact(
       map(fns, fn => fn(value))))
+}
+
+validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
+  let errorMessage = 'Please enter a Date of Birth'
+  if (person && person.date_of_birth) {
+    const day = toInteger(person.date_of_birth.day)
+    const month = toInteger(person.date_of_birth.month)
+    const year = toInteger(person.date_of_birth.year)
+    let DOB = [year, month, day]
+    if (isPrimaryApplicant) {
+      errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(DOB)
+    } else {
+      errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'))(DOB)
+    }
+  }
+  errors.date_of_birth.all = errorMessage
+  // Required for red highlighting around inputs
+  errors.date_of_birth.day = errorMessage
+  errors.date_of_birth.month = errorMessage
+  errors.date_of_birth.year = errorMessage
+
+  return errors
 }
 
 export default validate

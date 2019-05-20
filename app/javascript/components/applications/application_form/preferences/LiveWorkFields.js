@@ -1,7 +1,8 @@
 import React from 'react'
 import formOptions from '../formOptions'
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
+import { SelectField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const {
   preferenceProofOptionsLiveSf,
@@ -23,31 +24,34 @@ const individualPreferenceOptions = [
   {value: 'Work in SF', label: 'Work in SF'}
 ]
 
-const LiveWorkFields = ({ i, householdMembers, shortFormPreference }) => {
+const LiveWorkFields = ({ i, householdMembers, individualPreference }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Household Member with Proof'
           blockNote='(required)'
-          field={buildFieldId(i, 'naturalKey')}
+          fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
+          validation={validate.isPresent('Household Member with Proof is required')}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Individual Preference'
           blockNote='(required)'
-          field={buildFieldId(i, 'individual_preference')}
+          fieldName={buildFieldId(i, 'individual_preference')}
           options={individualPreferenceOptions}
+          validation={validate.isPresent('Individual Preference is required')}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Type of Proof'
           blockNote='(required)'
-          field={buildFieldId(i, 'type_of_proof')}
-          options={getProofTypes(shortFormPreference.individual_preference)}
+          fieldName={buildFieldId(i, 'type_of_proof')}
+          options={getProofTypes(individualPreference)}
+          validation={validate.isPresent('Type of Proof is required')}
         />
       </div>
       <div className='small-12 columns'>

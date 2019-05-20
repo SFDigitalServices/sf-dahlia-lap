@@ -10,7 +10,7 @@ const domainApplication = {
   'applicant': {
     'id': 'applicant_id',
     'city': 'Berkeley',
-    'date_of_birth': ['1920', '1', '1'],
+    'date_of_birth': {year: '1920', month: '1', day: '1'},
     'email': 'test@test.com',
     'first_name': 'First',
     'last_name': 'Last',

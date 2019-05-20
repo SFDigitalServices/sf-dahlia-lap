@@ -1,7 +1,8 @@
 import React from 'react'
 import formOptions from '../formOptions'
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
+import { SelectField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const {
   preferenceProofOptionsNrhp
@@ -11,17 +12,19 @@ const AntiDisplacementFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
+        <SelectField
           label='Household Member with Proof'
           blockNote='(required)'
-          field={buildFieldId(i, 'naturalKey')}
+          fieldName={buildFieldId(i, 'naturalKey')}
           options={householdMembers}
+          validation={validate.isPresent('Household Member with Proof is required')}
         />
-        <Field.Select
+        <SelectField
           label='Type of Proof'
           blockNote='(required)'
-          field={buildFieldId(i, 'type_of_proof')}
+          fieldName={buildFieldId(i, 'type_of_proof')}
           options={preferenceProofOptionsNrhp}
+          validation={validate.isPresent('Type of Proof is required')}
         />
       </div>
       <div className='small-12 columns'>

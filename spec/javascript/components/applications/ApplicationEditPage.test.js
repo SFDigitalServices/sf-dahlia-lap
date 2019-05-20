@@ -8,6 +8,7 @@ import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import listing from '../../fixtures/listing'
 import application from '../../fixtures/application'
 import mockApplicationApiEditPayload from '../../fixtures/application_api_edit_payload'
+import lendingInstitutions from '../../fixtures/lending_institutions'
 
 const mockSubmitApplication = jest.fn()
 
@@ -26,6 +27,7 @@ describe('ApplicationEditPage', () => {
       <ApplicationEditPage
         listing={listing}
         application={application}
+        lendingInstitutions={lendingInstitutions}
         editPage />
     )
 
@@ -43,6 +45,7 @@ describe('ApplicationEditPage', () => {
         <ApplicationEditPage
           listing={listing}
           application={application}
+          lendingInstitutions={lendingInstitutions}
           editPage />
       )
 
@@ -66,6 +69,7 @@ describe('ApplicationEditPage', () => {
         <ApplicationEditPage
           listing={listing}
           application={application}
+          lendingInstitutions={lendingInstitutions}
           editPage />
       )
 

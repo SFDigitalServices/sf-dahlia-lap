@@ -1,8 +1,8 @@
 import React from 'react'
-import { Select } from 'react-form'
-import { Field } from '~/utils/form/Field'
+import { TextField, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from './formOptions'
+import validate from '~/utils/form/validations'
 
 const {
   householdVouchersSubsidiesOptions
@@ -14,17 +14,18 @@ const HouseholdIncomeSection = () => {
       <h3>Declared Household Income</h3>
       <div className='row'>
         <div className='small-6 columns'>
-          <Field.Text
+          <TextField
+            fieldName='annual_income'
+            id='annual_income'
             label='Annual Income'
-            field='annual_income'
-            errorMessage={(label, error) => error}
             maxLength={maxLengthMap['income']}
+            validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
           />
         </div>
         <div className='small-6 columns'>
-          <label>Housing Voucher/ Subsidy</label>
-          <Select
-            field='housing_voucher_or_subsidy'
+          <SelectField
+            fieldName='housing_voucher_or_subsidy'
+            label='Housing Voucher/ Subsidy'
             options={householdVouchersSubsidiesOptions} />
         </div>
       </div>

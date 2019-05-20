@@ -10,9 +10,9 @@ import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFiel
 import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
 
-const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, householdMembers, listingPreferences, listingPreferenceID }) => {
+const PreferenceAdditionalOptions = ({ i, householdMembers, listingPreferences, listingPreferenceID, individualPreference }) => {
   const preference = find(listingPreferences, { id: listingPreferenceID })
-  const propsFields = { formApi, i, householdMembers, shortFormPreference }
+  const propsFields = { i, householdMembers }
 
   if (preference) {
     switch (preference.lottery_preference.name) {
@@ -23,7 +23,7 @@ const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, househol
       case 'Displaced Tenant Housing Preference (DTHP)':
         return <DisplacedFields {...propsFields} />
       case 'Live or Work in San Francisco Preference':
-        return <LiveWorkFields {...propsFields} />
+        return <LiveWorkFields individualPreference={individualPreference} {...propsFields} />
       case 'Anti-Displacement Housing Preference (ADHP)':
         return <AntiDisplacementFields {...propsFields} />
       case 'Rent Burdened / Assisted Housing Preference':
