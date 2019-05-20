@@ -81,15 +81,25 @@ const LeaseInformationSection = ({form}) => {
       <ContentSection.Content borderBottom>
         <LeaseInformationInputs form={form} />
       </ContentSection.Content>
-      {/* <ContentSection.Sub
-        title='Rental Assistance Information'
-        description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-        <RentalAssistance form={form} />
-      </ContentSection.Sub> */}
-      <ContentSection.Sub title='Demographics'>
-        <DemographicsInputs />
-      </ContentSection.Sub>
     </ContentSection>
+  )
+}
+
+const RentalAssistanceSection = ({form}) => {
+  return (
+    <ContentSection.Sub
+      title='Rental Assistance Information'
+      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
+      <RentalAssistance form={form} />
+    </ContentSection.Sub>
+  )
+}
+
+const DemographicsSection = () => {
+  return (
+    <ContentSection.Sub title='Demographics'>
+      <DemographicsInputs />
+    </ContentSection.Sub>
   )
 }
 
@@ -182,12 +192,9 @@ class SupplementalApplicationContainer extends React.Component {
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
               <LeaseInformationSection form={form} />
             </form>
-            <ContentSection.Sub
-              title='Rental Assistance Information'
-              description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-              <RentalAssistance form={form} />
-            </ContentSection.Sub>
+            <RentalAssistanceSection form={form} />
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
+              <DemographicsSection />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
