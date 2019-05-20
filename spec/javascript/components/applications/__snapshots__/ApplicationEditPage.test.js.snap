@@ -4066,6 +4066,7 @@ Array [
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -4094,6 +4095,7 @@ Array [
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
+                                type="text"
                                 value=""
                               />
                             </div>
@@ -4124,6 +4126,7 @@ Array [
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
+                                    type="text"
                                     value=""
                                   />
                                 </div>
@@ -4148,6 +4151,7 @@ Array [
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
+                                    type="text"
                                     value=""
                                   />
                                 </div>

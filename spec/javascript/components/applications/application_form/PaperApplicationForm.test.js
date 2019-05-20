@@ -39,14 +39,11 @@ describe('PaperApplicationForm', () => {
 
       await wait(100)
 
-      const labelSel = 'label[htmlFor="annual_income"]'
       const inputSel = 'input#annual_income'
 
       // Check that the elements that make up the annual income field are
       // present and have the correct validation error classes
-      const fieldElementsSel =
-        `${labelSel} + ` +
-        `${inputSel}.error`
+      const fieldElementsSel = `${inputSel}.error`
       expect(wrapper.exists(fieldElementsSel)).toEqual(true)
       expect(wrapper.text()).toContain('Please enter a valid dollar amount.')
     })
