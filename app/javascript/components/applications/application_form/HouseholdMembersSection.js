@@ -29,12 +29,12 @@ const HouseholdMembersSection = ({ form }) => {
       <FieldArray name='household_members' validate={memberValidate}>
         {({ fields }) =>
           <React.Fragment>
-            { fields.map((name, index) => {
+            { fields.map((name, i) => {
               return (
                 <div key={name}>
-                  <HouseholdMemberForm form={form} fieldName={name} index={index} />
+                  <HouseholdMemberForm form={form} i={i} />
                   <button
-                    onClick={() => fields.remove(index)}
+                    onClick={() => fields.remove(i)}
                     type='button'
                     className='mb-4 btn btn-danger'>
                       Remove

@@ -9,33 +9,33 @@ const {
   relationshipOptions
 } = formOptions
 
-const HouseholdMemberForm = ({fieldName, index, form}) => {
+const HouseholdMemberForm = ({i, form}) => {
   return (
     <div>
       <div className='row'>
         <div className='form-group'>
           <div className='small-3 columns'>
             <TextField
-              id={`household_members_${index}_first_name`}
+              id={`household_members_${i}_first_name`}
               label='First Name'
-              fieldName={`${fieldName}.first_name`}
+              fieldName={`household_members[${i}].first_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['first_name']}
             />
           </div>
           <div className='small-2 columns'>
             <TextField
-              id={`household_members_${index}_middle_name`}
+              id={`household_members_${i}_middle_name`}
               label='Middle Name'
-              fieldName={`${fieldName}.middle_name`}
+              fieldName={`household_members[${i}].middle_name`}
               maxLength={maxLengthMap['middle_name']}
             />
           </div>
           <div className='small-3 columns'>
             <TextField
-              id={`household_members_${index}_last_name`}
+              id={`household_members_${i}_last_name`}
               label='Last Name'
-              fieldName={`${fieldName}.last_name`}
+              fieldName={`household_members[${i}].last_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['last_name']}
             />
@@ -43,9 +43,9 @@ const HouseholdMemberForm = ({fieldName, index, form}) => {
           <div className='small-4 columns form-date-of-birth'>
             <MultiDateField
               form={form}
-              fieldName={`${fieldName}.date_of_birth`}
-              id={`household_members_${index}_date_of_birth`}
-              index={index}
+              fieldName={`household_members[${i}].date_of_birth`}
+              id={`household_members_${i}_date_of_birth`}
+              index={i}
               formName='household_members'
               label='Date of Birth'
               blockNote='(required)'
@@ -55,15 +55,15 @@ const HouseholdMemberForm = ({fieldName, index, form}) => {
       </div>
       <div className='row'>
         <div className='small-12 columns'>
-          <AddressForm fieldName={fieldName} />
+          <AddressForm fieldName={`household_members[${i}]`} />
         </div>
       </div>
       <div className='row'>
         <div className='small-6 columns'>
           <SelectField
             label='Relationship to Applicant'
-            fieldName={`${fieldName}.relationship_to_applicant`}
-            id={`household_members_${index}_relationship_to_applicant`}
+            fieldName={`household_members[${i}].relationship_to_applicant`}
+            id={`household_members_${i}_relationship_to_applicant`}
             options={relationshipOptions}
           />
         </div>
