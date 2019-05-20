@@ -65,3 +65,32 @@
 .form-group-year, .form-group-month, .form-group-day {
   margin-right: .3rem;
 }
+
+.substatus {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  font-weight: normal !important;
+  color: rgba(0, 0, 0, 0.75);
+  background-color: #f9f9f9;
+  border-color: #ccc;
+  &:hover, &:active, &:focus {
+    color: rgba(0, 0, 0, 0.75);
+    background-color: #f9f9f9;
+    border-color: #ccc;
+    span svg use {
+      fill: rgba(0, 0, 0, 0.75);
+      background-color: #f9f9f9;
+      border-color: #ccc;
+    }
+  }
+  span svg use {
+    fill: rgba(0, 0, 0, 0.75);
+    background-color: #f9f9f9;
+    border-color: #ccc;
+  }
+}
+
+.button.has-icon--right {
+  padding-left: 1rem;
+}

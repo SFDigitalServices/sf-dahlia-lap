@@ -326,6 +326,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     "loading": false,
                     "showAlert": null,
                     "status": null,
+                    "subStatus": null,
                   },
                   "updateStatusModal": [Function],
                 }
@@ -16770,6 +16771,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                   onSubmit={[Function]}
                   showAlert={null}
                   status={null}
+                  subStatus={null}
                   submitButton="Update"
                 >
                   <FormModal

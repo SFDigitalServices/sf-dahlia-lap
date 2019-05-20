@@ -17,7 +17,7 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
   return (
     <StatusDropdown
       status={value}
-      onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
+      onChange={val => onChange(applicationPreferenceId, applicationId, val)}
       styles={{position: 'absolute'}}
       buttonClasses={['tiny']} />
   )

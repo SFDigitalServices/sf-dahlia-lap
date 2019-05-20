@@ -16,6 +16,7 @@ class Api::V1::FieldUpdateCommentsController < ApiController
       :Processing_Status__c,
       :Processing_Comment__c,
       :Application__c,
+      :Sub_Status__c,
     )
   end
 
