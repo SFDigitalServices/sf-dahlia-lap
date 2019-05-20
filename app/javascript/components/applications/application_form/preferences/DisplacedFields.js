@@ -1,6 +1,6 @@
 import React from 'react'
 import { buildFieldId } from './utils'
-import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
+import { TextField, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
@@ -17,7 +17,7 @@ const DisplacedFields = ({ householdMembers, i }) => {
         />
       </div>
       <div className='small-6 columns'>
-        <FieldWrapper
+        <TextField
           fieldName={buildFieldId(i, 'certificate_number')}
           label='DTHP Certificate Number'
           maxLength={maxLengthMap['certificate_number']}

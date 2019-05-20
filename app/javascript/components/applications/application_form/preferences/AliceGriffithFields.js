@@ -4,7 +4,7 @@ import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
 import Row from '~/components/atoms/Row'
 import Column from '~/components/atoms/Column'
-import { FieldWrapper, SelectField } from '~/utils/form/final_form/Field'
+import { TextField, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
@@ -18,7 +18,7 @@ const AddressRow = ({fieldId}) => (
   <React.Fragment>
     <Row form>
       <Column span={6} form>
-        <FieldWrapper
+        <TextField
           label='Alice Griffith Address'
           blockNote='(required)'
           fieldName={fieldId('street')}
@@ -30,7 +30,7 @@ const AddressRow = ({fieldId}) => (
 
     <Row form>
       <Column span={3} form>
-        <FieldWrapper
+        <TextField
           label='City'
           fieldName={fieldId('city')}
           maxLength={maxLengthMap['city']}
@@ -40,7 +40,7 @@ const AddressRow = ({fieldId}) => (
       <Column span={3} end form>
         <Row>
           <Column span={6}>
-            <FieldWrapper
+            <TextField
               label='State'
               fieldName={fieldId('state')}
               maxLength={maxLengthMap['state']}
@@ -48,7 +48,7 @@ const AddressRow = ({fieldId}) => (
             />
           </Column>
           <Column span={6} end>
-            <FieldWrapper
+            <TextField
               label='Zip'
               fieldName={fieldId('zip_code')}
               maxLength={maxLengthMap['zip']}

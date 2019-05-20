@@ -16,7 +16,7 @@ const setRecordTypeDevName = (i, form, matched) => {
   }
 }
 
-const findSelectedPreference = (i, form, listingPreferences, selectedPreference) => {
+const findSelectedPreference = (i, form, listingPreferences) => {
   let selected = form.getState().values.preferences[i] || {}
   let matched = find(listingPreferences, pref => pref.id === selected.listing_preference_id)
   setRecordTypeDevName(i, form, matched)
@@ -69,7 +69,7 @@ const PreferenceForm = ({ index, name, form, listingPreferences, fullHousehold }
           i={index}
           listingPreferenceID={selectedPreference.listing_preference_id}
           listingPreferences={listingPreferences}
-          selectedPreference={selectedPreference}
+          individualPreference={selectedPreference.individual_preference}
           householdMembers={householdMembersOptions}
         />
       </Row>

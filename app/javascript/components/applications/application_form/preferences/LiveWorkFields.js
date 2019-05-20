@@ -24,7 +24,7 @@ const individualPreferenceOptions = [
   {value: 'Work in SF', label: 'Work in SF'}
 ]
 
-const LiveWorkFields = ({ i, householdMembers, selectedPreference }) => {
+const LiveWorkFields = ({ i, householdMembers, individualPreference }) => {
   return (
     <div>
       <div className='small-6 columns'>
@@ -50,7 +50,7 @@ const LiveWorkFields = ({ i, householdMembers, selectedPreference }) => {
           label='Type of Proof'
           blockNote='(required)'
           fieldName={buildFieldId(i, 'type_of_proof')}
-          options={getProofTypes(selectedPreference.individual_preference)}
+          options={getProofTypes(individualPreference)}
           validation={validate.isPresent('Type of Proof is required')}
         />
       </div>

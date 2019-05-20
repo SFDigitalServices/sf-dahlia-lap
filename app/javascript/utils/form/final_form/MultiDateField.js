@@ -1,7 +1,7 @@
 import React from 'react'
 import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
-import { InputWrapper } from '~/utils/form/final_form/Field'
+import { InputField } from '~/utils/form/final_form/Field'
 import { every } from 'lodash'
 import classNames from 'classnames'
 
@@ -24,7 +24,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
         {blockNote && <BlockNote value={blockNote} />}
       </label>
       <div className='form-group-month'>
-        <InputWrapper
+        <InputField
           type='text'
           fieldName={`${fieldName}.month`}
           id={id ? `${id}_month` : `form-${fieldName}_month`}
@@ -33,7 +33,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           maxLength={maxLengthMap['month']} />
       </div>
       <div className='form-group-day'>
-        <InputWrapper
+        <InputField
           type='text'
           fieldName={`${fieldName}.day`}
           id={id ? `${id}_day` : `form-${fieldName}_day`}
@@ -42,7 +42,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           maxLength={maxLengthMap['day']} />
       </div>
       <div className='form-group-year'>
-        <InputWrapper
+        <InputField
           type='text'
           fieldName={`${fieldName}.year`}
           id={id ? `${id}_year` : `form-${fieldName}_year`}

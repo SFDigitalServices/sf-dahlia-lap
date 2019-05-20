@@ -1,6 +1,6 @@
 import React from 'react'
 import formOptions from './formOptions'
-import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field'
+import { SelectField, TextField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 
 let {
@@ -34,10 +34,9 @@ const DemographicInfoSection = ({ defaultValues }) => {
             options={genderOptions} />
         </div>
         <div className='small-6 columns'>
-          <FieldWrapper
+          <TextField
             fieldName='demographics.gender_other'
             label='Gender Specify (if not listed)'
-            type='text'
             maxLength={maxLengthMap['gender_other']}
           />
         </div>
@@ -49,8 +48,7 @@ const DemographicInfoSection = ({ defaultValues }) => {
           />
         </div>
         <div className='small-6 columns'>
-          <FieldWrapper
-            type='text'
+          <TextField
             fieldName='demographics.sexual_orientation_other'
             label='Sexual Orientation (if not listed)'
             maxLength={maxLengthMap['sexual_orientation_other']}

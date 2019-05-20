@@ -11,52 +11,82 @@ export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin'>{value}</span>
 )
 
-export const FieldWrapper = ({ type, fieldName, label, blockNote, validation, placeholder, maxLength, id }) => (
+export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName }) => (
+  <input {...input}
+    id={id || `form-${fieldName}`}
+    className={(meta.error && meta.touched && 'error') || ''}
+    type={type}
+    maxLength={maxLength}
+    aria-labelledby={ariaLabelledby}
+    placeholder={placeholder} />
+)
+
+export const Label = ({ label, fieldName, blockNote, id }) => {
+  if (label) {
+    return (
+      <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+        {label && `${label} `}
+        {blockNote && <BlockNote value={blockNote} />}
+      </label>)
+  } else {
+    return null
+  }
+}
+
+export const FieldError = ({meta}) => (
+  meta.error && meta.touched ? <span className='error'>{meta.error}</span> : null
+)
+
+export const TextField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-          {label && <label htmlFor={id || `form-${fieldName}`} className='form-label'>
-            {label && `${label} `}
-            {blockNote && <BlockNote value={blockNote} />}
-          </label>}
-          <input {...input}
+          <Label
+            label={label}
             id={id || `form-${fieldName}`}
-            className={(meta.error && meta.touched && 'error') || ''}
-            type={type}
-            maxLength={maxLength}
-            placeholder={placeholder} />
-          {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
+            fieldName={fieldName}
+            blockNote={blockNote} />
+          <Input
+            input={input}
+            meta={meta}
+            id={id || `form-${fieldName}`}
+            type='text'
+            placeholder={placeholder}
+            maxLength={maxLength} />
+          <FieldError meta={meta} />
         </div>
       </React.Fragment>
     )}
   </Field>
 )
 
-export const InputWrapper = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
+export const InputField = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <React.Fragment>
-        <input {...input}
-          id={id || `form-${fieldName}`}
-          className={(meta.error && meta.touched && 'error') || ''}
+        <Input
+          input={input}
           type={type}
-          maxLength={maxLength}
-          placeholder={placeholder} />
+          meta={meta}
+          id={id || `form-${fieldName}`}
+          placeholder={placeholder}
+          maxLength={maxLength} />
       </React.Fragment>
     )}
   </Field>
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, options, onChange }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-          { label && <label htmlFor={id || `form-${fieldName}`} className='form-label'>
-            {`${label} `}
-            {blockNote && <BlockNote value={blockNote} />}
-          </label>}
+          <Label
+            label={label}
+            id={id || `form-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote} />
           <select {...input}
             onChange={(event) => {
               input.onChange(event)
@@ -67,7 +97,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, placehold
             className={(meta.error && meta.touched && 'error') || ''}>
             { labelize(options).map((option) => generateHtmlOption(option))}
           </select>
-          {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
+          <FieldError meta={meta} />
         </div>
       </React.Fragment>
     )}
@@ -79,16 +109,18 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-          <input {...input}
+          <Input
+            input={input}
             type='checkbox'
-            id={id || `form-${fieldName}`}
+            meta={meta}
             aria-labelledby={ariaLabelledby}
-            className={(meta.error && meta.touched && 'error') || ''} />
-          <label htmlFor={id || `form-${fieldName}`} className='form-label'>
-            {label && `${label} `}
-            {blockNote && <BlockNote value={blockNote} />}
-          </label>
-          {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
+            id={id || `form-${fieldName}`} />
+          <Label
+            label={label}
+            id={id || `form-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote} />
+          <FieldError meta={meta} />
         </div>
       </React.Fragment>
     )}
