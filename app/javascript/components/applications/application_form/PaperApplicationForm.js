@@ -14,7 +14,8 @@ import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
-import { isEmpty } from 'lodash'
+import { includes, isEmpty } from 'lodash'
+import { naturalKeyFromMember } from './preferences/utils.js'
 
 class PaperApplicationForm extends React.Component {
   constructor (props) {
@@ -52,6 +53,22 @@ class PaperApplicationForm extends React.Component {
       errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(values.alternate_contact.first_name)
       errors.alternate_contact.last_name = validate.isPresent('Please enter a Last Name')(values.alternate_contact.last_name)
       errors.alternate_contact.email = validate.isValidEmail('Please enter a valid Email')(values.alternate_contact.email)
+    }
+
+    // Secondary preference application member validation: Check if selected app member value is still a valid natural key.
+    if (values.preferences) {
+      // Combine household members with primary applicant to get list of all the natural keys
+      const allMembers = [values.applicant].concat(values.household_members ? values.household_members : [])
+      const naturalKeys = allMembers.map((member) => naturalKeyFromMember(member))
+      errors.preferences = []
+      values.preferences.map(
+        (pref, i) => {
+          errors.preferences = errors.preferences.concat({})
+          if (pref.naturalKey && !includes(naturalKeys, pref.naturalKey)) {
+            errors.preferences[i].naturalKey = 'This field is required'
+          }
+        }
+      )
     }
     return errors
   }
