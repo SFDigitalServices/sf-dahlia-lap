@@ -16,21 +16,21 @@ import { FieldWrapper, SelectField, YesNoRadioField } from '~/utils/form/final_f
 const { ExpanderButton } = ExpandableTable
 
 const typeOfAssistance = [
-  'Catholic Charities',
-  'Compass Family',
-  'Glide',
-  'Hamilton Family',
-  'Homeless Prenatal',
-  'HOPWA',
-  'Q Foundation: First Month’s Rent',
-  'Q Foundation: Move-in Deposit',
-  'Q Foundation: Person with Disability Rent Subsidy',
-  'Q Foundation: Senior Rent Subsidy',
-  'San Francisco AIDS Foundation',
-  'Section 8 HCV (tenant) voucher',
-  'Self-Help for the Elderly',
-  'VASH voucher',
-  'Other'
+  [0, 'Catholic Charities'],
+  [1, 'Compass Family'],
+  [2, 'Glide'],
+  [3, 'Hamilton Family'],
+  [4, 'Homeless Prenatal'],
+  [5, 'HOPWA'],
+  [6, 'Q Foundation: First Month’s Rent'],
+  [7, 'Q Foundation: Move-in Deposit'],
+  [8, 'Q Foundation: Person with Disability Rent Subsidy'],
+  [9, 'Q Foundation: Senior Rent Subsidy'],
+  [10, 'San Francisco AIDS Foundation'],
+  [11, 'Section 8 HCV (tenant) voucher'],
+  [12, 'Self-Help for the Elderly'],
+  [13, 'VASH voucher'],
+  [14, 'Other']
 ]
 
 const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
@@ -129,12 +129,13 @@ const Panel = withContext(({ idx, rentalAssistance, toggle, store, form }) => {
 })
 
 const validateError = (values) => {
-  return {
+  const err =  {
     type_of_assistance: validate.isPresent('Please select a type of assistance.')(values.type_of_assistance),
     assistance_amount: (
       validate.isValidCurrency('Please enter a valid dollar amount.')(values.assistance_amount) ||
       validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(values.assistance_amount))
   }
+  return err
 }
 class AddRentalAssistanceForm extends React.Component {
   render () {
@@ -150,7 +151,7 @@ class AddRentalAssistanceForm extends React.Component {
       <Form
         onSubmit={onSave}
         initialValues={values}
-        validate={validateError}
+        // validate={validateError}
         render={({ handleSubmit, form }) => (
           <form onSubmit={handleSubmit} noValidate>
             <div className={classNames(
@@ -250,6 +251,11 @@ const RentalAssistance = ({ store, form }) => {
     rentalAssistanceLoading
   } = store
 
+  const onSave = async (values) => {
+    console.log(values)
+    await handleSaveNewRentalAssistance(values)
+  }
+
   return (
     <React.Fragment>
       { !isEmpty(rentalAssistances) && (
@@ -262,7 +268,7 @@ const RentalAssistance = ({ store, form }) => {
 
       { showNewRentalAssistancePanel && (
         <AddRentalAssistanceForm
-          onSave={handleSaveNewRentalAssistance}
+          onSave={onSave}
           onClose={handleCloseRentalAssistancePanel}
           applicationMembers={applicationMembers}
           loading={rentalAssistanceLoading}
