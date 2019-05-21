@@ -5457,11 +5457,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           id="form-household_assets"
                                                           label="Household Assets"
                                                         >
+                                                          <input
+                                                            checked={false}
+                                                            className=""
+                                                            id="form-has_ada_priorities_selected.mobility_impairments"
+                                                            name="has_ada_priorities_selected.mobility_impairments"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            type="checkbox"
+                                                            value=""
+                                                          />
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-household_assets"
                                                           >
-                                                            Household Assets 
+                                                            Mobility Impairments 
                                                           </label>
                                                         </Label>
                                                         <Input
@@ -5603,11 +5614,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           id="form-confirmed_household_annual_income"
                                                           label="Confirmed Annual Income"
                                                         >
+                                                          <input
+                                                            checked={false}
+                                                            className=""
+                                                            id="form-has_ada_priorities_selected.vision_impairments"
+                                                            name="has_ada_priorities_selected.vision_impairments"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            type="checkbox"
+                                                            value=""
+                                                          />
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-confirmed_household_annual_income"
                                                           >
-                                                            Confirmed Annual Income 
+                                                            Vision Impairments 
                                                           </label>
                                                         </Label>
                                                         <Input
@@ -5755,11 +5777,22 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           id="form-hh_total_income_with_assets_annual"
                                                           label="Final Household Annual Income"
                                                         >
+                                                          <input
+                                                            checked={false}
+                                                            className=""
+                                                            id="form-has_ada_priorities_selected.hearing_impairments"
+                                                            name="has_ada_priorities_selected.hearing_impairments"
+                                                            onBlur={[Function]}
+                                                            onChange={[Function]}
+                                                            onFocus={[Function]}
+                                                            type="checkbox"
+                                                            value=""
+                                                          />
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-hh_total_income_with_assets_annual"
                                                           >
-                                                            Final Household Annual Income 
+                                                            Hearing Impairments 
                                                           </label>
                                                         </Label>
                                                         <Input
