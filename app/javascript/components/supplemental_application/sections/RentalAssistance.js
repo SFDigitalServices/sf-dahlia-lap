@@ -183,6 +183,7 @@ class AddRentalAssistanceForm extends React.Component {
                   <TextField
                     label='Assistance Amount'
                     fieldName='assistance_amount'
+                    id='assistance_amount'
                   />
                 </FormGrid.Item>
                 <FormGrid.Item>
