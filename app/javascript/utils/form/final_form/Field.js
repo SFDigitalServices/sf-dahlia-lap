@@ -37,7 +37,7 @@ export const FieldError = ({meta}) => (
   meta.error && meta.touched ? <span className='error'>{meta.error}</span> : null
 )
 
-export const TextField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id }) => (
+export const TextField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, type }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <React.Fragment>
@@ -51,7 +51,7 @@ export const TextField = ({ fieldName, label, blockNote, validation, placeholder
             input={input}
             meta={meta}
             id={id || `form-${fieldName}`}
-            type='text'
+            type={type || 'text'}
             placeholder={placeholder}
             maxLength={maxLength} />
           <FieldError meta={meta} />

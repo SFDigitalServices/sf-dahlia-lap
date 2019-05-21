@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field.js'
+import { SelectField, TextField } from '~/utils/form/final_form/Field.js'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { FormItem } from './utils'
@@ -14,7 +14,7 @@ export const RentBurdenedPanel = ({ preferenceIndex }) => (
       </div>
     </FormItem>
     <FormItem>
-      <FieldWrapper fieldName='total_monthly_rent' type='number' label='Total Household Monthly Rent' />
+      <TextField fieldName='total_monthly_rent' type='number' label='Total Household Monthly Rent' />
     </FormItem>
     <FormItem>
       <SelectField
