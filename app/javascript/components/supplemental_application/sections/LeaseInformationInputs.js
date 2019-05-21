@@ -5,7 +5,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import { pluck } from '~/utils/utils'
 import formUtils from '~/utils/formUtils'
 import { withContext } from '../context'
-import { SelectField, FieldWrapper } from '~/utils/form/final_form/Field.js'
+import { SelectField, TextField } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import validate from '~/utils/form/validations'
 
@@ -56,21 +56,21 @@ const LeaseInformationInputs = ({ form, store }) => {
         </FormGrid.Row>
         <FormGrid.Row paddingBottom>
           <FormGrid.Item>
-            <FieldWrapper
+            <TextField
               label='Monthly Rent'
               fieldName='lease.total_monthly_rent_without_parking'
               placeholder='Enter Amount'
               validation={validateLeaseCurrency} />
           </FormGrid.Item>
           <FormGrid.Item>
-            <FieldWrapper
+            <TextField
               label='Monthly Parking Cost'
               fieldName='lease.monthly_parking_rent'
               placeholder='Enter Amount'
               validation={validateLeaseCurrency} />
           </FormGrid.Item>
           <FormGrid.Item>
-            <FieldWrapper
+            <TextField
               label='Monthly Tenant Contribution'
               fieldName='lease.monthly_tenant_contribution'
               placeholder='Enter Amount'

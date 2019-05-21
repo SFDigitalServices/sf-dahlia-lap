@@ -2,7 +2,7 @@ import React from 'react'
 import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import { InputField } from '~/utils/form/final_form/Field'
-import { every } from 'lodash'
+import { every, last } from 'lodash'
 import classNames from 'classnames'
 
 export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id }) => {
