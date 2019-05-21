@@ -267,13 +267,13 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-assistance_amount"
+                              htmlFor="assistance_amount"
                             >
                               Assistance Amount 
                             </label>
                             <input
                               className=""
-                              id="form-assistance_amount"
+                              id="assistance_amount"
                               name="assistance_amount"
                               onBlur={[Function]}
                               onChange={[Function]}
@@ -527,13 +527,13 @@ Array [
           >
             <label
               className="form-label"
-              htmlFor="form-assistance_amount"
+              htmlFor="assistance_amount"
             >
               Assistance Amount 
             </label>
             <input
               className=""
-              id="form-assistance_amount"
+              id="assistance_amount"
               name="assistance_amount"
               onBlur={[Function]}
               onChange={[Function]}
@@ -889,13 +889,13 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-assistance_amount"
+                              htmlFor="assistance_amount"
                             >
                               Assistance Amount 
                             </label>
                             <input
                               className=""
-                              id="form-assistance_amount"
+                              id="assistance_amount"
                               name="assistance_amount"
                               onBlur={[Function]}
                               onChange={[Function]}
@@ -1256,13 +1256,13 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-assistance_amount"
+                              htmlFor="assistance_amount"
                             >
                               Assistance Amount 
                             </label>
                             <input
                               className=""
-                              id="form-assistance_amount"
+                              id="assistance_amount"
                               name="assistance_amount"
                               onBlur={[Function]}
                               onChange={[Function]}
