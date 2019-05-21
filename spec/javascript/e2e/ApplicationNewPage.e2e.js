@@ -214,6 +214,45 @@ describe('ApplicationNewPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
+  test('should should validate hh member attached to preference if hh member updates', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    await page.select('#application_language', 'English')
+    // Fill out primary applicant required fields
+    await page.type('#first_name', 'first name')
+    await page.type('#last_name', TRUNCATED_LAST_NAME)
+    await page.type('#date_of_birth_month', DOB_MONTH)
+    await page.type('#date_of_birth_day', DOB_DAY)
+    await page.type('#date_of_birth_year', DOB_YEAR)
+
+    await page.click('#add-preference-button')
+
+    // Fill out live/work preference required fields
+    // Select the live/work preference
+    const liveWorkDropdownValue = 'a0l0P00001Lx8XeQAJ'
+    await page.waitForSelector('#select-paper-preference-0')
+    await page.select('#select-paper-preference-0', liveWorkDropdownValue)
+
+    // Select the household member
+    await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
+    await page.select('#form-preferences\\.0\\.naturalKey', `first name,${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
+
+    // Update primary applicant name and save
+    await page.type('#first_name', 'forgotten character')
+    // await page.type('#last_name', 'new last name')
+    await page.click('.save-btn')
+
+    // Expect that a validation error is raised.
+    const errors = await page.$$eval('#form-preferences\\.0\\.naturalKey+span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toContain('This field is required')
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
   test('should bring up an alternate contact error message only if values are present but not first or last name', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
@@ -254,7 +293,7 @@ describe('ApplicationNewPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  test('should fail a new sale application', async () => {
+  test('should fail for an incomplete new sale application', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
@@ -294,7 +333,7 @@ describe('ApplicationNewPage', () => {
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
 
-    // elegibility section fields
+    // eligibility section fields
     await page.click('#has_loan_preapproval')
     await page.click('#has_completed_homebuyer_education')
     await page.click('#is_first_time_homebuyer')
