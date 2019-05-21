@@ -14,8 +14,8 @@ import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
-import { includes, isEmpty } from 'lodash'
-import { naturalKeyFromMember } from './preferences/utils.js'
+import { includes, isEmpty, map } from 'lodash'
+import { getFullHousehold, naturalKeyFromMember } from './preferences/utils.js'
 
 class PaperApplicationForm extends React.Component {
   constructor (props) {
@@ -57,9 +57,7 @@ class PaperApplicationForm extends React.Component {
 
     // Secondary preference application member validation: Check if selected app member value is still a valid natural key.
     if (values.preferences) {
-      // Combine household members with primary applicant to get list of all the natural keys
-      const allMembers = [values.applicant].concat(values.household_members ? values.household_members : [])
-      const naturalKeys = allMembers.map((member) => naturalKeyFromMember(member))
+      const naturalKeys = map(getFullHousehold(values), (member) => naturalKeyFromMember(member))
       errors.preferences = []
       values.preferences.map(
         (pref, i) => {
