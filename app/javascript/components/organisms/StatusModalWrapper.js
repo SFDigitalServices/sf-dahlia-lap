@@ -51,7 +51,8 @@ class StatusModalWrapper extends React.Component {
               status={status}
               onChange={onStatusChange}
               buttonClasses={['margin-bottom--half', 'expand', 'small']}
-              menuClasses={['form-modal_dropdown-menu']} />
+              menuClasses={['form-modal_dropdown-menu']}
+              wrapperClasses={['status']} />
             {!status && <small className='error'>Please provide a status.</small>}
             {status && (
               <React.Fragment>
