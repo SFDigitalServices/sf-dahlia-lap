@@ -99,6 +99,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     const assistedHousingRowSelector = '#assisted-housing-preference-row'
     const assistedHousingExpandedPanelSelector = '#assisted-housing-preference-panel'
 
+    await page.waitForSelector('#assisted-housing-preference-edit')
     // Click on the assisted housing preference's Edit button in the Confirmed
     // Preferences section to expand that preference's edit panel
     await page.click(assistedHousingEditSelector)
