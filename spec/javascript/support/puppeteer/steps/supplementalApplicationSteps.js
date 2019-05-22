@@ -38,7 +38,7 @@ const testStatusModalUpdate = async (page) => {
 
   // The latest comment in the status history should be the comment
   // that was just entered and saved
-  const latestComment = await page.$eval('.status-list .status-list_item:last-child .status-list_note', e => e.textContent)
+  const latestComment = await page.$eval('.status-list .status-list_item:last-child .status-list_note:last-child', e => e.textContent)
   expect(latestComment).toBe(COMMENT)
 }
 
