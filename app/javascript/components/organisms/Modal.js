@@ -37,7 +37,8 @@ class Modal extends React.Component {
         isOpen={isOpen}
         style={style}
         onRequestClose={handleClose}
-        shouldCloseOnOverlayClick>
+        shouldCloseOnOverlayClick
+        ariaHideApp={process.env.NODE_ENV !== 'test'}>
         {children}
       </ReactModal>
     )

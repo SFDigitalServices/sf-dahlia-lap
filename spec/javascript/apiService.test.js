@@ -22,7 +22,7 @@ describe('apiService', () => {
       var expectedData = {'lease': lease}
 
       var result = apiService.createOrUpdateLease(lease, fakeAppId)
-      expect(result).resolves.toEqual(true)
+      expect(result).resolves.toEqual(undefined)
       expect(mockPutFn.mock.calls.length).toEqual(1)
       expect(mockPutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
     })
@@ -32,8 +32,9 @@ describe('apiService', () => {
         'monthly_parking_rent': 100
       }
       var expectedData = {'lease': lease}
+
       var result = apiService.createOrUpdateLease(lease, fakeAppId)
-      expect(result).resolves.toEqual(true)
+      expect(result).resolves.toEqual(undefined)
       expect(mockPostFn.mock.calls.length).toEqual(1)
       expect(mockPostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData])
     })
@@ -46,7 +47,7 @@ describe('apiService', () => {
       var expectedData = {'rental_assistance': rentalAssistance, 'application_id': fakeAppId}
 
       var result = apiService.createRentalAssistance(rentalAssistance, fakeAppId)
-      expect(result).resolves.toEqual(true)
+      expect(result).resolves.toEqual(undefined)
       expect(mockPostFn.mock.calls.length).toEqual(1)
       expect(mockPostFn.mock.calls[0]).toEqual([`/rental-assistances`, expectedData])
     })
@@ -60,7 +61,7 @@ describe('apiService', () => {
       var expectedData = {'rental_assistance': rentalAssistance, 'application_id': fakeAppId}
 
       var result = apiService.updateRentalAssistance(rentalAssistance, fakeAppId)
-      expect(result).resolves.toEqual(true)
+      expect(result).resolves.toEqual(undefined)
       expect(mockPutFn.mock.calls.length).toEqual(1)
       expect(mockPutFn.mock.calls[0]).toEqual([`/rental-assistances/${fakeRentalAssistanceId}`, expectedData])
     })
@@ -70,7 +71,7 @@ describe('apiService', () => {
       const fakeRentalAssistanceId = 'fake_rental_id'
 
       var result = apiService.deleteRentalAssistance(fakeRentalAssistanceId)
-      expect(result).resolves.toEqual(true)
+      expect(result).resolves.toEqual(undefined)
       expect(mockDestroyFn.mock.calls.length).toEqual(1)
       expect(mockDestroyFn.mock.calls[0]).toEqual([`/rental-assistances/${fakeRentalAssistanceId}`])
     })
