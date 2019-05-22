@@ -9,7 +9,8 @@ import application from '../../../fixtures/domain_application'
 import lendingInstitutions from '../../../fixtures/lending_institutions'
 
 const mockSubmitApplication = jest.fn()
-const applicationWithInvalidAnnualIncome = clone(application)
+
+let testApplication = null
 
 jest.mock('apiService', () => {
   return {
@@ -22,16 +23,16 @@ jest.mock('apiService', () => {
 
 describe('PaperApplicationForm', () => {
   beforeEach(() => {
-    applicationWithInvalidAnnualIncome['annual_income'] = 'foo'
-    applicationWithInvalidAnnualIncome['application_language'] = null
+    testApplication = clone(application)
   })
 
   describe('should validate fields correctly: ', () => {
     test('Annual Income', async () => {
+      testApplication['annual_income'] = 'foo'
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
-          application={applicationWithInvalidAnnualIncome}
+          application={testApplication}
         />
       )
 
@@ -49,10 +50,11 @@ describe('PaperApplicationForm', () => {
     })
 
     test('Language', async () => {
+      testApplication['application_language'] = null
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
-          application={applicationWithInvalidAnnualIncome}
+          application={testApplication}
         />
       )
       wrapper.find('form').first().simulate('submit')
@@ -72,7 +74,7 @@ describe('PaperApplicationForm', () => {
         const wrapper = mount(
           <PaperApplicationForm
             listing={listing}
-            application={applicationWithInvalidAnnualIncome}
+            application={testApplication}
           />
         )
         expect(wrapper.text()).not.toContain('Eligibility Information')
@@ -89,7 +91,7 @@ describe('PaperApplicationForm', () => {
         const wrapper = mount(
           <PaperApplicationForm
             listing={listing}
-            application={applicationWithInvalidAnnualIncome}
+            application={testApplication}
           />
         )
         expect(wrapper.text()).toContain('Eligibility Information')
@@ -100,7 +102,7 @@ describe('PaperApplicationForm', () => {
           <PaperApplicationForm
             listing={listing}
             lendingInstitutions={lendingInstitutions}
-            application={applicationWithInvalidAnnualIncome}
+            application={testApplication}
           />
         )
         wrapper.find('#lending_institution select').simulate('change', { target: { value: 'First Republic Bank' } })
@@ -114,16 +116,13 @@ describe('PaperApplicationForm', () => {
       })
 
       describe('lending institution and lender dropdowns should be filled out', () => {
-        beforeEach(() => {
-          applicationWithInvalidAnnualIncome.lending_agent = '003U000001Wnp5gIAB'
-        })
-
         test('lender select should be filled out', async () => {
+          testApplication.lending_agent = '003U000001Wnp5gIAB'
           const wrapper = mount(
             <PaperApplicationForm
               listing={listing}
               lendingInstitutions={lendingInstitutions}
-              application={applicationWithInvalidAnnualIncome}
+              application={testApplication}
             />
           )
           await wait(100)
