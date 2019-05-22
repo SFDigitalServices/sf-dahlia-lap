@@ -4,6 +4,7 @@ import StatusDropdown from '~/components/molecules/StatusDropdown'
 import FormModal from './FormModal'
 import { TextArea } from 'react-form'
 import formUtils from '~/utils/formUtils'
+import { statusRequiresComments } from '~/utils/statusUtils'
 
 class StatusModalWrapper extends React.Component {
   formValidator = (values) => {
