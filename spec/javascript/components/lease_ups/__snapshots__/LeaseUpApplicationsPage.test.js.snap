@@ -3646,6 +3646,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   items={
                                                     Array [
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Processing",
                                                         "style": "is-processing",
                                                         "value": "Processing",
@@ -3656,21 +3657,25 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "value": "Withdrawn",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Appealed",
                                                         "style": "is-appealed",
                                                         "value": "Appealed",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Waitlisted",
                                                         "style": "is-waitlisted",
                                                         "value": "Waitlisted",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Disqualified",
                                                         "style": "is-disqualified",
                                                         "value": "Disqualified",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Approved",
                                                         "style": "is-approved",
                                                         "value": "Approved",
@@ -5507,6 +5512,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   items={
                                                     Array [
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Processing",
                                                         "style": "is-processing",
                                                         "value": "Processing",
@@ -5517,21 +5523,25 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "value": "Withdrawn",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Appealed",
                                                         "style": "is-appealed",
                                                         "value": "Appealed",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Waitlisted",
                                                         "style": "is-waitlisted",
                                                         "value": "Waitlisted",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Disqualified",
                                                         "style": "is-disqualified",
                                                         "value": "Disqualified",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Approved",
                                                         "style": "is-approved",
                                                         "value": "Approved",
@@ -7368,6 +7378,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   items={
                                                     Array [
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Processing",
                                                         "style": "is-processing",
                                                         "value": "Processing",
@@ -7378,21 +7389,25 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "value": "Withdrawn",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Appealed",
                                                         "style": "is-appealed",
                                                         "value": "Appealed",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Waitlisted",
                                                         "style": "is-waitlisted",
                                                         "value": "Waitlisted",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Disqualified",
                                                         "style": "is-disqualified",
                                                         "value": "Disqualified",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Approved",
                                                         "style": "is-approved",
                                                         "value": "Approved",
@@ -9229,6 +9244,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   items={
                                                     Array [
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Processing",
                                                         "style": "is-processing",
                                                         "value": "Processing",
@@ -9239,21 +9255,25 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "value": "Withdrawn",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Appealed",
                                                         "style": "is-appealed",
                                                         "value": "Appealed",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Waitlisted",
                                                         "style": "is-waitlisted",
                                                         "value": "Waitlisted",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Disqualified",
                                                         "style": "is-disqualified",
                                                         "value": "Disqualified",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Approved",
                                                         "style": "is-approved",
                                                         "value": "Approved",
@@ -11090,6 +11110,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   items={
                                                     Array [
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Processing",
                                                         "style": "is-processing",
                                                         "value": "Processing",
@@ -11100,21 +11121,25 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "value": "Withdrawn",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Appealed",
                                                         "style": "is-appealed",
                                                         "value": "Appealed",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Waitlisted",
                                                         "style": "is-waitlisted",
                                                         "value": "Waitlisted",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Disqualified",
                                                         "style": "is-disqualified",
                                                         "value": "Disqualified",
                                                       },
                                                       Object {
+                                                        "commentRequired": true,
                                                         "label": "Approved",
                                                         "style": "is-approved",
                                                         "value": "Approved",

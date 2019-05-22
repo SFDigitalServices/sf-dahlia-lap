@@ -38,10 +38,12 @@ export const getLeaseUpStatusClass = (status) => {
 }
 
 export const statusRequiresComments = (status, substatus) => {
-  if (find(LEASE_UP_STATUS_OPTIONS, {value: status}).commentRequired) {
+  const statusOption = find(LEASE_UP_STATUS_OPTIONS, {value: status})
+  if (statusOption && statusOption.commentRequired) {
     return true
   } else if (substatus) {
-    return find(LEASE_UP_SUBSTATUS_OPTIONS[status], {value: substatus}).commentRequired
+    const subStatusOption = find(LEASE_UP_SUBSTATUS_OPTIONS[status], {value: substatus})
+    return subStatusOption && subStatusOption.commentRequired
   }
   return false
 }
