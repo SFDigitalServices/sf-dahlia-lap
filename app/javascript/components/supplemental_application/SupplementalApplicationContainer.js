@@ -26,6 +26,7 @@ const StatusUpdateSection = withContext(({ store }) => {
     <ContentSection.Content paddingBottomNone marginTop>
       <StatusUpdate
         status={recentStatusUpdate.status}
+        substatus={recentStatusUpdate.substatus}
         comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
         onStatusDropdownChange={openUpdateStatusModal}
