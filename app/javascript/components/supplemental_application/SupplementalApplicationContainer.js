@@ -112,32 +112,14 @@ const StatusHistorySection = withContext(({ store }) => {
   )
 })
 
-const ActionButtons = withContext(({ loading, store }) => {
-  const { application, openUpdateStatusModal } = store
-
-  return (
-    <div className='button-pager'>
-      <div className='button-pager_row align-buttons-left primary inset-wide'>
-        <StatusDropdown
-          status={application.processing_status}
-          onChange={openUpdateStatusModal}
-          buttonClasses={['small', 'has-status-width']}
-          wrapperClasses={['dropdown-inline']}
-          menuClasses={['dropdown-menu-bottom']}
-          disabled={loading}
-        />
-        <button
-          className='button primary small save-btn'
-          type='submit'
-          id='save-supplemental-application'
-          disabled={loading}>
-          {loading ? 'Saving…' : 'Save'}
-        </button>
-      </div>
-    </div>)
-})
-
 class SupplementalApplicationContainer extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      failed: false
+    }
+  }
+
   validateForm = (values) => {
     const errors = {lease: {}}
     if (!isEmpty(values.lease)) {
@@ -147,7 +129,16 @@ class SupplementalApplicationContainer extends React.Component {
     return errors
   }
 
+  checkForValidationErrors = (form) => {
+    const failed = form.getState().invalid
+    this.setState({failed: failed})
+    if (failed) {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render () {
+    const { failed } = this.state
     const { store } = this.props
     const {
       application,
@@ -164,7 +155,8 @@ class SupplementalApplicationContainer extends React.Component {
       handleStatusModalClose,
       handleStatusModalStatusChange,
       handleStatusModalSubmit,
-      assignSupplementalAppTouched
+      assignSupplementalAppTouched,
+      openUpdateStatusModal
     } = store
 
     return (
@@ -178,6 +170,12 @@ class SupplementalApplicationContainer extends React.Component {
         }}
         render={({ handleSubmit, form }) => (
           <React.Fragment>
+            { failed && (
+              <AlertBox
+                invert
+                onCloseClick={() => this.setState({failed: false})}
+                message='Please resolve any errors before saving the application.' />
+            )}
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
               <StatusUpdateSection />
               <ConfirmedPreferencesSection
@@ -197,7 +195,26 @@ class SupplementalApplicationContainer extends React.Component {
               <DemographicsSection />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
-              <ActionButtons loading={loading} />
+              <div className='button-pager'>
+                <div className='button-pager_row align-buttons-left primary inset-wide'>
+                  <StatusDropdown
+                    status={application.processing_status}
+                    onChange={openUpdateStatusModal}
+                    buttonClasses={['small', 'has-status-width']}
+                    wrapperClasses={['dropdown-inline']}
+                    menuClasses={['dropdown-menu-bottom']}
+                    disabled={loading}
+                  />
+                  <button
+                    className='button primary small save-btn'
+                    type='submit'
+                    id='save-supplemental-application'
+                    disabled={loading}
+                    onClick={() => this.checkForValidationErrors(form)}>
+                    {loading ? 'Saving…' : 'Save'}
+                  </button>
+                </div>
+              </div>
             </form>
             <StatusModalWrapper
               {...statusModal}
