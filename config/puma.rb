@@ -55,11 +55,6 @@ preload_app!
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
 #
-# before_fork do
-#   require 'puma_worker_killer'
-
-#   PumaWorkerKiller.enable_rolling_restart(0.25 * 3600)
-# end
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
