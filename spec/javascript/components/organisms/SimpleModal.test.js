@@ -1,6 +1,5 @@
 /* global mount */
 import React from 'react'
-import ReactModal from 'react-modal'
 // import sinon from 'sinon'
 
 import SimpleModal from 'components/organisms/SimpleModal'
@@ -10,11 +9,6 @@ describe('SimpleModal', () => {
   const onCloseClick = jest.fn()
   const onPrimaryClick = jest.fn()
   const onSecondaryClick = jest.fn()
-  beforeEach(() => {
-    window.onload = () => {
-      ReactModal.setAppElement('body')
-    }
-  })
 
   test('it should render status type successfully', () => {
     const wrapper = mount(
