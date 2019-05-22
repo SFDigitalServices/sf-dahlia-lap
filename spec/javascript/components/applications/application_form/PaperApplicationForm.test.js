@@ -9,7 +9,8 @@ import application from '../../../fixtures/domain_application'
 import lendingInstitutions from '../../../fixtures/lending_institutions'
 
 const mockSubmitApplication = jest.fn()
-const applicationWithInvalidAnnualIncome = clone(application)
+
+let testApplication = null
 
 jest.mock('apiService', () => {
   return {
@@ -22,16 +23,16 @@ jest.mock('apiService', () => {
 
 describe('PaperApplicationForm', () => {
   beforeEach(() => {
-    applicationWithInvalidAnnualIncome['annual_income'] = 'foo'
-    applicationWithInvalidAnnualIncome['application_language'] = null
+    testApplication = clone(application)
   })
 
   describe('should validate fields correctly: ', () => {
     test('Annual Income', async () => {
+      testApplication['annual_income'] = 'foo'
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
-          application={applicationWithInvalidAnnualIncome}
+          application={testApplication}
         />
       )
 
@@ -39,40 +40,21 @@ describe('PaperApplicationForm', () => {
 
       await wait(100)
 
-      const formGroupSel = '.form-group'
-      const labelSel = 'label.form-label[htmlFor="annual_income"]'
-      const fieldWrapper1Sel = 'r[field="annual_income"]'
-      const fieldWrapper2Sel = 't#annual_income'
       const inputSel = 'input#annual_income'
-      const errorMsgWrapperSel = 'FormError[field="annual_income"]'
-      const errorMsgSel = 'span.small'
 
       // Check that the elements that make up the annual income field are
       // present and have the correct validation error classes
-      const fieldElementsSel =
-        `${formGroupSel}.error > ` +
-        `${labelSel} + ` +
-        `${fieldWrapper1Sel}.error > ` +
-        `${fieldWrapper2Sel}.error > ` +
-        `${inputSel}.error`
+      const fieldElementsSel = `${inputSel}.error`
       expect(wrapper.exists(fieldElementsSel)).toEqual(true)
-
-      // Check that the error message elements are present, have the
-      // correct error classes, and correct error message text
-      const errorElementsSel =
-        `${formGroupSel}.error > ` +
-        `${labelSel} + ` +
-        `${fieldWrapper1Sel}.error + ` +
-        `${errorMsgWrapperSel} > ` +
-        `${errorMsgSel}.error`
-      expect(wrapper.find(errorElementsSel).text()).toEqual('Please enter a valid dollar amount.')
+      expect(wrapper.text()).toContain('Please enter a valid dollar amount.')
     })
 
     test('Language', async () => {
+      testApplication['application_language'] = null
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
-          application={applicationWithInvalidAnnualIncome}
+          application={testApplication}
         />
       )
       wrapper.find('form').first().simulate('submit')
@@ -80,7 +62,7 @@ describe('PaperApplicationForm', () => {
       await wait(100)
 
       expect(wrapper.text()).toContain('Please select a language.')
-      wrapper.find('#application_language select').simulate('change', { target: { value: 1 } })
+      wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
       wrapper.find('form').first().simulate('submit')
       expect(wrapper.text()).not.toContain('Please select a language.')
     })
@@ -92,7 +74,7 @@ describe('PaperApplicationForm', () => {
         const wrapper = mount(
           <PaperApplicationForm
             listing={listing}
-            application={applicationWithInvalidAnnualIncome}
+            application={testApplication}
           />
         )
         expect(wrapper.text()).not.toContain('Eligibility Information')
@@ -109,7 +91,7 @@ describe('PaperApplicationForm', () => {
         const wrapper = mount(
           <PaperApplicationForm
             listing={listing}
-            application={applicationWithInvalidAnnualIncome}
+            application={testApplication}
           />
         )
         expect(wrapper.text()).toContain('Eligibility Information')
@@ -120,10 +102,10 @@ describe('PaperApplicationForm', () => {
           <PaperApplicationForm
             listing={listing}
             lendingInstitutions={lendingInstitutions}
-            application={applicationWithInvalidAnnualIncome}
+            application={testApplication}
           />
         )
-        wrapper.find('#lending_institution select').simulate('change', { target: { value: 1 } })
+        wrapper.find('#lending_institution select').simulate('change', { target: { value: 'First Republic Bank' } })
         expect(wrapper.text()).toContain('Hilary Byrde')
         wrapper.find('form').first().simulate('submit')
         expect(wrapper.text()).toContain('Please select a lender.')
@@ -134,21 +116,18 @@ describe('PaperApplicationForm', () => {
       })
 
       describe('lending institution and lender dropdowns should be filled out', () => {
-        beforeEach(() => {
-          applicationWithInvalidAnnualIncome.lending_agent = '003U000001Wnp5gIAB'
-        })
-
         test('lender select should be filled out', async () => {
+          testApplication.lending_agent = '003U000001Wnp5gIAB'
           const wrapper = mount(
             <PaperApplicationForm
               listing={listing}
               lendingInstitutions={lendingInstitutions}
-              application={applicationWithInvalidAnnualIncome}
+              application={testApplication}
             />
           )
           await wait(100)
-          expect(wrapper.find('#lending_institution select').props().value).toEqual(1)
-          expect(wrapper.find('#lending_agent select').props().value).toEqual(1)
+          expect(wrapper.find('#lending_institution select').props().value).toEqual('First Republic Bank')
+          expect(wrapper.find('#lending_agent select').props().value).toEqual('003U000001Wnp5gIAB')
         })
       })
     })

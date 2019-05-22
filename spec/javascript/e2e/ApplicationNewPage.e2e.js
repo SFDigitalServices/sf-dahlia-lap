@@ -22,6 +22,9 @@ describe('ApplicationNewPage', () => {
   const HOUSEHOLD_MEMBER_DOB_DAY = '12'
   const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
 
+  const LENDING_INSTITUTION = 'First Republic Bank'
+  const LENDING_AGENT_ID = '003U000001Wnp5gIAB'
+
   test('should create a new application successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
@@ -32,7 +35,7 @@ describe('ApplicationNewPage', () => {
     // Enter in required information
     // Type in the long strings past character limit, the test will make sure
     // the truncated version which is within the character limit gets saved
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
@@ -40,9 +43,9 @@ describe('ApplicationNewPage', () => {
     await page.type('#date_of_birth_year', DOB_YEAR)
 
     // Select ADA priorities
-    await page.click('#adaPrioritiesSelected-0')
-    await page.click('#adaPrioritiesSelected-1')
-    await page.click('#adaPrioritiesSelected-2')
+    await page.click('#form-has_ada_priorities_selected\\.mobility_impairments')
+    await page.click('#form-has_ada_priorities_selected\\.vision_impairments')
+    await page.click('#form-has_ada_priorities_selected\\.hearing_impairments')
 
     // Save the application
     await page.click('.save-btn')
@@ -74,7 +77,7 @@ describe('ApplicationNewPage', () => {
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
 
-    const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
     expect(errors).toContain('Please enter a First Name')
     expect(errors).toContain('Please enter a Last Name')
     expect(errors).toContain('Please enter a Date of Birth')
@@ -93,7 +96,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     // Fill out primary applicant required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -138,7 +141,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     // Enter non-household member required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -152,7 +155,7 @@ describe('ApplicationNewPage', () => {
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
 
-    const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
     expect(errors).toContain('Please enter a First Name')
     expect(errors).toContain('Please enter a Last Name')
     expect(errors).toContain('Please enter a Date of Birth')
@@ -170,7 +173,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     // Fill out primary applicant required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -182,21 +185,21 @@ describe('ApplicationNewPage', () => {
 
     // Fill out live/work preference required fields
     // Select the live/work preference
-    const liveWorkDropdownValue = '5'
+    const liveWorkDropdownValue = 'a0l0P00001Lx8XeQAJ'
     await page.waitForSelector('#select-paper-preference-0')
     await page.select('#select-paper-preference-0', liveWorkDropdownValue)
 
     // Select the household member
-    await page.waitForSelector('#preferences\\.0\\.naturalKey')
-    await page.select('#preferences\\.0\\.naturalKey', '1')
+    await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
+    await page.select('#form-preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
 
     // Select live vs work
-    const liveDropDownValue = '1'
-    await page.select('#preferences\\.0\\.individual_preference', liveDropDownValue)
+    const liveDropDownValue = 'Live in SF'
+    await page.select('#form-preferences\\.0\\.individual_preference', liveDropDownValue)
 
     // Select type of proof
-    const telephoneBillDropdownValue = '1'
-    await page.select('#preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
+    const telephoneBillDropdownValue = 'Telephone bill'
+    await page.select('#form-preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
 
     await page.click('.save-btn')
     await page.waitForNavigation()
@@ -211,6 +214,45 @@ describe('ApplicationNewPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
+  test('should should validate hh member attached to preference if hh member updates', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    await page.select('#application_language', 'English')
+    // Fill out primary applicant required fields
+    await page.type('#first_name', 'first name')
+    await page.type('#last_name', TRUNCATED_LAST_NAME)
+    await page.type('#date_of_birth_month', DOB_MONTH)
+    await page.type('#date_of_birth_day', DOB_DAY)
+    await page.type('#date_of_birth_year', DOB_YEAR)
+
+    await page.click('#add-preference-button')
+
+    // Fill out live/work preference required fields
+    // Select the live/work preference
+    const liveWorkDropdownValue = 'a0l0P00001Lx8XeQAJ'
+    await page.waitForSelector('#select-paper-preference-0')
+    await page.select('#select-paper-preference-0', liveWorkDropdownValue)
+
+    // Select the household member
+    await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
+    await page.select('#form-preferences\\.0\\.naturalKey', `first name,${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
+
+    // Update primary applicant name and save
+    await page.type('#first_name', 'forgotten character')
+    // await page.type('#last_name', 'new last name')
+    await page.click('.save-btn')
+
+    // Expect that a validation error is raised.
+    const errors = await page.$$eval('#form-preferences\\.0\\.naturalKey+span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toContain('This field is required')
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
   test('should bring up an alternate contact error message only if values are present but not first or last name', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
@@ -218,7 +260,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     // Fill out primary applicant required fields
     await page.type('#first_name', TRUNCATED_FIRST_NAME)
     await page.type('#last_name', TRUNCATED_LAST_NAME)
@@ -251,14 +293,14 @@ describe('ApplicationNewPage', () => {
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
-  test('should fail a new sale application', async () => {
+  test('should fail for an incomplete new sale application', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
@@ -268,7 +310,7 @@ describe('ApplicationNewPage', () => {
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
 
-    const errors = await page.$$eval('.form-group.error span.error', divs => divs.map(d => d.textContent))
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
     expect(errors).toContain('The applicant cannot qualify for the listing unless this is true.')
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
@@ -284,19 +326,19 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
-    await page.select('#application_language', '1')
+    await page.select('#application_language', 'English')
     await page.type('#first_name', FIRST_NAME)
     await page.type('#last_name', LAST_NAME)
     await page.type('#date_of_birth_month', DOB_MONTH)
     await page.type('#date_of_birth_day', DOB_DAY)
     await page.type('#date_of_birth_year', DOB_YEAR)
 
-    // elegibility section fields
+    // eligibility section fields
     await page.click('#has_loan_preapproval')
     await page.click('#has_completed_homebuyer_education')
     await page.click('#is_first_time_homebuyer')
-    await page.select('#lending_institution', '1')
-    await page.select('#lending_agent', '1')
+    await page.select('#lending_institution', LENDING_INSTITUTION)
+    await page.select('#lending_agent', LENDING_AGENT_ID)
 
     // Save the application
     await page.click('.save-btn')

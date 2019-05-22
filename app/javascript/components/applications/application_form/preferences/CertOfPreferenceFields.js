@@ -1,22 +1,24 @@
 import React from 'react'
 import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
+import { TextField, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
+import validate from '~/utils/form/validations'
 
-const CertOfPreferenceFields = ({ formApi, householdMembers, i }) => {
+const CertOfPreferenceFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
-          field={buildFieldId(i, 'naturalKey')}
+        <SelectField
+          fieldName={buildFieldId(i, 'naturalKey')}
           label='Name of COP Holder'
           blockNote='(required)'
           options={householdMembers}
+          validation={validate.isPresent('Name of COP Holder is required')}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Text
-          field={buildFieldId(i, 'certificate_number')}
+        <TextField
+          fieldName={buildFieldId(i, 'certificate_number')}
           label='COP Certificate Number'
           maxLength={maxLengthMap['certificate_number']}
         />

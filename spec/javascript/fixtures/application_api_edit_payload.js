@@ -1,6 +1,7 @@
 export default {
   id: 'a0o0x000000OcOzAAK',
   isFirstTimeHomebuyer: undefined,
+  lendingAgent: undefined,
   hasMilitaryService: null,
   hasSenior: undefined,
   householdAssets: undefined,
@@ -64,8 +65,8 @@ export default {
     mailingZip: '94105-1804',
     middleName: 'Daaaa',
     alternateContactType: 'Friend',
-    alternateContactTypeOther: undefined,
-    agency: undefined,
+    alternateContactTypeOther: null,
+    agency: null,
     email: 'fede@eee.com',
     phone: '9954449943',
     phoneType: 'Cell' },
