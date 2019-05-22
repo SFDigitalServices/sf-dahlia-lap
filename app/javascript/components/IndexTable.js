@@ -1,19 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
-import moment from 'moment'
+import moment from 'moment-timezone'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
 import IndexTableCell from './IndexTableCell'
 import appPaths from '~/utils/appPaths'
 
 class IndexTable extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      expanded: {},
-      data: [...props.results]
-    }
+  state = {
+    expanded: {},
+    data: [...this.props.results]
   }
 
   columnData = () => {
@@ -32,7 +29,7 @@ class IndexTable extends React.Component {
           if (cellInfo.column.Header === 'Lottery Date') {
             // cheap way of knowing when to parse date fields
             // only parse the date if the value is not undefined.
-            val = val ? moment(new Date(val)).format('L') : undefined
+            val = val ? moment(new Date(val)).tz('America/Los_Angeles').format('L') : undefined
           }
           return <IndexTableCell {...{ attrs, val }} />
         },
