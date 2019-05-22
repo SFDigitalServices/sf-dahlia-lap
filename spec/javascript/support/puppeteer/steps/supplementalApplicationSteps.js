@@ -24,20 +24,16 @@ const testStatusModalUpdate = async (page) => {
 
   // Enter a comment into the status modal comment field
   await page.type('#status-comment', COMMENT)
-
   // Submit the status modal form
   await page.click('.form-modal_form_wrapper button.primary')
-
   // Wait for the page to reload after the status modal submit
   await page.waitForNavigation()
 
-  // The latest status in the status history should be the status
-  // that was just selected and saved
+  // The latest status in the status history should be the status that was just selected and saved
   const latestStatus = await page.$eval('.status-list .status-list_item:last-child .status-list_tag', e => e.textContent)
   expect(latestStatus).toBe(newSelectedStatus)
 
-  // The latest comment in the status history should be the comment
-  // that was just entered and saved
+  // The latest comment in the status history should be the comment that was just entered and saved
   let latestComment = ''
   try {
     await page.waitForSelector('.status-list .status-list_item:last-child .status-list_note:last-child')
