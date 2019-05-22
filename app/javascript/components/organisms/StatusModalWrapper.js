@@ -4,7 +4,7 @@ import StatusDropdown from '~/components/molecules/StatusDropdown'
 import FormModal from './FormModal'
 import { TextAreaField } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
-import { statusRequiresComments } from '~/utils/statusUtils'
+import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 
 class StatusModalWrapper extends React.Component {
   render () {
@@ -47,7 +47,7 @@ class StatusModalWrapper extends React.Component {
               menuClasses={['form-modal_dropdown-menu']}
               wrapperClasses={['status']} />
             {!status && <small className='error'>Please provide a status.</small>}
-            {status && (
+            {status && LEASE_UP_SUBSTATUS_OPTIONS[status] && (
               <React.Fragment>
                 <h2 className='form-label'>Status Detail</h2>
                 <StatusDropdown
