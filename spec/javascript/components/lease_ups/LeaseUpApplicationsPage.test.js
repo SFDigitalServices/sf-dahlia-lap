@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
+import { statusRequiresComments } from '../../utils/statusUtils'
 
 const mockfetchLeaseUpApplications = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
@@ -92,6 +93,7 @@ describe('LeaseUpApplicationsPage', () => {
     const openModalSelector = '.ReactModal__Content--after-open'
     const commentBoxSelector = 'textarea#status-comment'
     const updateButtonSelector = 'div.modal-button_item.modal-button_primary > button'
+    const statusSelector = '.form-modal_form_wrapper .dropdown.status'
     const subStatusSelector = '.form-modal_form_wrapper .dropdown.subStatus'
 
     test('Can be opened and closed', async () => {
@@ -112,7 +114,7 @@ describe('LeaseUpApplicationsPage', () => {
 
       // Expect the modal to be open
       expect(wrapper.find(openModalSelector).exists()).toBeTruthy()
-      const status = await wrapper.find('.dropdown button').first().html()
+      const status = await wrapper.find(statusSelector).first().html()
       if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
         expect(wrapper.find(subStatusSelector).exists()).toBe(true)
         const emptyStatus = wrapper.find(`${subStatusSelector} button`).html()
@@ -132,7 +134,7 @@ describe('LeaseUpApplicationsPage', () => {
       mockCreateFieldUpdateComment.mockReturnValueOnce(true)
       openStatusModal(wrapper)
 
-      const status = await wrapper.find('.dropdown button').first().html()
+      const status = await wrapper.find(statusSelector).first().html()
       if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
         expect(wrapper.find(subStatusSelector).exists()).toBe(true)
         const emptyStatus = wrapper.find(`${subStatusSelector} button`).html()
@@ -160,24 +162,24 @@ describe('LeaseUpApplicationsPage', () => {
       expect(wrapper.find(openModalSelector).exists()).toBe(false)
     })
 
-    test('Should open closeable alert modal on failed submit', async () => {
+    test('Should display errors on required comment', async () => {
       mockCreateFieldUpdateComment.mockReturnValueOnce(false)
       openStatusModal(wrapper)
 
-      // Fill out the comment and submit
-      wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
+      const status = await wrapper.find(statusSelector).first().html()
+      let substatus = ''
+      if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
+        substatus = wrapper.find(`${subStatusSelector} button`).html()
+      }
+
+      // Leave comment empty and submit
       wrapper.find(updateButtonSelector).simulate('submit')
       await tick()
       wrapper.update()
 
-      // Expect alert message to be present
-      expect(wrapper.find('.alert-body').exists()).toBeTruthy()
-
-      // Close the alert message
-      wrapper.find('.alert-box-and-notice button.close').simulate('click')
-
-      // Expect alert to be closed
-      expect(wrapper.find('.alert-body').exists()).toBe(false)
+      const labelValue = await wrapper.find('#status-comment-label').html()
+      // check if required is present for either condition
+      expect(labelValue.toLowerCase().includes('required')).toBe(statusRequiresComments(status.toLowerCase(), substatus.toLowerCase()))
     })
 
     test('Should open closeable alert modal on failed submit', async () => {
