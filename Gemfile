@@ -101,3 +101,7 @@ gem "webpacker-react", "~> 0.3.2"
 
 # Added at 2017-11-10 09:14:41 -0800 by dkaplan:
 gem "pg", "~> 0.21.0"
+
+gem 'scout_apm'
+
+gem 'oj'
