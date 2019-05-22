@@ -6,6 +6,7 @@ import { FormItem, Comment } from './utils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
+const { labelize } = formOptions
 
 const {
   preferenceProofOptionsDefault
@@ -23,7 +24,7 @@ export const NeighborhoodResidentHousingPanel = ({ preferenceIndex, preference, 
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
-            options={applicationMembersOptions}
+            options={labelize(applicationMembersOptions, {disableEmpty: true})}
             label='HH Member on Proof' />
         </FormItem>
         <FormItem>
@@ -35,7 +36,7 @@ export const NeighborhoodResidentHousingPanel = ({ preferenceIndex, preference, 
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-            options={statusOptions}
+            options={labelize(statusOptions, {disableEmpty: true})}
             label='Status' />
         </FormItem>
       </FormGrid.Row>
