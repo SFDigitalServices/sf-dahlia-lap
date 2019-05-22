@@ -179,5 +179,25 @@ describe('LeaseUpApplicationsPage', () => {
       // Expect alert to be closed
       expect(wrapper.find('.alert-body').exists()).toBe(false)
     })
+
+    test('Should open closeable alert modal on failed submit', async () => {
+      mockCreateFieldUpdateComment.mockReturnValueOnce(false)
+      openStatusModal(wrapper)
+
+      // Fill out the comment and submit
+      wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
+      wrapper.find(updateButtonSelector).simulate('submit')
+      await tick()
+      wrapper.update()
+
+      // Expect alert message to be present
+      expect(wrapper.find('.alert-body').exists()).toBeTruthy()
+
+      // Close the alert message
+      wrapper.find('.alert-box-and-notice button.close').simulate('click')
+
+      // Expect alert to be closed
+      expect(wrapper.find('.alert-body').exists()).toBe(false)
+    })
   })
 })
