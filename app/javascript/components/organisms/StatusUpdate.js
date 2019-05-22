@@ -20,16 +20,36 @@ const StatusUpdate = ({ status, substatus, comment, date, onStatusDropdownChange
       </div>
       <div className='status-update_message'>
         <div className='status-update_comment'>
-          <p className={classNames('status-update_note', {'c-steel': !comment})}>
-            {comment || 'Update status or add a comment'}
-          </p>
           {
-            ((status || comment) && date) &&
-            <span className='status-update_date'>
-              <PrettyTime time={date} displayType='short' />
-            </span>
+            substatus ? (
+              <React.Fragment>
+                <div className='status-update_substatus_container'>
+                  <p className='status-update_substatus c-steel'>{substatus}</p>
+                  {
+                    ((status || comment || substatus) && date) &&
+                    <span className='status-update_date'>
+                      <PrettyTime time={date} displayType='short' />
+                    </span>
+                  }
+                </div>
+                <p className={classNames('status-update_note', {'c-steel': !comment})}>
+                  {comment || 'Update status or add a comment'}
+                </p>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <p className={classNames('status-update_note', {'c-steel': !comment})}>
+                  {comment || 'Update status or add a comment'}
+                </p>
+                {
+                  ((status || comment || substatus) && date) &&
+                  <span className='status-update_date'>
+                    <PrettyTime time={date} displayType='short' />
+                  </span>
+                }
+              </React.Fragment>
+            )
           }
-          {substatus && <p className='status-update_substatus c-steel'><br />({substatus})</p>}
         </div>
         <div className='status-update_footer'>
           <button className='button tiny tertiary' type='button' onClick={onAddCommentClick} disabled={loading}>
