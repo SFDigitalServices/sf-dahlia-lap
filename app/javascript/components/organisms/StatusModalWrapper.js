@@ -44,8 +44,8 @@ class StatusModalWrapper extends React.Component {
         onAlertCloseClick={onAlertCloseClick}
         loading={loading}>
         {formApi => (
-          <div className={'form-group ' + (formUtils.submitErrors(formApi).comment ? 'error' : '')}>
-            <h2 className='form-label'>Status/Comment</h2>
+          <div className='form-group'>
+            <h2 className='form-label'>Status</h2>
             <StatusDropdown
               status={status}
               onChange={onStatusChange}
@@ -66,7 +66,7 @@ class StatusModalWrapper extends React.Component {
                   wrapperClasses={['subStatus']} />
               </React.Fragment>
             )}
-            <label className='sr-only' htmlFor='status-comment' id='status-comment-label'>Comment</label>
+            <label className={`form-label ${formUtils.submitErrors(formApi).comment ? 'error' : ''}`} id='status-comment-label'>Comment{statusRequiresComments(status, subStatus) ? ' (required)' : ''}</label>
             <TextArea
               field='comment'
               name='comment'
