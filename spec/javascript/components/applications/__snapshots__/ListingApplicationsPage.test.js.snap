@@ -545,7 +545,7 @@ Array [
                   }
                 }
               >
-                01/12/2019
+                01/11/2019
               </div>
               <div
                 className="rt-td"
@@ -686,7 +686,7 @@ Array [
                   }
                 }
               >
-                01/12/2019
+                01/11/2019
               </div>
               <div
                 className="rt-td"
@@ -3415,7 +3415,7 @@ Array [
               className="-pageInfo"
             >
               Page
-
+               
               <div
                 className="-pageJump"
               >
@@ -3428,9 +3428,9 @@ Array [
                   value={1}
                 />
               </div>
-
+               
               of
-
+               
               <span
                 className="-totalPages"
               >
