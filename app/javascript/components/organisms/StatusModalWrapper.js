@@ -4,6 +4,7 @@ import StatusDropdown from '~/components/molecules/StatusDropdown'
 import FormModal from './FormModal'
 import { TextAreaField } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
+import { statusRequiresComments } from '~/utils/statusUtils'
 
 class StatusModalWrapper extends React.Component {
   render () {
@@ -37,8 +38,8 @@ class StatusModalWrapper extends React.Component {
         onAlertCloseClick={onAlertCloseClick}
         loading={loading}>
         {form => (
-          <div className={'form-group ' + (form.getState().submitFailed && form.getState().invalid ? 'error' : '')}>
-            <h2 className='form-label'>Status/Comment</h2>
+          <div className={'form-group'}>
+            <h2 className='form-label'>Status</h2>
             <StatusDropdown
               status={status}
               onChange={onStatusChange}
@@ -60,8 +61,9 @@ class StatusModalWrapper extends React.Component {
               </React.Fragment>
             )}
             <TextAreaField
-              label='Comment'
+              label={'Comment' + statusRequiresComments(status, subStatus) ? ' (required)' : ''}
               fieldName='comment'
+              labelClass={`form-label ${form.getState().errors.comment ? 'error' : ''}`}
               id='status-comment'
               cols='30'
               rows='10'

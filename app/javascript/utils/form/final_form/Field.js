@@ -21,10 +21,10 @@ export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabel
     placeholder={placeholder} />
 )
 
-export const Label = ({ label, fieldName, blockNote, id }) => {
+export const Label = ({ label, fieldName, blockNote, id, className }) => {
   if (label) {
     return (
-      <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+      <label htmlFor={id || `form-${fieldName}`} className={className || 'form-label'}>
         {label && `${label} `}
         {blockNote && <BlockNote value={blockNote} />}
       </label>)
@@ -141,7 +141,7 @@ export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLab
   )
 }
 
-export const TextAreaField = ({ fieldName, label, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote }) => (
+export const TextAreaField = ({ fieldName, label, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
   <Field name={fieldName} validate={validation} component='textarea'>
     {({ input, meta }) => (
       <React.Fragment>
@@ -150,7 +150,8 @@ export const TextAreaField = ({ fieldName, label, cols, rows, validation, placeh
             label={label}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+            className={labelClass} />
           <textarea {...input}
             id={id || `form-${fieldName}`}
             className={(meta.error && meta.touched && 'error') || ''}
