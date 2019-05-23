@@ -41,7 +41,7 @@ module Force
       domain_fields = super
 
       if @fields.domain['lease_start_date']
-        domain_fields['lease_start_date'] = self.class.date_to_domain(@fields.domain['lease_start_date'])
+        domain_fields['lease_start_date'] = self.class.date_to_json(@fields.domain['lease_start_date'])
       end
 
       domain_fields
@@ -51,6 +51,11 @@ module Force
       # Convert string date into array
       return nil if api_date.blank?
       api_date.split('-')
+    end
+
+    def self.date_to_json(api_date)
+      date = date_to_domain(api_date)
+      { year: date[0], month: date[1], day: date[2] }
     end
 
     def self.date_to_salesforce(domain_date)

@@ -111,11 +111,15 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
-export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLabel = 'Yes', falseValue = 'false', falseLabel = 'No', inputClassName, className }) => {
+export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLabel = 'Yes', falseValue = 'false', falseLabel = 'No', inputClassName, className, label }) => {
   const divClassName = classNames(className, 'radio-group-inline')
   return (
     <div className={divClassName}>
       <React.Fragment>
+        <Label
+          label={label}
+          id={`form-${fieldName}`}
+          fieldName={fieldName} />
         <Field name={fieldName} value={trueValue} type='radio'>
           {({ input, meta }) => (
             <p className='radio-inline'>
