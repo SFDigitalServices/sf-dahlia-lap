@@ -40,6 +40,19 @@ const submitErrors = (formApi) => {
   return formApi.submits > 0 ? formApi.errors : mapValues(formApi.errors, () => null)
 }
 
+// Formats a numer to currency in format eg. $1,000.00
+const formatPrice = (value) => {
+  if (!value) return ''
+  let valueString = value.toString().replace(/\$|,|\s/g, '')
+
+  // return value if value is not valid number
+  if (parseFloat(valueString)) {
+    return '$' + parseFloat(valueString).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+  } else {
+    return value
+  }
+}
+
 export const maxLengthMap = {
   first_name: 40,
   middle_name: 20,
@@ -66,5 +79,6 @@ export default {
   toOption,
   toOptions,
   touchedErrors,
-  submitErrors
+  submitErrors,
+  formatPrice
 }
