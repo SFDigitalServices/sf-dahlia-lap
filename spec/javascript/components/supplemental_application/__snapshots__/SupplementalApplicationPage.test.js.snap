@@ -5402,7 +5402,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <div
                                                 className="form-group"
                                               >
-                                                <TextField
+                                                <InputField
                                                   fieldName="household_assets"
                                                   label="Household Assets"
                                                   placeholder="Enter Amount"
@@ -5535,7 +5535,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       </div>
                                                     </Field>
                                                   </ReactFinalForm(Field)>
-                                                </TextField>
+                                                </InputField>
                                               </div>
                                             </Component>
                                           </div>
@@ -5548,7 +5548,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <div
                                                 className="form-group"
                                               >
-                                                <TextField
+                                                <InputField
                                                   fieldName="confirmed_household_annual_income"
                                                   label="Confirmed Annual Income"
                                                   placeholder="Enter Amount"
@@ -5681,7 +5681,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       </div>
                                                     </Field>
                                                   </ReactFinalForm(Field)>
-                                                </TextField>
+                                                </InputField>
                                                 <span
                                                   className="form-note shift-up"
                                                   id="household-annual-income"
@@ -5700,7 +5700,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <div
                                                 className="form-group"
                                               >
-                                                <TextField
+                                                <InputField
                                                   fieldName="hh_total_income_with_assets_annual"
                                                   label="Final Household Annual Income"
                                                   placeholder="Enter Amount"
@@ -5833,7 +5833,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       </div>
                                                     </Field>
                                                   </ReactFinalForm(Field)>
-                                                </TextField>
+                                                </InputField>
                                                 <span
                                                   className="form-note shift-up"
                                                   id="final-household-annual-income"
@@ -6876,7 +6876,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             <div
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
-                                              <TextField
+                                              <InputField
                                                 fieldName="lease.total_monthly_rent_without_parking"
                                                 label="Monthly Rent"
                                                 placeholder="Enter Amount"
@@ -7009,14 +7009,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     </div>
                                                   </Field>
                                                 </ReactFinalForm(Field)>
-                                              </TextField>
+                                              </InputField>
                                             </div>
                                           </Component>
                                           <Component>
                                             <div
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
-                                              <TextField
+                                              <InputField
                                                 fieldName="lease.monthly_parking_rent"
                                                 label="Monthly Parking Cost"
                                                 placeholder="Enter Amount"
@@ -7149,14 +7149,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     </div>
                                                   </Field>
                                                 </ReactFinalForm(Field)>
-                                              </TextField>
+                                              </InputField>
                                             </div>
                                           </Component>
                                           <Component>
                                             <div
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
-                                              <TextField
+                                              <InputField
                                                 fieldName="lease.monthly_tenant_contribution"
                                                 label="Monthly Tenant Contribution"
                                                 placeholder="Enter Amount"
@@ -7289,7 +7289,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     </div>
                                                   </Field>
                                                 </ReactFinalForm(Field)>
-                                              </TextField>
+                                              </InputField>
                                             </div>
                                           </Component>
                                         </div>

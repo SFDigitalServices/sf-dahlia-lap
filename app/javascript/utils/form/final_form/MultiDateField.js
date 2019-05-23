@@ -1,9 +1,26 @@
 import React from 'react'
 import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
-import { InputField } from '~/utils/form/final_form/Field'
+import { Field } from 'react-final-form'
+import { Input } from '~/utils/form/final_form/Field'
 import { every, last } from 'lodash'
 import classNames from 'classnames'
+
+const InputField = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
+  <Field name={fieldName} validate={validation}>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <Input
+          input={input}
+          type={type}
+          meta={meta}
+          id={id || `form-${fieldName}`}
+          placeholder={placeholder}
+          maxLength={maxLength} />
+      </React.Fragment>
+    )}
+  </Field>
+)
 
 export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id }) => {
   const touched = every(['.day', '.month', '.year'], type => {

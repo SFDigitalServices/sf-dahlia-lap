@@ -27,7 +27,7 @@ const validates = (fun, message) => (value) => {
 const decorateValidator = fn => message => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
-  if (dateOfBirth && isValidDate(dateOfBirth)) {
+  if (dateOfBirth && isDate(dateOfBirth)) {
     const years = moment().diff(moment(dateOfBirth.join('-'), API_DATE_FORMAT), 'years')
     return years >= 18
   } else {
@@ -35,7 +35,7 @@ const isOldEnough = (dateOfBirth) => {
   }
 }
 
-const isValidDate = (date) => {
+const isDate = (date) => {
   if (date && !isEmpty(compact(date))) {
     // Verify that the year is in a valid range
     if (date[0] < 1900) return false
@@ -90,7 +90,7 @@ const isPresent = (value) => {
 
 validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
-validate.isValidDate = decorateValidator(isValidDate)
+validate.isDate = decorateValidator(isDate)
 validate.isValidCurrency = decorateValidator(isValidCurrency)
 validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal))
 validate.isPresent = decorateValidator(isPresent)
@@ -102,37 +102,21 @@ validate.any = (...fns) => (value) => {
       map(fns, fn => fn(value))))
 }
 
-validate.isValidDOB = (person, errors, isPrimaryApplicant = false) => {
-  let errorMessage = 'Please enter a Date of Birth'
-  if (person && person.date_of_birth) {
-    const day = toInteger(person.date_of_birth.day)
-    const month = toInteger(person.date_of_birth.month)
-    const year = toInteger(person.date_of_birth.year)
-    let DOB = [year, month, day]
-    if (isPrimaryApplicant) {
-      errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(DOB)
+// Options accept:
+// - isPrimaryApplicant: validates also minimum age od 18 years
+// - errorMessage: changes default error message
+validate.isValidDate = (date, errors, options = {}) => {
+  let errorMessage = options.errorMessage || 'Please enter a valid date.'
+  if (date) {
+    const dateArray = [toInteger(date.year), toInteger(date.month), toInteger(date.day)]
+    if (options.isPrimaryApplicant) {
+      errorMessage = validate.any(validate.isDate(errorMessage), validate.isDate('The primary applicant must be 18 years of age or older'))(dateArray)
     } else {
-      errorMessage = validate.any(validate.isValidDate('Please enter a valid Date of Birth'))(DOB)
+      errorMessage = validate.any(validate.isDate(errorMessage))(dateArray)
     }
   }
-  errors.date_of_birth.all = errorMessage
-  // Required for red highlighting around inputs
-  errors.date_of_birth.day = errorMessage
-  errors.date_of_birth.month = errorMessage
-  errors.date_of_birth.year = errorMessage
-
-  return errors
-}
-
-validate.isValidDateObject = (date, errors) => {
-  let errorMessage
-
-  if (!isEmpty(date)) {
-    const dateArray = [date.year, date.month, date.day]
-    errorMessage = validate.any(validate.isValidDate('Please enter a valid date.'))(dateArray)
-  }
-
   errors.all = errorMessage
+  // Required for red highlighting around inputs
   errors.day = errorMessage
   errors.month = errorMessage
   errors.year = errorMessage

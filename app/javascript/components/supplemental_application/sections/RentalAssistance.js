@@ -11,7 +11,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import formUtils from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
-import { TextField, SelectField, YesNoRadioField } from '~/utils/form/final_form/Field'
+import { InputField, SelectField, YesNoRadioField } from '~/utils/form/final_form/Field'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -180,7 +180,7 @@ class AddRentalAssistanceForm extends React.Component {
                   />
                 </FormGrid.Item>
                 <FormGrid.Item>
-                  <TextField
+                  <InputField
                     label='Assistance Amount'
                     fieldName='assistance_amount'
                     id='assistance_amount'
@@ -198,7 +198,7 @@ class AddRentalAssistanceForm extends React.Component {
               {isOther(form.getState().values) && (
                 <FormGrid.Row expand={false}>
                   <FormGrid.Item>
-                    <TextField
+                    <InputField
                       label='Other Assistance Name'
                       fieldName='other_assistance_name' />
                   </FormGrid.Item>
