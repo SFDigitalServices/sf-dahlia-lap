@@ -49,7 +49,7 @@ class PaperApplicationForm extends React.Component {
     const errors = {applicant: {date_of_birth: {}}}
     // applicant needs to be initialize for date validation to run on 'required'
     if (!values.applicant) values.applicant = {}
-    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {errorMessage: 'Please enter a valid Date of Birth', isPrimaryApplicant: true})
+    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {errorMessage: 'Please enter a Date of Birth', isPrimaryApplicant: true})
     if (values.alternate_contact && !isEmpty(values.alternate_contact)) {
       errors.alternate_contact = {}
       errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(values.alternate_contact.first_name)

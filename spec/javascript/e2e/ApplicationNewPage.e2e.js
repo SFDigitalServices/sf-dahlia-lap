@@ -22,8 +22,8 @@ describe('ApplicationNewPage', () => {
   const HOUSEHOLD_MEMBER_DOB_DAY = '12'
   const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
 
-  const LENDING_INSTITUTION = 'First Republic Bank'
-  const LENDING_AGENT_ID = '003U000001Wnp5gIAB'
+  const LENDING_INSTITUTION = 'Homestreet Bank'
+  const LENDING_AGENT_ID = '0030P00002CBHPrQAP'
 
   test('should create a new application successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })

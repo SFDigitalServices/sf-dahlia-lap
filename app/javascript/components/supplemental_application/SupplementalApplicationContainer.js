@@ -142,7 +142,7 @@ class SupplementalApplicationContainer extends React.Component {
     const errors = {lease: {}}
     if (!isEmpty(values.lease)) {
       errors.lease = {lease_start_date: {}}
-      validate.isValidDateObject(values.lease.lease_start_date, errors.lease.lease_start_date)
+      validate.isValidDate(values.lease.lease_start_date, errors.lease.lease_start_date)
     }
     return errors
   }

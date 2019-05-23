@@ -10,7 +10,7 @@ const memberValidate = (values) => {
   values.forEach(value => {
     if (!isEmpty(value)) {
       const memberError = {date_of_birth: {}}
-      validate.isValidDate(value.date_of_birth, memberError.date_of_birth, {errorMessage: 'Please enter a valid Date of Birth'})
+      validate.isValidDate(value.date_of_birth, memberError.date_of_birth, {errorMessage: 'Please enter a Date of Birth'})
       memberError.first_name = validate.isPresent('Please enter a First Name')(value.first_name)
       memberError.last_name = validate.isPresent('Please enter a Last Name')(value.last_name)
       membersErrors.push(memberError)
