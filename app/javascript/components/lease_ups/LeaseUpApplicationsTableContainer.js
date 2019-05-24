@@ -32,12 +32,12 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  createStatusUpdate = async (submittedValues) => {
+  createStatusUpdate = async (submittedValues, commentRequired) => {
     this.props.store.updateStatusModal({loading: true})
 
     const { status, applicationId, subStatus } = this.props.store.statusModal
     var comment = submittedValues.comment && submittedValues.comment.trim()
-    if (status && comment) {
+    if ((commentRequired && status && comment) || (!commentRequired && status)) {
       const data = {
         status,
         comment,

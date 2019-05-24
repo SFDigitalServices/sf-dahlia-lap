@@ -7,9 +7,9 @@ import formUtils from '~/utils/formUtils'
 import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 
 class StatusModalWrapper extends React.Component {
-  formValidator = (values) => {
+  formValidator = (values, commentRequired) => {
     return {
-      comment: !values.comment || values.comment.trim() === '' ? 'Please provide a comment.' : null
+      comment: commentRequired && (!values.comment || values.comment.trim() === '') ? 'Please provide a comment.' : null
     }
   };
 
@@ -36,10 +36,10 @@ class StatusModalWrapper extends React.Component {
         secondary='cancel'
         isOpen={isOpen}
         handleClose={onClose}
-        onSubmit={onSubmit}
+        onSubmit={(values) => onSubmit(values, statusRequiresComments(status, subStatus))}
         onSecondaryClick={onClose}
         type='status'
-        validateError={this.formValidator}
+        validateError={(values) => this.formValidator(values, statusRequiresComments(status, subStatus))}
         showAlert={showAlert}
         alertMsg={alertMsg !== null ? alertMsg : 'Something went wrong, please try again.'}
         onAlertCloseClick={onAlertCloseClick}
@@ -68,7 +68,7 @@ class StatusModalWrapper extends React.Component {
                   wrapperClasses={['subStatus']} />
               </React.Fragment>
             )}
-            <label className={`form-label ${formUtils.submitErrors(formApi).comment ? 'error' : ''}`} id='status-comment-label'>Comment{statusRequiresComments(status, subStatus) ? ' (required)' : ''}</label>
+            <label className={`form-label ${statusRequiresComments(status, subStatus) && formUtils.submitErrors(formApi).comment ? 'error' : ''}`} id='status-comment-label'>Comment{statusRequiresComments(status, subStatus) ? ' (required)' : ''}</label>
             <TextArea
               field='comment'
               name='comment'
@@ -79,7 +79,7 @@ class StatusModalWrapper extends React.Component {
               aria-describedby='status-comment-label'
               maxLength='255'
               className={formUtils.submitErrors(formApi).comment ? 'error' : ''} />
-            {formUtils.submitErrors(formApi).comment && <small className='error'>{formApi.errors.comment}</small>}
+            {statusRequiresComments(status, subStatus) && formUtils.submitErrors(formApi).comment && <small className='error'>{formApi.errors.comment}</small>}
           </div>
         )}
       </FormModal>
