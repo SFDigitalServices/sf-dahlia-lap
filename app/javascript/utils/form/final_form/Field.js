@@ -142,5 +142,5 @@ export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLab
 }
 
 const generateHtmlOption = (option) => (
-  <option key={option.value} value={option.value} disabled={option.disabled}>{option.label}</option>
+  <option key={option.value} value={option.value || ''} disabled={option.disabled}>{option.label}</option>
 )

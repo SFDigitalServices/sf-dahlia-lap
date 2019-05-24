@@ -1,5 +1,5 @@
 import React from 'react'
-import { filter, map } from 'lodash'
+import { filter, map, isEmpty } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { pluck } from '~/utils/utils'
@@ -9,8 +9,12 @@ import { SelectField, InputField } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import validate from '~/utils/form/validations'
 
-const toggleNoPreferenceUsed = (form, value) => {
-  form.change('no_preference_used', !value)
+const toggleNoPreferenceUsed = (form, event) => {
+  // lease.preference_used need to be reset, otherwise SF validation fails
+  if (isEmpty(event.target.value)) {
+    form.change('lease.preference_used', '')
+  }
+  form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
 const validateLeaseCurrency = (value) => {
