@@ -1651,7 +1651,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "id": "a0o0x000000OcOzAAK",
         "is_first_time_homebuyer": undefined,
         "is_lottery_complete": false,
-        "lease": Object {},
+        "lease": undefined,
         "lending_agent": undefined,
         "listing": Object {
           "account": Object {},
@@ -2110,7 +2110,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "id": "a0o0x000000OcOzAAK",
                           "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
-                          "lease": Object {},
+                          "lease": undefined,
                           "lending_agent": undefined,
                           "listing": Object {
                             "account": Object {},
@@ -2390,7 +2390,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "id": "a0o0x000000OcOzAAK",
                           "is_first_time_homebuyer": undefined,
                           "is_lottery_complete": false,
-                          "lease": Object {},
+                          "lease": undefined,
                           "lending_agent": undefined,
                           "listing": Object {
                             "account": Object {},
@@ -2590,7 +2590,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "id": "a0o0x000000OcOzAAK",
                                   "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
-                                  "lease": Object {},
+                                  "lease": undefined,
                                   "lending_agent": undefined,
                                   "listing": Object {
                                     "account": Object {},
@@ -3054,7 +3054,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "id": "a0o0x000000OcOzAAK",
                               "is_first_time_homebuyer": undefined,
                               "is_lottery_complete": false,
-                              "lease": Object {},
+                              "lease": undefined,
                               "lending_agent": undefined,
                               "listing": Object {
                                 "account": Object {},
@@ -3354,7 +3354,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "id": "a0o0x000000OcOzAAK",
                                       "is_first_time_homebuyer": undefined,
                                       "is_lottery_complete": false,
-                                      "lease": Object {},
+                                      "lease": undefined,
                                       "lending_agent": undefined,
                                       "listing": Object {
                                         "account": Object {},
@@ -3626,7 +3626,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "id": "a0o0x000000OcOzAAK",
                                         "is_first_time_homebuyer": undefined,
                                         "is_lottery_complete": false,
-                                        "lease": Object {},
+                                        "lease": undefined,
                                         "lending_agent": undefined,
                                         "listing": Object {
                                           "account": Object {},
@@ -3899,7 +3899,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "id": "a0o0x000000OcOzAAK",
                                           "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
-                                          "lease": Object {},
+                                          "lease": undefined,
                                           "lending_agent": undefined,
                                           "listing": Object {
                                             "account": Object {},
@@ -4294,6 +4294,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <div
                                                     className="radio-group-inline"
                                                   >
+                                                    <Label
+                                                      fieldName="reserved_senior"
+                                                      id="form-reserved_senior"
+                                                    />
                                                     <ReactFinalForm(Field)
                                                       name="reserved_senior"
                                                       type="radio"
@@ -4453,6 +4457,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <div
                                                     className="radio-group-inline"
                                                   >
+                                                    <Label
+                                                      fieldName="has_military_service"
+                                                      id="form-has_military_service"
+                                                    />
                                                     <ReactFinalForm(Field)
                                                       name="has_military_service"
                                                       type="radio"
@@ -4612,6 +4620,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <div
                                                     className="radio-group-inline"
                                                   >
+                                                    <Label
+                                                      fieldName="has_developmental_disability"
+                                                      id="form-has_developmental_disability"
+                                                    />
                                                     <ReactFinalForm(Field)
                                                       name="has_developmental_disability"
                                                       type="radio"
@@ -5258,6 +5270,10 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <div
                                                     className="radio-group-inline"
                                                   >
+                                                    <Label
+                                                      fieldName="housing_voucher_or_subsidy"
+                                                      id="form-housing_voucher_or_subsidy"
+                                                    />
                                                     <ReactFinalForm(Field)
                                                       name="housing_voucher_or_subsidy"
                                                       type="radio"
@@ -6087,7 +6103,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "id": "a0o0x000000OcOzAAK",
                                           "is_first_time_homebuyer": undefined,
                                           "is_lottery_complete": false,
-                                          "lease": Object {},
+                                          "lease": undefined,
                                           "lending_agent": undefined,
                                           "listing": Object {
                                             "account": Object {},
@@ -7536,7 +7552,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "id": "a0o0x000000OcOzAAK",
                                         "is_first_time_homebuyer": undefined,
                                         "is_lottery_complete": false,
-                                        "lease": Object {},
+                                        "lease": undefined,
                                         "lending_agent": undefined,
                                         "listing": Object {
                                           "account": Object {},
@@ -8588,7 +8604,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "id": "a0o0x000000OcOzAAK",
                                       "is_first_time_homebuyer": undefined,
                                       "is_lottery_complete": false,
-                                      "lease": Object {},
+                                      "lease": undefined,
                                       "lending_agent": undefined,
                                       "listing": Object {
                                         "account": Object {},
@@ -9022,7 +9038,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "id": "a0o0x000000OcOzAAK",
                                   "is_first_time_homebuyer": undefined,
                                   "is_lottery_complete": false,
-                                  "lease": Object {},
+                                  "lease": undefined,
                                   "lending_agent": undefined,
                                   "listing": Object {
                                     "account": Object {},

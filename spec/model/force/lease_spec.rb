@@ -5,10 +5,16 @@ require 'rails_helper'
 RSpec.describe Force::Lease do
   describe '#to_salesforce' do
     let(:lease_domain_fixture) { fixture('model/force/lease/lease_domain.json') }
+    let(:incoming_lease_domain_fixture) do
+      lease = fixture('model/force/lease/lease_domain.json')
+      # incoming date is in the array format, while outgoing is mapped to json
+      lease['lease_start_date'] = %w[2028 01 01]
+      lease
+    end
     let(:lease_domain_to_salesforce) { fixture('model/force/lease/lease_domain_to_salesforce.json') }
 
     it 'should convert from domain fields to Salesforce' do
-      lease = Force::Lease.from_domain(lease_domain_fixture)
+      lease = Force::Lease.from_domain(incoming_lease_domain_fixture)
       salesforce_lease = lease.to_salesforce
 
       expect(salesforce_lease).to eq(lease_domain_to_salesforce)

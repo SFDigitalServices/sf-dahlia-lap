@@ -217,6 +217,12 @@ Array [
                           <div
                             className="rental-assistance-recurring radio-group-inline"
                           >
+                            <label
+                              className="form-label"
+                              htmlFor="form-recurring_assistance"
+                            >
+                              Recurring Assistance 
+                            </label>
                             <p
                               className="radio-inline"
                             >
@@ -477,6 +483,12 @@ Array [
           <div
             className="rental-assistance-recurring radio-group-inline"
           >
+            <label
+              className="form-label"
+              htmlFor="form-recurring_assistance"
+            >
+              Recurring Assistance 
+            </label>
             <p
               className="radio-inline"
             >
@@ -839,6 +851,12 @@ Array [
                           <div
                             className="rental-assistance-recurring radio-group-inline"
                           >
+                            <label
+                              className="form-label"
+                              htmlFor="form-recurring_assistance"
+                            >
+                              Recurring Assistance 
+                            </label>
                             <p
                               className="radio-inline"
                             >
@@ -1206,6 +1224,12 @@ Array [
                           <div
                             className="rental-assistance-recurring radio-group-inline"
                           >
+                            <label
+                              className="form-label"
+                              htmlFor="form-recurring_assistance"
+                            >
+                              Recurring Assistance 
+                            </label>
                             <p
                               className="radio-inline"
                             >
