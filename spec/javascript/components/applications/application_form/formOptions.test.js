@@ -6,7 +6,7 @@ const emptyOption = { label: 'Select One...', value: '' }
 
 describe('labelize', () => {
   describe('when an array of strings is provided', () => {
-    test('retruns empty array for no options', () => {
+    test('returns empty array for no options', () => {
       expect(labelize([])).toEqual([])
     })
     test('returns objects with label and value', () => {
