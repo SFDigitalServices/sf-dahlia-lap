@@ -7,6 +7,12 @@ import validate from '~/utils/form/validations'
 import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 
 class StatusModalWrapper extends React.Component {
+  formValidator = (values, commentRequired) => {
+    return {
+      comment: commentRequired && (!values.comment || values.comment.trim() === '') ? 'Please provide a comment.' : null
+    }
+  };
+
   render () {
     const {
       isOpen,
@@ -30,9 +36,10 @@ class StatusModalWrapper extends React.Component {
         secondary='cancel'
         isOpen={isOpen}
         handleClose={onClose}
-        onSubmit={onSubmit}
+        onSubmit={(values) => onSubmit(values, statusRequiresComments(status, subStatus))}
         onSecondaryClick={onClose}
         type='status'
+        validateError={(values) => this.formValidator(values, statusRequiresComments(status, subStatus))}
         showAlert={showAlert}
         alertMsg={alertMsg !== null ? alertMsg : 'Something went wrong, please try again.'}
         onAlertCloseClick={onAlertCloseClick}
@@ -64,7 +71,7 @@ class StatusModalWrapper extends React.Component {
             <TextAreaField
               label={'Comment' + statusRequiresComments(status, subStatus) ? ' (required)' : ''}
               fieldName='comment'
-              labelClass={`form-label ${form.getState().errors.comment ? 'error' : ''}`}
+              labelClass={`form-label ${statusRequiresComments(status, subStatus) && form.getState().errors.comment ? 'error' : ''}`}
               id='status-comment'
               cols='30'
               rows='10'
@@ -72,6 +79,7 @@ class StatusModalWrapper extends React.Component {
               ariaDescribedby='status-comment-label'
               maxLength='255'
               validation={validate.isPresent('Please provide a comment.')} />
+            {statusRequiresComments(status, subStatus) && form.getState().errors.comment && <small className='error'>{form.getState().errors.comment}</small>}
           </div>
         )}
       </FormModal>
