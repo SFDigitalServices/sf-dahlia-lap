@@ -4,6 +4,10 @@ import validate from 'utils/form/validations'
 
 // Validations will return this message if failed, null if passed
 const VALIDATION_MSG = 'failed validation'
+const DATE_VALIDATION_MSG = 'Please enter a valid date.'
+const dateErrorObject = (message) => (
+  {all: message, day: message, month: message, year: message}
+)
 
 describe('validate', () => {
   describe('isOldEnough', () => {
@@ -169,6 +173,29 @@ describe('validate', () => {
       test('an array of empty values or empty array', () => {
         expect(validate.isPresent(VALIDATION_MSG)(['', '', ''])).toEqual(VALIDATION_MSG)
         expect(validate.isPresent(VALIDATION_MSG)([])).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
+  describe('isValidDate', () => {
+    const error = {}
+    describe('fails validation on ', () => {
+      test('a empty date', () => {
+        expect(validate.isValidDate(undefined, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
+      })
+      test('missing values', () => {
+        expect(validate.isValidDate({year: 1950, month: 10}, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
+      })
+      test('primary applicant to young', () => {
+        expect(validate.isValidDate({year: 2015, month: 10, day: 10}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject('The primary applicant must be 18 years of age or older'))
+      })
+    })
+    describe('passes validation on ', () => {
+      test('a valid date', () => {
+        expect(validate.isValidDate({year: 1990, month: 10, day: 1}, error)).toEqual(dateErrorObject(undefined))
+      })
+
+      test('a valid date and primary applicant is old enough', () => {
+        expect(validate.isValidDate({year: 1950, month: 10, day: 1}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject(undefined))
       })
     })
   })
