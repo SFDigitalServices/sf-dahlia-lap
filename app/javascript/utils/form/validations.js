@@ -103,7 +103,7 @@ validate.any = (...fns) => (value) => {
 }
 
 // Options accept:
-// - isPrimaryApplicant: validates also minimum age od 18 years
+// - isPrimaryApplicant: validates also minimum age of 18 years
 // - errorMessage: changes default error message
 validate.isValidDate = (date, errors, options = {}) => {
   let errorMessage = options.errorMessage || 'Please enter a valid date.'
