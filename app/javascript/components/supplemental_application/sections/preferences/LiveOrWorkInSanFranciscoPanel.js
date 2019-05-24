@@ -32,10 +32,11 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
     }
   }
 
-  updatePrefProofOptions = (individualPrefName) => {
+  updatePrefProofOptions = (event) => {
+    event.persist()
     this.setState(prevState => {
       return {
-        prefProofTypeOptions: getLWPrefProofTypeOptions(individualPrefName)
+        prefProofTypeOptions: getLWPrefProofTypeOptions(event.target.value)
       }
     })
     // Reset the preference proof if the individual preference updates
