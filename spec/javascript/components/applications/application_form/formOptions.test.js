@@ -20,7 +20,7 @@ describe('labelize', () => {
     })
   })
   describe('when an array of objects is provided', () => {
-    test('retruns array of options', () => {
+    test('returns array of options', () => {
       const option = { value: 'test', label: 'test' }
       expect(labelize([option])[1]).toEqual(option)
     })
