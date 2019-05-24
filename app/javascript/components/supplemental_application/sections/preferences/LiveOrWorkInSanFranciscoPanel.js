@@ -33,6 +33,7 @@ class LiveOrWorkInSanFranciscoPanel extends React.Component {
   }
 
   updatePrefProofOptions = (event) => {
+    // This is a SyntheticEvent. We an access event.target.value without persisting the event
     event.persist()
     this.setState(prevState => {
       return {
