@@ -70,6 +70,7 @@ Array [
         />
       </div>
       <form
+        noValidate={true}
         onSubmit={[Function]}
       >
         <div
@@ -81,84 +82,120 @@ Array [
             <div
               className="filter-group_item"
             >
-              <input
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="Application Number"
-                value=""
-              />
-            </div>
-            <div
-              className="filter-group_item"
-            >
-              <select
-                onBlur={[Function]}
-                onChange={[Function]}
-                value={0}
+              <div
+                className=""
               >
-                <option
-                  disabled={true}
-                  value={0}
-                >
-                  Any Listing
-                </option>
-                <option
-                  value={1}
-                >
-                  Any Listing
-                </option>
-              </select>
+                <input
+                  className=""
+                  id="form-application_number"
+                  name="application_number"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Application Number"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
             <div
               className="filter-group_item"
             >
-              <input
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="First Name"
-                value=""
-              />
-            </div>
-            <div
-              className="filter-group_item"
-            >
-              <input
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="Last Name"
-                value=""
-              />
-            </div>
-            <div
-              className="filter-group_item"
-            >
-              <select
-                onBlur={[Function]}
-                onChange={[Function]}
-                value={0}
+              <div
+                className="form-group"
               >
-                <option
-                  disabled={true}
-                  value={0}
+                <select
+                  className="form-group"
+                  id="form-listing_id"
+                  name="listing_id"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
                 >
-                  Submission Type
-                </option>
-                <option
-                  value={1}
+                  <option
+                    value=""
+                  >
+                    Any Listing
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className=""
+              >
+                <input
+                  className=""
+                  id="form-first_name"
+                  name="first_name"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="First Name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className=""
+              >
+                <input
+                  className=""
+                  id="form-last_name"
+                  name="last_name"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Last Name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className="form-group"
+              >
+                <select
+                  className="form-group"
+                  id="form-submission_type"
+                  name="submission_type"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
                 >
-                  Paper
-                </option>
-                <option
-                  value={2}
-                >
-                  Electronic
-                </option>
-                <option
-                  value={3}
-                >
-                  Any type
-                </option>
-              </select>
+                  <option
+                    value=""
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value="Paper"
+                  >
+                    Paper
+                  </option>
+                  <option
+                    value="Electronic"
+                  >
+                    Electronic
+                  </option>
+                  <option
+                    value=""
+                  >
+                    Any type
+                  </option>
+                </select>
+              </div>
             </div>
             <div
               className="filter-group_action"

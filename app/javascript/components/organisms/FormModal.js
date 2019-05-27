@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Form } from 'react-form'
+import { Form } from 'react-final-form'
 
 import Modal from './Modal'
 import Loading from '../molecules/Loading'
@@ -41,11 +41,13 @@ const FormModalBody = ({
 
       <div className='form-modal_form_wrapper' data-loading={loading}>
         <Loading isLoading={loading}>
-          <Form onSubmit={onSubmit} validateError={validateError}>
-            {formApi => (
-              <form onSubmit={formApi.submitForm} className='no-margin'>
+          <Form
+            onSubmit={onSubmit}
+            validate={validateError}
+            render={({ handleSubmit, form }) => (
+              <form onSubmit={handleSubmit} className='no-margin' noValidate>
                 <Modal.Content>
-                  {children(formApi)}
+                  {children(form)}
                 </Modal.Content>
                 <Modal.Footer>
                   <div className='modal-button_item modal-button_primary'>
@@ -56,8 +58,7 @@ const FormModalBody = ({
                   </div>
                 </Modal.Footer>
               </form>
-            )}
-          </Form>
+            )} />
         </Loading>
       </div>
     </Modal.Body>
