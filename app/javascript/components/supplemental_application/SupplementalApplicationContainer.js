@@ -140,7 +140,8 @@ const ActionButtons = withContext(({ loading, store }) => {
 class SupplementalApplicationContainer extends React.Component {
   validateForm = (values) => {
     const errors = {lease: {}}
-    if (!isEmpty(values.lease)) {
+    // only validate lease_start_date when any of the fields is present
+    if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
       errors.lease = {lease_start_date: {}}
       validate.isValidDate(values.lease.lease_start_date, errors.lease.lease_start_date)
     }

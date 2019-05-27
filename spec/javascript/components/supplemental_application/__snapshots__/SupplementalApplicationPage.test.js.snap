@@ -916,7 +916,7 @@ Array [
                       value=""
                     >
                       <option
-                        value={null}
+                        value=""
                       >
                         None
                       </option>
@@ -1083,7 +1083,7 @@ Array [
                     value={2}
                   >
                     <option
-                      value={0}
+                      value=""
                     >
                       0
                     </option>
@@ -1161,7 +1161,7 @@ Array [
                     value={3}
                   >
                     <option
-                      value={0}
+                      value=""
                     >
                       0
                     </option>
@@ -1245,7 +1245,7 @@ Array [
                     value={4}
                   >
                     <option
-                      value={0}
+                      value=""
                     >
                       0
                     </option>
@@ -6844,7 +6844,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           >
                                                             <option
                                                               key="null"
-                                                              value={null}
+                                                              value=""
                                                             >
                                                               None
                                                             </option>
@@ -7883,7 +7883,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       >
                                                         <option
                                                           key="0"
-                                                          value={0}
+                                                          value=""
                                                         >
                                                           0
                                                         </option>
@@ -8066,7 +8066,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       >
                                                         <option
                                                           key="0"
-                                                          value={0}
+                                                          value=""
                                                         >
                                                           0
                                                         </option>
@@ -8255,7 +8255,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       >
                                                         <option
                                                           key="0"
-                                                          value={0}
+                                                          value=""
                                                         >
                                                           0
                                                         </option>
