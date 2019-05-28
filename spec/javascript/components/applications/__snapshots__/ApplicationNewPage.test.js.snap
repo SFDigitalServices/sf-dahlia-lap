@@ -65,7 +65,7 @@ Array [
                         </span>
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="application_language"
                         name="application_language"
                         onBlur={[Function]}
@@ -272,7 +272,7 @@ Array [
                         Primary Phone Number- Type 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="phone_type"
                         name="applicant.phone_type"
                         onBlur={[Function]}
@@ -415,7 +415,7 @@ Array [
                         Second Phone Number- Type 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="second_phone_type"
                         name="applicant.second_phone_type"
                         onBlur={[Function]}
@@ -791,7 +791,7 @@ Array [
                         Alternate Contact Type 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-alternate_contact.alternate_contact_type"
                         name="alternate_contact.alternate_contact_type"
                         onBlur={[Function]}
@@ -938,7 +938,7 @@ Array [
                         Phone Type 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-alternate_contact.phone_type"
                         name="alternate_contact.phone_type"
                         onBlur={[Function]}
@@ -1315,7 +1315,7 @@ Array [
                         Housing Voucher/ Subsidy 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-housing_voucher_or_subsidy"
                         name="housing_voucher_or_subsidy"
                         onBlur={[Function]}
@@ -1370,7 +1370,7 @@ Array [
                         Ethnicity 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-demographics.ethnicity"
                         name="demographics.ethnicity"
                         onBlur={[Function]}
@@ -1414,7 +1414,7 @@ Array [
                         Race 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-demographics.race"
                         name="demographics.race"
                         onBlur={[Function]}
@@ -1498,7 +1498,7 @@ Array [
                         Gender 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-demographics.gender"
                         name="demographics.gender"
                         onBlur={[Function]}
@@ -1587,7 +1587,7 @@ Array [
                         Sexual Orientation 
                       </label>
                       <select
-                        className=""
+                        className="form-group"
                         id="form-demographics.sexual_orientation"
                         name="demographics.sexual_orientation"
                         onBlur={[Function]}

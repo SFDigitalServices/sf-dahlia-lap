@@ -16792,7 +16792,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                       isOpen={false}
                     >
                       <Modal
-                        ariaHideApp={true}
+                        ariaHideApp={false}
                         bodyOpenClassName="ReactModal__Body--open"
                         closeTimeoutMS={0}
                         isOpen={false}
@@ -16835,7 +16835,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                           }
                         >
                           <ModalPortal
-                            ariaHideApp={true}
+                            ariaHideApp={false}
                             bodyOpenClassName="ReactModal__Body--open"
                             closeTimeoutMS={0}
                             defaultStyles={

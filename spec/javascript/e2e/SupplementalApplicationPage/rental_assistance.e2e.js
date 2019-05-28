@@ -85,17 +85,19 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     await page.waitForSelector('.rental-assistance-edit-form')
 
     // Record the amount value
-    const prevAmountValue = await page.$eval('.rental-assistance-edit-form #assistance_amount', e => e.value)
+    const prevAmountValue = await page.$eval('#assistance_amount', e => e.value)
 
-    // Clear the amount field
-    await page.evaluate(() => {
-      document.querySelector('.rental-assistance-edit-form #assistance_amount').value = ''
-    })
+    // A hack to clear the amount field. Setting the value did't work
+    await page.focus('#assistance_amount')
+    const inputValue = await page.$eval('#assistance_amount', el => el.value)
+    for (let i = 0; i < inputValue.length; i++) {
+      await page.keyboard.press('Backspace')
+    }
 
     // Enter a new amount value
     const amount = parseInt(prevAmountValue) + 100
     // Enter the amount, as a string with "$" in it to test saving a currency value
-    await page.type('.rental-assistance-edit-form #assistance_amount', `$${amount}`)
+    await page.type('#assistance_amount', `$${amount}`)
 
     // Save the edit rental assistance form
     await page.click('.rental-assistance-edit-form button.primary')

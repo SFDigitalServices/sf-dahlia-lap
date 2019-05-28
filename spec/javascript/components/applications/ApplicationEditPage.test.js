@@ -22,6 +22,17 @@ jest.mock('apiService', () => {
 })
 
 describe('ApplicationEditPage', () => {
+  // navigation helper for tests that change window.location on success
+  const originalLocation = window.location
+  beforeEach(() => {
+    delete window.location
+    window.location = { href: '' }
+  })
+
+  afterEach(() => {
+    window.location = originalLocation
+  })
+
   test('it should save correctly', async () => {
     const wrapper = mount(
       <ApplicationEditPage
