@@ -1756,7 +1756,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       }
       tabSection={
         Object {
-          "currentUrl": "/",
+          "currentUrl": undefined,
           "items": Array [
             Object {
               "onClick": [Function],
@@ -1897,7 +1897,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       </PageHeader>
       <TabsSection
         background="snow"
-        currentUrl="/"
         items={
           Array [
             Object {
@@ -1916,7 +1915,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
           className="tabs-section tabs-row row full-width inner--3x bg-snow"
         >
           <TabsMenu
-            currentUrl="/"
             items={
               Array [
                 Object {
@@ -9362,7 +9360,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             handleClose={[Function]}
                           >
                             <Modal
-                              ariaHideApp={true}
+                              ariaHideApp={false}
                               bodyOpenClassName="ReactModal__Body--open"
                               closeTimeoutMS={0}
                               isOpen={false}
@@ -9405,7 +9403,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 }
                               >
                                 <ModalPortal
-                                  ariaHideApp={true}
+                                  ariaHideApp={false}
                                   bodyOpenClassName="ReactModal__Body--open"
                                   closeTimeoutMS={0}
                                   defaultStyles={
@@ -9490,7 +9488,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         isOpen={false}
       >
         <Modal
-          ariaHideApp={true}
+          ariaHideApp={false}
           bodyOpenClassName="ReactModal__Body--open"
           closeTimeoutMS={0}
           isOpen={false}
@@ -9533,7 +9531,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
             }
           >
             <ModalPortal
-              ariaHideApp={true}
+              ariaHideApp={false}
               bodyOpenClassName="ReactModal__Body--open"
               closeTimeoutMS={0}
               defaultStyles={

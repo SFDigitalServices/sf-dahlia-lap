@@ -38,8 +38,20 @@ const statusHistory = [
 ]
 
 describe('SupplementalApplicationPage', () => {
+  const originalLocation = window.location
   beforeEach(() => {
     jest.clearAllMocks()
+
+    delete window.location
+    window.location = {
+      href: '/',
+      reload: jest.fn(),
+      hash: ''
+    }
+  })
+
+  afterEach(() => {
+    window.location = originalLocation
   })
 
   test('it should render correctly with status history', () => {
