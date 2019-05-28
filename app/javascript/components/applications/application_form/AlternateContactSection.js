@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, SelectField } from '~/utils/form/final_form/Field'
+import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import { mailingAddressFieldMap } from './utils'
@@ -19,7 +19,7 @@ const AlternateContactSection = () => {
       <div className='row'>
         <div className='form-group'>
           <div className='small-4 columns'>
-            <TextField
+            <InputField
               id='alt_first_name'
               label='First Name'
               fieldName='alternate_contact.first_name'
@@ -27,7 +27,7 @@ const AlternateContactSection = () => {
             />
           </div>
           <div className='small-4 columns'>
-            <TextField
+            <InputField
               id='alt_middle_name'
               label='Middle Name'
               fieldName='alternate_contact.middle_name'
@@ -35,7 +35,7 @@ const AlternateContactSection = () => {
             />
           </div>
           <div className='small-4 columns'>
-            <TextField
+            <InputField
               id='alt_last_name'
               label='Last Name'
               fieldName='alternate_contact.last_name'
@@ -53,14 +53,14 @@ const AlternateContactSection = () => {
         </div>
         <div className='small-4 columns'>
           <label>Alternate Contact Type Other</label>
-          <TextField
+          <InputField
             fieldName='alternate_contact.alternate_contact_type_other'
             maxLength={maxLengthMap['alternate_contact_type_other']}
           />
         </div>
         <div className='small-4 columns'>
           <label>Agency (if applicable)</label>
-          <TextField
+          <InputField
             fieldName='alternate_contact.agency_name'
             maxLength={maxLengthMap['agency_name']}
           />
@@ -68,7 +68,7 @@ const AlternateContactSection = () => {
       </div>
       <div className='row'>
         <div className='small-4 columns'>
-          <TextField
+          <InputField
             id='email'
             label='Email'
             fieldName='alternate_contact.email'
@@ -76,7 +76,7 @@ const AlternateContactSection = () => {
           />
         </div>
         <div className='small-4 columns'>
-          <TextField
+          <InputField
             label='Phone'
             fieldName='alternate_contact.phone'
             maxLength={maxLengthMap['phone']}

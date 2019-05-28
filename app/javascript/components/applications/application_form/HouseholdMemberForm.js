@@ -2,7 +2,7 @@ import React from 'react'
 import AddressForm from './AddressForm'
 import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from '~/components/applications/application_form/formOptions'
-import { TextField, SelectField } from '~/utils/form/final_form/Field'
+import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 
 const {
@@ -15,7 +15,7 @@ const HouseholdMemberForm = ({i, form}) => {
       <div className='row'>
         <div className='form-group'>
           <div className='small-3 columns'>
-            <TextField
+            <InputField
               id={`household_members_${i}_first_name`}
               label='First Name'
               fieldName={`household_members[${i}].first_name`}
@@ -24,7 +24,7 @@ const HouseholdMemberForm = ({i, form}) => {
             />
           </div>
           <div className='small-2 columns'>
-            <TextField
+            <InputField
               id={`household_members_${i}_middle_name`}
               label='Middle Name'
               fieldName={`household_members[${i}].middle_name`}
@@ -32,7 +32,7 @@ const HouseholdMemberForm = ({i, form}) => {
             />
           </div>
           <div className='small-3 columns'>
-            <TextField
+            <InputField
               id={`household_members_${i}_last_name`}
               label='Last Name'
               fieldName={`household_members[${i}].last_name`}

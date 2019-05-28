@@ -22,6 +22,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     const liveWorkRowSelector = '[id$=in-san-francisco-preference-row]'
     const liveWorkExpandedPanelSelector = '[id$=in-san-francisco-preference-panel]'
 
+    await page.waitForSelector(liveWorkEditSelector)
     // Click on the live/work preference's Edit button in the Confirmed
     // Preferences section to expand that preference's edit panel
     await page.click(liveWorkEditSelector)
@@ -79,6 +80,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     const currentTypeOfProof = await page.$eval(sharedSteps.selectedOptionSelector(typeOfProofSelector), e => e.textContent)
     expect(currentTypeOfProof).toBe(typeOfProofToSetName)
 
+    await page.waitForSelector(prefStatusSelector)
     const currentStatus = await page.$eval(sharedSteps.selectedOptionSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
 
@@ -99,6 +101,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     const assistedHousingRowSelector = '#assisted-housing-preference-row'
     const assistedHousingExpandedPanelSelector = '#assisted-housing-preference-panel'
 
+    await page.waitForSelector('#assisted-housing-preference-edit')
     // Click on the assisted housing preference's Edit button in the Confirmed
     // Preferences section to expand that preference's edit panel
     await page.click(assistedHousingEditSelector)

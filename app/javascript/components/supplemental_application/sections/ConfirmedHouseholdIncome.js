@@ -4,8 +4,15 @@ import { find, isNil, isString } from 'lodash'
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { formatPercent } from '~/utils/utils'
-import YesNoRadioGroup from '../YesNoRadioGroup'
-import { Field } from '~/utils/form/Field'
+import { InputField, YesNoRadioField } from '~/utils/form/final_form/Field.js'
+import validate from '~/utils/form/validations'
+
+const validateIncomeCurrency = (value) => {
+  return (
+    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+    validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
+  )
+}
 
 const getAMI = ({numHousehold, chartName, chartYear, amis}) => {
   let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'numOfHousehold': numHousehold})
@@ -28,33 +35,35 @@ const getAMIPercent = ({income, ami}) => {
   return formatPercent(incomeFloat / Number(ami))
 }
 
-const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
-  const totalHouseholdSize = formApi.values.total_household_size
-  const hhTotalIncomeWithAssetsAnnual = formApi.values.hh_total_income_with_assets_annual
+const ConfirmedHouseholdIncome = ({ amis, amiCharts, form }) => {
+  const totalHouseholdSize = form.getState().values.total_household_size
+  const hhTotalIncomeWithAssetsAnnual = form.getState().values.hh_total_income_with_assets_annual
 
   return (
     <React.Fragment>
       <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group label='Recurring Voucher/Subsidy'>
-            <YesNoRadioGroup field='housing_voucher_or_subsidy' />
+            <YesNoRadioField fieldName='housing_voucher_or_subsidy' />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group >
-            <Field.Text field='household_assets'
+          <FormGrid.Group>
+            <InputField
+              fieldName='household_assets'
               label='Household Assets'
               placeholder='Enter Amount'
-              errorMessage={(label, error) => error}
+              validation={validateIncomeCurrency}
             />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group >
-            <Field.Text field='confirmed_household_annual_income'
+          <FormGrid.Group>
+            <InputField
+              fieldName='confirmed_household_annual_income'
               label='Confirmed Annual Income'
               placeholder='Enter Amount'
-              errorMessage={(label, error) => error}
+              validation={validateIncomeCurrency}
             />
             <span className='form-note shift-up' id='household-annual-income'>
               Not Including % of Assets
@@ -63,10 +72,11 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, formApi }) => {
         </FormGrid.Item>
         <FormGrid.Item>
           <FormGrid.Group>
-            <Field.Text field='hh_total_income_with_assets_annual'
+            <InputField
+              fieldName='hh_total_income_with_assets_annual'
               label='Final Household Annual Income'
               placeholder='Enter Amount'
-              errorMessage={(label, error) => error}
+              validation={validateIncomeCurrency}
             />
             <span className='form-note shift-up' id='final-household-annual-income'>Includes % of assets if applicable</span>
           </FormGrid.Group>

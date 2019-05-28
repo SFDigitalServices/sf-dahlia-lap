@@ -16,9 +16,9 @@ describe('SupplementalApplicationPage lease section', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-    const rentSelector = '#total_monthly_rent_without_parking'
-    const parkingRentSelector = '#monthly_parking_rent'
-    const tenantContributionSelector = '#monthly_tenant_contribution'
+    const rentSelector = '#form-lease\\.total_monthly_rent_without_parking'
+    const parkingRentSelector = '#form-lease\\.monthly_parking_rent'
+    const tenantContributionSelector = '#form-lease\\.monthly_tenant_contribution'
 
     // Generate the values (with currency and non-currency strings)
     const rentValue = supplementalApplicationSteps.generateRandomCurrency()

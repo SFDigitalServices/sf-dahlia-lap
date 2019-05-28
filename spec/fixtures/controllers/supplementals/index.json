@@ -400,7 +400,7 @@
   "lease": {
     "id": "a130P000005TeZrQAK",
     "unit": "a0b0P00001HIHrnQAH",
-    "lease_start_date": ["2019", "01", "01"],
+    "lease_start_date": {"year": "2019", "month": "01", "day":"01"},
     "lease_status": "Draft",
     "monthly_parking_rent": 75.56,
     "preference_used": null,

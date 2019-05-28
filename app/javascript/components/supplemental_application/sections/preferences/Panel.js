@@ -30,18 +30,18 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, formApi }) => {
+const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, form }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
   const memberOption = (member) => { return { value: member.id, label: `${member.first_name} ${member.last_name}` } }
   let applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    onSave(preferenceIndex, formApi.values)
+    onSave(preferenceIndex, form.getState().values)
   }
 
   const handleOnClose = () => {
-    formApi.setValue('total_monthly_rent', application.total_monthly_rent)
-    formApi.setValue(['preferences', preferenceIndex], preference)
+    form.change('total_monthly_rent', application.total_monthly_rent)
+    form.change(`preferences[${preferenceIndex}]`, preference)
     onClose(preferenceIndex)
   }
 
@@ -51,7 +51,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
         <PreferencePanel
           preferenceIndex={preferenceIndex}
           preference={preference}
-          formApi={formApi}
+          form={form}
           applicationMembersOptions={applicationMembersOptions}
         />
         <FormGrid.Row expand={false}>

@@ -4,6 +4,10 @@ import validate from 'utils/form/validations'
 
 // Validations will return this message if failed, null if passed
 const VALIDATION_MSG = 'failed validation'
+const DATE_VALIDATION_MSG = 'Please enter a valid date.'
+const dateErrorObject = (message) => (
+  {all: message, day: message, month: message, year: message}
+)
 
 describe('validate', () => {
   describe('isOldEnough', () => {
@@ -35,49 +39,49 @@ describe('validate', () => {
       })
     })
   })
-  describe('isValidDate', () => {
+  describe('isDate', () => {
     describe('passes validation', () => {
       test('if date is valid and 0-padded', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['2000', '02', '29'])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '02', '29'])).toEqual(undefined)
       })
       test('if date is valid and not 0-padded', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['2000', '2', '9'])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '2', '9'])).toEqual(undefined)
       })
       test('if date is valid and values are integers', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)([2000, 2, 9])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)([2000, 2, 9])).toEqual(undefined)
       })
       test('if date is in the future', () => {
         const futureYear = moment().add(1, 'years').year()
-        expect(validate.isValidDate(VALIDATION_MSG)([futureYear, '01', '12'])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)([futureYear, '01', '12'])).toEqual(undefined)
       })
       test('if date is empty', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['', '', ''])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)(['', '', ''])).toEqual(undefined)
       })
     })
     describe('fails validation', () => {
       test('if date is a leap day in the wrong year', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['1999', '02', '29'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['1999', '02', '29'])).toEqual(VALIDATION_MSG)
       })
       test('if date is too far in the past', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['1899', '01', '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['1899', '01', '12'])).toEqual(VALIDATION_MSG)
       })
       test('if month and day are swapped', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['2010', '21', '01'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['2010', '21', '01'])).toEqual(VALIDATION_MSG)
       })
       test('if any of the fields are missing', () => {
         // Empty string
-        expect(validate.isValidDate(VALIDATION_MSG)(['', '01', '12'])).toEqual(VALIDATION_MSG)
-        expect(validate.isValidDate(VALIDATION_MSG)(['2000', '', '12'])).toEqual(VALIDATION_MSG)
-        expect(validate.isValidDate(VALIDATION_MSG)(['2000', '01', ''])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['', '01', '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '', '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '01', ''])).toEqual(VALIDATION_MSG)
         // Null
-        expect(validate.isValidDate(VALIDATION_MSG)([null, '01', '12'])).toEqual(VALIDATION_MSG)
-        expect(validate.isValidDate(VALIDATION_MSG)(['2000', null, '12'])).toEqual(VALIDATION_MSG)
-        expect(validate.isValidDate(VALIDATION_MSG)(['2000', '01', null])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)([null, '01', '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', null, '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '01', null])).toEqual(VALIDATION_MSG)
         // Array of length < 3
-        expect(validate.isValidDate(VALIDATION_MSG)(['01', '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['01', '12'])).toEqual(VALIDATION_MSG)
       })
       test('if date has non-numerical characters in it', () => {
-        expect(validate.isValidDate(VALIDATION_MSG)(['2010', '01z', '12'])).toEqual(VALIDATION_MSG)
+        expect(validate.isDate(VALIDATION_MSG)(['2010', '01z', '12'])).toEqual(VALIDATION_MSG)
       })
     })
   })
@@ -169,6 +173,29 @@ describe('validate', () => {
       test('an array of empty values or empty array', () => {
         expect(validate.isPresent(VALIDATION_MSG)(['', '', ''])).toEqual(VALIDATION_MSG)
         expect(validate.isPresent(VALIDATION_MSG)([])).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
+  describe('isValidDate', () => {
+    const error = {}
+    describe('fails validation on ', () => {
+      test('a empty date', () => {
+        expect(validate.isValidDate(undefined, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
+      })
+      test('missing values', () => {
+        expect(validate.isValidDate({year: 1950, month: 10}, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
+      })
+      test('primary applicant to young', () => {
+        expect(validate.isValidDate({year: 2015, month: 10, day: 10}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject('The primary applicant must be 18 years of age or older'))
+      })
+    })
+    describe('passes validation on ', () => {
+      test('a valid date', () => {
+        expect(validate.isValidDate({year: 1990, month: 10, day: 1}, error)).toEqual(dateErrorObject(undefined))
+      })
+
+      test('a valid date and primary applicant is old enough', () => {
+        expect(validate.isValidDate({year: 1950, month: 10, day: 1}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject(undefined))
       })
     })
   })
