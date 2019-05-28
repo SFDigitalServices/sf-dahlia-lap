@@ -1,6 +1,6 @@
 import React from 'react'
 import { buildFieldId } from './utils'
-import { TextField, SelectField } from '~/utils/form/final_form/Field'
+import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
@@ -17,7 +17,7 @@ const CertOfPreferenceFields = ({ householdMembers, i }) => {
         />
       </div>
       <div className='small-6 columns'>
-        <TextField
+        <InputField
           fieldName={buildFieldId(i, 'certificate_number')}
           label='COP Certificate Number'
           maxLength={maxLengthMap['certificate_number']}

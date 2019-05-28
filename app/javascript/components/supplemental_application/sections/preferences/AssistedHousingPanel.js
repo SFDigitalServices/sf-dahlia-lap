@@ -1,9 +1,12 @@
 import React from 'react'
-import { Select } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment, SelectStatus } from './utils'
+import { FormItem, Comment } from './utils'
 import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
+import { SelectField } from '~/utils/form/final_form/Field.js'
+import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
+import formOptions from '~/components/applications/application_form/formOptions'
+const { labelize } = formOptions
 
 export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
@@ -14,12 +17,17 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationM
           Assisted Housing Preference
           </div>
         </FormItem>
-        <FormItem label='Name on Lease'>
-          <Select field={buildFieldId(preferenceIndex, 'application_member_id')} options={applicationMembersOptions} placeholder='Select One' />
+        <FormItem>
+          <SelectField
+            label='Name on Lease'
+            fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
+            options={labelize(applicationMembersOptions, {disableEmpty: true})} />
         </FormItem>
-        <FormItem label='Status'>
-          <SelectStatus
-            preferenceIndex={preferenceIndex}
+        <FormItem>
+          <SelectField
+            label='Status'
+            fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
+            options={labelize(statusOptions, {disableEmpty: true})}
             className='preference-status-select' />
         </FormItem>
       </FormGrid.Row>

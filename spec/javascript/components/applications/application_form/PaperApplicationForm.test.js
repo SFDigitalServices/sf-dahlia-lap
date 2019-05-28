@@ -57,6 +57,7 @@ describe('PaperApplicationForm', () => {
           listing={listing}
           application={testApplication}
           lendingInstitutions={{}}
+          onSubmit={() => (null)}
         />
       )
       wrapper.find('form').first().simulate('submit')

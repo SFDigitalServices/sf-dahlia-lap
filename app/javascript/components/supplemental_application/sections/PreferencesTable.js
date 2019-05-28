@@ -59,7 +59,7 @@ const columns = [
   { content: 'Actions' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose, formApi) => (row, toggle) => {
+const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose, form) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
   const handleOnClose = (preferenceIndex) => {
     toggle()
@@ -77,7 +77,7 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
       preferenceIndex={preferenceIndex}
       onSave={handleOnSave}
       onClose={handleOnClose}
-      formApi={formApi}
+      form={form}
     />
   )
 }
@@ -88,7 +88,7 @@ const expanderAction = (row, expanded, expandedRowToggler) => {
     <ExpanderButton label='Edit' onClick={expandedRowToggler} id={`${kebabCase(prefName)}-edit`} />)
 }
 
-const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave, onPanelClose, formApi }) => {
+const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave, onPanelClose, form }) => {
   const rows = buildRows(application, applicationMembers, fileBaseUrl)
   return (
     <div className='preferences-table'>
@@ -98,7 +98,7 @@ const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave
           rows={rows}
           rowKeyIndex={1}
           expanderRenderer={expanderAction}
-          expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose, formApi)}
+          expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose, form)}
         />
       </TableWrapper>
     </div>)
