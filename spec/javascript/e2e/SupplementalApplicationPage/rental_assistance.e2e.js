@@ -61,7 +61,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     const newRecipient = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(4)`, e => e.textContent)
     expect(newTypeLabel).toEqual(typeLabel)
     expect(newRecurring).toEqual(recurring)
-    expect(newAmount).toEqual(`$${amount}`)
+    expect(newAmount).toEqual(`$${amount}.00`)
     expect(newRecipient).toEqual(recipientLabel)
 
     await browser.close()
@@ -95,7 +95,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     }
 
     // Enter a new amount value
-    const amount = parseInt(prevAmountValue) + 100
+    const amount = parseInt(prevAmountValue.replace('$', '')) + 100
     // Enter the amount, as a string with "$" in it to test saving a currency value
     await page.type('#assistance_amount', `$${amount}`)
 
@@ -107,7 +107,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
     // Check that the first rental assistance's amount value matches the value we updated it to
     const newAmount = await page.$eval(`${firstRentalAssistanceSelector} td:nth-child(3)`, e => e.textContent)
-    expect(newAmount).toEqual(`$${amount}`)
+    expect(newAmount).toEqual(`$${amount}.00`)
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

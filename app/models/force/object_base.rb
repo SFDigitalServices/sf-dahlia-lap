@@ -62,5 +62,10 @@ module Force
       end
       salesforce_fields
     end
+
+    def float_to_currency(field_name, domain_fields)
+      return unless @fields.domain[field_name]
+      domain_fields[field_name] = format('$%0.02f', @fields.domain[field_name])
+    end
   end
 end

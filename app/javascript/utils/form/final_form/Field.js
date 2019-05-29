@@ -62,7 +62,7 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
   </Field>
 )
 
-export const CurrencyField = ({ fieldName, validation, id, label, placeholder }) => (
+export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength }) => (
   <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} formatOnBlur>
     {({ input, meta }) => (
       <React.Fragment>
@@ -74,7 +74,9 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder })
           <input {...input}
             id={id || `form-${fieldName}`}
             type='text'
-            placeholder={placeholder || '$0.00'} />
+            placeholder={placeholder || '$0.00'}
+            className={(meta.error && meta.touched && 'error') || ''}
+            maxLength={maxLength} />
           <FieldError meta={meta} />
         </div>
       </React.Fragment>

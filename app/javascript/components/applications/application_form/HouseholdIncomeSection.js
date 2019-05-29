@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
+import { CurrencyField, SelectField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from './formOptions'
 import validate from '~/utils/form/validations'
@@ -14,7 +14,7 @@ const HouseholdIncomeSection = () => {
       <h3>Declared Household Income</h3>
       <div className='row'>
         <div className='small-6 columns'>
-          <InputField
+          <CurrencyField
             fieldName='annual_income'
             id='annual_income'
             label='Annual Income'

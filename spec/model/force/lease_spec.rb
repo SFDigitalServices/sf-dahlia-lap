@@ -9,6 +9,11 @@ RSpec.describe Force::Lease do
       lease = fixture('model/force/lease/lease_domain.json')
       # incoming date is in the array format, while outgoing is mapped to json
       lease['lease_start_date'] = %w[2028 01 01]
+
+      # incoming currencies are number, while outgoing are strings
+      lease['monthly_parking_rent'] = 100
+      lease['monthly_tenant_contribution'] = 800
+      lease['total_monthly_rent_without_parking'] = 1000
       lease
     end
     let(:lease_domain_to_salesforce) { fixture('model/force/lease/lease_domain_to_salesforce.json') }
@@ -57,6 +62,13 @@ RSpec.describe Force::Lease do
       domain_lease = lease.to_domain
 
       expect(domain_lease).to eq({})
+    end
+
+    it 'should convert float to currency' do
+      lease = Force::Lease.from_salesforce(lease_salesforce_soql)
+      domain_lease = lease.to_domain
+
+      expect(domain_lease['monthly_parking_rent']).to eq('$100.00')
     end
   end
 
