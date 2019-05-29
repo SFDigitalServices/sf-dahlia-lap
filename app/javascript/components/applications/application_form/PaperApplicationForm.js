@@ -113,7 +113,7 @@ class PaperApplicationForm extends React.Component {
                     <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', form)} disabled={loading}>
                       {loading ? 'Saving…' : 'Save'}
                     </button>
-                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
+                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', form)} disabled={loading}>
                       Save and New
                     </button>
                   </div>
