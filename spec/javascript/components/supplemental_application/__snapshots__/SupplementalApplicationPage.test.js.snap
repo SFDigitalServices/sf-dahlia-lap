@@ -9174,7 +9174,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           onSubmit={[Function]}
                           secondary="cancel"
                           type="status"
-                          validateError={[Function]}
                         >
                           <Modal
                             handleClose={[Function]}
