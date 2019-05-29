@@ -1,6 +1,7 @@
 import React from 'react'
 import { map, sortBy } from 'lodash'
-import { Form, Text, Select } from 'react-form'
+import { Form } from 'react-final-form'
+import { InputField, SelectField } from '~/utils/form/final_form/Field'
 
 import formUtils from '~/utils/formUtils'
 import Loading from '~/components/molecules/Loading'
@@ -20,25 +21,26 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
 
   return (
     <Loading isLoading={loading}>
-      <Form onSubmit={onSubmit}>
-        { formApi => (
-          <form onSubmit={formApi.submitForm} >
+      <Form
+        onSubmit={onSubmit}
+        render={({ handleSubmit }) => (
+          <form onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
               <div className='filter-group'>
                 <div className='filter-group_item'>
-                  <Text field='application_number' placeholder='Application Number' />
+                  <InputField fieldName='application_number' placeholder='Application Number' />
                 </div>
                 <div className='filter-group_item'>
-                  <Select field='listing_id' options={listingOptions} placeholder='Any Listing' />
+                  <SelectField fieldName='listing_id' options={listingOptions} placeholder='Any Listing' />
                 </div>
                 <div className='filter-group_item'>
-                  <Text field='first_name' placeholder='First Name' />
+                  <InputField fieldName='first_name' placeholder='First Name' />
                 </div>
                 <div className='filter-group_item'>
-                  <Text field='last_name' placeholder='Last Name' />
+                  <InputField fieldName='last_name' placeholder='Last Name' />
                 </div>
                 <div className='filter-group_item'>
-                  <Select field='submission_type' options={submissionTypeOptions} placeholder='Submission Type' />
+                  <SelectField fieldName='submission_type' options={submissionTypeOptions} placeholder='Submission Type' />
                 </div>
                 <div className='filter-group_action'>
                   <button className='small'>Filter</button>
@@ -46,8 +48,7 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
               </div>
             </div>
           </form>
-        )}
-      </Form>
+        )} />
     </Loading>
   )
 }

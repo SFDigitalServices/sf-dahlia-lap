@@ -141,6 +141,31 @@ export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLab
   )
 }
 
+export const TextAreaField = ({ fieldName, label, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote }) => (
+  <Field name={fieldName} validate={validation} component='textarea'>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+          <Label
+            label={label}
+            id={id || `form-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote} />
+          <textarea {...input}
+            id={id || `form-${fieldName}`}
+            className={(meta.error && meta.touched && 'error') || ''}
+            placeholder={placeholder}
+            maxLength={maxLength}
+            cols={cols}
+            rows={rows}
+            aria-describedby={ariaDescribedby} />
+          <FieldError meta={meta} />
+        </div>
+      </React.Fragment>
+    )}
+  </Field>
+)
+
 const generateHtmlOption = (option) => (
   <option key={option.value} value={option.value || ''} disabled={option.disabled}>{option.label}</option>
 )
