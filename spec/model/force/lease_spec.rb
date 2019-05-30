@@ -11,8 +11,8 @@ RSpec.describe Force::Lease do
       lease['lease_start_date'] = %w[2028 01 01]
 
       # incoming currencies are number, while outgoing are strings
-      lease['monthly_parking_rent'] = 100
-      lease['monthly_tenant_contribution'] = 800
+      lease['monthly_parking_rent'] = 1000
+      lease['monthly_tenant_contribution'] = 1800
       lease['total_monthly_rent_without_parking'] = 1000
       lease
     end
@@ -68,7 +68,7 @@ RSpec.describe Force::Lease do
       lease = Force::Lease.from_salesforce(lease_salesforce_soql)
       domain_lease = lease.to_domain
 
-      expect(domain_lease['monthly_parking_rent']).to eq('$100.00')
+      expect(domain_lease['monthly_parking_rent']).to eq('$1,000.00')
     end
   end
 

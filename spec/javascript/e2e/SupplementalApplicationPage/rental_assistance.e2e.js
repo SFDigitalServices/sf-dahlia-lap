@@ -27,7 +27,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       e => [e.value, e.textContent]
     )
     const recurring = 'Yes'
-    const amount = 100
+    const amount = 1100
     const [recipientVal, recipientLabel] = await page.$eval(
       '.rental-assistance-new-form .rental-assistance-recipient option:nth-child(2)',
       e => [e.value, e.textContent]
@@ -61,7 +61,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     const newRecipient = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(4)`, e => e.textContent)
     expect(newTypeLabel).toEqual(typeLabel)
     expect(newRecurring).toEqual(recurring)
-    expect(newAmount).toEqual(`$${amount}.00`)
+    expect(newAmount).toEqual('$1,100.00')
     expect(newRecipient).toEqual(recipientLabel)
 
     await browser.close()
@@ -84,9 +84,6 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     // Wait for the edit rental assistance form to open
     await page.waitForSelector('.rental-assistance-edit-form')
 
-    // Record the amount value
-    const prevAmountValue = await page.$eval('#assistance_amount', e => e.value)
-
     // A hack to clear the amount field. Setting the value did't work
     await page.focus('#assistance_amount')
     const inputValue = await page.$eval('#assistance_amount', el => el.value)
@@ -95,7 +92,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     }
 
     // Enter a new amount value
-    const amount = parseInt(prevAmountValue.replace('$', '')) + 100
+    const amount = 1100
     // Enter the amount, as a string with "$" in it to test saving a currency value
     await page.type('#assistance_amount', `$${amount}`)
 
@@ -107,7 +104,12 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
     // Check that the first rental assistance's amount value matches the value we updated it to
     const newAmount = await page.$eval(`${firstRentalAssistanceSelector} td:nth-child(3)`, e => e.textContent)
-    expect(newAmount).toEqual(`$${amount}.00`)
+    expect(newAmount).toEqual('$1,100.00')
+
+    await page.click(`${firstRentalAssistanceSelector} button.action-link`)
+
+    const newAmountValue = await page.$eval('#assistance_amount', e => e.value)
+    expect(newAmountValue).toEqual('$1,100.00')
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
