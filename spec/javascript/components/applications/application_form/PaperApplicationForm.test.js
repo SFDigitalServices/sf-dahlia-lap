@@ -66,8 +66,71 @@ describe('PaperApplicationForm', () => {
 
       expect(wrapper.text()).toContain('Please select a language.')
       wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
+      wrapper.find('#application_language select').simulate('blur')
       wrapper.find('form').first().simulate('submit')
       expect(wrapper.text()).not.toContain('Please select a language.')
+    })
+
+    test('Demographics', async () => {
+      testApplication['demographics'] = {}
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
+        />
+      )
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).toContain('Ethnicity is required')
+      expect(wrapper.text()).toContain('Race is required')
+      expect(wrapper.text()).toContain('Gender is required')
+      expect(wrapper.text()).toContain('Sexual Orientation is required')
+
+      wrapper.find('select[name="demographics.ethnicity"]').simulate('change', { target: { value: 'Decline to state' } })
+      wrapper.find('select[name="demographics.ethnicity"]').simulate('blur')
+      wrapper.find('select[name="demographics.race"]').simulate('change', { target: { value: 'Decline to state' } })
+      wrapper.find('select[name="demographics.race"]').simulate('blur')
+      wrapper.find('select[name="demographics.gender"]').simulate('change', { target: { value: 'Decline to state' } })
+      wrapper.find('select[name="demographics.gender"]').simulate('blur')
+      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('change', { target: { value: 'Decline to state' } })
+      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).not.toContain('Ethnicity is required')
+      expect(wrapper.text()).not.toContain('Race is required')
+      expect(wrapper.text()).not.toContain('Gender is required')
+      expect(wrapper.text()).not.toContain('Sexual Orientation is required')
+    })
+
+    test('Signature on Terms of Agreement', async () => {
+      testApplication['terms_acknowledged'] = false
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
+        />
+      )
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).toContain('Signature on Terms of Agreement is required')
+
+      wrapper.find('input[name="terms_acknowledged"]').simulate('change', { target: { value: true } })
+      wrapper.find('input[name="terms_acknowledged"]').simulate('blur')
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).not.toContain('Signature on Terms of Agreement is required')
     })
   })
 
@@ -116,6 +179,7 @@ describe('PaperApplicationForm', () => {
         expect(wrapper.text()).toContain('Please select a lender.')
         expect(wrapper.text()).toContain('The applicant cannot qualify for the listing unless this is true.')
         wrapper.find('#lending_agent select').simulate('change', { target: { value: 1 } })
+        wrapper.find('#lending_agent select').simulate('blur')
         wrapper.find('form').first().simulate('submit')
         expect(wrapper.text()).not.toContain('Please select a lender.')
       })
