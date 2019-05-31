@@ -18,13 +18,10 @@ import { includes, isEmpty, map } from 'lodash'
 import { getFullHousehold, naturalKeyFromMember } from './preferences/utils.js'
 
 class PaperApplicationForm extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      loading: false,
-      submittedValues: {},
-      submitType: ''
-    }
+  state = {
+    loading: false,
+    submittedValues: {},
+    submitType: ''
   }
 
   submitShortForm = async (submittedValues) => {
