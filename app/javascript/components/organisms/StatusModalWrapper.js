@@ -39,7 +39,6 @@ class StatusModalWrapper extends React.Component {
         onSubmit={(values) => onSubmit(values, statusRequiresComments(status, subStatus))}
         onSecondaryClick={onClose}
         type='status'
-        validateError={(values) => this.formValidator(values, statusRequiresComments(status, subStatus))}
         showAlert={showAlert}
         alertMsg={alertMsg !== null ? alertMsg : 'Something went wrong, please try again.'}
         onAlertCloseClick={onAlertCloseClick}
@@ -69,17 +68,15 @@ class StatusModalWrapper extends React.Component {
               </React.Fragment>
             )}
             <TextAreaField
-              label={'Comment' + statusRequiresComments(status, subStatus) ? ' (required)' : ''}
+              label={statusRequiresComments(status, subStatus) ? 'Comment (required)' : 'Comment'}
               fieldName='comment'
-              labelClass={`form-label ${statusRequiresComments(status, subStatus) && form.getState().errors.comment ? 'error' : ''}`}
               id='status-comment'
               cols='30'
               rows='10'
               placeholder='Add a comment'
               ariaDescribedby='status-comment-label'
               maxLength='255'
-              validation={validate.isPresent('Please provide a comment.')} />
-            {statusRequiresComments(status, subStatus) && form.getState().errors.comment && <small className='error'>{form.getState().errors.comment}</small>}
+              validation={statusRequiresComments(status, subStatus) && validate.isPresent('Please provide a comment.')} />
           </div>
         )}
       </FormModal>
