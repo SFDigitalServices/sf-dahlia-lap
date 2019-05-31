@@ -85,7 +85,8 @@ class PaperApplicationForm extends React.Component {
           mutators={{
             ...arrayMutators
           }}
-          render={({ handleSubmit, form }) => (
+          validateOnBlur
+          render={({ handleSubmit, form, values }) => (
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
@@ -107,7 +108,7 @@ class PaperApplicationForm extends React.Component {
                     editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  <DemographicInfoSection />
+                  <DemographicInfoSection values={values} />
                   <AgreeToTerms />
                 </div>
                 <div className='button-pager'>
