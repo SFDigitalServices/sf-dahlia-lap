@@ -12,6 +12,12 @@ let {
 } = formOptions
 
 const DemographicInfoSection = ({ values: { demographics } }) => {
+  const validateRelatedField = (validationMessage, relatedField) => {
+    if (!demographics || (demographics && !demographics[relatedField])) {
+      return validate.isPresent(validationMessage)
+    }
+    return ''
+  }
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Demographic Information</h3>
@@ -35,28 +41,28 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
             fieldName='demographics.gender'
             label='Gender'
             options={genderOptions}
-            validation={!demographics || (demographics && !demographics.gender_other) ? validate.isPresent('Gender is required') : ''} />
+            validation={validateRelatedField('Gender is required', 'gender_other')} />
         </div>
         <div className='small-6 columns'>
           <InputField
             fieldName='demographics.gender_other'
             label='Gender Specify (if not listed)'
             maxLength={maxLengthMap['gender_other']}
-            validation={!demographics || (demographics && !demographics.gender) ? validate.isPresent('Gender is required') : ''} />
+            validation={validateRelatedField('Gender is required', 'gender')} />
         </div>
         <div className='small-6 columns'>
           <SelectField
             fieldName='demographics.sexual_orientation'
             label='Sexual Orientation'
             options={sexualOrientationOptions}
-            validation={!demographics || (demographics && !demographics.sexual_orientation_other) ? validate.isPresent('Sexual Orientation is required') : ''} />
+            validation={validateRelatedField('Sexual Orientation is required', 'sexual_orientation_other')} />
         </div>
         <div className='small-6 columns'>
           <InputField
             fieldName='demographics.sexual_orientation_other'
             label='Sexual Orientation (if not listed)'
             maxLength={maxLengthMap['sexual_orientation_other']}
-            validation={!demographics || (demographics && !demographics.sexual_orientation) ? validate.isPresent('Sexual Orientation is required') : ''} />
+            validation={validateRelatedField('Sexual Orientation is required', 'sexual_orientation')} />
         </div>
       </div>
       <div className='row' />
