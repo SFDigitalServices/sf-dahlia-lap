@@ -108,8 +108,9 @@ validate.any = (...fns) => (value) => {
 validate.isValidDate = (date, errors, options = {}) => {
   let errorMessage = options.errorMessage || 'Please enter a valid date.'
   if (date) {
-    const dateArray = [toInteger(date.year), toInteger(date.month), toInteger(date.day)]
+    let dateArray = [date.year, date.month, date.day]
     if (options.isPrimaryApplicant) {
+      dateArray = map(dateArray, (value) => { toInteger(value) })
       errorMessage = validate.any(validate.isDate(errorMessage), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(dateArray)
     } else {
       errorMessage = validate.any(validate.isDate(errorMessage))(dateArray)
