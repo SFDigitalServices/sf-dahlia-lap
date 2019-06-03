@@ -110,7 +110,7 @@ validate.isValidDate = (date, errors, options = {}) => {
   if (date) {
     let dateArray = [date.year, date.month, date.day]
     if (options.isPrimaryApplicant) {
-      dateArray = map(dateArray, (value) => { toInteger(value) })
+      dateArray = map(dateArray, (value) => { return toInteger(value) })
       errorMessage = validate.any(validate.isDate(errorMessage), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(dateArray)
     } else {
       errorMessage = validate.any(validate.isDate(errorMessage))(dateArray)
