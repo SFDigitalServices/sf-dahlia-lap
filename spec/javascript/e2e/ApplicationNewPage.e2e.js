@@ -45,10 +45,16 @@ describe('ApplicationNewPage', () => {
     await page.click('input[name="terms_acknowledged"]')
   }
 
-  const blurValidation = async (page) => page.evaluate(() => {
-    document.querySelector('input').blur()
-    document.querySelector('select').blur()
-  })
+  const blurValidation = (page, selector) => page.evaluate((selector) => {
+    if (selector) {
+      const domSelector = document.querySelector(selector)
+      domSelector.focus()
+      return domSelector.blur()
+    } else {
+      document.querySelector('input').blur()
+      return document.querySelector('select').blur()
+    }
+  }, selector)
 
   test('should create a new application successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
@@ -202,15 +208,17 @@ describe('ApplicationNewPage', () => {
     // Select the household member
     await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
     await page.select('#form-preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
+    await blurValidation(page, '#form-preferences\\.0\\.naturalKey')
 
     // Select live vs work
     const liveDropDownValue = 'Live in SF'
     await page.select('#form-preferences\\.0\\.individual_preference', liveDropDownValue)
+    await blurValidation(page, '#form-preferences\\.0\\.individual_preference')
 
     // Select type of proof
     const telephoneBillDropdownValue = 'Telephone bill'
     await page.select('#form-preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
-    await blurValidation(page)
+    await blurValidation(page, 'select[name="preferences.0.naturalKey"]')
 
     await page.click('.save-btn')
     await page.waitForNavigation()
