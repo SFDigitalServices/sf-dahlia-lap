@@ -17,7 +17,7 @@ const toOptions = (items) => {
 // Formats a numer to currency in format eg. $1,000.00
 const formatPrice = (value) => {
   if (!value) return ''
-  let valueString = value.toString().replace(/\$|,|\s/g, '')
+  let valueString = value.toString().replace(/[^.|\d]/g, '')
 
   // return value if value is not valid number
   if (parseFloat(valueString)) {
