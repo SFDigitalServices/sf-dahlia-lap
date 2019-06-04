@@ -202,7 +202,7 @@ exports[`ListingPage individual fields Details fields 1`] = `
             Application Due Date
           </h4>
           <p>
-            05/31/2019
+            06/04/2019
           </p>
         </div>
       </div>
@@ -300,7 +300,7 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
             Lottery Results Date
           </h4>
           <p>
-            05/31/2019
+            06/04/2019
           </p>
         </div>
       </div>
@@ -423,7 +423,7 @@ Array [
                     Application Due Date
                   </h4>
                   <p>
-                    05/31/2019
+                    06/04/2019
                   </p>
                 </div>
               </div>
@@ -585,7 +585,7 @@ Array [
                     Lottery Results Date
                   </h4>
                   <p>
-                    05/31/2019
+                    06/04/2019
                   </p>
                 </div>
               </div>
