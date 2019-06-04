@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer'
 
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
+import supplementalApplicationSteps from '../support/puppeteer/steps/supplementalApplicationSteps'
 
 describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
@@ -20,6 +21,9 @@ describe('LeaseUpPage', () => {
     await page.click('.rt-tr-group:first-child .rt-td .dropdown')
     await page.click('.dropdown-menu li[aria-selected="false"] a:first-child')
     await page.waitForSelector('.form-modal_form_wrapper')
+    const statusInModal = await page.$eval('.form-modal_form_wrapper .dropdown.status button', e => e.textContent)
+    await supplementalApplicationSteps.checkForSubStatus(statusInModal, page)
+
     await page.type('#status-comment', 'some comment')
     await page.click('.form-modal_form_wrapper button.primary')
 

@@ -69,5 +69,6 @@ const checkForSubStatus = async (selectedStatus, page) => {
 export default {
   generateRandomCurrency,
   savePage,
-  testStatusModalUpdate
+  testStatusModalUpdate,
+  checkForSubStatus
 }
