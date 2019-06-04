@@ -2,6 +2,7 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import formOptions from '~/components/applications/application_form/formOptions'
 import classNames from 'classnames'
+import formUtils from '~/utils/formUtils'
 
 const {
   labelize
@@ -61,6 +62,27 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
   </Field>
 )
 
+export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength }) => (
+  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} formatOnBlur>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+          <Label
+            label={label}
+            id={id || `form-${fieldName}`}
+            fieldName={fieldName} />
+          <input {...input}
+            id={id || `form-${fieldName}`}
+            type='text'
+            placeholder={placeholder || '$0.00'}
+            className={(meta.error && meta.touched && 'error') || ''}
+            maxLength={maxLength} />
+          <FieldError meta={meta} />
+        </div>
+      </React.Fragment>
+    )}
+  </Field>
+)
 export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (

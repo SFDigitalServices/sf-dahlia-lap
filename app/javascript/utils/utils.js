@@ -1,4 +1,4 @@
-import { isString, map, mapValues, propertyOf } from 'lodash'
+import { isString, map, mapValues, propertyOf, isEmpty } from 'lodash'
 
 // FIXME Rename to a more useful filename.
 export const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZZ'
@@ -27,9 +27,9 @@ export default {
 }
 
 export const currencyToFloat = (value) => {
-  if (isString(value)) {
+  if (!isEmpty(value) && isString(value)) {
     return parseFloat(value.replace('$', '').replace(',', ''))
   } else {
-    return value
+    return null
   }
 }
