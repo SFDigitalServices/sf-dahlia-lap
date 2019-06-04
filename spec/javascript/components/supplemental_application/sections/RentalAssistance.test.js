@@ -5,9 +5,10 @@ import renderer from 'react-test-renderer'
 import Context from '~/components/supplemental_application/context'
 import RentalAssistance from '~/components/supplemental_application/sections/RentalAssistance'
 import { cloneDeep } from 'lodash'
+import { Form } from 'react-final-form'
 
 const baseContext = {
-  rentalAssistances: [],
+  application: { rental_assistances: [] },
   applicationMembers: [{id: '123', first_name: 'Test', last_name: 'Tester'}],
   showNewRentalAssistancePanel: false,
   handleOpenRentalAssistancePanel: () => { },
@@ -24,20 +25,21 @@ const rentalAssistance = {
   recipient: '123'
 }
 
-let rentalAssistanceValue = []
-
-const form = {
-  getState: () => (
-    { values: { rental_assistance: rentalAssistanceValue } }
-  )
-}
-
 describe('RentalAssistance', () => {
   test('should not render a table if rental assistances is empty', () => {
     const context = cloneDeep(baseContext)
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance form={form} />
+        <Form
+          onSubmit={() => null}
+          initialValues={context.application}
+          render={({ form }) => (
+            <React.Fragment>
+              <form noValidate>
+                <RentalAssistance form={form} />
+              </form>
+            </React.Fragment>
+          )} />
       </Context.Provider>
     )
 
@@ -48,11 +50,20 @@ describe('RentalAssistance', () => {
   test('should render a table when rental assistances are present', () => {
     const context = cloneDeep(baseContext)
 
-    context.rentalAssistances = [rentalAssistance]
+    context.application.rental_assistances = [rentalAssistance]
 
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance form={form} />
+        <Form
+          onSubmit={() => null}
+          initialValues={context.application}
+          render={({ form }) => (
+            <React.Fragment>
+              <form noValidate>
+                <RentalAssistance form={form} />
+              </form>
+            </React.Fragment>
+          )} />
       </Context.Provider>
     )
 
@@ -63,13 +74,21 @@ describe('RentalAssistance', () => {
   test('should be able to show the add rental assistance form along with the table', () => {
     const context = cloneDeep(baseContext)
 
-    rentalAssistanceValue = [rentalAssistance]
-    context.rentalAssistances = [rentalAssistance]
+    context.application.rental_assistances = [rentalAssistance]
     context.showNewRentalAssistancePanel = true
 
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance form={form} />
+        <Form
+          onSubmit={() => null}
+          initialValues={context.application}
+          render={({ form }) => (
+            <React.Fragment>
+              <form noValidate>
+                <RentalAssistance form={form} />
+              </form>
+            </React.Fragment>
+          )} />
       </Context.Provider>
     )
 
@@ -80,7 +99,7 @@ describe('RentalAssistance', () => {
   test('should show the Other Assistance Name in the table when Type of Assistance is Other', () => {
     const context = cloneDeep(baseContext)
 
-    context.rentalAssistances = [
+    context.application.rental_assistances = [
       {
         ...rentalAssistance,
         type_of_assistance: 'Other',
@@ -90,7 +109,16 @@ describe('RentalAssistance', () => {
 
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance form={form} />
+        <Form
+          onSubmit={() => null}
+          initialValues={context.application}
+          render={({ form }) => (
+            <React.Fragment>
+              <form noValidate>
+                <RentalAssistance form={form} />
+              </form>
+            </React.Fragment>
+          )} />
       </Context.Provider>
     )
 
@@ -104,12 +132,21 @@ describe('RentalAssistance', () => {
 
     const wrapper = mount(
       <Context.Provider value={context}>
-        <RentalAssistance form={form} />
+        <Form
+          onSubmit={() => null}
+          initialValues={context.application}
+          render={({ form }) => (
+            <React.Fragment>
+              <form noValidate>
+                <RentalAssistance form={form} />
+              </form>
+            </React.Fragment>
+          )} />
       </Context.Provider>
     )
 
     wrapper.find('button.primary').simulate('click')
     wait(1000)
-    expect(wrapper.find('#form-type_of_assistance.error').exists()).toBeTruthy()
+    expect(wrapper.find('.rental-assistance-type.error').exists()).toBeTruthy()
   })
 })

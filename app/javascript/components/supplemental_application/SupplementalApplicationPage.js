@@ -223,7 +223,10 @@ class SupplementalApplicationPage extends React.Component {
       rentalAssistance.id = response.id
       this.setState(prev => {
         return {
-          rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
+          persistedApplication: {
+            ...prev.persistedApplication,
+            rental_assistances: [...prev.persistedApplication.rental_assistances, rentalAssistance]
+          },
           showNewRentalAssistancePanel: false,
           showAddRentalAssistanceBtn: true,
           rentalAssistanceLoading: false
@@ -247,12 +250,15 @@ class SupplementalApplicationPage extends React.Component {
     rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
     if (response) {
       this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
         const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
         rentalAssistances[idx] = rentalAssistance
 
         return {
-          rentalAssistances: rentalAssistances,
+          persistedApplication: {
+            ...prev.persistedApplication,
+            rental_assistances: rentalAssistances
+          },
           showNewRentalAssistancePanel: false,
           showAddRentalAssistanceBtn: true,
           rentalAssistanceLoading: false
@@ -268,11 +274,14 @@ class SupplementalApplicationPage extends React.Component {
 
     if (response) {
       this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
         const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
         rentalAssistances.splice(idx, 1)
         return {
-          rentalAssistances: rentalAssistances,
+          persistedApplication: {
+            ...prev.persistedApplication,
+            rental_assistances: rentalAssistances
+          },
           showNewRentalAssistancePanel: false,
           showAddRentalAssistanceBtn: true,
           rentalAssistanceLoading: false
@@ -313,7 +322,6 @@ class SupplementalApplicationPage extends React.Component {
       leaveConfirmationModal,
       loading,
       persistedApplication,
-      rentalAssistances,
       showNewRentalAssistancePanel,
       showAddRentalAssistanceBtn,
       rentalAssistanceLoading
@@ -356,7 +364,6 @@ class SupplementalApplicationPage extends React.Component {
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
-      rentalAssistances: rentalAssistances,
       showNewRentalAssistancePanel: showNewRentalAssistancePanel,
       showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
       hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
@@ -399,15 +406,14 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits, rentalAssistances }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplication(values),
     fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
-    availableUnits: mapList(mapUnit, availableUnits),
-    rentalAssistances: rentalAssistances
+    availableUnits: mapList(mapUnit, availableUnits)
   }
 }
 

@@ -11,7 +11,7 @@ module Applications
       @file_base_url = file_base_url
       @available_units = units_service.available_units_for_application(@application.Listing.Id, @application.Id)
       @units = listing_service.units(@application.Listing.Id)
-      @rental_assistances = soql_rental_assistance_service.application_rental_assistances(@application.Id)
+      @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.Id)
     end
 
     def update

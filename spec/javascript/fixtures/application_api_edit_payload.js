@@ -76,4 +76,5 @@ export default {
   numberOfMinors: undefined,
   numberOfSeniors: undefined,
   totalMonthlyRent: null,
-  applicationSubmissionType: 'Electronic' }
+  applicationSubmissionType: 'Electronic',
+  rentalAssistances: [] }

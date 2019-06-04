@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RentalAssistance should be able to show the add rental assistance form along with the table 1`] = `
-Array [
+<form
+  noValidate={true}
+>
   <div
     className="form-grid row expand"
   >
@@ -97,10 +99,7 @@ Array [
                 <div
                   className="app-editable expand-wide scrollable-table-nested"
                 >
-                  <form
-                    noValidate={true}
-                    onSubmit={[Function]}
-                  >
+                  <div>
                     <div
                       className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
                     >
@@ -115,14 +114,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-type_of_assistance"
+                              htmlFor="form-rental_assistances.0.type_of_assistance"
                             >
                               Type of Assistance 
                             </label>
                             <select
                               className="rental-assistance-type"
-                              id="form-type_of_assistance"
-                              name="type_of_assistance"
+                              id="form-rental_assistances.0.type_of_assistance"
+                              name="rental_assistances.0.type_of_assistance"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -219,7 +218,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-recurring_assistance"
+                              htmlFor="form-rental_assistances.0.recurring_assistance"
                             >
                               Recurring Assistance 
                             </label>
@@ -228,8 +227,8 @@ Array [
                             >
                               <input
                                 checked={true}
-                                id="recurring_assistance-new-yes"
-                                name="recurring_assistance"
+                                id="rental_assistances.0.recurring_assistance-new-yes"
+                                name="rental_assistances.0.recurring_assistance"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -238,7 +237,7 @@ Array [
                               />
                               <label
                                 className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-yes"
+                                htmlFor="rental_assistances.0.recurring_assistance-new-yes"
                               >
                                 Yes
                               </label>
@@ -248,8 +247,8 @@ Array [
                             >
                               <input
                                 checked={false}
-                                id="recurring_assistance-new-no"
-                                name="recurring_assistance"
+                                id="rental_assistances.0.recurring_assistance-new-no"
+                                name="rental_assistances.0.recurring_assistance"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -258,7 +257,7 @@ Array [
                               />
                               <label
                                 className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-no"
+                                htmlFor="rental_assistances.0.recurring_assistance-new-no"
                               >
                                 No
                               </label>
@@ -280,7 +279,7 @@ Array [
                             <input
                               className=""
                               id="assistance_amount"
-                              name="assistance_amount"
+                              name="rental_assistances.0.assistance_amount"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -298,14 +297,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-recipient"
+                              htmlFor="form-rental_assistances.0.recipient"
                             >
                               Recipient 
                             </label>
                             <select
                               className="rental-assistance-recipient"
-                              id="form-recipient"
-                              name="recipient"
+                              id="form-rental_assistances.0.recipient"
+                              name="rental_assistances.0.recipient"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -355,7 +354,7 @@ Array [
                         </div>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -363,11 +362,8 @@ Array [
         </table>
       </div>
     </div>
-  </div>,
-  <form
-    noValidate={true}
-    onSubmit={[Function]}
-  >
+  </div>
+  <div>
     <div
       className="app-editable expand-wide scrollable-table-nested rental-assistance-new-form"
     >
@@ -382,14 +378,14 @@ Array [
           >
             <label
               className="form-label"
-              htmlFor="form-type_of_assistance"
+              htmlFor="form-rental_assistances.1.type_of_assistance"
             >
               Type of Assistance 
             </label>
             <select
               className="rental-assistance-type"
-              id="form-type_of_assistance"
-              name="type_of_assistance"
+              id="form-rental_assistances.1.type_of_assistance"
+              name="rental_assistances.1.type_of_assistance"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -486,7 +482,7 @@ Array [
           >
             <label
               className="form-label"
-              htmlFor="form-recurring_assistance"
+              htmlFor="form-rental_assistances.1.recurring_assistance"
             >
               Recurring Assistance 
             </label>
@@ -495,8 +491,8 @@ Array [
             >
               <input
                 checked={false}
-                id="recurring_assistance-new-yes"
-                name="recurring_assistance"
+                id="rental_assistances.1.recurring_assistance-new-yes"
+                name="rental_assistances.1.recurring_assistance"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -505,7 +501,7 @@ Array [
               />
               <label
                 className="radio-inline_label"
-                htmlFor="recurring_assistance-new-yes"
+                htmlFor="rental_assistances.1.recurring_assistance-new-yes"
               >
                 Yes
               </label>
@@ -515,8 +511,8 @@ Array [
             >
               <input
                 checked={false}
-                id="recurring_assistance-new-no"
-                name="recurring_assistance"
+                id="rental_assistances.1.recurring_assistance-new-no"
+                name="rental_assistances.1.recurring_assistance"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -525,7 +521,7 @@ Array [
               />
               <label
                 className="radio-inline_label"
-                htmlFor="recurring_assistance-new-no"
+                htmlFor="rental_assistances.1.recurring_assistance-new-no"
               >
                 No
               </label>
@@ -547,7 +543,7 @@ Array [
             <input
               className=""
               id="assistance_amount"
-              name="assistance_amount"
+              name="rental_assistances.1.assistance_amount"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -565,14 +561,14 @@ Array [
           >
             <label
               className="form-label"
-              htmlFor="form-recipient"
+              htmlFor="form-rental_assistances.1.recipient"
             >
               Recipient 
             </label>
             <select
               className="rental-assistance-recipient"
-              id="form-recipient"
-              name="recipient"
+              id="form-rental_assistances.1.recipient"
+              name="rental_assistances.1.recipient"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -615,29 +611,35 @@ Array [
         </div>
       </div>
     </div>
-  </form>,
+  </div>
   <button
     className="button small"
     id="add-rental-assistance"
     onClick={[Function]}
   >
     Add Rental Assistance
-  </button>,
-]
+  </button>
+</form>
 `;
 
 exports[`RentalAssistance should not render a table if rental assistances is empty 1`] = `
-<button
-  className="button small"
-  id="add-rental-assistance"
-  onClick={[Function]}
+<form
+  noValidate={true}
 >
-  Add Rental Assistance
-</button>
+  <button
+    className="button small"
+    id="add-rental-assistance"
+    onClick={[Function]}
+  >
+    Add Rental Assistance
+  </button>
+</form>
 `;
 
 exports[`RentalAssistance should render a table when rental assistances are present 1`] = `
-Array [
+<form
+  noValidate={true}
+>
   <div
     className="form-grid row expand"
   >
@@ -733,10 +735,7 @@ Array [
                 <div
                   className="app-editable expand-wide scrollable-table-nested"
                 >
-                  <form
-                    noValidate={true}
-                    onSubmit={[Function]}
-                  >
+                  <div>
                     <div
                       className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
                     >
@@ -751,14 +750,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-type_of_assistance"
+                              htmlFor="form-rental_assistances.0.type_of_assistance"
                             >
                               Type of Assistance 
                             </label>
                             <select
                               className="rental-assistance-type"
-                              id="form-type_of_assistance"
-                              name="type_of_assistance"
+                              id="form-rental_assistances.0.type_of_assistance"
+                              name="rental_assistances.0.type_of_assistance"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -855,7 +854,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-recurring_assistance"
+                              htmlFor="form-rental_assistances.0.recurring_assistance"
                             >
                               Recurring Assistance 
                             </label>
@@ -864,8 +863,8 @@ Array [
                             >
                               <input
                                 checked={true}
-                                id="recurring_assistance-new-yes"
-                                name="recurring_assistance"
+                                id="rental_assistances.0.recurring_assistance-new-yes"
+                                name="rental_assistances.0.recurring_assistance"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -874,7 +873,7 @@ Array [
                               />
                               <label
                                 className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-yes"
+                                htmlFor="rental_assistances.0.recurring_assistance-new-yes"
                               >
                                 Yes
                               </label>
@@ -884,8 +883,8 @@ Array [
                             >
                               <input
                                 checked={false}
-                                id="recurring_assistance-new-no"
-                                name="recurring_assistance"
+                                id="rental_assistances.0.recurring_assistance-new-no"
+                                name="rental_assistances.0.recurring_assistance"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -894,7 +893,7 @@ Array [
                               />
                               <label
                                 className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-no"
+                                htmlFor="rental_assistances.0.recurring_assistance-new-no"
                               >
                                 No
                               </label>
@@ -916,7 +915,7 @@ Array [
                             <input
                               className=""
                               id="assistance_amount"
-                              name="assistance_amount"
+                              name="rental_assistances.0.assistance_amount"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -934,14 +933,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-recipient"
+                              htmlFor="form-rental_assistances.0.recipient"
                             >
                               Recipient 
                             </label>
                             <select
                               className="rental-assistance-recipient"
-                              id="form-recipient"
-                              name="recipient"
+                              id="form-rental_assistances.0.recipient"
+                              name="rental_assistances.0.recipient"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -991,7 +990,7 @@ Array [
                         </div>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -999,19 +998,21 @@ Array [
         </table>
       </div>
     </div>
-  </div>,
+  </div>
   <button
     className="button small"
     id="add-rental-assistance"
     onClick={[Function]}
   >
     Add Rental Assistance
-  </button>,
-]
+  </button>
+</form>
 `;
 
 exports[`RentalAssistance should show the Other Assistance Name in the table when Type of Assistance is Other 1`] = `
-Array [
+<form
+  noValidate={true}
+>
   <div
     className="form-grid row expand"
   >
@@ -1107,10 +1108,7 @@ Array [
                 <div
                   className="app-editable expand-wide scrollable-table-nested"
                 >
-                  <form
-                    noValidate={true}
-                    onSubmit={[Function]}
-                  >
+                  <div>
                     <div
                       className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
                     >
@@ -1125,14 +1123,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-type_of_assistance"
+                              htmlFor="form-rental_assistances.0.type_of_assistance"
                             >
                               Type of Assistance 
                             </label>
                             <select
                               className="rental-assistance-type"
-                              id="form-type_of_assistance"
-                              name="type_of_assistance"
+                              id="form-rental_assistances.0.type_of_assistance"
+                              name="rental_assistances.0.type_of_assistance"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -1229,7 +1227,7 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-recurring_assistance"
+                              htmlFor="form-rental_assistances.0.recurring_assistance"
                             >
                               Recurring Assistance 
                             </label>
@@ -1238,8 +1236,8 @@ Array [
                             >
                               <input
                                 checked={true}
-                                id="recurring_assistance-new-yes"
-                                name="recurring_assistance"
+                                id="rental_assistances.0.recurring_assistance-new-yes"
+                                name="rental_assistances.0.recurring_assistance"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -1248,7 +1246,7 @@ Array [
                               />
                               <label
                                 className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-yes"
+                                htmlFor="rental_assistances.0.recurring_assistance-new-yes"
                               >
                                 Yes
                               </label>
@@ -1258,8 +1256,8 @@ Array [
                             >
                               <input
                                 checked={false}
-                                id="recurring_assistance-new-no"
-                                name="recurring_assistance"
+                                id="rental_assistances.0.recurring_assistance-new-no"
+                                name="rental_assistances.0.recurring_assistance"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onFocus={[Function]}
@@ -1268,7 +1266,7 @@ Array [
                               />
                               <label
                                 className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-no"
+                                htmlFor="rental_assistances.0.recurring_assistance-new-no"
                               >
                                 No
                               </label>
@@ -1290,7 +1288,7 @@ Array [
                             <input
                               className=""
                               id="assistance_amount"
-                              name="assistance_amount"
+                              name="rental_assistances.0.assistance_amount"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -1308,14 +1306,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-recipient"
+                              htmlFor="form-rental_assistances.0.recipient"
                             >
                               Recipient 
                             </label>
                             <select
                               className="rental-assistance-recipient"
-                              id="form-recipient"
-                              name="recipient"
+                              id="form-rental_assistances.0.recipient"
+                              name="rental_assistances.0.recipient"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -1346,14 +1344,14 @@ Array [
                           >
                             <label
                               className="form-label"
-                              htmlFor="form-other_assistance_name"
+                              htmlFor="form-rental_assistances.0.other_assistance_name"
                             >
                               Other Assistance Name 
                             </label>
                             <input
                               className=""
-                              id="form-other_assistance_name"
-                              name="other_assistance_name"
+                              id="form-rental_assistances.0.other_assistance_name"
+                              name="rental_assistances.0.other_assistance_name"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -1393,7 +1391,7 @@ Array [
                         </div>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -1401,13 +1399,13 @@ Array [
         </table>
       </div>
     </div>
-  </div>,
+  </div>
   <button
     className="button small"
     id="add-rental-assistance"
     onClick={[Function]}
   >
     Add Rental Assistance
-  </button>,
-]
+  </button>
+</form>
 `;

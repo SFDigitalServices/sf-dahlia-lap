@@ -400,12 +400,135 @@
   "lease": {
     "id": "a130P000005TeZrQAK",
     "unit": "a0b0P00001HIHrnQAH",
-    "lease_start_date": {"year": "2019", "month": "01", "day":"01"},
+    "lease_start_date": {
+      "year": "2019",
+      "month": "01",
+      "day": "01"
+    },
     "lease_status": "Draft",
     "monthly_parking_rent": "$75.56",
     "preference_used": null,
     "no_preference_used": true,
     "total_monthly_rent_without_parking": "$150.17",
     "monthly_tenant_contribution": "$838.49"
-  }
+  },
+  "rental_assistances" :  [
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHr4AAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHr9AAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHrJAAW",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHrOAAW",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHrdAAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHs7AAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YHzcAAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YI0GAAW",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YI4rAAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YI64AAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YI6dAAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YI6nAAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 100.0,
+      "id": "a150t000001YI6sAAG",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    }
+  ]
 }
