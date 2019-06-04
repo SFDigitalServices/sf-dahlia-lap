@@ -103,7 +103,7 @@ const sexualOrientationOptions = labelize([
   'Gay/Lesbian/Same-Gender Loving',
   'Questioning/Unsure',
   'Straight/Heterosexual',
-  'Not listed',
+  'Not Listed',
   'Decline to state'
 ])
 

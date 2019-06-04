@@ -71,7 +71,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).not.toContain('Please select a language.')
     })
 
-    test('Demographics', async () => {
+    test('Demographics Defaults', async () => {
       testApplication['demographics'] = {}
       const wrapper = mount(
         <PaperApplicationForm
@@ -104,6 +104,53 @@ describe('PaperApplicationForm', () => {
 
       expect(wrapper.text()).not.toContain('Ethnicity is required')
       expect(wrapper.text()).not.toContain('Race is required')
+      expect(wrapper.text()).not.toContain('Gender is required')
+      expect(wrapper.text()).not.toContain('Sexual Orientation is required')
+    })
+
+    test('Demographics Not Listed', async () => {
+      testApplication['demographics'] = {}
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
+        />
+      )
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).toContain('Ethnicity is required')
+      expect(wrapper.text()).toContain('Race is required')
+      expect(wrapper.text()).toContain('Gender is required')
+      expect(wrapper.text()).toContain('Sexual Orientation is required')
+
+      wrapper.find('select[name="demographics.ethnicity"]').simulate('change', { target: { value: 'Decline to state' } })
+      wrapper.find('select[name="demographics.ethnicity"]').simulate('blur')
+      wrapper.find('select[name="demographics.race"]').simulate('change', { target: { value: 'Decline to state' } })
+      wrapper.find('select[name="demographics.race"]').simulate('blur')
+      wrapper.find('select[name="demographics.gender"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper.find('select[name="demographics.gender"]').simulate('blur')
+      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
+      wrapper.find('form').first().simulate('submit')
+
+      await wait(100)
+
+      expect(wrapper.text()).not.toContain('Ethnicity is required')
+      expect(wrapper.text()).not.toContain('Race is required')
+      // Check that these 2 still remain since Not Listed was chosen
+      expect(wrapper.text()).toContain('Gender is required')
+      expect(wrapper.text()).toContain('Sexual Orientation is required')
+
+      wrapper.find('input[name="demographics.gender_other"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper.find('input[name="demographics.gender_other"]').simulate('blur')
+      wrapper.find('input[name="demographics.sexual_orientation_other"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper.find('input[name="demographics.sexual_orientation_other"]').simulate('blur')
+      wrapper.find('form').first().simulate('submit')
+
       expect(wrapper.text()).not.toContain('Gender is required')
       expect(wrapper.text()).not.toContain('Sexual Orientation is required')
     })
