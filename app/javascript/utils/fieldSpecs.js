@@ -87,6 +87,6 @@ export const buildFieldSpecs = (entry, keepFieldCase) => {
 }
 
 export const buildFields = (data, fields, options = {}) => {
-  const fieldSpecs = map(fields, buildFieldSpecs)
+  const fieldSpecs = map(fields, (f) => buildFieldSpecs(f))
   return map(fieldSpecs, (f) => buildFieldEntry(data, f, options))
 }
