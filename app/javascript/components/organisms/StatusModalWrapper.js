@@ -2,8 +2,8 @@ import React from 'react'
 
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import FormModal from './FormModal'
-import { TextArea } from 'react-form'
-import formUtils from '~/utils/formUtils'
+import { TextAreaField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 
 class StatusModalWrapper extends React.Component {
@@ -39,13 +39,12 @@ class StatusModalWrapper extends React.Component {
         onSubmit={(values) => onSubmit(values, statusRequiresComments(status, subStatus))}
         onSecondaryClick={onClose}
         type='status'
-        validateError={(values) => this.formValidator(values, statusRequiresComments(status, subStatus))}
         showAlert={showAlert}
         alertMsg={alertMsg !== null ? alertMsg : 'Something went wrong, please try again.'}
         onAlertCloseClick={onAlertCloseClick}
         loading={loading}>
-        {formApi => (
-          <div className='form-group'>
+        {form => (
+          <div className={'form-group'}>
             <h2 className='form-label'>Status</h2>
             <StatusDropdown
               status={status}
@@ -68,18 +67,16 @@ class StatusModalWrapper extends React.Component {
                   wrapperClasses={['subStatus']} />
               </React.Fragment>
             )}
-            <label className={`form-label ${statusRequiresComments(status, subStatus) && formUtils.submitErrors(formApi).comment ? 'error' : ''}`} id='status-comment-label'>Comment{statusRequiresComments(status, subStatus) ? ' (required)' : ''}</label>
-            <TextArea
-              field='comment'
-              name='comment'
+            <TextAreaField
+              label={statusRequiresComments(status, subStatus) ? 'Comment (required)' : 'Comment'}
+              fieldName='comment'
               id='status-comment'
               cols='30'
               rows='10'
               placeholder='Add a comment'
-              aria-describedby='status-comment-label'
+              ariaDescribedby='status-comment-label'
               maxLength='255'
-              className={formUtils.submitErrors(formApi).comment ? 'error' : ''} />
-            {statusRequiresComments(status, subStatus) && formUtils.submitErrors(formApi).comment && <small className='error'>{formApi.errors.comment}</small>}
+              validation={statusRequiresComments(status, subStatus) && validate.isPresent('Please provide a comment.')} />
           </div>
         )}
       </FormModal>

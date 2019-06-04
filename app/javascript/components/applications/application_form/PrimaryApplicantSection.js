@@ -2,7 +2,7 @@ import React from 'react'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
 import validate from '~/utils/form/validations'
-import { TextField, SelectField } from '~/utils/form/final_form/Field'
+import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
 import { maxLengthMap } from '~/utils/formUtils'
@@ -18,7 +18,7 @@ const PrimaryApplicantSection = ({form}) => {
       <div className='row'>
         <div className='form-group'>
           <div className='small-4 columns'>
-            <TextField
+            <InputField
               fieldName='applicant.first_name'
               id='first_name'
               label='First Name'
@@ -28,7 +28,7 @@ const PrimaryApplicantSection = ({form}) => {
             />
           </div>
           <div className='small-4 columns'>
-            <TextField
+            <InputField
               fieldName='applicant.middle_name'
               id='middle_name'
               label='Middle Name'
@@ -36,7 +36,7 @@ const PrimaryApplicantSection = ({form}) => {
             />
           </div>
           <div className='small-4 columns'>
-            <TextField
+            <InputField
               fieldName='applicant.last_name'
               id='last_name'
               label='Last Name'
@@ -49,7 +49,7 @@ const PrimaryApplicantSection = ({form}) => {
       </div>
       <div className='row'>
         <div className='small-4 columns'>
-          <TextField
+          <InputField
             type='text'
             label='Email'
             id='email'
@@ -59,7 +59,7 @@ const PrimaryApplicantSection = ({form}) => {
           />
         </div>
         <div className='small-4 columns'>
-          <TextField
+          <InputField
             fieldName='applicant.phone'
             id='phone'
             label='Primary Phone Number'
@@ -84,7 +84,7 @@ const PrimaryApplicantSection = ({form}) => {
           />
         </div>
         <div className='small-4 columns'>
-          <TextField
+          <InputField
             label='Second Phone Number'
             fieldName='applicant.second_phone'
             id='second_phone'

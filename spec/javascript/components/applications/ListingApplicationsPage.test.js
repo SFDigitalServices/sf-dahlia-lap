@@ -11,7 +11,7 @@ const applications = [
     'Application_Submission_Type': 'Electronic',
     'Listing': {
       'Name': 'Test 5/30',
-      'Lottery_Date': '2019-01-12'
+      'Lottery_Date': '2019-01-12T17:00:00.000+0000'
     },
     'Applicant': {
       'First_Name': 'karen',
@@ -26,7 +26,7 @@ const applications = [
     'Application_Submission_Type': 'Electronic',
     'Listing': {
       'Name': 'Test 5/30',
-      'Lottery_Date': '2019-01-12'
+      'Lottery_Date': '2019-01-12T17:00:00.000+0000'
     },
     'Applicant': {
       'First_Name': 'Grace',

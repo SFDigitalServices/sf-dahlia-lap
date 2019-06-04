@@ -24,12 +24,20 @@ const rentalAssistance = {
   recipient: '123'
 }
 
+let rentalAssistanceValue = []
+
+const form = {
+  getState: () => (
+    { values: { rental_assistance: rentalAssistanceValue } }
+  )
+}
+
 describe('RentalAssistance', () => {
   test('should not render a table if rental assistances is empty', () => {
     const context = cloneDeep(baseContext)
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance />
+        <RentalAssistance form={form} />
       </Context.Provider>
     )
 
@@ -44,7 +52,7 @@ describe('RentalAssistance', () => {
 
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance />
+        <RentalAssistance form={form} />
       </Context.Provider>
     )
 
@@ -55,12 +63,13 @@ describe('RentalAssistance', () => {
   test('should be able to show the add rental assistance form along with the table', () => {
     const context = cloneDeep(baseContext)
 
+    rentalAssistanceValue = [rentalAssistance]
     context.rentalAssistances = [rentalAssistance]
     context.showNewRentalAssistancePanel = true
 
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance />
+        <RentalAssistance form={form} />
       </Context.Provider>
     )
 
@@ -81,7 +90,7 @@ describe('RentalAssistance', () => {
 
     const component = renderer.create(
       <Context.Provider value={context}>
-        <RentalAssistance />
+        <RentalAssistance form={form} />
       </Context.Provider>
     )
 
@@ -95,12 +104,12 @@ describe('RentalAssistance', () => {
 
     const wrapper = mount(
       <Context.Provider value={context}>
-        <RentalAssistance />
+        <RentalAssistance form={form} />
       </Context.Provider>
     )
 
     wrapper.find('button.primary').simulate('click')
     wait(1000)
-    expect(wrapper.find('#type_of_assistance.error').exists()).toBeTruthy()
+    expect(wrapper.find('#form-type_of_assistance.error').exists()).toBeTruthy()
   })
 })

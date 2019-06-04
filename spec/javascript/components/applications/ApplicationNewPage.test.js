@@ -8,7 +8,7 @@ import listing from '../../fixtures/listing'
 describe('ApplicationNewPage', () => {
   test('should render succesfully', () => {
     const wrapper = renderer.create(
-      <ApplicationNewPage listing={listing} />
+      <ApplicationNewPage listing={listing} lendingInstitutions={{}} />
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot()

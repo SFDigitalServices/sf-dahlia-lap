@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form } from 'react-form'
+import { Form } from 'react-final-form'
+import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
 import ScrollableAnchor from 'react-scrollable-anchor'
 
@@ -17,19 +18,6 @@ import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate from '~/utils/form/validations'
-
-const validateIncomeCurrency = (value) => {
-  return (
-    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
-  )
-}
-
-const validateError = (values) => ({
-  household_assets: validateIncomeCurrency(values.household_assets),
-  confirmed_household_annual_income: validateIncomeCurrency(values.confirmed_household_annual_income),
-  hh_total_income_with_assets_annual: validateIncomeCurrency(values.hh_total_income_with_assets_annual)
-})
 
 const StatusUpdateSection = withContext(({ store }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -50,7 +38,7 @@ const StatusUpdateSection = withContext(({ store }) => {
   )
 })
 
-const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
+const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => {
   return (
     <ContentSection
       title='Confirmed Preferences'
@@ -68,41 +56,51 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
           onSave={onSave}
           fileBaseUrl={fileBaseUrl}
           onPanelClose={onDismissError}
-          formApi={formApi}
+          form={form}
         />
       </ContentSection.Content>
     </ContentSection>
   )
 }
 
-const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
+const ConfirmedHousehold = ({ amis, amiCharts, form }) => {
   return (
     <ContentSection title='Confirmed Household'>
       <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
         <ConfirmedUnits />
       </ContentSection.Sub>
       <ContentSection.Sub title='Confirmed Household Income'>
-        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi} />
+        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
       </ContentSection.Sub>
     </ContentSection>
   )
 }
 
-const LeaseInformationSection = ({formApi}) => {
+const LeaseInformationSection = ({form}) => {
   return (
     <ContentSection title='Lease Information'>
       <ContentSection.Content borderBottom>
-        <LeaseInformationInputs formApi={formApi} />
+        <LeaseInformationInputs form={form} />
       </ContentSection.Content>
-      <ContentSection.Sub
-        title='Rental Assistance Information'
-        description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-        <RentalAssistance />
-      </ContentSection.Sub>
-      <ContentSection.Sub title='Demographics'>
-        <DemographicsInputs />
-      </ContentSection.Sub>
     </ContentSection>
+  )
+}
+
+const RentalAssistanceSection = ({form}) => {
+  return (
+    <ContentSection.Sub
+      title='Rental Assistance Information'
+      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
+      <RentalAssistance form={form} />
+    </ContentSection.Sub>
+  )
+}
+
+const DemographicsSection = () => {
+  return (
+    <ContentSection.Sub title='Demographics'>
+      <DemographicsInputs />
+    </ContentSection.Sub>
   )
 }
 
@@ -141,6 +139,16 @@ const ActionButtons = withContext(({ loading, store }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
+  validateForm = (values) => {
+    const errors = {lease: {}}
+    // only validate lease_start_date when any of the fields is present
+    if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
+      errors.lease = {lease_start_date: {}}
+      validate.isValidDate(values.lease.lease_start_date, errors.lease.lease_start_date)
+    }
+    return errors
+  }
+
   render () {
     const { store } = this.props
     const {
@@ -162,10 +170,17 @@ class SupplementalApplicationContainer extends React.Component {
     } = store
 
     return (
-      <Form onSubmit={onSubmit} defaultValues={application} validateError={validateError}>
-        {formApi => (
+
+      <Form
+        onSubmit={onSubmit}
+        initialValues={application}
+        validate={this.validateForm}
+        mutators={{
+          ...arrayMutators
+        }}
+        render={({ handleSubmit, form }) => (
           <React.Fragment>
-            <form onSubmit={formApi.submitForm} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }}>
+            <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
               <StatusUpdateSection />
               <ConfirmedPreferencesSection
                 application={application}
@@ -174,10 +189,14 @@ class SupplementalApplicationContainer extends React.Component {
                 onSave={onSavePreference}
                 onDismissError={onDismissError}
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
-                formApi={formApi}
+                form={form}
               />
-              <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-              <LeaseInformationSection formApi={formApi} />
+              <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
+              <LeaseInformationSection form={form} />
+            </form>
+            <RentalAssistanceSection form={form} />
+            <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
+              <DemographicsSection />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <ActionButtons loading={loading} />
@@ -186,11 +205,11 @@ class SupplementalApplicationContainer extends React.Component {
               {...statusModal}
               onClose={handleStatusModalClose}
               onStatusChange={handleStatusModalStatusChange}
-              onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, formApi.values)}
+              onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
             />
           </React.Fragment>
         )}
-      </Form>
+      />
     )
   }
 }

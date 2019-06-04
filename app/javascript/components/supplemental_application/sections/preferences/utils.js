@@ -1,10 +1,7 @@
 import React from 'react'
-import { Select } from 'react-form'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import formUtils from '~/utils/formUtils'
-
-import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 
 const test = (regex) => (value) => regex.test(value)
 
@@ -71,10 +68,3 @@ export const Comment = ({children}) => (
     {children}
   </p>
 )
-
-export const SelectStatus = ({ preferenceIndex, className }) => (
-  <Select
-    field={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-    options={statusOptions}
-    className={className}
-  />)

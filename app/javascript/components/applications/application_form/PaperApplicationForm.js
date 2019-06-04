@@ -47,7 +47,9 @@ class PaperApplicationForm extends React.Component {
 
   validateForm = (values) => {
     const errors = {applicant: {date_of_birth: {}}}
-    validate.isValidDOB(values.applicant, errors.applicant, true)
+    // applicant needs to be initialized for date validation to run on 'required'
+    if (!values.applicant) values.applicant = {}
+    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {errorMessage: 'Please enter a Date of Birth', isPrimaryApplicant: true})
     if (values.alternate_contact && !isEmpty(values.alternate_contact)) {
       errors.alternate_contact = {}
       errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(values.alternate_contact.first_name)
@@ -113,7 +115,7 @@ class PaperApplicationForm extends React.Component {
                     <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', form)} disabled={loading}>
                       {loading ? 'Saving…' : 'Save'}
                     </button>
-                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew')} disabled={loading}>
+                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', form)} disabled={loading}>
                       Save and New
                     </button>
                   </div>

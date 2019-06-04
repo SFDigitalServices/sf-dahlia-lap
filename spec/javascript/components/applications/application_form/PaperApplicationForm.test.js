@@ -33,6 +33,7 @@ describe('PaperApplicationForm', () => {
         <PaperApplicationForm
           listing={listing}
           application={testApplication}
+          lendingInstitutions={{}}
         />
       )
 
@@ -55,6 +56,8 @@ describe('PaperApplicationForm', () => {
         <PaperApplicationForm
           listing={listing}
           application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
         />
       )
       wrapper.find('form').first().simulate('submit')
@@ -75,6 +78,7 @@ describe('PaperApplicationForm', () => {
           <PaperApplicationForm
             listing={listing}
             application={testApplication}
+            lendingInstitutions={{}}
           />
         )
         expect(wrapper.text()).not.toContain('Eligibility Information')
@@ -92,6 +96,7 @@ describe('PaperApplicationForm', () => {
           <PaperApplicationForm
             listing={listing}
             application={testApplication}
+            lendingInstitutions={{}}
           />
         )
         expect(wrapper.text()).toContain('Eligibility Information')

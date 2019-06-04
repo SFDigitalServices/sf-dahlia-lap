@@ -355,499 +355,681 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     <div
                       className="loading-panel"
                     >
-                      <t
+                      <ReactFinalForm
                         onSubmit={[Function]}
+                        render={[Function]}
                       >
-                        <Connect(t)
+                        <form
+                          noValidate={true}
                           onSubmit={[Function]}
-                          store={
-                            Object {
-                              "dispatch": [Function],
-                              "getState": [Function],
-                              "replaceReducer": [Function],
-                              "subscribe": [Function],
-                              Symbol(observable): [Function],
-                            }
-                          }
                         >
-                          <t
-                            dispatch={[Function]}
-                            formState={
-                              Object {
-                                "asyncErrors": Object {},
-                                "asyncSuccesses": Object {},
-                                "asyncValidations": 0,
-                                "asyncWarnings": Object {},
-                                "errors": Object {},
-                                "submits": 0,
-                                "submitted": false,
-                                "successes": Object {},
-                                "touched": Object {},
-                                "validating": Object {},
-                                "validationFailed": Object {},
-                                "validationFailures": 0,
-                                "values": Object {},
-                                "warnings": Object {},
-                              }
-                            }
-                            onSubmit={[Function]}
-                            store={
-                              Object {
-                                "dispatch": [Function],
-                                "getState": [Function],
-                                "replaceReducer": [Function],
-                                "subscribe": [Function],
-                                Symbol(observable): [Function],
-                              }
-                            }
-                            storeSubscription={
-                              Subscription {
-                                "listeners": Object {
-                                  "clear": [Function],
-                                  "get": [Function],
-                                  "notify": [Function],
-                                  "subscribe": [Function],
-                                },
-                                "onStateChange": [Function],
-                                "parentSub": undefined,
-                                "store": Object {
-                                  "dispatch": [Function],
-                                  "getState": [Function],
-                                  "replaceReducer": [Function],
-                                  "subscribe": [Function],
-                                  Symbol(observable): [Function],
-                                },
-                                "unsubscribe": [Function],
-                              }
-                            }
+                          <div
+                            className="filter-row"
                           >
-                            <form
-                              onSubmit={[Function]}
+                            <div
+                              className="filter-group"
                             >
                               <div
-                                className="filter-row"
+                                className="filter-group_item"
                               >
-                                <div
-                                  className="filter-group"
+                                <SelectField
+                                  fieldName="preference"
+                                  options={
+                                    Array [
+                                      Object {
+                                        "label": "All Preferences",
+                                        "value": null,
+                                      },
+                                      Object {
+                                        "label": "General",
+                                        "value": "general",
+                                      },
+                                    ]
+                                  }
+                                  placeholder="Preference"
                                 >
-                                  <div
-                                    className="filter-group_item"
+                                  <ReactFinalForm(Field)
+                                    component="select"
+                                    name="preference"
                                   >
-                                    <r
-                                      field="preference"
-                                      options={
-                                        Array [
-                                          Object {
-                                            "label": "All Preferences",
-                                            "value": null,
-                                          },
-                                          Object {
-                                            "label": "General",
-                                            "value": "general",
-                                          },
-                                        ]
+                                    <Field
+                                      component="select"
+                                      format={[Function]}
+                                      name="preference"
+                                      parse={[Function]}
+                                      reactFinalForm={
+                                        Object {
+                                          "batch": [Function],
+                                          "blur": [Function],
+                                          "change": [Function],
+                                          "focus": [Function],
+                                          "getFieldState": [Function],
+                                          "getRegisteredFields": [Function],
+                                          "getState": [Function],
+                                          "initialize": [Function],
+                                          "isValidationPaused": [Function],
+                                          "mutators": Object {},
+                                          "pauseValidation": [Function],
+                                          "registerField": [Function],
+                                          "reset": [Function],
+                                          "resumeValidation": [Function],
+                                          "setConfig": [Function],
+                                          "submit": [Function],
+                                          "subscribe": [Function],
+                                        }
                                       }
-                                      placeholder="Preference"
                                     >
-                                      <t
-                                        fieldApi={
-                                          Object {
-                                            "doneValidatingField": [Function],
-                                            "getError": [Function],
-                                            "getSuccess": [Function],
-                                            "getTouched": [Function],
-                                            "getValue": [Function],
-                                            "getWarning": [Function],
-                                            "registerAsyncValidation": [Function],
-                                            "reset": [Function],
-                                            "setError": [Function],
-                                            "setSuccess": [Function],
-                                            "setTouched": [Function],
-                                            "setValue": [Function],
-                                            "setWarning": [Function],
-                                            "submits": 0,
-                                            "submitted": false,
-                                            "validatingField": [Function],
-                                          }
-                                        }
-                                        options={
-                                          Array [
-                                            Object {
-                                              "label": "All Preferences",
-                                              "value": null,
-                                            },
-                                            Object {
-                                              "label": "General",
-                                              "value": "general",
-                                            },
-                                          ]
-                                        }
-                                        placeholder="Preference"
+                                      <div
+                                        className="form-group"
                                       >
+                                        <Label
+                                          fieldName="preference"
+                                          id="form-preference"
+                                        />
                                         <select
+                                          className="form-group"
+                                          id="form-preference"
+                                          name="preference"
                                           onBlur={[Function]}
                                           onChange={[Function]}
-                                          value={0}
+                                          onFocus={[Function]}
+                                          value=""
                                         >
                                           <option
-                                            disabled={true}
-                                            key=""
-                                            value={0}
-                                          >
-                                            Preference
-                                          </option>
-                                          <option
                                             key="null"
-                                            value={1}
+                                            value=""
                                           >
                                             All Preferences
                                           </option>
                                           <option
                                             key="general"
-                                            value={2}
+                                            value="general"
                                           >
                                             General
                                           </option>
                                         </select>
-                                      </t>
-                                    </r>
-                                  </div>
-                                  <div
-                                    className="filter-group_item"
-                                  >
-                                    <r
-                                      field="application_number"
-                                      placeholder="Application Number"
-                                    >
-                                      <t
-                                        fieldApi={
-                                          Object {
-                                            "doneValidatingField": [Function],
-                                            "getError": [Function],
-                                            "getSuccess": [Function],
-                                            "getTouched": [Function],
-                                            "getValue": [Function],
-                                            "getWarning": [Function],
-                                            "registerAsyncValidation": [Function],
-                                            "reset": [Function],
-                                            "setError": [Function],
-                                            "setSuccess": [Function],
-                                            "setTouched": [Function],
-                                            "setValue": [Function],
-                                            "setWarning": [Function],
-                                            "submits": 0,
-                                            "submitted": false,
-                                            "validatingField": [Function],
+                                        <FieldError
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
                                           }
-                                        }
-                                        placeholder="Application Number"
-                                      >
-                                        <input
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          placeholder="Application Number"
-                                          value=""
                                         />
-                                      </t>
-                                    </r>
-                                  </div>
-                                  <div
-                                    className="filter-group_item"
+                                      </div>
+                                    </Field>
+                                  </ReactFinalForm(Field)>
+                                </SelectField>
+                              </div>
+                              <div
+                                className="filter-group_item"
+                              >
+                                <InputField
+                                  fieldName="application_number"
+                                  placeholder="Application Number"
+                                >
+                                  <ReactFinalForm(Field)
+                                    name="application_number"
                                   >
-                                    <r
-                                      field="first_name"
-                                      placeholder="First Name"
-                                    >
-                                      <t
-                                        fieldApi={
-                                          Object {
-                                            "doneValidatingField": [Function],
-                                            "getError": [Function],
-                                            "getSuccess": [Function],
-                                            "getTouched": [Function],
-                                            "getValue": [Function],
-                                            "getWarning": [Function],
-                                            "registerAsyncValidation": [Function],
-                                            "reset": [Function],
-                                            "setError": [Function],
-                                            "setSuccess": [Function],
-                                            "setTouched": [Function],
-                                            "setValue": [Function],
-                                            "setWarning": [Function],
-                                            "submits": 0,
-                                            "submitted": false,
-                                            "validatingField": [Function],
-                                          }
+                                    <Field
+                                      format={[Function]}
+                                      name="application_number"
+                                      parse={[Function]}
+                                      reactFinalForm={
+                                        Object {
+                                          "batch": [Function],
+                                          "blur": [Function],
+                                          "change": [Function],
+                                          "focus": [Function],
+                                          "getFieldState": [Function],
+                                          "getRegisteredFields": [Function],
+                                          "getState": [Function],
+                                          "initialize": [Function],
+                                          "isValidationPaused": [Function],
+                                          "mutators": Object {},
+                                          "pauseValidation": [Function],
+                                          "registerField": [Function],
+                                          "reset": [Function],
+                                          "resumeValidation": [Function],
+                                          "setConfig": [Function],
+                                          "submit": [Function],
+                                          "subscribe": [Function],
                                         }
-                                        placeholder="First Name"
-                                      >
-                                        <input
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          placeholder="First Name"
-                                          value=""
-                                        />
-                                      </t>
-                                    </r>
-                                  </div>
-                                  <div
-                                    className="filter-group_item"
-                                  >
-                                    <r
-                                      field="last_name"
-                                      placeholder="Last Name"
-                                    >
-                                      <t
-                                        fieldApi={
-                                          Object {
-                                            "doneValidatingField": [Function],
-                                            "getError": [Function],
-                                            "getSuccess": [Function],
-                                            "getTouched": [Function],
-                                            "getValue": [Function],
-                                            "getWarning": [Function],
-                                            "registerAsyncValidation": [Function],
-                                            "reset": [Function],
-                                            "setError": [Function],
-                                            "setSuccess": [Function],
-                                            "setTouched": [Function],
-                                            "setValue": [Function],
-                                            "setWarning": [Function],
-                                            "submits": 0,
-                                            "submitted": false,
-                                            "validatingField": [Function],
-                                          }
-                                        }
-                                        placeholder="Last Name"
-                                      >
-                                        <input
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          placeholder="Last Name"
-                                          value=""
-                                        />
-                                      </t>
-                                    </r>
-                                  </div>
-                                  <div
-                                    className="filter-group_item"
-                                  >
-                                    <r
-                                      field="status"
-                                      options={
-                                        Array [
-                                          Object {
-                                            "label": "No Status",
-                                            "value": "No Status",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Processing",
-                                            "style": "is-processing",
-                                            "value": "Processing",
-                                          },
-                                          Object {
-                                            "label": "Withdrawn",
-                                            "style": "is-withdrawn",
-                                            "value": "Withdrawn",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Appealed",
-                                            "style": "is-appealed",
-                                            "value": "Appealed",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Waitlisted",
-                                            "style": "is-waitlisted",
-                                            "value": "Waitlisted",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Disqualified",
-                                            "style": "is-disqualified",
-                                            "value": "Disqualified",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Approved",
-                                            "style": "is-approved",
-                                            "value": "Approved",
-                                          },
-                                          Object {
-                                            "label": "Lease Signed",
-                                            "style": "is-leased",
-                                            "value": "Lease Signed",
-                                          },
-                                          Object {
-                                            "label": "All Status",
-                                            "value": null,
-                                          },
-                                        ]
                                       }
-                                      placeholder="Status"
                                     >
-                                      <t
-                                        fieldApi={
-                                          Object {
-                                            "doneValidatingField": [Function],
-                                            "getError": [Function],
-                                            "getSuccess": [Function],
-                                            "getTouched": [Function],
-                                            "getValue": [Function],
-                                            "getWarning": [Function],
-                                            "registerAsyncValidation": [Function],
-                                            "reset": [Function],
-                                            "setError": [Function],
-                                            "setSuccess": [Function],
-                                            "setTouched": [Function],
-                                            "setValue": [Function],
-                                            "setWarning": [Function],
-                                            "submits": 0,
-                                            "submitted": false,
-                                            "validatingField": [Function],
-                                          }
-                                        }
-                                        options={
-                                          Array [
-                                            Object {
-                                              "label": "No Status",
-                                              "value": "No Status",
-                                            },
-                                            Object {
-                                              "commentRequired": true,
-                                              "label": "Processing",
-                                              "style": "is-processing",
-                                              "value": "Processing",
-                                            },
-                                            Object {
-                                              "label": "Withdrawn",
-                                              "style": "is-withdrawn",
-                                              "value": "Withdrawn",
-                                            },
-                                            Object {
-                                              "commentRequired": true,
-                                              "label": "Appealed",
-                                              "style": "is-appealed",
-                                              "value": "Appealed",
-                                            },
-                                            Object {
-                                              "commentRequired": true,
-                                              "label": "Waitlisted",
-                                              "style": "is-waitlisted",
-                                              "value": "Waitlisted",
-                                            },
-                                            Object {
-                                              "commentRequired": true,
-                                              "label": "Disqualified",
-                                              "style": "is-disqualified",
-                                              "value": "Disqualified",
-                                            },
-                                            Object {
-                                              "commentRequired": true,
-                                              "label": "Approved",
-                                              "style": "is-approved",
-                                              "value": "Approved",
-                                            },
-                                            Object {
-                                              "label": "Lease Signed",
-                                              "style": "is-leased",
-                                              "value": "Lease Signed",
-                                            },
-                                            Object {
-                                              "label": "All Status",
-                                              "value": null,
-                                            },
-                                          ]
-                                        }
-                                        placeholder="Status"
+                                      <div
+                                        className=""
                                       >
+                                        <Label
+                                          fieldName="application_number"
+                                          id="form-application_number"
+                                        />
+                                        <Input
+                                          id="form-application_number"
+                                          input={
+                                            Object {
+                                              "name": "application_number",
+                                              "onBlur": [Function],
+                                              "onChange": [Function],
+                                              "onFocus": [Function],
+                                              "value": "",
+                                            }
+                                          }
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                          placeholder="Application Number"
+                                          type="text"
+                                        >
+                                          <input
+                                            className=""
+                                            id="form-application_number"
+                                            name="application_number"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            onFocus={[Function]}
+                                            placeholder="Application Number"
+                                            type="text"
+                                            value=""
+                                          />
+                                        </Input>
+                                        <FieldError
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                        />
+                                      </div>
+                                    </Field>
+                                  </ReactFinalForm(Field)>
+                                </InputField>
+                              </div>
+                              <div
+                                className="filter-group_item"
+                              >
+                                <InputField
+                                  fieldName="first_name"
+                                  placeholder="First Name"
+                                >
+                                  <ReactFinalForm(Field)
+                                    name="first_name"
+                                  >
+                                    <Field
+                                      format={[Function]}
+                                      name="first_name"
+                                      parse={[Function]}
+                                      reactFinalForm={
+                                        Object {
+                                          "batch": [Function],
+                                          "blur": [Function],
+                                          "change": [Function],
+                                          "focus": [Function],
+                                          "getFieldState": [Function],
+                                          "getRegisteredFields": [Function],
+                                          "getState": [Function],
+                                          "initialize": [Function],
+                                          "isValidationPaused": [Function],
+                                          "mutators": Object {},
+                                          "pauseValidation": [Function],
+                                          "registerField": [Function],
+                                          "reset": [Function],
+                                          "resumeValidation": [Function],
+                                          "setConfig": [Function],
+                                          "submit": [Function],
+                                          "subscribe": [Function],
+                                        }
+                                      }
+                                    >
+                                      <div
+                                        className=""
+                                      >
+                                        <Label
+                                          fieldName="first_name"
+                                          id="form-first_name"
+                                        />
+                                        <Input
+                                          id="form-first_name"
+                                          input={
+                                            Object {
+                                              "name": "first_name",
+                                              "onBlur": [Function],
+                                              "onChange": [Function],
+                                              "onFocus": [Function],
+                                              "value": "",
+                                            }
+                                          }
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                          placeholder="First Name"
+                                          type="text"
+                                        >
+                                          <input
+                                            className=""
+                                            id="form-first_name"
+                                            name="first_name"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            onFocus={[Function]}
+                                            placeholder="First Name"
+                                            type="text"
+                                            value=""
+                                          />
+                                        </Input>
+                                        <FieldError
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                        />
+                                      </div>
+                                    </Field>
+                                  </ReactFinalForm(Field)>
+                                </InputField>
+                              </div>
+                              <div
+                                className="filter-group_item"
+                              >
+                                <InputField
+                                  fieldName="last_name"
+                                  placeholder="Last Name"
+                                >
+                                  <ReactFinalForm(Field)
+                                    name="last_name"
+                                  >
+                                    <Field
+                                      format={[Function]}
+                                      name="last_name"
+                                      parse={[Function]}
+                                      reactFinalForm={
+                                        Object {
+                                          "batch": [Function],
+                                          "blur": [Function],
+                                          "change": [Function],
+                                          "focus": [Function],
+                                          "getFieldState": [Function],
+                                          "getRegisteredFields": [Function],
+                                          "getState": [Function],
+                                          "initialize": [Function],
+                                          "isValidationPaused": [Function],
+                                          "mutators": Object {},
+                                          "pauseValidation": [Function],
+                                          "registerField": [Function],
+                                          "reset": [Function],
+                                          "resumeValidation": [Function],
+                                          "setConfig": [Function],
+                                          "submit": [Function],
+                                          "subscribe": [Function],
+                                        }
+                                      }
+                                    >
+                                      <div
+                                        className=""
+                                      >
+                                        <Label
+                                          fieldName="last_name"
+                                          id="form-last_name"
+                                        />
+                                        <Input
+                                          id="form-last_name"
+                                          input={
+                                            Object {
+                                              "name": "last_name",
+                                              "onBlur": [Function],
+                                              "onChange": [Function],
+                                              "onFocus": [Function],
+                                              "value": "",
+                                            }
+                                          }
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                          placeholder="Last Name"
+                                          type="text"
+                                        >
+                                          <input
+                                            className=""
+                                            id="form-last_name"
+                                            name="last_name"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            onFocus={[Function]}
+                                            placeholder="Last Name"
+                                            type="text"
+                                            value=""
+                                          />
+                                        </Input>
+                                        <FieldError
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                        />
+                                      </div>
+                                    </Field>
+                                  </ReactFinalForm(Field)>
+                                </InputField>
+                              </div>
+                              <div
+                                className="filter-group_item"
+                              >
+                                <SelectField
+                                  fieldName="status"
+                                  options={
+                                    Array [
+                                      Object {
+                                        "label": "No Status",
+                                        "value": "No Status",
+                                      },
+                                      Object {
+                                        "commentRequired": true,
+                                        "label": "Processing",
+                                        "style": "is-processing",
+                                        "value": "Processing",
+                                      },
+                                      Object {
+                                        "label": "Withdrawn",
+                                        "style": "is-withdrawn",
+                                        "value": "Withdrawn",
+                                      },
+                                      Object {
+                                        "commentRequired": true,
+                                        "label": "Appealed",
+                                        "style": "is-appealed",
+                                        "value": "Appealed",
+                                      },
+                                      Object {
+                                        "commentRequired": true,
+                                        "label": "Waitlisted",
+                                        "style": "is-waitlisted",
+                                        "value": "Waitlisted",
+                                      },
+                                      Object {
+                                        "commentRequired": true,
+                                        "label": "Disqualified",
+                                        "style": "is-disqualified",
+                                        "value": "Disqualified",
+                                      },
+                                      Object {
+                                        "commentRequired": true,
+                                        "label": "Approved",
+                                        "style": "is-approved",
+                                        "value": "Approved",
+                                      },
+                                      Object {
+                                        "label": "Lease Signed",
+                                        "style": "is-leased",
+                                        "value": "Lease Signed",
+                                      },
+                                      Object {
+                                        "label": "All Status",
+                                        "value": null,
+                                      },
+                                    ]
+                                  }
+                                  placeholder="Status"
+                                >
+                                  <ReactFinalForm(Field)
+                                    component="select"
+                                    name="status"
+                                  >
+                                    <Field
+                                      component="select"
+                                      format={[Function]}
+                                      name="status"
+                                      parse={[Function]}
+                                      reactFinalForm={
+                                        Object {
+                                          "batch": [Function],
+                                          "blur": [Function],
+                                          "change": [Function],
+                                          "focus": [Function],
+                                          "getFieldState": [Function],
+                                          "getRegisteredFields": [Function],
+                                          "getState": [Function],
+                                          "initialize": [Function],
+                                          "isValidationPaused": [Function],
+                                          "mutators": Object {},
+                                          "pauseValidation": [Function],
+                                          "registerField": [Function],
+                                          "reset": [Function],
+                                          "resumeValidation": [Function],
+                                          "setConfig": [Function],
+                                          "submit": [Function],
+                                          "subscribe": [Function],
+                                        }
+                                      }
+                                    >
+                                      <div
+                                        className="form-group"
+                                      >
+                                        <Label
+                                          fieldName="status"
+                                          id="form-status"
+                                        />
                                         <select
+                                          className="form-group"
+                                          id="form-status"
+                                          name="status"
                                           onBlur={[Function]}
                                           onChange={[Function]}
-                                          value={0}
+                                          onFocus={[Function]}
+                                          value=""
                                         >
                                           <option
-                                            disabled={true}
                                             key=""
-                                            value={0}
+                                            value=""
                                           >
-                                            Status
+                                            Select One...
                                           </option>
                                           <option
                                             key="No Status"
-                                            value={1}
+                                            value="No Status"
                                           >
                                             No Status
                                           </option>
                                           <option
                                             key="Processing"
-                                            value={2}
+                                            value="Processing"
                                           >
                                             Processing
                                           </option>
                                           <option
                                             key="Withdrawn"
-                                            value={3}
+                                            value="Withdrawn"
                                           >
                                             Withdrawn
                                           </option>
                                           <option
                                             key="Appealed"
-                                            value={4}
+                                            value="Appealed"
                                           >
                                             Appealed
                                           </option>
                                           <option
                                             key="Waitlisted"
-                                            value={5}
+                                            value="Waitlisted"
                                           >
                                             Waitlisted
                                           </option>
                                           <option
                                             key="Disqualified"
-                                            value={6}
+                                            value="Disqualified"
                                           >
                                             Disqualified
                                           </option>
                                           <option
                                             key="Approved"
-                                            value={7}
+                                            value="Approved"
                                           >
                                             Approved
                                           </option>
                                           <option
                                             key="Lease Signed"
-                                            value={8}
+                                            value="Lease Signed"
                                           >
                                             Lease Signed
                                           </option>
                                           <option
                                             key="null"
-                                            value={9}
+                                            value=""
                                           >
                                             All Status
                                           </option>
                                         </select>
-                                      </t>
-                                    </r>
-                                  </div>
-                                  <div
-                                    className="filter-group_action"
-                                  >
-                                    <button
-                                      className="small"
-                                    >
-                                      Filter
-                                    </button>
-                                  </div>
-                                </div>
+                                        <FieldError
+                                          meta={
+                                            Object {
+                                              "active": false,
+                                              "data": Object {},
+                                              "dirty": false,
+                                              "dirtySinceLastSubmit": false,
+                                              "error": undefined,
+                                              "initial": undefined,
+                                              "invalid": false,
+                                              "modified": false,
+                                              "pristine": true,
+                                              "submitError": undefined,
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "touched": false,
+                                              "valid": true,
+                                              "visited": false,
+                                            }
+                                          }
+                                        />
+                                      </div>
+                                    </Field>
+                                  </ReactFinalForm(Field)>
+                                </SelectField>
                               </div>
-                            </form>
-                          </t>
-                        </Connect(t)>
-                      </t>
+                              <div
+                                className="filter-group_action"
+                              >
+                                <button
+                                  className="small"
+                                >
+                                  Filter
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </ReactFinalForm>
                     </div>
                   </Loading>
                 </LeaseUpApplicationsFilter>
@@ -16736,7 +16918,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                 className="-pageInfo"
                               >
                                 Page
-                                 
+
                                 <div
                                   className="-pageJump"
                                 >
@@ -16749,9 +16931,9 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     value={1}
                                   />
                                 </div>
-                                 
+
                                 of
-                                 
+
                                 <span
                                   className="-totalPages"
                                 >
@@ -16820,14 +17002,13 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     secondary="cancel"
                     showAlert={null}
                     type="status"
-                    validateError={[Function]}
                   >
                     <Modal
                       handleClose={[Function]}
                       isOpen={false}
                     >
                       <Modal
-                        ariaHideApp={true}
+                        ariaHideApp={false}
                         bodyOpenClassName="ReactModal__Body--open"
                         closeTimeoutMS={0}
                         isOpen={false}
@@ -16870,7 +17051,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                           }
                         >
                           <ModalPortal
-                            ariaHideApp={true}
+                            ariaHideApp={false}
                             bodyOpenClassName="ReactModal__Body--open"
                             closeTimeoutMS={0}
                             defaultStyles={

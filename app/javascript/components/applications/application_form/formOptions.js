@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const labelize = (options) => {
+const labelize = (options, attrs = {}) => {
   if (_.isEmpty(options)) return []
 
   let emptyInitialOptionPresent =
@@ -9,14 +9,19 @@ const labelize = (options) => {
 
   let labelizedOptions = []
   if (!emptyInitialOptionPresent) {
-    labelizedOptions.push({'value': '', 'label': 'Select One...'})
+    const initialValues = {'value': '', 'label': 'Select One...'}
+    if (attrs && attrs['disableEmpty']) {
+      initialValues['disabled'] = 'disabled'
+    }
+    labelizedOptions.push(initialValues)
   }
 
   return labelizedOptions.concat(
     _.map(options, (option) => (
       {
         value: option.hasOwnProperty('value') ? option.value : option,
-        label: option.label || option
+        label: option.label || option,
+        disabled: option.disabled
       }
     ))
   )

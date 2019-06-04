@@ -1,9 +1,25 @@
 import React from 'react'
-import { BlockNote } from '~/utils/form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
-import { InputField } from '~/utils/form/final_form/Field'
-import { every } from 'lodash'
+import { Field } from 'react-final-form'
+import { Input, BlockNote } from '~/utils/form/final_form/Field'
+import { every, last } from 'lodash'
 import classNames from 'classnames'
+
+const InputField = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
+  <Field name={fieldName} validate={validation}>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <Input
+          input={input}
+          type={type}
+          meta={meta}
+          id={id || `form-${fieldName}`}
+          placeholder={placeholder}
+          maxLength={maxLength} />
+      </React.Fragment>
+    )}
+  </Field>
+)
 
 export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id }) => {
   const touched = every(['.day', '.month', '.year'], type => {
@@ -15,8 +31,8 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
   } else {
     errorField = form.getState().errors[fieldName.split('.')[0]]
   }
-
-  const error = form && touched && errorField && errorField['date_of_birth'] && errorField['date_of_birth']['all']
+  const baseFieldName = last(fieldName.split('.'))
+  const error = form && touched && errorField && errorField[baseFieldName] && errorField[baseFieldName]['all']
   return (
     <div className={classNames('form-group', (error && 'error') || '')}>
       <label className='form-label' htmlFor={id || `form-${fieldName}`}>

@@ -16,9 +16,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-    const hhAssetsSelector = '#household_assets'
-    const confirmedAnnualSelector = '#confirmed_household_annual_income'
-    const finalHHAnnualSelector = '#hh_total_income_with_assets_annual'
+    const hhAssetsSelector = '#form-household_assets'
+    const confirmedAnnualSelector = '#form-confirmed_household_annual_income'
+    const finalHHAnnualSelector = '#form-hh_total_income_with_assets_annual'
 
     // Generate the values (with currency and non-currency strings)
     const hhAssetsValue = supplementalApplicationSteps.generateRandomCurrency()

@@ -24,7 +24,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
     isOpen={true}
   >
     <Modal
-      ariaHideApp={true}
+      ariaHideApp={false}
       bodyOpenClassName="ReactModal__Body--open"
       closeTimeoutMS={0}
       isOpen={true}
@@ -189,7 +189,7 @@ exports[`SimpleModal it should render status type successfully 1`] = `
         }
       >
         <ModalPortal
-          ariaHideApp={true}
+          ariaHideApp={false}
           bodyOpenClassName="ReactModal__Body--open"
           closeTimeoutMS={0}
           defaultStyles={
@@ -496,7 +496,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
     isOpen={true}
   >
     <Modal
-      ariaHideApp={true}
+      ariaHideApp={false}
       bodyOpenClassName="ReactModal__Body--open"
       closeTimeoutMS={0}
       isOpen={true}
@@ -661,7 +661,7 @@ exports[`SimpleModal it should render status type successfully 2`] = `
         }
       >
         <ModalPortal
-          ariaHideApp={true}
+          ariaHideApp={false}
           bodyOpenClassName="ReactModal__Body--open"
           closeTimeoutMS={0}
           defaultStyles={

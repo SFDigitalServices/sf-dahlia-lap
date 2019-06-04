@@ -21,10 +21,10 @@ export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabel
     placeholder={placeholder} />
 )
 
-export const Label = ({ label, fieldName, blockNote, id }) => {
+export const Label = ({ label, fieldName, blockNote, id, className }) => {
   if (label) {
     return (
-      <label htmlFor={id || `form-${fieldName}`} className='form-label'>
+      <label htmlFor={id || `form-${fieldName}`} className={className || 'form-label'}>
         {label && `${label} `}
         {blockNote && <BlockNote value={blockNote} />}
       </label>)
@@ -37,7 +37,7 @@ export const FieldError = ({meta}) => (
   meta.error && meta.touched ? <span className='error'>{meta.error}</span> : null
 )
 
-export const TextField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id }) => (
+export const InputField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, type }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <React.Fragment>
@@ -51,7 +51,7 @@ export const TextField = ({ fieldName, label, blockNote, validation, placeholder
             input={input}
             meta={meta}
             id={id || `form-${fieldName}`}
-            type='text'
+            type={type || 'text'}
             placeholder={placeholder}
             maxLength={maxLength} />
           <FieldError meta={meta} />
@@ -61,23 +61,7 @@ export const TextField = ({ fieldName, label, blockNote, validation, placeholder
   </Field>
 )
 
-export const InputField = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
-  <Field name={fieldName} validate={validation}>
-    {({ input, meta }) => (
-      <React.Fragment>
-        <Input
-          input={input}
-          type={type}
-          meta={meta}
-          id={id || `form-${fieldName}`}
-          placeholder={placeholder}
-          maxLength={maxLength} />
-      </React.Fragment>
-    )}
-  </Field>
-)
-
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className }) => (
   <Field name={fieldName} validate={validation} component='select'>
     {({ input, meta }) => (
       <React.Fragment>
@@ -94,7 +78,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
             }}
             id={id || `form-${fieldName}`}
             name={input.name}
-            className={(meta.error && meta.touched && 'error') || ''}>
+            className={classNames(className || 'form-group', (meta.error && meta.touched && 'error') || '')}>
             { labelize(options).map((option) => generateHtmlOption(option))}
           </select>
           <FieldError meta={meta} />
@@ -127,6 +111,62 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
+export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLabel = 'Yes', falseValue = 'false', falseLabel = 'No', inputClassName, className, label }) => {
+  const divClassName = classNames(className, 'radio-group-inline')
+  return (
+    <div className={divClassName}>
+      <React.Fragment>
+        <Label
+          label={label}
+          id={`form-${fieldName}`}
+          fieldName={fieldName} />
+        <Field name={fieldName} value={trueValue} type='radio'>
+          {({ input, meta }) => (
+            <p className='radio-inline'>
+              <input {...input} id={`${fieldName}-${uniqId}-yes`} className={inputClassName} type='radio' />
+              <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-yes`}>{trueLabel}</label>
+            </p>
+          )}
+        </Field>
+        <Field name={fieldName} value={falseValue} type='radio'>
+          {({ input, meta }) => (
+            <p className='radio-inline'>
+              <input {...input} id={`${fieldName}-${uniqId}-no`} className={inputClassName} type='radio' />
+              <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-no`}>{falseLabel}</label>
+            </p>
+          )}
+        </Field>
+      </React.Fragment>
+    </div>
+  )
+}
+
+export const TextAreaField = ({ fieldName, label, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
+  <Field name={fieldName} validate={validation} component='textarea'>
+    {({ input, meta }) => (
+      <React.Fragment>
+        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+          <Label
+            label={label}
+            id={id || `form-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote}
+            className={labelClass} />
+          <textarea {...input}
+            id={id || `form-${fieldName}`}
+            className={(meta.error && meta.touched && 'error') || ''}
+            placeholder={placeholder}
+            maxLength={maxLength}
+            cols={cols}
+            rows={rows}
+            aria-describedby={ariaDescribedby} />
+          <FieldError meta={meta} />
+        </div>
+      </React.Fragment>
+    )}
+  </Field>
+)
+
 const generateHtmlOption = (option) => (
-  <option key={option.value} value={option.value}>{option.label}</option>
+  <option key={option.value} value={option.value || ''} disabled={option.disabled}>{option.label}</option>
 )
