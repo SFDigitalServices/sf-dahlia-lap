@@ -402,10 +402,10 @@
     "unit": "a0b0P00001HIHrnQAH",
     "lease_start_date": {"year": "2019", "month": "01", "day":"01"},
     "lease_status": "Draft",
-    "monthly_parking_rent": 75.56,
+    "monthly_parking_rent": "$75.56",
     "preference_used": null,
     "no_preference_used": true,
-    "total_monthly_rent_without_parking": 150.17,
-    "monthly_tenant_contribution": 838.49
+    "total_monthly_rent_without_parking": "$150.17",
+    "monthly_tenant_contribution": "$838.49"
   }
 }

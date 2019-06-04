@@ -68,7 +68,7 @@ Array [
               <td
                 className=""
               >
-                $100
+                100
               </td>
               <td
                 className=""
@@ -284,6 +284,7 @@ Array [
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
+                              placeholder="$0.00"
                               type="text"
                               value="100"
                             />
@@ -550,6 +551,7 @@ Array [
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
+              placeholder="$0.00"
               type="text"
               value=""
             />
@@ -702,7 +704,7 @@ Array [
               <td
                 className=""
               >
-                $100
+                100
               </td>
               <td
                 className=""
@@ -918,6 +920,7 @@ Array [
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
+                              placeholder="$0.00"
                               type="text"
                               value="100"
                             />
@@ -1075,7 +1078,7 @@ Array [
               <td
                 className=""
               >
-                $100
+                100
               </td>
               <td
                 className=""
@@ -1291,6 +1294,7 @@ Array [
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
+                              placeholder="$0.00"
                               type="text"
                               value="100"
                             />
