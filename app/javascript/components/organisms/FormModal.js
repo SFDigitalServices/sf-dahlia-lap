@@ -19,7 +19,8 @@ const FormModalBody = ({
   onSecondaryClick,
   children,
   validateError,
-  loading
+  loading,
+  initialValues
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
@@ -44,10 +45,11 @@ const FormModalBody = ({
           <Form
             onSubmit={onSubmit}
             validate={validateError}
-            render={({ handleSubmit, form }) => (
+            {...(initialValues ? { initialValues } : {})}
+            render={({ handleSubmit, values }) => (
               <form onSubmit={handleSubmit} className='no-margin' noValidate>
                 <Modal.Content>
-                  {children(form)}
+                  {children(values)}
                 </Modal.Content>
                 <Modal.Footer>
                   <div className='modal-button_item modal-button_primary'>

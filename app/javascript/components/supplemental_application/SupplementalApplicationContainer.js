@@ -164,7 +164,6 @@ class SupplementalApplicationContainer extends React.Component {
       onSubmit,
       statusModal,
       handleStatusModalClose,
-      handleStatusModalStatusChange,
       handleStatusModalSubmit,
       assignSupplementalAppTouched
     } = store
@@ -204,7 +203,6 @@ class SupplementalApplicationContainer extends React.Component {
             <StatusModalWrapper
               {...statusModal}
               onClose={handleStatusModalClose}
-              onStatusChange={handleStatusModalStatusChange}
               onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
             />
           </React.Fragment>

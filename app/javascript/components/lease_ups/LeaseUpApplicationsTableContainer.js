@@ -16,13 +16,6 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  setStatusModalStatus = (value, key) => {
-    this.props.store.updateStatusModal({
-      [key || 'status']: value,
-      ...(!key ? { subStatus: '' } : {})
-    })
-  }
-
   leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
     this.props.store.updateStatusModal({
       applicationId: applicationId,
@@ -32,21 +25,20 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  createStatusUpdate = async (submittedValues, commentRequired) => {
-    this.props.store.updateStatusModal({loading: true})
+  createStatusUpdate = async (submittedValues) => {
+    this.props.store.updateStatusModal({ loading: true })
 
-    const { status, applicationId, subStatus } = this.props.store.statusModal
+    const { applicationId } = this.props.store.statusModal
+    const { status, subStatus } = submittedValues
     var comment = submittedValues.comment && submittedValues.comment.trim()
-    if ((commentRequired && status && comment) || (!commentRequired && status)) {
-      const data = {
-        status,
-        comment,
-        applicationId,
-        ...(subStatus ? { subStatus } : {})
-      }
-
-      this.props.store.handleCreateStatusUpdate(data)
+    const data = {
+      status,
+      comment,
+      applicationId,
+      ...(subStatus ? { subStatus } : {})
     }
+
+    this.props.store.handleCreateStatusUpdate(data)
   }
 
   buildRowData (result) {
@@ -96,7 +88,6 @@ class LeaseUpTableContainer extends React.Component {
           {...statusModal}
           header='Update Status'
           submitButton='Update'
-          onStatusChange={this.setStatusModalStatus}
           onSubmit={this.createStatusUpdate}
           onClose={this.closeStatusModal} />
       </div>

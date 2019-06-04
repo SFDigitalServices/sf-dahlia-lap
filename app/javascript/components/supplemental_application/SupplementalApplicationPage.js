@@ -162,12 +162,13 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
-    const { statusModal: { status, subStatus }, persistedApplication } = this.state
+    const { persistedApplication } = this.state
+    const { status, subStatus, comment } = submittedValues
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
     const data = {
       status,
-      comment: submittedValues.comment,
+      comment,
       applicationId: persistedApplication.id,
       ...(subStatus ? { subStatus } : {})
     }
