@@ -227,7 +227,7 @@ Array [
                           className=""
                           scope="col"
                         >
-
+                          
                         </th>
                         <th
                           className=""
@@ -501,8 +501,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                      id="label-has_ada_priorities_selected.mobility_impairments"
                     >
-                      Mobility Impairments
+                      Mobility Impairments 
                     </label>
                   </div>
                   <div
@@ -522,8 +523,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                      id="label-has_ada_priorities_selected.vision_impairments"
                     >
-                      Vision Impairments
+                      Vision Impairments 
                     </label>
                   </div>
                   <div
@@ -543,8 +545,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                      id="label-has_ada_priorities_selected.hearing_impairments"
                     >
-                      Hearing Impairments
+                      Hearing Impairments 
                     </label>
                   </div>
                 </div>
@@ -636,8 +639,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-household_assets"
+                    id="label-household_assets"
                   >
-                    Household Assets
+                    Household Assets 
                   </label>
                   <input
                     className=""
@@ -665,8 +669,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-confirmed_household_annual_income"
+                    id="label-confirmed_household_annual_income"
                   >
-                    Confirmed Annual Income
+                    Confirmed Annual Income 
                   </label>
                   <input
                     className=""
@@ -700,8 +705,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-hh_total_income_with_assets_annual"
+                    id="label-hh_total_income_with_assets_annual"
                   >
-                    Final Household Annual Income
+                    Final Household Annual Income 
                   </label>
                   <input
                     className=""
@@ -811,8 +817,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-lease.unit"
+                      id="label-lease.unit"
                     >
-                      Assigned Unit Number
+                      Assigned Unit Number 
                     </label>
                     <select
                       className="form-group"
@@ -836,7 +843,7 @@ Array [
                     className="form-label"
                     htmlFor="lease_start_date"
                   >
-                    Lease Start Date
+                    Lease Start Date 
                   </label>
                   <div
                     className="form-group-month"
@@ -903,8 +910,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-lease.preference_used"
+                      id="label-lease.preference_used"
                     >
-                      Preference Used
+                      Preference Used 
                     </label>
                     <select
                       className="form-group"
@@ -937,8 +945,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-lease.total_monthly_rent_without_parking"
+                    id="label-lease.total_monthly_rent_without_parking"
                   >
-                    Monthly Rent
+                    Monthly Rent 
                   </label>
                   <input
                     className=""
@@ -962,8 +971,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-lease.monthly_parking_rent"
+                    id="label-lease.monthly_parking_rent"
                   >
-                    Monthly Parking Cost
+                    Monthly Parking Cost 
                   </label>
                   <input
                     className=""
@@ -987,8 +997,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-lease.monthly_tenant_contribution"
+                    id="label-lease.monthly_tenant_contribution"
                   >
-                    Monthly Tenant Contribution
+                    Monthly Tenant Contribution 
                   </label>
                   <input
                     className=""
@@ -1070,8 +1081,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-dependents"
+                    id="label-number_of_dependents"
                   >
-                    Number of Dependents
+                    Number of Dependents 
                   </label>
                   <select
                     className="form-group"
@@ -1148,8 +1160,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-seniors"
+                    id="label-number_of_seniors"
                   >
-                    Number of Seniors
+                    Number of Seniors 
                   </label>
                   <select
                     className="form-group"
@@ -1232,8 +1245,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-minors"
+                    id="label-number_of_minors"
                   >
-                    Number of Minors
+                    Number of Minors 
                   </label>
                   <select
                     className="form-group"
@@ -1310,8 +1324,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-marital-status"
+                    id="label-applicant.marital_status"
                   >
-                    Primary Applicant Marital Status
+                    Primary Applicant Marital Status 
                   </label>
                   <select
                     className="form-group"
@@ -4892,8 +4907,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                                                              id="label-has_ada_priorities_selected.mobility_impairments"
                                                             >
-                                                              Mobility Impairments
+                                                              Mobility Impairments 
                                                             </label>
                                                           </Label>
                                                           <FieldError
@@ -5024,8 +5040,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                                                              id="label-has_ada_priorities_selected.vision_impairments"
                                                             >
-                                                              Vision Impairments
+                                                              Vision Impairments 
                                                             </label>
                                                           </Label>
                                                           <FieldError
@@ -5156,8 +5173,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                                                              id="label-has_ada_priorities_selected.hearing_impairments"
                                                             >
-                                                              Hearing Impairments
+                                                              Hearing Impairments 
                                                             </label>
                                                           </Label>
                                                           <FieldError
@@ -5487,8 +5505,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-household_assets"
+                                                            id="label-household_assets"
                                                           >
-                                                            Household Assets
+                                                            Household Assets 
                                                           </label>
                                                         </Label>
                                                         <Input
@@ -5633,8 +5652,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-confirmed_household_annual_income"
+                                                            id="label-confirmed_household_annual_income"
                                                           >
-                                                            Confirmed Annual Income
+                                                            Confirmed Annual Income 
                                                           </label>
                                                         </Label>
                                                         <Input
@@ -5785,8 +5805,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-hh_total_income_with_assets_annual"
+                                                            id="label-hh_total_income_with_assets_annual"
                                                           >
-                                                            Final Household Annual Income
+                                                            Final Household Annual Income 
                                                           </label>
                                                         </Label>
                                                         <Input
@@ -6364,8 +6385,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-lease.unit"
+                                                              id="label-lease.unit"
                                                             >
-                                                              Assigned Unit Number
+                                                              Assigned Unit Number 
                                                             </label>
                                                           </Label>
                                                           <select
@@ -6454,7 +6476,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     className="form-label"
                                                     htmlFor="lease_start_date"
                                                   >
-                                                    Lease Start Date
+                                                    Lease Start Date 
                                                   </label>
                                                   <div
                                                     className="form-group-month"
@@ -6842,8 +6864,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-lease.preference_used"
+                                                              id="label-lease.preference_used"
                                                             >
-                                                              Preference Used
+                                                              Preference Used 
                                                             </label>
                                                           </Label>
                                                           <select
@@ -6963,8 +6986,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="form-lease.total_monthly_rent_without_parking"
+                                                          id="label-lease.total_monthly_rent_without_parking"
                                                         >
-                                                          Monthly Rent
+                                                          Monthly Rent 
                                                         </label>
                                                       </Label>
                                                       <Input
@@ -7103,8 +7127,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="form-lease.monthly_parking_rent"
+                                                          id="label-lease.monthly_parking_rent"
                                                         >
-                                                          Monthly Parking Cost
+                                                          Monthly Parking Cost 
                                                         </label>
                                                       </Label>
                                                       <Input
@@ -7243,8 +7268,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="form-lease.monthly_tenant_contribution"
+                                                          id="label-lease.monthly_tenant_contribution"
                                                         >
-                                                          Monthly Tenant Contribution
+                                                          Monthly Tenant Contribution 
                                                         </label>
                                                       </Label>
                                                       <Input
@@ -7883,8 +7909,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-dependents"
+                                                          id="label-number_of_dependents"
                                                         >
-                                                          Number of Dependents
+                                                          Number of Dependents 
                                                         </label>
                                                       </Label>
                                                       <select
@@ -8066,8 +8093,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-seniors"
+                                                          id="label-number_of_seniors"
                                                         >
-                                                          Number of Seniors
+                                                          Number of Seniors 
                                                         </label>
                                                       </Label>
                                                       <select
@@ -8255,8 +8283,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-minors"
+                                                          id="label-number_of_minors"
                                                         >
-                                                          Number of Minors
+                                                          Number of Minors 
                                                         </label>
                                                       </Label>
                                                       <select
@@ -8431,8 +8460,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-marital-status"
+                                                          id="label-applicant.marital_status"
                                                         >
-                                                          Primary Applicant Marital Status
+                                                          Primary Applicant Marital Status 
                                                         </label>
                                                       </Label>
                                                       <select
@@ -9372,16 +9402,23 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                       <StatusModalWrapper
                         loading={false}
                         onClose={[Function]}
-                        onStatusChange={[Function]}
                         onSubmit={[Function]}
                       >
                         <FormModal
                           handleClose={[Function]}
+                          initialValues={
+                            Object {
+                              "comment": "",
+                              "status": "",
+                              "subStatus": "",
+                            }
+                          }
                           loading={false}
                           onSecondaryClick={[Function]}
                           onSubmit={[Function]}
                           secondary="cancel"
                           type="status"
+                          validateError={[Function]}
                         >
                           <Modal
                             handleClose={[Function]}

@@ -56,6 +56,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="application_language"
+                        id="label-application_language"
                       >
                         Language Submitted In 
                         <span
@@ -128,6 +129,7 @@ Array [
                         <label
                           className="form-label"
                           htmlFor="first_name"
+                          id="label-applicant.first_name"
                         >
                           First Name 
                           <span
@@ -158,6 +160,7 @@ Array [
                         <label
                           className="form-label"
                           htmlFor="middle_name"
+                          id="label-applicant.middle_name"
                         >
                           Middle Name 
                         </label>
@@ -183,6 +186,7 @@ Array [
                         <label
                           className="form-label"
                           htmlFor="last_name"
+                          id="label-applicant.last_name"
                         >
                           Last Name 
                           <span
@@ -218,6 +222,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="email"
+                        id="label-applicant.email"
                       >
                         Email 
                       </label>
@@ -243,6 +248,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="phone"
+                        id="label-applicant.phone"
                       >
                         Primary Phone Number 
                       </label>
@@ -268,6 +274,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="phone_type"
+                        id="label-applicant.phone_type"
                       >
                         Primary Phone Number- Type 
                       </label>
@@ -386,6 +393,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="second_phone"
+                        id="label-applicant.second_phone"
                       >
                         Second Phone Number 
                       </label>
@@ -411,6 +419,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="second_phone_type"
+                        id="label-applicant.second_phone_type"
                       >
                         Second Phone Number- Type 
                       </label>
@@ -470,6 +479,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.street"
+                            id="label-applicant.street"
                           >
                             Street Address 
                           </label>
@@ -495,6 +505,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.city"
+                            id="label-applicant.city"
                           >
                             City 
                           </label>
@@ -520,6 +531,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.state"
+                            id="label-applicant.state"
                           >
                             State 
                           </label>
@@ -545,6 +557,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.zip_code"
+                            id="label-applicant.zip_code"
                           >
                             Zip 
                           </label>
@@ -587,6 +600,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.mailing_street"
+                            id="label-applicant.mailing_street"
                           >
                             Street Address 
                           </label>
@@ -612,6 +626,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.mailing_city"
+                            id="label-applicant.mailing_city"
                           >
                             City 
                           </label>
@@ -637,6 +652,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.mailing_state"
+                            id="label-applicant.mailing_state"
                           >
                             State 
                           </label>
@@ -662,6 +678,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-applicant.mailing_zip_code"
+                            id="label-applicant.mailing_zip_code"
                           >
                             Zip 
                           </label>
@@ -707,6 +724,7 @@ Array [
                         <label
                           className="form-label"
                           htmlFor="alt_first_name"
+                          id="label-alternate_contact.first_name"
                         >
                           First Name 
                         </label>
@@ -732,6 +750,7 @@ Array [
                         <label
                           className="form-label"
                           htmlFor="alt_middle_name"
+                          id="label-alternate_contact.middle_name"
                         >
                           Middle Name 
                         </label>
@@ -757,6 +776,7 @@ Array [
                         <label
                           className="form-label"
                           htmlFor="alt_last_name"
+                          id="label-alternate_contact.last_name"
                         >
                           Last Name 
                         </label>
@@ -787,6 +807,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-alternate_contact.alternate_contact_type"
+                        id="label-alternate_contact.alternate_contact_type"
                       >
                         Alternate Contact Type 
                       </label>
@@ -884,6 +905,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="email"
+                        id="label-alternate_contact.email"
                       >
                         Email 
                       </label>
@@ -909,6 +931,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-alternate_contact.phone"
+                        id="label-alternate_contact.phone"
                       >
                         Phone 
                       </label>
@@ -934,6 +957,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-alternate_contact.phone_type"
+                        id="label-alternate_contact.phone_type"
                       >
                         Phone Type 
                       </label>
@@ -993,6 +1017,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-alternate_contact.mailing_street"
+                            id="label-alternate_contact.mailing_street"
                           >
                             Street Address 
                           </label>
@@ -1018,6 +1043,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-alternate_contact.mailing_city"
+                            id="label-alternate_contact.mailing_city"
                           >
                             City 
                           </label>
@@ -1043,6 +1069,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-alternate_contact.mailing_state"
+                            id="label-alternate_contact.mailing_state"
                           >
                             State 
                           </label>
@@ -1068,6 +1095,7 @@ Array [
                           <label
                             className="form-label"
                             htmlFor="form-alternate_contact.mailing_zip_code"
+                            id="label-alternate_contact.mailing_zip_code"
                           >
                             Zip 
                           </label>
@@ -1171,6 +1199,7 @@ Array [
                               <label
                                 className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                                id="label-has_ada_priorities_selected.mobility_impairments"
                               >
                                 Mobility impairments 
                               </label>
@@ -1200,6 +1229,7 @@ Array [
                               <label
                                 className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                                id="label-has_ada_priorities_selected.vision_impairments"
                               >
                                 Vision impairments 
                               </label>
@@ -1229,6 +1259,7 @@ Array [
                               <label
                                 className="form-label"
                                 htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                                id="label-has_ada_priorities_selected.hearing_impairments"
                               >
                                 Hearing impairments 
                               </label>
@@ -1286,6 +1317,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="annual_income"
+                        id="label-annual_income"
                       >
                         Annual Income 
                       </label>
@@ -1311,6 +1343,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-housing_voucher_or_subsidy"
+                        id="label-housing_voucher_or_subsidy"
                       >
                         Housing Voucher/ Subsidy 
                       </label>
@@ -1366,6 +1399,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-demographics.ethnicity"
+                        id="label-demographics.ethnicity"
                       >
                         Ethnicity 
                       </label>
@@ -1410,6 +1444,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-demographics.race"
+                        id="label-demographics.race"
                       >
                         Race 
                       </label>
@@ -1494,6 +1529,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-demographics.gender"
+                        id="label-demographics.gender"
                       >
                         Gender 
                       </label>
@@ -1558,6 +1594,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-demographics.gender_other"
+                        id="label-demographics.gender_other"
                       >
                         Gender Specify (if not listed) 
                       </label>
@@ -1583,6 +1620,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-demographics.sexual_orientation"
+                        id="label-demographics.sexual_orientation"
                       >
                         Sexual Orientation 
                       </label>
@@ -1642,6 +1680,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="form-demographics.sexual_orientation_other"
+                        id="label-demographics.sexual_orientation_other"
                       >
                         Sexual Orientation (if not listed) 
                       </label>
@@ -1690,6 +1729,7 @@ Array [
                       <label
                         className="form-label"
                         htmlFor="agreeToTerms"
+                        id="label-terms_acknowledged"
                       >
                         Signature on Terms of Agreement 
                       </label>

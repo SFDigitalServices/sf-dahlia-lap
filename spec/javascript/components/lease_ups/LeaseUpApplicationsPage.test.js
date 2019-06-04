@@ -92,6 +92,7 @@ describe('LeaseUpApplicationsPage', () => {
   describe('StatusModal', () => {
     const openModalSelector = '.ReactModal__Content--after-open'
     const commentBoxSelector = 'textarea#status-comment'
+    const commentLabelSelector = 'label#status-comment-label'
     const updateButtonSelector = 'div.modal-button_item.modal-button_primary > button'
     const statusSelector = '.form-modal_form_wrapper .dropdown.status'
     const subStatusSelector = '.form-modal_form_wrapper .dropdown.subStatus'
@@ -170,6 +171,11 @@ describe('LeaseUpApplicationsPage', () => {
       let substatus = ''
       if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
         substatus = wrapper.find(`${subStatusSelector} button`).html()
+
+        wrapper.find(subStatusSelector).find('button').simulate('click')
+        await tick()
+        wrapper.find(`${subStatusSelector} .dropdown-menu li a`).first().simulate('click')
+        await tick()
       }
 
       // Leave comment empty and submit
@@ -177,7 +183,8 @@ describe('LeaseUpApplicationsPage', () => {
       await tick()
       wrapper.update()
 
-      const labelValue = await wrapper.find('#status-comment').html()
+      const labelValue = await wrapper.find(commentLabelSelector).html()
+      console.log(labelValue)
       // check if required is present for either condition
       expect(labelValue.toLowerCase().includes('required')).toBe(statusRequiresComments(status.toLowerCase(), substatus.toLowerCase()))
     })
@@ -185,6 +192,14 @@ describe('LeaseUpApplicationsPage', () => {
     test('Should open closeable alert modal on failed submit', async () => {
       mockCreateFieldUpdateComment.mockReturnValueOnce(false)
       openStatusModal(wrapper)
+
+      const status = await wrapper.find(statusSelector).first().html()
+      if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
+        wrapper.find(subStatusSelector).find('button').simulate('click')
+        await tick()
+        wrapper.find(`${subStatusSelector} .dropdown-menu li a`).first().simulate('click')
+        await tick()
+      }
 
       // Fill out the comment and submit
       wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})

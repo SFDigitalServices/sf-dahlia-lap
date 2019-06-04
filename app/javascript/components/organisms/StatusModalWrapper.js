@@ -93,6 +93,7 @@ const StatusModalWrapper = ({
             )}
             <TextAreaField
               label={requiresComment ? 'Comment (required)' : 'Comment'}
+              labelId='status-comment-label'
               fieldName='comment'
               id='status-comment'
               cols='30'

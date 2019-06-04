@@ -16918,7 +16918,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                 className="-pageInfo"
                               >
                                 Page
-
+                                 
                                 <div
                                   className="-pageJump"
                                 >
@@ -16931,9 +16931,9 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     value={1}
                                   />
                                 </div>
-
+                                 
                                 of
-
+                                 
                                 <span
                                   className="-totalPages"
                                 >
@@ -16984,7 +16984,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                   isOpen={false}
                   loading={false}
                   onClose={[Function]}
-                  onStatusChange={[Function]}
                   onSubmit={[Function]}
                   showAlert={null}
                   status={null}
@@ -16994,6 +16993,13 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                   <FormModal
                     handleClose={[Function]}
                     header="Update Status"
+                    initialValues={
+                      Object {
+                        "comment": "",
+                        "status": null,
+                        "subStatus": null,
+                      }
+                    }
                     isOpen={false}
                     loading={false}
                     onSecondaryClick={[Function]}
@@ -17002,6 +17008,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     secondary="cancel"
                     showAlert={null}
                     type="status"
+                    validateError={[Function]}
                   >
                     <Modal
                       handleClose={[Function]}

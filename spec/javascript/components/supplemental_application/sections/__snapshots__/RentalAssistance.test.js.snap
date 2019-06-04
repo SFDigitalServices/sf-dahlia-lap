@@ -116,6 +116,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-type_of_assistance"
+                              id="label-type_of_assistance"
                             >
                               Type of Assistance 
                             </label>
@@ -220,6 +221,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-recurring_assistance"
+                              id="label-recurring_assistance"
                             >
                               Recurring Assistance 
                             </label>
@@ -274,6 +276,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="assistance_amount"
+                              id="label-assistance_amount"
                             >
                               Assistance Amount 
                             </label>
@@ -298,6 +301,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-recipient"
+                              id="label-recipient"
                             >
                               Recipient 
                             </label>
@@ -382,6 +386,7 @@ Array [
             <label
               className="form-label"
               htmlFor="form-type_of_assistance"
+              id="label-type_of_assistance"
             >
               Type of Assistance 
             </label>
@@ -486,6 +491,7 @@ Array [
             <label
               className="form-label"
               htmlFor="form-recurring_assistance"
+              id="label-recurring_assistance"
             >
               Recurring Assistance 
             </label>
@@ -540,6 +546,7 @@ Array [
             <label
               className="form-label"
               htmlFor="assistance_amount"
+              id="label-assistance_amount"
             >
               Assistance Amount 
             </label>
@@ -564,6 +571,7 @@ Array [
             <label
               className="form-label"
               htmlFor="form-recipient"
+              id="label-recipient"
             >
               Recipient 
             </label>
@@ -750,6 +758,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-type_of_assistance"
+                              id="label-type_of_assistance"
                             >
                               Type of Assistance 
                             </label>
@@ -854,6 +863,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-recurring_assistance"
+                              id="label-recurring_assistance"
                             >
                               Recurring Assistance 
                             </label>
@@ -908,6 +918,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="assistance_amount"
+                              id="label-assistance_amount"
                             >
                               Assistance Amount 
                             </label>
@@ -932,6 +943,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-recipient"
+                              id="label-recipient"
                             >
                               Recipient 
                             </label>
@@ -1123,6 +1135,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-type_of_assistance"
+                              id="label-type_of_assistance"
                             >
                               Type of Assistance 
                             </label>
@@ -1227,6 +1240,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-recurring_assistance"
+                              id="label-recurring_assistance"
                             >
                               Recurring Assistance 
                             </label>
@@ -1281,6 +1295,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="assistance_amount"
+                              id="label-assistance_amount"
                             >
                               Assistance Amount 
                             </label>
@@ -1305,6 +1320,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-recipient"
+                              id="label-recipient"
                             >
                               Recipient 
                             </label>
@@ -1343,6 +1359,7 @@ Array [
                             <label
                               className="form-label"
                               htmlFor="form-other_assistance_name"
+                              id="label-other_assistance_name"
                             >
                               Other Assistance Name 
                             </label>
