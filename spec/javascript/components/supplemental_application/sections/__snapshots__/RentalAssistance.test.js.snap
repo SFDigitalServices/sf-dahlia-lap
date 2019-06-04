@@ -118,7 +118,7 @@ Array [
                               htmlFor="form-type_of_assistance"
                               id="label-type_of_assistance"
                             >
-                              Type of Assistance 
+                              Type of Assistance
                             </label>
                             <select
                               className="rental-assistance-type"
@@ -223,7 +223,7 @@ Array [
                               htmlFor="form-recurring_assistance"
                               id="label-recurring_assistance"
                             >
-                              Recurring Assistance 
+                              Recurring Assistance
                             </label>
                             <p
                               className="radio-inline"
@@ -278,7 +278,7 @@ Array [
                               htmlFor="assistance_amount"
                               id="label-assistance_amount"
                             >
-                              Assistance Amount 
+                              Assistance Amount
                             </label>
                             <input
                               className=""
@@ -303,7 +303,7 @@ Array [
                               htmlFor="form-recipient"
                               id="label-recipient"
                             >
-                              Recipient 
+                              Recipient
                             </label>
                             <select
                               className="rental-assistance-recipient"
@@ -388,7 +388,7 @@ Array [
               htmlFor="form-type_of_assistance"
               id="label-type_of_assistance"
             >
-              Type of Assistance 
+              Type of Assistance
             </label>
             <select
               className="rental-assistance-type"
@@ -493,7 +493,7 @@ Array [
               htmlFor="form-recurring_assistance"
               id="label-recurring_assistance"
             >
-              Recurring Assistance 
+              Recurring Assistance
             </label>
             <p
               className="radio-inline"
@@ -548,7 +548,7 @@ Array [
               htmlFor="assistance_amount"
               id="label-assistance_amount"
             >
-              Assistance Amount 
+              Assistance Amount
             </label>
             <input
               className=""
@@ -573,7 +573,7 @@ Array [
               htmlFor="form-recipient"
               id="label-recipient"
             >
-              Recipient 
+              Recipient
             </label>
             <select
               className="rental-assistance-recipient"
@@ -760,7 +760,7 @@ Array [
                               htmlFor="form-type_of_assistance"
                               id="label-type_of_assistance"
                             >
-                              Type of Assistance 
+                              Type of Assistance
                             </label>
                             <select
                               className="rental-assistance-type"
@@ -865,7 +865,7 @@ Array [
                               htmlFor="form-recurring_assistance"
                               id="label-recurring_assistance"
                             >
-                              Recurring Assistance 
+                              Recurring Assistance
                             </label>
                             <p
                               className="radio-inline"
@@ -920,7 +920,7 @@ Array [
                               htmlFor="assistance_amount"
                               id="label-assistance_amount"
                             >
-                              Assistance Amount 
+                              Assistance Amount
                             </label>
                             <input
                               className=""
@@ -945,7 +945,7 @@ Array [
                               htmlFor="form-recipient"
                               id="label-recipient"
                             >
-                              Recipient 
+                              Recipient
                             </label>
                             <select
                               className="rental-assistance-recipient"
@@ -1137,7 +1137,7 @@ Array [
                               htmlFor="form-type_of_assistance"
                               id="label-type_of_assistance"
                             >
-                              Type of Assistance 
+                              Type of Assistance
                             </label>
                             <select
                               className="rental-assistance-type"
@@ -1242,7 +1242,7 @@ Array [
                               htmlFor="form-recurring_assistance"
                               id="label-recurring_assistance"
                             >
-                              Recurring Assistance 
+                              Recurring Assistance
                             </label>
                             <p
                               className="radio-inline"
@@ -1297,7 +1297,7 @@ Array [
                               htmlFor="assistance_amount"
                               id="label-assistance_amount"
                             >
-                              Assistance Amount 
+                              Assistance Amount
                             </label>
                             <input
                               className=""
@@ -1322,7 +1322,7 @@ Array [
                               htmlFor="form-recipient"
                               id="label-recipient"
                             >
-                              Recipient 
+                              Recipient
                             </label>
                             <select
                               className="rental-assistance-recipient"
@@ -1361,7 +1361,7 @@ Array [
                               htmlFor="form-other_assistance_name"
                               id="label-other_assistance_name"
                             >
-                              Other Assistance Name 
+                              Other Assistance Name
                             </label>
                             <input
                               className=""
