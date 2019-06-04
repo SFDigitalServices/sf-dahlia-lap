@@ -14,6 +14,7 @@ import SupplementalApplicationContainer from './SupplementalApplicationContainer
 import { getAMIAction } from '~/components/supplemental_application/actions'
 import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
+import formUtils from '~/utils/formUtils'
 
 const getChartsToLoad = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -217,6 +218,8 @@ class SupplementalApplicationPage extends React.Component {
       rentalAssistance,
       this.state.persistedApplication.id
     )
+    // show price in right format
+    rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
     if (response) {
       rentalAssistance.id = response.id
       this.setState(prev => {
@@ -241,7 +244,8 @@ class SupplementalApplicationPage extends React.Component {
       rentalAssistance,
       this.state.persistedApplication.id
     )
-
+    // show price in right format
+    rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
     if (response) {
       this.setState(prev => {
         const rentalAssistances = cloneDeep(prev.rentalAssistances)

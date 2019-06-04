@@ -3,7 +3,7 @@ const payload = {
     applicationLanguage: 'English',
     hasMilitaryService: null,
     hasDevelopmentalDisability: null,
-    HHTotalIncomeWithAssets: undefined,
+    HHTotalIncomeWithAssets: null,
     answeredCommunityScreening: null,
     applicationSubmissionType: "Paper",
     annualIncome: 110000,

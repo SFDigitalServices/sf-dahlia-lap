@@ -1329,6 +1329,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
+                        placeholder="$0.00"
                         type="text"
                         value=""
                       />
@@ -1388,7 +1389,7 @@ Array [
                   Demographic Information
                 </h3>
                 <div
-                  className="row"
+                  className="row flex-row"
                 >
                   <div
                     className="small-6 columns"
@@ -1659,9 +1660,9 @@ Array [
                           Straight/Heterosexual
                         </option>
                         <option
-                          value="Not listed"
+                          value="Not Listed"
                         >
-                          Not listed
+                          Not Listed
                         </option>
                         <option
                           value="Decline to state"

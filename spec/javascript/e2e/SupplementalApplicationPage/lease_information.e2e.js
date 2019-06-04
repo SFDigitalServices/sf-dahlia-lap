@@ -37,9 +37,9 @@ describe('SupplementalApplicationPage lease section', () => {
     await page.waitForNavigation()
 
     // Verify that the values are there (they will be returned from salesforce as numbers, not currency)
-    expect(await sharedSteps.getInputValue(page, rentSelector)).toEqual(String(rentValue.float))
-    expect(await sharedSteps.getInputValue(page, parkingRentSelector)).toEqual(String(parkingRentValue.float))
-    expect(await sharedSteps.getInputValue(page, tenantContributionSelector)).toEqual(String(tenantContributionValue.float))
+    expect(await sharedSteps.getInputValue(page, rentSelector)).toEqual('$' + String(rentValue.float.toFixed(2)))
+    expect(await sharedSteps.getInputValue(page, parkingRentSelector)).toEqual('$' + String(parkingRentValue.float.toFixed(2)))
+    expect(await sharedSteps.getInputValue(page, tenantContributionSelector)).toEqual('$' + String(tenantContributionValue.float.toFixed(2)))
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

@@ -13834,6 +13834,11 @@ ul.bullet-list {
     width: 100%;
     z-index: -1; }
 
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media only screen and (max-width: 48em) {
   .tabs-card.expand-on-small {
     margin-left: -1rem !important;
