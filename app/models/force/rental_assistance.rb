@@ -14,5 +14,12 @@ module Force
       { domain: 'recurring_assistance', salesforce: 'Recurring_Assistance__c' },
       { domain: 'type_of_assistance', salesforce: 'Type_of_Assistance__c' },
     ].freeze
+
+    def to_domain
+      domain_fields = super
+      float_to_currency('assistance_amount', domain_fields)
+
+      domain_fields
+    end
   end
 end
