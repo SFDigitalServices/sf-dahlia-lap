@@ -84,7 +84,24 @@ exports[`ListingPage individual fields Additional Information fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Legal Disclaimers
+          </h4>
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "some disclaimer",
+              }
+            }
+          />
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -114,7 +131,20 @@ exports[`ListingPage individual fields Application Information fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application State
+          </h4>
+          <p>
+            CA
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -150,6 +180,54 @@ exports[`ListingPage individual fields Building Information fields 1`] = `
             77 Bluxome
           </p>
         </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Street Address
+          </h4>
+          <p>
+            77 Bluxome Street
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building City
+          </h4>
+          <p>
+            San Francisco
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building State
+          </h4>
+          <p>
+            CA
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Zip Code
+          </h4>
+          <p>
+            94107
+          </p>
+        </div>
       </div>
     </li>
     <li
@@ -157,7 +235,59 @@ exports[`ListingPage individual fields Building Information fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Neighborhood
+          </h4>
+          <p>
+            South of Market
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Developer
+          </h4>
+          <p>
+            Equity Residential
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building URL
+          </h4>
+          <a
+            href="https://i.imgur.com/Jh8OHJY.jpg"
+            target="_blank"
+          >
+            https://i.imgur.com/Jh8OHJY.jpg
+          </a>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Year Built
+          </h4>
+          <p>
+            2008
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -199,10 +329,34 @@ exports[`ListingPage individual fields Details fields 1`] = `
           <h4
             className="t-sans t-small t-bold no-margin"
           >
+            Name
+          </h4>
+          <p>
+            Test 5/30
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Account
+          </h4>
+          <p>
+            Equity Residential
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
             Application Due Date
           </h4>
           <p>
-            06/04/2019
+            05/31/2018
           </p>
         </div>
       </div>
@@ -212,7 +366,32 @@ exports[`ListingPage individual fields Details fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Applications in Lottery
+          </h4>
+          <p>
+            2
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Status
+          </h4>
+          <p>
+            Active
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -255,7 +434,32 @@ exports[`ListingPage individual fields Leasing Agent and Developer Information f
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Email
+          </h4>
+          <p>
+            77bluxome@eqr.com
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Phone
+          </h4>
+          <p>
+            (415) 957-5887
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -300,7 +504,7 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
             Lottery Results Date
           </h4>
           <p>
-            06/04/2019
+            Invalid date
           </p>
         </div>
       </div>
@@ -310,7 +514,32 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Status
+          </h4>
+          <p>
+            Not Yet Run
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery City
+          </h4>
+          <p>
+            San Francisco
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -420,10 +649,34 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
+                    Name
+                  </h4>
+                  <p>
+                    Test 5/30
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Account
+                  </h4>
+                  <p>
+                    Equity Residential
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
                     Application Due Date
                   </h4>
                   <p>
-                    06/04/2019
+                    05/31/2018
                   </p>
                 </div>
               </div>
@@ -433,7 +686,32 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Applications in Lottery
+                  </h4>
+                  <p>
+                    2
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Status
+                  </h4>
+                  <p>
+                    Active
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -466,6 +744,54 @@ Array [
                     77 Bluxome
                   </p>
                 </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Street Address
+                  </h4>
+                  <p>
+                    77 Bluxome Street
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building City
+                  </h4>
+                  <p>
+                    San Francisco
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building State
+                  </h4>
+                  <p>
+                    CA
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Zip Code
+                  </h4>
+                  <p>
+                    94107
+                  </p>
+                </div>
               </div>
             </li>
             <li
@@ -473,7 +799,59 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Neighborhood
+                  </h4>
+                  <p>
+                    South of Market
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Developer
+                  </h4>
+                  <p>
+                    Equity Residential
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building URL
+                  </h4>
+                  <a
+                    href="https://i.imgur.com/Jh8OHJY.jpg"
+                    target="_blank"
+                  >
+                    https://i.imgur.com/Jh8OHJY.jpg
+                  </a>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Year Built
+                  </h4>
+                  <p>
+                    2008
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -585,7 +963,7 @@ Array [
                     Lottery Results Date
                   </h4>
                   <p>
-                    06/04/2019
+                    Invalid date
                   </p>
                 </div>
               </div>
@@ -595,7 +973,32 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery Status
+                  </h4>
+                  <p>
+                    Not Yet Run
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery City
+                  </h4>
+                  <p>
+                    San Francisco
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -622,7 +1025,20 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application State
+                  </h4>
+                  <p>
+                    CA
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -662,7 +1078,32 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Leasing Agent Email
+                  </h4>
+                  <p>
+                    77bluxome@eqr.com
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Leasing Agent Phone
+                  </h4>
+                  <p>
+                    (415) 957-5887
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -716,7 +1157,24 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Legal Disclaimers
+                  </h4>
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "some disclaimer",
+                      }
+                    }
+                  />
+                </div>
+              </div>
             </li>
           </ul>
         </div>
