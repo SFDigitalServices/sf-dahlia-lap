@@ -4,7 +4,6 @@ import { applicationFieldMapper } from './application'
 import { preferenceFieldMapper } from './preference'
 import { householdMembersFieldMapper } from './householdMember'
 import { alternateContactFieldMapper } from './alternateContact'
-import { rentalAssistancesFieldMapper } from './rentalAssistance'
 import { demographicsFieldMapper } from './demographics'
 import { extend } from 'lodash'
 
@@ -16,8 +15,7 @@ export const applicationShape = {
   ...{
     primaryApplicant: shapeMapper('applicant', applicantFieldMapper),
     shortFormPreferences: listMapper('preferences', preferenceFieldMapper),
-    householdMembers: listMapper('household_members', householdMembersFieldMapper),
-    rentalAssistances: listMapper('rental_assistances', rentalAssistancesFieldMapper)
+    householdMembers: listMapper('household_members', householdMembersFieldMapper)
   }
 }
 

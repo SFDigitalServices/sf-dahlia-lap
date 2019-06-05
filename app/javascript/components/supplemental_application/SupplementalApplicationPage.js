@@ -77,7 +77,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    const response = await updateApplication(application)
+    const response = await updateApplication(application, this.state.persistedApplication)
 
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
@@ -172,7 +172,7 @@ class SupplementalApplicationPage extends React.Component {
       applicationId: persistedApplication.id,
       ...(subStatus ? { subStatus } : {})
     }
-    const appResponse = await updateApplication(fromApplication)
+    const appResponse = await updateApplication(fromApplication, this.state.persistedApplication)
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (appResponse === false || commentResponse === false) {
@@ -410,7 +410,7 @@ const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availab
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
-    onSubmit: (values) => updateApplication(values),
+    onSubmit: (values) => updateApplication(values, application),
     fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
     availableUnits: mapList(mapUnit, availableUnits)
