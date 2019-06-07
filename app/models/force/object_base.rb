@@ -62,5 +62,10 @@ module Force
       end
       salesforce_fields
     end
+
+    def float_to_currency(field_name, domain_fields)
+      return unless @fields.domain[field_name]
+      domain_fields[field_name] = ActionController::Base.helpers.number_to_currency(@fields.domain[field_name])
+    end
   end
 end

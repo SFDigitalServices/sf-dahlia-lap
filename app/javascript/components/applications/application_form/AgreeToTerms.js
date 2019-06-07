@@ -1,5 +1,6 @@
 import React from 'react'
 import { CheckboxField } from '~/utils/form/final_form/Field'
+import validate from '~/utils/form/validations'
 
 const AgreeToTerms = () => (
   <div className='checkbox-group' role='group'>
@@ -8,7 +9,8 @@ const AgreeToTerms = () => (
         <CheckboxField
           fieldName='terms_acknowledged'
           id='agreeToTerms'
-          label='Signature on Terms of Agreement' />
+          label='Signature on Terms of Agreement'
+          validation={validate.isChecked('Signature on Terms of Agreement is required')} />
       </div>
     </div>
   </div>

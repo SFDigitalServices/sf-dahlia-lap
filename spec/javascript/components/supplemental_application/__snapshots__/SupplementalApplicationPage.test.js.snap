@@ -677,7 +677,7 @@ Array [
                     onFocus={[Function]}
                     placeholder="Enter Amount"
                     type="text"
-                    value={115000}
+                    value="$115,000.00"
                   />
                 </div>
                 <span
@@ -1551,7 +1551,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
     application={
       Object {
         "alternate_contact": Object {},
-        "annual_income": 110000,
+        "annual_income": "$110,000.00",
         "answered_community_screening": null,
         "applicant": Object {
           "agency_name": undefined,
@@ -1589,7 +1589,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "application_language": "English",
         "application_submission_type": "Paper",
         "application_submitted_date": "2018-06-21",
-        "confirmed_household_annual_income": 115000,
+        "confirmed_household_annual_income": "$115,000.00",
         "createdby": Object {
           "name": "Prod Vertiba",
         },
@@ -1611,8 +1611,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "has_developmental_disability": null,
         "has_loan_preapproval": undefined,
         "has_military_service": null,
-        "hh_total_income_with_assets_annual": undefined,
-        "household_assets": null,
+        "hh_total_income_with_assets_annual": "",
+        "household_assets": "",
         "household_members": Array [
           Object {
             "agency_name": undefined,
@@ -2008,7 +2008,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "amis": Object {},
                         "application": Object {
                           "alternate_contact": Object {},
-                          "annual_income": 110000,
+                          "annual_income": "$110,000.00",
                           "answered_community_screening": null,
                           "applicant": Object {
                             "agency_name": undefined,
@@ -2046,7 +2046,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "application_language": "English",
                           "application_submission_type": "Paper",
                           "application_submitted_date": "2018-06-21",
-                          "confirmed_household_annual_income": 115000,
+                          "confirmed_household_annual_income": "$115,000.00",
                           "createdby": Object {
                             "name": "Prod Vertiba",
                           },
@@ -2068,8 +2068,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "has_developmental_disability": null,
                           "has_loan_preapproval": undefined,
                           "has_military_service": null,
-                          "hh_total_income_with_assets_annual": undefined,
-                          "household_assets": null,
+                          "hh_total_income_with_assets_annual": "",
+                          "household_assets": "",
                           "household_members": Array [
                             Object {
                               "agency_name": undefined,
@@ -2288,7 +2288,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                       initialValues={
                         Object {
                           "alternate_contact": Object {},
-                          "annual_income": 110000,
+                          "annual_income": "$110,000.00",
                           "answered_community_screening": null,
                           "applicant": Object {
                             "agency_name": undefined,
@@ -2326,7 +2326,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "application_language": "English",
                           "application_submission_type": "Paper",
                           "application_submitted_date": "2018-06-21",
-                          "confirmed_household_annual_income": 115000,
+                          "confirmed_household_annual_income": "$115,000.00",
                           "createdby": Object {
                             "name": "Prod Vertiba",
                           },
@@ -2348,8 +2348,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "has_developmental_disability": null,
                           "has_loan_preapproval": undefined,
                           "has_military_service": null,
-                          "hh_total_income_with_assets_annual": undefined,
-                          "household_assets": null,
+                          "hh_total_income_with_assets_annual": "",
+                          "household_assets": "",
                           "household_members": Array [
                             Object {
                               "agency_name": undefined,
@@ -2488,7 +2488,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "amis": Object {},
                                 "application": Object {
                                   "alternate_contact": Object {},
-                                  "annual_income": 110000,
+                                  "annual_income": "$110,000.00",
                                   "answered_community_screening": null,
                                   "applicant": Object {
                                     "agency_name": undefined,
@@ -2526,7 +2526,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "application_language": "English",
                                   "application_submission_type": "Paper",
                                   "application_submitted_date": "2018-06-21",
-                                  "confirmed_household_annual_income": 115000,
+                                  "confirmed_household_annual_income": "$115,000.00",
                                   "createdby": Object {
                                     "name": "Prod Vertiba",
                                   },
@@ -2548,8 +2548,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "has_developmental_disability": null,
                                   "has_loan_preapproval": undefined,
                                   "has_military_service": null,
-                                  "hh_total_income_with_assets_annual": undefined,
-                                  "household_assets": null,
+                                  "hh_total_income_with_assets_annual": "",
+                                  "household_assets": "",
                                   "household_members": Array [
                                     Object {
                                       "agency_name": undefined,
@@ -2952,7 +2952,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           application={
                             Object {
                               "alternate_contact": Object {},
-                              "annual_income": 110000,
+                              "annual_income": "$110,000.00",
                               "answered_community_screening": null,
                               "applicant": Object {
                                 "agency_name": undefined,
@@ -2990,7 +2990,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "application_language": "English",
                               "application_submission_type": "Paper",
                               "application_submitted_date": "2018-06-21",
-                              "confirmed_household_annual_income": 115000,
+                              "confirmed_household_annual_income": "$115,000.00",
                               "createdby": Object {
                                 "name": "Prod Vertiba",
                               },
@@ -3012,8 +3012,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "has_developmental_disability": null,
                               "has_loan_preapproval": undefined,
                               "has_military_service": null,
-                              "hh_total_income_with_assets_annual": undefined,
-                              "household_assets": null,
+                              "hh_total_income_with_assets_annual": "",
+                              "household_assets": "",
                               "household_members": Array [
                                 Object {
                                   "agency_name": undefined,
@@ -3252,7 +3252,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   application={
                                     Object {
                                       "alternate_contact": Object {},
-                                      "annual_income": 110000,
+                                      "annual_income": "$110,000.00",
                                       "answered_community_screening": null,
                                       "applicant": Object {
                                         "agency_name": undefined,
@@ -3290,7 +3290,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "application_language": "English",
                                       "application_submission_type": "Paper",
                                       "application_submitted_date": "2018-06-21",
-                                      "confirmed_household_annual_income": 115000,
+                                      "confirmed_household_annual_income": "$115,000.00",
                                       "createdby": Object {
                                         "name": "Prod Vertiba",
                                       },
@@ -3312,8 +3312,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "has_developmental_disability": null,
                                       "has_loan_preapproval": undefined,
                                       "has_military_service": null,
-                                      "hh_total_income_with_assets_annual": undefined,
-                                      "household_assets": null,
+                                      "hh_total_income_with_assets_annual": "",
+                                      "household_assets": "",
                                       "household_members": Array [
                                         Object {
                                           "agency_name": undefined,
@@ -3524,7 +3524,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     application={
                                       Object {
                                         "alternate_contact": Object {},
-                                        "annual_income": 110000,
+                                        "annual_income": "$110,000.00",
                                         "answered_community_screening": null,
                                         "applicant": Object {
                                           "agency_name": undefined,
@@ -3562,7 +3562,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "application_language": "English",
                                         "application_submission_type": "Paper",
                                         "application_submitted_date": "2018-06-21",
-                                        "confirmed_household_annual_income": 115000,
+                                        "confirmed_household_annual_income": "$115,000.00",
                                         "createdby": Object {
                                           "name": "Prod Vertiba",
                                         },
@@ -3584,8 +3584,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "has_developmental_disability": null,
                                         "has_loan_preapproval": undefined,
                                         "has_military_service": null,
-                                        "hh_total_income_with_assets_annual": undefined,
-                                        "household_assets": null,
+                                        "hh_total_income_with_assets_annual": "",
+                                        "household_assets": "",
                                         "household_members": Array [
                                           Object {
                                             "agency_name": undefined,
@@ -3797,7 +3797,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "amis": Object {},
                                         "application": Object {
                                           "alternate_contact": Object {},
-                                          "annual_income": 110000,
+                                          "annual_income": "$110,000.00",
                                           "answered_community_screening": null,
                                           "applicant": Object {
                                             "agency_name": undefined,
@@ -3835,7 +3835,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "application_language": "English",
                                           "application_submission_type": "Paper",
                                           "application_submitted_date": "2018-06-21",
-                                          "confirmed_household_annual_income": 115000,
+                                          "confirmed_household_annual_income": "$115,000.00",
                                           "createdby": Object {
                                             "name": "Prod Vertiba",
                                           },
@@ -3857,8 +3857,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_developmental_disability": null,
                                           "has_loan_preapproval": undefined,
                                           "has_military_service": null,
-                                          "hh_total_income_with_assets_annual": undefined,
-                                          "household_assets": null,
+                                          "hh_total_income_with_assets_annual": "",
+                                          "household_assets": "",
                                           "household_members": Array [
                                             Object {
                                               "agency_name": undefined,
@@ -5417,18 +5417,23 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <div
                                                 className="form-group"
                                               >
-                                                <InputField
+                                                <CurrencyField
                                                   fieldName="household_assets"
                                                   label="Household Assets"
                                                   placeholder="Enter Amount"
                                                   validation={[Function]}
                                                 >
                                                   <ReactFinalForm(Field)
+                                                    component="input"
+                                                    format={[Function]}
+                                                    formatOnBlur={true}
                                                     name="household_assets"
                                                     validate={[Function]}
                                                   >
                                                     <Field
+                                                      component="input"
                                                       format={[Function]}
+                                                      formatOnBlur={true}
                                                       name="household_assets"
                                                       parse={[Function]}
                                                       reactFinalForm={
@@ -5479,52 +5484,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             Household Assets 
                                                           </label>
                                                         </Label>
-                                                        <Input
+                                                        <input
+                                                          className=""
                                                           id="form-household_assets"
-                                                          input={
-                                                            Object {
-                                                              "name": "household_assets",
-                                                              "onBlur": [Function],
-                                                              "onChange": [Function],
-                                                              "onFocus": [Function],
-                                                              "value": "",
-                                                            }
-                                                          }
-                                                          meta={
-                                                            Object {
-                                                              "active": false,
-                                                              "data": Object {},
-                                                              "dirty": false,
-                                                              "dirtySinceLastSubmit": false,
-                                                              "error": undefined,
-                                                              "initial": null,
-                                                              "invalid": false,
-                                                              "modified": false,
-                                                              "pristine": true,
-                                                              "submitError": undefined,
-                                                              "submitFailed": false,
-                                                              "submitSucceeded": false,
-                                                              "submitting": false,
-                                                              "touched": false,
-                                                              "valid": true,
-                                                              "visited": false,
-                                                            }
-                                                          }
+                                                          name="household_assets"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onFocus={[Function]}
                                                           placeholder="Enter Amount"
                                                           type="text"
-                                                        >
-                                                          <input
-                                                            className=""
-                                                            id="form-household_assets"
-                                                            name="household_assets"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            placeholder="Enter Amount"
-                                                            type="text"
-                                                            value=""
-                                                          />
-                                                        </Input>
+                                                          value=""
+                                                        />
                                                         <FieldError
                                                           meta={
                                                             Object {
@@ -5533,7 +5503,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": null,
+                                                              "initial": "",
                                                               "invalid": false,
                                                               "modified": false,
                                                               "pristine": true,
@@ -5550,7 +5520,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       </div>
                                                     </Field>
                                                   </ReactFinalForm(Field)>
-                                                </InputField>
+                                                </CurrencyField>
                                               </div>
                                             </Component>
                                           </div>
@@ -5563,18 +5533,23 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <div
                                                 className="form-group"
                                               >
-                                                <InputField
+                                                <CurrencyField
                                                   fieldName="confirmed_household_annual_income"
                                                   label="Confirmed Annual Income"
                                                   placeholder="Enter Amount"
                                                   validation={[Function]}
                                                 >
                                                   <ReactFinalForm(Field)
+                                                    component="input"
+                                                    format={[Function]}
+                                                    formatOnBlur={true}
                                                     name="confirmed_household_annual_income"
                                                     validate={[Function]}
                                                   >
                                                     <Field
+                                                      component="input"
                                                       format={[Function]}
+                                                      formatOnBlur={true}
                                                       name="confirmed_household_annual_income"
                                                       parse={[Function]}
                                                       reactFinalForm={
@@ -5625,52 +5600,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             Confirmed Annual Income 
                                                           </label>
                                                         </Label>
-                                                        <Input
+                                                        <input
+                                                          className=""
                                                           id="form-confirmed_household_annual_income"
-                                                          input={
-                                                            Object {
-                                                              "name": "confirmed_household_annual_income",
-                                                              "onBlur": [Function],
-                                                              "onChange": [Function],
-                                                              "onFocus": [Function],
-                                                              "value": 115000,
-                                                            }
-                                                          }
-                                                          meta={
-                                                            Object {
-                                                              "active": false,
-                                                              "data": Object {},
-                                                              "dirty": false,
-                                                              "dirtySinceLastSubmit": false,
-                                                              "error": undefined,
-                                                              "initial": 115000,
-                                                              "invalid": false,
-                                                              "modified": false,
-                                                              "pristine": true,
-                                                              "submitError": undefined,
-                                                              "submitFailed": false,
-                                                              "submitSucceeded": false,
-                                                              "submitting": false,
-                                                              "touched": false,
-                                                              "valid": true,
-                                                              "visited": false,
-                                                            }
-                                                          }
+                                                          name="confirmed_household_annual_income"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onFocus={[Function]}
                                                           placeholder="Enter Amount"
                                                           type="text"
-                                                        >
-                                                          <input
-                                                            className=""
-                                                            id="form-confirmed_household_annual_income"
-                                                            name="confirmed_household_annual_income"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            placeholder="Enter Amount"
-                                                            type="text"
-                                                            value={115000}
-                                                          />
-                                                        </Input>
+                                                          value="$115,000.00"
+                                                        />
                                                         <FieldError
                                                           meta={
                                                             Object {
@@ -5679,7 +5619,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": 115000,
+                                                              "initial": "$115,000.00",
                                                               "invalid": false,
                                                               "modified": false,
                                                               "pristine": true,
@@ -5696,7 +5636,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       </div>
                                                     </Field>
                                                   </ReactFinalForm(Field)>
-                                                </InputField>
+                                                </CurrencyField>
                                                 <span
                                                   className="form-note shift-up"
                                                   id="household-annual-income"
@@ -5715,18 +5655,23 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <div
                                                 className="form-group"
                                               >
-                                                <InputField
+                                                <CurrencyField
                                                   fieldName="hh_total_income_with_assets_annual"
                                                   label="Final Household Annual Income"
                                                   placeholder="Enter Amount"
                                                   validation={[Function]}
                                                 >
                                                   <ReactFinalForm(Field)
+                                                    component="input"
+                                                    format={[Function]}
+                                                    formatOnBlur={true}
                                                     name="hh_total_income_with_assets_annual"
                                                     validate={[Function]}
                                                   >
                                                     <Field
+                                                      component="input"
                                                       format={[Function]}
+                                                      formatOnBlur={true}
                                                       name="hh_total_income_with_assets_annual"
                                                       parse={[Function]}
                                                       reactFinalForm={
@@ -5777,52 +5722,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             Final Household Annual Income 
                                                           </label>
                                                         </Label>
-                                                        <Input
+                                                        <input
+                                                          className=""
                                                           id="form-hh_total_income_with_assets_annual"
-                                                          input={
-                                                            Object {
-                                                              "name": "hh_total_income_with_assets_annual",
-                                                              "onBlur": [Function],
-                                                              "onChange": [Function],
-                                                              "onFocus": [Function],
-                                                              "value": "",
-                                                            }
-                                                          }
-                                                          meta={
-                                                            Object {
-                                                              "active": false,
-                                                              "data": Object {},
-                                                              "dirty": false,
-                                                              "dirtySinceLastSubmit": false,
-                                                              "error": undefined,
-                                                              "initial": undefined,
-                                                              "invalid": false,
-                                                              "modified": false,
-                                                              "pristine": true,
-                                                              "submitError": undefined,
-                                                              "submitFailed": false,
-                                                              "submitSucceeded": false,
-                                                              "submitting": false,
-                                                              "touched": false,
-                                                              "valid": true,
-                                                              "visited": false,
-                                                            }
-                                                          }
+                                                          name="hh_total_income_with_assets_annual"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onFocus={[Function]}
                                                           placeholder="Enter Amount"
                                                           type="text"
-                                                        >
-                                                          <input
-                                                            className=""
-                                                            id="form-hh_total_income_with_assets_annual"
-                                                            name="hh_total_income_with_assets_annual"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            placeholder="Enter Amount"
-                                                            type="text"
-                                                            value=""
-                                                          />
-                                                        </Input>
+                                                          value=""
+                                                        />
                                                         <FieldError
                                                           meta={
                                                             Object {
@@ -5831,7 +5741,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": undefined,
+                                                              "initial": "",
                                                               "invalid": false,
                                                               "modified": false,
                                                               "pristine": true,
@@ -5848,7 +5758,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       </div>
                                                     </Field>
                                                   </ReactFinalForm(Field)>
-                                                </InputField>
+                                                </CurrencyField>
                                                 <span
                                                   className="form-note shift-up"
                                                   id="final-household-annual-income"
@@ -6001,7 +5911,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "amis": Object {},
                                         "application": Object {
                                           "alternate_contact": Object {},
-                                          "annual_income": 110000,
+                                          "annual_income": "$110,000.00",
                                           "answered_community_screening": null,
                                           "applicant": Object {
                                             "agency_name": undefined,
@@ -6039,7 +5949,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "application_language": "English",
                                           "application_submission_type": "Paper",
                                           "application_submitted_date": "2018-06-21",
-                                          "confirmed_household_annual_income": 115000,
+                                          "confirmed_household_annual_income": "$115,000.00",
                                           "createdby": Object {
                                             "name": "Prod Vertiba",
                                           },
@@ -6061,8 +5971,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_developmental_disability": null,
                                           "has_loan_preapproval": undefined,
                                           "has_military_service": null,
-                                          "hh_total_income_with_assets_annual": undefined,
-                                          "household_assets": null,
+                                          "hh_total_income_with_assets_annual": "",
+                                          "household_assets": "",
                                           "household_members": Array [
                                             Object {
                                               "agency_name": undefined,
@@ -6891,18 +6801,23 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             <div
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
-                                              <InputField
+                                              <CurrencyField
                                                 fieldName="lease.total_monthly_rent_without_parking"
                                                 label="Monthly Rent"
                                                 placeholder="Enter Amount"
                                                 validation={[Function]}
                                               >
                                                 <ReactFinalForm(Field)
+                                                  component="input"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="lease.total_monthly_rent_without_parking"
                                                   validate={[Function]}
                                                 >
                                                   <Field
+                                                    component="input"
                                                     format={[Function]}
+                                                    formatOnBlur={true}
                                                     name="lease.total_monthly_rent_without_parking"
                                                     parse={[Function]}
                                                     reactFinalForm={
@@ -6953,52 +6868,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Monthly Rent 
                                                         </label>
                                                       </Label>
-                                                      <Input
+                                                      <input
+                                                        className=""
                                                         id="form-lease.total_monthly_rent_without_parking"
-                                                        input={
-                                                          Object {
-                                                            "name": "lease.total_monthly_rent_without_parking",
-                                                            "onBlur": [Function],
-                                                            "onChange": [Function],
-                                                            "onFocus": [Function],
-                                                            "value": "",
-                                                          }
-                                                        }
-                                                        meta={
-                                                          Object {
-                                                            "active": false,
-                                                            "data": Object {},
-                                                            "dirty": false,
-                                                            "dirtySinceLastSubmit": false,
-                                                            "error": undefined,
-                                                            "initial": undefined,
-                                                            "invalid": false,
-                                                            "modified": false,
-                                                            "pristine": true,
-                                                            "submitError": undefined,
-                                                            "submitFailed": false,
-                                                            "submitSucceeded": false,
-                                                            "submitting": false,
-                                                            "touched": false,
-                                                            "valid": true,
-                                                            "visited": false,
-                                                          }
-                                                        }
+                                                        name="lease.total_monthly_rent_without_parking"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
                                                         placeholder="Enter Amount"
                                                         type="text"
-                                                      >
-                                                        <input
-                                                          className=""
-                                                          id="form-lease.total_monthly_rent_without_parking"
-                                                          name="lease.total_monthly_rent_without_parking"
-                                                          onBlur={[Function]}
-                                                          onChange={[Function]}
-                                                          onFocus={[Function]}
-                                                          placeholder="Enter Amount"
-                                                          type="text"
-                                                          value=""
-                                                        />
-                                                      </Input>
+                                                        value=""
+                                                      />
                                                       <FieldError
                                                         meta={
                                                           Object {
@@ -7024,25 +6904,30 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     </div>
                                                   </Field>
                                                 </ReactFinalForm(Field)>
-                                              </InputField>
+                                              </CurrencyField>
                                             </div>
                                           </Component>
                                           <Component>
                                             <div
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
-                                              <InputField
+                                              <CurrencyField
                                                 fieldName="lease.monthly_parking_rent"
                                                 label="Monthly Parking Cost"
                                                 placeholder="Enter Amount"
                                                 validation={[Function]}
                                               >
                                                 <ReactFinalForm(Field)
+                                                  component="input"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="lease.monthly_parking_rent"
                                                   validate={[Function]}
                                                 >
                                                   <Field
+                                                    component="input"
                                                     format={[Function]}
+                                                    formatOnBlur={true}
                                                     name="lease.monthly_parking_rent"
                                                     parse={[Function]}
                                                     reactFinalForm={
@@ -7093,52 +6978,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Monthly Parking Cost 
                                                         </label>
                                                       </Label>
-                                                      <Input
+                                                      <input
+                                                        className=""
                                                         id="form-lease.monthly_parking_rent"
-                                                        input={
-                                                          Object {
-                                                            "name": "lease.monthly_parking_rent",
-                                                            "onBlur": [Function],
-                                                            "onChange": [Function],
-                                                            "onFocus": [Function],
-                                                            "value": "",
-                                                          }
-                                                        }
-                                                        meta={
-                                                          Object {
-                                                            "active": false,
-                                                            "data": Object {},
-                                                            "dirty": false,
-                                                            "dirtySinceLastSubmit": false,
-                                                            "error": undefined,
-                                                            "initial": undefined,
-                                                            "invalid": false,
-                                                            "modified": false,
-                                                            "pristine": true,
-                                                            "submitError": undefined,
-                                                            "submitFailed": false,
-                                                            "submitSucceeded": false,
-                                                            "submitting": false,
-                                                            "touched": false,
-                                                            "valid": true,
-                                                            "visited": false,
-                                                          }
-                                                        }
+                                                        name="lease.monthly_parking_rent"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
                                                         placeholder="Enter Amount"
                                                         type="text"
-                                                      >
-                                                        <input
-                                                          className=""
-                                                          id="form-lease.monthly_parking_rent"
-                                                          name="lease.monthly_parking_rent"
-                                                          onBlur={[Function]}
-                                                          onChange={[Function]}
-                                                          onFocus={[Function]}
-                                                          placeholder="Enter Amount"
-                                                          type="text"
-                                                          value=""
-                                                        />
-                                                      </Input>
+                                                        value=""
+                                                      />
                                                       <FieldError
                                                         meta={
                                                           Object {
@@ -7164,25 +7014,30 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     </div>
                                                   </Field>
                                                 </ReactFinalForm(Field)>
-                                              </InputField>
+                                              </CurrencyField>
                                             </div>
                                           </Component>
                                           <Component>
                                             <div
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
-                                              <InputField
+                                              <CurrencyField
                                                 fieldName="lease.monthly_tenant_contribution"
                                                 label="Monthly Tenant Contribution"
                                                 placeholder="Enter Amount"
                                                 validation={[Function]}
                                               >
                                                 <ReactFinalForm(Field)
+                                                  component="input"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="lease.monthly_tenant_contribution"
                                                   validate={[Function]}
                                                 >
                                                   <Field
+                                                    component="input"
                                                     format={[Function]}
+                                                    formatOnBlur={true}
                                                     name="lease.monthly_tenant_contribution"
                                                     parse={[Function]}
                                                     reactFinalForm={
@@ -7233,52 +7088,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           Monthly Tenant Contribution 
                                                         </label>
                                                       </Label>
-                                                      <Input
+                                                      <input
+                                                        className=""
                                                         id="form-lease.monthly_tenant_contribution"
-                                                        input={
-                                                          Object {
-                                                            "name": "lease.monthly_tenant_contribution",
-                                                            "onBlur": [Function],
-                                                            "onChange": [Function],
-                                                            "onFocus": [Function],
-                                                            "value": "",
-                                                          }
-                                                        }
-                                                        meta={
-                                                          Object {
-                                                            "active": false,
-                                                            "data": Object {},
-                                                            "dirty": false,
-                                                            "dirtySinceLastSubmit": false,
-                                                            "error": undefined,
-                                                            "initial": undefined,
-                                                            "invalid": false,
-                                                            "modified": false,
-                                                            "pristine": true,
-                                                            "submitError": undefined,
-                                                            "submitFailed": false,
-                                                            "submitSucceeded": false,
-                                                            "submitting": false,
-                                                            "touched": false,
-                                                            "valid": true,
-                                                            "visited": false,
-                                                          }
-                                                        }
+                                                        name="lease.monthly_tenant_contribution"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
                                                         placeholder="Enter Amount"
                                                         type="text"
-                                                      >
-                                                        <input
-                                                          className=""
-                                                          id="form-lease.monthly_tenant_contribution"
-                                                          name="lease.monthly_tenant_contribution"
-                                                          onBlur={[Function]}
-                                                          onChange={[Function]}
-                                                          onFocus={[Function]}
-                                                          placeholder="Enter Amount"
-                                                          type="text"
-                                                          value=""
-                                                        />
-                                                      </Input>
+                                                        value=""
+                                                      />
                                                       <FieldError
                                                         meta={
                                                           Object {
@@ -7304,7 +7124,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     </div>
                                                   </Field>
                                                 </ReactFinalForm(Field)>
-                                              </InputField>
+                                              </CurrencyField>
                                             </div>
                                           </Component>
                                         </div>
@@ -7450,7 +7270,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "amis": Object {},
                                       "application": Object {
                                         "alternate_contact": Object {},
-                                        "annual_income": 110000,
+                                        "annual_income": "$110,000.00",
                                         "answered_community_screening": null,
                                         "applicant": Object {
                                           "agency_name": undefined,
@@ -7488,7 +7308,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "application_language": "English",
                                         "application_submission_type": "Paper",
                                         "application_submitted_date": "2018-06-21",
-                                        "confirmed_household_annual_income": 115000,
+                                        "confirmed_household_annual_income": "$115,000.00",
                                         "createdby": Object {
                                           "name": "Prod Vertiba",
                                         },
@@ -7510,8 +7330,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "has_developmental_disability": null,
                                         "has_loan_preapproval": undefined,
                                         "has_military_service": null,
-                                        "hh_total_income_with_assets_annual": undefined,
-                                        "household_assets": null,
+                                        "hh_total_income_with_assets_annual": "",
+                                        "household_assets": "",
                                         "household_members": Array [
                                           Object {
                                             "agency_name": undefined,
@@ -8502,7 +8322,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "amis": Object {},
                                     "application": Object {
                                       "alternate_contact": Object {},
-                                      "annual_income": 110000,
+                                      "annual_income": "$110,000.00",
                                       "answered_community_screening": null,
                                       "applicant": Object {
                                         "agency_name": undefined,
@@ -8540,7 +8360,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "application_language": "English",
                                       "application_submission_type": "Paper",
                                       "application_submitted_date": "2018-06-21",
-                                      "confirmed_household_annual_income": 115000,
+                                      "confirmed_household_annual_income": "$115,000.00",
                                       "createdby": Object {
                                         "name": "Prod Vertiba",
                                       },
@@ -8562,8 +8382,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "has_developmental_disability": null,
                                       "has_loan_preapproval": undefined,
                                       "has_military_service": null,
-                                      "hh_total_income_with_assets_annual": undefined,
-                                      "household_assets": null,
+                                      "hh_total_income_with_assets_annual": "",
+                                      "household_assets": "",
                                       "household_members": Array [
                                         Object {
                                           "agency_name": undefined,
