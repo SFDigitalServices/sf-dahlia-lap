@@ -1,0 +1,106 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jun 2019 18:20:18 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=4MRLp1toSBSnbsLo64AuqA;Path=/;Domain=.salesforce.com;Expires=Tue,
+        06-Aug-2019 18:20:18 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0t0000000xVqEAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1559931618546","signature":"sQJqzSo3JY7AUBYfHBxR7lAhHbEqZXtIso8Io/KQpVA="}'
+    http_version: 
+  recorded_at: Fri, 07 Jun 2019 18:20:18 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20In_Lottery__c,%20Units_Available__c,%20Lease_Signed_Application__c,%20LastModifiedDate%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Status__c%20=%20%27Lease%20Up%27%20AND%20Is_Applicant_List_for_Leaseup__c%20=%20FALSE%0A%20%20%20%20%20%20%20%20"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jun 2019 18:20:19 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D0t0000000xVqm";
+      Expect-Ct:
+      - max-age=86400; report-uri="https://a.forcesslreports.com/Expect-CT-report/00D0t0000000xVqm";
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=otSj2dNjRsCdCkyHMB_flg;Path=/;Domain=.salesforce.com;Expires=Tue,
+        06-Aug-2019 18:20:19 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=4576/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":3,"done":true,"records":[{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000BxQpXUAV"},"Id":"a0W0P00000BxQpXUAV","Name":"1400
+        Mission Units 1504, 1507","Lottery_Date__c":"2017-05-18T20:00:00.000+0000","Lottery_Results_Date__c":"2017-05-19","In_Lottery__c":53.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2019-05-29T16:30:47.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Id":"a0W0P00000GbyuQUAR","Name":"Partners
+        Test Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000","Lottery_Results_Date__c":"2018-06-05","In_Lottery__c":111.0,"Units_Available__c":9.0,"Lease_Signed_Application__c":2.0,"LastModifiedDate":"2019-06-07T18:18:13.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HMHrSUAX"},"Id":"a0W0P00000HMHrSUAX","Name":"1160
+        Mission Unit 709","Lottery_Date__c":"2018-12-21T19:00:00.000+0000","Lottery_Results_Date__c":null,"In_Lottery__c":34.0,"Units_Available__c":0.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2019-05-29T16:30:47.000+0000"}]}'
+    http_version: 
+  recorded_at: Fri, 07 Jun 2019 18:20:19 GMT
+recorded_with: VCR 4.0.0
