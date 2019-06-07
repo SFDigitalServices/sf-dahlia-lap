@@ -68,11 +68,15 @@ export const buildFieldEntry = (item, spec, options = {}) => {
 
   return { label, value, renderType }
 }
-
-export const buildFieldSpecs = (entry) => {
+// `keepFieldCase` tells our helper function not to alter the case of the field values.
+// This is an issue for the way listing.open_houses passes the `Date, Start_Time, and End_Time`
+// field values.
+export const buildFieldSpecs = (entry, keepFieldCase) => {
   let specs = isString(entry) ? { field: entry } : entry
 
-  specs.field = toLower(specs.field)
+  if (!keepFieldCase) {
+    specs.field = toLower(specs.field)
+  }
   if (!specs.label) {
     specs.label = formatLabel(specs.field)
   }
@@ -83,6 +87,6 @@ export const buildFieldSpecs = (entry) => {
 }
 
 export const buildFields = (data, fields, options = {}) => {
-  const fieldSpecs = map(fields, buildFieldSpecs)
+  const fieldSpecs = map(fields, (f) => buildFieldSpecs(f))
   return map(fieldSpecs, (f) => buildFieldEntry(data, f, options))
 }
