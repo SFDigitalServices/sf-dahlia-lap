@@ -183,11 +183,7 @@ const listingDetail = () => {
     'Lottery_Status': 'Not Yet Run',
     'Office_Hours': null,
     'Information_Sessions': null,
-    'Open_Houses': [{
-      'Date': '2019-06-06',
-      'Start_Time': '12:30pm',
-      'End_Time': '4:30pm'
-    }],
+    'Open_Houses': [{ 'Date': '2019-06-06', 'Start_Time': '12:30pm', 'End_Time': '4:30pm' }],
     'Listing_Lottery_Preferences': [
       {
         'attributes': {
