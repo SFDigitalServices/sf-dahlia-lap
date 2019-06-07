@@ -1390,6 +1390,7 @@ Array [
               className="button primary small save-btn"
               disabled={false}
               id="save-supplemental-application"
+              onClick={[Function]}
               type="submit"
             >
               Save
@@ -8744,422 +8745,134 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         <div
                           className="padding-bottom--2x margin-bottom--2x"
                         />
-                        <ContextComponent
-                          loading={false}
+                        <div
+                          className="button-pager"
                         >
-                          <Component
-                            loading={false}
-                            store={
-                              Object {
-                                "amiCharts": Array [],
-                                "amis": Object {},
-                                "application": Object {
-                                  "alternate_contact": Object {},
-                                  "annual_income": "$110,000.00",
-                                  "answered_community_screening": null,
-                                  "applicant": Object {
-                                    "agency_name": undefined,
-                                    "alternate_contact_type": undefined,
-                                    "alternate_contact_type_other": undefined,
-                                    "city": "SAN FRANCISCO",
-                                    "date_of_birth": Object {
-                                      "day": "01",
-                                      "month": "01",
-                                      "year": "1950",
-                                    },
-                                    "email": "eee@eeee.com",
-                                    "first_name": "karen",
-                                    "id": "a0n0x000000AbE6AAK",
-                                    "last_name": "jones",
-                                    "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                    "mailing_city": "SAN FRANCISCO",
-                                    "mailing_state": "CA",
-                                    "mailing_street": "123 MAIN ST",
-                                    "mailing_zip_code": "94105-1804",
-                                    "marital_status": "Married",
-                                    "middle_name": null,
-                                    "name": "karen jones",
-                                    "phone": "9548883321",
-                                    "phone_type": "Cell",
-                                    "primary_language": null,
-                                    "relationship_to_applicant": undefined,
-                                    "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                    "second_phone": "9548883321",
-                                    "second_phone_type": "Home",
-                                    "state": "CA",
-                                    "street": "123 MAIN ST",
-                                    "zip_code": "94105-1804",
-                                  },
-                                  "application_language": "English",
-                                  "application_submission_type": "Paper",
-                                  "application_submitted_date": "2018-06-21",
-                                  "confirmed_household_annual_income": "$115,000.00",
-                                  "createdby": Object {
-                                    "name": "Prod Vertiba",
-                                  },
-                                  "demographics": Object {
-                                    "ethnicity": undefined,
-                                    "gender": undefined,
-                                    "gender_other": undefined,
-                                    "race": undefined,
-                                    "sexual_orientation": undefined,
-                                    "sexual_orientation_other": undefined,
-                                  },
-                                  "flagged_applications": Array [],
-                                  "general_lottery": true,
-                                  "general_lottery_rank": null,
-                                  "has_ada_priorities_selected": Object {
-                                    "": true,
-                                  },
-                                  "has_completed_homebuyer_education": undefined,
-                                  "has_developmental_disability": null,
-                                  "has_loan_preapproval": undefined,
-                                  "has_military_service": null,
-                                  "hh_total_income_with_assets_annual": "",
-                                  "household_assets": "",
-                                  "household_members": Array [
-                                    Object {
-                                      "agency_name": undefined,
-                                      "alternate_contact_type": undefined,
-                                      "alternate_contact_type_other": undefined,
-                                      "city": "buenos aires",
-                                      "date_of_birth": Object {
-                                        "day": "11",
-                                        "month": "06",
-                                        "year": "1976",
-                                      },
-                                      "email": undefined,
-                                      "first_name": "diego",
-                                      "id": "a0n0x000000XzchAAC",
-                                      "last_name": "maradona",
-                                      "mailing_address": undefined,
-                                      "mailing_city": undefined,
-                                      "mailing_state": undefined,
-                                      "mailing_street": undefined,
-                                      "mailing_zip_code": undefined,
-                                      "marital_status": undefined,
-                                      "middle_name": "m",
-                                      "name": "diego m maradona",
-                                      "phone": undefined,
-                                      "phone_type": undefined,
-                                      "primary_language": undefined,
-                                      "relationship_to_applicant": "Child",
-                                      "residence_address": undefined,
-                                      "second_phone": undefined,
-                                      "second_phone_type": undefined,
-                                      "state": "fl",
-                                      "street": "9 de julio",
-                                      "zip_code": "33026",
-                                    },
-                                  ],
-                                  "housing_voucher_or_subsidy": "true",
-                                  "id": "a0o0x000000OcOzAAK",
-                                  "is_first_time_homebuyer": undefined,
-                                  "is_lottery_complete": false,
-                                  "lease": undefined,
-                                  "lending_agent": undefined,
-                                  "listing": Object {
-                                    "account": Object {},
-                                    "building": Object {},
-                                    "id": "a0W0x000000GhJUEA0",
-                                    "listing_lottery_preferences": Array [],
-                                    "name": "Test 5/30",
-                                    "open_houses": Array [],
-                                    "owner": Object {},
-                                    "reserved_community_type": null,
-                                    "units": Array [],
-                                  },
-                                  "lottery_number": "00191270",
-                                  "lottery_number_manual": null,
-                                  "monthly_income": null,
-                                  "name": "APP-00191270",
-                                  "number_of_dependents": 2,
-                                  "number_of_minors": 4,
-                                  "number_of_seniors": 3,
-                                  "preferences": Array [
-                                    Object {
-                                      "application": Object {},
-                                      "application_member": Object {},
-                                      "application_member_id": undefined,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0x0000014pvyAAA",
-                                      "individual_preference": null,
-                                      "listing_preference": Object {
-                                        "record_type_for_app_preferences": undefined,
-                                      },
-                                      "listing_preference_id": "a0l0x000000RI8nAAG",
-                                      "lottery_status": "None",
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000612141",
-                                      "opt_out": null,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": undefined,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Alice Griffith Housing Development Resident",
-                                      "preference_order": 0,
-                                      "receives_preference": null,
-                                      "recordtype_developername": "AG",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "undefined",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                  ],
-                                  "primary_applicant_contact": undefined,
-                                  "processing_status": undefined,
-                                  "proof_files": Array [],
-                                  "referral_source": null,
-                                  "reserved_senior": undefined,
-                                  "status": "Submitted",
-                                  "status_last_updated": undefined,
-                                  "terms_acknowledged": true,
-                                  "total_household_size": 1,
-                                  "total_monthly_rent": null,
-                                },
-                                "applicationMembers": Array [
-                                  Object {
-                                    "agency_name": undefined,
-                                    "alternate_contact_type": undefined,
-                                    "alternate_contact_type_other": undefined,
-                                    "city": "SAN FRANCISCO",
-                                    "date_of_birth": Object {
-                                      "day": "01",
-                                      "month": "01",
-                                      "year": "1950",
-                                    },
-                                    "email": "eee@eeee.com",
-                                    "first_name": "karen",
-                                    "id": "a0n0x000000AbE6AAK",
-                                    "last_name": "jones",
-                                    "mailing_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                    "mailing_city": "SAN FRANCISCO",
-                                    "mailing_state": "CA",
-                                    "mailing_street": "123 MAIN ST",
-                                    "mailing_zip_code": "94105-1804",
-                                    "marital_status": "Married",
-                                    "middle_name": null,
-                                    "name": "karen jones",
-                                    "phone": "9548883321",
-                                    "phone_type": "Cell",
-                                    "primary_language": null,
-                                    "relationship_to_applicant": undefined,
-                                    "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
-                                    "second_phone": "9548883321",
-                                    "second_phone_type": "Home",
-                                    "state": "CA",
-                                    "street": "123 MAIN ST",
-                                    "zip_code": "94105-1804",
-                                  },
-                                  Object {
-                                    "agency_name": undefined,
-                                    "alternate_contact_type": undefined,
-                                    "alternate_contact_type_other": undefined,
-                                    "city": "buenos aires",
-                                    "date_of_birth": Object {
-                                      "day": "11",
-                                      "month": "06",
-                                      "year": "1976",
-                                    },
-                                    "email": undefined,
-                                    "first_name": "diego",
-                                    "id": "a0n0x000000XzchAAC",
-                                    "last_name": "maradona",
-                                    "mailing_address": undefined,
-                                    "mailing_city": undefined,
-                                    "mailing_state": undefined,
-                                    "mailing_street": undefined,
-                                    "mailing_zip_code": undefined,
-                                    "marital_status": undefined,
-                                    "middle_name": "m",
-                                    "name": "diego m maradona",
-                                    "phone": undefined,
-                                    "phone_type": undefined,
-                                    "primary_language": undefined,
-                                    "relationship_to_applicant": "Child",
-                                    "residence_address": undefined,
-                                    "second_phone": undefined,
-                                    "second_phone_type": undefined,
-                                    "state": "fl",
-                                    "street": "9 de julio",
-                                    "zip_code": "33026",
-                                  },
-                                ],
-                                "assignSupplementalAppTouched": [Function],
-                                "availableUnits": Array [],
-                                "confirmedPreferencesFailed": false,
-                                "fileBaseUrl": undefined,
-                                "handleCloseRentalAssistancePanel": [Function],
-                                "handleDeleteRentalAssistance": [Function],
-                                "handleOpenRentalAssistancePanel": [Function],
-                                "handleSaveNewRentalAssistance": [Function],
-                                "handleStatusModalClose": [Function],
-                                "handleStatusModalStatusChange": [Function],
-                                "handleStatusModalSubmit": [Function],
-                                "handleUpdateRentalAssistance": [Function],
-                                "hideAddRentalAssistanceBtn": [Function],
-                                "loading": false,
-                                "onDismissError": [Function],
-                                "onSavePreference": [Function],
-                                "onSubmit": [Function],
-                                "openAddStatusCommentModal": [Function],
-                                "openUpdateStatusModal": [Function],
-                                "rentalAssistanceLoading": false,
-                                "rentalAssistances": undefined,
-                                "setLoading": [Function],
-                                "showAddRentalAssistanceBtn": true,
-                                "showNewRentalAssistancePanel": false,
-                                "statusHistory": Array [
-                                  Object {
-                                    "comment": "xxxx1",
-                                    "date": "2018-05-10T19:54:11.000+0000",
-                                    "status": "Approved",
-                                    "timestamp": 1525982051,
-                                  },
-                                  Object {
-                                    "comment": "xxxx2",
-                                    "date": "2018-05-10T19:54:11.000+0000",
-                                    "status": "Pending",
-                                    "timestamp": 1525982051,
-                                  },
-                                ],
-                                "statusModal": Object {
-                                  "loading": false,
-                                  "status": undefined,
-                                },
-                              }
-                            }
+                          <div
+                            className="button-pager_row align-buttons-left primary inset-wide"
                           >
-                            <div
-                              className="button-pager"
+                            <StatusDropdown
+                              buttonClasses={
+                                Array [
+                                  "small",
+                                  "has-status-width",
+                                ]
+                              }
+                              disabled={false}
+                              menuClasses={
+                                Array [
+                                  "dropdown-menu-bottom",
+                                ]
+                              }
+                              onChange={[Function]}
+                              wrapperClasses={
+                                Array [
+                                  "dropdown-inline",
+                                ]
+                              }
                             >
-                              <div
-                                className="button-pager_row align-buttons-left primary inset-wide"
+                              <Dropdown
+                                buttonClasses={
+                                  Array [
+                                    "tertiary",
+                                    "small",
+                                    "has-status-width",
+                                  ]
+                                }
+                                disabled={false}
+                                items={
+                                  Array [
+                                    Object {
+                                      "label": "Processing",
+                                      "style": "is-processing",
+                                      "value": "Processing",
+                                    },
+                                    Object {
+                                      "label": "Withdrawn",
+                                      "style": "is-withdrawn",
+                                      "value": "Withdrawn",
+                                    },
+                                    Object {
+                                      "label": "Appealed",
+                                      "style": "is-appealed",
+                                      "value": "Appealed",
+                                    },
+                                    Object {
+                                      "label": "Waitlisted",
+                                      "style": "is-waitlisted",
+                                      "value": "Waitlisted",
+                                    },
+                                    Object {
+                                      "label": "Disqualified",
+                                      "style": "is-disqualified",
+                                      "value": "Disqualified",
+                                    },
+                                    Object {
+                                      "label": "Approved",
+                                      "style": "is-approved",
+                                      "value": "Approved",
+                                    },
+                                    Object {
+                                      "label": "Lease Signed",
+                                      "style": "is-leased",
+                                      "value": "Lease Signed",
+                                    },
+                                  ]
+                                }
+                                menuClasses={
+                                  Array [
+                                    "dropdown-menu-bottom",
+                                  ]
+                                }
+                                onChange={[Function]}
+                                prompt="Status"
+                                wrapperClasses={
+                                  Array [
+                                    "dropdown-inline",
+                                  ]
+                                }
                               >
-                                <StatusDropdown
-                                  buttonClasses={
-                                    Array [
-                                      "small",
-                                      "has-status-width",
-                                    ]
-                                  }
-                                  disabled={false}
-                                  menuClasses={
-                                    Array [
-                                      "dropdown-menu-bottom",
-                                    ]
-                                  }
-                                  onChange={[Function]}
-                                  wrapperClasses={
-                                    Array [
-                                      "dropdown-inline",
-                                    ]
-                                  }
+                                <div
+                                  className="dropdown dropdown-inline"
+                                  onClick={[Function]}
                                 >
-                                  <Dropdown
-                                    buttonClasses={
-                                      Array [
-                                        "tertiary",
-                                        "small",
-                                        "has-status-width",
-                                      ]
-                                    }
+                                  <button
+                                    aria-expanded="false"
+                                    className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
                                     disabled={false}
-                                    items={
-                                      Array [
-                                        Object {
-                                          "label": "Processing",
-                                          "style": "is-processing",
-                                          "value": "Processing",
-                                        },
-                                        Object {
-                                          "label": "Withdrawn",
-                                          "style": "is-withdrawn",
-                                          "value": "Withdrawn",
-                                        },
-                                        Object {
-                                          "label": "Appealed",
-                                          "style": "is-appealed",
-                                          "value": "Appealed",
-                                        },
-                                        Object {
-                                          "label": "Waitlisted",
-                                          "style": "is-waitlisted",
-                                          "value": "Waitlisted",
-                                        },
-                                        Object {
-                                          "label": "Disqualified",
-                                          "style": "is-disqualified",
-                                          "value": "Disqualified",
-                                        },
-                                        Object {
-                                          "label": "Approved",
-                                          "style": "is-approved",
-                                          "value": "Approved",
-                                        },
-                                        Object {
-                                          "label": "Lease Signed",
-                                          "style": "is-leased",
-                                          "value": "Lease Signed",
-                                        },
-                                      ]
-                                    }
-                                    menuClasses={
-                                      Array [
-                                        "dropdown-menu-bottom",
-                                      ]
-                                    }
-                                    onChange={[Function]}
-                                    prompt="Status"
-                                    wrapperClasses={
-                                      Array [
-                                        "dropdown-inline",
-                                      ]
-                                    }
+                                    onClick={[Function]}
+                                    type="button"
                                   >
-                                    <div
-                                      className="dropdown dropdown-inline"
-                                      onClick={[Function]}
+                                    <span
+                                      className="ui-icon ui-small"
                                     >
-                                      <button
-                                        aria-expanded="false"
-                                        className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        type="button"
-                                      >
-                                        <span
-                                          className="ui-icon ui-small"
-                                        >
-                                          <svg>
-                                            <use
-                                              xlinkHref="#i-arrow-down"
-                                            />
-                                          </svg>
-                                        </span>
-                                        Status
-                                      </button>
-                                      <div
-                                        aria-hidden="true"
-                                        className="dropdown-menu-wrapper"
-                                        role="menu"
-                                      />
-                                    </div>
-                                  </Dropdown>
-                                </StatusDropdown>
-                                <button
-                                  className="button primary small save-btn"
-                                  disabled={false}
-                                  id="save-supplemental-application"
-                                  type="submit"
-                                >
-                                  Save
-                                </button>
-                              </div>
-                            </div>
-                          </Component>
-                        </ContextComponent>
+                                      <svg>
+                                        <use
+                                          xlinkHref="#i-arrow-down"
+                                        />
+                                      </svg>
+                                    </span>
+                                    Status
+                                  </button>
+                                  <div
+                                    aria-hidden="true"
+                                    className="dropdown-menu-wrapper"
+                                    role="menu"
+                                  />
+                                </div>
+                              </Dropdown>
+                            </StatusDropdown>
+                            <button
+                              className="button primary small save-btn"
+                              disabled={false}
+                              id="save-supplemental-application"
+                              onClick={[Function]}
+                              type="submit"
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </div>
                       </form>
                       <StatusModalWrapper
                         loading={false}
