@@ -42,6 +42,13 @@ class PaperApplicationForm extends React.Component {
     if (failed) { window.scrollTo(0, 0) }
   }
 
+  checkNotListed = (demographics, key, validationMessage) => {
+    if (demographics && demographics[key] && demographics[key].toLowerCase() === 'not listed' && !demographics[`${key}_other`]) {
+      return validationMessage
+    }
+    return undefined
+  }
+
   validateForm = (values) => {
     const errors = {applicant: {date_of_birth: {}}}
     // applicant needs to be initialized for date validation to run on 'required'
@@ -66,6 +73,14 @@ class PaperApplicationForm extends React.Component {
           }
         }
       )
+    }
+
+    // Demographics section
+    if (values.demographics) {
+      const { demographics } = values
+      errors.demographics = {}
+      errors.demographics.gender_other = this.checkNotListed(demographics, 'gender', 'Gender is required')
+      errors.demographics.sexual_orientation_other = this.checkNotListed(demographics, 'sexual_orientation', 'Sexual Orientation is required')
     }
     return errors
   }

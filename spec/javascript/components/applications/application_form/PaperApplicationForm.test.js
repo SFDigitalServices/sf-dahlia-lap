@@ -135,6 +135,8 @@ describe('PaperApplicationForm', () => {
       wrapper.find('select[name="demographics.gender"]').simulate('blur')
       wrapper.find('select[name="demographics.sexual_orientation"]').simulate('change', { target: { value: 'Not Listed' } })
       wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
+      wrapper.find('input[name="demographics.gender_other"]').simulate('blur')
+      wrapper.find('input[name="demographics.sexual_orientation_other"]').simulate('blur')
       wrapper.find('form').first().simulate('submit')
 
       await wait(100)
