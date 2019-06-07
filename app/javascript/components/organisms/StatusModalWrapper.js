@@ -21,6 +21,16 @@ const StatusModalWrapper = ({
   submitButton
 }) => {
   const required = value => (value ? undefined : 'Required')
+  const canSubmit = (values) => {
+    if (statusRequiresComments(values.status, values.subStatus) && values.comment.length) {
+      return true
+    } else if (values.status && !statusRequiresComments(values.status, values.subStatus)) {
+      return true
+    } else if (values.status && !LEASE_UP_SUBSTATUS_OPTIONS[values.status]) {
+      return true
+    }
+    return null
+  }
   return (
     <FormModal
       header={header}
@@ -28,7 +38,7 @@ const StatusModalWrapper = ({
       secondary='cancel'
       isOpen={isOpen}
       handleClose={onClose}
-      onSubmit={values => statusRequiresComments(values.status, values.subStatus) && values.comment ? onSubmit(values) : null}
+      onSubmit={values => canSubmit(values) ? onSubmit(values) : null}
       onSecondaryClick={onClose}
       type='status'
       showAlert={showAlert}
@@ -99,7 +109,7 @@ const StatusModalWrapper = ({
               placeholder='Add a comment'
               ariaDescribedby='status-comment-label'
               maxLength='255'
-              validation={requiresComment && validate.isPresent('Please provide a comment.')} />
+              validation={requiresComment ? validate.isPresent('Please provide a comment.') : ''} />
           </div>
         )
       }}
