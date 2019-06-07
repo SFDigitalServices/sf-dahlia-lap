@@ -184,7 +184,6 @@ describe('LeaseUpApplicationsPage', () => {
       wrapper.update()
 
       const labelValue = await wrapper.find(commentLabelSelector).html()
-      console.log(labelValue)
       // check if required is present for either condition
       expect(labelValue.toLowerCase().includes('required')).toBe(statusRequiresComments(status.toLowerCase(), substatus.toLowerCase()))
     })

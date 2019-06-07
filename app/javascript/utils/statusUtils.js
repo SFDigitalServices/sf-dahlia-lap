@@ -48,4 +48,15 @@ export const statusRequiresComments = (status, substatus) => {
   return false
 }
 
+export const validateStatusForm = (values) => {
+  if (statusRequiresComments(values.status, values.subStatus) && values.comment.length) {
+    return true
+  } else if (values.status && !statusRequiresComments(values.status, values.subStatus)) {
+    return true
+  } else if (values.status && !LEASE_UP_SUBSTATUS_OPTIONS[values.status]) {
+    return true
+  }
+  return null
+}
+
 export default LEASE_UP_STATUS_OPTIONS
