@@ -11,7 +11,7 @@ module Force
         massage(query(%(
           SELECT #{query_fields(:lease_up_listing)}
           FROM Listing__c
-          WHERE Status__c = 'Lease Up'
+          WHERE Status__c = 'Lease Up' AND Is_Applicant_List_for_Leaseup__c = FALSE
         )))
       end
     end
