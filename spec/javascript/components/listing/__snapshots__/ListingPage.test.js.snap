@@ -1178,6 +1178,43 @@ Array [
             </li>
           </ul>
         </div>
+        <div
+          className="content-card"
+        >
+          <h4
+            className="content-card_title t-serif"
+          >
+            Open Houses
+          </h4>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Start Time
+                </th>
+                <th>
+                  End Time
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  06/06/2019
+                </td>
+                <td>
+                  12:30pm
+                </td>
+                <td>
+                  4:30pm
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>,
