@@ -22,11 +22,11 @@ const StatusModalWrapper = ({
 }) => {
   const required = value => (value ? undefined : 'Required')
   const canSubmit = (values) => {
-    if (statusRequiresComments(values.status, values.subStatus) && values.comment.length) {
-      return true
-    } else if (values.status && !statusRequiresComments(values.status, values.subStatus)) {
-      return true
-    } else if (values.status && !LEASE_UP_SUBSTATUS_OPTIONS[values.status]) {
+    if (
+      (statusRequiresComments(values.status, values.subStatus) && values.comment.length) ||
+      (values.status && !statusRequiresComments(values.status, values.subStatus)) ||
+      (values.status && !LEASE_UP_SUBSTATUS_OPTIONS[values.status])
+    ) {
       return true
     }
     return null
