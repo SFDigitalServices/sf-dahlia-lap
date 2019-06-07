@@ -82,7 +82,6 @@ class PaperApplicationForm extends React.Component {
           mutators={{
             ...arrayMutators
           }}
-          validateOnBlur
           render={({ handleSubmit, form, values }) => (
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
