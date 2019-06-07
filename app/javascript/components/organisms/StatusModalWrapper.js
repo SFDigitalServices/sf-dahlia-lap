@@ -28,7 +28,7 @@ const StatusModalWrapper = ({
       secondary='cancel'
       isOpen={isOpen}
       handleClose={onClose}
-      onSubmit={onSubmit}
+      onSubmit={values => statusRequiresComments(values.status, values.subStatus) && values.comment ? onSubmit(values) : null}
       onSecondaryClick={onClose}
       type='status'
       showAlert={showAlert}
@@ -67,29 +67,27 @@ const StatusModalWrapper = ({
               )}
             </Field>
             {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
-              <React.Fragment>
-                <h2 className='form-label'>Status Detail</h2>
+              <Field name='subStatus'>
                 {/*
                   Inline field due to the nested level throwing error in react-final-form
                   and record level validation so it can be conditional
                 */}
-                <Field name='subStatus'>
-                  {({ input: { onChange }, meta }) => (
-                    <React.Fragment>
-                      <StatusDropdown
-                        status={values.status}
-                        subStatus={values.subStatus}
-                        prompt={'Select One...'}
-                        showSubStatus
-                        onChange={onChange}
-                        buttonClasses={['margin-bottom--half', 'expand', 'substatus']}
-                        menuClasses={['form-modal_dropdown-menu']}
-                        wrapperClasses={['subStatus']} />
-                      {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
-                    </React.Fragment>
-                  )}
-                </Field>
-              </React.Fragment>
+                {({ input: { onChange }, meta }) => (
+                  <React.Fragment>
+                    <h2 className={`form-label ${!values.subStatus && meta.touched && meta.error ? 'error' : ''}`}>Status Detail (required)</h2>
+                    <StatusDropdown
+                      status={values.status}
+                      subStatus={values.subStatus}
+                      prompt={'Select One...'}
+                      showSubStatus
+                      onChange={onChange}
+                      buttonClasses={['margin-bottom--half', 'expand', 'substatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']}
+                      menuClasses={['form-modal_dropdown-menu']}
+                      wrapperClasses={['subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
+                    {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
+                  </React.Fragment>
+                )}
+              </Field>
             )}
             <TextAreaField
               label={requiresComment ? 'Comment (required)' : 'Comment'}

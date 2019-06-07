@@ -13839,6 +13839,10 @@ ul.bullet-list {
   flex-wrap: wrap;
 }
 
+.form-label.error {
+  color: #e31c3d;
+}
+
 @media only screen and (max-width: 48em) {
   .tabs-card.expand-on-small {
     margin-left: -1rem !important;
