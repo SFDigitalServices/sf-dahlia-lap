@@ -138,7 +138,7 @@ class IndexTable extends React.Component {
             const originalId = row.original.Id || row.original.id
             if (link === 'View Listing') {
               href = `/listings/${originalId}`
-            } else if (link === 'Add Application' && row.original.Lottery_Status !== 'Lottery Complete' && row.row.lottery_status === 'Not Yet Run') {
+            } else if (link === 'Add Application' && row.row.lottery_status === 'Not Yet Run') {
               href = `/listings/${originalId}/applications/new`
             } else if (link === 'View Application') {
               href = `/applications/${originalId}`

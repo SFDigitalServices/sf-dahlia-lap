@@ -13,6 +13,9 @@ module Listings
     end
 
     def new
+      if @listing.Lottery_Status != 'Not Yet Run'
+        redirect_to "/listings/#{@listing.Id}"
+      end
       @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
     end
 
