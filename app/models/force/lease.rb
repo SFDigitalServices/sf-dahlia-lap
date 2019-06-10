@@ -40,9 +40,9 @@ module Force
     def to_domain
       domain_fields = super
 
-      if @fields.domain['lease_start_date']
-        domain_fields['lease_start_date'] = self.class.date_to_json(@fields.domain['lease_start_date'])
-      end
+      fields_lease_start_date = @fields.domain['lease_start_date']
+      domain_fields['lease_start_date'] = self.class.date_to_json(fields_lease_start_date) if fields_lease_start_date
+
       # Format currency fields
       %w[total_monthly_rent_without_parking monthly_parking_rent monthly_tenant_contribution].each do |field_name|
         float_to_currency(field_name, domain_fields)

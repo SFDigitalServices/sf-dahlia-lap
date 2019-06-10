@@ -161,4 +161,19 @@ describe('SupplementalApplicationPage', () => {
     // Expect modal to be closed
     expect(wrapper.find('#status-comment').exists()).toBe(false)
   })
+  test('should display alert box when form is invalid on submit', async () => {
+    const wrapper = mount(
+      <SupplementalApplicationPage
+        application={supplementalApplication}
+        statusHistory={statusHistory}
+      />
+    )
+
+    // Fill in letters in lease date month - which are invalid values
+    wrapper.find('#lease_start_date_month').first().simulate('change', { target: { value: 'AB' } })
+    wrapper.find('#save-supplemental-application').simulate('click')
+
+    // alert box to display
+    expect(wrapper.find('.alert-box').exists()).toBeTruthy()
+  })
 })
