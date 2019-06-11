@@ -2,60 +2,14 @@ import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID, LEASE_UP_LISTING_ID } from '../support/puppeteer/consts'
+import {
+  NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID, LEASE_UP_LISTING_ID,
+  FIRST_NAME, LAST_NAME, TRUNCATED_FIRST_NAME, TRUNCATED_LAST_NAME, DOB_MONTH, DOB_DAY, DOB_YEAR,
+  DATE_OF_BIRTH, HOUSEHOLD_MEMBER_FIRST_NAME, HOUSEHOLD_MEMBER_LAST_NAME, HOUSEHOLD_MEMBER_DATE_OF_BIRTH,
+  HOUSEHOLD_MEMBER_DOB_MONTH, HOUSEHOLD_MEMBER_DOB_DAY, HOUSEHOLD_MEMBER_DOB_YEAR, LENDING_INSTITUTION, LENDING_AGENT_ID
+} from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
-  const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
-  const LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!NOWOVER'
-
-  const TRUNCATED_FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!'
-  const TRUNCATED_LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!'
-  const DOB_MONTH = '03'
-  const DOB_DAY = '04'
-  const DOB_YEAR = '1983'
-  const DATE_OF_BIRTH = '03/04/1983'
-
-  const HOUSEHOLD_MEMBER_FIRST_NAME = 'HM first name'
-  const HOUSEHOLD_MEMBER_LAST_NAME = 'HM last name'
-  const HOUSEHOLD_MEMBER_DATE_OF_BIRTH = '01/12/1980'
-  const HOUSEHOLD_MEMBER_DOB_MONTH = '1'
-  const HOUSEHOLD_MEMBER_DOB_DAY = '12'
-  const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
-
-  const LENDING_INSTITUTION = 'Homestreet Bank'
-  const LENDING_AGENT_ID = '0030P00002CBHPrQAP'
-
-  const DECLINE_TO_STATE = 'Decline to state'
-
-  const fillOutRequiredFields = async (page) => {
-    await page.select('#application_language', 'English')
-    await page.type('#first_name', FIRST_NAME)
-    await page.type('#last_name', LAST_NAME)
-    await page.type('#date_of_birth_month', DOB_MONTH)
-    await page.type('#date_of_birth_day', DOB_DAY)
-    await page.type('#date_of_birth_year', DOB_YEAR)
-
-    // Demographics section fields
-    await page.select('select[name="demographics.ethnicity"]', DECLINE_TO_STATE)
-    await page.select('select[name="demographics.race"]', DECLINE_TO_STATE)
-    await page.select('select[name="demographics.gender"]', DECLINE_TO_STATE)
-    await page.select('select[name="demographics.sexual_orientation"]', DECLINE_TO_STATE)
-
-    // Signature on Terms of Agreement
-    await page.click('input[name="terms_acknowledged"]')
-  }
-
-  const blurValidation = (page, selector) => page.evaluate((selector) => {
-    if (selector) {
-      const domSelector = document.querySelector(selector)
-      domSelector.focus()
-      return domSelector.blur()
-    } else {
-      document.querySelector('input').blur()
-      return document.querySelector('select').blur()
-    }
-  }, selector)
-
   test('should create a new application successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
@@ -66,7 +20,7 @@ describe('ApplicationNewPage', () => {
     // Enter in required information
     // Type in the long strings past character limit, the test will make sure
     // the truncated version which is within the character limit gets saved
-    await fillOutRequiredFields(page)
+    await utils.fillOutRequiredFields(page)
 
     // Select ADA priorities
     await page.click('#form-has_ada_priorities_selected\\.mobility_impairments')
@@ -123,7 +77,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
-    await fillOutRequiredFields(page)
+    await utils.fillOutRequiredFields(page)
 
     await page.click('#add-additional-member')
     // Fill out household member required fields
@@ -195,7 +149,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
-    await fillOutRequiredFields(page)
+    await utils.fillOutRequiredFields(page)
 
     await page.click('#add-preference-button')
 
@@ -208,17 +162,17 @@ describe('ApplicationNewPage', () => {
     // Select the household member
     await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
     await page.select('#form-preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
-    await blurValidation(page, '#form-preferences\\.0\\.naturalKey')
+    await utils.blurValidation(page, '#form-preferences\\.0\\.naturalKey')
 
     // Select live vs work
     const liveDropDownValue = 'Live in SF'
     await page.select('#form-preferences\\.0\\.individual_preference', liveDropDownValue)
-    await blurValidation(page, '#form-preferences\\.0\\.individual_preference')
+    await utils.blurValidation(page, '#form-preferences\\.0\\.individual_preference')
 
     // Select type of proof
     const telephoneBillDropdownValue = 'Telephone bill'
     await page.select('#form-preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
-    await blurValidation(page, 'select[name="preferences.0.naturalKey"]')
+    await utils.blurValidation(page, 'select[name="preferences.0.naturalKey"]')
 
     await page.click('.save-btn')
     await page.waitForNavigation()
@@ -280,7 +234,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
-    await fillOutRequiredFields(page)
+    await utils.fillOutRequiredFields(page)
 
     // Fill out one unrequired field on the alternate contact section
     await page.type('#alt_middle_name', 'A')
@@ -340,7 +294,7 @@ describe('ApplicationNewPage', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
-    await fillOutRequiredFields(page)
+    await utils.fillOutRequiredFields(page)
 
     // eligibility section fields
     await page.click('#has_loan_preapproval')
