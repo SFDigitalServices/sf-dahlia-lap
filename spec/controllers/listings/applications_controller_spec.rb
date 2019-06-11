@@ -28,7 +28,7 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
   describe '#new' do
     it 'should render successfully' do
       VCR.use_cassette('listings/applications_controller/new') do
-        get :new, params: { listing_id: valid_listing_id }
+        get :new, params: { listing_id: not_yet_run_listing_id }
       end
 
       listing = assigns(:listing)
