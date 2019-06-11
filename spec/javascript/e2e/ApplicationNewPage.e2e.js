@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID } from '../support/puppeteer/consts'
+import { NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID, LEASE_UP_LISTING_ID } from '../support/puppeteer/consts'
 
 describe('ApplicationNewPage', () => {
   const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
@@ -364,6 +364,21 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(TRUNCATED_FIRST_NAME)
     expect(values).toContain(TRUNCATED_LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
+
+    await browser.close()
+  }, DEFAULT_E2E_TIME_OUT)
+
+  test('should redirect when lottery_status is anything other than "Not Yet Run"', async () => {
+    let browser = await puppeteer.launch({ headless: HEADLESS })
+    let page = await browser.newPage()
+
+    await sharedSteps.loginAsAgent(page)
+    await sharedSteps.goto(page, `/listings/${LEASE_UP_LISTING_ID}/applications/new`)
+    await page.waitFor(2000)
+
+    const currentUrl = page.url()
+    expect(currentUrl).toContain(`http://localhost:3000/listings/${LEASE_UP_LISTING_ID}`)
+    expect(currentUrl).not.toContain(`applications/new`)
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
