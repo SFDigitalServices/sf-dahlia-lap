@@ -6,6 +6,8 @@ module ForceHelpers
 
   NON_LEASE_UP_APPLICATION_ID = 'a0o0P00000Fv20MQAR'
 
+  NOT_YET_RUN_LISTING_ID = 'a0W0P00000F8YG4UAN'
+
   LEASE_UP_APPLICATION_ID = 'a0o0P00000GZazOQAT'
 
   SALE_APPLICATION_ID = 'a0o0t000000lkg8AAA'
@@ -35,5 +37,9 @@ module ForceHelpers
 
   def sale_application_id
     SALE_APPLICATION_ID
+  end
+
+  def not_yet_run_listing_id
+    NOT_YET_RUN_LISTING_ID
   end
 end
