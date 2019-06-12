@@ -19,6 +19,9 @@ class ApplicationsController < ApplicationController
     @application = soql_application_service.application(params[:id])
     @listing = listing_service.listing(@application.Listing.Id)
     @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
+    redirect_to application_url(id: @application.Id) if
+      @listing&.Lottery_Status != 'Not Yet Run' ||
+      @application&.Application_Submission_Type != 'Paper'
   end
 
   private
