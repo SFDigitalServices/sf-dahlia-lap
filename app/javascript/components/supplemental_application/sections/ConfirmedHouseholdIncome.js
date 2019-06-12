@@ -4,7 +4,7 @@ import { find, isNil, isString } from 'lodash'
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { formatPercent } from '~/utils/utils'
-import { YesNoRadioField, CurrencyField } from '~/utils/form/final_form/Field.js'
+import { YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
 
 const validateIncomeCurrency = (value) => {
@@ -44,7 +44,7 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, form }) => {
       <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group label='Recurring Voucher/Subsidy'>
-            <YesNoRadioField fieldName='housing_voucher_or_subsidy' />
+            <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>

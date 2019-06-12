@@ -14,7 +14,7 @@ const getStatusClassName = (status) => {
   }
 }
 
-const StatusListItem = ({status, comment, date}) => {
+const StatusListItem = ({status, substatus, comment, date}) => {
   const statusTagClassNames = classNames(
     'status-list_tag',
     `is-${getStatusClassName(status)}`
@@ -24,10 +24,25 @@ const StatusListItem = ({status, comment, date}) => {
     <li className='status-list_item'>
       <div className={statusTagClassNames}>{status}</div>
       <div className='status-list_comment'>
-        <p className='status-list_note'>{comment}</p>
-        <span className='status-list_date'>
-          <PrettyTime time={date} displayType='short' />
-        </span>
+        {
+          substatus ? (
+            <React.Fragment>
+              <p className='status-list_note t-base p-base c-steel'>{substatus}</p>
+              <span className='status-list_date'>
+                <PrettyTime time={date} displayType='short' />
+              </span>
+              <br />
+              <p className='status-list_note'>{comment}</p>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <p className='status-list_note'>{comment}</p>
+              <span className='status-list_date'>
+                <PrettyTime time={date} displayType='short' />
+              </span>
+            </React.Fragment>
+          )
+        }
       </div>
     </li>
   )
@@ -45,8 +60,8 @@ const StatusList = ({items, onAddComment, commentDisabled}) => {
   return (
     <div className='status-list'>
       <ul>
-        { !isEmpty(items) && orderedItems.map(({status, comment, date}, idx) => (
-          <StatusListItem key={idx} status={status} comment={comment} date={date} />
+        { !isEmpty(items) && orderedItems.map(({status, substatus, comment, date}, idx) => (
+          <StatusListItem key={idx} status={status} substatus={substatus} comment={comment} date={date} />
         ))
         }
       </ul>

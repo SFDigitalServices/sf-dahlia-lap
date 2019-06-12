@@ -11,7 +11,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import formUtils from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
-import { InputField, SelectField, YesNoRadioField, CurrencyField } from '~/utils/form/final_form/Field'
+import { InputField, SelectField, YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field'
 
 const { ExpanderButton } = ExpandableTable
 
@@ -170,7 +170,7 @@ class AddRentalAssistanceForm extends React.Component {
                   />
                 </FormGrid.Item>
                 <FormGrid.Item>
-                  <YesNoRadioField
+                  <YesNoRadioGroup
                     label='Recurring Assistance'
                     fieldName='recurring_assistance'
                     uniqId={(!isEmpty(values) && values.id) || 'new'}

@@ -12,12 +12,6 @@ let {
 } = formOptions
 
 const DemographicInfoSection = ({ values: { demographics } }) => {
-  const validateNotListed = (validationMessage, fieldName) => {
-    if (demographics && demographics[fieldName] && demographics[fieldName].toLowerCase() === 'not listed' && !demographics[`${fieldName}_other`]) {
-      return validate.isPresent(validationMessage)
-    }
-    return ''
-  }
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Demographic Information</h3>
@@ -47,8 +41,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
           <InputField
             fieldName='demographics.gender_other'
             label='Gender Specify (if not listed)'
-            maxLength={maxLengthMap['gender_other']}
-            validation={validateNotListed('Gender is required', 'gender')} />
+            maxLength={maxLengthMap['gender_other']} />
         </div>
         <div className='small-6 columns'>
           <SelectField
@@ -61,8 +54,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
           <InputField
             fieldName='demographics.sexual_orientation_other'
             label='Sexual Orientation (if not listed)'
-            maxLength={maxLengthMap['sexual_orientation_other']}
-            validation={validateNotListed('Sexual Orientation is required', 'sexual_orientation')} />
+            maxLength={maxLengthMap['sexual_orientation_other']} />
         </div>
       </div>
       <div className='row' />
