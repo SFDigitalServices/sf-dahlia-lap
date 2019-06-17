@@ -1,6 +1,5 @@
 const testStatusModalUpdate = async (page) => {
   const COMMENT = 'This is a comment.'
-
   // Wait for the status modal to appear
   await page.waitForSelector('.form-modal_form_wrapper')
 
@@ -9,36 +8,27 @@ const testStatusModalUpdate = async (page) => {
   const newSelectedStatus = await page.$eval('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a', e => e.textContent)
   await page.click('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a')
 
-  if (newSelectedStatus.toLowerCase() !== 'processing' && newSelectedStatus.toLowerCase() !== 'lease signed') {
-    // If status has a subStatus value wait for that dropdown to be available and select one
-    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus')
-    await page.click('.form-modal_form_wrapper .dropdown.subStatus button')
-    const emptySubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
-    expect(emptySubStatus.toLowerCase().includes('select one...')).toBe(true)
-
-    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu')
-    await page.click('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu li a')
-    const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
-    expect(selectedSubStatus.toLowerCase().includes('select one...')).toBe(false)
-  }
+  await checkForSubStatus(newSelectedStatus, page)
 
   // Enter a comment into the status modal comment field
   await page.type('#status-comment', COMMENT)
-
   // Submit the status modal form
   await page.click('.form-modal_form_wrapper button.primary')
-
   // Wait for the page to reload after the status modal submit
   await page.waitForNavigation()
 
-  // The latest status in the status history should be the status
-  // that was just selected and saved
+  // The latest status in the status history should be the status that was just selected and saved
   const latestStatus = await page.$eval('.status-list .status-list_item:last-child .status-list_tag', e => e.textContent)
   expect(latestStatus).toBe(newSelectedStatus)
 
-  // The latest comment in the status history should be the comment
-  // that was just entered and saved
-  const latestComment = await page.$eval('.status-list .status-list_item:last-child .status-list_note', e => e.textContent)
+  // The latest comment in the status history should be the comment that was just entered and saved
+  let latestComment = ''
+  try {
+    await page.waitForSelector('.status-list .status-list_item:last-child .status-list_note:last-child')
+    latestComment = await page.$eval('.status-list .status-list_item:last-child .status-list_note:last-child', e => e.textContent)
+  } catch (err) {
+    latestComment = await page.$eval('.status-list .status-list_item:last-child .status-list_note:first-child', e => e.textContent)
+  }
   expect(latestComment).toBe(COMMENT)
 }
 
@@ -61,8 +51,24 @@ const savePage = async (page) => {
   await page.click(selector)
 }
 
+const checkForSubStatus = async (selectedStatus, page) => {
+  if (selectedStatus.toLowerCase() !== 'processing' && selectedStatus.toLowerCase() !== 'lease signed') {
+    // If status has a subStatus value wait for that dropdown to be available and select one
+    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus')
+    await page.click('.form-modal_form_wrapper .dropdown.subStatus button')
+    const emptySubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
+    expect(emptySubStatus.toLowerCase().includes('select one...')).toBe(true)
+
+    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu')
+    await page.click('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu li a')
+    const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
+    expect(selectedSubStatus.toLowerCase().includes('select one...')).toBe(false)
+  }
+}
+
 export default {
   generateRandomCurrency,
   savePage,
-  testStatusModalUpdate
+  testStatusModalUpdate,
+  checkForSubStatus
 }

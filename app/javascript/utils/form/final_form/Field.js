@@ -22,16 +22,15 @@ export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabel
     placeholder={placeholder} />
 )
 
-export const Label = ({ label, fieldName, blockNote, id }) => {
-  if (label) {
-    return (
-      <label htmlFor={id || `form-${fieldName}`} className='form-label'>
-        {label && `${label} `}
+export const Label = ({ label, fieldName, blockNote, id, labelId, className }) => {
+  return (
+    label ? (
+      <label htmlFor={id || `form-${fieldName}`} id={labelId || `label-${fieldName}`} className={className || 'form-label'}>
+        {label}
         {blockNote && <BlockNote value={blockNote} />}
-      </label>)
-  } else {
-    return null
-  }
+      </label>
+    ) : null
+  )
 }
 
 export const FieldError = ({meta}) => (
@@ -133,7 +132,18 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
-export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLabel = 'Yes', falseValue = 'false', falseLabel = 'No', inputClassName, className, label }) => {
+const YesNoRadioField = ({ value, label, type, fieldName, className, uniqId }) => (
+  <Field name={fieldName} value={value} type='radio'>
+    {({ input }) => (
+      <p className='radio-inline'>
+        <input {...input} id={`${fieldName}-${uniqId}-${type}`} className={className} type='radio' />
+        <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-${type}`}>{label}</label>
+      </p>
+    )}
+  </Field>
+)
+
+export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLabel = 'Yes', falseValue = 'false', falseLabel = 'No', inputClassName, className, label }) => {
   const divClassName = classNames(className, 'radio-group-inline')
   return (
     <div className={divClassName}>
@@ -142,37 +152,39 @@ export const YesNoRadioField = ({ fieldName, uniqId, trueValue = 'true', trueLab
           label={label}
           id={`form-${fieldName}`}
           fieldName={fieldName} />
-        <Field name={fieldName} value={trueValue} type='radio'>
-          {({ input, meta }) => (
-            <p className='radio-inline'>
-              <input {...input} id={`${fieldName}-${uniqId}-yes`} className={inputClassName} type='radio' />
-              <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-yes`}>{trueLabel}</label>
-            </p>
-          )}
-        </Field>
-        <Field name={fieldName} value={falseValue} type='radio'>
-          {({ input, meta }) => (
-            <p className='radio-inline'>
-              <input {...input} id={`${fieldName}-${uniqId}-no`} className={inputClassName} type='radio' />
-              <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-no`}>{falseLabel}</label>
-            </p>
-          )}
-        </Field>
+        <YesNoRadioField
+          value={trueValue}
+          label={trueLabel}
+          type='yes'
+          fieldName={fieldName}
+          className={inputClassName}
+          uniqId={uniqId}
+        />
+        <YesNoRadioField
+          value={falseValue}
+          label={falseLabel}
+          type='no'
+          fieldName={fieldName}
+          className={inputClassName}
+          uniqId={uniqId}
+        />
       </React.Fragment>
     </div>
   )
 }
 
-export const TextAreaField = ({ fieldName, label, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote }) => (
+export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
   <Field name={fieldName} validate={validation} component='textarea'>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
           <Label
             label={label}
+            labelId={labelId}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+            className={labelClass} />
           <textarea {...input}
             id={id || `form-${fieldName}`}
             className={(meta.error && meta.touched && 'error') || ''}

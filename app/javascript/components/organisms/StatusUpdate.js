@@ -5,7 +5,7 @@ import PrettyTime from '../atoms/PrettyTime'
 import { getLeaseUpStatusClass } from '~/utils/statusUtils'
 import StatusDropdown from '../molecules/StatusDropdown'
 
-const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor, loading }) => {
+const StatusUpdate = ({ status, substatus, comment, date, onStatusDropdownChange, onAddCommentClick, statusHistoryAnchor, loading }) => {
   return (
     <div className={`status-update expand-wide ${getLeaseUpStatusClass(status)}`}>
       <h3 className='status-update_title'>Update Status</h3>
@@ -20,14 +20,35 @@ const StatusUpdate = ({ status, comment, date, onStatusDropdownChange, onAddComm
       </div>
       <div className='status-update_message'>
         <div className='status-update_comment'>
-          <p className={classNames('status-update_note', {'c-steel': !comment})}>
-            {comment || 'Update status or add a comment'}
-          </p>
           {
-            ((status || comment) && date) &&
-            <span className='status-update_date'>
-              <PrettyTime time={date} displayType='short' />
-            </span>
+            substatus ? (
+              <React.Fragment>
+                <div className='status-update_substatus_container'>
+                  <p className='status-update_substatus c-steel'>{substatus}</p>
+                  {
+                    ((status || comment || substatus) && date) &&
+                    <span className='status-update_date'>
+                      <PrettyTime time={date} displayType='short' />
+                    </span>
+                  }
+                </div>
+                <p className={classNames('status-update_note', {'c-steel': !comment})}>
+                  {comment || 'Update status or add a comment'}
+                </p>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <p className={classNames('status-update_note', {'c-steel': !comment})}>
+                  {comment || 'Update status or add a comment'}
+                </p>
+                {
+                  ((status || comment || substatus) && date) &&
+                  <span className='status-update_date'>
+                    <PrettyTime time={date} displayType='short' />
+                  </span>
+                }
+              </React.Fragment>
+            )
           }
         </div>
         <div className='status-update_footer'>
