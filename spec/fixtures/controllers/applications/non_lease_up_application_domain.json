@@ -212,7 +212,8 @@
   "listing": {
     "id": "a0W0P00000F8YG4UAN",
     "name": "Automated Test Listing (do not modify)",
-    "is_sale": false
+    "is_sale": false,
+    "is_lottery_complete": true
   },
   "proof_files": [],
   "flagged_applications": [

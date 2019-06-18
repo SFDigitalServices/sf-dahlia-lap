@@ -195,7 +195,8 @@
   "listing": {
     "id": "a0W0P00000GbyuQUAR",
     "name": "Partners Test Listing (do not modify) - Yellow Acres",
-    "is_sale": false
+    "is_sale": false,
+    "is_lottery_complete": true
   },
   "proof_files": [
     {
