@@ -59,4 +59,15 @@ RSpec.describe ApplicationsController, type: :controller do
       end
     end
   end
+
+  describe '#edit' do
+    it 'should redirect on lottery completed' do
+      VCR.use_cassette('applications_controller/edit/non_lease_up_application') do
+        get :edit, params: { id: non_lease_up_application_id }
+      end
+
+      expect(response.body).to include('redirected')
+      expect(response).to have_http_status(:redirect)
+    end
+  end
 end
