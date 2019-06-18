@@ -15,5 +15,28 @@ export const SALE_LISTING_ID = process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlK
 // Default to sample flagged record set on full
 export const FLAGGED_RECORD_SET_ID = process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0t000001y7rd'
 
+// Application Fields
+export const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
+export const LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!NOWOVER'
+
+export const TRUNCATED_FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!'
+export const TRUNCATED_LAST_NAME = 'VERY_LONG_LAST_NAME_THAT_IS_EXACTLY_40!!'
+export const DOB_MONTH = '03'
+export const DOB_DAY = '04'
+export const DOB_YEAR = '1983'
+export const DATE_OF_BIRTH = '03/04/1983'
+
+export const HOUSEHOLD_MEMBER_FIRST_NAME = 'HM first name'
+export const HOUSEHOLD_MEMBER_LAST_NAME = 'HM last name'
+export const HOUSEHOLD_MEMBER_DATE_OF_BIRTH = '01/12/1980'
+export const HOUSEHOLD_MEMBER_DOB_MONTH = '1'
+export const HOUSEHOLD_MEMBER_DOB_DAY = '12'
+export const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
+
+export const LENDING_INSTITUTION = 'Homestreet Bank'
+export const LENDING_AGENT_ID = '0030P00002CBHPrQAP'
+
+export const DECLINE_TO_STATE = 'Decline to state'
+
 // Change to false to see tests running on browser locally
 export const HEADLESS = true

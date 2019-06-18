@@ -26,6 +26,7 @@ const StatusUpdateSection = withContext(({ store }) => {
     <ContentSection.Content paddingBottomNone marginTop>
       <StatusUpdate
         status={recentStatusUpdate.status}
+        substatus={recentStatusUpdate.substatus}
         comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
         onStatusDropdownChange={openUpdateStatusModal}
@@ -154,7 +155,6 @@ class SupplementalApplicationContainer extends React.Component {
       onSubmit,
       statusModal,
       handleStatusModalClose,
-      handleStatusModalStatusChange,
       handleStatusModalSubmit,
       assignSupplementalAppTouched,
       openUpdateStatusModal
@@ -218,7 +218,6 @@ class SupplementalApplicationContainer extends React.Component {
             <StatusModalWrapper
               {...statusModal}
               onClose={handleStatusModalClose}
-              onStatusChange={handleStatusModalStatusChange}
               onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
             />
           </React.Fragment>

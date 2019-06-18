@@ -1,7 +1,7 @@
 import React from 'react'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { YesNoRadioField, CheckboxField } from '~/utils/form/final_form/Field.js'
+import { YesNoRadioGroup, CheckboxField } from '~/utils/form/final_form/Field.js'
 
 const ConfirmedUnits = () => {
   return (
@@ -9,17 +9,17 @@ const ConfirmedUnits = () => {
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group label='Senior in Household'>
-            <YesNoRadioField fieldName='reserved_senior' trueValue='Yes' falseValue='No' />
+            <YesNoRadioGroup fieldName='reserved_senior' trueValue='Yes' falseValue='No' />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
           <FormGrid.Group label='Veteran in Household'>
-            <YesNoRadioField fieldName='has_military_service' trueValue='Yes' falseValue='No' />
+            <YesNoRadioGroup fieldName='has_military_service' trueValue='Yes' falseValue='No' />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
           <FormGrid.Group label='Person with Developmental Disability in Household'>
-            <YesNoRadioField fieldName='has_developmental_disability' trueValue='Yes' falseValue='No' />
+            <YesNoRadioGroup fieldName='has_developmental_disability' trueValue='Yes' falseValue='No' />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>

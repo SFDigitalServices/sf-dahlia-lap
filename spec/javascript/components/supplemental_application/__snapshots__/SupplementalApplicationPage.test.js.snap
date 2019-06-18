@@ -501,8 +501,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                      id="label-has_ada_priorities_selected.mobility_impairments"
                     >
-                      Mobility Impairments 
+                      Mobility Impairments
                     </label>
                   </div>
                   <div
@@ -522,8 +523,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                      id="label-has_ada_priorities_selected.vision_impairments"
                     >
-                      Vision Impairments 
+                      Vision Impairments
                     </label>
                   </div>
                   <div
@@ -543,8 +545,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                      id="label-has_ada_priorities_selected.hearing_impairments"
                     >
-                      Hearing Impairments 
+                      Hearing Impairments
                     </label>
                   </div>
                 </div>
@@ -636,8 +639,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-household_assets"
+                    id="label-household_assets"
                   >
-                    Household Assets 
+                    Household Assets
                   </label>
                   <input
                     className=""
@@ -665,8 +669,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-confirmed_household_annual_income"
+                    id="label-confirmed_household_annual_income"
                   >
-                    Confirmed Annual Income 
+                    Confirmed Annual Income
                   </label>
                   <input
                     className=""
@@ -700,8 +705,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-hh_total_income_with_assets_annual"
+                    id="label-hh_total_income_with_assets_annual"
                   >
-                    Final Household Annual Income 
+                    Final Household Annual Income
                   </label>
                   <input
                     className=""
@@ -811,8 +817,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-lease.unit"
+                      id="label-lease.unit"
                     >
-                      Assigned Unit Number 
+                      Assigned Unit Number
                     </label>
                     <select
                       className="form-group"
@@ -903,8 +910,9 @@ Array [
                     <label
                       className="form-label"
                       htmlFor="form-lease.preference_used"
+                      id="label-lease.preference_used"
                     >
-                      Preference Used 
+                      Preference Used
                     </label>
                     <select
                       className="form-group"
@@ -937,8 +945,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-lease.total_monthly_rent_without_parking"
+                    id="label-lease.total_monthly_rent_without_parking"
                   >
-                    Monthly Rent 
+                    Monthly Rent
                   </label>
                   <input
                     className=""
@@ -962,8 +971,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-lease.monthly_parking_rent"
+                    id="label-lease.monthly_parking_rent"
                   >
-                    Monthly Parking Cost 
+                    Monthly Parking Cost
                   </label>
                   <input
                     className=""
@@ -987,8 +997,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="form-lease.monthly_tenant_contribution"
+                    id="label-lease.monthly_tenant_contribution"
                   >
-                    Monthly Tenant Contribution 
+                    Monthly Tenant Contribution
                   </label>
                   <input
                     className=""
@@ -1058,8 +1069,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-dependents"
+                    id="label-number_of_dependents"
                   >
-                    Number of Dependents 
+                    Number of Dependents
                   </label>
                   <select
                     className="form-group"
@@ -1136,8 +1148,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-seniors"
+                    id="label-number_of_seniors"
                   >
-                    Number of Seniors 
+                    Number of Seniors
                   </label>
                   <select
                     className="form-group"
@@ -1220,8 +1233,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-minors"
+                    id="label-number_of_minors"
                   >
-                    Number of Minors 
+                    Number of Minors
                   </label>
                   <select
                     className="form-group"
@@ -1298,8 +1312,9 @@ Array [
                   <label
                     className="form-label"
                     htmlFor="demographics-marital-status"
+                    id="label-applicant.marital_status"
                   >
-                    Primary Applicant Marital Status 
+                    Primary Applicant Marital Status
                   </label>
                   <select
                     className="form-group"
@@ -1712,12 +1727,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
           "comment": "xxxx1",
           "date": "2018-05-10T19:54:11.000+0000",
           "status": "Approved",
+          "substatus": undefined,
           "timestamp": 1525982051,
         },
         Object {
           "comment": "xxxx2",
           "date": "2018-05-10T19:54:11.000+0000",
           "status": "Pending",
+          "substatus": undefined,
           "timestamp": 1525982051,
         },
       ]
@@ -2257,12 +2274,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             "comment": "xxxx1",
                             "date": "2018-05-10T19:54:11.000+0000",
                             "status": "Approved",
+                            "substatus": undefined,
                             "timestamp": 1525982051,
                           },
                           Object {
                             "comment": "xxxx2",
                             "date": "2018-05-10T19:54:11.000+0000",
                             "status": "Pending",
+                            "substatus": undefined,
                             "timestamp": 1525982051,
                           },
                         ],
@@ -2738,12 +2757,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "comment": "xxxx1",
                                     "date": "2018-05-10T19:54:11.000+0000",
                                     "status": "Approved",
+                                    "substatus": undefined,
                                     "timestamp": 1525982051,
                                   },
                                   Object {
                                     "comment": "xxxx2",
                                     "date": "2018-05-10T19:54:11.000+0000",
                                     "status": "Pending",
+                                    "substatus": undefined,
                                     "timestamp": 1525982051,
                                   },
                                 ],
@@ -2807,6 +2828,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           items={
                                             Array [
                                               Object {
+                                                "commentRequired": true,
                                                 "label": "Processing",
                                                 "style": "is-processing",
                                                 "value": "Processing",
@@ -2817,21 +2839,25 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 "value": "Withdrawn",
                                               },
                                               Object {
+                                                "commentRequired": true,
                                                 "label": "Appealed",
                                                 "style": "is-appealed",
                                                 "value": "Appealed",
                                               },
                                               Object {
+                                                "commentRequired": true,
                                                 "label": "Waitlisted",
                                                 "style": "is-waitlisted",
                                                 "value": "Waitlisted",
                                               },
                                               Object {
+                                                "commentRequired": true,
                                                 "label": "Disqualified",
                                                 "style": "is-disqualified",
                                                 "value": "Disqualified",
                                               },
                                               Object {
+                                                "commentRequired": true,
                                                 "label": "Approved",
                                                 "style": "is-approved",
                                                 "value": "Approved",
@@ -4050,12 +4076,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "comment": "xxxx1",
                                             "date": "2018-05-10T19:54:11.000+0000",
                                             "status": "Approved",
+                                            "substatus": undefined,
                                             "timestamp": 1525982051,
                                           },
                                           Object {
                                             "comment": "xxxx2",
                                             "date": "2018-05-10T19:54:11.000+0000",
                                             "status": "Pending",
+                                            "substatus": undefined,
                                             "timestamp": 1525982051,
                                           },
                                         ],
@@ -4278,7 +4306,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 >
                                                   Senior in Household
                                                 </label>
-                                                <YesNoRadioField
+                                                <YesNoRadioGroup
                                                   falseValue="No"
                                                   fieldName="reserved_senior"
                                                   trueValue="Yes"
@@ -4290,138 +4318,152 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       fieldName="reserved_senior"
                                                       id="form-reserved_senior"
                                                     />
-                                                    <ReactFinalForm(Field)
-                                                      name="reserved_senior"
-                                                      type="radio"
+                                                    <YesNoRadioField
+                                                      fieldName="reserved_senior"
+                                                      label="Yes"
+                                                      type="yes"
                                                       value="Yes"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="reserved_senior"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="Yes"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="reserved_senior"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="Yes"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="reserved_senior-undefined-yes"
-                                                            name="reserved_senior"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="Yes"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="reserved_senior-undefined-yes"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            Yes
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
-                                                    <ReactFinalForm(Field)
-                                                      name="reserved_senior"
-                                                      type="radio"
+                                                            <input
+                                                              checked={false}
+                                                              id="reserved_senior-undefined-yes"
+                                                              name="reserved_senior"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="Yes"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="reserved_senior-undefined-yes"
+                                                            >
+                                                              Yes
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
+                                                    <YesNoRadioField
+                                                      fieldName="reserved_senior"
+                                                      label="No"
+                                                      type="no"
                                                       value="No"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="reserved_senior"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="No"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="reserved_senior"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="No"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="reserved_senior-undefined-no"
-                                                            name="reserved_senior"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="No"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="reserved_senior-undefined-no"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            No
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
+                                                            <input
+                                                              checked={false}
+                                                              id="reserved_senior-undefined-no"
+                                                              name="reserved_senior"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="No"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="reserved_senior-undefined-no"
+                                                            >
+                                                              No
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
                                                   </div>
-                                                </YesNoRadioField>
+                                                </YesNoRadioGroup>
                                               </div>
                                             </Component>
                                           </div>
@@ -4441,7 +4483,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 >
                                                   Veteran in Household
                                                 </label>
-                                                <YesNoRadioField
+                                                <YesNoRadioGroup
                                                   falseValue="No"
                                                   fieldName="has_military_service"
                                                   trueValue="Yes"
@@ -4453,138 +4495,152 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       fieldName="has_military_service"
                                                       id="form-has_military_service"
                                                     />
-                                                    <ReactFinalForm(Field)
-                                                      name="has_military_service"
-                                                      type="radio"
+                                                    <YesNoRadioField
+                                                      fieldName="has_military_service"
+                                                      label="Yes"
+                                                      type="yes"
                                                       value="Yes"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="has_military_service"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="Yes"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="has_military_service"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="Yes"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="has_military_service-undefined-yes"
-                                                            name="has_military_service"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="Yes"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="has_military_service-undefined-yes"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            Yes
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
-                                                    <ReactFinalForm(Field)
-                                                      name="has_military_service"
-                                                      type="radio"
+                                                            <input
+                                                              checked={false}
+                                                              id="has_military_service-undefined-yes"
+                                                              name="has_military_service"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="Yes"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="has_military_service-undefined-yes"
+                                                            >
+                                                              Yes
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
+                                                    <YesNoRadioField
+                                                      fieldName="has_military_service"
+                                                      label="No"
+                                                      type="no"
                                                       value="No"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="has_military_service"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="No"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="has_military_service"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="No"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="has_military_service-undefined-no"
-                                                            name="has_military_service"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="No"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="has_military_service-undefined-no"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            No
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
+                                                            <input
+                                                              checked={false}
+                                                              id="has_military_service-undefined-no"
+                                                              name="has_military_service"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="No"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="has_military_service-undefined-no"
+                                                            >
+                                                              No
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
                                                   </div>
-                                                </YesNoRadioField>
+                                                </YesNoRadioGroup>
                                               </div>
                                             </Component>
                                           </div>
@@ -4604,7 +4660,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 >
                                                   Person with Developmental Disability in Household
                                                 </label>
-                                                <YesNoRadioField
+                                                <YesNoRadioGroup
                                                   falseValue="No"
                                                   fieldName="has_developmental_disability"
                                                   trueValue="Yes"
@@ -4616,138 +4672,152 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       fieldName="has_developmental_disability"
                                                       id="form-has_developmental_disability"
                                                     />
-                                                    <ReactFinalForm(Field)
-                                                      name="has_developmental_disability"
-                                                      type="radio"
+                                                    <YesNoRadioField
+                                                      fieldName="has_developmental_disability"
+                                                      label="Yes"
+                                                      type="yes"
                                                       value="Yes"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="has_developmental_disability"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="Yes"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="has_developmental_disability"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="Yes"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="has_developmental_disability-undefined-yes"
-                                                            name="has_developmental_disability"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="Yes"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="has_developmental_disability-undefined-yes"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            Yes
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
-                                                    <ReactFinalForm(Field)
-                                                      name="has_developmental_disability"
-                                                      type="radio"
+                                                            <input
+                                                              checked={false}
+                                                              id="has_developmental_disability-undefined-yes"
+                                                              name="has_developmental_disability"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="Yes"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="has_developmental_disability-undefined-yes"
+                                                            >
+                                                              Yes
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
+                                                    <YesNoRadioField
+                                                      fieldName="has_developmental_disability"
+                                                      label="No"
+                                                      type="no"
                                                       value="No"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="has_developmental_disability"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="No"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="has_developmental_disability"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="No"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="has_developmental_disability-undefined-no"
-                                                            name="has_developmental_disability"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="No"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="has_developmental_disability-undefined-no"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            No
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
+                                                            <input
+                                                              checked={false}
+                                                              id="has_developmental_disability-undefined-no"
+                                                              name="has_developmental_disability"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="No"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="has_developmental_disability-undefined-no"
+                                                            >
+                                                              No
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
                                                   </div>
-                                                </YesNoRadioField>
+                                                </YesNoRadioGroup>
                                               </div>
                                             </Component>
                                           </div>
@@ -4873,8 +4943,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                                                              id="label-has_ada_priorities_selected.mobility_impairments"
                                                             >
-                                                              Mobility Impairments 
+                                                              Mobility Impairments
                                                             </label>
                                                           </Label>
                                                           <FieldError
@@ -5005,8 +5076,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                                                              id="label-has_ada_priorities_selected.vision_impairments"
                                                             >
-                                                              Vision Impairments 
+                                                              Vision Impairments
                                                             </label>
                                                           </Label>
                                                           <FieldError
@@ -5137,8 +5209,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                                                              id="label-has_ada_priorities_selected.hearing_impairments"
                                                             >
-                                                              Hearing Impairments 
+                                                              Hearing Impairments
                                                             </label>
                                                           </Label>
                                                           <FieldError
@@ -5256,7 +5329,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 >
                                                   Recurring Voucher/Subsidy
                                                 </label>
-                                                <YesNoRadioField
+                                                <YesNoRadioGroup
                                                   fieldName="housing_voucher_or_subsidy"
                                                 >
                                                   <div
@@ -5266,138 +5339,152 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       fieldName="housing_voucher_or_subsidy"
                                                       id="form-housing_voucher_or_subsidy"
                                                     />
-                                                    <ReactFinalForm(Field)
-                                                      name="housing_voucher_or_subsidy"
-                                                      type="radio"
+                                                    <YesNoRadioField
+                                                      fieldName="housing_voucher_or_subsidy"
+                                                      label="Yes"
+                                                      type="yes"
                                                       value="true"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="housing_voucher_or_subsidy"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="true"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="housing_voucher_or_subsidy"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="true"
                                                         >
-                                                          <input
-                                                            checked={true}
-                                                            id="housing_voucher_or_subsidy-undefined-yes"
-                                                            name="housing_voucher_or_subsidy"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="true"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="housing_voucher_or_subsidy-undefined-yes"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            Yes
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
-                                                    <ReactFinalForm(Field)
-                                                      name="housing_voucher_or_subsidy"
-                                                      type="radio"
+                                                            <input
+                                                              checked={true}
+                                                              id="housing_voucher_or_subsidy-undefined-yes"
+                                                              name="housing_voucher_or_subsidy"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="true"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="housing_voucher_or_subsidy-undefined-yes"
+                                                            >
+                                                              Yes
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
+                                                    <YesNoRadioField
+                                                      fieldName="housing_voucher_or_subsidy"
+                                                      label="No"
+                                                      type="no"
                                                       value="false"
                                                     >
-                                                      <Field
-                                                        format={[Function]}
+                                                      <ReactFinalForm(Field)
                                                         name="housing_voucher_or_subsidy"
-                                                        parse={[Function]}
-                                                        reactFinalForm={
-                                                          Object {
-                                                            "batch": [Function],
-                                                            "blur": [Function],
-                                                            "change": [Function],
-                                                            "focus": [Function],
-                                                            "getFieldState": [Function],
-                                                            "getRegisteredFields": [Function],
-                                                            "getState": [Function],
-                                                            "initialize": [Function],
-                                                            "isValidationPaused": [Function],
-                                                            "mutators": Object {
-                                                              "insert": [Function],
-                                                              "move": [Function],
-                                                              "pop": [Function],
-                                                              "push": [Function],
-                                                              "remove": [Function],
-                                                              "shift": [Function],
-                                                              "swap": [Function],
-                                                              "unshift": [Function],
-                                                              "update": [Function],
-                                                            },
-                                                            "pauseValidation": [Function],
-                                                            "registerField": [Function],
-                                                            "reset": [Function],
-                                                            "resumeValidation": [Function],
-                                                            "setConfig": [Function],
-                                                            "submit": [Function],
-                                                            "subscribe": [Function],
-                                                          }
-                                                        }
                                                         type="radio"
                                                         value="false"
                                                       >
-                                                        <p
-                                                          className="radio-inline"
+                                                        <Field
+                                                          format={[Function]}
+                                                          name="housing_voucher_or_subsidy"
+                                                          parse={[Function]}
+                                                          reactFinalForm={
+                                                            Object {
+                                                              "batch": [Function],
+                                                              "blur": [Function],
+                                                              "change": [Function],
+                                                              "focus": [Function],
+                                                              "getFieldState": [Function],
+                                                              "getRegisteredFields": [Function],
+                                                              "getState": [Function],
+                                                              "initialize": [Function],
+                                                              "isValidationPaused": [Function],
+                                                              "mutators": Object {
+                                                                "insert": [Function],
+                                                                "move": [Function],
+                                                                "pop": [Function],
+                                                                "push": [Function],
+                                                                "remove": [Function],
+                                                                "shift": [Function],
+                                                                "swap": [Function],
+                                                                "unshift": [Function],
+                                                                "update": [Function],
+                                                              },
+                                                              "pauseValidation": [Function],
+                                                              "registerField": [Function],
+                                                              "reset": [Function],
+                                                              "resumeValidation": [Function],
+                                                              "setConfig": [Function],
+                                                              "submit": [Function],
+                                                              "subscribe": [Function],
+                                                            }
+                                                          }
+                                                          type="radio"
+                                                          value="false"
                                                         >
-                                                          <input
-                                                            checked={false}
-                                                            id="housing_voucher_or_subsidy-undefined-no"
-                                                            name="housing_voucher_or_subsidy"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            type="radio"
-                                                            value="false"
-                                                          />
-                                                          <label
-                                                            className="radio-inline_label"
-                                                            htmlFor="housing_voucher_or_subsidy-undefined-no"
+                                                          <p
+                                                            className="radio-inline"
                                                           >
-                                                            No
-                                                          </label>
-                                                        </p>
-                                                      </Field>
-                                                    </ReactFinalForm(Field)>
+                                                            <input
+                                                              checked={false}
+                                                              id="housing_voucher_or_subsidy-undefined-no"
+                                                              name="housing_voucher_or_subsidy"
+                                                              onBlur={[Function]}
+                                                              onChange={[Function]}
+                                                              onFocus={[Function]}
+                                                              type="radio"
+                                                              value="false"
+                                                            />
+                                                            <label
+                                                              className="radio-inline_label"
+                                                              htmlFor="housing_voucher_or_subsidy-undefined-no"
+                                                            >
+                                                              No
+                                                            </label>
+                                                          </p>
+                                                        </Field>
+                                                      </ReactFinalForm(Field)>
+                                                    </YesNoRadioField>
                                                   </div>
-                                                </YesNoRadioField>
+                                                </YesNoRadioGroup>
                                               </div>
                                             </Component>
                                           </div>
@@ -5473,8 +5560,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-household_assets"
+                                                            id="label-household_assets"
                                                           >
-                                                            Household Assets 
+                                                            Household Assets
                                                           </label>
                                                         </Label>
                                                         <input
@@ -5589,8 +5677,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-confirmed_household_annual_income"
+                                                            id="label-confirmed_household_annual_income"
                                                           >
-                                                            Confirmed Annual Income 
+                                                            Confirmed Annual Income
                                                           </label>
                                                         </Label>
                                                         <input
@@ -5711,8 +5800,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <label
                                                             className="form-label"
                                                             htmlFor="form-hh_total_income_with_assets_annual"
+                                                            id="label-hh_total_income_with_assets_annual"
                                                           >
-                                                            Final Household Annual Income 
+                                                            Final Household Annual Income
                                                           </label>
                                                         </Label>
                                                         <input
@@ -6164,12 +6254,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "comment": "xxxx1",
                                             "date": "2018-05-10T19:54:11.000+0000",
                                             "status": "Approved",
+                                            "substatus": undefined,
                                             "timestamp": 1525982051,
                                           },
                                           Object {
                                             "comment": "xxxx2",
                                             "date": "2018-05-10T19:54:11.000+0000",
                                             "status": "Pending",
+                                            "substatus": undefined,
                                             "timestamp": 1525982051,
                                           },
                                         ],
@@ -6253,8 +6345,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-lease.unit"
+                                                              id="label-lease.unit"
                                                             >
-                                                              Assigned Unit Number 
+                                                              Assigned Unit Number
                                                             </label>
                                                           </Label>
                                                           <select
@@ -6731,8 +6824,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             <label
                                                               className="form-label"
                                                               htmlFor="form-lease.preference_used"
+                                                              id="label-lease.preference_used"
                                                             >
-                                                              Preference Used 
+                                                              Preference Used
                                                             </label>
                                                           </Label>
                                                           <select
@@ -6857,8 +6951,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="form-lease.total_monthly_rent_without_parking"
+                                                          id="label-lease.total_monthly_rent_without_parking"
                                                         >
-                                                          Monthly Rent 
+                                                          Monthly Rent
                                                         </label>
                                                       </Label>
                                                       <input
@@ -6967,8 +7062,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="form-lease.monthly_parking_rent"
+                                                          id="label-lease.monthly_parking_rent"
                                                         >
-                                                          Monthly Parking Cost 
+                                                          Monthly Parking Cost
                                                         </label>
                                                       </Label>
                                                       <input
@@ -7077,8 +7173,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="form-lease.monthly_tenant_contribution"
+                                                          id="label-lease.monthly_tenant_contribution"
                                                         >
-                                                          Monthly Tenant Contribution 
+                                                          Monthly Tenant Contribution
                                                         </label>
                                                       </Label>
                                                       <input
@@ -7522,12 +7619,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "comment": "xxxx1",
                                             "date": "2018-05-10T19:54:11.000+0000",
                                             "status": "Approved",
+                                            "substatus": undefined,
                                             "timestamp": 1525982051,
                                           },
                                           Object {
                                             "comment": "xxxx2",
                                             "date": "2018-05-10T19:54:11.000+0000",
                                             "status": "Pending",
+                                            "substatus": undefined,
                                             "timestamp": 1525982051,
                                           },
                                         ],
@@ -7668,8 +7767,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-dependents"
+                                                          id="label-number_of_dependents"
                                                         >
-                                                          Number of Dependents 
+                                                          Number of Dependents
                                                         </label>
                                                       </Label>
                                                       <select
@@ -7851,8 +7951,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-seniors"
+                                                          id="label-number_of_seniors"
                                                         >
-                                                          Number of Seniors 
+                                                          Number of Seniors
                                                         </label>
                                                       </Label>
                                                       <select
@@ -8040,8 +8141,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-minors"
+                                                          id="label-number_of_minors"
                                                         >
-                                                          Number of Minors 
+                                                          Number of Minors
                                                         </label>
                                                       </Label>
                                                       <select
@@ -8216,8 +8318,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         <label
                                                           className="form-label"
                                                           htmlFor="demographics-marital-status"
+                                                          id="label-applicant.marital_status"
                                                         >
-                                                          Primary Applicant Marital Status 
+                                                          Primary Applicant Marital Status
                                                         </label>
                                                       </Label>
                                                       <select
@@ -8563,12 +8666,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "comment": "xxxx1",
                                         "date": "2018-05-10T19:54:11.000+0000",
                                         "status": "Approved",
+                                        "substatus": undefined,
                                         "timestamp": 1525982051,
                                       },
                                       Object {
                                         "comment": "xxxx2",
                                         "date": "2018-05-10T19:54:11.000+0000",
                                         "status": "Pending",
+                                        "substatus": undefined,
                                         "timestamp": 1525982051,
                                       },
                                     ],
@@ -8610,12 +8715,14 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               "comment": "xxxx1",
                                               "date": "2018-05-10T19:54:11.000+0000",
                                               "status": "Approved",
+                                              "substatus": undefined,
                                               "timestamp": 1525982051,
                                             },
                                             Object {
                                               "comment": "xxxx2",
                                               "date": "2018-05-10T19:54:11.000+0000",
                                               "status": "Pending",
+                                              "substatus": undefined,
                                               "timestamp": 1525982051,
                                             },
                                           ]
@@ -8764,6 +8871,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 items={
                                   Array [
                                     Object {
+                                      "commentRequired": true,
                                       "label": "Processing",
                                       "style": "is-processing",
                                       "value": "Processing",
@@ -8774,21 +8882,25 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "value": "Withdrawn",
                                     },
                                     Object {
+                                      "commentRequired": true,
                                       "label": "Appealed",
                                       "style": "is-appealed",
                                       "value": "Appealed",
                                     },
                                     Object {
+                                      "commentRequired": true,
                                       "label": "Waitlisted",
                                       "style": "is-waitlisted",
                                       "value": "Waitlisted",
                                     },
                                     Object {
+                                      "commentRequired": true,
                                       "label": "Disqualified",
                                       "style": "is-disqualified",
                                       "value": "Disqualified",
                                     },
                                     Object {
+                                      "commentRequired": true,
                                       "label": "Approved",
                                       "style": "is-approved",
                                       "value": "Approved",
@@ -8858,16 +8970,23 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                       <StatusModalWrapper
                         loading={false}
                         onClose={[Function]}
-                        onStatusChange={[Function]}
                         onSubmit={[Function]}
                       >
                         <FormModal
                           handleClose={[Function]}
+                          initialValues={
+                            Object {
+                              "comment": "",
+                              "status": "",
+                              "subStatus": "",
+                            }
+                          }
                           loading={false}
                           onSecondaryClick={[Function]}
                           onSubmit={[Function]}
                           secondary="cancel"
                           type="status"
+                          validateError={[Function]}
                         >
                           <Modal
                             handleClose={[Function]}

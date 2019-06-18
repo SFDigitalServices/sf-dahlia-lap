@@ -115,8 +115,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.type_of_assistance"
+                              id="label-rental_assistances.0.type_of_assistance"
                             >
-                              Type of Assistance 
+                              Type of Assistance
                             </label>
                             <select
                               className="rental-assistance-type"
@@ -219,8 +220,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.recurring_assistance"
+                              id="label-rental_assistances.0.recurring_assistance"
                             >
-                              Recurring Assistance 
+                              Recurring Assistance
                             </label>
                             <p
                               className="radio-inline"
@@ -273,8 +275,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             <label
                               className="form-label"
                               htmlFor="assistance_amount"
+                              id="label-rental_assistances.0.assistance_amount"
                             >
-                              Assistance Amount 
+                              Assistance Amount
                             </label>
                             <input
                               className=""
@@ -298,8 +301,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.recipient"
+                              id="label-rental_assistances.0.recipient"
                             >
-                              Recipient 
+                              Recipient
                             </label>
                             <select
                               className="rental-assistance-recipient"
@@ -379,8 +383,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             <label
               className="form-label"
               htmlFor="form-rental_assistances.1.type_of_assistance"
+              id="label-rental_assistances.1.type_of_assistance"
             >
-              Type of Assistance 
+              Type of Assistance
             </label>
             <select
               className="rental-assistance-type"
@@ -483,8 +488,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             <label
               className="form-label"
               htmlFor="form-rental_assistances.1.recurring_assistance"
+              id="label-rental_assistances.1.recurring_assistance"
             >
-              Recurring Assistance 
+              Recurring Assistance
             </label>
             <p
               className="radio-inline"
@@ -537,8 +543,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             <label
               className="form-label"
               htmlFor="assistance_amount"
+              id="label-rental_assistances.1.assistance_amount"
             >
-              Assistance Amount 
+              Assistance Amount
             </label>
             <input
               className=""
@@ -562,8 +569,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             <label
               className="form-label"
               htmlFor="form-rental_assistances.1.recipient"
+              id="label-rental_assistances.1.recipient"
             >
-              Recipient 
+              Recipient
             </label>
             <select
               className="rental-assistance-recipient"
@@ -751,8 +759,9 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.type_of_assistance"
+                              id="label-rental_assistances.0.type_of_assistance"
                             >
-                              Type of Assistance 
+                              Type of Assistance
                             </label>
                             <select
                               className="rental-assistance-type"
@@ -855,8 +864,9 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.recurring_assistance"
+                              id="label-rental_assistances.0.recurring_assistance"
                             >
-                              Recurring Assistance 
+                              Recurring Assistance
                             </label>
                             <p
                               className="radio-inline"
@@ -909,8 +919,9 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             <label
                               className="form-label"
                               htmlFor="assistance_amount"
+                              id="label-rental_assistances.0.assistance_amount"
                             >
-                              Assistance Amount 
+                              Assistance Amount
                             </label>
                             <input
                               className=""
@@ -934,8 +945,9 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.recipient"
+                              id="label-rental_assistances.0.recipient"
                             >
-                              Recipient 
+                              Recipient
                             </label>
                             <select
                               className="rental-assistance-recipient"
@@ -1124,8 +1136,9 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.type_of_assistance"
+                              id="label-rental_assistances.0.type_of_assistance"
                             >
-                              Type of Assistance 
+                              Type of Assistance
                             </label>
                             <select
                               className="rental-assistance-type"
@@ -1228,8 +1241,9 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.recurring_assistance"
+                              id="label-rental_assistances.0.recurring_assistance"
                             >
-                              Recurring Assistance 
+                              Recurring Assistance
                             </label>
                             <p
                               className="radio-inline"
@@ -1282,8 +1296,9 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             <label
                               className="form-label"
                               htmlFor="assistance_amount"
+                              id="label-rental_assistances.0.assistance_amount"
                             >
-                              Assistance Amount 
+                              Assistance Amount
                             </label>
                             <input
                               className=""
@@ -1307,8 +1322,9 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.recipient"
+                              id="label-rental_assistances.0.recipient"
                             >
-                              Recipient 
+                              Recipient
                             </label>
                             <select
                               className="rental-assistance-recipient"
@@ -1345,8 +1361,9 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             <label
                               className="form-label"
                               htmlFor="form-rental_assistances.0.other_assistance_name"
+                              id="label-rental_assistances.0.other_assistance_name"
                             >
-                              Other Assistance Name 
+                              Other Assistance Name
                             </label>
                             <input
                               className=""

@@ -6,6 +6,7 @@ module Listings
     before_action :authenticate_user!
     before_action :load_listing
     before_action :validate_listing!
+    before_action :listing_accepts_new_applications, only: [:new]
 
     def index
       @applications = soql_application_service.listing_applications(params[:listing_id])
@@ -36,6 +37,10 @@ module Listings
 
     def lending_institutions
       Force::CustomApi::LendingInstitutionsService.new(current_user).lending_institutions
+    end
+
+    def listing_accepts_new_applications
+      redirect_to listing_url(id: @listing.Id) if @listing&.Lottery_Status != 'Not Yet Run'
     end
   end
 end
