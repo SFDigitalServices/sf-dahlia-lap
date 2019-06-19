@@ -48,7 +48,7 @@ const StatusModalWrapper = ({
       }
       return errors
     }} >
-    {(values) => (
+    {(values, changeFieldValue) => (
       <div className={'form-group'}>
         <h2 className='form-label'>Status</h2>
         {/* Inline field due to the nested level throwing error in react-final-form */}
@@ -57,7 +57,10 @@ const StatusModalWrapper = ({
             <React.Fragment>
               <StatusDropdown
                 status={values.status}
-                onChange={onChange}
+                onChange={val => {
+                  onChange(val)
+                  changeFieldValue('subStatus', null)
+                }}
                 buttonClasses={['margin-bottom--half', 'expand', 'small']}
                 menuClasses={['form-modal_dropdown-menu']}
                 wrapperClasses={['status']} />

@@ -12,27 +12,42 @@ export const LEASE_UP_STATUS_OPTIONS = [
 
 export const LEASE_UP_SUBSTATUS_OPTIONS = {
   Withdrawn: [
-    { value: 'Written withdrawal', label: 'Written withdrawal' },
-    { value: 'Verbal withdrawal', label: 'Verbal withdrawal', commentRequired: true },
-    { value: 'Letter sent to applicant confirming withdrawal', label: 'Letter sent to applicant confirming withdrawal' }
+    {value: 'Written withdrawal', label: 'Written withdrawal'},
+    {value: 'Verbal withdrawal', label: 'Verbal withdrawal', commentRequired: true},
+    {value: 'Letter sent to applicant confirming withdrawal', label: 'Letter sent to applicant confirming withdrawal'}
   ],
   Appealed: [
-    { value: 'Pending documentation from third party', label: 'Pending documentation from third party' },
-    { value: 'None of the above', label: 'None of the above' }
+    {value: 'Pending documentation from applicant to support request', label: 'Pending documentation from applicant to support request'},
+    {value: 'Pending documentation from third party', label: 'Pending documentation from third party'},
+    {value: 'Appeal meeting scheduled', label: 'Appeal meeting scheduled'},
+    {value: 'None of the above', label: 'None of the above'}
   ],
   Waitlisted: [
-    { value: 'None of the above', label: 'None of the above' }
+    {value: 'Written confirmation sent', label: 'Written confirmation sent'},
+    {value: 'None of the above', label: 'None of the above'}
   ],
   Disqualified: [
-    { value: 'No response after two or more attempts', label: 'No response after two or more attempts' },
-    { value: 'Does not meet credit standards', label: 'Does not meet credit standards' }
+    {value: 'No response after two or more attempts', label: 'No response after two or more attempts'},
+    {value: 'Missed 2 or more appointments', label: 'Missed 2 or more appointments'},
+    {value: 'Under occupancy', label: 'Under occupancy'},
+    {value: 'Over occupancy', label: 'Over occupancy'},
+    {value: 'Missing documents', label: 'Missing documents'},
+    {value: 'Under income, no rent subsidy', label: 'Under income, no rent subsidy'},
+    {value: 'Over income', label: 'Over income'},
+    {value: 'Does not meet credit standards', label: 'Does not meet credit standards'},
+    {value: 'Does not meet criminal background', label: 'Does not meet criminal background'},
+    {value: 'Does not meet other building restrictions', label: 'Does not meet other building restrictions'},
+    {value: 'Unit did not pass subsidy inspection', label: 'Unit did not pass subsidy inspection'},
+    {value: 'Does not meet age restrictions', label: 'Does not meet age restrictions'}
   ],
   Approved: [
-    { value: 'Waiting for subsidy inspection', label: 'Waiting for subsidy inspection' }
+    {value: 'Approval letter sent', label: 'Approval letter sent'},
+    {value: 'Unit selected', label: 'Unit selected'},
+    {value: 'Waiting for subsidy inspection', label: 'Waiting for subsidy inspection'}
   ]
 }
 
-export const getLeaseUpStatusClass = (status) => {
+export const getLeaseUpStatusClass = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, {value: status})
   return statusOption ? statusOption.style : 'tertiary'
 }
@@ -48,7 +63,7 @@ export const statusRequiresComments = (status, substatus) => {
   return false
 }
 
-export const validateStatusForm = (values) => {
+export const validateStatusForm = values => {
   if (statusRequiresComments(values.status, values.subStatus) && values.comment.length) {
     return true
   } else if (values.status && !statusRequiresComments(values.status, values.subStatus)) {
