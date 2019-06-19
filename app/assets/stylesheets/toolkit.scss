@@ -9455,7 +9455,11 @@ table, .ReactTable {
   max-width: 200px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
   display: block;
-  left: 0; }
+  left: 0;
+  &.form-modal_dropdown-menu {
+    overflow: scroll;
+    max-height: 40vh;
+  }}
   .dropdown-menu.open {
     display: block; }
   .dropdown-menu > *:first-child {
