@@ -30,6 +30,6 @@ export const currencyToFloat = (value) => {
   if (!isEmpty(value) && isString(value)) {
     return parseFloat(value.replace('$', '').replace(',', ''))
   } else {
-    return null
+    return value
   }
 }
