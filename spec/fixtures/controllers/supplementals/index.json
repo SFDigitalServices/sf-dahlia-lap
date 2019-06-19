@@ -54,7 +54,7 @@
   "Status": "Submitted",
   "Total_Household_Size": 1.0,
   "Application_Submission_Type": "Electronic",
-  "Application_Submitted_Date": "2019-05-15",
+  "Application_Submitted_Date": "2019-06-19",
   "CreatedBy": {
     "attributes": {
       "type": "User",
@@ -63,9 +63,9 @@
     "Name": "DAHLIA API"
   },
   "Annual_Income": 5000.0,
-  "Confirmed_Household_Annual_Income": 358.47,
-  "Household_Assets": 496.59,
-  "HH_Total_Income_with_Assets_Annual": 803.16,
+  "Confirmed_Household_Annual_Income": 412.78,
+  "Household_Assets": 560.06,
+  "HH_Total_Income_with_Assets_Annual": 916.52,
   "Has_Completed_Homebuyer_Education": false,
   "Has_Loan_Pre_approval": false,
   "Is_First_Time_Homebuyer": false,
@@ -75,7 +75,7 @@
   "Application_Language": "English",
   "Lottery_Number_Manual": null,
   "Lottery_Number": "00243697",
-  "Total_Monthly_Rent": 0.0,
+  "Total_Monthly_Rent": null,
   "General_Lottery": false,
   "General_Lottery_Rank": null,
   "Answered_Community_Screening": null,
@@ -133,7 +133,7 @@
       "Name": "AP-0000826199",
       "Preference_Name": "Live or Work in San Francisco Preference",
       "Person_who_claimed_Name": "Automated Test Lease Up Application (do not modify)",
-      "Type_of_proof": "Telephone bill",
+      "Type_of_proof": "Paystub with employer address",
       "Opt_Out": false,
       "Lottery_Status": "None",
       "Preference_Lottery_Rank": 13.0,
@@ -149,7 +149,7 @@
         "Date_of_Birth": "1989-01-05",
         "Id": "a0n0P00000D3qIZQAZ"
       },
-      "Individual_preference": "Live in SF",
+      "Individual_preference": "Work in SF",
       "Certificate_Number": null,
       "Preference_Order": 4.0,
       "RecordType": {
@@ -159,12 +159,12 @@
         },
         "DeveloperName": "L_W"
       },
-      "LW_Type_of_Proof": "Telephone bill",
+      "LW_Type_of_Proof": "Paystub with employer address",
       "City": null,
       "State": null,
       "Street": null,
       "Zip_Code": null,
-      "Post_Lottery_Validation": "Confirmed",
+      "Post_Lottery_Validation": "Unconfirmed",
       "Total_Household_Rent": 0.0
     },
     {
@@ -309,7 +309,7 @@
       "State": null,
       "Street": null,
       "Zip_Code": null,
-      "Post_Lottery_Validation": "Confirmed",
+      "Post_Lottery_Validation": "Unconfirmed",
       "Total_Household_Rent": 0.0
     },
     {
@@ -399,12 +399,16 @@
   "lease": {
     "id": "a130P000005TeZrQAK",
     "unit": "a0b0P00001HIHrnQAH",
-    "lease_start_date": {"year": "2019", "month": "01", "day":"01"},
+    "lease_start_date": {
+      "year": "2019",
+      "month": "01",
+      "day": "01"
+    },
     "lease_status": "Draft",
-    "monthly_parking_rent": "$75.56",
+    "monthly_parking_rent": "$741.11",
     "preference_used": null,
     "no_preference_used": true,
-    "total_monthly_rent_without_parking": "$150.17",
-    "monthly_tenant_contribution": "$838.49"
+    "total_monthly_rent_without_parking": "$576.55",
+    "monthly_tenant_contribution": "$321.90"
   }
 }
