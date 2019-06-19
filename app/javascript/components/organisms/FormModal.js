@@ -46,7 +46,7 @@ const FormModalBody = ({
             onSubmit={onSubmit}
             validate={validateError}
             {...(initialValues ? { initialValues } : {})}
-            render={({ handleSubmit, values, change }) => (
+            render={({ handleSubmit, values, form: { change } }) => (
               <form onSubmit={handleSubmit} className='no-margin' noValidate>
                 <Modal.Content>
                   {children(values, change)}

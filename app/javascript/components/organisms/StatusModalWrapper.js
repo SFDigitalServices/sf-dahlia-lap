@@ -59,9 +59,7 @@ const StatusModalWrapper = ({
                 status={values.status}
                 onChange={val => {
                   onChange(val)
-                  if (!LEASE_UP_SUBSTATUS_OPTIONS[val]) {
-                    changeFieldValue('subStatus', null)
-                  }
+                  changeFieldValue('subStatus', null)
                 }}
                 buttonClasses={['margin-bottom--half', 'expand', 'small']}
                 menuClasses={['form-modal_dropdown-menu']}
