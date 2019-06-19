@@ -1476,7 +1476,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       "Id": "a0o0x000000OcOzAAK",
       "Listing": Object {
         "Id": "a0W0x000000GhJUEA0",
-        "Is_Lottery_Complete": false,
         "Name": "Test 5/30",
         "Reserved_community_type": null,
         "attributes": Object {
