@@ -29,6 +29,9 @@ describe('ApplicationNewPage', () => {
 
     // Save the application
     await page.click('.save-btn')
+    // Verify that no errors are present on save
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toStrictEqual([])
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -88,6 +91,9 @@ describe('ApplicationNewPage', () => {
     await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
 
     await page.click('.save-btn')
+    // Verify that no errors are present on save
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toStrictEqual([])
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -175,6 +181,9 @@ describe('ApplicationNewPage', () => {
     await utils.blurValidation(page, 'select[name="preferences.0.naturalKey"]')
 
     await page.click('.save-btn')
+    // Verify that no errors are present on save
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toStrictEqual([])
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -252,6 +261,9 @@ describe('ApplicationNewPage', () => {
 
     // Save the application
     await page.click('.save-btn')
+    // Verify that no errors are present on save
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toStrictEqual([])
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -300,11 +312,18 @@ describe('ApplicationNewPage', () => {
     await page.click('#has_loan_preapproval')
     await page.click('#has_completed_homebuyer_education')
     await page.click('#is_first_time_homebuyer')
-    await page.select('#lending_institution', LENDING_INSTITUTION)
-    await page.select('#lending_agent', LENDING_AGENT_ID)
+    let selectedInstitution = await page.select('#lending_institution', LENDING_INSTITUTION)
+    let selectedAgent = await page.select('#lending_agent', LENDING_AGENT_ID)
+    // Verify that lending agent was selected as expected, for debugging
+    expect(selectedInstitution[0]).toBe(LENDING_INSTITUTION)
+    expect(selectedAgent[0]).toBe(LENDING_AGENT_ID)
 
     // Save the application
     await page.click('.save-btn')
+    // Verify that no errors are present on save
+    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toStrictEqual([])
+
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
