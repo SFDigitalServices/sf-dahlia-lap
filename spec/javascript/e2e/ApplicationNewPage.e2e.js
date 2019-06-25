@@ -90,10 +90,10 @@ describe('ApplicationNewPage', () => {
     await page.type('#household_members_0_date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
     await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
 
+    // Save the application and verify there are no form errors
     await page.click('.save-btn')
-    // Verify that no errors are present on save
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toStrictEqual([])
+    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
+
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -180,10 +180,10 @@ describe('ApplicationNewPage', () => {
     await page.select('#form-preferences\\.0\\.type_of_proof', telephoneBillDropdownValue)
     await utils.blurValidation(page, 'select[name="preferences.0.naturalKey"]')
 
+    // Save and verify that there are no form errors
     await page.click('.save-btn')
-    // Verify that no errors are present on save
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toStrictEqual([])
+    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
+
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -259,11 +259,10 @@ describe('ApplicationNewPage', () => {
     await page.focus('#alt_middle_name')
     await page.keyboard.press('Backspace')
 
-    // Save the application
+    // Save the application and verify there are no form errors
     await page.click('.save-btn')
-    // Verify that no errors are present on save
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toStrictEqual([])
+    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
+
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
 
@@ -318,11 +317,9 @@ describe('ApplicationNewPage', () => {
     expect(selectedInstitution[0]).toBe(LENDING_INSTITUTION)
     expect(selectedAgent[0]).toBe(LENDING_AGENT_ID)
 
-    // Save the application
+    // Save the application and verify that there are no form errors
     await page.click('.save-btn')
-    // Verify that no errors are present on save
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toStrictEqual([])
+    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
 
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)

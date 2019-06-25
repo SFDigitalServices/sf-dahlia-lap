@@ -1,3 +1,5 @@
+import sharedSteps from './sharedSteps'
+
 const testStatusModalUpdate = async (page) => {
   const COMMENT = 'This is a comment.'
   // Wait for the status modal to appear
@@ -15,8 +17,7 @@ const testStatusModalUpdate = async (page) => {
   // Submit the status modal form
   await page.click('.form-modal_form_wrapper button.primary')
   // Verify that no form-field errors are present on save
-  const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-  expect(errors).toStrictEqual([])
+  expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
 
   // Verify that the response from salesforce was a success
   await page.on('response', async (response) => {

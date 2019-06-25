@@ -67,6 +67,12 @@ const selectedOptionSelector = (fieldSelector) => {
   return `${fieldSelector} option:checked`
 }
 
+const getFormErrors = async (page) => {
+  // Return list of errors present on a form
+  const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+  return errors
+}
+
 export default {
   loginAsAgent,
   goto,
@@ -76,5 +82,6 @@ export default {
   getText,
   generateRandomString,
   notSelectedOptionSelector,
-  selectedOptionSelector
+  selectedOptionSelector,
+  getFormErrors
 }
