@@ -213,7 +213,7 @@
     "id": "a0W0P00000F8YG4UAN",
     "name": "Automated Test Listing (do not modify)",
     "is_sale": false,
-    "is_lottery_complete": true
+    "is_lottery_complete": false
   },
   "proof_files": [],
   "flagged_applications": [
