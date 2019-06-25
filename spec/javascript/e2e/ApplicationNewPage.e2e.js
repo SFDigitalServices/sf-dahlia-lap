@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer'
 
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { applicationRouteCheck } from '../support/puppeteer/steps/applications'
+import { applicationRedirectRouteCheck } from '../support/puppeteer/steps/applications'
 import {
   NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID, LEASE_UP_LISTING_ID,
   FIRST_NAME, LAST_NAME, TRUNCATED_FIRST_NAME, TRUNCATED_LAST_NAME, DOB_MONTH, DOB_DAY, DOB_YEAR,
@@ -324,6 +324,6 @@ describe('ApplicationNewPage', () => {
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should redirect when lottery_status is anything other than "Not Yet Run"', async () => {
-    await applicationRouteCheck('new', LEASE_UP_LISTING_ID)
+    await applicationRedirectRouteCheck('new', LEASE_UP_LISTING_ID)
   }, DEFAULT_E2E_TIME_OUT)
 })
