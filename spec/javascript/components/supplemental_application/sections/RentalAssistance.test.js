@@ -13,7 +13,7 @@ const baseContext = {
   showNewRentalAssistancePanel: false,
   handleOpenRentalAssistancePanel: () => { },
   handleCloseRentalAssistancePanel: () => { },
-  handleSaveNewRentalAssistance: () => { },
+  handleSaveRentalAssistance: () => { },
   showAddRentalAssistanceBtn: () => { },
   hideAddRentalAssistanceBtn: () => { }
 }

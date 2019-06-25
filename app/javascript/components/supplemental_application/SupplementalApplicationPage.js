@@ -211,39 +211,20 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleSaveNewRentalAssistance = async (rentalAssistance) => {
-    // Salesforce does not accept currency strings. TODO: Move this into the form
+  handleSaveRentalAssistance = async (rentalAssistance, action = 'create') => {
+    let rentalAssistanceAction
+    // Salesforce does not accept currency strings.
     rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
-    const response = await this.handleRentalAssistanceAction(apiService.createRentalAssistance)(
-      rentalAssistance,
-      this.state.persistedApplication.id
-    )
-    // show price in right format
-    rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
-    if (response) {
-      rentalAssistance.id = response.id
-      this.setState(prev => {
-        return {
-          persistedApplication: {
-            ...prev.persistedApplication,
-            rental_assistances: [...prev.persistedApplication.rental_assistances, rentalAssistance]
-          },
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
-        }
-      })
+    if (action === 'update') {
+      rentalAssistanceAction = apiService.updateRentalAssistance
+      if (rentalAssistance.type_of_assistance !== 'Other') {
+        rentalAssistance.other_assistance_name = null
+      }
+    } else if (action === 'create') {
+      rentalAssistanceAction = apiService.createRentalAssistance
     }
-    return response
-  }
 
-  handleUpdateRentalAssistance = async (rentalAssistance) => {
-    // Salesforce does not accept currency strings. TODO: Move this into the form
-    rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
-    if (rentalAssistance.type_of_assistance !== 'Other') {
-      rentalAssistance.other_assistance_name = null
-    }
-    const response = await this.handleRentalAssistanceAction(apiService.updateRentalAssistance)(
+    const response = await this.handleRentalAssistanceAction(rentalAssistanceAction)(
       rentalAssistance,
       this.state.persistedApplication.id
     )
@@ -370,8 +351,7 @@ class SupplementalApplicationPage extends React.Component {
       hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
-      handleSaveNewRentalAssistance: this.handleSaveNewRentalAssistance,
-      handleUpdateRentalAssistance: this.handleUpdateRentalAssistance,
+      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
     }
 

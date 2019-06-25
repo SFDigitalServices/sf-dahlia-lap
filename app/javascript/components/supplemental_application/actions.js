@@ -8,7 +8,7 @@ export const updateApplication = async (application, prevApplication) => {
   const promises = [updateLease(application['lease'], application['primaryApplicantContact'], application['id'])]
 
   // Conctact lease promise with rental assistances
-  promises.concat(updateRentalAssistances(application, prevApplication))
+  promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
   const applicationApi = domainToApi.buildApplicationShape(application)
   promises.push(apiService.submitApplication(applicationApi))
   const responses = await Promise.all(promises)
@@ -16,12 +16,12 @@ export const updateApplication = async (application, prevApplication) => {
   return every(responses, (promise) => promise !== false)
 }
 
-const updateRentalAssistances = (application, prevApplication) => {
+const updateUnsavedRentalAssistances = (application, prevApplication) => {
   if (isEmpty(application.rental_assistances)) return []
   const promises = []
 
   application.rental_assistances.forEach(rentalAssistance => {
-    // Salesforce does not accept currency strings. TODO: Move this into the form
+    // Salesforce does not accept currency strings.
     rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
     // update rental assistances without id (new) and changed
     if (isEmpty(rentalAssistance.id)) {

@@ -97,7 +97,7 @@ class RentalAssistanceTable extends React.Component {
 
 const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }) => {
   const {
-    handleUpdateRentalAssistance,
+    handleSaveRentalAssistance,
     handleDeleteRentalAssistance,
     applicationMembers,
     handleCloseRentalAssistancePanel,
@@ -105,7 +105,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   } = store
 
   const onSave = async (index, values) => {
-    const updateResult = await handleUpdateRentalAssistance(values)
+    const updateResult = await handleSaveRentalAssistance(values, 'update')
     if (updateResult) toggle()
   }
 
@@ -262,14 +262,14 @@ const RentalAssistance = ({ store, form }) => {
     showNewRentalAssistancePanel,
     handleOpenRentalAssistancePanel,
     handleCloseRentalAssistancePanel,
-    handleSaveNewRentalAssistance,
+    handleSaveRentalAssistance,
     showAddRentalAssistanceBtn,
     hideAddRentalAssistanceBtn,
     rentalAssistanceLoading
   } = store
 
   const onSave = async (_, values) => {
-    await handleSaveNewRentalAssistance(values)
+    await handleSaveRentalAssistance(values, 'create')
   }
 
   const onClose = () => {
