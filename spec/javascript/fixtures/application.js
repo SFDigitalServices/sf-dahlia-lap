@@ -82,7 +82,6 @@ const application = {
   },
   "Annual_Income": 110000,
   "Monthly_Income": null,
-  "Is_Lottery_Complete": false,
   "Housing_Voucher_or_Subsidy": "true",
   "Referral_Source": null,
   "Application_Language": "English",

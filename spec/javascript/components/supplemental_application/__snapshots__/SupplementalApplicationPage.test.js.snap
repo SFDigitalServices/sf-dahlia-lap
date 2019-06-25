@@ -1474,7 +1474,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       "Household_Assets": null,
       "Housing_Voucher_or_Subsidy": "true",
       "Id": "a0o0x000000OcOzAAK",
-      "Is_Lottery_Complete": false,
       "Listing": Object {
         "Id": "a0W0x000000GhJUEA0",
         "Name": "Test 5/30",
@@ -1666,7 +1665,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "housing_voucher_or_subsidy": "true",
         "id": "a0o0x000000OcOzAAK",
         "is_first_time_homebuyer": undefined,
-        "is_lottery_complete": false,
         "lease": undefined,
         "lending_agent": undefined,
         "listing": Object {
@@ -2125,7 +2123,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "housing_voucher_or_subsidy": "true",
                           "id": "a0o0x000000OcOzAAK",
                           "is_first_time_homebuyer": undefined,
-                          "is_lottery_complete": false,
                           "lease": undefined,
                           "lending_agent": undefined,
                           "listing": Object {
@@ -2407,7 +2404,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "housing_voucher_or_subsidy": "true",
                           "id": "a0o0x000000OcOzAAK",
                           "is_first_time_homebuyer": undefined,
-                          "is_lottery_complete": false,
                           "lease": undefined,
                           "lending_agent": undefined,
                           "listing": Object {
@@ -2607,7 +2603,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "housing_voucher_or_subsidy": "true",
                                   "id": "a0o0x000000OcOzAAK",
                                   "is_first_time_homebuyer": undefined,
-                                  "is_lottery_complete": false,
                                   "lease": undefined,
                                   "lending_agent": undefined,
                                   "listing": Object {
@@ -3078,7 +3073,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "housing_voucher_or_subsidy": "true",
                               "id": "a0o0x000000OcOzAAK",
                               "is_first_time_homebuyer": undefined,
-                              "is_lottery_complete": false,
                               "lease": undefined,
                               "lending_agent": undefined,
                               "listing": Object {
@@ -3378,7 +3372,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "housing_voucher_or_subsidy": "true",
                                       "id": "a0o0x000000OcOzAAK",
                                       "is_first_time_homebuyer": undefined,
-                                      "is_lottery_complete": false,
                                       "lease": undefined,
                                       "lending_agent": undefined,
                                       "listing": Object {
@@ -3650,7 +3643,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "housing_voucher_or_subsidy": "true",
                                         "id": "a0o0x000000OcOzAAK",
                                         "is_first_time_homebuyer": undefined,
-                                        "is_lottery_complete": false,
                                         "lease": undefined,
                                         "lending_agent": undefined,
                                         "listing": Object {
@@ -3923,7 +3915,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "housing_voucher_or_subsidy": "true",
                                           "id": "a0o0x000000OcOzAAK",
                                           "is_first_time_homebuyer": undefined,
-                                          "is_lottery_complete": false,
                                           "lease": undefined,
                                           "lending_agent": undefined,
                                           "listing": Object {
@@ -6101,7 +6092,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "housing_voucher_or_subsidy": "true",
                                           "id": "a0o0x000000OcOzAAK",
                                           "is_first_time_homebuyer": undefined,
-                                          "is_lottery_complete": false,
                                           "lease": undefined,
                                           "lending_agent": undefined,
                                           "listing": Object {
@@ -7467,7 +7457,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "housing_voucher_or_subsidy": "true",
                                         "id": "a0o0x000000OcOzAAK",
                                         "is_first_time_homebuyer": undefined,
-                                        "is_lottery_complete": false,
                                         "lease": undefined,
                                         "lending_agent": undefined,
                                         "listing": Object {
@@ -8525,7 +8514,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "housing_voucher_or_subsidy": "true",
                                       "id": "a0o0x000000OcOzAAK",
                                       "is_first_time_homebuyer": undefined,
-                                      "is_lottery_complete": false,
                                       "lease": undefined,
                                       "lending_agent": undefined,
                                       "listing": Object {
