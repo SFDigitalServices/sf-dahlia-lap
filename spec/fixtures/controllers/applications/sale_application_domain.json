@@ -141,10 +141,11 @@
   "listing": {
     "id": "a0W0P00000GlKfBUAV",
     "name": "Sale Test Listing (do not modify) - Homeownership Acres",
-    "is_sale": true
+    "is_sale": true,
+    "is_lottery_complete": false
   },
   "lending_institution": "Homestreet Bank",
-  "name_of_lender": "Jason Lockhart",
+  "name_of_lender": "Jason Lockhart III",
   "proof_files": [
     {
       "id": "0680t000000zUfOAAU",

@@ -21,7 +21,7 @@ const fields = {
   'annual_income': null,
   'monthly_income': null,
   'is_first_time_homebuyer': null,
-  'is_lottery_complete': null,
+  'listing.is_lottery_complete': null,
   'housing_voucher_or_subsidy': null,
   'referral_source': null,
   'application_language': null,

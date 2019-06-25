@@ -60,7 +60,6 @@ const application = {
   "Monthly_Income": null,
   "HH_Total_IncomeWith_Assets": null,
   "Household_Assets": null,
-  "Is_Lottery_Complete": false,
   "Housing_Voucher_or_Subsidy": "true",
   "Referral_Source": null,
   "Application_Language": "English",

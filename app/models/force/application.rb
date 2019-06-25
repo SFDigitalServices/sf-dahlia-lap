@@ -36,7 +36,6 @@ module Force
       { custom_api: 'housingCounselingAgency', domain: '', salesforce: 'Which_One' },
       { custom_api: 'id', domain: 'id', salesforce: 'Id' },
       { custom_api: 'interviewScheduledDate', domain: '', salesforce: 'Interview_Scheduled_Date' },
-      { custom_api: '', domain: 'is_lottery_complete', salesforce: 'Is_Lottery_Complete' },
       { custom_api: 'listingID', domain: '', salesforce: 'Listing' },
       { custom_api: 'lotteryNumber', domain: 'lottery_number', salesforce: 'Lottery_Number' },
       { custom_api: 'lotteryNumberManual', domain: 'lottery_number_manual', salesforce: 'Lottery_Number_Manual' },

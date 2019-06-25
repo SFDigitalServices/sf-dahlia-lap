@@ -36,7 +36,6 @@ export const mapApplication = (a) => {
     hh_total_income_with_assets_annual: formUtils.formatPrice(a.HH_Total_Income_with_Assets_Annual),
     household_assets: formUtils.formatPrice(a.Household_Assets),
     monthly_income: a.Monthly_Income,
-    is_lottery_complete: a.Is_Lottery_Complete,
     housing_voucher_or_subsidy: a.Housing_Voucher_or_Subsidy,
     referral_source: a.Referral_Source,
     application_language: a.Application_Language,

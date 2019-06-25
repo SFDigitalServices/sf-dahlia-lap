@@ -102,7 +102,6 @@ applications:
     Household_Assets__c:
     HH_Total_Income_with_Assets_Annual__c:
     Monthly_Income__c:
-    Is_Lottery_Complete__c:
     Housing_Voucher_or_Subsidy__c:
     Referral_Source__c:
     Application_Language__c:
