@@ -7,7 +7,7 @@ import { currencyToFloat } from '~/utils/utils'
 export const updateApplication = async (application, prevApplication) => {
   const promises = [updateLease(application['lease'], application['primaryApplicantContact'], application['id'])]
 
-  // Conctact lease promise with rental assistances
+  // Concat lease promise with rental assistances
   promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
   const applicationApi = domainToApi.buildApplicationShape(application)
   promises.push(apiService.submitApplication(applicationApi))
