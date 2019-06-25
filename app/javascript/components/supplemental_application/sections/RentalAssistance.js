@@ -87,7 +87,6 @@ class RentalAssistanceTable extends React.Component {
             expanderRenderer={this.expanderRenderer}
             expandedRowRenderer={this.expandedRowRenderer(rentalAssistances, form)}
             classes={['rental-assistances']}
-            // fields={fields}
           />
         </React.Fragment>
       </TableWrapper>
