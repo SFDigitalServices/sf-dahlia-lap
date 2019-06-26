@@ -2,7 +2,6 @@ import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 import { isEmpty, find, isEqual, every } from 'lodash'
-import { currencyToFloat } from '~/utils/utils'
 
 export const updateApplication = async (application, prevApplication) => {
   const promises = [updateLease(application['lease'], application['primaryApplicantContact'], application['id'])]
@@ -21,8 +20,6 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
   const promises = []
 
   application.rental_assistances.forEach(rentalAssistance => {
-    // Salesforce does not accept currency strings.
-    rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
     // update rental assistances without id (new) and changed
     if (isEmpty(rentalAssistance.id)) {
       promises.push(apiService.createRentalAssistance(rentalAssistance, application.id))

@@ -21,5 +21,12 @@ module Force
 
       domain_fields
     end
+
+    def to_salesforce
+      salesforce_fields = super
+      currency_to_float('Assistance_Amount__c', salesforce_fields)
+
+      salesforce_fields
+    end
   end
 end
