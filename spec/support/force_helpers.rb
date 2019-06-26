@@ -12,6 +12,8 @@ module ForceHelpers
 
   SALE_APPLICATION_ID = 'a0o0t000000lkg8AAA'
 
+  PAPER_APPLICATION_LOTTERY_COMPLETED_ID = 'a0o0P00000GZawFQAT'
+
   def valid_listing_id
     YELLOW_ACRES_LISTING_ID
   end
@@ -41,5 +43,9 @@ module ForceHelpers
 
   def not_yet_run_listing_id
     NOT_YET_RUN_LISTING_ID
+  end
+
+  def paper_app_lottery_complete_id
+    PAPER_APPLICATION_LOTTERY_COMPLETED_ID
   end
 end
