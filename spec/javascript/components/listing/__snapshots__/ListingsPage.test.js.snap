@@ -278,6 +278,7 @@ Array [
                     "width": "100%",
                   }
                 }
+                value="all"
               >
                 <option
                   value="all"
@@ -3323,6 +3324,7 @@ Array [
                     "width": "100%",
                   }
                 }
+                value="all"
               >
                 <option
                   value="all"

@@ -63,9 +63,11 @@ class IndexTable extends React.Component {
       }
       // TO DO: update when Mobx is implemented so no need to pass page
       if (column.Header === 'Listing Name' && this.props.page === 'listing_index') {
+        // Allow filtering by typing
         column.filterable = true
       }
       if (column.Header === 'Listing Name' && !(this.props.page === 'listing_index')) {
+        // Filter via dropdown
         column.filterable = true
         column.filterMethod = (filter, row) => {
           if (filter.value === 'all') {
@@ -74,31 +76,25 @@ class IndexTable extends React.Component {
           return row[filter.id] === filter.value
         }
         column.Filter = ({ filter, onChange }) => {
-          let listingOptions = []
-          let i = 0
           let uniqListings = uniqBy(map(this.props.results, (result) => {
-            return {
-              name: result['Listing.Name'] || result['listing_name'],
-              lotteryDate: moment(result['Listing.Lottery_Date'] || result['listing_lottery_date'])
-            }
+            return { name: result['Listing.Name'] || result['listing_name'] }
           }), 'name')
           let sortedUniqListings = sortBy(uniqListings, (listing) => {
-            return listing.lotteryDate
+            return listing.name
           })
 
-          each(sortedUniqListings, (listing) => {
+          let listingOptions = []
+          each(sortedUniqListings, (listing, i) => {
             listingOptions.push(
-              <option value={listing.name} key={i++}>{listing.name}</option>
+              <option value={listing.name} key={i}>{listing.name}</option>
             )
           })
-
-          const selectFilterValue = filter ? filter.value : (sortedUniqListings[0] ? sortedUniqListings[0].name : undefined)
 
           return (
             <select
               onChange={event => onChange(event.target.value)}
               style={{ width: '100%' }}
-              value={selectFilterValue}
+              value={filter ? filter.value : 'all'}
             >
               <option value='all'>Show All</option>
               {listingOptions}
@@ -132,8 +128,7 @@ class IndexTable extends React.Component {
         data={data}
         SubComponent={row => {
           let linkTags = []
-          let i = 0
-          each(links, (link) => {
+          each(links, (link, i) => {
             let href = ''
             const originalId = row.original.Id || row.original.id
             if (link === 'View Listing') {
@@ -147,7 +142,7 @@ class IndexTable extends React.Component {
             }
             if (href) {
               linkTags.push(
-                <li key={i++}>
+                <li key={i}>
                   <a className='button secondary tiny' href={href}>
                     {link}
                   </a>
