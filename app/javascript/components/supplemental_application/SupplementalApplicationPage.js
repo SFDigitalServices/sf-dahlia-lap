@@ -212,6 +212,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveRentalAssistance = async (rentalAssistance, action = 'create') => {
     let rentalAssistanceAction
+
     if (action === 'update') {
       rentalAssistanceAction = apiService.updateRentalAssistance
       if (rentalAssistance.type_of_assistance !== 'Other') {
@@ -227,11 +228,18 @@ class SupplementalApplicationPage extends React.Component {
     )
     // show price in right format
     rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
+
     if (response) {
       this.setState(prev => {
         const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
-        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
-        rentalAssistances[idx] = rentalAssistance
+
+        if (action === 'update') {
+          const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+          rentalAssistances[idx] = rentalAssistance
+        } else if (action === 'create') {
+          rentalAssistance.id = response.id
+          rentalAssistances.push(rentalAssistance)
+        }
 
         return {
           persistedApplication: {
