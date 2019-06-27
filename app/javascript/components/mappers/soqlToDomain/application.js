@@ -24,6 +24,7 @@ export const mapApplication = (a) => {
     household_members: mapList(mapApplicationMember, a.household_members),
     flagged_applications: mapList(mapFlaggedApplication, a.flagged_applications),
     lease: a.lease,
+    rental_assistances: a.rental_assistances,
     createdby: mapShape(mapUser, a.CreatedBy),
     id: a.Id,
     name: a.Name,

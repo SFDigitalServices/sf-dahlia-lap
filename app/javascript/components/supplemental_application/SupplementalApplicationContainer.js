@@ -190,9 +190,7 @@ class SupplementalApplicationContainer extends React.Component {
               />
               <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
               <LeaseInformationSection form={form} />
-            </form>
-            <RentalAssistanceSection form={form} />
-            <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
+              <RentalAssistanceSection form={form} />
               <DemographicsSection />
               <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />

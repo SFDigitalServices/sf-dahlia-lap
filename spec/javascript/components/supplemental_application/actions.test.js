@@ -2,9 +2,12 @@ import { updateApplication } from 'components/supplemental_application/actions'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 import mockSupplementalSubmitPayload from '../../fixtures/supplemental_submit_payload'
+import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
 const mockSubmitLeaseFn = jest.fn()
+const mockCreateRentalFn = jest.fn()
+const mockUpdateRentalFn = jest.fn()
 
 jest.mock('apiService', () => {
   const mockSubmitApplication = async (data) => {
@@ -17,9 +20,21 @@ jest.mock('apiService', () => {
     return true
   }
 
+  const mockCreateRental = async (data) => {
+    mockCreateRentalFn(data)
+    return true
+  }
+
+  const mockUpdateRental = async (data) => {
+    mockUpdateRentalFn(data)
+    return true
+  }
+
   return {
     submitApplication: mockSubmitApplication,
-    createOrUpdateLease: mockCreateOrUpdateLease
+    createOrUpdateLease: mockCreateOrUpdateLease,
+    createRentalAssistance: mockCreateRental,
+    updateRentalAssistance: mockUpdateRental
   }
 })
 
@@ -62,5 +77,26 @@ describe('updateApplication', () => {
     expect(response).toEqual(true)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(0)
+  })
+  test('it should create and update rental assistances', async () => {
+    const baseApplication = {
+      'id': 'appID',
+      'name': 'APP-12345',
+      'listing': {
+        'id': 'listingID'
+      },
+      'rental_assistances': [
+        {id: 'abc1', assistance_amount: 11, recipient: 'recipient'},
+        {id: 'abc2', assistance_amount: 22, recipient: 'recipient2'}
+      ]
+    }
+    const application = cloneDeep(baseApplication)
+    application.rental_assistances[0].assistance_amount = 22
+    application.rental_assistances[2] = {assistance_amount: 22, recipient: 'recipient3'}
+
+    const response = await updateApplication(application, baseApplication)
+    expect(response).toEqual(true)
+    expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
+    expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
   })
 })

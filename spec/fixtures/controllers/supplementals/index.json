@@ -410,5 +410,52 @@
     "no_preference_used": true,
     "total_monthly_rent_without_parking": "$576.55",
     "monthly_tenant_contribution": "$321.90"
-  }
+  },
+  "rental_assistances" :  [
+     {
+            "assistance_amount": "$1,100.00",
+                           "id": "a150t000001YNSbAAO",
+                        "lease": "a130P000005TeZrQAK",
+        "other_assistance_name": null,
+                    "recipient": "a0n0P00000D3qIZQAZ",
+         "recurring_assistance": "Yes",
+           "type_of_assistance": "Catholic Charities"
+      },
+      {
+            "assistance_amount": "$1,100.00",
+                           "id": "a150t000001YNSgAAO",
+                        "lease": "a130P000005TeZrQAK",
+        "other_assistance_name": null,
+                    "recipient": "a0n0P00000D3qIZQAZ",
+         "recurring_assistance": "Yes",
+           "type_of_assistance": "Catholic Charities"
+      },
+      {
+            "assistance_amount": "$1,100.00",
+                           "id": "a150t000001YNSlAAO",
+                        "lease": "a130P000005TeZrQAK",
+        "other_assistance_name": null,
+                    "recipient": "a0n0P00000D3qIZQAZ",
+         "recurring_assistance": "Yes",
+           "type_of_assistance": "Catholic Charities"
+      },
+      {
+            "assistance_amount": "$1,100.00",
+                           "id": "a150t000001YNSqAAO",
+                        "lease": "a130P000005TeZrQAK",
+        "other_assistance_name": null,
+                    "recipient": "a0n0P00000D3qIZQAZ",
+         "recurring_assistance": "Yes",
+           "type_of_assistance": "Catholic Charities"
+      },
+      {
+            "assistance_amount": "$1,100.00",
+                           "id": "a150t000001YNTeAAO",
+                        "lease": "a130P000005TeZrQAK",
+        "other_assistance_name": null,
+                    "recipient": "a0n0P00000D3qIZQAZ",
+         "recurring_assistance": "Yes",
+           "type_of_assistance": "Catholic Charities"
+      }
+    ]
 }

@@ -67,5 +67,10 @@ module Force
       return unless @fields.domain[field_name]
       domain_fields[field_name] = ActionController::Base.helpers.number_to_currency(@fields.domain[field_name])
     end
+
+    def currency_to_float(field_name, salesforce_fields)
+      return nil unless @fields.salesforce[field_name]
+      salesforce_fields[field_name] = salesforce_fields[field_name].gsub(/[$,]/, '').to_f
+    end
   end
 end

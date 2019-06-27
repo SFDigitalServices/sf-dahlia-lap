@@ -4,7 +4,6 @@ import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'l
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
-import { currencyToFloat } from '~/utils/utils'
 import CardLayout from '../layouts/CardLayout'
 import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
 import Alerts from '~/components/Alerts'
@@ -77,7 +76,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    const response = await updateApplication(application)
+    const response = await updateApplication(application, this.state.persistedApplication)
 
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
@@ -173,7 +172,7 @@ class SupplementalApplicationPage extends React.Component {
       applicationId: persistedApplication.id,
       ...(subStatus ? { subStatus } : {})
     }
-    const appResponse = await updateApplication(fromApplication)
+    const appResponse = await updateApplication(fromApplication, this.state.persistedApplication)
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (appResponse === false || commentResponse === false) {
@@ -211,49 +210,42 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleSaveNewRentalAssistance = async (rentalAssistance) => {
-    // Salesforce does not accept currency strings. TODO: Move this into the form
-    rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
-    const response = await this.handleRentalAssistanceAction(apiService.createRentalAssistance)(
+  handleSaveRentalAssistance = async (rentalAssistance, action = 'create') => {
+    let rentalAssistanceAction
+
+    if (action === 'update') {
+      rentalAssistanceAction = apiService.updateRentalAssistance
+      if (rentalAssistance.type_of_assistance !== 'Other') {
+        rentalAssistance.other_assistance_name = null
+      }
+    } else if (action === 'create') {
+      rentalAssistanceAction = apiService.createRentalAssistance
+    }
+
+    const response = await this.handleRentalAssistanceAction(rentalAssistanceAction)(
       rentalAssistance,
       this.state.persistedApplication.id
     )
     // show price in right format
     rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
+
     if (response) {
-      rentalAssistance.id = response.id
       this.setState(prev => {
-        return {
-          rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
+        const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
+
+        if (action === 'update') {
+          const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
+          rentalAssistances[idx] = rentalAssistance
+        } else if (action === 'create') {
+          rentalAssistance.id = response.id
+          rentalAssistances.push(rentalAssistance)
         }
-      })
-    }
-    return response
-  }
-
-  handleUpdateRentalAssistance = async (rentalAssistance) => {
-    // Salesforce does not accept currency strings. TODO: Move this into the form
-    rentalAssistance['assistance_amount'] = currencyToFloat(rentalAssistance['assistance_amount'])
-    if (rentalAssistance.type_of_assistance !== 'Other') {
-      rentalAssistance.other_assistance_name = null
-    }
-    const response = await this.handleRentalAssistanceAction(apiService.updateRentalAssistance)(
-      rentalAssistance,
-      this.state.persistedApplication.id
-    )
-    // show price in right format
-    rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
-    if (response) {
-      this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.rentalAssistances)
-        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
-        rentalAssistances[idx] = rentalAssistance
 
         return {
-          rentalAssistances: rentalAssistances,
+          persistedApplication: {
+            ...prev.persistedApplication,
+            rental_assistances: rentalAssistances
+          },
           showNewRentalAssistancePanel: false,
           showAddRentalAssistanceBtn: true,
           rentalAssistanceLoading: false
@@ -269,11 +261,14 @@ class SupplementalApplicationPage extends React.Component {
 
     if (response) {
       this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.rentalAssistances)
+        const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
         const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
         rentalAssistances.splice(idx, 1)
         return {
-          rentalAssistances: rentalAssistances,
+          persistedApplication: {
+            ...prev.persistedApplication,
+            rental_assistances: rentalAssistances
+          },
           showNewRentalAssistancePanel: false,
           showAddRentalAssistanceBtn: true,
           rentalAssistanceLoading: false
@@ -314,7 +309,6 @@ class SupplementalApplicationPage extends React.Component {
       leaveConfirmationModal,
       loading,
       persistedApplication,
-      rentalAssistances,
       showNewRentalAssistancePanel,
       showAddRentalAssistanceBtn,
       rentalAssistanceLoading
@@ -357,14 +351,12 @@ class SupplementalApplicationPage extends React.Component {
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
-      rentalAssistances: rentalAssistances,
       showNewRentalAssistancePanel: showNewRentalAssistancePanel,
       showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
       hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
-      handleSaveNewRentalAssistance: this.handleSaveNewRentalAssistance,
-      handleUpdateRentalAssistance: this.handleUpdateRentalAssistance,
+      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
     }
 
@@ -400,15 +392,14 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits, rentalAssistances }) => {
+const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
-    onSubmit: (values) => updateApplication(values),
+    onSubmit: (values) => updateApplication(values, application),
     fileBaseUrl: fileBaseUrl,
     units: mapList(mapUnit, units),
-    availableUnits: mapList(mapUnit, availableUnits),
-    rentalAssistances: rentalAssistances
+    availableUnits: mapList(mapUnit, availableUnits)
   }
 }
 

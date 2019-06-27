@@ -13,11 +13,10 @@ RSpec.describe Applications::SupplementalsController, type: :controller do
       VCR.use_cassette('supplementals_controller/index/supplemental_application') do
         get :index, params: { application_id: lease_up_application_id }
         application = assigns(:application)
-        rental_assistances = assigns(:rental_assistances)
         units = assigns(:units)
         available_units = assigns(:available_units)
 
-        expect(rental_assistances).not_to be_empty
+        expect(application['rental_assistances']).not_to be_empty
         expect(units).not_to be_empty
         expect(available_units).not_to be_empty
 
