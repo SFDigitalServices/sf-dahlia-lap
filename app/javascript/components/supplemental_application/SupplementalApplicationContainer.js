@@ -19,8 +19,19 @@ import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate from '~/utils/form/validations'
 
-const StatusUpdateSection = withContext(({ store }) => {
+const StatusUpdateSection = withContext(({ store, form, checkForValidationErrors }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
+
+  const onAddCommentClick = (form) => {
+    let invalidForm = checkForValidationErrors(form)
+    if (!invalidForm) { openAddStatusCommentModal() }
+  }
+
+  const onStatusDropdownChange = (form) => {
+    let invalidForm = checkForValidationErrors(form)
+    if (!invalidForm) { openUpdateStatusModal() }
+  }
+
   let recentStatusUpdate = statusHistory && statusHistory[0] ? statusHistory[0] : {status: null, comment: null, date: null}
   return (
     <ContentSection.Content paddingBottomNone marginTop>
@@ -29,8 +40,8 @@ const StatusUpdateSection = withContext(({ store }) => {
         substatus={recentStatusUpdate.substatus}
         comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
-        onStatusDropdownChange={openUpdateStatusModal}
-        onAddCommentClick={openAddStatusCommentModal}
+        onStatusDropdownChange={() => onStatusDropdownChange(form)}
+        onAddCommentClick={() => onAddCommentClick(form)}
         statusHistoryAnchor='#status-history-section'
         loading={loading}
       />
@@ -104,11 +115,17 @@ const DemographicsSection = () => {
   )
 }
 
-const StatusHistorySection = withContext(({ store }) => {
+const StatusHistorySection = withContext(({ store, form, checkForValidationErrors }) => {
   const { statusHistory, openAddStatusCommentModal, loading } = store
+
+  const onAddCommentClick = (form) => {
+    let invalidForm = checkForValidationErrors(form)
+    if (!invalidForm) { openAddStatusCommentModal() }
+  }
+
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
-      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} commentDisabled={loading} />
+      <StatusList items={statusHistory} onAddComment={()=> {onAddCommentClick(form)}} commentDisabled={loading} />
     </ContentSection.Sub>
   )
 })
@@ -137,6 +154,12 @@ class SupplementalApplicationContainer extends React.Component {
     if (failed) {
       window.scrollTo(0, 0)
     }
+    return failed
+  }
+
+  onStatusDropdownChange = (form) => {
+    let invalidForm = this.checkForValidationErrors(form)
+    if (!invalidForm) { openUpdateStatusModal() }
   }
 
   render () {
@@ -178,7 +201,7 @@ class SupplementalApplicationContainer extends React.Component {
                 message='Please resolve any errors before saving the application.' />
             )}
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
-              <StatusUpdateSection />
+              <StatusUpdateSection form={form} checkForValidationErrors={this.checkForValidationErrors} />
               <ConfirmedPreferencesSection
                 application={application}
                 applicationMembers={applicationMembers}
@@ -192,13 +215,20 @@ class SupplementalApplicationContainer extends React.Component {
               <LeaseInformationSection form={form} />
               <RentalAssistanceSection form={form} />
               <DemographicsSection />
-              <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
+              <ScrollableAnchor id={'status-history-section'}>
+              <div>
+                <StatusHistorySection
+                  form={form}
+                  checkForValidationErrors={this.checkForValidationErrors}
+                />
+              </div
+              ></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <div className='button-pager'>
                 <div className='button-pager_row align-buttons-left primary inset-wide'>
                   <StatusDropdown
                     status={application.processing_status}
-                    onChange={openUpdateStatusModal}
+                    onChange={() => { this.onStatusDropdownChange(form)}}
                     buttonClasses={['small', 'has-status-width']}
                     wrapperClasses={['dropdown-inline']}
                     menuClasses={['dropdown-menu-bottom']}
