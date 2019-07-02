@@ -30,8 +30,8 @@ const StatusUpdateSection = withContext(({ store, formIsValid }) => {
         substatus={recentStatusUpdate.substatus}
         comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
-        onStatusDropdownChange={ () => formIsValid() ? openUpdateStatusModal() : null}
-        onAddCommentClick={ () => formIsValid() ? openAddStatusCommentModal() : null}
+        onStatusDropdownChange={() => formIsValid() ? openUpdateStatusModal() : null}
+        onAddCommentClick={() => formIsValid() ? openAddStatusCommentModal() : null}
         statusHistoryAnchor='#status-history-section'
         loading={loading}
       />
@@ -108,12 +108,11 @@ const DemographicsSection = () => {
 const StatusHistorySection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openAddStatusCommentModal, loading } = store
 
-
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
       <StatusList
         items={statusHistory}
-        onAddComment={ () => formIsValid() ? openAddStatusCommentModal() : null}
+        onAddComment={() => formIsValid() ? openAddStatusCommentModal() : null}
         commentDisabled={loading}
       />
     </ContentSection.Sub>
@@ -201,10 +200,10 @@ class SupplementalApplicationContainer extends React.Component {
               <RentalAssistanceSection form={form} />
               <DemographicsSection />
               <ScrollableAnchor id={'status-history-section'}>
-              <div>
-                <StatusHistorySection formIsValid={() => !this.checkForValidationErrors(form)} />
-              </div
-              ></ScrollableAnchor>
+                <div>
+                  <StatusHistorySection formIsValid={() => !this.checkForValidationErrors(form)} />
+                </div
+                ></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
               <div className='button-pager'>
                 <div className='button-pager_row align-buttons-left primary inset-wide'>
