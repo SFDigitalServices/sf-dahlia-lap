@@ -157,7 +157,7 @@ class SupplementalApplicationContainer extends React.Component {
     return failed
   }
 
-  onStatusDropdownChange = (form) => {
+  onStatusDropdownChange = (form, openUpdateStatusModal) => {
     let invalidForm = this.checkForValidationErrors(form)
     if (!invalidForm) { openUpdateStatusModal() }
   }
@@ -228,7 +228,7 @@ class SupplementalApplicationContainer extends React.Component {
                 <div className='button-pager_row align-buttons-left primary inset-wide'>
                   <StatusDropdown
                     status={application.processing_status}
-                    onChange={() => { this.onStatusDropdownChange(form)}}
+                    onChange={() => { this.onStatusDropdownChange(form, openUpdateStatusModal)}}
                     buttonClasses={['small', 'has-status-width']}
                     wrapperClasses={['dropdown-inline']}
                     menuClasses={['dropdown-menu-bottom']}
