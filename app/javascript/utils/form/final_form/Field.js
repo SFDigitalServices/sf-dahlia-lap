@@ -27,7 +27,7 @@ export const Label = ({ label, fieldName, blockNote, id, labelId, className }) =
     label ? (
       <label htmlFor={id || `form-${fieldName}`} id={labelId || `label-${fieldName}`} className={className || 'form-label'}>
         {label}
-        {blockNote && <BlockNote value={blockNote} />}
+        {blockNote && <BlockNote value={` ${blockNote}`} />}
       </label>
     ) : null
   )

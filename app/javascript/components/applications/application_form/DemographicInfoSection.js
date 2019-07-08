@@ -21,6 +21,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
             fieldName='demographics.ethnicity'
             label='Ethnicity'
             options={ethnicityOptions}
+            blockNote='(required)'
             validation={validate.isPresent('Ethnicity is required')} />
         </div>
         <div className='small-6 columns'>
@@ -28,6 +29,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
             fieldName='demographics.race'
             label='Race'
             options={raceOptions}
+            blockNote='(required)'
             validation={validate.isPresent('Race is required')} />
         </div>
         <div className='small-6 columns'>
@@ -35,6 +37,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
             fieldName='demographics.gender'
             label='Gender'
             options={genderOptions}
+            blockNote='(required)'
             validation={validate.isPresent('Gender is required')} />
         </div>
         <div className='small-6 columns'>
@@ -48,6 +51,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
             fieldName='demographics.sexual_orientation'
             label='Sexual Orientation'
             options={sexualOrientationOptions}
+            blockNote='(required)'
             validation={validate.isPresent('Sexual Orientation is required')} />
         </div>
         <div className='small-6 columns'>
