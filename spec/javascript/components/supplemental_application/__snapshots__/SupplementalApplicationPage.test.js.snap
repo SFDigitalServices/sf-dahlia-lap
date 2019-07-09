@@ -822,7 +822,7 @@ Array [
                       Assigned Unit Number
                     </label>
                     <select
-                      className="form-group"
+                      className=""
                       id="form-lease.unit"
                       name="lease.unit"
                       onBlur={[Function]}
@@ -843,7 +843,7 @@ Array [
                     className="form-label"
                     htmlFor="lease_start_date"
                   >
-                    Lease Start Date 
+                    Lease Start Date
                   </label>
                   <div
                     className="form-group-month"
@@ -915,7 +915,7 @@ Array [
                       Preference Used
                     </label>
                     <select
-                      className="form-group"
+                      className=""
                       id="form-lease.preference_used"
                       name="lease.preference_used"
                       onBlur={[Function]}
@@ -1074,7 +1074,7 @@ Array [
                     Number of Dependents
                   </label>
                   <select
-                    className="form-group"
+                    className=""
                     id="demographics-dependents"
                     name="number_of_dependents"
                     onBlur={[Function]}
@@ -1153,7 +1153,7 @@ Array [
                     Number of Seniors
                   </label>
                   <select
-                    className="form-group"
+                    className=""
                     id="demographics-seniors"
                     name="number_of_seniors"
                     onBlur={[Function]}
@@ -1238,7 +1238,7 @@ Array [
                     Number of Minors
                   </label>
                   <select
-                    className="form-group"
+                    className=""
                     id="demographics-minors"
                     name="number_of_minors"
                     onBlur={[Function]}
@@ -1317,7 +1317,7 @@ Array [
                     Primary Applicant Marital Status
                   </label>
                   <select
-                    className="form-group"
+                    className=""
                     id="demographics-marital-status"
                     name="applicant.marital_status"
                     onBlur={[Function]}
@@ -6337,7 +6337,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             </label>
                                                           </Label>
                                                           <select
-                                                            className="form-group"
+                                                            className=""
                                                             id="form-lease.unit"
                                                             name="lease.unit"
                                                             onBlur={[Function]}
@@ -6422,7 +6422,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     className="form-label"
                                                     htmlFor="lease_start_date"
                                                   >
-                                                    Lease Start Date 
+                                                    Lease Start Date
                                                   </label>
                                                   <div
                                                     className="form-group-month"
@@ -6816,7 +6816,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             </label>
                                                           </Label>
                                                           <select
-                                                            className="form-group"
+                                                            className=""
                                                             id="form-lease.preference_used"
                                                             name="lease.preference_used"
                                                             onBlur={[Function]}
@@ -7757,7 +7757,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         </label>
                                                       </Label>
                                                       <select
-                                                        className="form-group"
+                                                        className=""
                                                         id="demographics-dependents"
                                                         name="number_of_dependents"
                                                         onBlur={[Function]}
@@ -7941,7 +7941,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         </label>
                                                       </Label>
                                                       <select
-                                                        className="form-group"
+                                                        className=""
                                                         id="demographics-seniors"
                                                         name="number_of_seniors"
                                                         onBlur={[Function]}
@@ -8131,7 +8131,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         </label>
                                                       </Label>
                                                       <select
-                                                        className="form-group"
+                                                        className=""
                                                         id="demographics-minors"
                                                         name="number_of_minors"
                                                         onBlur={[Function]}
@@ -8308,7 +8308,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         </label>
                                                       </Label>
                                                       <select
-                                                        className="form-group"
+                                                        className=""
                                                         id="demographics-marital-status"
                                                         name="applicant.marital_status"
                                                         onBlur={[Function]}

@@ -9,7 +9,7 @@ const {
 } = formOptions
 
 export const BlockNote = ({ value }) => (
-  <span className='checkbox-block_note no-margin'>{value}</span>
+  <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
 )
 
 export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName }) => (
@@ -27,7 +27,7 @@ export const Label = ({ label, fieldName, blockNote, id, labelId, className }) =
     label ? (
       <label htmlFor={id || `form-${fieldName}`} id={labelId || `label-${fieldName}`} className={className || 'form-label'}>
         {label}
-        {blockNote && <BlockNote value={` ${blockNote}`} />}
+        {blockNote && <BlockNote value={blockNote} />}
       </label>
     ) : null
   )
@@ -99,7 +99,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
             }}
             id={id || `form-${fieldName}`}
             name={input.name}
-            className={classNames(className || 'form-group', (meta.error && meta.touched && 'error') || '')}>
+            className={classNames(className, (meta.error && meta.touched && 'error') || '')}>
             { labelize(options).map((option) => generateHtmlOption(option))}
           </select>
           <FieldError meta={meta} />

@@ -67,13 +67,13 @@ Array [
                       >
                         Language Submitted In
                         <span
-                          className="checkbox-block_note no-margin"
+                          className="checkbox-block_note no-margin padding-left--half"
                         >
                           (required)
                         </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="application_language"
                         name="application_language"
                         onBlur={[Function]}
@@ -140,7 +140,7 @@ Array [
                         >
                           First Name
                           <span
-                            className="checkbox-block_note no-margin"
+                            className="checkbox-block_note no-margin padding-left--half"
                           >
                             (required)
                           </span>
@@ -197,7 +197,7 @@ Array [
                         >
                           Last Name
                           <span
-                            className="checkbox-block_note no-margin"
+                            className="checkbox-block_note no-margin padding-left--half"
                           >
                             (required)
                           </span>
@@ -286,7 +286,7 @@ Array [
                         Primary Phone Number- Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="phone_type"
                         name="applicant.phone_type"
                         onBlur={[Function]}
@@ -331,9 +331,9 @@ Array [
                         className="form-label"
                         htmlFor="date_of_birth"
                       >
-                        Date of Birth 
+                        Date of Birth
                         <span
-                          className="checkbox-block_note no-margin"
+                          className="checkbox-block_note no-margin padding-left--half"
                         >
                           (required)
                         </span>
@@ -431,7 +431,7 @@ Array [
                         Second Phone Number- Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="second_phone_type"
                         name="applicant.second_phone_type"
                         onBlur={[Function]}
@@ -819,7 +819,7 @@ Array [
                         Alternate Contact Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-alternate_contact.alternate_contact_type"
                         name="alternate_contact.alternate_contact_type"
                         onBlur={[Function]}
@@ -969,7 +969,7 @@ Array [
                         Phone Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-alternate_contact.phone_type"
                         name="alternate_contact.phone_type"
                         onBlur={[Function]}
@@ -1154,7 +1154,7 @@ Array [
                             >
                               First Name
                               <span
-                                className="checkbox-block_note no-margin"
+                                className="checkbox-block_note no-margin padding-left--half"
                               >
                                 (required)
                               </span>
@@ -1211,7 +1211,7 @@ Array [
                             >
                               Last Name
                               <span
-                                className="checkbox-block_note no-margin"
+                                className="checkbox-block_note no-margin padding-left--half"
                               >
                                 (required)
                               </span>
@@ -1239,9 +1239,9 @@ Array [
                               className="form-label"
                               htmlFor="household_members_0_date_of_birth"
                             >
-                              Date of Birth 
+                              Date of Birth
                               <span
-                                className="checkbox-block_note no-margin"
+                                className="checkbox-block_note no-margin padding-left--half"
                               >
                                 (required)
                               </span>
@@ -1445,7 +1445,7 @@ Array [
                             Relationship to Applicant
                           </label>
                           <select
-                            className="form-group"
+                            className=""
                             id="household_members_0_relationship_to_applicant"
                             name="household_members[0].relationship_to_applicant"
                             onBlur={[Function]}
@@ -1716,7 +1716,7 @@ Array [
                           className="form-group"
                         >
                           <select
-                            className="form-group"
+                            className=""
                             id="select-paper-preference-0"
                             name="preferences[0].listing_preference_id"
                             onBlur={[Function]}
@@ -1832,7 +1832,7 @@ Array [
                         Housing Voucher/ Subsidy
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-housing_voucher_or_subsidy"
                         name="housing_voucher_or_subsidy"
                         onBlur={[Function]}
@@ -1886,9 +1886,14 @@ Array [
                         id="label-demographics.ethnicity"
                       >
                         Ethnicity
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.ethnicity"
                         name="demographics.ethnicity"
                         onBlur={[Function]}
@@ -1931,9 +1936,14 @@ Array [
                         id="label-demographics.race"
                       >
                         Race
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.race"
                         name="demographics.race"
                         onBlur={[Function]}
@@ -2016,9 +2026,14 @@ Array [
                         id="label-demographics.gender"
                       >
                         Gender
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.gender"
                         name="demographics.gender"
                         onBlur={[Function]}
@@ -2107,9 +2122,14 @@ Array [
                         id="label-demographics.sexual_orientation"
                       >
                         Sexual Orientation
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.sexual_orientation"
                         name="demographics.sexual_orientation"
                         onBlur={[Function]}
@@ -2216,6 +2236,11 @@ Array [
                         id="label-terms_acknowledged"
                       >
                         Signature on Terms of Agreement
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                     </div>
                   </div>
@@ -2331,13 +2356,13 @@ Array [
                       >
                         Language Submitted In
                         <span
-                          className="checkbox-block_note no-margin"
+                          className="checkbox-block_note no-margin padding-left--half"
                         >
                           (required)
                         </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="application_language"
                         name="application_language"
                         onBlur={[Function]}
@@ -2404,7 +2429,7 @@ Array [
                         >
                           First Name
                           <span
-                            className="checkbox-block_note no-margin"
+                            className="checkbox-block_note no-margin padding-left--half"
                           >
                             (required)
                           </span>
@@ -2461,7 +2486,7 @@ Array [
                         >
                           Last Name
                           <span
-                            className="checkbox-block_note no-margin"
+                            className="checkbox-block_note no-margin padding-left--half"
                           >
                             (required)
                           </span>
@@ -2550,7 +2575,7 @@ Array [
                         Primary Phone Number- Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="phone_type"
                         name="applicant.phone_type"
                         onBlur={[Function]}
@@ -2595,9 +2620,9 @@ Array [
                         className="form-label"
                         htmlFor="date_of_birth"
                       >
-                        Date of Birth 
+                        Date of Birth
                         <span
-                          className="checkbox-block_note no-margin"
+                          className="checkbox-block_note no-margin padding-left--half"
                         >
                           (required)
                         </span>
@@ -2695,7 +2720,7 @@ Array [
                         Second Phone Number- Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="second_phone_type"
                         name="applicant.second_phone_type"
                         onBlur={[Function]}
@@ -3083,7 +3108,7 @@ Array [
                         Alternate Contact Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-alternate_contact.alternate_contact_type"
                         name="alternate_contact.alternate_contact_type"
                         onBlur={[Function]}
@@ -3233,7 +3258,7 @@ Array [
                         Phone Type
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-alternate_contact.phone_type"
                         name="alternate_contact.phone_type"
                         onBlur={[Function]}
@@ -3418,7 +3443,7 @@ Array [
                             >
                               First Name
                               <span
-                                className="checkbox-block_note no-margin"
+                                className="checkbox-block_note no-margin padding-left--half"
                               >
                                 (required)
                               </span>
@@ -3475,7 +3500,7 @@ Array [
                             >
                               Last Name
                               <span
-                                className="checkbox-block_note no-margin"
+                                className="checkbox-block_note no-margin padding-left--half"
                               >
                                 (required)
                               </span>
@@ -3503,9 +3528,9 @@ Array [
                               className="form-label"
                               htmlFor="household_members_0_date_of_birth"
                             >
-                              Date of Birth 
+                              Date of Birth
                               <span
-                                className="checkbox-block_note no-margin"
+                                className="checkbox-block_note no-margin padding-left--half"
                               >
                                 (required)
                               </span>
@@ -3709,7 +3734,7 @@ Array [
                             Relationship to Applicant
                           </label>
                           <select
-                            className="form-group"
+                            className=""
                             id="household_members_0_relationship_to_applicant"
                             name="household_members[0].relationship_to_applicant"
                             onBlur={[Function]}
@@ -3980,7 +4005,7 @@ Array [
                           className="form-group"
                         >
                           <select
-                            className="form-group"
+                            className=""
                             id="select-paper-preference-0"
                             name="preferences[0].listing_preference_id"
                             onBlur={[Function]}
@@ -4025,13 +4050,13 @@ Array [
                               >
                                 HH Member on Proof
                                 <span
-                                  className="checkbox-block_note no-margin"
+                                  className="checkbox-block_note no-margin padding-left--half"
                                 >
                                   (required)
                                 </span>
                               </label>
                               <select
-                                className="form-group"
+                                className=""
                                 id="alice-griffith-hh-member-on-proof"
                                 name="preferences.0.naturalKey"
                                 onBlur={[Function]}
@@ -4070,13 +4095,13 @@ Array [
                               >
                                 Type of Proof
                                 <span
-                                  className="checkbox-block_note no-margin"
+                                  className="checkbox-block_note no-margin padding-left--half"
                                 >
                                   (required)
                                 </span>
                               </label>
                               <select
-                                className="form-group"
+                                className=""
                                 id="alice-griffith-type-of-proof"
                                 name="preferences.0.type_of_proof"
                                 onBlur={[Function]}
@@ -4144,7 +4169,7 @@ Array [
                               >
                                 Alice Griffith Address
                                 <span
-                                  className="checkbox-block_note no-margin"
+                                  className="checkbox-block_note no-margin padding-left--half"
                                 >
                                   (required)
                                 </span>
@@ -4350,7 +4375,7 @@ Array [
                         Housing Voucher/ Subsidy
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-housing_voucher_or_subsidy"
                         name="housing_voucher_or_subsidy"
                         onBlur={[Function]}
@@ -4404,9 +4429,14 @@ Array [
                         id="label-demographics.ethnicity"
                       >
                         Ethnicity
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.ethnicity"
                         name="demographics.ethnicity"
                         onBlur={[Function]}
@@ -4449,9 +4479,14 @@ Array [
                         id="label-demographics.race"
                       >
                         Race
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.race"
                         name="demographics.race"
                         onBlur={[Function]}
@@ -4534,9 +4569,14 @@ Array [
                         id="label-demographics.gender"
                       >
                         Gender
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.gender"
                         name="demographics.gender"
                         onBlur={[Function]}
@@ -4625,9 +4665,14 @@ Array [
                         id="label-demographics.sexual_orientation"
                       >
                         Sexual Orientation
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                       <select
-                        className="form-group"
+                        className=""
                         id="form-demographics.sexual_orientation"
                         name="demographics.sexual_orientation"
                         onBlur={[Function]}
@@ -4734,6 +4779,11 @@ Array [
                         id="label-terms_acknowledged"
                       >
                         Signature on Terms of Agreement
+                        <span
+                          className="checkbox-block_note no-margin padding-left--half"
+                        >
+                          (required)
+                        </span>
                       </label>
                     </div>
                   </div>
