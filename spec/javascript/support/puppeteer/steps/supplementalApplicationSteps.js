@@ -1,3 +1,5 @@
+import sharedSteps from './sharedSteps'
+
 const testStatusModalUpdate = async (page) => {
   const COMMENT = 'This is a comment.'
   // Wait for the status modal to appear
@@ -8,12 +10,28 @@ const testStatusModalUpdate = async (page) => {
   const newSelectedStatus = await page.$eval('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a', e => e.textContent)
   await page.click('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a')
 
-  await checkForSubStatus(newSelectedStatus, page)
+  const selectedSubstatus = await checkForSubStatus(newSelectedStatus, page)
 
   // Enter a comment into the status modal comment field
   await page.type('#status-comment', COMMENT)
   // Submit the status modal form
   await page.click('.form-modal_form_wrapper button.primary')
+  // Verify that no form-field errors are present on save
+  expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
+
+  // Verify that the response from salesforce was a success
+  await page.on('response', async (response) => {
+    // console.log('RESPONSE', response)
+    if (response.url().includes('/field-update-comments/create')) {
+      if (response.status() !== 200) {
+        const responseBody = await response.json()
+        console.error('Status update failure response: ', responseBody)
+        console.error('Selected status: ', newSelectedStatus, ', Selected substatus:', selectedSubstatus)
+      }
+      expect(response.status()).toBe(200)
+    }
+  })
+
   // Wait for the page to reload after the status modal submit
   await page.waitForNavigation()
 
@@ -63,6 +81,7 @@ const checkForSubStatus = async (selectedStatus, page) => {
     await page.click('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu li a')
     const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
     expect(selectedSubStatus.toLowerCase().includes('select one...')).toBe(false)
+    return selectedSubStatus
   }
 }
 
