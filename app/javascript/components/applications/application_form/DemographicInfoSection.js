@@ -11,7 +11,7 @@ let {
   ethnicityOptions
 } = formOptions
 
-const DemographicInfoSection = ({ values: { demographics } }) => {
+const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequired, orientationOtherRequired }) => {
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Demographic Information</h3>
@@ -44,6 +44,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
           <InputField
             fieldName='demographics.gender_other'
             label='Gender Specify (if not listed)'
+            blockNote={genderSpecifyRequired ? '(required)' : null}
             maxLength={maxLengthMap['gender_other']} />
         </div>
         <div className='small-6 columns'>
@@ -58,6 +59,7 @@ const DemographicInfoSection = ({ values: { demographics } }) => {
           <InputField
             fieldName='demographics.sexual_orientation_other'
             label='Sexual Orientation (if not listed)'
+            blockNote={orientationOtherRequired ? '(required)' : null}
             maxLength={maxLengthMap['sexual_orientation_other']} />
         </div>
       </div>
