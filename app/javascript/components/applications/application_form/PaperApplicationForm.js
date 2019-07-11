@@ -21,7 +21,9 @@ class PaperApplicationForm extends React.Component {
   state = {
     loading: false,
     submittedValues: {},
-    submitType: ''
+    submitType: '',
+    genderSpecifyRequired: false,
+    orientationOtherRequired: false
   }
 
   submitShortForm = async (submittedValues) => {
@@ -42,11 +44,11 @@ class PaperApplicationForm extends React.Component {
     if (failed) { window.scrollTo(0, 0) }
   }
 
-  checkNotListed = (demographics, key, validationMessage) => {
+  checkNotListed = (demographics, key) => {
     if (demographics && demographics[key] && demographics[key].toLowerCase() === 'not listed' && !demographics[`${key}_other`]) {
-      return validationMessage
+      return true
     }
-    return undefined
+    return false
   }
 
   validateForm = (values) => {
@@ -79,8 +81,12 @@ class PaperApplicationForm extends React.Component {
     if (values.demographics) {
       const { demographics } = values
       errors.demographics = {}
-      errors.demographics.gender_other = this.checkNotListed(demographics, 'gender', 'Gender is required')
-      errors.demographics.sexual_orientation_other = this.checkNotListed(demographics, 'sexual_orientation', 'Sexual Orientation is required')
+
+      const isGenderSpecifyRequired = this.checkNotListed(demographics, 'gender')
+      const isOrientationOtherRequired = this.checkNotListed(demographics, 'sexual_orientation')
+      errors.demographics.gender_other = isGenderSpecifyRequired ? 'Gender is required' : undefined
+      errors.demographics.sexual_orientation_other = isOrientationOtherRequired ? 'Sexual Orientation is required' : undefined
+      this.setState({ genderSpecifyRequired: isGenderSpecifyRequired, orientationOtherRequired: isOrientationOtherRequired })
     }
     return errors
   }
@@ -119,7 +125,11 @@ class PaperApplicationForm extends React.Component {
                     editValues={application}
                   />
                   <HouseholdIncomeSection />
-                  <DemographicInfoSection values={values} />
+                  <DemographicInfoSection
+                    values={values}
+                    genderSpecifyRequired={this.state.genderSpecifyRequired}
+                    orientationOtherRequired={this.state.orientationOtherRequired}
+                  />
                   <AgreeToTerms />
                 </div>
                 <div className='button-pager'>

@@ -105,7 +105,7 @@ Array [
                 className="form-group"
               >
                 <select
-                  className="form-group"
+                  className=""
                   id="form-listing_id"
                   name="listing_id"
                   onBlur={[Function]}
@@ -166,7 +166,7 @@ Array [
                 className="form-group"
               >
                 <select
-                  className="form-group"
+                  className=""
                   id="form-submission_type"
                   name="submission_type"
                   onBlur={[Function]}

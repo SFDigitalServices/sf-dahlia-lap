@@ -36,7 +36,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
   return (
     <div className={classNames('form-group', (error && 'error') || '')}>
       <label className='form-label' htmlFor={id || `form-${fieldName}`}>
-        {`${label} `}
+        {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
       <div className='form-group-month'>

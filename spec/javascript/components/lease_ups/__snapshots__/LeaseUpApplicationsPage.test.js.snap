@@ -427,7 +427,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           id="form-preference"
                                         />
                                         <select
-                                          className="form-group"
+                                          className=""
                                           id="form-preference"
                                           name="preference"
                                           onBlur={[Function]}
@@ -921,7 +921,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           id="form-status"
                                         />
                                         <select
-                                          className="form-group"
+                                          className=""
                                           id="form-status"
                                           name="status"
                                           onBlur={[Function]}
