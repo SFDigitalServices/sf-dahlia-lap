@@ -33,8 +33,9 @@ export const HOUSEHOLD_MEMBER_DOB_MONTH = '1'
 export const HOUSEHOLD_MEMBER_DOB_DAY = '12'
 export const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
 
-export const LENDING_INSTITUTION = 'Homestreet Bank'
-export const LENDING_AGENT_ID = '0030P00002CBHPrQAP'
+// Loan officer info for paper sale application
+export const LENDING_INSTITUTION = process.env.E2E_LENDING_INSTITUTION || 'Homestreet Bank'
+export const LENDING_AGENT_ID = process.env.E2E_LENDING_AGENT_ID || '0030P00002CBHPrQAP'
 
 export const DECLINE_TO_STATE = 'Decline to state'
 
