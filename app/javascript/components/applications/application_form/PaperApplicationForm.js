@@ -82,10 +82,11 @@ class PaperApplicationForm extends React.Component {
       const { demographics } = values
       errors.demographics = {}
 
-      errors.demographics.gender_other = this.checkNotListed(demographics, 'gender') ? 'Gender is required' : undefined
-      this.state.genderSpecifyRequired = this.checkNotListed(demographics, 'gender')
-      errors.demographics.sexual_orientation_other = this.checkNotListed(demographics, 'sexual_orientation') ? 'Sexual Orientation is required' : undefined
-      this.state.orientationOtherRequired = this.checkNotListed(demographics, 'sexual_orientation')
+      const isGenderSpecifyRequired = this.checkNotListed(demographics, 'gender')
+      const isOrientationOtherRequired = this.checkNotListed(demographics, 'sexual_orientation')
+      errors.demographics.gender_other = isGenderSpecifyRequired ? 'Gender is required' : undefined
+      errors.demographics.sexual_orientation_other = isOrientationOtherRequired ? 'Sexual Orientation is required' : undefined
+      this.setState({ genderSpecifyRequired: isGenderSpecifyRequired, orientationOtherRequired: isOrientationOtherRequired })
     }
     return errors
   }
