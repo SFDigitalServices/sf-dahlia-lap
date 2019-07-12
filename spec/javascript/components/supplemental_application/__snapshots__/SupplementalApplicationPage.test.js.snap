@@ -2484,8 +2484,11 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           }
                         }
                       >
-                        <ContextComponent>
+                        <ContextComponent
+                          formIsValid={[Function]}
+                        >
                           <Component
+                            formIsValid={[Function]}
                             store={
                               Object {
                                 "amiCharts": Array [],
@@ -8382,8 +8385,11 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           id="status-history-section"
                         >
                           <div>
-                            <ContextComponent>
+                            <ContextComponent
+                              formIsValid={[Function]}
+                            >
                               <Component
+                                formIsValid={[Function]}
                                 store={
                                   Object {
                                     "amiCharts": Array [],
