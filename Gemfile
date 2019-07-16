@@ -81,6 +81,7 @@ gem "devise", "~> 4.3"
 
 # Added at 2017-10-22 23:48:56 -0700 by dkaplan:
 gem "omniauth-salesforce", "~> 1.0"
+gem "omniauth-rails_csrf_protection"
 
 # Added at 2017-10-24 00:03:53 -0700 by dkaplan:
 gem "restforce", "~> 3.1"
