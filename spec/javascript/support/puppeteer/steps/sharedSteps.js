@@ -5,8 +5,11 @@ const loginAsAgent = async (page) => {
   await page.waitForSelector('#root')
 
   // Sign in
+  const navigationPromise = page.waitForNavigation()
+  // Clicking the link will indirectly cause a navigation
   await page.click('.sign-in-btn')
-  await page.waitForNavigation()
+  // The navigationPromise resolves after navigation has finished
+  await navigationPromise
 
   // Salesforce login
   await page.waitForSelector('#username_container')
