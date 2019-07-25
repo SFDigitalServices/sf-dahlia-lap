@@ -7,11 +7,13 @@ import {
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
 } from '../../support/puppeteer/consts'
+import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
 
 describe('SupplementalApplicationPage confirm modal', () => {
   test('should pop up if there was a change in an application field', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
@@ -30,6 +32,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
   test('should not show pop up if there was not a change in an application field', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)

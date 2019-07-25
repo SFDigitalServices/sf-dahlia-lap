@@ -3,11 +3,13 @@ import puppeteer from 'puppeteer'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS } from '../support/puppeteer/consts'
 import supplementalApplicationSteps from '../support/puppeteer/steps/supplementalApplicationSteps'
+import IgnoreImageAndCSSLoad from '../utils/IgnoreAssets'
 
 describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
 

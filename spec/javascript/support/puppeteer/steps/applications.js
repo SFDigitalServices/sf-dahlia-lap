@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer'
 
 import sharedSteps from './sharedSteps'
 import { HEADLESS } from '../consts'
+import IgnoreImageAndCSSLoad from '../../..//utils/IgnoreAssets'
 
 /**
  * function applicationRedirectRouteCheck
@@ -15,6 +16,8 @@ import { HEADLESS } from '../consts'
 export const applicationRedirectRouteCheck = async (type, id) => {
   let browser = await puppeteer.launch({ headless: HEADLESS })
   let page = await browser.newPage()
+  IgnoreImageAndCSSLoad(page)
+
   const fullURL = type === 'new' ? `/listings/${id}/applications/new` : `/applications/${id}/edit`
   const resultURL = type === 'new' ? `listings/${id}` : `applications/${id}`
 
