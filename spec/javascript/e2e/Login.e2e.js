@@ -2,11 +2,11 @@ import puppeteer from 'puppeteer'
 import { HEADLESS, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 
+let browser
+
 describe('Login/Logout', () => {
   test('lead header loads correctly', async () => {
-    let browser = await puppeteer.launch({
-      headless: HEADLESS
-    })
+    browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
 
     await page.goto('http://localhost:3000/')
@@ -17,10 +17,8 @@ describe('Login/Logout', () => {
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
   test('should sign out successfully', async () => {
-    let browser = await puppeteer.launch({
-      headless: false
-    })
     let page = await browser.newPage()
 
     await sharedSteps.loginAsAgent(page)
