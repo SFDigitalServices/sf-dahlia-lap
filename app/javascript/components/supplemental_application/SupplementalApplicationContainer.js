@@ -30,7 +30,7 @@ const StatusUpdateSection = withContext(({ store, formIsValid }) => {
         substatus={recentStatusUpdate.substatus}
         comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
-        onStatusDropdownChange={() => formIsValid() ? openUpdateStatusModal() : null}
+        onStatusDropdownChange={(value) => formIsValid() ? openUpdateStatusModal(value) : null}
         onAddCommentClick={() => formIsValid() ? openAddStatusCommentModal() : null}
         statusHistoryAnchor='#status-history-section'
         loading={loading}
@@ -209,7 +209,7 @@ class SupplementalApplicationContainer extends React.Component {
                 <div className='button-pager_row align-buttons-left primary inset-wide'>
                   <StatusDropdown
                     status={application.processing_status}
-                    onChange={() => !this.checkForValidationErrors(form) ? openUpdateStatusModal() : null}
+                    onChange={(value) => !this.checkForValidationErrors(form) ? openUpdateStatusModal(value) : null}
                     buttonClasses={['small', 'has-status-width']}
                     wrapperClasses={['dropdown-inline']}
                     menuClasses={['dropdown-menu-bottom']}
