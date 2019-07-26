@@ -133,11 +133,32 @@ describe('SupplementalApplicationPage', () => {
 
     // Click on the status update dropdown button to open
     // the status options dropdown menu
-    wrapper.find('.button-pager .dropdown').simulate('click')
+    wrapper.find('.button-pager .dropdown > button').simulate('click')
 
     // Check that the page matches the snapshot that we have stored
     // of how the dropdown button and dropdown menu should render
     // when the dropdown menu is open
+    expect(wrapper.find('.button-pager .dropdown .dropdown-menu-bottom').exists()).toBeTruthy()
+    expect(wrapper).toMatchSnapshot()
+  })
+  test('should render the status dropdown modal correctly', async () => {
+    const wrapper = mount(
+      <SupplementalApplicationPage
+        application={supplementalApplication}
+        statusHistory={statusHistory}
+      />
+    )
+
+    // Click on the status update dropdown button to open
+    // the status options dropdown menu
+    wrapper.find('.button-pager .dropdown > button').simulate('click')
+    expect(wrapper.find('.button-pager .dropdown .dropdown-menu-bottom').exists()).toBeTruthy()
+
+    // Select Withdrawn from the dropdown
+    wrapper.find('.dropdown-menu-bottom .dropdown-menu_item.is-withdrawn').simulate('click')
+
+    // Check that the page matches the snapshot that we have stored
+    // of the modal with the selected status from the dropdown displayed
     expect(wrapper).toMatchSnapshot()
   })
   test('should allow the status update modal to open and close', async () => {
