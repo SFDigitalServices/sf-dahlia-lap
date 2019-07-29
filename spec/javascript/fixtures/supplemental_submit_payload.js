@@ -17,7 +17,7 @@ const payload = {
     monthlyIncome: null,
     hasSenior: undefined,
     householdAssets: '',
-    totalMonthlyRent: null,
+    totalMonthlyRent: '',
     primaryApplicantContact: undefined,
     processingStatus: undefined,
     isFirstTimeHomebuyer: undefined,

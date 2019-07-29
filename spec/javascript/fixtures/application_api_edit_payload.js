@@ -75,5 +75,5 @@ export default {
   numberOfDependents: undefined,
   numberOfMinors: undefined,
   numberOfSeniors: undefined,
-  totalMonthlyRent: null,
+  totalMonthlyRent: '',
   applicationSubmissionType: 'Electronic' }
