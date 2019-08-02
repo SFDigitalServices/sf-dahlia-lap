@@ -31,7 +31,6 @@ describe('SupplementalApplicationPage action buttons', () => {
   test('should allow status updates via the status dropdown at the bottom of the page', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
