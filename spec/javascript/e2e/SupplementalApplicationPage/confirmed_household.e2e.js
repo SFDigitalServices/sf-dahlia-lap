@@ -7,11 +7,13 @@ import {
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
 } from '../../support/puppeteer/consts'
+import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
 
 describe('SupplementalApplicationPage confirmed household income section', () => {
   test('should allow saving of assets and incomes', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)

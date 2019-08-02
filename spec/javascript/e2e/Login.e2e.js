@@ -9,7 +9,7 @@ describe('Login/Logout', () => {
   test('lead header loads correctly', async () => {
     browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await page.goto('http://localhost:3000/')
     await page.waitForSelector('#root')
@@ -20,7 +20,7 @@ describe('Login/Logout', () => {
 
   test('should sign out successfully', async () => {
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
 

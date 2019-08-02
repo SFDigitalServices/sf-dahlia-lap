@@ -13,7 +13,7 @@ describe('FlaggedApplicationsShowPage', () => {
   test('should allow comments to be updated', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/flagged/${FLAGGED_RECORD_SET_ID}`)

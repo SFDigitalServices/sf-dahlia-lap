@@ -7,6 +7,8 @@ const IgnoreImageAndCSSLoad = async (page) => {
     }
     return req.continue()
   })
+
+  return page
 }
 
 export default IgnoreImageAndCSSLoad

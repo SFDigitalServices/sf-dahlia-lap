@@ -6,11 +6,13 @@ import {
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
 } from '../../support/puppeteer/consts'
+import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
 
 describe('SupplementalApplicationPage Rental Assistance Information section', () => {
   test('should allow a new rental assistance to be created', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
@@ -73,6 +75,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   test('should allow a rental assistance to be updated', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
@@ -120,6 +123,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   test('should allow a rental assistance to be deleted', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)

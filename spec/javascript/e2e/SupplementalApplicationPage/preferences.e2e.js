@@ -6,11 +6,13 @@ import {
   DEFAULT_E2E_TIME_OUT,
   HEADLESS
 } from '../../support/puppeteer/consts'
+import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
 
 describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   test('should allow updates to live/work preference', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
 
@@ -90,6 +92,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   test('should allow updates to assisted housing preference', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
 

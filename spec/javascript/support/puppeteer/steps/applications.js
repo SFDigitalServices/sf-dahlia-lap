@@ -16,7 +16,7 @@ import IgnoreImageAndCSSLoad from '../../..//utils/IgnoreAssets'
 export const applicationRedirectRouteCheck = async (type, id) => {
   let browser = await puppeteer.launch({ headless: HEADLESS })
   let page = await browser.newPage()
-  IgnoreImageAndCSSLoad(page)
+  page = await IgnoreImageAndCSSLoad(page)
 
   const fullURL = type === 'new' ? `/listings/${id}/applications/new` : `/applications/${id}/edit`
   const resultURL = type === 'new' ? `listings/${id}` : `applications/${id}`

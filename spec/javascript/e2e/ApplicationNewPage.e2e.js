@@ -15,7 +15,7 @@ describe('ApplicationNewPage', () => {
   test('should create a new application successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -55,7 +55,7 @@ describe('ApplicationNewPage', () => {
   test('should fail if required fields are missing', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -77,7 +77,7 @@ describe('ApplicationNewPage', () => {
   test('should create a new application with household member successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -120,7 +120,7 @@ describe('ApplicationNewPage', () => {
   test('should fail if household member is present but incomplete', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -152,7 +152,7 @@ describe('ApplicationNewPage', () => {
   test('should create a new application with live/work preference successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -201,7 +201,7 @@ describe('ApplicationNewPage', () => {
   test('should validate hh member attached to preference if hh member updates', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -240,7 +240,7 @@ describe('ApplicationNewPage', () => {
   test('should bring up an alternate contact error message only if values are present but not first or last name', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
@@ -277,7 +277,7 @@ describe('ApplicationNewPage', () => {
   test('should fail for an incomplete new sale application', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
@@ -303,7 +303,7 @@ describe('ApplicationNewPage', () => {
   test('should create a new sale application successfully', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)

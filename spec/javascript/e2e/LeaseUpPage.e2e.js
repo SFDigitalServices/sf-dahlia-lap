@@ -9,7 +9,7 @@ describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
     let browser = await puppeteer.launch({ headless: HEADLESS })
     let page = await browser.newPage()
-    IgnoreImageAndCSSLoad(page)
+    page = await IgnoreImageAndCSSLoad(page)
 
     await sharedSteps.loginAsAgent(page)
 
