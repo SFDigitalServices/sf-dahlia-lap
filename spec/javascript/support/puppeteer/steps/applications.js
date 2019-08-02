@@ -1,8 +1,5 @@
-import puppeteer from 'puppeteer'
-
 import sharedSteps from './sharedSteps'
-import { HEADLESS } from '../consts'
-import IgnoreImageAndCSSLoad from '../../..//utils/IgnoreAssets'
+import SetupBrowserAndPage from '../../../utils/SetupBrowserAndPage'
 
 /**
  * function applicationRedirectRouteCheck
@@ -13,15 +10,15 @@ import IgnoreImageAndCSSLoad from '../../..//utils/IgnoreAssets'
  * @param {string} type - edit or new to indicate what action the user is taking on an application
  * @param {string} id  - application id to edit or listing id to create an application off of
  */
-export const applicationRedirectRouteCheck = async (type, id) => {
-  let browser = await puppeteer.launch({ headless: HEADLESS })
-  let page = await browser.newPage()
-  page = await IgnoreImageAndCSSLoad(page)
+export const applicationRedirectRouteCheck = async (type, id, testBrowser) => {
+  let { browser, page } = await SetupBrowserAndPage(testBrowser)
 
   const fullURL = type === 'new' ? `/listings/${id}/applications/new` : `/applications/${id}/edit`
   const resultURL = type === 'new' ? `listings/${id}` : `applications/${id}`
 
-  await sharedSteps.loginAsAgent(page)
+  if (!testBrowser) {
+    await sharedSteps.loginAsAgent(page)
+  }
   await sharedSteps.goto(page, fullURL)
   await page.waitFor(2000)
 

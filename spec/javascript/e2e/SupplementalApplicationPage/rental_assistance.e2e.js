@@ -1,18 +1,15 @@
-import puppeteer from 'puppeteer'
-
 import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
-  DEFAULT_E2E_TIME_OUT,
-  HEADLESS
+  DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
-import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
+import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
+let testBrowser
 
 describe('SupplementalApplicationPage Rental Assistance Information section', () => {
   test('should allow a new rental assistance to be created', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
+    let { browser, page } = await SetupBrowserAndPage()
+    testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
@@ -65,19 +62,14 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     expect(newRecurring).toEqual(recurring)
     expect(newAmount).toEqual('$1,100.00')
     expect(newRecipient).toEqual(recipientLabel)
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   // This test requires a rental assistance to be already present in the rental
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
   test('should allow a rental assistance to be updated', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     // Click the Edit button on the first rental assistance
@@ -113,19 +105,14 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
     const newAmountValue = await page.$eval('#assistance_amount', e => e.value)
     expect(newAmountValue).toEqual('$1,100.00')
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   // This test requires a rental assistance to be already present in the rental
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
   test('should allow a rental assistance to be deleted', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     // Record how many rental assistances are in the table before we attempt our delete
@@ -148,6 +135,6 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     const newTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
     expect(newTableSize).toEqual(prevTableSize - 1)
 
-    await browser.close()
+    await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })

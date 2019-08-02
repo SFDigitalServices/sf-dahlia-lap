@@ -1,18 +1,15 @@
-import puppeteer from 'puppeteer'
-
 import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
-  DEFAULT_E2E_TIME_OUT,
-  HEADLESS
+  DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
-import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
+import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
+let testBrowser
 
 describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   test('should allow updates to live/work preference', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
+    let { browser, page } = await SetupBrowserAndPage()
+    testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
 
@@ -85,16 +82,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     await page.waitForSelector(prefStatusSelector)
     const currentStatus = await page.$eval(sharedSteps.selectedOptionSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should allow updates to assisted housing preference', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
-
-    await sharedSteps.loginAsAgent(page)
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
     // The application used here must include a claimed assisted housing
     // preference for this test to be able to pass.
@@ -142,6 +133,6 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     const currentStatus = await page.$eval(sharedSteps.selectedOptionSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
 
-    await browser.close()
+    await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })

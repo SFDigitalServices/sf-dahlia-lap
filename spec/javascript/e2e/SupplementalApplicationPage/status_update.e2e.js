@@ -1,19 +1,16 @@
-import puppeteer from 'puppeteer'
-
 import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
-  DEFAULT_E2E_TIME_OUT,
-  HEADLESS
+  DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
-import IgnoreImageAndCSSLoad from '../../utils/IgnoreAssets'
+import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
+let testBrowser
 
 describe('SupplementalApplicationPage status history', () => {
   test('should allow status updates via the Add a Comment button in the status history section', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
+    let { browser, page } = await SetupBrowserAndPage()
+    testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
@@ -22,17 +19,13 @@ describe('SupplementalApplicationPage status history', () => {
     await page.click('.status-list_footer button')
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })
 
 describe('SupplementalApplicationPage action buttons', () => {
   test('should allow status updates via the status dropdown at the bottom of the page', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+    let { page } = await SetupBrowserAndPage(testBrowser, true)
 
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     // Click on the status dropdown button at the bottom of the page
@@ -43,6 +36,6 @@ describe('SupplementalApplicationPage action buttons', () => {
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
 
-    await browser.close()
+    await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })

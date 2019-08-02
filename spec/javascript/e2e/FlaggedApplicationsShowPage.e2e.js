@@ -1,19 +1,14 @@
-import puppeteer from 'puppeteer'
-
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import {
   FLAGGED_RECORD_SET_ID,
-  DEFAULT_E2E_TIME_OUT,
-  HEADLESS
+  DEFAULT_E2E_TIME_OUT
 } from '../support/puppeteer/consts'
-import IgnoreImageAndCSSLoad from '../utils/IgnoreAssets'
+import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 
 describe('FlaggedApplicationsShowPage', () => {
   test('should allow comments to be updated', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-    page = await IgnoreImageAndCSSLoad(page)
+    let { browser, page } = await SetupBrowserAndPage()
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/flagged/${FLAGGED_RECORD_SET_ID}`)
