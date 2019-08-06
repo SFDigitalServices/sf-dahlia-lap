@@ -36,29 +36,26 @@ const getApplicationMembers = (application) => {
 }
 
 class SupplementalApplicationPage extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      // A frozen copy of the application state that is currently persisted to
-      // Salesforce. This is the latest saved copy.
-      persistedApplication: cloneDeep(props.application),
-      confirmedPreferencesFailed: false,
-      supplementalAppTouched: false,
-      amis: {},
-      amiCharts: [],
+  state = {
+    // A frozen copy of the application state that is currently persisted to
+    // Salesforce. This is the latest saved copy.
+    persistedApplication: cloneDeep(this.props.application),
+    confirmedPreferencesFailed: false,
+    supplementalAppTouched: false,
+    amis: {},
+    amiCharts: [],
+    loading: false,
+    statusModal: {
       loading: false,
-      statusModal: {
-        loading: false,
-        status: props.application.processing_status
-      },
-      leaveConfirmationModal: {
-        isOpen: false
-      },
-      showNewRentalAssistancePanel: false,
-      showAddRentalAssistanceBtn: true,
-      rentalAssistanceLoading: false,
-      rentalAssistances: props.rentalAssistances
-    }
+      status: this.props.application.processing_status
+    },
+    leaveConfirmationModal: {
+      isOpen: false
+    },
+    showNewRentalAssistancePanel: false,
+    showAddRentalAssistanceBtn: true,
+    rentalAssistanceLoading: false,
+    rentalAssistances: this.props.rentalAssistances
   }
 
   componentDidMount () {
@@ -301,18 +298,7 @@ class SupplementalApplicationPage extends React.Component {
 
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
-    const {
-      confirmedPreferencesFailed,
-      amis,
-      amiCharts,
-      statusModal,
-      leaveConfirmationModal,
-      loading,
-      persistedApplication,
-      showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn,
-      rentalAssistanceLoading
-    } = this.state
+    const { leaveConfirmationModal, persistedApplication } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
@@ -330,34 +316,27 @@ class SupplementalApplicationPage extends React.Component {
     }
 
     const context = {
+      ...this.state,
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
-      application: persistedApplication,
-      applicationMembers: getApplicationMembers(persistedApplication),
-      amis: amis,
-      amiCharts: amiCharts,
-      availableUnits: availableUnits,
-      statusHistory: statusHistory,
-      fileBaseUrl: fileBaseUrl,
-      loading: loading,
-      rentalAssistanceLoading: rentalAssistanceLoading,
       setLoading: this.setLoading,
       onSubmit: this.handleSaveApplication,
       onSavePreference: this.handleSavePreference,
-      confirmedPreferencesFailed: confirmedPreferencesFailed,
       onDismissError: this.handleDismissError,
-      statusModal: statusModal,
       openAddStatusCommentModal: this.openAddStatusCommentModal,
       openUpdateStatusModal: this.openUpdateStatusModal,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
-      showNewRentalAssistancePanel: showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
       hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleSaveRentalAssistance: this.handleSaveRentalAssistance,
-      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
+      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
+      application: persistedApplication,
+      applicationMembers: getApplicationMembers(persistedApplication),
+      availableUnits: availableUnits,
+      statusHistory: statusHistory,
+      fileBaseUrl: fileBaseUrl
     }
 
     return (
