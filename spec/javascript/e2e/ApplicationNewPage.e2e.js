@@ -11,12 +11,24 @@ import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 let testBrowser
 
 describe('ApplicationNewPage', () => {
-  test('should create a new application successfully', async () => {
+  test('should fail if required fields are missing, and create application if not', async () => {
     let { browser, page } = await SetupBrowserAndPage()
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    await page.click('.save-btn')
+    await page.waitForSelector('.alert-box')
+
+    let errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toContain('Please enter a First Name')
+    expect(errors).toContain('Please enter a Last Name')
+    expect(errors).toContain('Please enter a Date of Birth')
+    expect(errors).toContain('Please select a language.')
+
+    const hasAlertBox = await utils.isPresent(page, '.alert-box')
+    expect(hasAlertBox).toBe(true)
 
     // Enter in required information
     // Type in the long strings past character limit, the test will make sure
@@ -31,7 +43,7 @@ describe('ApplicationNewPage', () => {
     // Save the application
     await page.click('.save-btn')
     // Verify that no errors are present on save
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
     expect(errors).toStrictEqual([])
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
@@ -48,65 +60,11 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(DATE_OF_BIRTH)
     expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
   }, DEFAULT_E2E_TIME_OUT)
-  test('should fail if required fields are missing', async () => {
+  test('should fail if household member is present but incomplete, and save when complete', async () => {
     let { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
-
-    await page.click('.save-btn')
-    await page.waitForSelector('.alert-box')
-
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toContain('Please enter a First Name')
-    expect(errors).toContain('Please enter a Last Name')
-    expect(errors).toContain('Please enter a Date of Birth')
-    expect(errors).toContain('Please select a language.')
-
-    const hasAlertBox = await utils.isPresent(page, '.alert-box')
-    expect(hasAlertBox).toBe(true)
-  }, DEFAULT_E2E_TIME_OUT)
-  test('should create a new application with household member successfully', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
-
-    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
-
-    // Fill out primary applicant required fields
     await utils.fillOutRequiredFields(page)
-
-    await page.click('#add-additional-member')
-    // Fill out household member required fields
-    await page.type('#household_members_0_first_name', HOUSEHOLD_MEMBER_FIRST_NAME)
-    await page.type('#household_members_0_last_name', HOUSEHOLD_MEMBER_LAST_NAME)
-    await page.type('#household_members_0_date_of_birth_month', HOUSEHOLD_MEMBER_DOB_MONTH)
-    await page.type('#household_members_0_date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
-    await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
-
-    // Save the application and verify there are no form errors
-    await page.click('.save-btn')
-    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
-
-    await page.waitForNavigation()
-    await sharedSteps.waitForApp(page)
-
-    const hasApplicationDetails = await utils.isPresent(page, '.application-details')
-    expect(hasApplicationDetails).toBe(true)
-
-    expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
-
-    // We get all the application attributes values
-    const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
-    expect(values).toContain(TRUNCATED_FIRST_NAME)
-    expect(values).toContain(TRUNCATED_LAST_NAME)
-    expect(values).toContain(DATE_OF_BIRTH)
-    const tableValues = await page.$$eval('.content-card table', elms => elms.map(e => e.textContent))
-    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_FIRST_NAME)
-    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_LAST_NAME)
-    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_DATE_OF_BIRTH)
-  }, DEFAULT_E2E_TIME_OUT)
-  test('should fail if household member is present but incomplete', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
-
-    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.select('#application_language', 'English')
     // Enter non-household member required fields
@@ -129,6 +87,35 @@ describe('ApplicationNewPage', () => {
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
+
+    // Fill out required household member required fields
+    await page.type('#household_members_0_first_name', HOUSEHOLD_MEMBER_FIRST_NAME)
+    await page.type('#household_members_0_last_name', HOUSEHOLD_MEMBER_LAST_NAME)
+    await page.type('#household_members_0_date_of_birth_month', HOUSEHOLD_MEMBER_DOB_MONTH)
+    await page.type('#household_members_0_date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
+    await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
+
+    // Save the application and verify there are no form errors
+    await page.click('.save-btn')
+    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
+
+    await page.waitForNavigation()
+    await sharedSteps.waitForApp(page)
+
+    const hasApplicationDetails = await utils.isPresent(page, '.application-details')
+    expect(hasApplicationDetails).toBe(true)
+
+    expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
+
+    // We get all the application attributes values including household members
+    const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
+    expect(values).toContain(TRUNCATED_FIRST_NAME)
+    expect(values).toContain(TRUNCATED_LAST_NAME)
+    expect(values).toContain(DATE_OF_BIRTH)
+    const tableValues = await page.$$eval('.content-card table', elms => elms.map(e => e.textContent))
+    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_FIRST_NAME)
+    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_LAST_NAME)
+    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_DATE_OF_BIRTH)
   }, DEFAULT_E2E_TIME_OUT)
   test('should create a new application with live/work preference successfully', async () => {
     let { page } = await SetupBrowserAndPage(testBrowser)
@@ -240,7 +227,7 @@ describe('ApplicationNewPage', () => {
     const hasApplicationDetails = await utils.isPresent(page, '.application-details')
     expect(hasApplicationDetails).toBe(true)
   }, DEFAULT_E2E_TIME_OUT)
-  test('should fail for an incomplete new sale application', async () => {
+  test('should fail for an incomplete new sale application, and create successfully when complete', async () => {
     let { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
@@ -260,11 +247,6 @@ describe('ApplicationNewPage', () => {
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
-  }, DEFAULT_E2E_TIME_OUT)
-  test('should create a new sale application successfully', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
-
-    await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
     await utils.fillOutRequiredFields(page)
 
