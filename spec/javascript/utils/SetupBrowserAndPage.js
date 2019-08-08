@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-import { HEADLESS as headless } from '../support/puppeteer/consts'
+import { HEADLESS as headless, REMOVECSS } from '../support/puppeteer/consts'
 
 const IgnoreImageAndCSSLoad = async (page) => {
   await page.setRequestInterception(true)
@@ -26,7 +26,8 @@ const SetupBrowserAndPage = async (testBrowser, withCSS = false) => {
   }
   let page = await browser.newPage()
   await page.setViewport({ width: 1440, height: 900 })
-  if (!withCSS) {
+  // This allows for overriding by individual suites or overall
+  if (!withCSS && REMOVECSS) {
     page = await IgnoreImageAndCSSLoad(page)
   }
   return { browser, page }
