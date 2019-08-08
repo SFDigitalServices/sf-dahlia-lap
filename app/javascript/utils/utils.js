@@ -1,4 +1,4 @@
-import { isString, map, mapValues, propertyOf, isNil, isEmpty } from 'lodash'
+import { isString, map, mapValues, propertyOf, isNil } from 'lodash'
 
 // FIXME Rename to a more useful filename.
 export const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZZ'

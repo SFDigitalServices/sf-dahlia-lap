@@ -5,7 +5,7 @@ import RentBurdenedPanel from '~/components/supplemental_application/sections/pr
 describe('RentBurdenedPanel', () => {
   test('should render successfully', () => {
     const wrapper = shallow(
-      <RentBurdenedPanel preferenceIndex="1" />
+      <RentBurdenedPanel preferenceIndex='1' />
     )
 
     expect(wrapper).toMatchSnapshot()
