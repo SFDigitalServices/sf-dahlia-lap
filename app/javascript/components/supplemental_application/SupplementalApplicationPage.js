@@ -1,5 +1,5 @@
 import React from 'react'
-import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -24,15 +24,9 @@ const getAmiCharts = (chartsToLoad) => {
 }
 
 const getAmis = async (chartsToLoad) => {
-  const promises = map(chartsToLoad, chart => {
-    return getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year })
-  })
+  const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
   const amis = await Promise.all(promises)
-  return [].concat.apply([], amis)
-}
-
-const getApplicationMembers = (application) => {
-  return concat([application.applicant], application.household_members || [])
+  return amis
 }
 
 class SupplementalApplicationPage extends React.Component {
@@ -333,7 +327,7 @@ class SupplementalApplicationPage extends React.Component {
       handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
       application: persistedApplication,
-      applicationMembers: getApplicationMembers(persistedApplication),
+      applicationMembers: [persistedApplication.applicant, ...(persistedApplication.household_members || [])],
       availableUnits: availableUnits,
       statusHistory: statusHistory,
       fileBaseUrl: fileBaseUrl
