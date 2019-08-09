@@ -1,22 +1,34 @@
-import puppeteer from 'puppeteer'
-
 import utils from '../support/puppeteer/utils'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import { applicationRedirectRouteCheck } from '../support/puppeteer/steps/applications'
 import {
-  NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, HEADLESS, SALE_LISTING_ID, LEASE_UP_LISTING_ID,
+  NON_LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT, SALE_LISTING_ID, LEASE_UP_LISTING_ID,
   FIRST_NAME, LAST_NAME, TRUNCATED_FIRST_NAME, TRUNCATED_LAST_NAME, DOB_MONTH, DOB_DAY, DOB_YEAR,
   DATE_OF_BIRTH, HOUSEHOLD_MEMBER_FIRST_NAME, HOUSEHOLD_MEMBER_LAST_NAME, HOUSEHOLD_MEMBER_DATE_OF_BIRTH,
   HOUSEHOLD_MEMBER_DOB_MONTH, HOUSEHOLD_MEMBER_DOB_DAY, HOUSEHOLD_MEMBER_DOB_YEAR, LENDING_INSTITUTION, LENDING_AGENT_ID
 } from '../support/puppeteer/consts'
+import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
+let testBrowser
 
 describe('ApplicationNewPage', () => {
-  test('should create a new application successfully', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+  test('should fail if required fields are missing, and create application if not', async () => {
+    let { browser, page } = await SetupBrowserAndPage()
+    testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+
+    await page.click('.save-btn')
+    await page.waitForSelector('.alert-box')
+
+    let errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    expect(errors).toContain('Please enter a First Name')
+    expect(errors).toContain('Please enter a Last Name')
+    expect(errors).toContain('Please enter a Date of Birth')
+    expect(errors).toContain('Please select a language.')
+
+    const hasAlertBox = await utils.isPresent(page, '.alert-box')
+    expect(hasAlertBox).toBe(true)
 
     // Enter in required information
     // Type in the long strings past character limit, the test will make sure
@@ -31,7 +43,7 @@ describe('ApplicationNewPage', () => {
     // Save the application
     await page.click('.save-btn')
     // Verify that no errors are present on save
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
     expect(errors).toStrictEqual([])
     await page.waitForNavigation()
     await sharedSteps.waitForApp(page)
@@ -47,81 +59,12 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(TRUNCATED_LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
     expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+  test('should fail if household member is present but incomplete, and save when complete', async () => {
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-  test('should fail if required fields are missing', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
-
-    await page.click('.save-btn')
-    await page.waitForSelector('.alert-box')
-
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
-    expect(errors).toContain('Please enter a First Name')
-    expect(errors).toContain('Please enter a Last Name')
-    expect(errors).toContain('Please enter a Date of Birth')
-    expect(errors).toContain('Please select a language.')
-
-    const hasAlertBox = await utils.isPresent(page, '.alert-box')
-    expect(hasAlertBox).toBe(true)
-
-    await browser.close()
-  }, DEFAULT_E2E_TIME_OUT)
-
-  test('should create a new application with household member successfully', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-
-    await sharedSteps.loginAsAgent(page)
-    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
-
-    // Fill out primary applicant required fields
     await utils.fillOutRequiredFields(page)
-
-    await page.click('#add-additional-member')
-    // Fill out household member required fields
-    await page.type('#household_members_0_first_name', HOUSEHOLD_MEMBER_FIRST_NAME)
-    await page.type('#household_members_0_last_name', HOUSEHOLD_MEMBER_LAST_NAME)
-    await page.type('#household_members_0_date_of_birth_month', HOUSEHOLD_MEMBER_DOB_MONTH)
-    await page.type('#household_members_0_date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
-    await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
-
-    // Save the application and verify there are no form errors
-    await page.click('.save-btn')
-    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
-
-    await page.waitForNavigation()
-    await sharedSteps.waitForApp(page)
-
-    const hasApplicationDetails = await utils.isPresent(page, '.application-details')
-    expect(hasApplicationDetails).toBe(true)
-
-    expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
-
-    // We get all the application attributes values
-    const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
-    expect(values).toContain(TRUNCATED_FIRST_NAME)
-    expect(values).toContain(TRUNCATED_LAST_NAME)
-    expect(values).toContain(DATE_OF_BIRTH)
-    const tableValues = await page.$$eval('.content-card table', elms => elms.map(e => e.textContent))
-    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_FIRST_NAME)
-    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_LAST_NAME)
-    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_DATE_OF_BIRTH)
-
-    await browser.close()
-  }, DEFAULT_E2E_TIME_OUT)
-
-  test('should fail if household member is present but incomplete', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-
-    await sharedSteps.loginAsAgent(page)
-    await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.select('#application_language', 'English')
     // Enter non-household member required fields
@@ -145,14 +88,38 @@ describe('ApplicationNewPage', () => {
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
 
-    await browser.close()
+    // Fill out required household member required fields
+    await page.type('#household_members_0_first_name', HOUSEHOLD_MEMBER_FIRST_NAME)
+    await page.type('#household_members_0_last_name', HOUSEHOLD_MEMBER_LAST_NAME)
+    await page.type('#household_members_0_date_of_birth_month', HOUSEHOLD_MEMBER_DOB_MONTH)
+    await page.type('#household_members_0_date_of_birth_day', HOUSEHOLD_MEMBER_DOB_DAY)
+    await page.type('#household_members_0_date_of_birth_year', HOUSEHOLD_MEMBER_DOB_YEAR)
+
+    // Save the application and verify there are no form errors
+    await page.click('.save-btn')
+    expect(await sharedSteps.getFormErrors(page)).toStrictEqual([])
+
+    await page.waitForNavigation()
+    await sharedSteps.waitForApp(page)
+
+    const hasApplicationDetails = await utils.isPresent(page, '.application-details')
+    expect(hasApplicationDetails).toBe(true)
+
+    expect(page.url()).toMatch(/\/applications\/.*\?showAddBtn=true/)
+
+    // We get all the application attributes values including household members
+    const values = await page.$$eval('.content-card p', elms => elms.map(e => e.textContent))
+    expect(values).toContain(TRUNCATED_FIRST_NAME)
+    expect(values).toContain(TRUNCATED_LAST_NAME)
+    expect(values).toContain(DATE_OF_BIRTH)
+    const tableValues = await page.$$eval('.content-card table', elms => elms.map(e => e.textContent))
+    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_FIRST_NAME)
+    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_LAST_NAME)
+    expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_DATE_OF_BIRTH)
   }, DEFAULT_E2E_TIME_OUT)
-
   test('should create a new application with live/work preference successfully', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
@@ -193,15 +160,10 @@ describe('ApplicationNewPage', () => {
     const liveWorkRow = tableRows.filter(s => s.includes('Live or Work in San Francisco Preference'))
     expect(liveWorkRow[0]).toContain(`${TRUNCATED_FIRST_NAME} ${TRUNCATED_LAST_NAME}`)
     expect(liveWorkRow[0]).toContain('Telephone bill')
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
-
   test('should validate hh member attached to preference if hh member updates', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     await page.select('#application_language', 'English')
@@ -232,15 +194,10 @@ describe('ApplicationNewPage', () => {
     // Expect that a validation error is raised.
     const errors = await page.$$eval('#form-preferences\\.0\\.naturalKey+span.error', divs => divs.map(d => d.textContent))
     expect(errors).toContain('This field is required')
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
-
   test('should bring up an alternate contact error message only if values are present but not first or last name', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
     // Fill out primary applicant required fields
@@ -269,15 +226,10 @@ describe('ApplicationNewPage', () => {
 
     const hasApplicationDetails = await utils.isPresent(page, '.application-details')
     expect(hasApplicationDetails).toBe(true)
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+  test('should fail for an incomplete new sale application, and create successfully when complete', async () => {
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
-  test('should fail for an incomplete new sale application', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-
-    await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
     await page.select('#application_language', 'English')
@@ -295,16 +247,6 @@ describe('ApplicationNewPage', () => {
 
     const hasAlertBox = await utils.isPresent(page, '.alert-box')
     expect(hasAlertBox).toBe(true)
-
-    await browser.close()
-  }, DEFAULT_E2E_TIME_OUT)
-
-  test('should create a new sale application successfully', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
-
-    await sharedSteps.loginAsAgent(page)
-    await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
     await utils.fillOutRequiredFields(page)
 
@@ -335,11 +277,8 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain(TRUNCATED_FIRST_NAME)
     expect(values).toContain(TRUNCATED_LAST_NAME)
     expect(values).toContain(DATE_OF_BIRTH)
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
-
   test('should redirect when lottery_status is anything other than "Not Yet Run"', async () => {
-    await applicationRedirectRouteCheck('new', LEASE_UP_LISTING_ID)
+    await applicationRedirectRouteCheck('new', LEASE_UP_LISTING_ID, testBrowser)
   }, DEFAULT_E2E_TIME_OUT)
 })
