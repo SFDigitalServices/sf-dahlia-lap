@@ -89,6 +89,7 @@ class SupplementalApplicationPage extends React.Component {
     if (!failed) {
       const updatedApplication = cloneDeep(persistedApplication)
       updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
+      updatedApplication.total_monthly_rent = formApplicationValues.total_monthly_rent
       this.setState({
         persistedApplication: updatedApplication,
         confirmedPreferencesFailed: false

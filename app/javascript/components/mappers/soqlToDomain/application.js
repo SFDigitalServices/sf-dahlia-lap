@@ -42,7 +42,7 @@ export const mapApplication = (a) => {
     application_language: a.Application_Language,
     lottery_number_manual: a.Lottery_Number_Manual,
     lottery_number: a.Lottery_Number,
-    total_monthly_rent: a.Total_Monthly_Rent,
+    total_monthly_rent: formUtils.formatPrice(a.Total_Monthly_Rent),
     general_lottery: a.General_Lottery,
     general_lottery_rank: a.General_Lottery_Rank,
     answered_community_screening: a.Answered_Community_Screening,
