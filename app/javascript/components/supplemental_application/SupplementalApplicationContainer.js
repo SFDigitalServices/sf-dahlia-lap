@@ -17,7 +17,7 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
-import validate from '~/utils/form/validations'
+import validate, { touchAllFields } from '~/utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -137,7 +137,8 @@ class SupplementalApplicationContainer extends React.Component {
     return errors
   }
 
-  checkForValidationErrors = (form) => {
+  checkForValidationErrors = (form, touched) => {
+    touchAllFields(form, touched)
     const failed = form.getState().invalid
     this.setState({failed: failed})
     if (failed) {
@@ -176,7 +177,7 @@ class SupplementalApplicationContainer extends React.Component {
         mutators={{
           ...arrayMutators
         }}
-        render={({ handleSubmit, form }) => (
+        render={({ handleSubmit, form, touched }) => (
           <React.Fragment>
             { failed && (
               <AlertBox
@@ -185,7 +186,7 @@ class SupplementalApplicationContainer extends React.Component {
                 message='Please resolve any errors before saving the application.' />
             )}
             <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
-              <StatusUpdateSection formIsValid={() => !this.checkForValidationErrors(form)} />
+              <StatusUpdateSection formIsValid={() => !this.checkForValidationErrors(form, touched)} />
               <ConfirmedPreferencesSection
                 application={application}
                 applicationMembers={applicationMembers}
@@ -201,7 +202,7 @@ class SupplementalApplicationContainer extends React.Component {
               <DemographicsSection />
               <ScrollableAnchor id={'status-history-section'}>
                 <div>
-                  <StatusHistorySection formIsValid={() => !this.checkForValidationErrors(form)} />
+                  <StatusHistorySection formIsValid={() => !this.checkForValidationErrors(form, touched)} />
                 </div
                 ></ScrollableAnchor>
               <div className='padding-bottom--2x margin-bottom--2x' />
@@ -209,7 +210,7 @@ class SupplementalApplicationContainer extends React.Component {
                 <div className='button-pager_row align-buttons-left primary inset-wide'>
                   <StatusDropdown
                     status={application.processing_status}
-                    onChange={(value) => !this.checkForValidationErrors(form) ? openUpdateStatusModal(value) : null}
+                    onChange={(value) => !this.checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null}
                     buttonClasses={['small', 'has-status-width']}
                     wrapperClasses={['dropdown-inline']}
                     menuClasses={['dropdown-menu-bottom']}
@@ -220,7 +221,7 @@ class SupplementalApplicationContainer extends React.Component {
                     type='submit'
                     id='save-supplemental-application'
                     disabled={loading}
-                    onClick={() => this.checkForValidationErrors(form)}>
+                    onClick={() => this.checkForValidationErrors(form, touched)}>
                     {loading ? 'Saving…' : 'Save'}
                   </button>
                 </div>
