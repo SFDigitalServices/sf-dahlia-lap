@@ -1,17 +1,14 @@
-import puppeteer from 'puppeteer'
-
 import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
-  DEFAULT_E2E_TIME_OUT,
-  HEADLESS
+  DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
+import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 
 describe('SupplementalApplicationPage lease section', () => {
   test('should allow saving of rents', async () => {
-    let browser = await puppeteer.launch({ headless: HEADLESS })
-    let page = await browser.newPage()
+    let { browser, page } = await SetupBrowserAndPage()
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
