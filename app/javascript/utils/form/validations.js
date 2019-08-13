@@ -125,4 +125,8 @@ validate.isValidDate = (date, errors, options = {}) => {
   return errors
 }
 
+export const touchAllFields = (form, touchedState) => {
+  Object.keys(touchedState).map(fieldName => form.blur(fieldName))
+}
+
 export default validate

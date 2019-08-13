@@ -10092,7 +10092,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   onClick={[Function]}
                                 >
                                   <button
-                                    aria-expanded="false"
+                                    aria-expanded="true"
                                     className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
                                     disabled={false}
                                     onClick={[Function]}
@@ -10110,10 +10110,249 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     Status
                                   </button>
                                   <div
-                                    aria-hidden="true"
+                                    aria-hidden="false"
                                     className="dropdown-menu-wrapper"
                                     role="menu"
-                                  />
+                                  >
+                                    <DropdownMenu
+                                      classes={
+                                        Array [
+                                          "dropdown-menu-bottom",
+                                        ]
+                                      }
+                                      items={
+                                        Array [
+                                          Object {
+                                            "commentRequired": true,
+                                            "label": "Processing",
+                                            "style": "is-processing",
+                                            "value": "Processing",
+                                          },
+                                          Object {
+                                            "label": "Withdrawn",
+                                            "style": "is-withdrawn",
+                                            "value": "Withdrawn",
+                                          },
+                                          Object {
+                                            "commentRequired": true,
+                                            "label": "Appealed",
+                                            "style": "is-appealed",
+                                            "value": "Appealed",
+                                          },
+                                          Object {
+                                            "commentRequired": true,
+                                            "label": "Waitlisted",
+                                            "style": "is-waitlisted",
+                                            "value": "Waitlisted",
+                                          },
+                                          Object {
+                                            "commentRequired": true,
+                                            "label": "Disqualified",
+                                            "style": "is-disqualified",
+                                            "value": "Disqualified",
+                                          },
+                                          Object {
+                                            "commentRequired": true,
+                                            "label": "Approved",
+                                            "style": "is-approved",
+                                            "value": "Approved",
+                                          },
+                                          Object {
+                                            "label": "Lease Signed",
+                                            "style": "is-leased",
+                                            "value": "Lease Signed",
+                                          },
+                                        ]
+                                      }
+                                      onChange={[Function]}
+                                      style={
+                                        Object {
+                                          "left": 0,
+                                          "top": 40,
+                                        }
+                                      }
+                                    >
+                                      <ul
+                                        aria-activedescendant={true}
+                                        className="dropdown-menu dropdown-menu-bottom"
+                                        role="listbox"
+                                        style={
+                                          Object {
+                                            "left": 0,
+                                            "top": 40,
+                                          }
+                                        }
+                                        tabIndex="-1"
+                                      >
+                                        <DropdownMenuItem
+                                          commentRequired={true}
+                                          key="Processing"
+                                          label="Processing"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-processing"
+                                          value="Processing"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-processing"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Processing
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                          key="Withdrawn"
+                                          label="Withdrawn"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-withdrawn"
+                                          value="Withdrawn"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-withdrawn"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Withdrawn
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                          commentRequired={true}
+                                          key="Appealed"
+                                          label="Appealed"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-appealed"
+                                          value="Appealed"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-appealed"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Appealed
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                          commentRequired={true}
+                                          key="Waitlisted"
+                                          label="Waitlisted"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-waitlisted"
+                                          value="Waitlisted"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-waitlisted"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Waitlisted
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                          commentRequired={true}
+                                          key="Disqualified"
+                                          label="Disqualified"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-disqualified"
+                                          value="Disqualified"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-disqualified"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Disqualified
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                          commentRequired={true}
+                                          key="Approved"
+                                          label="Approved"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-approved"
+                                          value="Approved"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-approved"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Approved
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                          key="Lease Signed"
+                                          label="Lease Signed"
+                                          onChange={[Function]}
+                                          onKeyDown={[Function]}
+                                          selected={false}
+                                          style="is-leased"
+                                          value="Lease Signed"
+                                        >
+                                          <li
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-leased"
+                                            role="option"
+                                          >
+                                            <a
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              tabIndex="0"
+                                            >
+                                              Lease Signed
+                                            </a>
+                                          </li>
+                                        </DropdownMenuItem>
+                                      </ul>
+                                    </DropdownMenu>
+                                  </div>
                                 </div>
                               </Dropdown>
                             </StatusDropdown>
