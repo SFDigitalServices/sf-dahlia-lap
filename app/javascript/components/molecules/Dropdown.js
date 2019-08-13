@@ -90,8 +90,8 @@ const Dropdown = ({
           <DropdownComponent
             style={dropdownStyle}
             onChange={onChangeHandler}
-            values={value}
             items={items}
+            {...(multiple ? {values: value} : {value})}
             classes={menuClasses} />
         )}
       </div>

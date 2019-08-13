@@ -3,11 +3,11 @@ import DropdownMenuItem from '../atoms/DropdownMenuItem'
 import formUtils from '~/utils/formUtils'
 
 const DropdownMenu = ({ items, value, style, classes, onChange }) => {
-  const handleOnChange = (e, value, label) => onChange && onChange(value, label)
+  const handleOnChange = (e, val, label) => onChange && onChange(val, label)
 
-  const handleOnKeyDown = (e, value, label) => {
+  const handleOnKeyDown = (e, val, label) => {
     if (e.keyCode === 13 || e.keyCode === 32) {
-      onChange && onChange(value, label)
+      onChange && onChange(val, label)
       e.preventDefault()
     }
   }
@@ -28,8 +28,8 @@ const DropdownMenu = ({ items, value, style, classes, onChange }) => {
             style={item.style}
             selected={item.value === value}
             onChange={handleOnChange}
-            onKeyDown={handleOnKeyDown} />)
-        )
+            onKeyDown={handleOnKeyDown} />
+        ))
       }
     </ul>
   )
