@@ -39,75 +39,63 @@ const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   )
 })
 
-const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => {
-  return (
-    <ContentSection
-      title='Confirmed Preferences'
-      description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
-      <ContentSection.Content>
-        { confirmedPreferencesFailed && (
-          <AlertBox
-            invert
-            onCloseClick={onDismissError}
-            message="We weren't able to save your updates. Please try again." />
-        )}
-        <PreferencesTable
-          application={application}
-          applicationMembers={applicationMembers}
-          onSave={onSave}
-          fileBaseUrl={fileBaseUrl}
-          onPanelClose={onDismissError}
-          form={form}
-        />
-      </ContentSection.Content>
-    </ContentSection>
-  )
-}
+const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => (
+  <ContentSection
+    title='Confirmed Preferences'
+    description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
+    <ContentSection.Content>
+      { confirmedPreferencesFailed && (
+        <AlertBox
+          invert
+          onCloseClick={onDismissError}
+          message="We weren't able to save your updates. Please try again." />
+      )}
+      <PreferencesTable
+        application={application}
+        applicationMembers={applicationMembers}
+        onSave={onSave}
+        fileBaseUrl={fileBaseUrl}
+        onPanelClose={onDismissError}
+        form={form}
+      />
+    </ContentSection.Content>
+  </ContentSection>
+)
 
-const ConfirmedHousehold = ({ amis, amiCharts, form }) => {
-  return (
-    <ContentSection title='Confirmed Household'>
-      <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
-        <ConfirmedUnits />
-      </ContentSection.Sub>
-      <ContentSection.Sub title='Confirmed Household Income'>
-        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
-      </ContentSection.Sub>
-    </ContentSection>
-  )
-}
-
-const LeaseInformationSection = ({form}) => {
-  return (
-    <ContentSection title='Lease Information'>
-      <ContentSection.Content borderBottom>
-        <LeaseInformationInputs form={form} />
-      </ContentSection.Content>
-    </ContentSection>
-  )
-}
-
-const RentalAssistanceSection = ({form}) => {
-  return (
-    <ContentSection.Sub
-      title='Rental Assistance Information'
-      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-      <RentalAssistance form={form} />
+const ConfirmedHousehold = ({ amis, amiCharts, form }) => (
+  <ContentSection title='Confirmed Household'>
+    <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
+      <ConfirmedUnits />
     </ContentSection.Sub>
-  )
-}
-
-const DemographicsSection = () => {
-  return (
-    <ContentSection.Sub title='Demographics'>
-      <DemographicsInputs />
+    <ContentSection.Sub title='Confirmed Household Income'>
+      <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
     </ContentSection.Sub>
-  )
-}
+  </ContentSection>
+)
 
-const StatusHistorySection = withContext(({ store, formIsValid }) => {
-  const { statusHistory, openAddStatusCommentModal, loading } = store
+const LeaseInformationSection = ({form}) => (
+  <ContentSection title='Lease Information'>
+    <ContentSection.Content borderBottom>
+      <LeaseInformationInputs form={form} />
+    </ContentSection.Content>
+  </ContentSection>
+)
 
+const RentalAssistanceSection = ({form}) => (
+  <ContentSection.Sub
+    title='Rental Assistance Information'
+    description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
+    <RentalAssistance form={form} />
+  </ContentSection.Sub>
+)
+
+const DemographicsSection = () => (
+  <ContentSection.Sub title='Demographics'>
+    <DemographicsInputs />
+  </ContentSection.Sub>
+)
+
+const StatusHistorySection = withContext(({ store: { statusHistory, openAddStatusCommentModal, loading }, formIsValid }) => {
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
       <StatusList
@@ -120,12 +108,7 @@ const StatusHistorySection = withContext(({ store, formIsValid }) => {
 })
 
 class SupplementalApplicationContainer extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      failed: false
-    }
-  }
+  state = { failed: false }
 
   validateForm = (values) => {
     const errors = {lease: {}}

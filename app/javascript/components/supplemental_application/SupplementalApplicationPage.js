@@ -1,5 +1,5 @@
 import React from 'react'
-import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
+import { isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -24,41 +24,32 @@ const getAmiCharts = (chartsToLoad) => {
 }
 
 const getAmis = async (chartsToLoad) => {
-  const promises = map(chartsToLoad, chart => {
-    return getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year })
-  })
+  const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
   const amis = await Promise.all(promises)
-  return [].concat.apply([], amis)
-}
-
-const getApplicationMembers = (application) => {
-  return concat([application.applicant], application.household_members || [])
+  return amis
 }
 
 class SupplementalApplicationPage extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      // A frozen copy of the application state that is currently persisted to
-      // Salesforce. This is the latest saved copy.
-      persistedApplication: cloneDeep(props.application),
-      confirmedPreferencesFailed: false,
-      supplementalAppTouched: false,
-      amis: {},
-      amiCharts: [],
+  state = {
+    // A frozen copy of the application state that is currently persisted to
+    // Salesforce. This is the latest saved copy.
+    persistedApplication: cloneDeep(this.props.application),
+    confirmedPreferencesFailed: false,
+    supplementalAppTouched: false,
+    amis: {},
+    amiCharts: [],
+    loading: false,
+    statusModal: {
       loading: false,
-      statusModal: {
-        loading: false,
-        status: props.application.processing_status
-      },
-      leaveConfirmationModal: {
-        isOpen: false
-      },
-      showNewRentalAssistancePanel: false,
-      showAddRentalAssistanceBtn: true,
-      rentalAssistanceLoading: false,
-      rentalAssistances: props.rentalAssistances
-    }
+      status: this.props.application.processing_status
+    },
+    leaveConfirmationModal: {
+      isOpen: false
+    },
+    showNewRentalAssistancePanel: false,
+    showAddRentalAssistanceBtn: true,
+    rentalAssistanceLoading: false,
+    rentalAssistances: this.props.rentalAssistances
   }
 
   componentDidMount () {
@@ -302,18 +293,7 @@ class SupplementalApplicationPage extends React.Component {
 
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
-    const {
-      confirmedPreferencesFailed,
-      amis,
-      amiCharts,
-      statusModal,
-      leaveConfirmationModal,
-      loading,
-      persistedApplication,
-      showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn,
-      rentalAssistanceLoading
-    } = this.state
+    const { leaveConfirmationModal, persistedApplication } = this.state
     const pageHeader = {
       title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
       breadcrumbs: [
@@ -331,34 +311,27 @@ class SupplementalApplicationPage extends React.Component {
     }
 
     const context = {
-      assignSupplementalAppTouched: this.assignSupplementalAppTouched,
+      ...this.state,
       application: persistedApplication,
-      applicationMembers: getApplicationMembers(persistedApplication),
-      amis: amis,
-      amiCharts: amiCharts,
+      applicationMembers: [persistedApplication.applicant, ...(persistedApplication.household_members || [])],
+      assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
-      statusHistory: statusHistory,
       fileBaseUrl: fileBaseUrl,
-      loading: loading,
-      rentalAssistanceLoading: rentalAssistanceLoading,
-      setLoading: this.setLoading,
-      onSubmit: this.handleSaveApplication,
-      onSavePreference: this.handleSavePreference,
-      confirmedPreferencesFailed: confirmedPreferencesFailed,
-      onDismissError: this.handleDismissError,
-      statusModal: statusModal,
-      openAddStatusCommentModal: this.openAddStatusCommentModal,
-      openUpdateStatusModal: this.openUpdateStatusModal,
+      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
+      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
+      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
+      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
-      showNewRentalAssistancePanel: showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
       hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
-      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
-      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
-      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
-      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
+      onDismissError: this.handleDismissError,
+      onSavePreference: this.handleSavePreference,
+      onSubmit: this.handleSaveApplication,
+      openAddStatusCommentModal: this.openAddStatusCommentModal,
+      openUpdateStatusModal: this.openUpdateStatusModal,
+      setLoading: this.setLoading,
+      statusHistory: statusHistory
     }
 
     return (
