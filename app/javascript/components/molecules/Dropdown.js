@@ -48,7 +48,7 @@ const Dropdown = ({
   const onChangeHandler = (value, label) => {
     if (!multiple) {
       setExpanded(false)
-      buttonRef.focus()
+      buttonRef.current.focus()
     }
     onChange && onChange(value, label)
   }
