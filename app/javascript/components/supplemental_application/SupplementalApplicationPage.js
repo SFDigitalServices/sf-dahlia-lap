@@ -312,26 +312,26 @@ class SupplementalApplicationPage extends React.Component {
 
     const context = {
       ...this.state,
+      application: persistedApplication,
+      applicationMembers: [persistedApplication.applicant, ...(persistedApplication.household_members || [])],
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
-      setLoading: this.setLoading,
-      onSubmit: this.handleSaveApplication,
-      onSavePreference: this.handleSavePreference,
-      onDismissError: this.handleDismissError,
-      openAddStatusCommentModal: this.openAddStatusCommentModal,
-      openUpdateStatusModal: this.openUpdateStatusModal,
+      availableUnits: availableUnits,
+      fileBaseUrl: fileBaseUrl,
+      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
+      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
+      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
+      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
       hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
-      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
-      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
-      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
-      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
-      application: persistedApplication,
-      applicationMembers: [persistedApplication.applicant, ...(persistedApplication.household_members || [])],
-      availableUnits: availableUnits,
-      statusHistory: statusHistory,
-      fileBaseUrl: fileBaseUrl
+      onDismissError: this.handleDismissError,
+      onSavePreference: this.handleSavePreference,
+      onSubmit: this.handleSaveApplication,
+      openAddStatusCommentModal: this.openAddStatusCommentModal,
+      openUpdateStatusModal: this.openUpdateStatusModal,
+      setLoading: this.setLoading,
+      statusHistory: statusHistory
     }
 
     return (
