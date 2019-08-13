@@ -17,7 +17,7 @@ import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
-import validate from '~/utils/form/validations'
+import validate, { touchAllFields } from '~/utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -30,7 +30,7 @@ const StatusUpdateSection = withContext(({ store, formIsValid }) => {
         substatus={recentStatusUpdate.substatus}
         comment={recentStatusUpdate.comment}
         date={recentStatusUpdate.date}
-        onStatusDropdownChange={() => formIsValid() ? openUpdateStatusModal() : null}
+        onStatusDropdownChange={(value) => formIsValid() ? openUpdateStatusModal(value) : null}
         onAddCommentClick={() => formIsValid() ? openAddStatusCommentModal() : null}
         statusHistoryAnchor='#status-history-section'
         loading={loading}
@@ -39,75 +39,63 @@ const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   )
 })
 
-const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => {
-  return (
-    <ContentSection
-      title='Confirmed Preferences'
-      description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
-      <ContentSection.Content>
-        { confirmedPreferencesFailed && (
-          <AlertBox
-            invert
-            onCloseClick={onDismissError}
-            message="We weren't able to save your updates. Please try again." />
-        )}
-        <PreferencesTable
-          application={application}
-          applicationMembers={applicationMembers}
-          onSave={onSave}
-          fileBaseUrl={fileBaseUrl}
-          onPanelClose={onDismissError}
-          form={form}
-        />
-      </ContentSection.Content>
-    </ContentSection>
-  )
-}
+const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => (
+  <ContentSection
+    title='Confirmed Preferences'
+    description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
+    <ContentSection.Content>
+      { confirmedPreferencesFailed && (
+        <AlertBox
+          invert
+          onCloseClick={onDismissError}
+          message="We weren't able to save your updates. Please try again." />
+      )}
+      <PreferencesTable
+        application={application}
+        applicationMembers={applicationMembers}
+        onSave={onSave}
+        fileBaseUrl={fileBaseUrl}
+        onPanelClose={onDismissError}
+        form={form}
+      />
+    </ContentSection.Content>
+  </ContentSection>
+)
 
-const ConfirmedHousehold = ({ amis, amiCharts, form }) => {
-  return (
-    <ContentSection title='Confirmed Household'>
-      <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
-        <ConfirmedUnits />
-      </ContentSection.Sub>
-      <ContentSection.Sub title='Confirmed Household Income'>
-        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
-      </ContentSection.Sub>
-    </ContentSection>
-  )
-}
-
-const LeaseInformationSection = ({form}) => {
-  return (
-    <ContentSection title='Lease Information'>
-      <ContentSection.Content borderBottom>
-        <LeaseInformationInputs form={form} />
-      </ContentSection.Content>
-    </ContentSection>
-  )
-}
-
-const RentalAssistanceSection = ({form}) => {
-  return (
-    <ContentSection.Sub
-      title='Rental Assistance Information'
-      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-      <RentalAssistance form={form} />
+const ConfirmedHousehold = ({ amis, amiCharts, form }) => (
+  <ContentSection title='Confirmed Household'>
+    <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
+      <ConfirmedUnits />
     </ContentSection.Sub>
-  )
-}
-
-const DemographicsSection = () => {
-  return (
-    <ContentSection.Sub title='Demographics'>
-      <DemographicsInputs />
+    <ContentSection.Sub title='Confirmed Household Income'>
+      <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
     </ContentSection.Sub>
-  )
-}
+  </ContentSection>
+)
 
-const StatusHistorySection = withContext(({ store, formIsValid }) => {
-  const { statusHistory, openAddStatusCommentModal, loading } = store
+const LeaseInformationSection = ({form}) => (
+  <ContentSection title='Lease Information'>
+    <ContentSection.Content borderBottom>
+      <LeaseInformationInputs form={form} />
+    </ContentSection.Content>
+  </ContentSection>
+)
 
+const RentalAssistanceSection = ({form}) => (
+  <ContentSection.Sub
+    title='Rental Assistance Information'
+    description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
+    <RentalAssistance form={form} />
+  </ContentSection.Sub>
+)
+
+const DemographicsSection = () => (
+  <ContentSection.Sub title='Demographics'>
+    <DemographicsInputs />
+  </ContentSection.Sub>
+)
+
+const StatusHistorySection = withContext(({ store: { statusHistory, openAddStatusCommentModal, loading }, formIsValid }) => {
   return !isEmpty(statusHistory) && (
     <ContentSection.Sub title='Status History' borderBottom={false}>
       <StatusList
@@ -132,7 +120,8 @@ const SupplementalApplicationContainer = ({ store }) => {
     return errors
   }
 
-  const checkForValidationErrors = (form) => {
+  const checkForValidationErrors = (form, touched) => {
+    touchAllFields(form, touched)
     const failed = form.getState().invalid
     setFailed(failed)
     if (failed) {
@@ -165,7 +154,7 @@ const SupplementalApplicationContainer = ({ store }) => {
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}
-      render={({ handleSubmit, form }) => (
+      render={({ handleSubmit, form, touched }) => (
         <React.Fragment>
           { failed && (
             <AlertBox
@@ -174,7 +163,7 @@ const SupplementalApplicationContainer = ({ store }) => {
               message='Please resolve any errors before saving the application.' />
           )}
           <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
-            <StatusUpdateSection formIsValid={() => !checkForValidationErrors(form)} />
+            <StatusUpdateSection formIsValid={() => !checkForValidationErrors(form, touched)} />
             <ConfirmedPreferencesSection
               application={application}
               applicationMembers={applicationMembers}
@@ -190,7 +179,7 @@ const SupplementalApplicationContainer = ({ store }) => {
             <DemographicsSection />
             <ScrollableAnchor id={'status-history-section'}>
               <div>
-                <StatusHistorySection formIsValid={() => !checkForValidationErrors(form)} />
+                <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
               </div
               ></ScrollableAnchor>
             <div className='padding-bottom--2x margin-bottom--2x' />
@@ -198,7 +187,7 @@ const SupplementalApplicationContainer = ({ store }) => {
               <div className='button-pager_row align-buttons-left primary inset-wide'>
                 <StatusDropdown
                   status={application.processing_status}
-                  onChange={() => !checkForValidationErrors(form) ? openUpdateStatusModal() : null}
+                  onChange={() => !checkForValidationErrors(form, touched) ? openUpdateStatusModal() : null}
                   buttonClasses={['small', 'has-status-width']}
                   wrapperClasses={['dropdown-inline']}
                   menuClasses={['dropdown-menu-bottom']}
@@ -209,7 +198,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                   type='submit'
                   id='save-supplemental-application'
                   disabled={loading}
-                  onClick={() => checkForValidationErrors(form)}>
+                  onClick={() => checkForValidationErrors(form, touched)}>
                   {loading ? 'Saving…' : 'Save'}
                 </button>
               </div>
