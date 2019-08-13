@@ -46,45 +46,41 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
   )
 }
 
-class TabsMenu extends React.Component {
-  tabRefs = arrayUtils.cycle([])
+const TabsMenu = ({ items, currentUrl }) => {
+  const tabRefs = arrayUtils.cycle([])
 
-  handleKeyDown = (e) => {
+  const handleKeyDown = (e) => {
     keyboard.forEvent(e)
-      .on('leftArrow', (e) => this.tabRefs.prev().focus())
-      .on('rightArrow', (e) => this.tabRefs.next().focus())
+      .on('leftArrow', () => tabRefs.prev().focus())
+      .on('rightArrow', () => tabRefs.next().focus())
   }
 
-  addTabRef = (node) => {
-    this.tabRefs.push(node)
+  const addTabRef = (node) => {
+    tabRefs.push(node)
   }
 
   // NOTE: We need this so arrow navigation and tab navigation play nice together, Fed
-  handleOnFocus = (e) => {
-    const idx = this.tabRefs.values.indexOf(e.target)
-    this.tabRefs.setPosition(idx)
+  const handleOnFocus = (e) => {
+    const idx = tabRefs.values.indexOf(e.target)
+    tabRefs.setPosition(idx)
   }
 
-  render () {
-    const { items, currentUrl } = this.props
-
-    return (
-      <ul className='tabs full-width-small-only' role='menubar'>
-        {
-          items.map((item) => (
-            <Tab
-              {...item}
-              key={item.url}
-              onKeyDown={this.handleKeyDown}
-              onFocus={this.handleOnFocus}
-              onClick={item.onClick}
-              linkRefs={this.addTabRef}
-              active={item.url === currentUrl} />)
-          )
-        }
-      </ul>
-    )
-  }
+  return (
+    <ul className='tabs full-width-small-only' role='menubar'>
+      {
+        items.map((item) => (
+          <Tab
+            {...item}
+            key={item.url}
+            onKeyDown={handleKeyDown}
+            onFocus={handleOnFocus}
+            onClick={item.onClick}
+            linkRefs={addTabRef}
+            active={item.url === currentUrl} />)
+        )
+      }
+    </ul>
+  )
 }
 
 export default TabsMenu
