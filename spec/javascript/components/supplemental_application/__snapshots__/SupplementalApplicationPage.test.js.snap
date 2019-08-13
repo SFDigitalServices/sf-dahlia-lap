@@ -1714,7 +1714,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "status_last_updated": undefined,
         "terms_acknowledged": true,
         "total_household_size": 1,
-        "total_monthly_rent": null,
+        "total_monthly_rent": "",
       }
     }
     availableUnits={Array []}
@@ -2173,7 +2173,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "status_last_updated": undefined,
                           "terms_acknowledged": true,
                           "total_household_size": 1,
-                          "total_monthly_rent": null,
+                          "total_monthly_rent": "",
                         },
                         "applicationMembers": Array [
                           Object {
@@ -2623,7 +2623,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "status_last_updated": undefined,
                           "terms_acknowledged": true,
                           "total_household_size": 1,
-                          "total_monthly_rent": null,
+                          "total_monthly_rent": "",
                         }
                       }
                       mutators={
@@ -2828,7 +2828,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "status_last_updated": undefined,
                                   "terms_acknowledged": true,
                                   "total_household_size": 1,
-                                  "total_monthly_rent": null,
+                                  "total_monthly_rent": "",
                                 },
                                 "applicationMembers": Array [
                                   Object {
@@ -3467,7 +3467,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "status_last_updated": undefined,
                               "terms_acknowledged": true,
                               "total_household_size": 1,
-                              "total_monthly_rent": null,
+                              "total_monthly_rent": "",
                             }
                           }
                           applicationMembers={
@@ -3771,7 +3771,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "status_last_updated": undefined,
                                       "terms_acknowledged": true,
                                       "total_household_size": 1,
-                                      "total_monthly_rent": null,
+                                      "total_monthly_rent": "",
                                     }
                                   }
                                   applicationMembers={
@@ -4047,7 +4047,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "status_last_updated": undefined,
                                         "terms_acknowledged": true,
                                         "total_household_size": 1,
-                                        "total_monthly_rent": null,
+                                        "total_monthly_rent": "",
                                       }
                                     }
                                     applicationMembers={
@@ -4324,7 +4324,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "status_last_updated": undefined,
                                           "terms_acknowledged": true,
                                           "total_household_size": 1,
-                                          "total_monthly_rent": null,
+                                          "total_monthly_rent": "",
                                         },
                                         "applicationMembers": Array [
                                           Object {
@@ -6746,7 +6746,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "status_last_updated": undefined,
                                           "terms_acknowledged": true,
                                           "total_household_size": 1,
-                                          "total_monthly_rent": null,
+                                          "total_monthly_rent": "",
                                         },
                                         "applicationMembers": Array [
                                           Object {
@@ -8327,7 +8327,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "status_last_updated": undefined,
                                           "terms_acknowledged": true,
                                           "total_household_size": 1,
-                                          "total_monthly_rent": null,
+                                          "total_monthly_rent": "",
                                         },
                                         "applicationMembers": Array [
                                           Object {
@@ -9561,7 +9561,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "status_last_updated": undefined,
                                       "terms_acknowledged": true,
                                       "total_household_size": 1,
-                                      "total_monthly_rent": null,
+                                      "total_monthly_rent": "",
                                     },
                                     "applicationMembers": Array [
                                       Object {

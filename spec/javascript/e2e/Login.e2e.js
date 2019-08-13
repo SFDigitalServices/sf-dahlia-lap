@@ -1,27 +1,22 @@
-import puppeteer from 'puppeteer'
-import { HEADLESS, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
+import { DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
+let testBrowser
 
 describe('Login/Logout', () => {
   test('lead header loads correctly', async () => {
-    let browser = await puppeteer.launch({
-      headless: HEADLESS
-    })
-    let page = await browser.newPage()
+    let { browser, page } = await SetupBrowserAndPage()
+    testBrowser = browser
 
     await page.goto('http://localhost:3000/')
     await page.waitForSelector('#root')
 
     const html = await page.$eval('.lead-header_title', e => e.innerHTML)
     expect(html).toBe('Welcome to DAHLIA Partners.')
-
-    await browser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
   test('should sign out successfully', async () => {
-    let browser = await puppeteer.launch({
-      headless: false
-    })
-    let page = await browser.newPage()
+    let { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.loginAsAgent(page)
 
@@ -34,6 +29,6 @@ describe('Login/Logout', () => {
     const html = await page.$eval('.lead-header_title', e => e.innerHTML)
     expect(html).toBe('Welcome to DAHLIA Partners.')
 
-    await browser.close()
+    await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
 })
