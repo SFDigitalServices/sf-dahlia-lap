@@ -19,7 +19,8 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
       form.change('preferences', autofillPreferences)
     }
   }
-
+  // With the empty array passed as the second argument
+  // this useEffect call acts like a componentDidMount call
   useEffect(() => {
     loadOnMount()
   }, [])

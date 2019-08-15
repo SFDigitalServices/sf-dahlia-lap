@@ -6,6 +6,8 @@ import TabCard from '../organisms/TabCard'
 import AppCard from '../molecules/AppCard'
 
 const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
+  // With the empty array passed as the second argument
+  // this useEffect call acts like a componentDidMount call
   useEffect(() => {
     document.body.classList.add('bg-snow')
   }, [])

@@ -23,7 +23,10 @@ const Dropdown = ({
   const wrapperRef = useRef(null)
   const buttonRef = useRef(null)
   const DropdownComponent = multiple ? DropdownMenuMultiSelect : DropdownMenu
-
+  // With the empty array passed as the second argument
+  // this useEffect call acts like a componentDidMount call.
+  // The returned function call here acts as a cleanup method.
+  // This allows for a componentDidUnmount call.
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside)
     document.addEventListener('keydown', onEscapeHandler)

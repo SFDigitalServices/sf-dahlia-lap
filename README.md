@@ -121,3 +121,76 @@ For tests you can debug a single file or the whole suite. To enter debug click a
 ### Debugging Javascript
 
 To debug javascript, run Rails server in the prefered way. Go to browser and open inspector (⌥+⌘+I). Go to Sources tab and press ⌘+P to search for a file that you want to debug eg. PaperApplicationForm. Click line number to set a breakpoint in the place you want to debug. You can also add watch expressions, step into or over lines like in VS code debugger.
+
+## React Hooks
+Wanted to post a basic intro to react hooks here as they will make our code more performant and allow us to use more functional components.
+
+### useState, useEffect, and useRef Hooks
+These hooks are all built-in to react by default.
+
+`useState` allows functional components to manage state just like a class component but with a streamlined syntax.
+```js
+// class version
+class Dropdown extends React.Component {
+  state = {
+    expanded: false
+  }
+
+  expandDropdown = () => {
+    this.setState({ expanded: true })
+  }
+}
+
+// hooks version
+const Dropdown = () => {
+  const [expanded, setExpanded] = useState(false)
+
+  const expandDropdown = () => {
+    setExpanded(true)
+  }
+}
+```
+These components now have the exact same level of control over the expanded flag but the below function has less overhead when mounting and unmounting.
+
+`useEffect` is the hook that allows us to still take advantage of lifecycle events when necessary.
+```js
+const Dropdown = ({ styles }) => {
+  // The empty array passed as the second param here
+  // allows for this function to only fire once on
+  // mount. This is the hooks version of componentDidMount
+  useEffect(() => {
+    loadData()
+  }, [])
+  // The prop passed in the array as the second param here
+  // allows for this function to fire once on
+  // mount and then anytime that prop changes. You can
+  // add more than one prop to a given effect and it will
+  // fire when any of those props changes. This is the hooks
+  // version of componentDidUpdate
+  useEffect(() => {
+    updateStyles()
+  }, [styles])
+}
+```
+
+`useRef` allows us access to the `ref` prop of any tag in a component just like a normal ref is assigned. The syntax for the hook is simpler than the old way.
+
+```js
+// old version
+wrapperRef = null
+render() {
+  return (
+    <div ref={(node) => this.wrapperRef = node }>
+      // other stuff
+    </div>
+  )
+}
+
+// hooks version
+const wrapperRef = useRef(null)
+return (
+  <div ref={wrapperRef}>
+    // other stuff
+  </div>
+)
+```
