@@ -123,7 +123,7 @@ For tests you can debug a single file or the whole suite. To enter debug click a
 To debug javascript, run Rails server in the prefered way. Go to browser and open inspector (⌥+⌘+I). Go to Sources tab and press ⌘+P to search for a file that you want to debug eg. PaperApplicationForm. Click line number to set a breakpoint in the place you want to debug. You can also add watch expressions, step into or over lines like in VS code debugger.
 
 ## React Hooks
-Wanted to post a basic intro to react hooks here as they will make our code more performant and allow us to use more functional components.
+Wanted to post a basic intro to react hooks here as they will make our code more performant and allow us to use more functional components. I have examples below but you can read more on the [React Documentation](https://reactjs.org/docs/hooks-overview.html)
 
 ### useState, useEffect, and useRef Hooks
 These hooks are all built-in to react by default.
