@@ -26,7 +26,8 @@ const getAmiCharts = (chartsToLoad) => {
 const getAmis = async (chartsToLoad) => {
   const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
   const amis = await Promise.all(promises)
-  return amis
+  // convert list of ami lists into one big array
+  return [].concat.apply([], amis)
 }
 
 class SupplementalApplicationPage extends React.Component {
