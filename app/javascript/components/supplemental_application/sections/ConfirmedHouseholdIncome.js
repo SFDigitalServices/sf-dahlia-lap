@@ -1,11 +1,12 @@
-import React from 'react'
-import { find, isNil, isString } from 'lodash'
+import React, { useEffect, useState } from 'react'
+import { find, isNil, isString, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { formatPercent } from '~/utils/utils'
 import { YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
+import { getAMIAction } from '~/components/supplemental_application/actions'
 
 const validateIncomeCurrency = (value) => {
   return (
@@ -14,11 +15,17 @@ const validateIncomeCurrency = (value) => {
   )
 }
 
-const getAMI = ({numHousehold, chartName, chartYear, amis}) => {
-  let ami = find(amis, {'chartType': chartName, 'year': chartYear, 'numOfHousehold': numHousehold})
-  if (!isNil(ami)) {
-    return ami.amount
-  }
+const getAmis = async (chartsToLoad, totalHouseholdSize) => {
+  const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
+  const amis = await Promise.all(promises)
+
+  // Filter by household size and format
+  return amis.map((amisForAllSizes) => {
+    let ami = find(amisForAllSizes, {'numOfHousehold': totalHouseholdSize})
+    if (!isNil(ami)) {
+      return ({'name': ami.chartType, 'year': ami.chartYear, 'numHousehold': ami.numOfHousehold, 'amount': ami.amount})
+    }
+  })
 }
 
 const getAMIPercent = ({income, ami}) => {
@@ -26,7 +33,7 @@ const getAMIPercent = ({income, ami}) => {
     return 'Enter HH Income'
   }
   if (isNil(ami)) {
-    return ''
+    return 'Missing AMI Chart'
   }
   let incomeFloat = isString(income) ? Number(income.replace(/[$,]+/g, '')) : income
   if (Number.isNaN(incomeFloat)) {
@@ -35,9 +42,15 @@ const getAMIPercent = ({income, ami}) => {
   return formatPercent(incomeFloat / Number(ami))
 }
 
-const ConfirmedHouseholdIncome = ({ amis, amiCharts, form }) => {
+const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
   const totalHouseholdSize = form.getState().values.total_household_size
   const hhTotalIncomeWithAssetsAnnual = form.getState().values.hh_total_income_with_assets_annual
+
+  const [ amiCharts, setAmiCharts ] = useState([])
+  // This is the hooks version of componentDidMount.
+  useEffect(() => {
+    getAmis(listingAmiCharts, totalHouseholdSize).then(amis => setAmiCharts(amis))
+  }, [])
 
   return (
     <React.Fragment>
@@ -84,7 +97,6 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, form }) => {
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         {amiCharts.map((chart) => {
-          let ami = getAMI({numHousehold: totalHouseholdSize, chartName: chart.name, chartYear: chart.year, amis: amis})
           let id = `ami-${chart.name}`
           return (
             <FormGrid.Item key={chart.name + chart.year}>
@@ -93,7 +105,7 @@ const ConfirmedHouseholdIncome = ({ amis, amiCharts, form }) => {
                 name={id}
                 describeId={id}
                 note='Based on Final Household Income'
-                value={getAMIPercent({income: hhTotalIncomeWithAssetsAnnual, ami: ami})} />
+                value={getAMIPercent({income: hhTotalIncomeWithAssetsAnnual, ami: chart.amount})} />
             </FormGrid.Item>
           )
         }
