@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { find, isNil, isString, map } from 'lodash'
+import { find, kebabCase, isNil, isString, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
@@ -97,7 +97,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         {amiCharts.map((chart) => {
-          let id = `ami-${chart.name}`
+          let id = `ami-${kebabCase(chart.name)}`
           return (
             <FormGrid.Item key={chart.name + chart.year}>
               <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}

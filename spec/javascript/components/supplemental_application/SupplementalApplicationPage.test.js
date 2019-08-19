@@ -25,9 +25,6 @@ jest.mock('apiService', () => {
     updatePreference: async (data) => {
       mockUpdatePreference(data)
       return true
-    },
-    getAMI: async (data) => {
-      return { ami: '10' }
     }
   }
 })
