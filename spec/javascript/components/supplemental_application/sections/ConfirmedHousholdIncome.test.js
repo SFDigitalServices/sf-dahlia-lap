@@ -1,23 +1,13 @@
 import { getAmis, getAmiPercent } from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'
-import { getAMI } from '~/apiService'
 
 jest.mock('apiService', () => ({
-  getAMI: jest
-    .fn()
-    .mockReturnValueOnce({
-      ami: [
-        { chartType: 'Chart Name', chartYear: 2016, amount: 10, numOfHousehold: 1 },
-        { chartType: 'Chart Name', chartYear: 2016, amount: 20, numOfHousehold: 2 },
-        { chartType: 'Chart Name', chartYear: 2016, amount: 30, numOfHousehold: 3 }
-      ]
-    })
-    .mockReturnValueOnce({
-      ami: [
-        { chartType: 'Chart Name B', chartYear: 2016, amount: 100, numOfHousehold: 1 },
-        { chartType: 'Chart Name B', chartYear: 2016, amount: 200, numOfHousehold: 2 },
-        { chartType: 'Chart Name B', chartYear: 2016, amount: 300, numOfHousehold: 3 }
-      ]
-    })
+  getAMI: async (data) => {
+    return { ami: [
+      { chartType: data.chartType, chartYear: data.chartYear, amount: 100, numOfHousehold: 1 },
+      { chartType: data.chartType, chartYear: data.chartYear, amount: 200, numOfHousehold: 2 },
+      { chartType: data.chartType, chartYear: data.chartYear, amount: 300, numOfHousehold: 3 }
+    ]}
+  }
 }))
 
 describe('ConfirmedHouseholdIncome', () => {
@@ -37,27 +27,15 @@ describe('ConfirmedHouseholdIncome', () => {
     })
   })
   describe('getAmis', () => {
-    beforeEach(() => getAMI.mockClear())
     test('finds the proper AMI value when one type of chart is requested', async () => {
-      getAMI.mockImplementation(
-        async (data) => {
-          return {
-            ami: [
-              { chartType: 'Chart Name', chartYear: 2016, amount: 10, numOfHousehold: 1 },
-              { chartType: 'Chart Name', chartYear: 2016, amount: 20, numOfHousehold: 2 },
-              { chartType: 'Chart Name', chartYear: 2016, amount: 30, numOfHousehold: 3 }
-            ]
-          }
-        }
-      )
       const chartsToLoad = [{'ami_chart_type': 'Chart Name', 'ami_chart_year': 2016}]
-      expect(await getAmis(chartsToLoad, 2)).toStrictEqual([{name: 'Chart Name', year: 2016, amount: 20, numHousehold: 2}])
+      expect(await getAmis(chartsToLoad, 2)).toStrictEqual([{name: 'Chart Name', year: 2016, amount: 200, numHousehold: 2}])
     })
     test('finds proper AMI values when there is more than one chart on a listing', async () => {
       const chartsToLoad = [{'ami_chart_type': 'Chart Name', 'ami_chart_year': 2016}, {'ami_chart_type': 'Chart Name B', 'ami_chart_year': 2016}]
       expect(await getAmis(chartsToLoad, 2)).toStrictEqual([
-        {name: 'Chart Name B', year: 2016, amount: 200, numHousehold: 2},
-        {name: 'Chart Name', year: 2016, amount: 20, numHousehold: 2}
+        {name: 'Chart Name', year: 2016, amount: 200, numHousehold: 2},
+        {name: 'Chart Name B', year: 2016, amount: 200, numHousehold: 2}
       ])
     })
   })
