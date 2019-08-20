@@ -1,6 +1,7 @@
 /* global wait */
 import React from 'react'
-import renderer, { act } from 'react-test-renderer'
+import renderer from 'react-test-renderer'
+import {act} from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
@@ -11,6 +12,7 @@ import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
 const mockUpdatePreference = jest.fn()
+window.scrollTo = jest.fn()
 
 jest.mock('apiService', () => {
   return {
@@ -56,7 +58,7 @@ describe('SupplementalApplicationPage', () => {
 
   test('it should render correctly with status history', async () => {
     let component
-    await act(async () => {
+    await renderer.act(async () => {
       component = renderer.create(
         <SupplementalApplicationPage
           application={supplementalApplication}
@@ -74,12 +76,15 @@ describe('SupplementalApplicationPage', () => {
     payload.numberOfSeniors = '3'
     payload.numberOfMinors = '4'
     payload.primaryApplicant.maritalStatus = 'Domestic Partner'
-    const wrapper = mount(
-      <SupplementalApplicationPage
-        application={supplementalApplication}
-        statusHistory={statusHistory}
-        units={units} />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+          units={units} />
+      )
+    })
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
@@ -109,13 +114,15 @@ describe('SupplementalApplicationPage', () => {
       Receives_Preference: true,
       Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' }
     })
-
-    const wrapper = mount(
-      <SupplementalApplicationPage
-        application={withValidPreferences}
-        statusHistory={statusHistory}
-      />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={withValidPreferences}
+          statusHistory={statusHistory}
+        />
+      )
+    })
 
     wrapper.find('.preferences-table .action-link').first().simulate('click')
     wrapper.find('.preferences-table .save-panel-btn').simulate('click')
@@ -127,12 +134,15 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('should render the status update dropdown button and its menu of status options correctly', async () => {
-    const wrapper = mount(
-      <SupplementalApplicationPage
-        application={supplementalApplication}
-        statusHistory={statusHistory}
-      />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+        />
+      )
+    })
 
     // Click on the status update dropdown button to open
     // the status options dropdown menu
@@ -145,12 +155,15 @@ describe('SupplementalApplicationPage', () => {
     expect(wrapper).toMatchSnapshot()
   })
   test('should render the status dropdown modal correctly', async () => {
-    const wrapper = mount(
-      <SupplementalApplicationPage
-        application={supplementalApplication}
-        statusHistory={statusHistory}
-      />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+        />
+      )
+    })
     // Click on the status update dropdown button to open
     // the status options dropdown menu
     wrapper.find('.button-pager .dropdown > button').simulate('click')
@@ -166,12 +179,15 @@ describe('SupplementalApplicationPage', () => {
     expect(wrapper.find('.modal-inner .dropdown.status').text()).toEqual('Withdrawn')
   })
   test('should allow the status update modal to open and close', async () => {
-    const wrapper = mount(
-      <SupplementalApplicationPage
-        application={supplementalApplication}
-        statusHistory={statusHistory}
-      />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+        />
+      )
+    })
 
     // Click on the add a comment button to open
     // the status update modal
@@ -187,12 +203,15 @@ describe('SupplementalApplicationPage', () => {
     expect(wrapper.find('#status-comment').exists()).toBe(false)
   })
   test('should display alert box when form is invalid on submit', async () => {
-    const wrapper = mount(
-      <SupplementalApplicationPage
-        application={supplementalApplication}
-        statusHistory={statusHistory}
-      />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+        />
+      )
+    })
 
     // Fill in letters in lease date month - which are invalid values
     wrapper.find('#lease_start_date_month').first().simulate('change', { target: { value: 'AB' } })
