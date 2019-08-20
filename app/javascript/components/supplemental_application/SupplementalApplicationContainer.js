@@ -187,7 +187,7 @@ const SupplementalApplicationContainer = ({ store }) => {
               <div className='button-pager_row align-buttons-left primary inset-wide'>
                 <StatusDropdown
                   status={application.processing_status}
-                  onChange={() => !checkForValidationErrors(form, touched) ? openUpdateStatusModal() : null}
+                  onChange={(value) => !checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null}
                   buttonClasses={['small', 'has-status-width']}
                   wrapperClasses={['dropdown-inline']}
                   menuClasses={['dropdown-menu-bottom']}
