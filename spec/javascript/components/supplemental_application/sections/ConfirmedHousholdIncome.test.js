@@ -38,7 +38,7 @@ describe('ConfirmedHouseholdIncome', () => {
   })
   describe('getAmis', () => {
     beforeEach(() => getAMI.mockClear())
-    test('finds the proper AMI value when one type of chart is requestsed', async () => {
+    test('finds the proper AMI value when one type of chart is requested', async () => {
       getAMI.mockImplementation(
         async (data) => {
           return {
@@ -53,7 +53,7 @@ describe('ConfirmedHouseholdIncome', () => {
       const chartsToLoad = [{'ami_chart_type': 'Chart Name', 'ami_chart_year': 2016}]
       expect(await getAmis(chartsToLoad, 2)).toStrictEqual([{name: 'Chart Name', year: 2016, amount: 20, numHousehold: 2}])
     })
-    test('works with multiple AMI charts', async () => {
+    test('finds proper AMI values when there is more than one chart on a listing', async () => {
       const chartsToLoad = [{'ami_chart_type': 'Chart Name', 'ami_chart_year': 2016}, {'ami_chart_type': 'Chart Name B', 'ami_chart_year': 2016}]
       expect(await getAmis(chartsToLoad, 2)).toStrictEqual([
         {name: 'Chart Name B', year: 2016, amount: 200, numHousehold: 2},
