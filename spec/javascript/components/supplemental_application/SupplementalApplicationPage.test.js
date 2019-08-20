@@ -1,6 +1,6 @@
 /* global wait */
 import React from 'react'
-import renderer from 'react-test-renderer'
+import renderer, { act } from 'react-test-renderer'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
@@ -25,6 +25,9 @@ jest.mock('apiService', () => {
     updatePreference: async (data) => {
       mockUpdatePreference(data)
       return true
+    },
+    getAMI: async (data) => {
+      return { ami: [{ chartType: data.chartType, chartYear: data.chartYear, amount: 100, numOfHousehold: 1 }] }
     }
   }
 })
@@ -51,12 +54,15 @@ describe('SupplementalApplicationPage', () => {
     window.location = originalLocation
   })
 
-  test('it should render correctly with status history', () => {
-    const component = renderer.create(
-      <SupplementalApplicationPage
-        application={supplementalApplication}
-        units={units} />
-    )
+  test('it should render correctly with status history', async () => {
+    let component
+    await act(async () => {
+      component = renderer.create(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          units={units} />
+      )
+    })
 
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()

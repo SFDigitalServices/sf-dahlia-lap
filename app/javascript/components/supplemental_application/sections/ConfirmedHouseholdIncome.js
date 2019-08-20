@@ -97,9 +97,9 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         {amiCharts.map((chart) => {
-          let id = `ami-${kebabCase(chart.name)}`
+          let id = `ami-${kebabCase(chart.name)}-${chart.year}`
           return (
-            <FormGrid.Item key={chart.name + chart.year}>
+            <FormGrid.Item key={`${kebabCase(chart.name)}-${chart.year}`}>
               <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}
                 id={id}
                 name={id}
