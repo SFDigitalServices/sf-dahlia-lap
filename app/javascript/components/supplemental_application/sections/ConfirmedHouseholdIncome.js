@@ -15,7 +15,7 @@ const validateIncomeCurrency = (value) => {
   )
 }
 
-const getAmis = async (chartsToLoad, totalHouseholdSize) => {
+export const getAmis = async (chartsToLoad, totalHouseholdSize) => {
   const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
   const amis = await Promise.all(promises)
 
@@ -28,7 +28,7 @@ const getAmis = async (chartsToLoad, totalHouseholdSize) => {
   })
 }
 
-const getAMIPercent = ({income, ami}) => {
+export const getAmiPercent = ({income, ami}) => {
   if (!income) {
     return 'Enter HH Income'
   }
@@ -105,7 +105,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
                 name={id}
                 describeId={id}
                 note='Based on Final Household Income'
-                value={getAMIPercent({income: hhTotalIncomeWithAssetsAnnual, ami: chart.amount})} />
+                value={getAmiPercent({income: hhTotalIncomeWithAssetsAnnual, ami: chart.amount})} />
             </FormGrid.Item>
           )
         }
