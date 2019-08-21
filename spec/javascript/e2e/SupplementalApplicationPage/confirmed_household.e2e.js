@@ -28,7 +28,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     await sharedSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
 
     // Verify that AMI percentage is being calculated
-    const amiPercentage = await page.$eval('#ami-hud-unadjusted', e => e.textContent)
+    const amiPercentage = await page.$eval('#ami-hud-unadjusted-2018', e => e.textContent)
     expect(amiPercentage).toContain('%')
 
     // Click save

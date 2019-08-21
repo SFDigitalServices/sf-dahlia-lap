@@ -29,7 +29,7 @@ jest.mock('apiService', () => {
       return true
     },
     getAMI: async (data) => {
-      return { ami: [{ chartType: data.chartType, chartYear: data.chartYear, amount: 100, numOfHousehold: 1 }] }
+      return { ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }] }
     }
   }
 })

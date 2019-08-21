@@ -3,9 +3,9 @@ import { getAmis, getAmiPercent } from 'components/supplemental_application/sect
 jest.mock('apiService', () => ({
   getAMI: async (data) => {
     return { ami: [
-      { chartType: data.chartType, chartYear: data.chartYear, amount: 100, numOfHousehold: 1 },
-      { chartType: data.chartType, chartYear: data.chartYear, amount: 200, numOfHousehold: 2 },
-      { chartType: data.chartType, chartYear: data.chartYear, amount: 300, numOfHousehold: 3 }
+      { chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 },
+      { chartType: data.chartType, year: data.chartYear, amount: 200, numOfHousehold: 2 },
+      { chartType: data.chartType, year: data.chartYear, amount: 300, numOfHousehold: 3 }
     ]}
   }
 }))
