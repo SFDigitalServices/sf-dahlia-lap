@@ -50,6 +50,7 @@ const layout = {
 }
 
 const ListingsPage = ({ page, listings }) => {
+  console.log(listings)
   return (
     <TableLayout {...layout}>
       <ListingsPageTable page={page} listings={listings} fields={tableFields} />

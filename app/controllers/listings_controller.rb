@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../helpers/listing_helper.rb'
 
 # Controller for listings objects
 class ListingsController < ApplicationController
@@ -10,7 +11,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = service.listing(params[:id])
+    @listing = ListingHelper.map_listing_fields(service.listing(params[:id]))
   end
 
   private

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../../helpers/listing_helper.rb'
 
 module Listings
   # Rails controller for views/actions related to applications for a listing
@@ -24,7 +25,7 @@ module Listings
     end
 
     def load_listing
-      @listing = listing_service.listing(params[:listing_id])
+      @listing = ListingHelper.map_listing_fields(listing_service.listing(params[:listing_id]))
     end
 
     def listing_service

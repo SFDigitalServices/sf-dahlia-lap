@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../helpers/listing_helper.rb'
 
 # Rails controller for Applications related views/actions
 class ApplicationsController < ApplicationController
@@ -6,7 +7,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = listing_service.listings
+    @listings = listing_service.listings.map { |listing| ListingHelper.map_listing_fields(listing) }
   end
 
   def show
