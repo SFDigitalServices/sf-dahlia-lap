@@ -1,34 +1,13 @@
+require_relative './mapping_helper.rb'
+
 module ListingHelper
   def self.map_listing_fields(l)
     mappedListing = {
       owner: l.dig(:Owner, :Name),
       account: l.dig(:Account, :Name),
       open_houses: l.Open_Houses,
-      listing_lottery_preferences: l.Listing_Lottery_Preferences && l.Listing_Lottery_Preferences.map { |i| {
-        id: i.Id,
-        total_submitted_apps: i.Total_Submitted_Apps,
-        order: i.Order,
-        description: i.Description,
-        available_units: i.Available_Units,
-        pdf_url: i.PDF_URL,
-        lottery_preference: {
-          id: i.Lottery_Preference.Id,
-          name: i.Lottery_Preference.Name
-        }
-      }},
-      units: l.Units && l.Units.map { |u| {
-        id: u.Id,
-        unit_type: u.Unit_Type,
-        unit_number: u.Unit_Number,
-        bmr_rent_monthly: u.BMR_Rent_Monthly,
-        bmr_rental_minimum_monthly_income_needed: u.BMR_Rental_Minimum_Monthly_Income_Needed,
-        status: u.Status,
-        property_type: u.Property_Type,
-        ami_chart_type: u.AMI_chart_type,
-        ami_chart_year: u.AMI_chart_year,
-        of_ami_for_pricing_unit: u.of_AMI_for_Pricing_Unit,
-        reserved_type: u.Reserved_Type
-      }},
+      listing_lottery_preferences: l.Listing_Lottery_Preferences && l.Listing_Lottery_Preferences.map { |p| MappingHelper.map_lottery_preferences(p)},
+      units: l.Units && l.Units.map { |u| MappingHelper.map_unit(u) },
       building: l.dig(:Building, :Name),
       id: l.Id,
       owner_id: l.OwnerId,
