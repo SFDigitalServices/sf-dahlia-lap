@@ -1,10 +1,10 @@
 module ListingHelper
   def self.map_listing_fields(l)
     mappedListing = {
-      owner: l.Owner.Name,
-      account: l.Account && l.Account.Name,
+      owner: l.dig(:Owner, :Name),
+      account: l.dig(:Account, :Name),
       open_houses: l.Open_Houses,
-      listing_lottery_preferences: l.Listing_Lottery_Preferences.map { |i| {
+      listing_lottery_preferences: l.Listing_Lottery_Preferences && l.Listing_Lottery_Preferences.map { |i| {
         id: i.Id,
         total_submitted_apps: i.Total_Submitted_Apps,
         order: i.Order,
@@ -16,7 +16,7 @@ module ListingHelper
           name: i.Lottery_Preference.Name
         }
       }},
-      units: l.Units.map { |u| {
+      units: l.Units && l.Units.map { |u| {
         id: u.Id,
         unit_type: u.Unit_Type,
         unit_number: u.Unit_Number,
@@ -29,7 +29,7 @@ module ListingHelper
         of_ami_for_pricing_unit: u.of_AMI_for_Pricing_Unit,
         reserved_type: u.Reserved_Type
       }},
-      building: l.Building.Name,
+      building: l.dig(:Building, :Name),
       id: l.Id,
       owner_id: l.OwnerId,
       application_due_date: l.Application_Due_Date,
@@ -100,6 +100,6 @@ module ListingHelper
       is_rental: l.isRental
     }
 
-    mappedListing
+    mappedListing.compact!
   end
 end

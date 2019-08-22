@@ -18,17 +18,17 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = listing_service.listing(@application.Listing.Id)
+    @listing = ListingHelper.map_listing_fields(listing_service.listing(@application.Listing.Id))
     @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
     redirect_to application_url(id: @application.Id) if
-      @listing&.Lottery_Status != 'Not Yet Run' ||
+      @listing&.lottery_status != 'Not Yet Run' ||
       @application&.Application_Submission_Type != 'Paper'
   end
 
   private
 
   def application_listing
-    @listing = listing_service.listing(params[:listing_id])
+    @listing = ListingHelper.map_listing_fields(listing_service.listing(params[:listing_id]))
   end
 
   def custom_api_application_service

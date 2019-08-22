@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../../../helpers/listing_helper.rb'
 
 module Listings::LeaseUps
   # Rails controller for views/actions related to applications for a listing that has Lease Up status
@@ -9,7 +10,7 @@ module Listings::LeaseUps
       full_listing = listing_service.listing(params[:lease_up_id])
 
       raise Force::RecordNotFound, "Listing #{params[:lease_up_id]} not found" unless full_listing.present?
-      @listing = compacted_listing(full_listing)
+      @listing = ListingHelper.map_listing_fields(compacted_listing(full_listing))
     end
 
     def lease_up_service

@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @listings = service.listings
+    @listings = service.listings.map { |listing| ListingHelper.map_listing_fields(listing) }
     @fields = service.index_fields
   end
 
