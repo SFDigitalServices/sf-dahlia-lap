@@ -6,14 +6,13 @@ import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import { mapListing, mapApplicationPreference, mapApplication } from '~/components/mappers/soqlToDomain'
+import { mapApplicationPreference, mapApplication } from '~/components/mappers/soqlToDomain'
 import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
 import { buildLeaseUpAppGenLotteryModel } from './leaseUpAppGenLotteryModel'
 import appPaths from '~/utils/appPaths'
 import apiService from '~/apiService'
 import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
 import Context from './context'
-import mapProps from '~/utils/mapProps'
 import { SALESFORCE_DATE_FORMAT } from '~/utils/utils'
 
 const ROWS_PER_PAGE = 20
@@ -130,6 +129,7 @@ class LeaseUpApplicationsPage extends React.Component {
 
   render () {
     const listing = this.props.listing
+    console.log(listing)
 
     const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
 
@@ -175,10 +175,4 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 }
 
-const mapProperties = ({ listing }) => {
-  return {
-    listing: mapListing(listing)
-  }
-}
-
-export default mapProps(mapProperties)(LeaseUpApplicationsPage)
+export default LeaseUpApplicationsPage

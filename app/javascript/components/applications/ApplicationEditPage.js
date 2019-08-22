@@ -3,7 +3,7 @@ import React from 'react'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
 import mapProps from '~/utils/mapProps'
-import { mapListing, mapApplication } from '~/components/mappers/soqlToDomain'
+import { mapApplication } from '~/components/mappers/soqlToDomain'
 import { saveApplication } from './actions'
 
 const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstitutions }) => {
@@ -39,7 +39,7 @@ const ApplicationEditPage = ({ listing, application, editPage, lendingInstitutio
 
 const mapProperties = ({ listing, application, editPage, lendingInstitutions }) => {
   return {
-    listing: mapListing(listing),
+    listing,
     application: mapApplication(application),
     lendingInstitutions: lendingInstitutions,
     editPage
