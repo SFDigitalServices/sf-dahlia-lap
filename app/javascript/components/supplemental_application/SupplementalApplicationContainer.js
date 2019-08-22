@@ -62,13 +62,13 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
   </ContentSection>
 )
 
-const ConfirmedHousehold = ({ amis, amiCharts, form }) => (
+const ConfirmedHousehold = ({ listingAmiCharts, form }) => (
   <ContentSection title='Confirmed Household'>
     <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
       <ConfirmedUnits />
     </ContentSection.Sub>
     <ContentSection.Sub title='Confirmed Household Income'>
-      <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
+      <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} form={form} />
     </ContentSection.Sub>
   </ContentSection>
 )
@@ -140,8 +140,7 @@ class SupplementalApplicationContainer extends React.Component {
       onSavePreference,
       confirmedPreferencesFailed,
       onDismissError,
-      amis,
-      amiCharts,
+      listingAmiCharts,
       loading,
       onSubmit,
       statusModal,
@@ -179,7 +178,7 @@ class SupplementalApplicationContainer extends React.Component {
                 confirmedPreferencesFailed={confirmedPreferencesFailed}
                 form={form}
               />
-              <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
+              <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
               <LeaseInformationSection form={form} />
               <RentalAssistanceSection form={form} />
               <DemographicsSection />
