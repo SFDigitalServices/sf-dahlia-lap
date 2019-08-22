@@ -16,9 +16,7 @@ Array [
         >
           <h1
             className="lead-header_title small-serif c-oil"
-          >
-            xxxxListing
-          </h1>
+          />
         </hgroup>
       </div>
     </div>
@@ -36,7 +34,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/1"
+          href="/listings/undefined"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -51,7 +49,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/1/applications"
+          href="/listings/undefined/applications"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"

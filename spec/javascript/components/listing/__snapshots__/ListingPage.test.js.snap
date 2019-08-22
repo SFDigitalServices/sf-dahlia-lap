@@ -561,9 +561,7 @@ Array [
         >
           <h1
             className="lead-header_title small-serif c-oil"
-          >
-            Test 5/30
-          </h1>
+          />
         </hgroup>
       </div>
     </div>
@@ -581,7 +579,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/a0W0x000000GhJUEA0"
+          href="/listings/undefined"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -596,7 +594,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/a0W0x000000GhJUEA0/applications"
+          href="/listings/undefined/applications"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -637,46 +635,10 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
-                    Owner
-                  </h4>
-                  <p>
-                    Prod Vertiba
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Name
-                  </h4>
-                  <p>
-                    Test 5/30
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Account
-                  </h4>
-                  <p>
-                    Equity Residential
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
                     Application Due Date
                   </h4>
                   <p>
-                    05/31/2018
+                    08/22/2019
                   </p>
                 </div>
               </div>
@@ -686,32 +648,7 @@ Array [
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Applications in Lottery
-                  </h4>
-                  <p>
-                    2
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Status
-                  </h4>
-                  <p>
-                    Active
-                  </p>
-                </div>
-              </div>
+              />
             </li>
           </ul>
         </div>
@@ -731,172 +668,16 @@ Array [
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Building Name
-                  </h4>
-                  <p>
-                    77 Bluxome
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Building Street Address
-                  </h4>
-                  <p>
-                    77 Bluxome Street
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Building City
-                  </h4>
-                  <p>
-                    San Francisco
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Building State
-                  </h4>
-                  <p>
-                    CA
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Building Zip Code
-                  </h4>
-                  <p>
-                    94107
-                  </p>
-                </div>
-              </div>
+              />
             </li>
             <li
               className="content-item"
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Neighborhood
-                  </h4>
-                  <p>
-                    South of Market
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Developer
-                  </h4>
-                  <p>
-                    Equity Residential
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Building URL
-                  </h4>
-                  <a
-                    href="https://i.imgur.com/Jh8OHJY.jpg"
-                    target="_blank"
-                  >
-                    https://i.imgur.com/Jh8OHJY.jpg
-                  </a>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Year Built
-                  </h4>
-                  <p>
-                    2008
-                  </p>
-                </div>
-              </div>
+              />
             </li>
           </ul>
-        </div>
-        <div
-          className="content-card"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Listing Preferences
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Description
-                </th>
-                <th>
-                  PDF URL
-                </th>
-                <th>
-                  Order
-                </th>
-                <th>
-                  Available Units
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  Alice Griffith Housing Development Resident
-                </td>
-                <td>
-                  For households in which at least one member was a resident of the Alice Griffith housing development. This includes baseline and current residents that lived in the targeted redevelopment site on or after the time of application for Choice Neighborhoods of October 26, 2010.
-                </td>
-                <td />
-                <td />
-                <td />
-              </tr>
-            </tbody>
-          </table>
         </div>
         <div
           className="content-card padding-bottom-none margin-bottom--half bg-trans"
@@ -951,7 +732,7 @@ Array [
                     Lottery Date
                   </h4>
                   <p>
-                    Invalid date
+                    08/22/2019
                   </p>
                 </div>
                 <div
@@ -963,7 +744,7 @@ Array [
                     Lottery Results Date
                   </h4>
                   <p>
-                    Invalid date
+                    08/22/2019
                   </p>
                 </div>
               </div>
@@ -973,32 +754,7 @@ Array [
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Lottery Status
-                  </h4>
-                  <p>
-                    Not Yet Run
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Lottery City
-                  </h4>
-                  <p>
-                    San Francisco
-                  </p>
-                </div>
-              </div>
+              />
             </li>
           </ul>
         </div>
@@ -1025,20 +781,7 @@ Array [
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Application State
-                  </h4>
-                  <p>
-                    CA
-                  </p>
-                </div>
-              </div>
+              />
             </li>
           </ul>
         </div>
@@ -1058,52 +801,14 @@ Array [
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Leasing Agent Name
-                  </h4>
-                  <p>
-                    Cullen McCaffrey
-                  </p>
-                </div>
-              </div>
+              />
             </li>
             <li
               className="content-item"
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Leasing Agent Email
-                  </h4>
-                  <p>
-                    77bluxome@eqr.com
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Leasing Agent Phone
-                  </h4>
-                  <p>
-                    (415) 957-5887
-                  </p>
-                </div>
-              </div>
+              />
             </li>
           </ul>
         </div>
@@ -1157,63 +862,9 @@ Array [
             >
               <div
                 className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Legal Disclaimers
-                  </h4>
-                  <p
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "some disclaimer",
-                      }
-                    }
-                  />
-                </div>
-              </div>
+              />
             </li>
           </ul>
-        </div>
-        <div
-          className="content-card"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Open Houses
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  Date
-                </th>
-                <th>
-                  Start Time
-                </th>
-                <th>
-                  End Time
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  06/06/2019
-                </td>
-                <td>
-                  12:30pm
-                </td>
-                <td>
-                  4:30pm
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>

@@ -129,7 +129,6 @@ class LeaseUpApplicationsPage extends React.Component {
 
   render () {
     const listing = this.props.listing
-    console.log(listing)
 
     const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
 

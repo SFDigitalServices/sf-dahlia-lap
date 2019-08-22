@@ -7,7 +7,6 @@ import { mapAccount } from './account'
 import { mapBuilding } from './building'
 
 export const mapListing = (l) => {
-  console.log(l)
   return compactShape({
     owner: mapShape(mapUser, l.Owner),
     account: mapShape(mapAccount, l.Account),
