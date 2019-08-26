@@ -1,36 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Dropdown from '~/components/molecules/Dropdown'
 
-class DropdownWrapper extends React.Component {
-  state = { dropdown1Value: null, dropdown2Value: null }
+const DropdownWrapper = ({ items }) => {
+  const [dropdown1Value, setDropdown1] = useState(null)
+  const [dropdown2Value, setDropdown2] = useState(null)
 
-  onChangeDropdown1 = (value, label) => {
-    this.setState({dropdown1Value: value})
+  const onChangeDropdown1 = (value, label) => {
+    setDropdown1(value)
   }
 
-  onChangeDropdown2 = (values) => {
-    this.setState({ dropdown2Value: values })
+  const onChangeDropdown2 = (values) => {
+    setDropdown2(values)
   }
 
-  render () {
-    const { items } = this.props
-
-    return (
+  return (
+    <div>
+      <h3>Single select</h3>
       <div>
-        <h3>Single select</h3>
-        <div>
-          Value: {this.state.dropdown1Value}
-          <Dropdown prompt='Select option' value={this.state.dropdown1Value} onChange={this.onChangeDropdown1} items={items} />
-        </div>
-        <h3>Multiple select</h3>
-        <div>
-          Values: {this.state.dropdown2Value}
-          <Dropdown prompt='Select option' multiple value={this.state.dropdown2Value} onChange={this.onChangeDropdown2} items={items} />
-        </div>
+        Value: {dropdown1Value}
+        <Dropdown prompt='Select option' value={dropdown1Value} onChange={onChangeDropdown1} items={items} />
       </div>
-    )
-  }
+      <h3>Multiple select</h3>
+      <div>
+        Values: {dropdown2Value}
+        <Dropdown prompt='Select option' multiple value={dropdown2Value} onChange={onChangeDropdown2} items={items} />
+      </div>
+    </div>
+  )
 }
 
 export default DropdownWrapper

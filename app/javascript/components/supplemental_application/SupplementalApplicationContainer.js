@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
@@ -107,10 +107,10 @@ const StatusHistorySection = withContext(({ store: { statusHistory, openAddStatu
   )
 })
 
-class SupplementalApplicationContainer extends React.Component {
-  state = { failed: false }
+const SupplementalApplicationContainer = ({ store }) => {
+  const [failed, setFailed] = useState(false)
 
-  validateForm = (values) => {
+  const validateForm = (values) => {
     const errors = {lease: {}}
     // only validate lease_start_date when any of the fields is present
     if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
@@ -120,105 +120,98 @@ class SupplementalApplicationContainer extends React.Component {
     return errors
   }
 
-  checkForValidationErrors = (form, touched) => {
+  const checkForValidationErrors = (form, touched) => {
     touchAllFields(form, touched)
     const failed = form.getState().invalid
-    this.setState({failed: failed})
+    setFailed(failed)
     if (failed) {
       window.scrollTo(0, 0)
     }
     return failed
   }
 
-  render () {
-    const { failed } = this.state
-    const { store } = this.props
-    const {
-      application,
-      applicationMembers,
-      fileBaseUrl,
-      onSavePreference,
-      confirmedPreferencesFailed,
-      onDismissError,
-      listingAmiCharts,
-      loading,
-      onSubmit,
-      statusModal,
-      handleStatusModalClose,
-      handleStatusModalSubmit,
-      assignSupplementalAppTouched,
-      openUpdateStatusModal
-    } = store
+  const {
+    application,
+    applicationMembers,
+    fileBaseUrl,
+    onSavePreference,
+    confirmedPreferencesFailed,
+    onDismissError,
+    listingAmiCharts,
+    loading,
+    onSubmit,
+    statusModal,
+    handleStatusModalClose,
+    handleStatusModalSubmit,
+    assignSupplementalAppTouched,
+    openUpdateStatusModal
+  } = store
 
-    return (
-
-      <Form
-        onSubmit={onSubmit}
-        initialValues={application}
-        validate={this.validateForm}
-        mutators={{
-          ...arrayMutators
-        }}
-        render={({ handleSubmit, form, touched }) => (
-          <React.Fragment>
-            { failed && (
-              <AlertBox
-                invert
-                onCloseClick={() => this.setState({failed: false})}
-                message='Please resolve any errors before saving the application.' />
-            )}
-            <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
-              <StatusUpdateSection formIsValid={() => !this.checkForValidationErrors(form, touched)} />
-              <ConfirmedPreferencesSection
-                application={application}
-                applicationMembers={applicationMembers}
-                fileBaseUrl={fileBaseUrl}
-                onSave={onSavePreference}
-                onDismissError={onDismissError}
-                confirmedPreferencesFailed={confirmedPreferencesFailed}
-                form={form}
-              />
-              <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
-              <LeaseInformationSection form={form} />
-              <RentalAssistanceSection form={form} />
-              <DemographicsSection />
-              <ScrollableAnchor id={'status-history-section'}>
-                <div>
-                  <StatusHistorySection formIsValid={() => !this.checkForValidationErrors(form, touched)} />
-                </div
-                ></ScrollableAnchor>
-              <div className='padding-bottom--2x margin-bottom--2x' />
-              <div className='button-pager'>
-                <div className='button-pager_row align-buttons-left primary inset-wide'>
-                  <StatusDropdown
-                    status={application.processing_status}
-                    onChange={(value) => !this.checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null}
-                    buttonClasses={['small', 'has-status-width']}
-                    wrapperClasses={['dropdown-inline']}
-                    menuClasses={['dropdown-menu-bottom']}
-                    disabled={loading}
-                  />
-                  <button
-                    className='button primary small save-btn'
-                    type='submit'
-                    id='save-supplemental-application'
-                    disabled={loading}
-                    onClick={() => this.checkForValidationErrors(form, touched)}>
-                    {loading ? 'Saving…' : 'Save'}
-                  </button>
-                </div>
-              </div>
-            </form>
-            <StatusModalWrapper
-              {...statusModal}
-              onClose={handleStatusModalClose}
-              onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
+  return (
+    <Form
+      onSubmit={onSubmit}
+      initialValues={application}
+      validate={validateForm}
+      mutators={{ ...arrayMutators }}
+      render={({ handleSubmit, form, touched }) => (
+        <React.Fragment>
+          { failed && (
+            <AlertBox
+              invert
+              onCloseClick={() => setFailed(false)}
+              message='Please resolve any errors before saving the application.' />
+          )}
+          <form onSubmit={handleSubmit} onChange={assignSupplementalAppTouched} style={{ margin: '0px' }} id='shortForm' noValidate>
+            <StatusUpdateSection formIsValid={() => !checkForValidationErrors(form, touched)} />
+            <ConfirmedPreferencesSection
+              application={application}
+              applicationMembers={applicationMembers}
+              fileBaseUrl={fileBaseUrl}
+              onSave={onSavePreference}
+              onDismissError={onDismissError}
+              confirmedPreferencesFailed={confirmedPreferencesFailed}
+              form={form}
             />
-          </React.Fragment>
-        )}
-      />
-    )
-  }
+            <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
+            <LeaseInformationSection form={form} />
+            <RentalAssistanceSection form={form} />
+            <DemographicsSection />
+            <ScrollableAnchor id={'status-history-section'}>
+              <div>
+                <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
+              </div>
+            </ScrollableAnchor>
+            <div className='padding-bottom--2x margin-bottom--2x' />
+            <div className='button-pager'>
+              <div className='button-pager_row align-buttons-left primary inset-wide'>
+                <StatusDropdown
+                  status={application.processing_status}
+                  onChange={(value) => !checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null}
+                  buttonClasses={['small', 'has-status-width']}
+                  wrapperClasses={['dropdown-inline']}
+                  menuClasses={['dropdown-menu-bottom']}
+                  disabled={loading}
+                />
+                <button
+                  className='button primary small save-btn'
+                  type='submit'
+                  id='save-supplemental-application'
+                  disabled={loading}
+                  onClick={() => checkForValidationErrors(form, touched)}>
+                  {loading ? 'Saving…' : 'Save'}
+                </button>
+              </div>
+            </div>
+          </form>
+          <StatusModalWrapper
+            {...statusModal}
+            onClose={handleStatusModalClose}
+            onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
+          />
+        </React.Fragment>
+      )}
+    />
+  )
 }
 
 export default withContext(SupplementalApplicationContainer)
