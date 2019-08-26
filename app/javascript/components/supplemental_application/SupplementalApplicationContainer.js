@@ -62,13 +62,13 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
   </ContentSection>
 )
 
-const ConfirmedHousehold = ({ amis, amiCharts, form }) => (
+const ConfirmedHousehold = ({ listingAmiCharts, form }) => (
   <ContentSection title='Confirmed Household'>
     <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
       <ConfirmedUnits />
     </ContentSection.Sub>
     <ContentSection.Sub title='Confirmed Household Income'>
-      <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} form={form} />
+      <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} form={form} />
     </ContentSection.Sub>
   </ContentSection>
 )
@@ -137,8 +137,7 @@ const SupplementalApplicationContainer = ({ store }) => {
     onSavePreference,
     confirmedPreferencesFailed,
     onDismissError,
-    amis,
-    amiCharts,
+    listingAmiCharts,
     loading,
     onSubmit,
     statusModal,
@@ -173,15 +172,15 @@ const SupplementalApplicationContainer = ({ store }) => {
               confirmedPreferencesFailed={confirmedPreferencesFailed}
               form={form}
             />
-            <ConfirmedHousehold amis={amis} form={form} amiCharts={amiCharts} />
+            <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
             <LeaseInformationSection form={form} />
             <RentalAssistanceSection form={form} />
             <DemographicsSection />
             <ScrollableAnchor id={'status-history-section'}>
               <div>
                 <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
-              </div
-              ></ScrollableAnchor>
+              </div>
+            </ScrollableAnchor>
             <div className='padding-bottom--2x margin-bottom--2x' />
             <div className='button-pager'>
               <div className='button-pager_row align-buttons-left primary inset-wide'>

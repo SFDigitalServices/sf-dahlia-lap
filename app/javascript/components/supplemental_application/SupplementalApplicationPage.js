@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
+import { isNil, uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -10,23 +10,12 @@ import Alerts from '~/components/Alerts'
 import { updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
 import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-import { getAMIAction } from '~/components/supplemental_application/actions'
 import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
 import formUtils from '~/utils/formUtils'
 
-const getChartsToLoad = (units) => {
+const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
-}
-
-const getAmiCharts = (chartsToLoad) => {
-  return chartsToLoad.map(chart => ({ 'name': chart.ami_chart_type, 'year': chart.ami_chart_year }))
-}
-
-const getAmis = async (chartsToLoad) => {
-  const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
-  const amis = await Promise.all(promises)
-  return amis
 }
 
 class SupplementalApplicationPage extends React.Component {
@@ -36,8 +25,7 @@ class SupplementalApplicationPage extends React.Component {
     persistedApplication: cloneDeep(this.props.application),
     confirmedPreferencesFailed: false,
     supplementalAppTouched: false,
-    amis: {},
-    amiCharts: [],
+    listingAmiCharts: getListingAmiCharts(this.props.units),
     loading: false,
     statusModal: {
       loading: false,
@@ -50,15 +38,6 @@ class SupplementalApplicationPage extends React.Component {
     showAddRentalAssistanceBtn: true,
     rentalAssistanceLoading: false,
     rentalAssistances: this.props.rentalAssistances
-  }
-
-  componentDidMount () {
-    const { units } = this.props
-    const chartsToLoad = getChartsToLoad(units)
-    const amiCharts = getAmiCharts(chartsToLoad)
-
-    this.setState({ amiCharts })
-    getAmis(chartsToLoad).then(amis => this.setState({ amis }))
   }
 
   setLoading = (loading) => {
