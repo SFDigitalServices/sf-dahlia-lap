@@ -8,15 +8,12 @@ import IndexTableCell from './IndexTableCell'
 
 // NOTE: some aspects of this component are hardcoded to work with Flagged Application Sets
 class SpreadsheetIndexTable extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      expanded: {},
-      loading: {},
-      // [...array] == clone array
-      editData: [...props.results],
-      persistedData: [...props.results]
-    }
+  state = {
+    expanded: {},
+    loading: {},
+    // [...array] == clone array
+    editData: [...this.props.results],
+    persistedData: [...this.props.results]
   }
 
   columnData = () => {

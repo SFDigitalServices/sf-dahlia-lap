@@ -741,20 +741,20 @@ Array [
               >
                 <label
                   className=""
-                  htmlFor="ami-HUD Unadjusted"
+                  htmlFor="ami-hud-unadjusted-2017"
                 >
                   Calculated % of AMI - HUD Unadjusted
                 </label>
                 <div
-                  aria-describedby="ami-HUD Unadjusted"
+                  aria-describedby="ami-hud-unadjusted-2017"
                   className="text-value"
-                  id="ami-HUD Unadjusted"
+                  id="ami-hud-unadjusted-2017"
                 >
                   Enter HH Income
                 </div>
                 <span
                   className="form-note shift-up"
-                  id="ami-HUD Unadjusted"
+                  id="ami-hud-unadjusted-2017"
                 >
                   Based on Final Household Income
                 </span>
@@ -768,20 +768,20 @@ Array [
               >
                 <label
                   className=""
-                  htmlFor="ami-Non-Hera"
+                  htmlFor="ami-non-hera-2016"
                 >
                   Calculated % of AMI - Non-Hera
                 </label>
                 <div
-                  aria-describedby="ami-Non-Hera"
+                  aria-describedby="ami-non-hera-2016"
                   className="text-value"
-                  id="ami-Non-Hera"
+                  id="ami-non-hera-2016"
                 >
                   Enter HH Income
                 </div>
                 <span
                   className="form-note shift-up"
-                  id="ami-Non-Hera"
+                  id="ami-non-hera-2016"
                 >
                   Based on Final Household Income
                 </span>
@@ -2008,8 +2008,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                   <SupplementalApplicationContainer
                     store={
                       Object {
-                        "amiCharts": Array [],
-                        "amis": Object {},
                         "application": Object {
                           "alternate_contact": Object {},
                           "annual_income": "$110,000.00",
@@ -2258,6 +2256,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                         "leaveConfirmationModal": Object {
                           "isOpen": false,
                         },
+                        "listingAmiCharts": Array [],
                         "loading": false,
                         "onDismissError": [Function],
                         "onSavePreference": [Function],
@@ -2663,8 +2662,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             formIsValid={[Function]}
                             store={
                               Object {
-                                "amiCharts": Array [],
-                                "amis": Object {},
                                 "application": Object {
                                   "alternate_contact": Object {},
                                   "annual_income": "$110,000.00",
@@ -2913,6 +2910,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 "leaveConfirmationModal": Object {
                                   "isOpen": false,
                                 },
+                                "listingAmiCharts": Array [],
                                 "loading": false,
                                 "onDismissError": [Function],
                                 "onSavePreference": [Function],
@@ -4159,8 +4157,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     onSave={[Function]}
                                     store={
                                       Object {
-                                        "amiCharts": Array [],
-                                        "amis": Object {},
                                         "application": Object {
                                           "alternate_contact": Object {},
                                           "annual_income": "$110,000.00",
@@ -4409,6 +4405,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "leaveConfirmationModal": Object {
                                           "isOpen": false,
                                         },
+                                        "listingAmiCharts": Array [],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -4726,8 +4723,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           </ContentSection>
                         </ConfirmedPreferencesSection>
                         <ConfirmedHousehold
-                          amiCharts={Array []}
-                          amis={Object {}}
                           form={
                             Object {
                               "batch": [Function],
@@ -4763,6 +4758,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "subscribe": [Function],
                             }
                           }
+                          listingAmiCharts={Array []}
                         >
                           <ContentSection
                             title="Confirmed Household"
@@ -5829,8 +5825,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   className="app-inner inset-wide border-bottom"
                                 >
                                   <ConfirmedHouseholdIncome
-                                    amiCharts={Array []}
-                                    amis={Object {}}
                                     form={
                                       Object {
                                         "batch": [Function],
@@ -5866,6 +5860,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "subscribe": [Function],
                                       }
                                     }
+                                    listingAmiCharts={Array []}
                                   >
                                     <Component
                                       expand={true}
@@ -6581,8 +6576,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     }
                                     store={
                                       Object {
-                                        "amiCharts": Array [],
-                                        "amis": Object {},
                                         "application": Object {
                                           "alternate_contact": Object {},
                                           "annual_income": "$110,000.00",
@@ -6831,6 +6824,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "leaveConfirmationModal": Object {
                                           "isOpen": false,
                                         },
+                                        "listingAmiCharts": Array [],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -8162,8 +8156,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     }
                                     store={
                                       Object {
-                                        "amiCharts": Array [],
-                                        "amis": Object {},
                                         "application": Object {
                                           "alternate_contact": Object {},
                                           "annual_income": "$110,000.00",
@@ -8412,6 +8404,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "leaveConfirmationModal": Object {
                                           "isOpen": false,
                                         },
+                                        "listingAmiCharts": Array [],
                                         "loading": false,
                                         "onDismissError": [Function],
                                         "onSavePreference": [Function],
@@ -9396,8 +9389,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 formIsValid={[Function]}
                                 store={
                                   Object {
-                                    "amiCharts": Array [],
-                                    "amis": Object {},
                                     "application": Object {
                                       "alternate_contact": Object {},
                                       "annual_income": "$110,000.00",
@@ -9646,6 +9637,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     "leaveConfirmationModal": Object {
                                       "isOpen": false,
                                     },
+                                    "listingAmiCharts": Array [],
                                     "loading": false,
                                     "onDismissError": [Function],
                                     "onSavePreference": [Function],

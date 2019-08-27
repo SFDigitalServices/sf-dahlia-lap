@@ -32,11 +32,7 @@ class LeaseUpApplicationsPage extends React.Component {
       loading: false
     }
   }
-
-  constructor (props) {
-    super(props)
-    this.eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
-  }
+  eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
 
   fetchApplications = async (page, filters) => {
     const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
