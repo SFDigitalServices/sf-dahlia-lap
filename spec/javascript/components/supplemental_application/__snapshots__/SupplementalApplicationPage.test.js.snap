@@ -732,62 +732,7 @@ Array [
           </div>
           <div
             className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className=""
-                  htmlFor="ami-hud-unadjusted-2017"
-                >
-                  Calculated % of AMI - HUD Unadjusted
-                </label>
-                <div
-                  aria-describedby="ami-hud-unadjusted-2017"
-                  className="text-value"
-                  id="ami-hud-unadjusted-2017"
-                >
-                  Enter HH Income
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="ami-hud-unadjusted-2017"
-                >
-                  Based on Final Household Income
-                </span>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className=""
-                  htmlFor="ami-non-hera-2016"
-                >
-                  Calculated % of AMI - Non-Hera
-                </label>
-                <div
-                  aria-describedby="ami-non-hera-2016"
-                  className="text-value"
-                  id="ami-non-hera-2016"
-                >
-                  Enter HH Income
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="ami-non-hera-2016"
-                >
-                  Based on Final Household Income
-                </span>
-              </div>
-            </div>
-          </div>
+          />
         </div>
         <div
           className="app-inner header-wide"

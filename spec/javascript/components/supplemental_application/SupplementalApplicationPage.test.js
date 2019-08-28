@@ -58,7 +58,7 @@ describe('SupplementalApplicationPage', () => {
 
   test('it should render correctly with status history', async () => {
     let component
-    await renderer.act(async () => {
+    renderer.act(async () => {
       component = renderer.create(
         <SupplementalApplicationPage
           application={supplementalApplication}
@@ -77,7 +77,7 @@ describe('SupplementalApplicationPage', () => {
     payload.numberOfMinors = '4'
     payload.primaryApplicant.maritalStatus = 'Domestic Partner'
     let wrapper
-    await act(async () => {
+    act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
           application={supplementalApplication}
@@ -115,7 +115,7 @@ describe('SupplementalApplicationPage', () => {
       Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' }
     })
     let wrapper
-    await act(async () => {
+    act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
           application={withValidPreferences}
@@ -135,7 +135,7 @@ describe('SupplementalApplicationPage', () => {
 
   test('should render the status update dropdown button and its menu of status options correctly', async () => {
     let wrapper
-    await act(async () => {
+    act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
           application={supplementalApplication}
@@ -156,7 +156,7 @@ describe('SupplementalApplicationPage', () => {
   })
   test('should render the status dropdown modal correctly', async () => {
     let wrapper
-    await act(async () => {
+    act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
           application={supplementalApplication}
@@ -180,7 +180,7 @@ describe('SupplementalApplicationPage', () => {
   })
   test('should allow the status update modal to open and close', async () => {
     let wrapper
-    await act(async () => {
+    act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
           application={supplementalApplication}
@@ -204,7 +204,7 @@ describe('SupplementalApplicationPage', () => {
   })
   test('should display alert box when form is invalid on submit', async () => {
     let wrapper
-    await act(async () => {
+    act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
           application={supplementalApplication}
