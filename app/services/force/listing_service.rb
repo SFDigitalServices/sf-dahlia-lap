@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../../helpers/listing_helper.rb'
 
 module Force
   # encapsulate all Salesforce Listing querying functions
@@ -15,12 +16,12 @@ module Force
 
     def listing(id)
       show_fields = query_fields(:show)
-      listing = query_first(%(
+      listing = ListingHelper.map_listing_fields(query_first(%(
         SELECT #{show_fields},
         #{subqueries}
         FROM Listing__c
         WHERE Id='#{id}'
-      ))
+      )))
       map_listing(listing)
     end
 
@@ -45,7 +46,7 @@ module Force
     end
 
     def sale?(listing)
-      listing.Tenure == 'New sale' || listing.Tenure == 'Resale'
+      listing[:tenure] == 'New sale' || listing[:tenure] == 'Resale'
     end
 
     private
@@ -53,8 +54,8 @@ module Force
     # we want to map all fields server side in future
     def map_listing(listing)
       if listing
-        listing.isSale = sale?(listing)
-        listing.isRental = !listing.isSale
+        listing[:is_sale] = sale?(listing)
+        listing[:is_rental] = !listing[:is_sale]
       end
       listing
     end
