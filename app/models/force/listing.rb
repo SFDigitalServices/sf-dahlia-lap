@@ -75,7 +75,6 @@ module Force
       { domain: 'units_available', salesforce: 'Units_Available' },
       { domain: 'lease_signed_application', salesforce: 'Lease_Signed_Application' },
       { domain: 'last_modified_date', salesforce: 'LastModifiedDate' },
-      { domain: 'is_sale', salesforce: 'isSale' },
       { domain: 'owner', salesforce: 'Owner' },
       { domain: 'account', salesforce: 'Account' },
       { domain: 'building', salesforce: 'Building' },
@@ -85,6 +84,9 @@ module Force
 
     def to_domain
       domain_fields = super
+
+      domain_fields[:is_sale] = false
+      domain_fields[:is_rental] = false
       if domain_fields[:owner]
         domain_fields.owner = domain_fields.dig(:owner, :Name)
       end
