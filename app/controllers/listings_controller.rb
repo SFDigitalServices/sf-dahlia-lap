@@ -6,12 +6,12 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @listings = service.listings.map { |listing| ListingHelper.map_listing_fields(listing) }
+    @listings = service.listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
     @fields = service.index_fields
   end
 
   def show
-    @listing = ListingHelper.map_listing_fields(service.listing(params[:id]))
+    @listing = service.listing(params[:id])
   end
 
   private

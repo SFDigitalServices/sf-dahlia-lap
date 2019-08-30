@@ -10,7 +10,7 @@ module Listings::LeaseUps
       full_listing = listing_service.listing(params[:lease_up_id])
 
       raise Force::RecordNotFound, "Listing #{params[:lease_up_id]} not found" unless full_listing.present?
-      @listing = ListingHelper.map_listing_fields(compacted_listing(full_listing))
+      @listing = Force::Listing.from_salesforce(compacted_listing(full_listing)).to_domain
     end
 
     def lease_up_service

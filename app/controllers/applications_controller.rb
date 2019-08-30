@@ -7,7 +7,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = listing_service.listings.map { |listing| ListingHelper.map_listing_fields(listing) }
+    @listings = listing_service.listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
   end
 
   def show
@@ -18,17 +18,17 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = ListingHelper.map_listing_fields(listing_service.listing(@application.Listing.Id))
+    @listing = Force::Listing.from_salesforce(listing_service.listing(@application.Listing.Id)).to_domain
     @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
     redirect_to application_url(id: @application.Id) if
-      @listing[:lottery_status] != 'Not Yet Run' ||
-      @application&.Application_Submission_Type != 'Paper'
+    @listing.lottery_status != 'Not Yet Run' ||
+    @application&.Application_Submission_Type != 'Paper'
   end
 
   private
 
   def application_listing
-    @listing = ListingHelper.map_listing_fields(listing_service.listing(params[:listing_id]))
+    @listing = Force::Listing.from_salesforce(listing_service.listing(params[:listing_id])).to_domain
   end
 
   def custom_api_application_service
@@ -56,7 +56,7 @@ class ApplicationsController < ApplicationController
   end
 
   def find_application(id)
-    listing = ListingHelper.map_listing_fields(soql_application_service.application_listing(id))
+    listing = Force::Listing.from_salesforce(soql_application_service.application_listing(id)).to_domain
 
     # Get the application via the custom API. Use the snapshot of
     # the application if the listing is in Lease Up.
@@ -73,10 +73,10 @@ class ApplicationsController < ApplicationController
     # listing out from under the application, and then we can
     # also make the listing its own object here
     application.listing = {
-      id: listing[:id],
-      name: listing[:name],
-      is_sale: (listing[:tenure] == 'New sale' || listing[:tenure] == 'Resale'),
-      is_lottery_complete: listing[:lottery_status] != 'Not Yet Run',
+      id: listing.id,
+      name: listing.name,
+      is_sale: (listing.tenure == 'New sale' || listing.tenure == 'Resale'),
+      is_lottery_complete: listing.lottery_status != 'Not Yet Run',
     }
 
     map_lending_institution(application)
