@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'ostruct'
 require_relative '../../helpers/mapping_helper.rb'
 
 module Force
