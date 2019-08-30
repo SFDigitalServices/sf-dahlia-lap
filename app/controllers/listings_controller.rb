@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require_relative '../helpers/listing_helper.rb'
 
 # Controller for listings objects
 class ListingsController < ApplicationController
