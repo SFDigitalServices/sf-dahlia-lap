@@ -24,7 +24,7 @@ module Listings
     end
 
     def load_listing
-      @listing = ListingHelper.map_listing_fields(listing_service.listing(params[:listing_id]))
+      @listing = Force::Listing.from_salesforce(listing_service.listing(params[:listing_id])).to_domain
     end
 
     def listing_service

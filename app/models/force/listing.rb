@@ -85,14 +85,25 @@ module Force
 
     def to_domain
       domain_fields = super
+      if domain_fields[:owner]
+        domain_fields.owner = domain_fields.dig(:owner, :Name)
+      end
+      if domain_fields[:account]
+        domain_fields.account = domain_fields.dig(:account, :Name)
+      end
+      if domain_fields[:building]
+        domain_fields.building = domain_fields.dig(:building, :Name)
+      end
 
-      domain_fields.owner = domain_fields[:owner] && domain_fields.dig(:owner, :Name)
-      domain_fields.account = domain_fields[:account] && domain_fields.dig(:account, :Name)
-      domain_fields.building = domain_fields[:building] && domain_fields.dig(:building, :Name)
-      domain_fields.listing_lottery_preferences = (domain_fields[:listing_lottery_preferences] || []).map { |p| MappingHelper.map_lottery_preferences(p)}
-      domain_fields.units = (domain_fields[:units] || []).map { |u| MappingHelper.map_unit(u) }
+      if domain_fields[:listing_lottery_preferences]
+        domain_fields.listing_lottery_preferences = (domain_fields[:listing_lottery_preferences] || []).map { |p| MappingHelper.map_lottery_preferences(p)}
+      end
 
-      domain_fields.compact!
+      if domain_fields[:units]
+        domain_fields.units = (domain_fields[:units] || []).map { |u| MappingHelper.map_unit(u) }
+      end
+
+      domain_fields
     end
   end
 end

@@ -45,7 +45,7 @@ module Force
     end
 
     def sale?(listing)
-      listing.tenure == 'New sale' || listing.tenure == 'Resale'
+      listing[:tenure] == 'New sale' || listing[:tenure] == 'Resale'
     end
 
     private
@@ -53,8 +53,8 @@ module Force
     # we want to map all fields server side in future
     def map_listing(listing)
       if listing
-        listing.is_sale = sale?(listing)
-        listing.is_rental = !listing.is_sale
+        listing[:is_sale] = sale?(listing)
+        listing[:is_rental] = !listing[:is_sale]
       end
       listing
     end
