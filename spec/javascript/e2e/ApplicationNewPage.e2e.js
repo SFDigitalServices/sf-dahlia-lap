@@ -138,6 +138,19 @@ describe('ApplicationNewPage', () => {
     await page.select('#form-preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
     await utils.blurValidation(page, '#form-preferences\\.0\\.naturalKey')
 
+    // Check ability to switch between the 2
+    // options with the type of proof updating accordingly
+
+    // Select work vs live
+    const workDropDownValue = 'Work in SF'
+    await page.select('#form-preferences\\.0\\.individual_preference', workDropDownValue)
+    await utils.blurValidation(page, '#form-preferences\\.0\\.individual_preference')
+
+    // Select type of work proof
+    const letterDropdownValue = 'Letter from employer'
+    await page.select('#form-preferences\\.0\\.type_of_proof', letterDropdownValue)
+    await utils.blurValidation(page, 'select[name="preferences.0.naturalKey"]')
+
     // Select live vs work
     const liveDropDownValue = 'Live in SF'
     await page.select('#form-preferences\\.0\\.individual_preference', liveDropDownValue)
