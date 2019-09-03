@@ -80,7 +80,7 @@ describe('ApplicationNewPage', () => {
     await page.click('.save-btn')
     await page.waitForSelector('.alert-box')
 
-    const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+    const errors = await sharedSteps.getFormErrors(page)
     expect(errors).toContain('Please enter a First Name')
     expect(errors).toContain('Please enter a Last Name')
     expect(errors).toContain('Please enter a Date of Birth')
@@ -133,6 +133,13 @@ describe('ApplicationNewPage', () => {
     await page.waitForSelector('#select-paper-preference-0')
     await page.select('#select-paper-preference-0', liveWorkDropdownValue)
 
+    // Verify that expected fields are required.
+    await page.click('.save-btn')
+    const errors = await sharedSteps.getFormErrors(page)
+    expect(errors).toContain('Household Member with Proof is required')
+    expect(errors).toContain('Individual Preference is required')
+    expect(errors).toContain('Type of Proof is required')
+
     // Select the household member
     await page.waitForSelector('#form-preferences\\.0\\.naturalKey')
     await page.select('#form-preferences\\.0\\.naturalKey', `${TRUNCATED_FIRST_NAME},${TRUNCATED_LAST_NAME},${DOB_YEAR}-${DOB_MONTH}-${DOB_DAY}`)
@@ -155,6 +162,11 @@ describe('ApplicationNewPage', () => {
     const liveDropDownValue = 'Live in SF'
     await page.select('#form-preferences\\.0\\.individual_preference', liveDropDownValue)
     await utils.blurValidation(page, '#form-preferences\\.0\\.individual_preference')
+
+    // Verify that preference proof has been unset and is validated.
+    await page.click('.save-btn')
+    const proofErrors = await sharedSteps.getFormErrors(page)
+    expect(proofErrors).toContain('Type of Proof is required')
 
     // Select type of proof
     const telephoneBillDropdownValue = 'Telephone bill'
