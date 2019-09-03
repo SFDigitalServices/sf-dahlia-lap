@@ -24,7 +24,7 @@ const individualPreferenceOptions = [
   {value: 'Work in SF', label: 'Work in SF'}
 ]
 
-const LiveWorkFields = ({ i, householdMembers, individualPreference }) => {
+const LiveWorkFields = ({ i, form, householdMembers, individualPreference }) => {
   return (
     <div>
       <div className='small-6 columns'>
@@ -43,6 +43,7 @@ const LiveWorkFields = ({ i, householdMembers, individualPreference }) => {
           fieldName={buildFieldId(i, 'individual_preference')}
           options={individualPreferenceOptions}
           validation={validate.isPresent('Individual Preference is required')}
+          onChange={() => form.change(`preferences[${i}].type_of_proof`, '')}
         />
       </div>
       <div className='small-6 columns'>
