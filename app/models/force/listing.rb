@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require_relative '../../helpers/mapping_helper.rb'
 
 module Force
   # Represents a listing object. Provide mapping between
@@ -79,7 +78,7 @@ module Force
       { domain: 'account', salesforce: 'Account' },
       { domain: 'building', salesforce: 'Building' },
       { domain: 'listing_lottery_preferences', salesforce: 'Listing_Lottery_Preferences' },
-      { domain: 'units', salesforce: 'Units' }
+      { domain: 'units', salesforce: 'Units' },
     ].freeze
 
     def to_domain
@@ -87,23 +86,15 @@ module Force
 
       domain_fields[:is_sale] = false
       domain_fields[:is_rental] = false
-      if domain_fields[:owner]
-        domain_fields.owner = domain_fields.dig(:owner, :Name)
-      end
-      if domain_fields[:account]
-        domain_fields.account = domain_fields.dig(:account, :Name)
-      end
-      if domain_fields[:building]
-        domain_fields.building = domain_fields.dig(:building, :Name)
-      end
-
+      domain_fields.owner = domain_fields.dig(:owner, :Name) if domain_fields[:owner]
+      domain_fields.account = domain_fields.dig(:account, :Name) if domain_fields[:account]
+      domain_fields.building = domain_fields.dig(:building, :Name) if domain_fields[:building]
       if domain_fields[:listing_lottery_preferences]
-        domain_fields.listing_lottery_preferences = (domain_fields[:listing_lottery_preferences] || []).map { |p| MappingHelper.map_lottery_preferences(p)}
+        domain_fields.listing_lottery_preferences = (domain_fields[:listing_lottery_preferences] || []).map do |p|
+          Force::LotteryPreference.from_salesforce(p).to_domain
+        end
       end
-
-      if domain_fields[:units]
-        domain_fields.units = (domain_fields[:units] || []).map { |u| MappingHelper.map_unit(u) }
-      end
+      domain_fields.units = (domain_fields[:units] || []).map { |u| Force::Unit.from_salesforce(u).to_domain } if domain_fields[:units]
 
       domain_fields
     end
