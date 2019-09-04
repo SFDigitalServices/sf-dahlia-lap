@@ -68,13 +68,13 @@ Then re-run your test. **Be aware that now that request in your test will actual
 
 ### Running unit tests
 
-`yarn test:unit`
+`yarn unit`
 
 **Updating snapshots**
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
-`yarn test:unit -u`
+`yarn unit -u`
 
 _Note: Snapshots should be pushed to the repo_
 
@@ -94,7 +94,7 @@ Run your webpack server locally
 
 **Run tests**
 
-`yarn test:e2e`
+`yarn e2e`
 
 
 ### Running all or individual tests
