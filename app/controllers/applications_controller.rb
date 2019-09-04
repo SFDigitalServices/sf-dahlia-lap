@@ -17,17 +17,17 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = Force::Listing.from_salesforce(listing_service.listing(@application.Listing.Id)).to_domain
+    @listing = listing_service.listing(@application.Listing.Id)
     @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
     redirect_to application_url(id: @application.Id) if
-    @listing.lottery_status != 'Not Yet Run' ||
-    @application&.Application_Submission_Type != 'Paper'
+      @listing.lottery_status != 'Not Yet Run' ||
+      @application&.Application_Submission_Type != 'Paper'
   end
 
   private
 
   def application_listing
-    @listing = Force::Listing.from_salesforce(listing_service.listing(params[:listing_id])).to_domain
+    @listing = listing_service.listing(params[:listing_id])
   end
 
   def custom_api_application_service

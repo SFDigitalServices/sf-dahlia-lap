@@ -83,9 +83,10 @@ module Force
 
     def to_domain
       domain_fields = super
+      return if domain_fields.blank?
 
-      domain_fields[:is_sale] = false
-      domain_fields[:is_rental] = false
+      domain_fields[:is_sale] = Force::ListingService.sale?(domain_fields)
+      domain_fields[:is_rental] = !domain_fields[:is_sale]
       domain_fields.owner = domain_fields.dig(:owner, :Name) if domain_fields[:owner]
       domain_fields.account = domain_fields.dig(:account, :Name) if domain_fields[:account]
       domain_fields.building = domain_fields.dig(:building, :Name) if domain_fields[:building]

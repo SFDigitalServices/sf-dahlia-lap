@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 28 Aug 2019 03:03:48 GMT
+      - Wed, 04 Sep 2019 18:56:29 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -31,8 +31,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=tSWeX8JXQiiv0ry0EWHS6A;Path=/;Domain=.salesforce.com;Expires=Sun,
-        27-Oct-2019 03:03:48 GMT;Max-Age=5184000
+      - BrowserId=lYhTxKojTjC80VINBEp6lA;Path=/;Domain=.salesforce.com;Expires=Sun,
+        03-Nov-2019 18:56:29 GMT;Max-Age=5184000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -45,9 +45,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0t0000000xVqEAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1566961429320","signature":"l3M7amVhfmDEdzk/zBX6MwsCD1UPD/bPm7LgSxNc6qE="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0t0000000xVqEAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1567623390040","signature":"paFAiEUkqrtZJRDeNb4VeHVy4DegUpAFN6fPm8MFBYQ="}'
     http_version: 
-  recorded_at: Wed, 28 Aug 2019 03:03:49 GMT
+  recorded_at: Wed, 04 Sep 2019 18:56:30 GMT
 - request:
     method: get
     uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%09(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%09(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%09(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%09(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20of_AMI_for_Pricing_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W0P00000F8YG4UAN%27%0A%20%20%20%20%20%20"
@@ -69,7 +69,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 28 Aug 2019 03:03:49 GMT
+      - Wed, 04 Sep 2019 18:56:30 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -83,12 +83,12 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=YheNbwnXT7yL1gwSlwXaWQ;Path=/;Domain=.salesforce.com;Expires=Sun,
-        27-Oct-2019 03:03:49 GMT;Max-Age=5184000
+      - BrowserId=Nd83tOgrSvOx5Rmsb37pOg;Path=/;Domain=.salesforce.com;Expires=Sun,
+        03-Nov-2019 18:56:30 GMT;Max-Age=5184000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Sforce-Limit-Info:
-      - api-usage=1182/5000000
+      - api-usage=2644/5000000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -154,7 +154,7 @@ http_interactions:
         aWNhdGlvbl9DaXR5X19jIjoiU2FuIEZyYW5jaXNjbyIsIkRvd25sb2FkX1VS
         TF9fYyI6bnVsbCwiQXBwbGljYXRpb25fU3RhdGVfX2MiOiJDQSIsIkFwcGxp
         Y2F0aW9uX1Bvc3RhbF9Db2RlX19jIjoiOTQxNDIiLCJJbl9Mb3R0ZXJ5X19j
-        Ijo1MjYzLjAsIkxlYXNpbmdfQWdlbnRfTmFtZV9fYyI6IkxhcnJ5IEFnZW50
+        Ijo1MzYxLjAsIkxlYXNpbmdfQWdlbnRfTmFtZV9fYyI6IkxhcnJ5IEFnZW50
         IiwiTGVhc2luZ19BZ2VudF9UaXRsZV9fYyI6IlNhbGVzIEFnZW50IiwiTGVh
         c2luZ19BZ2VudF9FbWFpbF9fYyI6ImxhcnJ5LmxpdmluZ3N0b25Ac2Znb3Yu
         b3JnIiwiTGVhc2luZ19BZ2VudF9QaG9uZV9fYyI6Iig0MTUpIDU1NS01NTU1
@@ -271,7 +271,7 @@ http_interactions:
         bCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+
         Pi9zb2JqZWN0cy9MaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9hMGww
         UDAwMDAxTHg4WEtRQVoifSwiSWQiOiJhMGwwUDAwMDAxTHg4WEtRQVoiLCJU
-        b3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6NTA4LjAsIk9yZGVyX19jIjoxLjAs
+        b3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6NTI0LjAsIk9yZGVyX19jIjoxLjAs
         IkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgaW4gd2hpY2ggYXQg
         bGVhc3Qgb25lIG1lbWJlciBob2xkcyBhIENlcnRpZmljYXRlIG9mIFByZWZl
         cmVuY2UgZnJvbSB0aGUgZm9ybWVyIFNhbiBGcmFuY2lzY28gUmVkZXZlbG9w
@@ -288,7 +288,7 @@ http_interactions:
         L2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xp
         c3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbDBQMDAwMDFMeDhYUFFB
         WiJ9LCJJZCI6ImEwbDBQMDAwMDFMeDhYUFFBWiIsIlRvdGFsX1N1Ym1pdHRl
-        ZF9BcHBzX19jIjo1MDQuMCwiT3JkZXJfX2MiOjMuMCwiRGVzY3JpcHRpb25f
+        ZF9BcHBzX19jIjo1MjAuMCwiT3JkZXJfX2MiOjMuMCwiRGVzY3JpcHRpb25f
         X2MiOiJGb3IgaG91c2Vob2xkcyBpbiB3aGljaCBhdCBsZWFzdCBvbmUgbWVt
         YmVyIGhvbGRzIGEgRGlzcGxhY2VkIFRlbmFudCBIb3VzaW5nIFByZWZlcmVu
         Y2UgQ2VydGlmaWNhdGUuIERUSFAgQ2VydGlmaWNhdGUgaG9sZGVycyBhcmUg
@@ -309,8 +309,8 @@ http_interactions:
         X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxF
         U0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19Mb3R0ZXJ5
         X1ByZWZlcmVuY2VfX2MvYTBsMFAwMDAwMUx4OFhVUUFaIn0sIklkIjoiYTBs
-        MFAwMDAwMUx4OFhVUUFaIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjUw
-        MS4wLCJPcmRlcl9fYyI6NC4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3Vz
+        MFAwMDAwMUx4OFhVUUFaIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjUx
+        Ny4wLCJPcmRlcl9fYyI6NC4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3Vz
         ZWhvbGRzIGluIHdoaWNoIGF0IGxlYXN0IG9uZSBtZW1iZXIgZWl0aGVyIGxp
         dmVzIHdpdGhpbiBTdXBlcnZpc29yIGRpc3RyaWN0IG9mIHRoZSBwcm9qZWN0
         IFtEaXN0cmljdCAjXSwgb3Igd2l0aGluIGEgaGFsZi1taWxlIG9mIHRoZSBw
@@ -326,7 +326,7 @@ http_interactions:
         InVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJ
         T04+Pi9zb2JqZWN0cy9MaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9h
         MGwwUDAwMDAxTHg4WFpRQVoifSwiSWQiOiJhMGwwUDAwMDAxTHg4WFpRQVoi
-        LCJUb3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6MTA5OS4wLCJPcmRlcl9fYyI6
+        LCJUb3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6MTEzMy4wLCJPcmRlcl9fYyI6
         Mi4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3VzZWhvbGRzIHdobyBhcmUg
         Y3VycmVudGx5IHBheWluZyBtb3JlIHRoYW4gNTAlIG9mIGluY29tZSBmb3Ig
         aG91c2luZyBjb3N0cyBvciBhcmUgbGl2aW5nIGluIHB1YmxpYyBob3VzaW5n
@@ -342,7 +342,7 @@ http_interactions:
         X2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9W
         RVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2Vf
         X2MvYTBsMFAwMDAwMUx4OFhlUUFKIn0sIklkIjoiYTBsMFAwMDAwMUx4OFhl
-        UUFKIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjEyNjIuMCwiT3JkZXJf
+        UUFKIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjEyODkuMCwiT3JkZXJf
         X2MiOjUuMCwiRGVzY3JpcHRpb25fX2MiOiJGb3IgaG91c2Vob2xkcyBpbiB3
         aGljaCBhdCBsZWFzdCBvbmUgbWVtYmVyIGxpdmVzIG9yIHdvcmtzIGluIFNh
         biBGcmFuY2lzY28uICBSZXF1aXJlcyBzdWJtaXNzaW9uIG9mIHByb29mLiAg
@@ -360,7 +360,7 @@ http_interactions:
         ZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlz
         dGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBsMFAwMDAwMVBzcURvUUFK
         In0sIklkIjoiYTBsMFAwMDAwMVBzcURvUUFKIiwiVG90YWxfU3VibWl0dGVk
-        X0FwcHNfX2MiOjQ5My4wLCJPcmRlcl9fYyI6bnVsbCwiRGVzY3JpcHRpb25f
+        X0FwcHNfX2MiOjUwOS4wLCJPcmRlcl9fYyI6bnVsbCwiRGVzY3JpcHRpb25f
         X2MiOiJGb3IgaG91c2Vob2xkcyBpbiB3aGljaCBhdCBsZWFzdCBvbmUgbWVt
         YmVyIHdhcyBhIHJlc2lkZW50IG9mIHRoZSBBbGljZSBHcmlmZml0aCBob3Vz
         aW5nIGRldmVsb3BtZW50LiBUaGlzIGluY2x1ZGVzIGJhc2VsaW5lIGFuZCBj
@@ -385,5 +385,53 @@ http_interactions:
         YXJ0X3llYXJfX2MiOjIwMTYuMCwib2ZfQU1JX2Zvcl9QcmljaW5nX1VuaXRf
         X2MiOjEwMC4wLCJSZXNlcnZlZF9UeXBlX19jIjpudWxsfV19fV19
     http_version: 
-  recorded_at: Wed, 28 Aug 2019 03:03:50 GMT
+  recorded_at: Wed, 04 Sep 2019 18:56:31 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Sep 2019 18:56:31 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=I-yQYPhCSLyT3usDHrZjbg;Path=/;Domain=.salesforce.com;Expires=Sun,
+        03-Nov-2019 18:56:31 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D0t0000000xVqEAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1567623392039","signature":"JNlIr4ck+iZ46VppL2wH4sLcS7RFvJLB9FM2a9P9vKI="}'
+    http_version: 
+  recorded_at: Wed, 04 Sep 2019 18:56:32 GMT
 recorded_with: VCR 5.0.0

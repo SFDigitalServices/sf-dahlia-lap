@@ -15,13 +15,12 @@ module Force
 
     def listing(id)
       show_fields = query_fields(:show)
-      listing = Force::Listing.from_salesforce(query_first(%(
+      Force::Listing.from_salesforce(query_first(%(
         SELECT #{show_fields},
         #{subqueries}
         FROM Listing__c
         WHERE Id='#{id}'
       ))).to_domain
-      map_listing(listing)
     end
 
     def subqueries
@@ -45,18 +44,13 @@ module Force
     end
 
     def sale?(listing)
-      listing[:tenure] == 'New sale' || listing[:tenure] == 'Resale'
+      self.class.sale?(listing)
     end
 
-    private
+    def self.sale?(listing)
+      return if listing.blank?
 
-    # we want to map all fields server side in future
-    def map_listing(listing)
-      if listing
-        listing[:is_sale] = sale?(listing)
-        listing[:is_rental] = !listing[:is_sale]
-      end
-      listing
+      listing[:tenure] == 'New sale' || listing[:tenure] == 'Resale'
     end
   end
 end

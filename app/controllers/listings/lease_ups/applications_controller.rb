@@ -9,7 +9,7 @@ module Listings::LeaseUps
       full_listing = listing_service.listing(params[:lease_up_id])
 
       raise Force::RecordNotFound, "Listing #{params[:lease_up_id]} not found" unless full_listing.present?
-      @listing = Force::Listing.from_salesforce(compacted_listing(full_listing)).to_domain
+      @listing = compacted_listing(full_listing)
     end
 
     def lease_up_service
@@ -21,7 +21,7 @@ module Listings::LeaseUps
     end
 
     def compacted_listing(full_listing)
-      full_listing.slice('Id', 'Name', 'Building_Street_Address', 'Listing_Lottery_Preferences', 'Report_id')
+      full_listing.slice('id', 'name', 'building_street_address', 'listing_lottery_preferences', 'report_id')
     end
   end
 end
