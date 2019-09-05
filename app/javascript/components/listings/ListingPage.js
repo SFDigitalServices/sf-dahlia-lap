@@ -8,7 +8,6 @@ const ListingPageDetails = ({ listing }) => {
 }
 
 const ListingPage = ({ listing }) => {
-  console.log(listing)
   const tabs = {
     items: [
       { title: 'Listing Details', url: `/listings/${listing.id}` },
