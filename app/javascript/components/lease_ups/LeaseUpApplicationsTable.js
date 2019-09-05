@@ -86,7 +86,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     const trClassName = classNames(
       'rt-tr-status',
       statusClassName,
-      { 'is-disqualified': rowInfo && isInvalid(rowInfo.original) }
+      { 'is-invalid is-disqualified': rowInfo && isInvalid(rowInfo.original) }
     )
 
     return {
