@@ -23,7 +23,7 @@ Array [
             className="medium-8 columns no-padding"
           >
             <p>
-              Application lottery number: 00191270. For listing: undefined
+              Application lottery number: 00191270. For listing: Automated Test Listing (do not modify)
             </p>
           </div>
         </hgroup>
@@ -1723,7 +1723,43 @@ Array [
                             onChange={[Function]}
                             onFocus={[Function]}
                             value=""
-                          />
+                          >
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XKQAZ"
+                            >
+                              Certificate of Preference (COP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XZQAZ"
+                            >
+                              Rent Burdened / Assisted Housing Preference
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XPQAZ"
+                            >
+                              Displaced Tenant Housing Preference (DTHP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XUQAZ"
+                            >
+                              Neighborhood Resident Housing Preference (NRHP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XeQAJ"
+                            >
+                              Live or Work in San Francisco Preference
+                            </option>
+                            <option
+                              value="a0l0P00001PsqDoQAJ"
+                            >
+                              Alice Griffith Housing Development Resident
+                            </option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -2296,7 +2332,7 @@ Array [
             className="medium-8 columns no-padding"
           >
             <p>
-              Application lottery number: 00191270. For listing: undefined
+              Application lottery number: 00191270. For listing: Automated Test Listing (do not modify)
             </p>
           </div>
         </hgroup>
@@ -3996,7 +4032,43 @@ Array [
                             onChange={[Function]}
                             onFocus={[Function]}
                             value="a0l0x000000RI8nAAG"
-                          />
+                          >
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XKQAZ"
+                            >
+                              Certificate of Preference (COP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XZQAZ"
+                            >
+                              Rent Burdened / Assisted Housing Preference
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XPQAZ"
+                            >
+                              Displaced Tenant Housing Preference (DTHP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XUQAZ"
+                            >
+                              Neighborhood Resident Housing Preference (NRHP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XeQAJ"
+                            >
+                              Live or Work in San Francisco Preference
+                            </option>
+                            <option
+                              value="a0l0P00001PsqDoQAJ"
+                            >
+                              Alice Griffith Housing Development Resident
+                            </option>
+                          </select>
                         </div>
                       </div>
                     </div>
