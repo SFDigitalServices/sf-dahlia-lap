@@ -34,7 +34,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/undefined"
+          href="/listings/1"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -49,7 +49,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/undefined/applications"
+          href="/listings/1/applications"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
