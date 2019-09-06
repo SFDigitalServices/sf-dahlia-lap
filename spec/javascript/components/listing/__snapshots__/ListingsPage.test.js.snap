@@ -414,7 +414,23 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                Krissy 4/13
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                05/04/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -450,7 +466,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Not Yet Run
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -462,7 +480,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -474,19 +494,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              />
+              >
+                1
+              </div>
             </div>
           </div>
           <div
@@ -527,7 +537,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                test 2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -575,7 +587,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Not Yet Run
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -587,7 +601,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -599,7 +615,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -688,7 +706,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Not Yet Run
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -700,7 +720,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -712,7 +734,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -753,7 +777,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                2235 Third (Potrero Launch) Unit  W519
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -765,7 +791,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/07/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -777,7 +805,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/28/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -789,7 +819,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                03/02/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -801,7 +833,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Not Yet Run
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -813,7 +847,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -825,7 +861,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -866,7 +904,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                2235 Third (Potrero Launch) Unit E408
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -878,7 +918,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/07/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -890,7 +932,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/28/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -902,7 +946,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                03/02/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -914,7 +960,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Not Yet Run
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -926,7 +974,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -938,7 +988,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -979,7 +1031,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                2660 Third (Abaca)
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -991,7 +1045,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                03/10/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1003,7 +1059,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                03/31/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1015,7 +1073,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                04/07/2017
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1027,7 +1087,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Lottery Complete
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1039,7 +1101,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1051,7 +1115,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2907
+              </div>
             </div>
           </div>
           <div
@@ -1092,7 +1158,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                Merry Go Round Shared Housing
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1104,7 +1172,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/08/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1116,7 +1186,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/28/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1128,7 +1200,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                03/01/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1140,7 +1214,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Lottery Complete
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1152,7 +1228,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                58
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1164,7 +1242,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                562
+              </div>
             </div>
           </div>
           <div
@@ -1205,7 +1285,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                Pierce Street Apartments
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1217,7 +1299,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                01/31/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1229,7 +1313,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/20/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1241,7 +1327,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                02/20/2018
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1253,7 +1341,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Lottery Complete
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1265,7 +1355,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                98
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1277,7 +1369,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                1306
+              </div>
             </div>
           </div>
           <div
@@ -1285,13 +1379,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
-              onClick={[Function]}
+              className="rt-tr -padRow -odd"
               role="row"
+              style={Object {}}
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                className="rt-td"
                 role="gridcell"
                 style={
                   Object {
@@ -1301,15 +1394,12 @@ Array [
                   }
                 }
               >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1318,10 +1408,13 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1330,10 +1423,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1342,10 +1438,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1354,10 +1453,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1366,10 +1468,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1378,10 +1483,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1390,7 +1498,11 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -1398,13 +1510,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
-              onClick={[Function]}
+              className="rt-tr -padRow -even"
               role="row"
+              style={Object {}}
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                className="rt-td"
                 role="gridcell"
                 style={
                   Object {
@@ -1414,15 +1525,12 @@ Array [
                   }
                 }
               >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1431,10 +1539,13 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1443,10 +1554,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1455,10 +1569,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1467,10 +1584,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1479,10 +1599,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1491,10 +1614,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1503,7 +1629,11 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -1511,13 +1641,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
-              onClick={[Function]}
+              className="rt-tr -padRow -odd"
               role="row"
+              style={Object {}}
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                className="rt-td"
                 role="gridcell"
                 style={
                   Object {
@@ -1527,15 +1656,12 @@ Array [
                   }
                 }
               >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1544,10 +1670,13 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1556,10 +1685,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1568,10 +1700,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1580,10 +1715,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1592,10 +1730,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1604,10 +1745,13 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1616,7 +1760,11 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                <span>
+                   
+                </span>
+              </div>
             </div>
           </div>
           <div

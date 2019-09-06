@@ -62,20 +62,20 @@ const listingFields = () => {
       'label': 'Listing Name',
       'minWidth': 225
     },
-    'Application_Due_Date': {
+    'application_due_date': {
       'type': 'date'
     },
-    'Lottery_Date': {
+    'lottery_date': {
       'type': 'date'
     },
-    'Lottery_Results_Date': {
+    'lottery_results_date': {
       'type': 'date'
     },
-    'Lottery_Status': null,
-    'nFlagged_Applications': {
+    'lottery_status': null,
+    'nflagged_applications': {
       'label': 'Flagged Applications'
     },
-    'In_Lottery': {
+    'in_lottery': {
       'label': 'Applications In Lottery'
     }
   }
@@ -83,15 +83,13 @@ const listingFields = () => {
 
 const listingsList = () => {
   return [
-    {'Id': 'a0W0x0000005q5MEAQ', 'Name': 'Krissy New Listing 4/5', 'Application_Due_Date': '2018-04-12T17:00:00.000+0000', 'Lottery_Date': null, 'Lottery_Results_Date': null, 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 0},
-    {'Id': 'a0W0x000000FeCGEA0', 'Name': 'Krissy Test 411', 'Application_Due_Date': '2018-06-28T17:00:00.000+0000', 'Lottery_Date': null, 'Lottery_Results_Date': null, 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 1, 'In_Lottery': 4}, {'Id': 'a0W0x000000GHiFEAW', 'Name': 'Automated Test Listing Senior All (please do not modify)', 'Application_Due_Date': '2021-01-21T17:00:00.000+0000', 'Lottery_Date': '2021-01-21T17:00:00.000+0000', 'Lottery_Results_Date': '03/23/17', 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 0},
-    {'Id': 'a0W0x000000Fg6jEAC', 'Name': 'Krissy 4/13', 'Application_Due_Date': '2018-05-04T17:00:00.000+0000', 'Lottery_Date': null, 'Lottery_Results_Date': null, 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 1},
-    {'Id': 'a0W0x000000G5fTEAS', 'Name': 'test 2', 'Application_Due_Date': null, 'Lottery_Date': null, 'Lottery_Results_Date': null, 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 0}, {'Id': 'a0W0x000000G5fOEAS', 'Name': 'test', 'Application_Due_Date': null, 'Lottery_Date': null, 'Lottery_Results_Date': null, 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 0},
-    {'Id': 'a0W0P00000DZJSTUA5', 'Name': '2235 Third (Potrero Launch) Unit  W519', 'Application_Due_Date': '2017-02-07T17:00:00.000+0000', 'Lottery_Date': '2017-02-28T17:00:00.000+0000', 'Lottery_Results_Date': '03/02/17', 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 0},
-    {'Id': 'a0W0P00000DZJSdUAP', 'Name': '2235 Third (Potrero Launch) Unit E408', 'Application_Due_Date': '2017-02-07T17:00:00.000+0000', 'Lottery_Date': '2017-02-28T17:00:00.000+0000', 'Lottery_Results_Date': '03/02/17', 'Lottery_Status': 'Not Yet Run', 'nFlagged_Applications': 0, 'In_Lottery': 0},
-    {'Id': 'a0W0P00000DZKPdUAP', 'Name': '2660 Third (Abaca)', 'Application_Due_Date': '2017-03-10T17:00:00.000+0000', 'Lottery_Date': '2017-03-31T17:00:00.000+0000', 'Lottery_Results_Date': '04/07/17', 'Lottery_Status': 'Lottery Complete', 'nFlagged_Applications': 0, 'In_Lottery': 2907},
-    {'Id': 'a0W0P00000F7t4uUAB', 'Name': 'Merry Go Round Shared Housing', 'Application_Due_Date': '2018-02-08T17:00:00.000+0000', 'Lottery_Date': '2018-02-28T17:00:00.000+0000', 'Lottery_Results_Date': '03/01/18', 'Lottery_Status': 'Lottery Complete', 'nFlagged_Applications': 58, 'In_Lottery': 562},
-    {'Id': 'a0W0P00000F7wvrUAB', 'Name': 'Pierce Street Apartments', 'Application_Due_Date': '2018-01-31T17:00:00.000+0000', 'Lottery_Date': '2018-02-20T17:00:00.000+0000', 'Lottery_Results_Date': '02/20/18', 'Lottery_Status': 'Lottery Complete', 'nFlagged_Applications': 98, 'In_Lottery': 1306}
+    {'id': 'a0W0x000000Fg6jEAC', 'name': 'Krissy 4/13', 'application_due_date': '2018-05-04T17:00:00.000+0000', 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 1},
+    {'id': 'a0W0x000000G5fTEAS', 'name': 'test 2', 'application_due_date': null, 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0}, {'Id': 'a0W0x000000G5fOEAS', 'Name': 'test', 'application_due_date': null, 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
+    {'id': 'a0W0P00000DZJSTUA5', 'name': '2235 Third (Potrero Launch) Unit  W519', 'application_due_date': '2017-02-07T17:00:00.000+0000', 'lottery_date': '2017-02-28T17:00:00.000+0000', 'lottery_results_date': '03/02/17', 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
+    {'id': 'a0W0P00000DZJSdUAP', 'name': '2235 Third (Potrero Launch) Unit E408', 'application_due_date': '2017-02-07T17:00:00.000+0000', 'lottery_date': '2017-02-28T17:00:00.000+0000', 'lottery_results_date': '03/02/17', 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
+    {'id': 'a0W0P00000DZKPdUAP', 'name': '2660 Third (Abaca)', 'application_due_date': '2017-03-10T17:00:00.000+0000', 'lottery_date': '2017-03-31T17:00:00.000+0000', 'lottery_results_date': '04/07/17', 'lottery_status': 'Lottery Complete', 'nflagged_applications': 0, 'in_lottery': 2907},
+    {'id': 'a0W0P00000F7t4uUAB', 'name': 'Merry Go Round Shared Housing', 'application_due_date': '2018-02-08T17:00:00.000+0000', 'lottery_date': '2018-02-28T17:00:00.000+0000', 'lottery_results_date': '03/01/18', 'lottery_status': 'Lottery Complete', 'nflagged_applications': 58, 'in_lottery': 562},
+    {'id': 'a0W0P00000F7wvrUAB', 'name': 'Pierce Street Apartments', 'application_due_date': '2018-01-31T17:00:00.000+0000', 'lottery_date': '2018-02-20T17:00:00.000+0000', 'lottery_results_date': '02/20/18', 'lottery_status': 'Lottery Complete', 'nflagged_applications': 98, 'in_lottery': 1306}
   ]
 }
 
