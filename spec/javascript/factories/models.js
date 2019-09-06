@@ -97,34 +97,34 @@ const listingsList = () => {
 
 const listingDetail = () => {
   return {
-    id: 'a0W0P00000F8YG4UAN',
-    owner_id: '005U0000005KidlIAC',
-    owner: 'Brooke Barber',
-    application_due_date: '2020-05-02T00:00:00.000+0000',
-    name: 'Automated Test Listing (do not modify)',
+    id: 'a0W0x000000GhJUEA0',
+    owner_id: '0050P000007H5XsQAK',
+    owner: 'Prod Vertiba',
+    application_due_date: '2018-05-31T20:59:00.000+0000',
+    name: 'Test 5/30',
     status: 'Active',
-    building: 'PR-007828',
+    building: 'PR-000001',
     min_br: null,
     lotterry_winners: 0.0,
     max_br: null,
     lottery_results: false,
-    min_income: 5255.0,
+    min_income: 0.0,
     account: 'Exygy',
     max_income: null,
     min_occupancy: 1.0,
     max_occupancy: null,
-    building_name: 'Automated Test Building',
-    neighborhood: 'Hayes Valley',
-    building_street_address: null,
-    developer: 'TEST Property Manager',
+    building_name: '77 Bluxome',
+    neighborhood: 'South of Market',
+    building_street_address: '77 Bluxome Street',
+    developer: 'Equity Residential',
     building_city: 'San Francisco',
-    building_url: 'https://sfmohcd.org/sites/default/files/Documents/MOH/Housing%20Listing%20Photos/test-apologies.png',
+    building_url: 'https://i.imgur.com/Jh8OHJY.jpg',
     building_state: 'CA',
-    year_built: 2009.0,
-    building_zip_code: null,
+    year_built: 2008.0,
+    building_zip_code: '94107',
     description: null,
     lottery_prefrences: null,
-    acessibility: 'Elevator to all floors',
+    acessibility: null,
     fee: null,
     amenities: 'Laundry room, underground parking, courtyard, bike room',
     deposit_min: 2102.0,
@@ -146,13 +146,12 @@ const listingDetail = () => {
     download_url: null,
     application_state: 'CA',
     application_postal_code: '94142',
-    in_lottery: 5383.0,
-    leasing_agent_name: 'Larry Agent',
+    in_lottery: 2.0,
+    leasing_agent_name: 'Cullen McCaffrey',
     leasing_agent_title: 'Sales Agent',
-    leasing_agent_email: 'larry.livingston@sfgov.org',
-    leasing_agent_phone: '(415) 555-5555',
-    legal_disclaimers:
-      '<span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'>All BMR renters must review and acknowledge the </span></span><a href=\'http://sf-moh.org/index.aspx?page=295\' target=\'_blank\'><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'><span style=\'color: rgb(0, 0, 255);\'>Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</span></span></span></a><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'> that governs this property upon the signing of a lease for a BMR unit. </span></span><br> <br><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'>Applicants should be informed that BMR rental units in some buildings may convert to ownership units in the future.  In the case of conversion, BMR renters will be afforded certain rights as explained in the </span></span><a href=\'http://sf-moh.org/index.aspx?page=295\' target=\'_blank\'><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'><span style=\'color: rgb(0, 0, 255);\'>Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</span></span></span></a><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'>. Applicants should inquire with the building contact person listed above to determine if the building has a minimum number of years that it must remain a rental building.  (Some buildings may have such restrictions based on government sources of financing for their building.) Most buildings may have no restrictions on conversion at all. </span></span><br> <br><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'>It is also important to note that units governed by the Inclusionary Housing Program are NOT governed by the San Francisco Rent Ordinance (also known as “rent control”). Among other rules, rents may increase beyond increases allowed under “rent control.”  Please see the </span></span><span style=\'font-size: 12pt;\'><span style=\'font-family: times new roman,serif;\'><a href=\'http://sf-moh.org/index.aspx?page=295\' target=\'_blank\'><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'><span style=\'color: rgb(0, 0, 255);\'>Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</span></span></span></a></span></span><span style=\'font-size: 10pt;\'><span style=\'font-family: arial,sans-serif;\'> for more information. </span></span>',
+    leasing_agent_email: '77bluxome@eqr.com',
+    leasing_agent_phone: '(415) 957-5887',
+    legal_disclaimers: 'some disclaimer',
     building_selection_criteria: 'https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2',
     pet_policy: 'Dogs are not allowed in the building.',
     report_id: null,
@@ -181,77 +180,12 @@ const listingDetail = () => {
     ],
     listing_lottery_preferences: [
       {
-        id: 'a0l0P00001Lx8XKQAZ',
-        total_submitted_apps: 524.0,
-        order: 1.0,
-        description:
-          'For households in which at least one member holds a Certificate of Preference from the former San Francisco Redevelopment Agency. COP holders were displaced by Agency action generally during the 1960s and 1970s.',
-        available_units: 1.0,
-        pdf_url: null,
-        lottery_preference: {
-          id: 'a0m0P00000wwi3IQAQ',
-          name: 'Certificate of Preference (COP)'
-        }
-      },
-      {
-        id: 'a0l0P00001Lx8XPQAZ',
-        total_submitted_apps: 520.0,
-        order: 3.0,
-        description:
-          'For households in which at least one member holds a Displaced Tenant Housing Preference Certificate. DTHP Certificate holders are tenants who were evicted through either an Ellis Act Eviction or an Owner Move In Eviction, or have been displaced by a fire. Once all units reserved for this preference are filled, remaining DTHP holders will receive Live/Work preference, regardless of their current residence or work location.',
-        available_units: 3.0,
-        pdf_url: null,
-        lottery_preference: {
-          id: 'a0m0P00000www1mQAA',
-          name: 'Displaced Tenant Housing Preference (DTHP)'
-        }
-      },
-      {
-        id: 'a0l0P00001Lx8XUQAZ',
-        total_submitted_apps: 517.0,
-        order: 4.0,
-        description:
-          'For households in which at least one member either lives within Supervisor district of the project [District #], or within a half-mile of the project.  Requires submission of proof of address.',
-        available_units: 4.0,
-        pdf_url: null,
-        lottery_preference: {
-          id: 'a0m0P00000www1rQAA',
-          name: 'Neighborhood Resident Housing Preference (NRHP)'
-        }
-      },
-      {
-        id: 'a0l0P00001Lx8XZQAZ',
-        total_submitted_apps: 1133.0,
-        order: 2.0,
-        description:
-          'For households who are currently paying more than 50% of income for housing costs or are living in public housing or project based Section 8 housing within San Francisco.',
-        available_units: 2.0,
-        pdf_url: null,
-        lottery_preference: {
-          id: 'a0m0P00000xTqDtQAK',
-          name: 'Rent Burdened / Assisted Housing Preference'
-        }
-      },
-      {
-        id: 'a0l0P00001Lx8XeQAJ',
-        total_submitted_apps: 1295.0,
-        order: 5.0,
-        description:
-          'For households in which at least one member lives or works in San Francisco.  Requires submission of proof.  Please note in order to claim Work Preference, the applicant currently work in San Francisco at least 75% of their working hours.',
-        available_units: 5.0,
-        pdf_url: null,
-        lottery_preference: {
-          id: 'a0m0P00000wwi3NQAQ',
-          name: 'Live or Work in San Francisco Preference'
-        }
-      },
-      {
-        id: 'a0l0P00001PsqDoQAJ',
-        total_submitted_apps: 509.0,
+        id: 'a0l0x000000RI8nAAG',
+        total_submitted_apps: 0.0,
         order: null,
         description:
           'For households in which at least one member was a resident of the Alice Griffith housing development. This includes baseline and current residents that lived in the targeted redevelopment site on or after the time of application for Choice Neighborhoods of October 26, 2010.',
-        available_units: null,
+        available_units: 1.0,
         pdf_url: null,
         lottery_preference: {
           id: 'a0m0P00000yuzO0QAI',
@@ -261,14 +195,14 @@ const listingDetail = () => {
     ],
     units: [
       {
-        unit_type: '1 BR',
-        bmr_rent_monthly: 2102.0,
-        bmr_rental_minimum_monthly_income_needed: 5255.0,
+        unit_type: 'Studio',
+        bmr_rent_monthly: null,
+        bmr_rental_minimum_monthly_income_needed: 0.0,
         status: 'Available',
         property_type: null,
         ami_chart_type: 'HUD Unadjusted',
-        ami_chart_year: 2016.0,
-        of_ami_for_pricing_unit: 100.0,
+        ami_chart_year: 2017.0,
+        of_ami_for_pricing_unit: null,
         reserved_type: null
       }
     ],

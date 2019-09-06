@@ -295,7 +295,7 @@ Array [
           <h1
             className="lead-header_title small-serif c-oil"
           >
-            Automated Test Listing (do not modify)
+            Test 5/30
           </h1>
         </hgroup>
       </div>
@@ -314,7 +314,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/a0W0P00000F8YG4UAN"
+          href="/listings/a0W0x000000GhJUEA0"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -329,7 +329,7 @@ Array [
       >
         <a
           aria-selected={false}
-          href="/listings/a0W0P00000F8YG4UAN/applications"
+          href="/listings/a0W0x000000GhJUEA0/applications"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -373,7 +373,7 @@ Array [
                     Name
                   </h4>
                   <p>
-                    Automated Test Listing (do not modify)
+                    Test 5/30
                   </p>
                 </div>
                 <div
@@ -385,7 +385,7 @@ Array [
                     Application Due Date
                   </h4>
                   <p>
-                    05/02/2020
+                    05/31/2018
                   </p>
                 </div>
               </div>
@@ -405,7 +405,7 @@ Array [
                     Applications in Lottery
                   </h4>
                   <p>
-                    5383
+                    2
                   </p>
                 </div>
                 <div
@@ -450,7 +450,19 @@ Array [
                     Building Name
                   </h4>
                   <p>
-                    Automated Test Building
+                    77 Bluxome
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Street Address
+                  </h4>
+                  <p>
+                    77 Bluxome Street
                   </p>
                 </div>
                 <div
@@ -477,6 +489,18 @@ Array [
                     CA
                   </p>
                 </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Zip Code
+                  </h4>
+                  <p>
+                    94107
+                  </p>
+                </div>
               </div>
             </li>
             <li
@@ -494,7 +518,7 @@ Array [
                     Neighborhood
                   </h4>
                   <p>
-                    Hayes Valley
+                    South of Market
                   </p>
                 </div>
                 <div
@@ -506,7 +530,7 @@ Array [
                     Developer
                   </h4>
                   <p>
-                    TEST Property Manager
+                    Equity Residential
                   </p>
                 </div>
                 <div
@@ -518,10 +542,10 @@ Array [
                     Building URL
                   </h4>
                   <a
-                    href="https://sfmohcd.org/sites/default/files/Documents/MOH/Housing%20Listing%20Photos/test-apologies.png"
+                    href="https://i.imgur.com/Jh8OHJY.jpg"
                     target="_blank"
                   >
-                    https://sfmohcd.org/sites/default/files/Documents/MOH/Housing%20Listing%20Photos/test-apologies.png
+                    https://i.imgur.com/Jh8OHJY.jpg
                   </a>
                 </div>
                 <div
@@ -533,7 +557,7 @@ Array [
                     Year Built
                   </h4>
                   <p>
-                    2009
+                    2008
                   </p>
                 </div>
               </div>
@@ -571,81 +595,6 @@ Array [
             <tbody>
               <tr>
                 <td>
-                  Certificate of Preference (COP)
-                </td>
-                <td>
-                  For households in which at least one member holds a Certificate of Preference from the former San Francisco Redevelopment Agency. COP holders were displaced by Agency action generally during the 1960s and 1970s.
-                </td>
-                <td />
-                <td>
-                  1
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Displaced Tenant Housing Preference (DTHP)
-                </td>
-                <td>
-                  For households in which at least one member holds a Displaced Tenant Housing Preference Certificate. DTHP Certificate holders are tenants who were evicted through either an Ellis Act Eviction or an Owner Move In Eviction, or have been displaced by a fire. Once all units reserved for this preference are filled, remaining DTHP holders will receive Live/Work preference, regardless of their current residence or work location.
-                </td>
-                <td />
-                <td>
-                  3
-                </td>
-                <td>
-                  3
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Neighborhood Resident Housing Preference (NRHP)
-                </td>
-                <td>
-                  For households in which at least one member either lives within Supervisor district of the project [District #], or within a half-mile of the project.  Requires submission of proof of address.
-                </td>
-                <td />
-                <td>
-                  4
-                </td>
-                <td>
-                  4
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Rent Burdened / Assisted Housing Preference
-                </td>
-                <td>
-                  For households who are currently paying more than 50% of income for housing costs or are living in public housing or project based Section 8 housing within San Francisco.
-                </td>
-                <td />
-                <td>
-                  2
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Live or Work in San Francisco Preference
-                </td>
-                <td>
-                  For households in which at least one member lives or works in San Francisco.  Requires submission of proof.  Please note in order to claim Work Preference, the applicant currently work in San Francisco at least 75% of their working hours.
-                </td>
-                <td />
-                <td>
-                  5
-                </td>
-                <td>
-                  5
-                </td>
-              </tr>
-              <tr>
-                <td>
                   Alice Griffith Housing Development Resident
                 </td>
                 <td>
@@ -653,7 +602,9 @@ Array [
                 </td>
                 <td />
                 <td />
-                <td />
+                <td>
+                  1
+                </td>
               </tr>
             </tbody>
           </table>
@@ -969,7 +920,7 @@ One parking space per unit available for $175 a month.
                     Leasing Agent Name
                   </h4>
                   <p>
-                    Larry Agent
+                    Cullen McCaffrey
                   </p>
                 </div>
                 <div
@@ -1001,7 +952,7 @@ One parking space per unit available for $175 a month.
                     Leasing Agent Email
                   </h4>
                   <p>
-                    larry.livingston@sfgov.org
+                    77bluxome@eqr.com
                   </p>
                 </div>
                 <div
@@ -1013,7 +964,7 @@ One parking space per unit available for $175 a month.
                     Leasing Agent Phone
                   </h4>
                   <p>
-                    (415) 555-5555
+                    (415) 957-5887
                   </p>
                 </div>
               </div>
@@ -1166,7 +1117,7 @@ Mitigating circumstances may be considered.
                   <p
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'>All BMR renters must review and acknowledge the </span></span><a href='http://sf-moh.org/index.aspx?page=295' target='_blank'><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'><span style='color: rgb(0, 0, 255);'>Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</span></span></span></a><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'> that governs this property upon the signing of a lease for a BMR unit. </span></span><br> <br><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'>Applicants should be informed that BMR rental units in some buildings may convert to ownership units in the future.  In the case of conversion, BMR renters will be afforded certain rights as explained in the </span></span><a href='http://sf-moh.org/index.aspx?page=295' target='_blank'><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'><span style='color: rgb(0, 0, 255);'>Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</span></span></span></a><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'>. Applicants should inquire with the building contact person listed above to determine if the building has a minimum number of years that it must remain a rental building.  (Some buildings may have such restrictions based on government sources of financing for their building.) Most buildings may have no restrictions on conversion at all. </span></span><br> <br><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'>It is also important to note that units governed by the Inclusionary Housing Program are NOT governed by the San Francisco Rent Ordinance (also known as “rent control”). Among other rules, rents may increase beyond increases allowed under “rent control.”  Please see the </span></span><span style='font-size: 12pt;'><span style='font-family: times new roman,serif;'><a href='http://sf-moh.org/index.aspx?page=295' target='_blank'><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'><span style='color: rgb(0, 0, 255);'>Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</span></span></span></a></span></span><span style='font-size: 10pt;'><span style='font-family: arial,sans-serif;'> for more information. </span></span>",
+                        "__html": "some disclaimer",
                       }
                     }
                   />
