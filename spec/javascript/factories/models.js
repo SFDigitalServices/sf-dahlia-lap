@@ -50,15 +50,15 @@ const applicationWithListing = (uniqId) => {
 
 const listing = (uniqId) => {
   return {
-    'Id': uniqId,
-    'Name': 'xxx2'
+    'id': uniqId,
+    'name': 'xxx2'
   }
 }
 
 const listingFields = () => {
   return {
-    'Id': null,
-    'Name': {
+    'id': null,
+    'name': {
       'label': 'Listing Name',
       'minWidth': 225
     },
@@ -84,7 +84,7 @@ const listingFields = () => {
 const listingsList = () => {
   return [
     {'id': 'a0W0x000000Fg6jEAC', 'name': 'Krissy 4/13', 'application_due_date': '2018-05-04T17:00:00.000+0000', 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 1},
-    {'id': 'a0W0x000000G5fTEAS', 'name': 'test 2', 'application_due_date': null, 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0}, {'Id': 'a0W0x000000G5fOEAS', 'Name': 'test', 'application_due_date': null, 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
+    {'id': 'a0W0x000000G5fTEAS', 'name': 'test 2', 'application_due_date': null, 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0}, {'Id': 'a0W0x000000G5fOEAS', 'name': 'test', 'application_due_date': null, 'lottery_date': null, 'lottery_results_date': null, 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
     {'id': 'a0W0P00000DZJSTUA5', 'name': '2235 Third (Potrero Launch) Unit  W519', 'application_due_date': '2017-02-07T17:00:00.000+0000', 'lottery_date': '2017-02-28T17:00:00.000+0000', 'lottery_results_date': '03/02/17', 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
     {'id': 'a0W0P00000DZJSdUAP', 'name': '2235 Third (Potrero Launch) Unit E408', 'application_due_date': '2017-02-07T17:00:00.000+0000', 'lottery_date': '2017-02-28T17:00:00.000+0000', 'lottery_results_date': '03/02/17', 'lottery_status': 'Not Yet Run', 'nflagged_applications': 0, 'in_lottery': 0},
     {'id': 'a0W0P00000DZKPdUAP', 'name': '2660 Third (Abaca)', 'application_due_date': '2017-03-10T17:00:00.000+0000', 'lottery_date': '2017-03-31T17:00:00.000+0000', 'lottery_results_date': '04/07/17', 'lottery_status': 'Lottery Complete', 'nflagged_applications': 0, 'in_lottery': 2907},
