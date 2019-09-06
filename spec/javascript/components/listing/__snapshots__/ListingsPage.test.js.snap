@@ -658,7 +658,9 @@ Array [
                     "width": "225px",
                   }
                 }
-              />
+              >
+                test
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}

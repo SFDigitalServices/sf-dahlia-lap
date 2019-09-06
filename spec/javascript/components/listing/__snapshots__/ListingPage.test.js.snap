@@ -530,10 +530,34 @@ exports[`ListingPage individual fields Details fields 1`] = `
           <h4
             className="t-sans t-small t-bold no-margin"
           >
+            Owner
+          </h4>
+          <p>
+            Prod Vertiba
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
             Name
           </h4>
           <p>
             Test 5/30
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Account
+          </h4>
+          <p>
+            Exygy
           </p>
         </div>
         <div
@@ -862,10 +886,34 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
+                    Owner
+                  </h4>
+                  <p>
+                    Prod Vertiba
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
                     Name
                   </h4>
                   <p>
                     Test 5/30
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Account
+                  </h4>
+                  <p>
+                    Exygy
                   </p>
                 </div>
                 <div
