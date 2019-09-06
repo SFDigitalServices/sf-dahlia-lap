@@ -37,7 +37,7 @@ const applications = [
 
 describe('ListingApplicationsPage', () => {
   test('should render succesfully', () => {
-    const listing = { id: 1, mame: 'xxxxListing' }
+    const listing = { id: 1, name: 'xxxxListing' }
 
     const wrapper = renderer.create(
       <ListingApplicationsPage
