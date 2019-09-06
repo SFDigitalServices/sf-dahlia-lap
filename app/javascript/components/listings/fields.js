@@ -62,11 +62,11 @@ export const appInfoFields = [
 ]
 
 export const agentDevInfoFields = [
-  'Leasing_Agent_Name',
-  'Leasing_Agent_Title',
-  'Leasing_Agent_Email',
-  'Leasing_Agent_Phone',
-  'Preference_Detail'
+  'leasing_agent_name',
+  'leasing_agent_title',
+  'leasing_agent_email',
+  'leasing_agent_phone',
+  'preference_Detail'
 ]
 
 export const eligibilityRulesFields = [
