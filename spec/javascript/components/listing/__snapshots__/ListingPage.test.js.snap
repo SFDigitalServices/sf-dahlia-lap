@@ -17,14 +17,70 @@ exports[`ListingPage individual fields Accessibility, Amenities, Fees fields 1`]
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Amenities
+          </h4>
+          <p>
+            Laundry room, underground parking, courtyard, bike room
+          </p>
+        </div>
+      </div>
     </li>
     <li
       className="content-item"
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Deposit Min
+          </h4>
+          <p>
+            2102
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Deposit Max
+          </h4>
+          <p>
+            2355
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Costs Not Included
+          </h4>
+          <p>
+            Tenants pay for gas, electricity.
+
+For pet fees:  Cat is allowed with a $500 refundable deposit, $250 non-refundable cleaning fee and a pet addendum.  
+
+Dogs are not allowed in the building.  
+
+One parking space per unit available for $175 a month.
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -47,14 +103,73 @@ exports[`ListingPage individual fields Additional Eligibility Rules fields 1`] =
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Building Selection Criteria
+          </h4>
+          <a
+            href="https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2"
+            target="_blank"
+          >
+            https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2
+          </a>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Eviction History
+          </h4>
+          <p>
+            Provide minimum of 4 years rental history with at least two prior rentals in which you were responsible for paying the rent.  Applicants without rental history will still be considered. No Guarantors permitted. 
+
+Previous rental history will be reviewed and must exhibit no derogatory references. 
+
+Landlord references will only check for evictions, payment history, and documented lease violations. No-fault evictions (Ellis Act, Owner Move-in evictions) will not be held against a household. 
+
+All debt owed to an apartment community must be satisfied. 
+
+Mitigating circumstances may be considered.
+          </p>
+        </div>
+      </div>
     </li>
     <li
       className="content-item"
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Credit Rating
+          </h4>
+          <p>
+            Provide a credit report with score from Equifax, Experian, or TransUnion dated within thirty (30) days of the application. 
+
+Accounts that are not current or that are derogatory will negatively affect the overall scoring, which could result in the denial of the application or an additional deposit may be required. 
+
+Collection accounts exceeding a combined amount of $1,000.00 (excluding student loans and medical debt) will negatively affect the overall scoring, which could result in the denial of the application or an additional deposit may be required. 
+
+Bankruptcy if not cleared will be an automatic denial of the rental application. 
+
+No Guarantors permitted.
+
+Mitigating circumstances may be considered.
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
@@ -77,7 +192,32 @@ exports[`ListingPage individual fields Additional Information fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Required Documents
+          </h4>
+          <p>
+            Lottery winners will be required to fill out a building application and provide a copy of your current credit report, 3 most recent paystubs, current tax returns and W-2, and 3 most recent bank statements.
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Smoking Policy
+          </h4>
+          <p>
+            Non-smoking building
+          </p>
+        </div>
+      </div>
     </li>
     <li
       className="content-item"
@@ -100,6 +240,18 @@ exports[`ListingPage individual fields Additional Information fields 1`] = `
               }
             }
           />
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Pet Policy
+          </h4>
+          <p>
+            Dogs are not allowed in the building.
+          </p>
         </div>
       </div>
     </li>
@@ -124,7 +276,44 @@ exports[`ListingPage individual fields Application Information fields 1`] = `
     >
       <div
         className="content-card"
-      />
+      >
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application Phone
+          </h4>
+          <p>
+            (415) 227-2256
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application Organization
+          </h4>
+          <p>
+            280 Fell-BMR
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application Street Address
+          </h4>
+          <p>
+            P.O. Box 420847
+          </p>
+        </div>
+      </div>
     </li>
     <li
       className="content-item"
@@ -138,10 +327,34 @@ exports[`ListingPage individual fields Application Information fields 1`] = `
           <h4
             className="t-sans t-small t-bold no-margin"
           >
+            Application City
+          </h4>
+          <p>
+            San Francisco
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
             Application State
           </h4>
           <p>
             CA
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Application Postal Code
+          </h4>
+          <p>
+            94142
           </p>
         </div>
       </div>
@@ -344,7 +557,7 @@ exports[`ListingPage individual fields Details fields 1`] = `
             Account
           </h4>
           <p>
-            Equity Residential
+            Exygy
           </p>
         </div>
         <div
@@ -427,6 +640,18 @@ exports[`ListingPage individual fields Leasing Agent and Developer Information f
             Cullen McCaffrey
           </p>
         </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Leasing Agent Title
+          </h4>
+          <p>
+            Sales Agent
+          </p>
+        </div>
       </div>
     </li>
     <li
@@ -492,7 +717,7 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
             Lottery Date
           </h4>
           <p>
-            Invalid date
+            03/22/2017
           </p>
         </div>
         <div
@@ -504,7 +729,19 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
             Lottery Results Date
           </h4>
           <p>
-            Invalid date
+            03/23/2017
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Venue
+          </h4>
+          <p>
+            MOHCD
           </p>
         </div>
       </div>
@@ -525,6 +762,18 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
           </h4>
           <p>
             Not Yet Run
+          </p>
+        </div>
+        <div
+          className="margin-bottom--half"
+        >
+          <h4
+            className="t-sans t-small t-bold no-margin"
+          >
+            Lottery Street Address
+          </h4>
+          <p>
+            1 S. Van Ness Avenue 5th FL
           </p>
         </div>
         <div
@@ -664,7 +913,7 @@ Array [
                     Account
                   </h4>
                   <p>
-                    Equity Residential
+                    Exygy
                   </p>
                 </div>
                 <div
@@ -893,7 +1142,9 @@ Array [
                 </td>
                 <td />
                 <td />
-                <td />
+                <td>
+                  1
+                </td>
               </tr>
             </tbody>
           </table>
@@ -914,14 +1165,70 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Amenities
+                  </h4>
+                  <p>
+                    Laundry room, underground parking, courtyard, bike room
+                  </p>
+                </div>
+              </div>
             </li>
             <li
               className="content-item"
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Deposit Min
+                  </h4>
+                  <p>
+                    2102
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Deposit Max
+                  </h4>
+                  <p>
+                    2355
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Costs Not Included
+                  </h4>
+                  <p>
+                    Tenants pay for gas, electricity.
+
+For pet fees:  Cat is allowed with a $500 refundable deposit, $250 non-refundable cleaning fee and a pet addendum.  
+
+Dogs are not allowed in the building.  
+
+One parking space per unit available for $175 a month.
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -951,7 +1258,7 @@ Array [
                     Lottery Date
                   </h4>
                   <p>
-                    Invalid date
+                    03/22/2017
                   </p>
                 </div>
                 <div
@@ -963,7 +1270,19 @@ Array [
                     Lottery Results Date
                   </h4>
                   <p>
-                    Invalid date
+                    03/23/2017
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery Venue
+                  </h4>
+                  <p>
+                    MOHCD
                   </p>
                 </div>
               </div>
@@ -984,6 +1303,18 @@ Array [
                   </h4>
                   <p>
                     Not Yet Run
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Lottery Street Address
+                  </h4>
+                  <p>
+                    1 S. Van Ness Avenue 5th FL
                   </p>
                 </div>
                 <div
@@ -1018,7 +1349,44 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application Phone
+                  </h4>
+                  <p>
+                    (415) 227-2256
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application Organization
+                  </h4>
+                  <p>
+                    280 Fell-BMR
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application Street Address
+                  </h4>
+                  <p>
+                    P.O. Box 420847
+                  </p>
+                </div>
+              </div>
             </li>
             <li
               className="content-item"
@@ -1032,10 +1400,34 @@ Array [
                   <h4
                     className="t-sans t-small t-bold no-margin"
                   >
+                    Application City
+                  </h4>
+                  <p>
+                    San Francisco
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
                     Application State
                   </h4>
                   <p>
                     CA
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Application Postal Code
+                  </h4>
+                  <p>
+                    94142
                   </p>
                 </div>
               </div>
@@ -1069,6 +1461,18 @@ Array [
                   </h4>
                   <p>
                     Cullen McCaffrey
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Leasing Agent Title
+                  </h4>
+                  <p>
+                    Sales Agent
                   </p>
                 </div>
               </div>
@@ -1123,14 +1527,73 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Building Selection Criteria
+                  </h4>
+                  <a
+                    href="https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2"
+                    target="_blank"
+                  >
+                    https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2
+                  </a>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Eviction History
+                  </h4>
+                  <p>
+                    Provide minimum of 4 years rental history with at least two prior rentals in which you were responsible for paying the rent.  Applicants without rental history will still be considered. No Guarantors permitted. 
+
+Previous rental history will be reviewed and must exhibit no derogatory references. 
+
+Landlord references will only check for evictions, payment history, and documented lease violations. No-fault evictions (Ellis Act, Owner Move-in evictions) will not be held against a household. 
+
+All debt owed to an apartment community must be satisfied. 
+
+Mitigating circumstances may be considered.
+                  </p>
+                </div>
+              </div>
             </li>
             <li
               className="content-item"
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Credit Rating
+                  </h4>
+                  <p>
+                    Provide a credit report with score from Equifax, Experian, or TransUnion dated within thirty (30) days of the application. 
+
+Accounts that are not current or that are derogatory will negatively affect the overall scoring, which could result in the denial of the application or an additional deposit may be required. 
+
+Collection accounts exceeding a combined amount of $1,000.00 (excluding student loans and medical debt) will negatively affect the overall scoring, which could result in the denial of the application or an additional deposit may be required. 
+
+Bankruptcy if not cleared will be an automatic denial of the rental application. 
+
+No Guarantors permitted.
+
+Mitigating circumstances may be considered.
+                  </p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -1150,7 +1613,32 @@ Array [
             >
               <div
                 className="content-card"
-              />
+              >
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Required Documents
+                  </h4>
+                  <p>
+                    Lottery winners will be required to fill out a building application and provide a copy of your current credit report, 3 most recent paystubs, current tax returns and W-2, and 3 most recent bank statements.
+                  </p>
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Smoking Policy
+                  </h4>
+                  <p>
+                    Non-smoking building
+                  </p>
+                </div>
+              </div>
             </li>
             <li
               className="content-item"
@@ -1173,6 +1661,18 @@ Array [
                       }
                     }
                   />
+                </div>
+                <div
+                  className="margin-bottom--half"
+                >
+                  <h4
+                    className="t-sans t-small t-bold no-margin"
+                  >
+                    Pet Policy
+                  </h4>
+                  <p>
+                    Dogs are not allowed in the building.
+                  </p>
                 </div>
               </div>
             </li>
@@ -1203,13 +1703,13 @@ Array [
             <tbody>
               <tr>
                 <td>
-                  06/06/2019
+                  02/23/2018
                 </td>
                 <td>
-                  12:30pm
+                  9:00AM
                 </td>
                 <td>
-                  4:30pm
+                  12:00PM
                 </td>
               </tr>
             </tbody>

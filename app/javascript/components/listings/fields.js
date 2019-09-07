@@ -1,12 +1,12 @@
 export const detailsFields = [
-  { field: 'Owner.Name', label: 'Owner' },
-  'Name',
-  { field: 'Account.Name', label: 'Account' },
-  'Application_Due_Date',
-  { field: 'In_Lottery', label: 'Applications in Lottery' },
-  'Status',
-  'Lottery_Winners',
-  'Lottery_Results'
+  { field: 'owner', label: 'Owner' },
+  'name',
+  { field: 'account', label: 'Account' },
+  'application_due_date',
+  { field: 'in_lottery', label: 'Applications in Lottery' },
+  'status',
+  'lottery_winners',
+  'lottery_results'
 ]
 
 export const buildingInformationFields = [
@@ -62,11 +62,11 @@ export const appInfoFields = [
 ]
 
 export const agentDevInfoFields = [
-  'Leasing_Agent_Name',
-  'Leasing_Agent_Title',
-  'Leasing_Agent_Email',
-  'Leasing_Agent_Phone',
-  'Preference_Detail'
+  'leasing_agent_name',
+  'leasing_agent_title',
+  'leasing_agent_email',
+  'leasing_agent_phone',
+  'preference_Detail'
 ]
 
 export const eligibilityRulesFields = [
