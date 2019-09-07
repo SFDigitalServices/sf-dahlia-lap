@@ -6,7 +6,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = listing_service.listings
+    @listings = listing_service.listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
   end
 
   def show
@@ -20,7 +20,7 @@ class ApplicationsController < ApplicationController
     @listing = listing_service.listing(@application.Listing.Id)
     @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
     redirect_to application_url(id: @application.Id) if
-      @listing&.Lottery_Status != 'Not Yet Run' ||
+      @listing.lottery_status != 'Not Yet Run' ||
       @application&.Application_Submission_Type != 'Paper'
   end
 
@@ -55,11 +55,11 @@ class ApplicationsController < ApplicationController
   end
 
   def find_application(id)
-    listing = soql_application_service.application_listing(id)
+    listing = Force::Listing.from_salesforce(soql_application_service.application_listing(id)).to_domain
 
     # Get the application via the custom API. Use the snapshot of
     # the application if the listing is in Lease Up.
-    is_listing_lease_up = listing.Status == 'Lease Up'
+    is_listing_lease_up = listing[:status] == 'Lease Up'
     application = custom_api_application_service.application(id, snapshot: is_listing_lease_up)
 
     return unless application
@@ -72,10 +72,10 @@ class ApplicationsController < ApplicationController
     # listing out from under the application, and then we can
     # also make the listing its own object here
     application.listing = {
-      id: listing.Id,
-      name: listing.Name,
-      is_sale: (listing.Tenure == 'New sale' || listing.Tenure == 'Resale'),
-      is_lottery_complete: listing.Lottery_Status != 'Not Yet Run',
+      id: listing.id,
+      name: listing.name,
+      is_sale: (listing.tenure == 'New sale' || listing.tenure == 'Resale'),
+      is_lottery_complete: listing.lottery_status != 'Not Yet Run',
     }
 
     map_lending_institution(application)
