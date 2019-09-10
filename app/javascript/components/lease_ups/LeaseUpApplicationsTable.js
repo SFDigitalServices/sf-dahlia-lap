@@ -36,7 +36,7 @@ const PreferenceRankCell = ({cell}) => {
     return (
       <div>
         <span className='rt-td-label-rank t-semis'>{cell.original.preference_rank}</span>
-        <span className='rt-td-label-invalid t-semis'>{cell.original.preference_record_type} Invalid</span>
+        <span className='rt-td-label-invalid t-semis'>Invalid {cell.original.preference_record_type}</span>
       </div>
     )
   } else {
@@ -86,7 +86,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     const trClassName = classNames(
       'rt-tr-status',
       statusClassName,
-      { 'is-invalid is-disqualified': rowInfo && isInvalid(rowInfo.original) }
+      { 'is-invalid': rowInfo && isInvalid(rowInfo.original) }
     )
 
     return {
