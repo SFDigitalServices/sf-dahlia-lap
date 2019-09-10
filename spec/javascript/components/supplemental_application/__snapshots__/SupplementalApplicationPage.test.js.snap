@@ -6070,6 +6070,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     format={[Function]}
                                                     formatOnBlur={true}
                                                     name="household_assets"
+                                                    parse={[Function]}
                                                     validate={[Function]}
                                                   >
                                                     <Field
@@ -6191,6 +6192,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     format={[Function]}
                                                     formatOnBlur={true}
                                                     name="confirmed_household_annual_income"
+                                                    parse={[Function]}
                                                     validate={[Function]}
                                                   >
                                                     <Field
@@ -6318,6 +6320,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     format={[Function]}
                                                     formatOnBlur={true}
                                                     name="hh_total_income_with_assets_annual"
+                                                    parse={[Function]}
                                                     validate={[Function]}
                                                   >
                                                     <Field
@@ -7049,6 +7052,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     <ReactFinalForm(Field)
                                                       component="select"
                                                       name="lease.unit"
+                                                      parse={[Function]}
                                                     >
                                                       <Field
                                                         component="select"
@@ -7548,6 +7552,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     <ReactFinalForm(Field)
                                                       component="select"
                                                       name="lease.preference_used"
+                                                      parse={[Function]}
                                                     >
                                                       <Field
                                                         component="select"
@@ -7676,6 +7681,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   format={[Function]}
                                                   formatOnBlur={true}
                                                   name="lease.total_monthly_rent_without_parking"
+                                                  parse={[Function]}
                                                   validate={[Function]}
                                                 >
                                                   <Field
@@ -7791,6 +7797,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   format={[Function]}
                                                   formatOnBlur={true}
                                                   name="lease.monthly_parking_rent"
+                                                  parse={[Function]}
                                                   validate={[Function]}
                                                 >
                                                   <Field
@@ -7906,6 +7913,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   format={[Function]}
                                                   formatOnBlur={true}
                                                   name="lease.monthly_tenant_contribution"
+                                                  parse={[Function]}
                                                   validate={[Function]}
                                                 >
                                                   <Field
@@ -8686,6 +8694,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <ReactFinalForm(Field)
                                                   component="select"
                                                   name="number_of_dependents"
+                                                  parse={[Function]}
                                                 >
                                                   <Field
                                                     component="select"
@@ -8874,6 +8883,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <ReactFinalForm(Field)
                                                   component="select"
                                                   name="number_of_seniors"
+                                                  parse={[Function]}
                                                 >
                                                   <Field
                                                     component="select"
@@ -9068,6 +9078,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <ReactFinalForm(Field)
                                                   component="select"
                                                   name="number_of_minors"
+                                                  parse={[Function]}
                                                 >
                                                   <Field
                                                     component="select"
@@ -9249,6 +9260,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <ReactFinalForm(Field)
                                                   component="select"
                                                   name="applicant.marital_status"
+                                                  parse={[Function]}
                                                 >
                                                   <Field
                                                     component="select"

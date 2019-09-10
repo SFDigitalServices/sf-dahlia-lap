@@ -8,6 +8,10 @@ const {
   labelize
 } = formOptions
 
+// Make react-final-form does include empty values on submit.
+// Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
+const identity = value => (value)
+
 export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
 )
@@ -38,7 +42,7 @@ export const FieldError = ({meta}) => (
 )
 
 export const InputField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, type }) => (
-  <Field name={fieldName} validate={validation}>
+  <Field name={fieldName} validate={validation} parse={identity}>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
@@ -62,7 +66,7 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
 )
 
 export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength }) => (
-  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} formatOnBlur>
+  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={identity} formatOnBlur>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
@@ -83,7 +87,7 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
   </Field>
 )
 export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className }) => (
-  <Field name={fieldName} validate={validation} component='select'>
+  <Field name={fieldName} validate={validation} component='select' parse={identity}>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
@@ -174,7 +178,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
 }
 
 export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
-  <Field name={fieldName} validate={validation} component='textarea'>
+  <Field name={fieldName} validate={validation} component='textarea' parse={identity}>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
