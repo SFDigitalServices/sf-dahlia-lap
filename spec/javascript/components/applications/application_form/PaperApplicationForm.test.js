@@ -8,6 +8,7 @@ import listing from '../../../fixtures/listing'
 import application from '../../../fixtures/domain_application'
 import lendingInstitutions from '../../../fixtures/lending_institutions'
 
+const DECLINE = 'Decline to state'
 const mockSubmitApplication = jest.fn()
 
 let testApplication = null
@@ -90,14 +91,10 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).toContain('Gender is required')
       expect(wrapper.text()).toContain('Sexual Orientation is required')
 
-      wrapper.find('select[name="demographics.ethnicity"]').simulate('change', { target: { value: 'Decline to state' } })
-      wrapper.find('select[name="demographics.ethnicity"]').simulate('blur')
-      wrapper.find('select[name="demographics.race"]').simulate('change', { target: { value: 'Decline to state' } })
-      wrapper.find('select[name="demographics.race"]').simulate('blur')
-      wrapper.find('select[name="demographics.gender"]').simulate('change', { target: { value: 'Decline to state' } })
-      wrapper.find('select[name="demographics.gender"]').simulate('blur')
-      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('change', { target: { value: 'Decline to state' } })
-      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
+      wrapper.find(`select[name="demographics.ethnicity"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
+      wrapper.find(`select[name="demographics.race"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
+      wrapper.find(`select[name="demographics.gender"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
+      wrapper.find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
       wrapper.find('form').first().simulate('submit')
 
       await wait(100)
@@ -146,10 +143,8 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).not.toContain('Sexual Orientation is required')
 
       // Change selected gender/orientation to somethiing other than not listed
-      wrapper.find('select[name="demographics.gender"]').simulate('change', { target: { value: 'Decline to state' } })
-      wrapper.find('select[name="demographics.gender"]').simulate('blur')
-      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('change', { target: { value: 'Decline to state' } })
-      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
+      wrapper.find(`select[name="demographics.gender"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
+      wrapper.find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
 
       // Expect the required block note to disappear
       expect(wrapper.find('label#label-demographics-gender_other').text()).not.toContain('(required)')
