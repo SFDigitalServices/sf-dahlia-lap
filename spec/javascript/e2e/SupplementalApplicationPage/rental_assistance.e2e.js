@@ -3,6 +3,7 @@ import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
+import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 let testBrowser
 
@@ -134,7 +135,54 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     // Check that the rental assistances table has decreased in size by one
     const newTableSize = await page.$$eval('.rental-assistances > tbody > .tr-expand', elems => elems.length)
     expect(newTableSize).toEqual(prevTableSize - 1)
-
-    await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
+  // This test requires a rental assistance to be already present in the rental
+  // assistances table. If the prior test for creating a rental assistance has
+  // succeeded, then there will be at least one rental assistance present.
+  test(
+    'should save all supp app form values when a rental assistance panel is saved',
+    async () => {
+      let { page } = await SetupBrowserAndPage(testBrowser)
+
+      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+
+      // Change a value on the supp app form outside of the rental assistance panels
+      // (and also outside of the confirmed preference panels)
+      // A hack to clear the household assets field. Using the enterValue function didn't work.
+      const hhAssetsSelector = '#form-household_assets'
+      await page.focus(hhAssetsSelector)
+      const inputValue = await page.$eval(hhAssetsSelector, el => el.value)
+      for (let i = 0; i < inputValue.length; i++) {
+        await page.keyboard.press('Backspace')
+      }
+
+      // Enter a new amount value
+      const hhAssetsNewValue = supplementalApplicationSteps.generateRandomCurrency()
+      await page.type(hhAssetsSelector, hhAssetsNewValue.currency)
+
+      // Click the Edit button on the first rental assistance
+      const firstRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:first-child'
+      await page.click(`${firstRentalAssistanceSelector} button.action-link`)
+
+      // Wait for the edit rental assistance form to open
+      await page.waitForSelector('.rental-assistance-edit-form')
+
+      // Save the edit rental assistance form
+      await page.click('.rental-assistance-edit-form button.primary')
+
+      // Wait for the API rental assistance update call to complete
+      await page.waitForResponse(request =>
+        request.url().includes('http://localhost:3000/api/v1/rental-assistances')
+      )
+
+      // Check that the field we changed outside of the rental assistance panel
+      // still has the new value we entered
+      const hhAssetsValue = await sharedSteps.getInputValue(page, hhAssetsSelector)
+      expect(hhAssetsValue).toEqual(hhAssetsNewValue.currency)
+
+      await testBrowser.close()
+    },
+    DEFAULT_E2E_TIME_OUT
+  )
 })
