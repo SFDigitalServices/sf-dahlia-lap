@@ -181,7 +181,11 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleSaveRentalAssistance = async (rentalAssistance, action = 'create') => {
+  handleSaveRentalAssistance = async (
+    rentalAssistance,
+    currentApplicationValues,
+    action = 'create'
+  ) => {
     let rentalAssistanceAction
 
     if (action === 'update') {
@@ -214,7 +218,7 @@ class SupplementalApplicationPage extends React.Component {
 
         return {
           persistedApplication: {
-            ...prev.persistedApplication,
+            ...currentApplicationValues,
             rental_assistances: rentalAssistances
           },
           showNewRentalAssistancePanel: false,
@@ -227,8 +231,10 @@ class SupplementalApplicationPage extends React.Component {
     return response
   }
 
-  handleDeleteRentalAssistance = async (rentalAssistance) => {
-    const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(rentalAssistance.id)
+  handleDeleteRentalAssistance = async (rentalAssistance, currentApplicationValues) => {
+    const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(
+      rentalAssistance.id
+    )
 
     if (response) {
       this.setState(prev => {
@@ -237,7 +243,7 @@ class SupplementalApplicationPage extends React.Component {
         rentalAssistances.splice(idx, 1)
         return {
           persistedApplication: {
-            ...prev.persistedApplication,
+            ...currentApplicationValues,
             rental_assistances: rentalAssistances
           },
           showNewRentalAssistancePanel: false,
