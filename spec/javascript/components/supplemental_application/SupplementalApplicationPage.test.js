@@ -1,7 +1,7 @@
 /* global wait */
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {act} from 'react-dom/test-utils'
+import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'

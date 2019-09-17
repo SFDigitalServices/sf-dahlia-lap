@@ -2,6 +2,7 @@
 import React from 'react'
 import { clone } from 'lodash'
 import { mount } from 'enzyme'
+import { act } from 'react-dom/test-utils'
 
 import PaperApplicationForm from 'components/applications/application_form/PaperApplicationForm'
 import listing from '../../../fixtures/listing'
@@ -38,9 +39,7 @@ describe('PaperApplicationForm', () => {
         />
       )
 
-      wrapper.find('form').first().simulate('submit')
-
-      await wait(100)
+      await wrapper.find('form').first().simulate('submit')
 
       const inputSel = 'input#annual_income'
 
@@ -61,9 +60,7 @@ describe('PaperApplicationForm', () => {
           onSubmit={() => (null)}
         />
       )
-      wrapper.find('form').first().simulate('submit')
-
-      await wait(100)
+      await wrapper.find('form').first().simulate('submit')
 
       expect(wrapper.text()).toContain('Please select a language.')
       wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
@@ -82,9 +79,7 @@ describe('PaperApplicationForm', () => {
           onSubmit={() => (null)}
         />
       )
-      wrapper.find('form').first().simulate('submit')
-
-      await wait(100)
+      await wrapper.find('form').first().simulate('submit')
 
       expect(wrapper.text()).toContain('Ethnicity is required')
       expect(wrapper.text()).toContain('Race is required')
@@ -95,9 +90,7 @@ describe('PaperApplicationForm', () => {
       wrapper.find(`select[name="demographics.race"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
       wrapper.find(`select[name="demographics.gender"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
       wrapper.find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
-      wrapper.find('form').first().simulate('submit')
-
-      await wait(100)
+      await wrapper.find('form').first().simulate('submit')
 
       expect(wrapper.text()).not.toContain('Ethnicity is required')
       expect(wrapper.text()).not.toContain('Race is required')
@@ -124,9 +117,7 @@ describe('PaperApplicationForm', () => {
       // Expect that gender/sexual orientation fields are labeled as required
       expect(wrapper.find('label#label-demographics-gender_other').text()).toContain('(required)')
       expect(wrapper.find('label#label-demographics-sexual_orientation_other').text()).toContain('(required)')
-      wrapper.find('form').first().simulate('submit')
-
-      await wait(100)
+      await wrapper.find('form').first().simulate('submit')
 
       // Check that these validation messages are shown since Not Listed was chosen
       expect(wrapper.text()).toContain('Gender is required')
@@ -161,9 +152,7 @@ describe('PaperApplicationForm', () => {
           onSubmit={() => (null)}
         />
       )
-      wrapper.find('form').first().simulate('submit')
-
-      await wait(100)
+      await wrapper.find('form').first().simulate('submit')
 
       expect(wrapper.text()).toContain('Signature on Terms of Agreement is required')
 
@@ -230,14 +219,19 @@ describe('PaperApplicationForm', () => {
       describe('lending institution and lender dropdowns should be filled out', () => {
         test('lender select should be filled out', async () => {
           testApplication.lending_agent = '003U000001Wnp5gIAB'
-          const wrapper = mount(
-            <PaperApplicationForm
-              listing={listing}
-              lendingInstitutions={lendingInstitutions}
-              application={testApplication}
-            />
-          )
-          await wait(100)
+          let wrapper
+          await act(async () => {
+            wrapper = mount(
+              <PaperApplicationForm
+                listing={listing}
+                lendingInstitutions={lendingInstitutions}
+                application={testApplication}
+              />
+            )
+          })
+          // add additional tick to allow lending institutions to load
+          await wrapper.update()
+
           expect(wrapper.find('#lending_institution select').props().value).toEqual('First Republic Bank')
           expect(wrapper.find('#lending_agent select').props().value).toEqual('003U000001Wnp5gIAB')
         })
