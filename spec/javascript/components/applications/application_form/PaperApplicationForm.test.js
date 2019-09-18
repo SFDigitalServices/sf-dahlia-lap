@@ -12,7 +12,7 @@ import lendingInstitutions from '../../../fixtures/lending_institutions'
 const DECLINE = 'Decline to state'
 const mockSubmitApplication = jest.fn()
 
-let testApplication = null
+let testApplication
 
 jest.mock('apiService', () => {
   return {
@@ -29,6 +29,58 @@ describe('PaperApplicationForm', () => {
   })
 
   describe('should validate fields correctly: ', () => {
+    test('Language', async () => {
+      testApplication['application_language'] = null
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
+        />
+      )
+      await wrapper.find('form').first().simulate('submit')
+
+      expect(wrapper.text()).toContain('Please select a language.')
+      wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
+      wrapper.find('#application_language select').simulate('blur')
+      wrapper.find('form').first().simulate('submit')
+      expect(wrapper.text()).not.toContain('Please select a language.')
+    })
+
+    test('Alternate Contact', async () => {
+      testApplication['alternate_contact'] = {
+        'first_name': 'Federic',
+        'middle_name': 'Daaaa',
+        'last_name': 'dayan',
+        'email': 'fede@eee.com'
+      }
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
+        />
+      )
+      await wrapper.find('form').first().simulate('submit')
+      // Expect no errors since alternate contact is filled out with required values
+      expect(wrapper.text()).not.toContain('Please enter a First Name')
+
+      // Delete alt contact first name and expect validation
+      wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
+      wrapper.find('form').first().simulate('submit')
+      expect(wrapper.text()).toContain('Please enter a First Name')
+
+      // Remove all values and expect the validation to go away
+      wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
+      wrapper.find('#alt_middle_name input').simulate('change', { target: { value: '' } })
+      wrapper.find('#alt_last_name input').simulate('change', { target: { value: '' } })
+      wrapper.find('[name="alternate_contact.email"] input').simulate('change', { target: { value: '' } })
+      wrapper.find('form').first().simulate('submit')
+      expect(wrapper.text()).not.toContain('Please enter a First Name')
+    })
+
     test('Annual Income', async () => {
       testApplication['annual_income'] = 'foo'
       const wrapper = mount(
@@ -48,25 +100,6 @@ describe('PaperApplicationForm', () => {
       const fieldElementsSel = `${inputSel}.error`
       expect(wrapper.exists(fieldElementsSel)).toEqual(true)
       expect(wrapper.text()).toContain('Please enter a valid dollar amount.')
-    })
-
-    test('Language', async () => {
-      testApplication['application_language'] = null
-      const wrapper = mount(
-        <PaperApplicationForm
-          listing={listing}
-          application={testApplication}
-          lendingInstitutions={{}}
-          onSubmit={() => (null)}
-        />
-      )
-      await wrapper.find('form').first().simulate('submit')
-
-      expect(wrapper.text()).toContain('Please select a language.')
-      wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
-      wrapper.find('#application_language select').simulate('blur')
-      wrapper.find('form').first().simulate('submit')
-      expect(wrapper.text()).not.toContain('Please select a language.')
     })
 
     test('Demographics Defaults', async () => {
