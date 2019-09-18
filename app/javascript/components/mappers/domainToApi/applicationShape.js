@@ -5,7 +5,7 @@ import { preferenceFieldMapper } from './preference'
 import { householdMembersFieldMapper } from './householdMember'
 import { alternateContactFieldMapper } from './alternateContact'
 import { demographicsFieldMapper } from './demographics'
-import { extend } from 'lodash'
+import { extend, isEmpty, values } from 'lodash'
 
 export const applicationShape = {
   ...applicationFieldMapper,
@@ -27,7 +27,13 @@ export const buildApplicationShape = application => {
       'adaPrioritiesSelected',
       'demographics'
     ])
+  // Demographics are stored as part of primary applicant in salesforce
   mappedApplication['primaryApplicant'] = extend(mappedApplication['primaryApplicant'], mappedApplication['demographics'])
   delete mappedApplication['demographics']
+
+  // Remove alt contact if all fields are empty, otherwise salesforce will throw error.
+  if (mappedApplication['alternateContact'] && values(mappedApplication['alternateContact']).every(isEmpty)) {
+    delete mappedApplication['alternateContact']
+  }
   return mappedApplication
 }

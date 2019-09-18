@@ -1,5 +1,6 @@
 // TODO: Expand these tests to use fixtures, test all fields in application.
 import domainToApi from '~/components/mappers/domainToApi'
+import { cloneDeep } from 'lodash'
 
 const domainApplication = {
   'id': 'application_id',
@@ -32,6 +33,21 @@ const domainApplication = {
     'race': 'Black/African American',
     'sexual_orientation': 'Not listed',
     'sexual_orientation_other': 'other orientation'
+  },
+  'alternate_contact': {
+    'first_name': 'Alt',
+    'last_name': 'Contact',
+    'middle_name': 'middle name',
+    'alternate_contact_type': 'contact type',
+    'alternate_contact_type_other': 'contact type other',
+    'agency_name': 'agency name',
+    'email': 'email',
+    'phone': 'phone',
+    'phone_type': 'phone type',
+    'mailing_street': 'mailing address',
+    'mailing_city': 'mailing city',
+    'mailing_state': 'mailing state',
+    'mailing_zip_code': 'mailing zip'
   }
 }
 
@@ -67,5 +83,34 @@ describe('buildApplicationShape', () => {
       'zip': '94703'
     }
     expect(mappedPrimaryApplicant).toEqual(expectedPrimaryApplicant)
+  })
+
+  test('it should map alternate contacts as expected', () => {
+    const mappedApplication = domainToApi.buildApplicationShape(domainApplication)
+
+    const expectedAlternateContact = {
+      'firstName': 'Alt',
+      'lastName': 'Contact',
+      'agency': 'agency name',
+      'alternateContactType': 'contact type',
+      'alternateContactTypeOther': 'contact type other',
+      'email': 'email',
+      'mailingAddress': 'mailing address',
+      'mailingCity': 'mailing city',
+      'mailingState': 'mailing state',
+      'mailingZip': 'mailing zip',
+      'middleName': 'middle name',
+      'phone': 'phone',
+      'phoneType': 'phone type'
+    }
+
+    expect(mappedApplication['alternateContact']).toEqual(expectedAlternateContact)
+  })
+
+  test('it should remove alternate contact if all fields are empty', () => {
+    const mockDomainApp = cloneDeep(domainApplication)
+    mockDomainApp['alternate_contact'] = { 'middle_name': '', 'first_name': null }
+    const mappedApplication = domainToApi.buildApplicationShape(mockDomainApp)
+    expect(mappedApplication).not.toHaveProperty(['alternateContact'])
   })
 })

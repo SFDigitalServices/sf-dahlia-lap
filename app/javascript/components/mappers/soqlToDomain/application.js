@@ -1,4 +1,4 @@
-import { split, snakeCase, fromPairs } from 'lodash'
+import { fromPairs, omit, snakeCase, split } from 'lodash'
 import { mapApplicationMember } from './application_member'
 import { mapApplicationPreference } from './application_preference'
 import { mapAttachment } from './attachment'
@@ -17,7 +17,8 @@ export const mapApplication = (a) => {
     applicant: mapShape(mapApplicationMember, a.Applicant),
     demographics: mapShape(mapDemographics, a.Applicant),
     primary_applicant_contact: a.Primary_Applicant,
-    alternate_contact: mapShape(mapApplicationMember, a.Alternate_Contact),
+    // Remove id from alternate contact to allow leasing agents to delete alt contact.
+    alternate_contact: omit(mapShape(mapApplicationMember, a.Alternate_Contact), 'id'),
     listing: mapShape(mapListing, a.Listing),
     preferences: mapList(mapApplicationPreference, a.preferences),
     proof_files: mapList(mapAttachment, a.proof_files),
