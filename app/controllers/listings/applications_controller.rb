@@ -40,7 +40,7 @@ module Listings
     end
 
     def listing_accepts_new_applications
-      redirect_to listing_url(id: @listing.Id) if @listing&.Lottery_Status != 'Not Yet Run'
+      redirect_to listing_url(id: @listing[:id]) if @listing[:lottery_status] != 'Not Yet Run'
     end
   end
 end

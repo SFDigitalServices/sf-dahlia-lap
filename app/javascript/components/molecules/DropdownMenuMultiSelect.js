@@ -1,45 +1,42 @@
 import React from 'react'
 import DropdownMenuItemCheckbox from '../atoms/DropdownMenuItemCheckbox'
-import _ from 'lodash'
+import { includes, remove, uniq } from 'lodash'
 
-class DropdownMenuMultiSelect extends React.Component {
+const DropdownMenuMultiSelect = ({ items, values, style, onChange }) => {
   // I chose to keep the state out of the component,
   // so we might be able to integrate it with mobx
   // Fed
-  onChangeHandler = (value, label, selected) => {
+  const onChangeHandler = (value, label, selected) => {
     let newValues = []
 
     // Add original values
-    if (this.props.values) { newValues = newValues.concat(this.props.values) }
+    if (values) { newValues = [...newValues, ...values] }
 
     if (selected) { // add new value if selected
       newValues.push(value)
     } else { // remove value if unslected
-      newValues = _.remove(newValues, v => v !== value)
+      newValues = remove(newValues, v => v !== value)
     }
 
-    const uniqValues = _.uniq(newValues) // remove duplications
+    const uniqValues = uniq(newValues) // remove duplications
 
-    this.props.onChange(uniqValues)
+    onChange(uniqValues)
   }
 
-  render () {
-    const { items, values, style } = this.props
-    return (
-      <ul className='dropdown-menu' style={style} role='listbox' aria-multiselectable='true' aria-activedescendant tabIndex='-1'>
-        {
-          items &&
-          items.map((item) => (
-            <DropdownMenuItemCheckbox
-              key={item.value}
-              {...item}
-              selected={_.includes(values, item.value)}
-              onChange={this.onChangeHandler} />
-          ))
-        }
-      </ul>
-    )
-  }
+  return (
+    <ul className='dropdown-menu' style={style} role='listbox' aria-multiselectable='true' aria-activedescendant tabIndex='-1'>
+      {
+        items &&
+        items.map((item) => (
+          <DropdownMenuItemCheckbox
+            key={item.value}
+            {...item}
+            selected={includes(values, item.value)}
+            onChange={onChangeHandler} />
+        ))
+      }
+    </ul>
+  )
 }
 
 export default DropdownMenuMultiSelect

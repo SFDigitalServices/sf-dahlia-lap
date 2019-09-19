@@ -36,7 +36,7 @@ const PreferenceRankCell = ({cell}) => {
     return (
       <div>
         <span className='rt-td-label-rank t-semis'>{cell.original.preference_rank}</span>
-        <span className='rt-td-label-invalid t-semis'>Invalid</span>
+        <span className='rt-td-label-invalid t-semis'>Invalid {cell.original.preference_record_type}</span>
       </div>
     )
   } else {

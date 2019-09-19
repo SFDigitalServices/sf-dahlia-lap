@@ -27,7 +27,9 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
 
 ## To update CSS from Pattern Library
-* `grunt`
+* Checkout your desired commit in your local copy of the [sf-dahlia-pattern-library](https://github.com/Exygy/sf-dahlia-pattern-library)
+* Run `npm start` in your pattern lib directory
+* In a separate tab, change to the partners directory and run `grunt`
 
 ## Linting
 
@@ -68,13 +70,13 @@ Then re-run your test. **Be aware that now that request in your test will actual
 
 ### Running unit tests
 
-`yarn test:unit`
+`yarn unit`
 
 **Updating snapshots**
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
-`yarn test:unit -u`
+`yarn unit -u`
 
 _Note: Snapshots should be pushed to the repo_
 
@@ -94,7 +96,7 @@ Run your webpack server locally
 
 **Run tests**
 
-`yarn test:e2e`
+`yarn e2e`
 
 
 ### Running all or individual tests
@@ -121,3 +123,76 @@ For tests you can debug a single file or the whole suite. To enter debug click a
 ### Debugging Javascript
 
 To debug javascript, run Rails server in the prefered way. Go to browser and open inspector (⌥+⌘+I). Go to Sources tab and press ⌘+P to search for a file that you want to debug eg. PaperApplicationForm. Click line number to set a breakpoint in the place you want to debug. You can also add watch expressions, step into or over lines like in VS code debugger.
+
+## React Hooks
+Wanted to post a basic intro to react hooks here as they will make our code more performant and allow us to use more functional components. I have examples below but you can read more on the [React Documentation](https://reactjs.org/docs/hooks-overview.html)
+
+### useState, useEffect, and useRef Hooks
+These hooks are all built-in to react by default.
+
+`useState` allows functional components to manage state just like a class component but with a streamlined syntax.
+```js
+// class version
+class Dropdown extends React.Component {
+  state = {
+    expanded: false
+  }
+
+  expandDropdown = () => {
+    this.setState({ expanded: true })
+  }
+}
+
+// hooks version
+const Dropdown = () => {
+  const [expanded, setExpanded] = useState(false)
+
+  const expandDropdown = () => {
+    setExpanded(true)
+  }
+}
+```
+These components now have the exact same level of control over the expanded flag but the below function has less overhead when mounting and unmounting.
+
+`useEffect` is the hook that allows us to still take advantage of lifecycle events when necessary.
+```js
+const Dropdown = ({ styles }) => {
+  // The empty array passed as the second param here
+  // allows for this function to only fire once on
+  // mount. This is the hooks version of componentDidMount
+  useEffect(() => {
+    loadData()
+  }, [])
+  // The prop passed in the array as the second param here
+  // allows for this function to fire once on
+  // mount and then anytime that prop changes. You can
+  // add more than one prop to a given effect and it will
+  // fire when any of those props changes. This is the hooks
+  // version of componentDidUpdate
+  useEffect(() => {
+    updateStyles()
+  }, [styles])
+}
+```
+
+`useRef` allows us access to the `ref` prop of any tag in a component just like a normal ref is assigned. The syntax for the hook is simpler than the old way.
+
+```js
+// old version
+wrapperRef = null
+render() {
+  return (
+    <div ref={(node) => this.wrapperRef = node }>
+      // other stuff
+    </div>
+  )
+}
+
+// hooks version
+const wrapperRef = useRef(null)
+return (
+  <div ref={wrapperRef}>
+    // other stuff
+  </div>
+)
+```

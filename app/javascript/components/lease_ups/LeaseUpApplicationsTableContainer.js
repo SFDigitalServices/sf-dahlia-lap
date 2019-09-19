@@ -8,16 +8,30 @@ import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import appPaths from '~/utils/appPaths'
 import { withContext } from './context'
 
-class LeaseUpTableContainer extends React.Component {
-  closeStatusModal = () => {
-    this.props.store.updateStatusModal({
+const LeaseUpTableContainer = ({
+  store: {
+    listing,
+    applications,
+    statusModal,
+    preferences,
+    loading,
+    handleOnFilter,
+    handleOnFetchData,
+    pages,
+    rowsPerPage,
+    atMaxPages,
+    updateStatusModal,
+    handleCreateStatusUpdate
+  } }) => {
+  const closeStatusModal = () => {
+    updateStatusModal({
       isOpen: false,
       showAlert: false
     })
   }
 
-  leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
-    this.props.store.updateStatusModal({
+  const leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
+    updateStatusModal({
       applicationId: applicationId,
       applicationPreferenceId: applicationPreferenceId,
       isOpen: true,
@@ -25,10 +39,10 @@ class LeaseUpTableContainer extends React.Component {
     })
   }
 
-  createStatusUpdate = async (submittedValues) => {
-    this.props.store.updateStatusModal({ loading: true })
+  const createStatusUpdate = async (submittedValues) => {
+    updateStatusModal({ loading: true })
 
-    const { applicationId } = this.props.store.statusModal
+    const { applicationId } = statusModal
     const { status, subStatus } = submittedValues
     var comment = submittedValues.comment && submittedValues.comment.trim()
     const data = {
@@ -38,10 +52,10 @@ class LeaseUpTableContainer extends React.Component {
       ...(subStatus ? { subStatus } : {})
     }
 
-    this.props.store.handleCreateStatusUpdate(data)
+    handleCreateStatusUpdate(data)
   }
 
-  buildRowData (result) {
+  const buildRowData = (result) => {
     let rowData = cloneDeep(result)
 
     if (trim(result.mailing_address)) {
@@ -57,42 +71,34 @@ class LeaseUpTableContainer extends React.Component {
     return rowData
   }
 
-  goToSupplementaryInfo = (listingId, rowInfo) => {
+  const goToSupplementaryInfo = (listingId, rowInfo) => {
     window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
 
-  rowsData (applications) {
-    const rowsData = map(applications, result => this.buildRowData(result))
-    return rowsData
-  }
+  const rowsData = (applications) => map(applications, buildRowData)
 
-  render () {
-    const { store } = this.props
-    const { listing, applications, statusModal, preferences } = store
-
-    return (
-      <div>
-        <LeaseUpApplicationsFilter preferences={preferences} onSubmit={store.handleOnFilter} loading={store.loading} />
-        <LeaseUpApplicationsTable
-          dataSet={this.rowsData(applications)}
-          listingId={listing.id}
-          onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
-          onCellClick={this.goToSupplementaryInfo}
-          loading={store.loading}
-          onFetchData={store.handleOnFetchData}
-          pages={store.pages}
-          rowsPerPage={store.rowsPerPage}
-          atMaxPages={store.atMaxPages}
-        />
-        <StatusModalWrapper
-          {...statusModal}
-          header='Update Status'
-          submitButton='Update'
-          onSubmit={this.createStatusUpdate}
-          onClose={this.closeStatusModal} />
-      </div>
-    )
-  }
+  return (
+    <React.Fragment>
+      <LeaseUpApplicationsFilter preferences={preferences} onSubmit={handleOnFilter} loading={loading} />
+      <LeaseUpApplicationsTable
+        dataSet={rowsData(applications)}
+        listingId={listing.id}
+        onLeaseUpStatusChange={leaseUpStatusChangeHandler}
+        onCellClick={goToSupplementaryInfo}
+        loading={loading}
+        onFetchData={handleOnFetchData}
+        pages={pages}
+        rowsPerPage={rowsPerPage}
+        atMaxPages={atMaxPages}
+      />
+      <StatusModalWrapper
+        {...statusModal}
+        header='Update Status'
+        submitButton='Update'
+        onSubmit={createStatusUpdate}
+        onClose={closeStatusModal} />
+    </React.Fragment>
+  )
 }
 
 export default withContext(LeaseUpTableContainer)

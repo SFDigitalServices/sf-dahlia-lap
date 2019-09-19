@@ -22,7 +22,6 @@ export const getAmis = async (chartsToLoad, totalHouseholdSize) => {
   // Filter by household size and format
   return amis.map((amisForAllSizes) => {
     let ami = find(amisForAllSizes, {'numOfHousehold': totalHouseholdSize})
-    console.log('AMI', ami)
     if (!isNil(ami)) {
       return ({'name': ami.chartType, 'year': ami.year, 'numHousehold': ami.numOfHousehold, 'amount': ami.amount})
     }

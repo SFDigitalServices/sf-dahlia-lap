@@ -1,8 +1,5 @@
 import React from 'react'
-import { map } from 'lodash'
 
-import mapProps from '~/utils/mapProps'
-import { mapListing } from '~/components/mappers/soqlToDomain'
 import appPaths from '~/utils/appPaths'
 
 import TableLayout from '../layouts/TableLayout'
@@ -27,10 +24,4 @@ const LeaseUpListingsPage = ({listings}) => {
   )
 }
 
-const mapProperties = ({listings}) => {
-  return {
-    listings: map(listings, mapListing)
-  }
-}
-
-export default mapProps(mapProperties)(LeaseUpListingsPage)
+export default LeaseUpListingsPage

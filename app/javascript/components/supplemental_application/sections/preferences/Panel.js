@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
@@ -77,23 +77,16 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
   )
 }
 
-class PanelContainer extends React.Component {
-  state = { loading: false }
+const PanelContainer = ({ onSave, ...panelProps }) => {
+  const [loading, setLoading] = useState(false)
 
-  handleOnSave = async (preferenceIndex, application) => {
-    const { onSave } = this.props
-
-    this.setState({ loading: true })
+  const handleOnSave = async (preferenceIndex, application) => {
+    setLoading(true)
     await onSave(preferenceIndex, application)
-    this.setState({ loading: false })
+    setLoading(false)
   }
 
-  render () {
-    const { onSave, ...rest } = this.props
-    const { loading } = this.state
-
-    return <Panel {...rest} onSave={this.handleOnSave} loading={loading} />
-  }
+  return <Panel {...panelProps} onSave={handleOnSave} loading={loading} />
 }
 
 export default PanelContainer

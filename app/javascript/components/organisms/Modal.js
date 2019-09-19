@@ -26,24 +26,16 @@ const styleTypes = {
   }
 }
 
-class Modal extends React.Component {
-  defaultStyleType = 'small'
-
-  render () {
-    const { children, isOpen, handleClose, styleType } = this.props
-    const style = styleTypes[styleType || this.defaultStyleType]
-    return (
-      <ReactModal
-        isOpen={isOpen}
-        style={style}
-        onRequestClose={handleClose}
-        shouldCloseOnOverlayClick
-        ariaHideApp={process.env.NODE_ENV !== 'test'}>
-        {children}
-      </ReactModal>
-    )
-  }
-}
+const Modal = ({ children, isOpen, handleClose, styleType }) => (
+  <ReactModal
+    isOpen={isOpen}
+    style={styleTypes[styleType || 'small']}
+    onRequestClose={handleClose}
+    shouldCloseOnOverlayClick
+    ariaHideApp={process.env.NODE_ENV !== 'test'}>
+    {children}
+  </ReactModal>
+)
 
 Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby='modalTitle' aria-hidden={hidden} role='dialog'>
@@ -79,8 +71,6 @@ Modal.Footer = ({ children }) => (
   </footer>
 )
 
-Modal.Alert = (props) => {
-  return (<Alert {...props} />)
-}
+Modal.Alert = (props) => (<Alert {...props} />)
 
 export default Modal

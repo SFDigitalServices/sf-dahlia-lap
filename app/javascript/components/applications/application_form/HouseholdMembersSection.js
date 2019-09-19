@@ -1,6 +1,5 @@
 import React from 'react'
 import HouseholdMemberForm from './HouseholdMemberForm'
-import { isEmpty } from 'lodash'
 import { FieldArray } from 'react-final-form-arrays'
 import validate from '~/utils/form/validations'
 
@@ -8,13 +7,9 @@ const memberValidate = (values) => {
   if (!values || !values.length) return
   const membersErrors = []
   values.forEach(value => {
-    if (!isEmpty(value)) {
-      const memberError = {date_of_birth: {}}
-      validate.isValidDate(value.date_of_birth, memberError.date_of_birth, {errorMessage: 'Please enter a Date of Birth'})
-      memberError.first_name = validate.isPresent('Please enter a First Name')(value.first_name)
-      memberError.last_name = validate.isPresent('Please enter a Last Name')(value.last_name)
-      membersErrors.push(memberError)
-    }
+    const memberError = {date_of_birth: {}}
+    validate.isValidDate(value.date_of_birth, memberError.date_of_birth, {errorMessage: 'Please enter a Date of Birth'})
+    membersErrors.push(memberError)
   })
 
   return membersErrors

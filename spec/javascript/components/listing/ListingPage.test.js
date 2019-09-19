@@ -16,7 +16,6 @@ import {
   eligibilityRulesFields,
   additionalInfoFields
 } from 'components/listings/fields'
-import { mapListing } from '~/components/mappers/soqlToDomain'
 
 describe('ListingPage', () => {
   const listing = modelsFactory.listingDetail()
@@ -43,7 +42,7 @@ describe('ListingPage', () => {
       test(`${title} fields`, () => {
         const wrapper = renderer.create(
           <ListingDetailsContentCard
-            listing={mapListing(listing)}
+            listing={listing}
             title={title}
             fields={fields} />
         )

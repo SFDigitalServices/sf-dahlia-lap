@@ -1,7 +1,7 @@
 /* global wait */
 import React from 'react'
 import renderer from 'react-test-renderer'
-import {act} from 'react-dom/test-utils'
+import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
@@ -12,6 +12,7 @@ import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
 const mockUpdatePreference = jest.fn()
+const mockCreateOrUpdateLease = jest.fn()
 window.scrollTo = jest.fn()
 
 jest.mock('apiService', () => {
@@ -30,6 +31,10 @@ jest.mock('apiService', () => {
     },
     getAMI: async (data) => {
       return { ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }] }
+    },
+    createOrUpdateLease: async (data) => {
+      mockCreateOrUpdateLease(data)
+      return true
     }
   }
 })
@@ -56,7 +61,7 @@ describe('SupplementalApplicationPage', () => {
     window.location = originalLocation
   })
 
-  test('it should render correctly with status history', async () => {
+  test('it should render as expected', async () => {
     let component
     await renderer.act(async () => {
       component = renderer.create(
@@ -68,6 +73,23 @@ describe('SupplementalApplicationPage', () => {
 
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
+  })
+
+  test('it saves expected values if no changes are made', async () => {
+    const payload = cloneDeep(mockShortFormSubmitPayload)
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+          units={units} />
+      )
+    })
+    await wrapper.find('form').first().simulate('submit')
+
+    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication).toHaveBeenCalledWith(payload)
   })
 
   test('it saves demographics correctly', async () => {
@@ -131,6 +153,82 @@ describe('SupplementalApplicationPage', () => {
 
     expect(mockUpdateApplication.mock.calls.length).toBe(1)
     expect(mockUpdatePreference.mock.calls.length).toBe(1)
+  })
+
+  describe('Lease Section', () => {
+    let wrapper, mockApplication
+    beforeEach(async () => {
+      mockApplication = cloneDeep(supplementalApplication)
+
+      // Add a valid preference for preference used
+      merge(mockApplication.preferences[0], {
+        Id: 'testValidPref',
+        Post_Lottery_Validation: 'Confirmed'
+      })
+
+      // Add available units
+      const mockAvailableUnits = [
+        {'Unit_Number': 1, 'Id': 'id1'},
+        {'Unit_Number': 2, 'Id': 'id2'}
+      ]
+
+      await act(async () => {
+        wrapper = mount(
+          <SupplementalApplicationPage
+            application={mockApplication}
+            statusHistory={statusHistory}
+            availableUnits={mockAvailableUnits} />
+        )
+      })
+    })
+
+    test('should save a lease object', async () => {
+      // Fill out lease fields
+      // Assigned Unit number
+      wrapper.find('[name="lease.unit"] select option[value="id1"]').simulate('change')
+      // Lease start date
+      wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
+      wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
+      wrapper.find('#lease_start_date_year input').simulate('change', { target: { value: '2019' } })
+
+      // Preference used
+      wrapper.find('[name="lease.preference_used"] select option[value="testValidPref"]').simulate('change')
+
+      // Costs
+      wrapper.find('[name="lease.total_monthly_rent_without_parking"] input').simulate('change', { target: { value: '$1' } })
+      wrapper.find('[name="lease.monthly_parking_rent"] input').simulate('change', { target: { value: '$2' } })
+      wrapper.find('[name="lease.monthly_tenant_contribution"] input').simulate('change', { target: { value: '$3' } })
+
+      // Assert that they're sent to the API
+      await wrapper.find('form').first().simulate('submit')
+
+      const expectedLease = {
+        'id': undefined,
+        'unit': 'id1',
+        'lease_start_date': ['2019', '1', '12'],
+        'no_preference_used': false,
+        'preference_used': 'testValidPref',
+        'total_monthly_rent_without_parking': 1,
+        'monthly_parking_rent': 2,
+        'monthly_tenant_contribution': 3,
+        'primary_applicant_contact': mockApplication['Applicant']['Id']
+      }
+
+      expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)
+      expect(mockCreateOrUpdateLease).toHaveBeenCalledWith(expectedLease)
+    })
+
+    test('should send a null value for unit to API if selected', async () => {
+      // Select the value from the dropdown
+      wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
+
+      // Hit save
+      await wrapper.find('form').first().simulate('submit')
+
+      // Verify that the API was called with null unit value
+      expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)
+      expect(mockCreateOrUpdateLease).toHaveBeenCalledWith(expect.objectContaining({'unit': ''}))
+    })
   })
 
   test('should render the status update dropdown button and its menu of status options correctly', async () => {

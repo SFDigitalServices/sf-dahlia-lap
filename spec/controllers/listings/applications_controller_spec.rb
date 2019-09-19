@@ -32,8 +32,8 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
       end
 
       listing = assigns(:listing)
-      expect(listing.isSale).to be_falsey
-      expect(listing.isRental).to be_truthy
+      expect(listing[:is_sale]).to be_falsey
+      expect(listing[:is_rental]).to be_truthy
       expect(response.body).to have_react_component('ApplicationNewPage')
       expect(response).to have_http_status(:success)
     end
@@ -44,8 +44,8 @@ RSpec.describe Listings::ApplicationsController, type: :controller do
       end
 
       listing = assigns(:listing)
-      expect(listing.isSale).to be_truthy
-      expect(listing.isRental).to be_falsey
+      expect(listing[:is_sale]).to be_truthy
+      expect(listing[:is_rental]).to be_falsey
       expect(response.body).to have_react_component('ApplicationNewPage')
       expect(response).to have_http_status(:success)
     end

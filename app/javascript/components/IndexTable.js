@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
 import moment from 'moment-timezone'
@@ -7,14 +7,10 @@ import utils from '~/utils/utils'
 import IndexTableCell from './IndexTableCell'
 import appPaths from '~/utils/appPaths'
 
-class IndexTable extends React.Component {
-  state = {
-    expanded: {},
-    data: [...this.props.results]
-  }
+const IndexTable = ({ fields, results, links, page }) => {
+  const [expanded, setExpanded] = useState({})
 
-  columnData = () => {
-    let { fields } = this.props
+  const columnData = () => {
     var columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
@@ -25,7 +21,7 @@ class IndexTable extends React.Component {
           row[field]
         ),
         Cell: (cellInfo) => {
-          let val = this.state.data[cellInfo.index][cellInfo.column.id]
+          let val = results[cellInfo.index][cellInfo.column.id]
           if (cellInfo.column.Header.includes('Date')) {
             // cheap way of knowing when to parse date fields
             // only parse the date if the value is not undefined.
@@ -62,11 +58,11 @@ class IndexTable extends React.Component {
         column.filterable = true
       }
       // TO DO: update when Mobx is implemented so no need to pass page
-      if (column.Header === 'Listing Name' && this.props.page === 'listing_index') {
+      if (column.Header === 'Listing Name' && page === 'listing_index') {
         // Allow filtering by typing
         column.filterable = true
       }
-      if (column.Header === 'Listing Name' && !(this.props.page === 'listing_index')) {
+      if (column.Header === 'Listing Name' && !(page === 'listing_index')) {
         // Filter via dropdown
         column.filterable = true
         column.filterMethod = (filter, row) => {
@@ -76,7 +72,7 @@ class IndexTable extends React.Component {
           return row[filter.id] === filter.value
         }
         column.Filter = ({ filter, onChange }) => {
-          let uniqListings = uniqBy(map(this.props.results, (result) => {
+          let uniqListings = uniqBy(map(results, (result) => {
             return { name: result['Listing.Name'] || result['listing_name'] }
           }), 'name')
           let sortedUniqListings = sortBy(uniqListings, (listing) => {
@@ -107,60 +103,53 @@ class IndexTable extends React.Component {
     return columns
   }
 
-  render () {
-    const { data, expanded } = this.state
-    let { links } = this.props
-    var getTrProps = (state, rowInfo, column, instance) => {
-      return {
-        onClick: (e, handleOriginal) => {
-          let expanded = {
-            // toggle this row's expanded state onClick
-            [rowInfo.viewIndex]: !this.state.expanded[rowInfo.viewIndex]
-          }
-          this.setState({ expanded })
-        }
-      }
+  const getTrProps = (_, rowInfo) => ({
+    onClick: () => {
+      setExpanded({
+        // toggle this row's expanded state onClick
+        [rowInfo.viewIndex]: !expanded[rowInfo.viewIndex]
+      })
     }
+  })
 
-    return (
-      <ReactTable
-        columns={this.columnData()}
-        data={data}
-        SubComponent={row => {
-          let linkTags = []
-          each(links, (link, i) => {
-            let href = ''
-            const originalId = row.original.Id || row.original.id
-            if (link === 'View Listing') {
-              href = `/listings/${originalId}`
-            } else if (link === 'Add Application' && row.row.lottery_status === 'Not Yet Run') {
-              href = `/listings/${originalId}/applications/new`
-            } else if (link === 'View Application') {
-              href = `/applications/${originalId}`
-            } else if (link === 'View Flagged Applications') {
-              href = appPaths.toApplicationsFlagged(originalId)
-            }
-            if (href) {
-              linkTags.push(
-                <li key={i}>
-                  <a className='button secondary tiny' href={href}>
-                    {link}
-                  </a>
-                </li>
-              )
-            }
-          })
-          return (
-            <ul className='subcomponent button-radio-group segmented-radios inline-group'>
-              {linkTags}
-            </ul>
-          )
-        }}
-        getTrProps={getTrProps}
-        expanded={expanded}
-      />
-    )
-  }
+  return (
+    <ReactTable
+      columns={columnData()}
+      data={results}
+      SubComponent={row => {
+        let linkTags = []
+        each(links, (link, i) => {
+          let href = ''
+          const originalId = row.original.Id || row.original.id
+          if (link === 'View Listing') {
+            href = `/listings/${originalId}`
+          } else if (link === 'Add Application' && row.row.lottery_status === 'Not Yet Run') {
+            href = `/listings/${originalId}/applications/new`
+          } else if (link === 'View Application') {
+            href = `/applications/${originalId}`
+          } else if (link === 'View Flagged Applications') {
+            href = appPaths.toApplicationsFlagged(originalId)
+          }
+          if (href) {
+            linkTags.push(
+              <li key={i}>
+                <a className='button secondary tiny' href={href}>
+                  {link}
+                </a>
+              </li>
+            )
+          }
+        })
+        return (
+          <ul className='subcomponent button-radio-group segmented-radios inline-group'>
+            {linkTags}
+          </ul>
+        )
+      }}
+      getTrProps={getTrProps}
+      expanded={expanded}
+    />
+  )
 }
 
 IndexTable.propTypes = {

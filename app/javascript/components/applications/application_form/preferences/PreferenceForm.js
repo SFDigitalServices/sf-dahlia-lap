@@ -67,6 +67,7 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
         </Column>
         <PreferenceAdditionalOptions
           i={i}
+          form={form}
           listingPreferenceID={selectedPreference.listing_preference_id}
           listingPreferences={listingPreferences}
           individualPreference={selectedPreference.individual_preference}

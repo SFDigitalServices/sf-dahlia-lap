@@ -4,7 +4,8 @@ import Alerts from '~/components/Alerts'
 import { isEmpty, find, isEqual, every } from 'lodash'
 
 export const updateApplication = async (application, prevApplication) => {
-  const promises = [updateLease(application['lease'], application['primaryApplicantContact'], application['id'])]
+  const primaryApplicantContact = application.applicant && application.applicant.id
+  const promises = [updateLease(application['lease'], primaryApplicantContact, application['id'])]
 
   // Concat lease promise with rental assistances
   promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
