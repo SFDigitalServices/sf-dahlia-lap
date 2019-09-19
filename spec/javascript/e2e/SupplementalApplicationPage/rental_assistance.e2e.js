@@ -161,6 +161,8 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       const hhAssetsNewValue = supplementalApplicationSteps.generateRandomCurrency()
       await page.type(hhAssetsSelector, hhAssetsNewValue.currency)
 
+      // Save a rental assistance panel
+
       // Click the Edit button on the first rental assistance
       const firstRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:first-child'
       await page.click(`${firstRentalAssistanceSelector} button.action-link`)

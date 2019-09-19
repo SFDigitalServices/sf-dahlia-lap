@@ -58,7 +58,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference = async (preferenceIndex, formApplicationValues) => {
-    const { persistedApplication } = this.state
     const responses = await Promise.all([
       updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
       updatePreference(formApplicationValues.preferences[preferenceIndex])
@@ -66,11 +65,8 @@ class SupplementalApplicationPage extends React.Component {
     const failed = some(responses, response => response === false)
 
     if (!failed) {
-      const updatedApplication = cloneDeep(persistedApplication)
-      updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
-      updatedApplication.total_monthly_rent = formApplicationValues.total_monthly_rent
       this.setState({
-        persistedApplication: updatedApplication,
+        persistedApplication: formApplicationValues,
         confirmedPreferencesFailed: false
       })
     } else {
@@ -183,7 +179,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveRentalAssistance = async (
     rentalAssistance,
-    currentApplicationValues,
+    formApplicationValues,
     action = 'create'
   ) => {
     let rentalAssistanceAction
@@ -218,7 +214,7 @@ class SupplementalApplicationPage extends React.Component {
 
         return {
           persistedApplication: {
-            ...currentApplicationValues,
+            ...formApplicationValues,
             rental_assistances: rentalAssistances
           },
           showNewRentalAssistancePanel: false,
@@ -231,7 +227,7 @@ class SupplementalApplicationPage extends React.Component {
     return response
   }
 
-  handleDeleteRentalAssistance = async (rentalAssistance, currentApplicationValues) => {
+  handleDeleteRentalAssistance = async (rentalAssistance, formApplicationValues) => {
     const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(
       rentalAssistance.id
     )
@@ -243,7 +239,7 @@ class SupplementalApplicationPage extends React.Component {
         rentalAssistances.splice(idx, 1)
         return {
           persistedApplication: {
-            ...currentApplicationValues,
+            ...formApplicationValues,
             rental_assistances: rentalAssistances
           },
           showNewRentalAssistancePanel: false,

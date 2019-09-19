@@ -3,6 +3,7 @@ import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
+import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 let testBrowser
 
@@ -135,4 +136,63 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
     await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
+
+  test(
+    'should save all supp app form values when a confirmed preference panel is saved',
+    async () => {
+      let { page } = await SetupBrowserAndPage(testBrowser)
+
+      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+
+      // Change a value on the supp app form outside of the confirmed preference panels
+      // (and also outside of the confirmed preference panels)
+      // A hack to clear the household assets field. Using the enterValue function didn't work.
+      const hhAssetsSelector = '#form-household_assets'
+      await page.focus(hhAssetsSelector)
+      const inputValue = await page.$eval(hhAssetsSelector, el => el.value)
+      for (let i = 0; i < inputValue.length; i++) {
+        await page.keyboard.press('Backspace')
+      }
+
+      // Enter a new amount value
+      const hhAssetsNewValue = supplementalApplicationSteps.generateRandomCurrency()
+      await page.type(hhAssetsSelector, hhAssetsNewValue.currency)
+
+      // Save an update in a preference panel. We'll use the assisted housing preference.
+      // The application used here must include a claimed assisted housing
+      // preference for this test to be able to pass.
+
+      // Click on the assisted housing preference's Edit button in the Confirmed
+      // Preferences section to expand that preference's edit panel
+
+      // Click on the assisted housing preference's Edit button in the Confirmed
+      // Preferences section to expand that preference's edit panel
+      const assistedHousingEditSelector = '#assisted-housing-preference-edit'
+      await page.waitForSelector(assistedHousingEditSelector)
+      await page.click(assistedHousingEditSelector)
+
+      // Update the preference status
+      const assistedHousingExpandedPanelSelector = '#assisted-housing-preference-panel'
+      const prefStatusSelector = `${assistedHousingExpandedPanelSelector} .preference-status-select`
+      const unselectedPrefStatusSelector = sharedSteps.notSelectedOptionSelector(prefStatusSelector)
+      const prefStatusToSetValue = await page.$eval(unselectedPrefStatusSelector, e => e.value)
+      await page.select(prefStatusSelector, prefStatusToSetValue)
+
+      // Click the save button in the preference panel
+      await page.click(`${assistedHousingExpandedPanelSelector} .save-panel-btn`)
+
+      // Wait for the API preference update call to complete
+      await page.waitForResponse(request =>
+        request.url().includes('http://localhost:3000/api/v1/preferences/')
+      )
+
+      // Check that the field we changed outside of the preference panel
+      // still has the new value we entered
+      const hhAssetsValue = await sharedSteps.getInputValue(page, hhAssetsSelector)
+      expect(hhAssetsValue).toEqual(hhAssetsNewValue.currency)
+
+      await testBrowser.close()
+    },
+    DEFAULT_E2E_TIME_OUT
+  )
 })
