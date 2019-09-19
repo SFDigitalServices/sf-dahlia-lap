@@ -27,7 +27,9 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
 
 ## To update CSS from Pattern Library
-* `grunt`
+* Checkout your desired commit in your local copy of the [sf-dahlia-pattern-library](https://github.com/Exygy/sf-dahlia-pattern-library)
+* Run `npm start` in your pattern lib directory
+* In a separate tab, change to the partners directory and run `grunt`
 
 ## Linting
 
