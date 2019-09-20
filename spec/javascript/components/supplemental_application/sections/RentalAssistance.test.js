@@ -149,4 +149,31 @@ describe('RentalAssistance', () => {
     wait(1000)
     expect(wrapper.find('.rental-assistance-type.error').exists()).toBeTruthy()
   })
+
+  test("should call the given save callback when a panel's save button is clicked", () => {
+    const context = cloneDeep(baseContext)
+    const mockSaveCallback = jest.fn()
+    context.handleSaveRentalAssistance = mockSaveCallback
+    context.application.rental_assistances = [rentalAssistance]
+
+    const wrapper = mount(
+      <Context.Provider value={context}>
+        <Form
+          onSubmit={() => null}
+          initialValues={context.application}
+          render={({ form }) => (
+            <React.Fragment>
+              <form noValidate>
+                <RentalAssistance form={form} />
+              </form>
+            </React.Fragment>
+          )} />
+      </Context.Provider>
+    )
+
+    wrapper.find('button.button-link').simulate('click')
+    wait(1000)
+    wrapper.find('button.primary').simulate('click')
+    expect(mockSaveCallback.mock.calls.length).toEqual(1)
+  })
 })

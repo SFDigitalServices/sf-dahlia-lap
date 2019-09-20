@@ -143,7 +143,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
       // Change a value on the supp app form outside of the confirmed preference panels
-      // (and also outside of the confirmed preference panels)
+      // (and also outside of the rental assistance panels)
       const hhAssetsSelector = '#form-household_assets'
       const hhAssetsNewValue = supplementalApplicationSteps.generateRandomCurrency()
       await sharedSteps.enterValue(page, hhAssetsSelector, hhAssetsNewValue.currency)
