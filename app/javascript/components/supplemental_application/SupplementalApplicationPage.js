@@ -20,9 +20,7 @@ const getListingAmiCharts = (units) => {
 
 class SupplementalApplicationPage extends React.Component {
   state = {
-    // A frozen copy of the application state that is currently persisted to
-    // Salesforce. This is the latest saved copy.
-    persistedApplication: cloneDeep(this.props.application),
+    application: this.props.application,
     confirmedPreferencesFailed: false,
     supplementalAppTouched: false,
     listingAmiCharts: getListingAmiCharts(this.props.units),
@@ -46,7 +44,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    const response = await updateApplication(application, this.state.persistedApplication)
+    const response = await updateApplication(application, this.state.application)
 
     if (response !== false) {
       // Reload the page to pull updated data from Salesforce
@@ -66,7 +64,7 @@ class SupplementalApplicationPage extends React.Component {
 
     if (!failed) {
       this.setState({
-        persistedApplication: formApplicationValues,
+        application: formApplicationValues,
         confirmedPreferencesFailed: false
       })
     } else {
@@ -96,7 +94,7 @@ class SupplementalApplicationPage extends React.Component {
       statusModal: {
         header: 'Add New Comment',
         isOpen: true,
-        status: this.props.application.processing_status,
+        status: this.state.application.processing_status,
         submitButton: 'Save'
       }
     })
@@ -129,17 +127,17 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
-    const { persistedApplication } = this.state
+    const { application } = this.state
     const { status, subStatus, comment } = submittedValues
     this.setState({loading: true})
     this.updateStatusModal({loading: true})
     const data = {
       status,
       comment,
-      applicationId: persistedApplication.id,
+      applicationId: application.id,
       ...(subStatus ? { subStatus } : {})
     }
-    const appResponse = await updateApplication(fromApplication, this.state.persistedApplication)
+    const appResponse = await updateApplication(fromApplication, this.state.application)
     const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (appResponse === false || commentResponse === false) {
@@ -195,14 +193,14 @@ class SupplementalApplicationPage extends React.Component {
 
     const response = await this.handleRentalAssistanceAction(rentalAssistanceAction)(
       rentalAssistance,
-      this.state.persistedApplication.id
+      this.state.application.id
     )
     // show price in right format
     rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
 
     if (response) {
       this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
+        const rentalAssistances = cloneDeep(prev.application.rental_assistances)
 
         if (action === 'update') {
           const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
@@ -213,7 +211,7 @@ class SupplementalApplicationPage extends React.Component {
         }
 
         return {
-          persistedApplication: {
+          application: {
             ...formApplicationValues,
             rental_assistances: rentalAssistances
           },
@@ -234,11 +232,11 @@ class SupplementalApplicationPage extends React.Component {
 
     if (response) {
       this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.persistedApplication.rental_assistances)
+        const rentalAssistances = cloneDeep(prev.application.rental_assistances)
         const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
         rentalAssistances.splice(idx, 1)
         return {
-          persistedApplication: {
+          application: {
             ...formApplicationValues,
             rental_assistances: rentalAssistances
           },
@@ -260,7 +258,7 @@ class SupplementalApplicationPage extends React.Component {
     if (this.state.supplementalAppTouched) {
       this.setState({ leaveConfirmationModal: { isOpen: true } })
     } else {
-      window.location.href = appPaths.toApplication(this.state.persistedApplication.id)
+      window.location.href = appPaths.toApplication(this.state.application.id)
     }
   }
 
@@ -274,27 +272,34 @@ class SupplementalApplicationPage extends React.Component {
 
   render () {
     const { statusHistory, fileBaseUrl, availableUnits } = this.props
-    const { leaveConfirmationModal, persistedApplication } = this.state
+    const { leaveConfirmationModal, application } = this.state
     const pageHeader = {
-      title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
+      title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
         { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: persistedApplication.listing.name, link: appPaths.toListingLeaseUps(persistedApplication.listing.id) },
-        { title: persistedApplication.name, link: '#' }
+        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
+        { title: application.name, link: '#' }
       ]
     }
 
     const tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id), onClick: this.handleLeaveSuppAppTab },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
+        {
+          title: 'Short Form Application',
+          url: appPaths.toApplication(application.id),
+          onClick: this.handleLeaveSuppAppTab
+        },
+        {
+          title: 'Supplemental Information',
+          url: appPaths.toApplicationSupplementals(application.id)
+        }
       ]
     }
 
     const context = {
       ...this.state,
-      application: persistedApplication,
-      applicationMembers: [persistedApplication.applicant, ...(persistedApplication.household_members || [])],
+      application: application,
+      applicationMembers: [application.applicant, ...(application.household_members || [])],
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
       fileBaseUrl: fileBaseUrl,
@@ -323,7 +328,7 @@ class SupplementalApplicationPage extends React.Component {
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}
           handleClose={this.handleLeaveModalClose}
-          destination={appPaths.toApplication(persistedApplication.id)} />
+          destination={appPaths.toApplication(application.id)} />
       </Context.Provider>
     )
   }
