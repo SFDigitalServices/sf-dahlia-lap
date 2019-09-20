@@ -176,7 +176,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       // Check that the field we changed outside of the rental assistance panel
       // still has the new value we entered
       const hhAssetsValue = await sharedSteps.getInputValue(page, hhAssetsSelector)
-      expect(hhAssetsValue).toEqual(hhAssetsNewValue.currency)
+      expect(hhAssetsValue).toEqual('$' + String(hhAssetsNewValue.float.toFixed(2)))
 
       await testBrowser.close()
     },
