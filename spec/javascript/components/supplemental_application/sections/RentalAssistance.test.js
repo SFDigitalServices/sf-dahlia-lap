@@ -98,17 +98,36 @@ describe('RentalAssistance', () => {
     expect(wrapper.find('.rental-assistance-type.error').exists()).toBeTruthy()
   })
 
-  test("should call the given save callback when a panel's save button is clicked", () => {
+  test('should call the appropriate callbacks upon panel actions', () => {
     const context = cloneDeep(baseContext)
     const mockSaveCallback = jest.fn()
+    const mockDeleteCallback = jest.fn()
     context.handleSaveRentalAssistance = mockSaveCallback
+    context.handleDeleteRentalAssistance = mockDeleteCallback
     context.application.rental_assistances = [rentalAssistance]
+    context.showNewRentalAssistancePanel = true
 
     const wrapper = mount(rentalAssistanceInContext(context))
 
-    wrapper.find('button.button-link').simulate('click')
+    // Check the call of the save callback upon new rental assistance panel save
+    wrapper
+      .find('.rental-assistance-new-form select.rental-assistance-type')
+      .simulate('change', { target: { value: 'Catholic Charities' } })
+    wrapper.find('.rental-assistance-new-form button.primary').simulate('click')
     wait(1000)
-    wrapper.find('button.primary').simulate('click')
     expect(mockSaveCallback.mock.calls.length).toEqual(1)
+    expect(mockSaveCallback.mock.calls[0][2]).toEqual('create')
+
+    // Check the call of the save callback upon existing rental assistance panel save
+    wrapper.find('button.button-link').first().simulate('click')
+    wrapper.find('.rental-assistance-edit-form button.primary').simulate('click')
+    wait(1000)
+    expect(mockSaveCallback.mock.calls.length).toEqual(2)
+    expect(mockSaveCallback.mock.calls[1][2]).toEqual('update')
+
+    // Check the call of the delete callback upon existing rental assistance panel delete
+    wrapper.find('.rental-assistance-edit-form button.alert-fill').simulate('click')
+    wait(1000)
+    expect(mockDeleteCallback.mock.calls.length).toEqual(1)
   })
 })
