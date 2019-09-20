@@ -141,7 +141,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
   test(
-    'should save all supp app form values when a rental assistance panel is saved',
+    'should persist all unsaved supp app form values when a rental assistance panel is saved',
     async () => {
       let { page } = await SetupBrowserAndPage(testBrowser)
 
@@ -149,19 +149,11 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
       // Change a value on the supp app form outside of the rental assistance panels
       // (and also outside of the confirmed preference panels)
-      // A hack to clear the household assets field. Using the enterValue function didn't work.
       const hhAssetsSelector = '#form-household_assets'
-      await page.focus(hhAssetsSelector)
-      const inputValue = await page.$eval(hhAssetsSelector, el => el.value)
-      for (let i = 0; i < inputValue.length; i++) {
-        await page.keyboard.press('Backspace')
-      }
-
-      // Enter a new amount value
       const hhAssetsNewValue = supplementalApplicationSteps.generateRandomCurrency()
-      await page.type(hhAssetsSelector, hhAssetsNewValue.currency)
+      await sharedSteps.enterValue(page, hhAssetsSelector, hhAssetsNewValue.currency)
 
-      // Save a rental assistance panel
+      // Save a change on a rental assistance panel
 
       // Click the Edit button on the first rental assistance
       const firstRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:first-child'
@@ -169,6 +161,9 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
       // Wait for the edit rental assistance form to open
       await page.waitForSelector('.rental-assistance-edit-form')
+
+      // Enter a new assistance amount value
+      await sharedSteps.enterValue(page, '#assistance_amount', '$1100')
 
       // Save the edit rental assistance form
       await page.click('.rental-assistance-edit-form button.primary')

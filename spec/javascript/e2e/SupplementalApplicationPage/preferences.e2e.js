@@ -133,12 +133,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     // and now appears in the preference panel
     const currentStatus = await page.$eval(sharedSteps.selectedOptionSelector(prefStatusSelector), e => e.textContent)
     expect(currentStatus).toBe(prefStatusToSetName)
-
-    await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
 
   test(
-    'should save all supp app form values when a confirmed preference panel is saved',
+    'should persist all unsaved supp app form values when a confirmed preference panel is saved',
     async () => {
       let { page } = await SetupBrowserAndPage(testBrowser)
 
@@ -146,24 +144,13 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
       // Change a value on the supp app form outside of the confirmed preference panels
       // (and also outside of the confirmed preference panels)
-      // A hack to clear the household assets field. Using the enterValue function didn't work.
       const hhAssetsSelector = '#form-household_assets'
-      await page.focus(hhAssetsSelector)
-      const inputValue = await page.$eval(hhAssetsSelector, el => el.value)
-      for (let i = 0; i < inputValue.length; i++) {
-        await page.keyboard.press('Backspace')
-      }
-
-      // Enter a new amount value
       const hhAssetsNewValue = supplementalApplicationSteps.generateRandomCurrency()
-      await page.type(hhAssetsSelector, hhAssetsNewValue.currency)
+      await sharedSteps.enterValue(page, hhAssetsSelector, hhAssetsNewValue.currency)
 
       // Save an update in a preference panel. We'll use the assisted housing preference.
       // The application used here must include a claimed assisted housing
       // preference for this test to be able to pass.
-
-      // Click on the assisted housing preference's Edit button in the Confirmed
-      // Preferences section to expand that preference's edit panel
 
       // Click on the assisted housing preference's Edit button in the Confirmed
       // Preferences section to expand that preference's edit panel
