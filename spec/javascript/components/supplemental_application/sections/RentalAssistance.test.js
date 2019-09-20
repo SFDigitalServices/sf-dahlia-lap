@@ -25,23 +25,26 @@ const rentalAssistance = {
   recipient: '123'
 }
 
+const rentalAssistanceInContext = (context) => (
+  <Context.Provider value={context}>
+    <Form
+      onSubmit={() => null}
+      initialValues={context.application}
+      render={({ form }) => (
+        <React.Fragment>
+          <form noValidate>
+            <RentalAssistance form={form} />
+          </form>
+        </React.Fragment>
+      )} />
+  </Context.Provider>
+)
+
 describe('RentalAssistance', () => {
   test('should not render a table if rental assistances is empty', () => {
     const context = cloneDeep(baseContext)
-    const component = renderer.create(
-      <Context.Provider value={context}>
-        <Form
-          onSubmit={() => null}
-          initialValues={context.application}
-          render={({ form }) => (
-            <React.Fragment>
-              <form noValidate>
-                <RentalAssistance form={form} />
-              </form>
-            </React.Fragment>
-          )} />
-      </Context.Provider>
-    )
+
+    const component = renderer.create(rentalAssistanceInContext(context))
 
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -49,23 +52,9 @@ describe('RentalAssistance', () => {
 
   test('should render a table when rental assistances are present', () => {
     const context = cloneDeep(baseContext)
-
     context.application.rental_assistances = [rentalAssistance]
 
-    const component = renderer.create(
-      <Context.Provider value={context}>
-        <Form
-          onSubmit={() => null}
-          initialValues={context.application}
-          render={({ form }) => (
-            <React.Fragment>
-              <form noValidate>
-                <RentalAssistance form={form} />
-              </form>
-            </React.Fragment>
-          )} />
-      </Context.Provider>
-    )
+    const component = renderer.create(rentalAssistanceInContext(context))
 
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -73,24 +62,10 @@ describe('RentalAssistance', () => {
 
   test('should be able to show the add rental assistance form along with the table', () => {
     const context = cloneDeep(baseContext)
-
     context.application.rental_assistances = [rentalAssistance]
     context.showNewRentalAssistancePanel = true
 
-    const component = renderer.create(
-      <Context.Provider value={context}>
-        <Form
-          onSubmit={() => null}
-          initialValues={context.application}
-          render={({ form }) => (
-            <React.Fragment>
-              <form noValidate>
-                <RentalAssistance form={form} />
-              </form>
-            </React.Fragment>
-          )} />
-      </Context.Provider>
-    )
+    const component = renderer.create(rentalAssistanceInContext(context))
 
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -98,7 +73,6 @@ describe('RentalAssistance', () => {
 
   test('should show the Other Assistance Name in the table when Type of Assistance is Other', () => {
     const context = cloneDeep(baseContext)
-
     context.application.rental_assistances = [
       {
         ...rentalAssistance,
@@ -107,20 +81,7 @@ describe('RentalAssistance', () => {
       }
     ]
 
-    const component = renderer.create(
-      <Context.Provider value={context}>
-        <Form
-          onSubmit={() => null}
-          initialValues={context.application}
-          render={({ form }) => (
-            <React.Fragment>
-              <form noValidate>
-                <RentalAssistance form={form} />
-              </form>
-            </React.Fragment>
-          )} />
-      </Context.Provider>
-    )
+    const component = renderer.create(rentalAssistanceInContext(context))
 
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -130,20 +91,7 @@ describe('RentalAssistance', () => {
     const context = cloneDeep(baseContext)
     context.showNewRentalAssistancePanel = true
 
-    const wrapper = mount(
-      <Context.Provider value={context}>
-        <Form
-          onSubmit={() => null}
-          initialValues={context.application}
-          render={({ form }) => (
-            <React.Fragment>
-              <form noValidate>
-                <RentalAssistance form={form} />
-              </form>
-            </React.Fragment>
-          )} />
-      </Context.Provider>
-    )
+    const wrapper = mount(rentalAssistanceInContext(context))
 
     wrapper.find('button.primary').simulate('click')
     wait(1000)
@@ -156,20 +104,7 @@ describe('RentalAssistance', () => {
     context.handleSaveRentalAssistance = mockSaveCallback
     context.application.rental_assistances = [rentalAssistance]
 
-    const wrapper = mount(
-      <Context.Provider value={context}>
-        <Form
-          onSubmit={() => null}
-          initialValues={context.application}
-          render={({ form }) => (
-            <React.Fragment>
-              <form noValidate>
-                <RentalAssistance form={form} />
-              </form>
-            </React.Fragment>
-          )} />
-      </Context.Provider>
-    )
+    const wrapper = mount(rentalAssistanceInContext(context))
 
     wrapper.find('button.button-link').simulate('click')
     wait(1000)
