@@ -4,6 +4,7 @@ import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from '~/components/applications/application_form/formOptions'
 import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
+import validate from '~/utils/form/validations'
 
 const {
   relationshipOptions
@@ -21,6 +22,7 @@ const HouseholdMemberForm = ({i, form}) => {
               fieldName={`household_members[${i}].first_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['first_name']}
+              validation={validate.isPresent('Please enter a First Name')}
             />
           </div>
           <div className='small-2 columns'>
@@ -38,6 +40,7 @@ const HouseholdMemberForm = ({i, form}) => {
               fieldName={`household_members[${i}].last_name`}
               blockNote='(required)'
               maxLength={maxLengthMap['last_name']}
+              validation={validate.isPresent('Please enter a Last Name')}
             />
           </div>
           <div className='small-4 columns form-date-of-birth'>

@@ -317,6 +317,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               <ReactFinalForm(Field)
                                 component="select"
                                 name="preference"
+                                parse={[Function]}
                               >
                                 <Field
                                   component="select"
@@ -412,6 +413,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             >
                               <ReactFinalForm(Field)
                                 name="application_number"
+                                parse={[Function]}
                               >
                                 <Field
                                   format={[Function]}
@@ -530,6 +532,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             >
                               <ReactFinalForm(Field)
                                 name="first_name"
+                                parse={[Function]}
                               >
                                 <Field
                                   format={[Function]}
@@ -648,6 +651,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             >
                               <ReactFinalForm(Field)
                                 name="last_name"
+                                parse={[Function]}
                               >
                                 <Field
                                   format={[Function]}
@@ -819,6 +823,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               <ReactFinalForm(Field)
                                 component="select"
                                 name="status"
+                                parse={[Function]}
                               >
                                 <Field
                                   component="select"

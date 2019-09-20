@@ -14,7 +14,7 @@ import AlertBox from '~/components/molecules/AlertBox'
 import validate from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
-import { includes, isEmpty, map } from 'lodash'
+import { includes, isEmpty, map, values as _values } from 'lodash'
 import { getFullHousehold, naturalKeyFromMember } from './preferences/utils.js'
 
 class PaperApplicationForm extends React.Component {
@@ -56,7 +56,8 @@ class PaperApplicationForm extends React.Component {
     // applicant needs to be initialized for date validation to run on 'required'
     if (!values.applicant) values.applicant = {}
     validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {errorMessage: 'Please enter a Date of Birth', isPrimaryApplicant: true})
-    if (values.alternate_contact && !isEmpty(values.alternate_contact)) {
+    // Only validate alternate contacts that are present and not-empty
+    if (values.alternate_contact && !_values(values.alternate_contact).every(isEmpty)) {
       errors.alternate_contact = {}
       errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(values.alternate_contact.first_name)
       errors.alternate_contact.last_name = validate.isPresent('Please enter a Last Name')(values.alternate_contact.last_name)
