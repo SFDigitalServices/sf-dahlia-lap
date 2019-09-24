@@ -100,7 +100,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   } = store
 
   const onSave = async (index, values) => {
-    const updateResult = await handleSaveRentalAssistance(values, 'update')
+    const updateResult = await handleSaveRentalAssistance(values, form.getState().values, 'update')
     if (updateResult) toggle()
   }
 
@@ -111,7 +111,10 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   }
 
   const onDelete = async () => {
-    const deleteResult = await handleDeleteRentalAssistance(rentalAssistance)
+    const deleteResult = await handleDeleteRentalAssistance(
+      rentalAssistance,
+      form.getState().values
+    )
     if (deleteResult) toggle()
   }
 
@@ -261,7 +264,7 @@ const RentalAssistance = ({ store, form }) => {
   } = store
 
   const onSave = async (_, values) => {
-    await handleSaveRentalAssistance(values, 'create')
+    await handleSaveRentalAssistance(values, form.getState().values, 'create')
   }
 
   const onClose = () => {
