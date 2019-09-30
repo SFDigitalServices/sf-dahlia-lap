@@ -13,11 +13,11 @@ module Api::V1
 
         # general_applications = soql_application_service.applications(lease_up_apps_params)
         # application_ids += general_applications[:records].map { |data| "'#{data['Id']}'" }
-        # # applications[:records] += general_applications[:records]
+        # applications[:records] += general_applications[:records]
         # applications[:total_size] += general_applications[:total_size]
 
         applications = soql_application_service.applications(lease_up_apps_params)
-        application_ids += applications[:records].map { |data| "'#{data['Id']}'" }
+        application_ids = applications[:records].map { |data| "'#{data['Id']}'" }
       else
         applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
         application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
