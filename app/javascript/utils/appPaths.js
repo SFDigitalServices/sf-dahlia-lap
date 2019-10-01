@@ -18,7 +18,16 @@ const toLeaseUps = () => `/listings/lease-ups`
 
 const toLeaseUpApplications = (listingId) => `/listings/lease-ups/${listingId}/applications`
 
-const toAttachmentDownload = (fileBaseUrl, fileId) => `${fileBaseUrl}/servlet/servlet.FileDownload?file=${fileId}`
+const toAttachmentDownload = (fileBaseUrl, file) => {
+  switch (file.file_type) {
+    case 'Attachment':
+      return `${fileBaseUrl}/servlet/servlet.FileDownload?file=${file.id}`
+    case 'File':
+      return `${fileBaseUrl}/sfc/servlet.shepherd/version/download/${file.id}`
+    default:
+      return null
+  }
+}
 
 export default {
   toApplicationSupplementals,

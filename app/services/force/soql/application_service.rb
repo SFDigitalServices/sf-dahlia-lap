@@ -36,7 +36,7 @@ module Force
           LIMIT 1
         ))
         application['preferences'] = app_preferences(id)
-        application['proof_files'] = app_proof_files(id)
+        application['proof_files'] = soql_attachment_service.app_proof_files(id)
         application['household_members'] = app_household_members(application)
         application['lease'] = soql_lease_service.application_lease(id)
         application
@@ -102,26 +102,6 @@ module Force
         ), :show_preference)
       end
 
-      def app_proof_files(application_id)
-        parsed_index_query(%(
-          SELECT #{query_fields(:show_proof_files)}
-          FROM Attachment__c
-          WHERE Related_Application__c = '#{application_id}'
-        ), :show_proof_files).map do |attachment|
-          file = query_first(%(
-            SELECT Id
-            FROM Attachment
-            WHERE ParentId = '#{attachment.Id}'
-          ))
-          {
-            Id: file.Id,
-            Document_Type: attachment.Document_Type,
-            Related_Application: attachment.Related_Application,
-            Related_Application_Preference: attachment.Related_Application_Preference,
-          }
-        end
-      end
-
       def application_defaults
         {
           applicationSubmissionType: 'Paper',
@@ -132,6 +112,10 @@ module Force
 
       def soql_lease_service
         Force::Soql::LeaseService.new(@user)
+      end
+
+      def soql_attachment_service
+        Force::Soql::AttachmentService.new(@user)
       end
     end
   end

@@ -14,7 +14,7 @@ const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
         proofFiles.map(file => (
           <li key={file.id}>
             <a
-              href={appPaths.toAttachmentDownload(fileBaseUrl, file.id)}
+              href={appPaths.toAttachmentDownload(fileBaseUrl, file)}
               className='block-link'
               target='_blank'
             >
