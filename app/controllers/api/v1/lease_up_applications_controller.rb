@@ -8,8 +8,19 @@ module Api::V1
         applications = soql_application_service.applications(lease_up_apps_params)
         application_ids = applications[:records].map { |data| "'#{data['Id']}'" }
       else
-        applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
-        application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
+        if lease_up_apps_params[:preference] && lease_up_apps_params[:preference] != ""
+          applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
+          application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
+        else
+          lease_up_params_general = lease_up_apps_params
+          lease_up_params_general[:preference] = 'general'
+
+          applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
+          general_applications = soql_application_service.applications(lease_up_params_general)
+
+          application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
+          general_application_ids = general_applications[:records].map { |data| "'#{data['Id']}'" }
+        end
       end
 
       # find the last time the status was updated on these applications,
@@ -19,8 +30,30 @@ module Api::V1
         status_last_updated_dates = application_status_service.last_updated_dates(application_ids)
         set_status_last_updated(status_last_updated_dates, applications.records)
       end
-      render json: applications
+      if general_application_ids.present?
+        status_last_updated_dates = application_status_service.last_updated_dates(general_application_ids)
+        set_status_last_updated(status_last_updated_dates, general_applications.records)
+      end
+      print applications[:records].class
+      print general_applications.class
+      if general_applications
+
+        applications = applications.deep_merge general_applications.to_hash
+        render json: applications
+      else
+        render json: applications
+      end
     end
+
+    # def lease_up_get_general_preference_applications
+    #   general_applications = soql_application_service.applications(lease_up_apps_params)
+    #   general_application_ids = general_applications[:records].map { |data| "'#{data['Id']}'" }
+    # end
+
+    # def lease_up_get_all_preference_applications
+    #   applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
+    #   application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
+    # end
 
     private
 

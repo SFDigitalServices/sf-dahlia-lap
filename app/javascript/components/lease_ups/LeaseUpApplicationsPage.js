@@ -1,7 +1,7 @@
 /* global SALESFORCE_BASE_URL */
 
 import React from 'react'
-import { flow, map, each, set, clone } from 'lodash'
+import { flow, map, each, set, clone, partition } from 'lodash'
 import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
@@ -35,17 +35,18 @@ class LeaseUpApplicationsPage extends React.Component {
   eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
 
   fetchApplications = async (page, filters) => {
-    const response = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
-    let records
+    let { records, pages } = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
     if (filters && filters.preference === 'general') {
-      records = map(response.records, flow(mapApplication, buildLeaseUpAppGenLotteryModel))
+      records = map(records, flow(mapApplication, buildLeaseUpAppGenLotteryModel))
     } else {
-      records = map(response.records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
+      const filteredRecords = partition(records, (record) => record.application || record.Application)
+      console.log(filteredRecords)
+      records = [
+        ...map(filteredRecords[0], flow(mapApplicationPreference, buildLeaseUpAppPrefModel)),
+        ...map(filteredRecords[1], flow(mapApplication, buildLeaseUpAppGenLotteryModel))
+      ]
     }
-    return {
-      records: records,
-      pages: response.pages
-    }
+    return { records, pages }
   }
 
   loadPage = async (page, filters) => {
