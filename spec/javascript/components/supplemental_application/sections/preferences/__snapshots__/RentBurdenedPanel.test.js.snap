@@ -34,17 +34,14 @@ exports[`RentBurdenedPanel should render successfully 1`] = `
             "value": "",
           },
           Object {
-            "disabled": undefined,
             "label": "Unconfirmed",
             "value": "Unconfirmed",
           },
           Object {
-            "disabled": undefined,
             "label": "Confirmed",
             "value": "Confirmed",
           },
           Object {
-            "disabled": undefined,
             "label": "Invalid",
             "value": "Invalid",
           },

@@ -823,13 +823,20 @@ Array [
                     </label>
                     <select
                       className=""
+                      disabled={true}
                       id="form-lease.unit"
                       name="lease.unit"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
                       value=""
-                    />
+                    >
+                      <option
+                        value=""
+                      >
+                        No Units Available
+                      </option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -6385,6 +6392,15 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   className="form-group"
                                                 >
                                                   <SelectField
+                                                    disabled={true}
+                                                    disabledOptions={
+                                                      Array [
+                                                        Object {
+                                                          "label": "No Units Available",
+                                                          "value": "",
+                                                        },
+                                                      ]
+                                                    }
                                                     fieldName="lease.unit"
                                                     label="Assigned Unit Number"
                                                     options={Array []}
@@ -6453,13 +6469,21 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           </Label>
                                                           <select
                                                             className=""
+                                                            disabled={true}
                                                             id="form-lease.unit"
                                                             name="lease.unit"
                                                             onBlur={[Function]}
                                                             onChange={[Function]}
                                                             onFocus={[Function]}
                                                             value=""
-                                                          />
+                                                          >
+                                                            <option
+                                                              key=""
+                                                              value=""
+                                                            >
+                                                              No Units Available
+                                                            </option>
+                                                          </select>
                                                           <FieldError
                                                             meta={
                                                               Object {

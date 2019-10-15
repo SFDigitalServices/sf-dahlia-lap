@@ -86,10 +86,10 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
     )}
   </Field>
 )
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled, disabledOptions }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions }) => (
   <Field name={fieldName} validate={validation} component='select' parse={identity}>
     {({ input, meta }) => {
-      options = disabled && disabledOptions ? disabledOptions : labelize(options)
+      const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options)
       return (
         <React.Fragment>
           <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
@@ -106,8 +106,10 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
               id={id || `form-${fieldName}`}
               name={input.name}
               className={classNames(className, (meta.error && meta.touched && 'error') || '')}
-              disabled={disabled}>
-              { options.map((option) => generateHtmlOption(option)) }
+              {...(disabled && { disabled })}>
+              { selectOptions.map(({ value, label }) => (
+                <option key={value} value={value || ''}>{label}</option>
+              )) }
             </select>
             <FieldError meta={meta} />
           </div>
@@ -206,8 +208,4 @@ export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validatio
       </React.Fragment>
     )}
   </Field>
-)
-
-const generateHtmlOption = (option) => (
-  <option key={option.value} value={option.value || ''} disabled={option.disabled}>{option.label}</option>
 )

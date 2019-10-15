@@ -27,7 +27,7 @@ const validateLeaseCurrency = (value) => {
 const LeaseInformationInputs = ({ form, store }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
-  const noUnitsOptions = [{ value: 'no-units', label: 'No Units Available' }]
+  const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })
   const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
   return (
