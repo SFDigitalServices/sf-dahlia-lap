@@ -13,7 +13,7 @@ export const DEFAULT_E2E_TIME_OUT = 120000 // 2 minutes
 export const SALE_LISTING_ID = process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlKfBUAV'
 
 // Default to sample flagged record set on full
-export const FLAGGED_RECORD_SET_ID = process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0t000001y7rd'
+export const FLAGGED_RECORD_SET_ID = process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0P00002WqGZ6QAN'
 
 // Application Fields
 export const FIRST_NAME = 'VERY_LONG_FIRST_NAME_THAT_IS_EXACTLY_40!NOWOVER'
@@ -34,8 +34,8 @@ export const HOUSEHOLD_MEMBER_DOB_DAY = '12'
 export const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
 
 // Loan officer info for paper sale application
-export const LENDING_INSTITUTION = process.env.E2E_LENDING_INSTITUTION || 'Homestreet Bank'
-export const LENDING_AGENT_ID = process.env.E2E_LENDING_AGENT_ID || '0030P00002CBHPrQAP'
+export const LENDING_INSTITUTION = process.env.E2E_LENDING_INSTITUTION || 'Chase'
+export const LENDING_AGENT_ID = process.env.E2E_LENDING_AGENT_ID || '0030P00002NI63uQAD'
 
 export const DECLINE_TO_STATE = 'Decline to state'
 
