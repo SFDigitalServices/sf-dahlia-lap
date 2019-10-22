@@ -816,7 +816,7 @@ Array [
                   >
                     <label
                       className="form-label"
-                      htmlFor="form-lease.unit"
+                      htmlFor="lease_assigned_unit"
                       id="label-lease-unit"
                     >
                       Assigned Unit Number
@@ -824,7 +824,7 @@ Array [
                     <select
                       className=""
                       disabled={true}
-                      id="form-lease.unit"
+                      id="lease_assigned_unit"
                       name="lease.unit"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -6402,6 +6402,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       ]
                                                     }
                                                     fieldName="lease.unit"
+                                                    id="lease_assigned_unit"
                                                     label="Assigned Unit Number"
                                                     options={Array []}
                                                   >
@@ -6456,12 +6457,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         >
                                                           <Label
                                                             fieldName="lease.unit"
-                                                            id="form-lease.unit"
+                                                            id="lease_assigned_unit"
                                                             label="Assigned Unit Number"
                                                           >
                                                             <label
                                                               className="form-label"
-                                                              htmlFor="form-lease.unit"
+                                                              htmlFor="lease_assigned_unit"
                                                               id="label-lease-unit"
                                                             >
                                                               Assigned Unit Number
@@ -6470,7 +6471,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           <select
                                                             className=""
                                                             disabled={true}
-                                                            id="form-lease.unit"
+                                                            id="lease_assigned_unit"
                                                             name="lease.unit"
                                                             onBlur={[Function]}
                                                             onChange={[Function]}

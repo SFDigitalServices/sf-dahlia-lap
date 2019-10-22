@@ -37,6 +37,7 @@ const LeaseInformationInputs = ({ form, store }) => {
           <FormGrid.Item>
             <FormGrid.Group>
               <SelectField
+                id='lease_assigned_unit'
                 label='Assigned Unit Number'
                 fieldName='lease.unit'
                 options={availableUnitsOptions}
