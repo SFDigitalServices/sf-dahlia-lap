@@ -823,7 +823,6 @@ Array [
                     </label>
                     <select
                       className=""
-                      disabled={true}
                       id="lease_assigned_unit"
                       name="lease.unit"
                       onBlur={[Function]}
@@ -6470,7 +6469,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           </Label>
                                                           <select
                                                             className=""
-                                                            disabled={true}
                                                             id="lease_assigned_unit"
                                                             name="lease.unit"
                                                             onBlur={[Function]}
