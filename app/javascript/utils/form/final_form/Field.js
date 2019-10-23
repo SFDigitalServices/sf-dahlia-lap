@@ -105,7 +105,8 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
               }}
               id={id || `form-${fieldName}`}
               name={input.name}
-              className={classNames(className, (meta.error && meta.touched && 'error') || '')}>
+              className={classNames(className, (meta.error && meta.touched && 'error') || '')}
+              {...(disabled && { disabled })}>
               { selectOptions.map(({ value, label, disabled }) => (
                 <option key={value} value={value || ''} disabled={disabled}>{label}</option>
               )) }
