@@ -21,7 +21,7 @@ const labelize = (options, attrs = {}) => {
       {
         value: option.hasOwnProperty('value') ? option.value : option,
         label: option.label || option,
-        disabled: option.disabled
+        ...(option.disabled && { disabled: option.disabled })
       }
     ))
   )

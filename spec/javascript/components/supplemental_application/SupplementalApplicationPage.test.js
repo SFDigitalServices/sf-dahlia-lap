@@ -92,6 +92,22 @@ describe('SupplementalApplicationPage', () => {
     expect(mockSubmitApplication).toHaveBeenCalledWith(payload)
   })
 
+  test('it displays "No Units Available" when no units available', async () => {
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={supplementalApplication}
+          statusHistory={statusHistory}
+          units={[]} />
+      )
+    })
+    const unitSelect = await wrapper.find('#lease_assigned_unit').first()
+
+    expect(unitSelect.exists()).toBeTruthy()
+    expect(unitSelect.html().includes('No Units Available')).toBeTruthy()
+  })
+
   test('it saves demographics correctly', async () => {
     const payload = cloneDeep(mockShortFormSubmitPayload)
     payload.numberOfDependents = '2'

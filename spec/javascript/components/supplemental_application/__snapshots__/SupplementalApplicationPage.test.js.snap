@@ -816,20 +816,27 @@ Array [
                   >
                     <label
                       className="form-label"
-                      htmlFor="form-lease.unit"
+                      htmlFor="lease_assigned_unit"
                       id="label-lease-unit"
                     >
                       Assigned Unit Number
                     </label>
                     <select
                       className=""
-                      id="form-lease.unit"
+                      disabled={true}
+                      id="lease_assigned_unit"
                       name="lease.unit"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
                       value=""
-                    />
+                    >
+                      <option
+                        value=""
+                      >
+                        No Units Available
+                      </option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -6385,7 +6392,17 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   className="form-group"
                                                 >
                                                   <SelectField
+                                                    disabled={true}
+                                                    disabledOptions={
+                                                      Array [
+                                                        Object {
+                                                          "label": "No Units Available",
+                                                          "value": "",
+                                                        },
+                                                      ]
+                                                    }
                                                     fieldName="lease.unit"
+                                                    id="lease_assigned_unit"
                                                     label="Assigned Unit Number"
                                                     options={Array []}
                                                   >
@@ -6440,12 +6457,12 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         >
                                                           <Label
                                                             fieldName="lease.unit"
-                                                            id="form-lease.unit"
+                                                            id="lease_assigned_unit"
                                                             label="Assigned Unit Number"
                                                           >
                                                             <label
                                                               className="form-label"
-                                                              htmlFor="form-lease.unit"
+                                                              htmlFor="lease_assigned_unit"
                                                               id="label-lease-unit"
                                                             >
                                                               Assigned Unit Number
@@ -6453,13 +6470,21 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                           </Label>
                                                           <select
                                                             className=""
-                                                            id="form-lease.unit"
+                                                            disabled={true}
+                                                            id="lease_assigned_unit"
                                                             name="lease.unit"
                                                             onBlur={[Function]}
                                                             onChange={[Function]}
                                                             onFocus={[Function]}
                                                             value=""
-                                                          />
+                                                          >
+                                                            <option
+                                                              key=""
+                                                              value=""
+                                                            >
+                                                              No Units Available
+                                                            </option>
+                                                          </select>
                                                           <FieldError
                                                             meta={
                                                               Object {
