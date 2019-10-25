@@ -1,7 +1,7 @@
 /* global SALESFORCE_BASE_URL */
 
 import React from 'react'
-import { flow, map, each, set, clone, partition } from 'lodash'
+import { flow, map, each, set, clone } from 'lodash'
 import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
@@ -39,12 +39,9 @@ class LeaseUpApplicationsPage extends React.Component {
     if (filters && filters.preference === 'general') {
       records = map(records, flow(mapApplication, buildLeaseUpAppGenLotteryModel))
     } else {
-      const filteredRecords = partition(records, (record) => record.application || record.Application)
-      console.log(filteredRecords)
-      records = [
-        ...map(filteredRecords[0], flow(mapApplicationPreference, buildLeaseUpAppPrefModel)),
-        ...map(filteredRecords[1], flow(mapApplication, buildLeaseUpAppGenLotteryModel))
-      ]
+      console.log(records)
+      records = map(records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
+      console.log(records)
     }
     return { records, pages }
   }

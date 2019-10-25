@@ -28,6 +28,16 @@ module Force
         query_scope.query
       end
 
+      def app_preferences_for_listing_single(opts)
+        query_scope = app_preferences_for_listing_single_query(opts)
+        query_scope.where_contains('Application__r.Name', opts[:application_number]) if opts[:application_number].present?
+        query_scope.where_eq('Application__r.Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
+        query_scope.where_eq('Application__r.Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
+        query_scope = status_query(query_scope, opts)
+
+        query_scope.query
+      end
+
       private
 
       def status_query(query_scope, opts)
@@ -47,6 +57,15 @@ module Force
                .where_eq('Receives_Preference__c', true)
                .paginate(opts)
                .order_by('Preference_Order__c', 'Preference_Lottery_Rank__c')
+               .transform_results { |results| massage(results) }
+      end
+
+      def app_preferences_for_listing_single_query(opts)
+        builder.from(:Application_Preference__c)
+               .select(query_fields(:app_preferences_for_listing_single))
+               .where("Listing_ID__c = '#{opts[:listing_id[0...-3]]}' and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\) or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\) and Application__c IN \(SELECT id FROM Application__c\)")
+               .paginate(opts)
+               .order_by("Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc")
                .transform_results { |results| massage(results) }
       end
 
