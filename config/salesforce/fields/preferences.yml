@@ -60,8 +60,6 @@ preferences:
     Application__r.Applicant__r.Phone__c:
     Application__r.Applicant__r.Residence_Address__c:
     Application__r.Applicant__r.Mailing_Address__c:
-    Preference_Name__c:
-    Preference_Lottery_Rank__c:
     Preference_Order__c:
     Receives_Preference__c:
     Preference_All_Name__c:

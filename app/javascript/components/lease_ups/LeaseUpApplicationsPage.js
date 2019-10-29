@@ -39,9 +39,7 @@ class LeaseUpApplicationsPage extends React.Component {
     if (filters && filters.preference === 'general') {
       records = map(records, flow(mapApplication, buildLeaseUpAppGenLotteryModel))
     } else {
-      console.log(records)
       records = map(records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
-      console.log(records)
     }
     return { records, pages }
   }

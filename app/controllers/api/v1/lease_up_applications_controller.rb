@@ -9,7 +9,6 @@ module Api::V1
         application_ids = applications[:records].map { |data| "'#{data['Id']}'" }
       else
           applications = soql_preference_service.app_preferences_for_listing_single(lease_up_apps_params)
-          applications[:records].map { |data| print data }
           application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
       end
 

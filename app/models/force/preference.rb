@@ -23,6 +23,8 @@ module Force
       { custom_api: 'postLotteryValidation', domain: 'post_lottery_validation', salesforce: 'Post_Lottery_Validation' },
       { custom_api: '', domain: 'preference_lottery_rank', salesforce: 'Preference_Lottery_Rank' },
       { custom_api: '', domain: 'preference_name', salesforce: 'Preference_Name' },
+      { custom_api: '', domain: 'preference_all_lottery_rank', salesforce: 'Preference_All_Lottery_Rank' },
+      { custom_api: '', domain: 'preference_all_name', salesforce: 'Preference_All_Name' },
       { custom_api: '', domain: 'preference_order', salesforce: 'Preference_Order' },
       { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_proof' },
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
