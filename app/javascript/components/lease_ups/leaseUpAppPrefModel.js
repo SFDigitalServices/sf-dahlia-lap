@@ -2,7 +2,6 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
   const application = applicationPreference.application
   const applicant = application.applicant
   const listingPreference = applicationPreference.listing_preference
-  console.log('APP PREF', JSON.stringify(applicationPreference, null, 2))
 
   return {
     application_preference_id: applicationPreference.id,

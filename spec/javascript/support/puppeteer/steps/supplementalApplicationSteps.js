@@ -21,7 +21,6 @@ const testStatusModalUpdate = async (page) => {
 
   // Verify that the response from salesforce was a success
   await page.on('response', async (response) => {
-    // console.log('RESPONSE', response)
     if (response.url().includes('/field-update-comments/create')) {
       if (response.status() !== 200) {
         const responseBody = await response.json()

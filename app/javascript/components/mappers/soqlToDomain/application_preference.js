@@ -5,7 +5,6 @@ import { mapApplication } from './application'
 import { mapApplicationMember } from './application_member'
 
 export const mapApplicationPreference = (value) => {
-  console.log(value)
   return {
     application: mapShape(mapApplication, value.Application),
     listing_preference: mapShape(mapListingPreference, value.Listing_Preference_ID),

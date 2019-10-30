@@ -4,13 +4,8 @@ module Api::V1
   # Lease Up Applications controller for access via the API
   class LeaseUpApplicationsController < ApiController
     def index
-      if lease_up_apps_params[:preference] == 'general'
-        applications = soql_application_service.applications(lease_up_apps_params)
-        application_ids = applications[:records].map { |data| "'#{data['Id']}'" }
-      else
-          applications = soql_preference_service.app_preferences_for_listing_single(lease_up_apps_params)
-          application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
-      end
+      applications = soql_preference_service.app_preferences_for_listing_single(lease_up_apps_params)
+      application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
 
       # find the last time the status was updated on these applications,
       # i.e. what is the most recently-dated Field Update Comment, if
