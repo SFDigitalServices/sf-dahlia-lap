@@ -19,7 +19,7 @@ RSpec.describe Force::CustomApi::LendingInstitutionsService do
       VCR.use_cassette('services/custom_api/lending_institutions') do
         subject.lending_institutions
         expect_any_instance_of(Restforce::Data::Client).not_to receive(:get)
-        Force::CustomApi::LendingInstitutionsService.new(user).lending_institutions
+        Force::CustomApi::LendingInstitutionsService.lending_institutions(user)
       end
     end
   end
