@@ -31,7 +31,7 @@ module Force
         subQuery += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
         subQuery += "and Application__r.Applicant__r.First_Name__c = '#{opts[:first_name]}' " if opts[:first_name].present?
         subQuery += "and Application__r.Applicant__r.Last_Name__c = '#{opts[:last_name]}' " if opts[:last_name].present?
-        subQuery += opts[:status] == 'No Status' ? 'and Application__r.Processing_Status__c = NULL' : "and Application__r.Processing_Status__c = '#{opts[:status]}'"
+        subQuery += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
 
         subQuery
     end
