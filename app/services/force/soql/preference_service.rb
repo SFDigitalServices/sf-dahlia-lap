@@ -36,20 +36,21 @@ module Force
         subQuery
     end
 
-      def app_preferences_for_listing_query(opts)
-        builder.from(:Application_Preference__c)
-               .select(query_fields(:app_preferences_for_listing))
-               .where(%(
-                  Listing_ID__c = '#{opts[:listing_id][0...-3]}'
-                  #{filters}
-                  and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
-                  or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
-                  and Application__c IN \(SELECT id FROM Application__c\)
-                ))
-               .paginate(opts)
-               .order_by("Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc")
-               .transform_results { |results| massage(results) }
-      end
+    def app_preferences_for_listing_query(opts)
+      filters = buildAppPreferencesFilters(opts)
+      builder.from(:Application_Preference__c)
+             .select(query_fields(:app_preferences_for_listing))
+             .where(%(
+                Listing_ID__c = '#{opts[:listing_id][0...-3]}'
+                #{filters}
+                and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
+                or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
+                and Application__c IN \(SELECT id FROM Application__c\)
+              ))
+             .paginate(opts)
+             .order_by("Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc")
+             .transform_results { |results| massage(results) }
+    end
 
       def listing_subquery(listing_id)
         builder.from(:Listing_Lottery_Preference__c)
