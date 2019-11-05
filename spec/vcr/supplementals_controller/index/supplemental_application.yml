@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653710825","signature":"O9WNA20fS1k0DI9SN51BGdKfjfYZzt3Cc4YIDD20J6g="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653710825","signature":"O9WNA20fS1k0DI9SN51BGdKfjfYZzt3Cc4YIDD20J6g="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:10 GMT
 - request:
     method: get
@@ -104,7 +104,7 @@ http_interactions:
         Test Lease Up Application (do not modify)","Date_of_Birth__c":"1989-01-05","Phone_Type__c":null,"Phone__c":null,"Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"tessiel@email.com","Primary_Language__c":null,"Residence_Address__c":"123
         Test St, Testville, CA, 00000","Street__c":"123 Test St","City__c":"Testville","State__c":"CA","Zip_Code__c":"00000","Mailing_Address__c":"123
         Test St, Testville, CA, 00000","Mailing_Street__c":"123 Test St","Mailing_City__c":"Testville","Mailing_State__c":"CA","Mailing_Zip_Code__c":"00000","Marital_Status__c":"Single","Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":1.0,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":"Withdrawn","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:11 GMT
 - request:
     method: get
@@ -173,7 +173,7 @@ http_interactions:
         Housing","Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew2QAB"},"Id":"a0w0P00000Oqew2QAB","Name":"AP-0000919887","Preference_Name__c":"Alice
         Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew4QAB"},"Id":"a0w0P00000Oqew4QAB","Name":"AP-0000919889","Preference_Name__c":"Artist
         Fund (Test Custom Pref)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRQKlQAP","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":7.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BIQA0"},"DeveloperName":"Custom"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:11 GMT
 - request:
     method: post
@@ -220,8 +220,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653712218","signature":"sec/7hgTvXUIjAsSHmpEQhYY/vA/o4AuMRmNfuWDu1Y="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653712218","signature":"sec/7hgTvXUIjAsSHmpEQhYY/vA/o4AuMRmNfuWDu1Y="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:12 GMT
 - request:
     method: get
@@ -275,7 +275,7 @@ http_interactions:
       string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x0P00000ELP85QAH"},"Id":"a0x0P00000ELP85QAH","Document_Type__c":"Copy
         of Lease","Related_Application__c":"a0o0P00000GZazOQAT","Related_Application_Preference__c":"a0w0P00000OUJc2QAH"},{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x0P00000ELP8AQAX"},"Id":"a0x0P00000ELP8AQAX","Document_Type__c":"Letter
         from employer","Related_Application__c":"a0o0P00000GZazOQAT","Related_Application_Preference__c":"a0w0P00000OUJc3QAH"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:12 GMT
 - request:
     method: get
@@ -327,7 +327,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Attachment","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment/00P0P00000t0P3vUAE"},"Id":"00P0P00000t0P3vUAE"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:12 GMT
 - request:
     method: get
@@ -379,7 +379,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Attachment","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment/00P0P00000t0P40UAE"},"Id":"00P0P00000t0P40UAE"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:13 GMT
 - request:
     method: get
@@ -431,7 +431,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:13 GMT
 - request:
     method: post
@@ -478,8 +478,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653713952","signature":"7MgzrL3NEQFLgefzV+1TvnGbM9u5FnlyqTqryWUOovU="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653713952","signature":"7MgzrL3NEQFLgefzV+1TvnGbM9u5FnlyqTqryWUOovU="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:13 GMT
 - request:
     method: get
@@ -531,7 +531,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000005TeZrQAK"},"Id":"a130P000005TeZrQAK","Unit__c":"a0b0P00001HIHrnQAH","Lease_Start_Date__c":"2019-01-01","Lease_Status__c":"Draft","Monthly_Parking_Rent__c":578.56,"Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":787.26,"Monthly_Tenant_Contribution__c":941.74}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:14 GMT
 - request:
     method: get
@@ -583,7 +583,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:14 GMT
 - request:
     method: post
@@ -630,8 +630,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653715066","signature":"KLndrAfEaApltRKBId31RH/TJarV0eE0lMW2ugZZ9IQ="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653715066","signature":"KLndrAfEaApltRKBId31RH/TJarV0eE0lMW2ugZZ9IQ="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:15 GMT
 - request:
     method: get
@@ -948,7 +948,7 @@ http_interactions:
         is a comment.","Processing_Date_Updated__c":"2018-11-30T21:55:41.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a120P00000cif2XQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2018-11-30T21:55:23.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a120P00000cif2NQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2018-11-30T21:52:24.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":null}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:15 GMT
 - request:
     method: post
@@ -995,8 +995,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653716111","signature":"3DHYvKbD2vQUI/hAKU8UGGUPXlrhKT5LA5PHofdlCro="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653716111","signature":"3DHYvKbD2vQUI/hAKU8UGGUPXlrhKT5LA5PHofdlCro="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:16 GMT
 - request:
     method: get
@@ -1048,7 +1048,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrnQAH"},"Id":"a0b0P00001HIHrnQAH","Unit_Number__c":"105"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:16 GMT
 - request:
     method: get
@@ -1100,7 +1100,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:16 GMT
 - request:
     method: post
@@ -1147,8 +1147,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653717194","signature":"h0Y9oF5lw8vgMpaD4ddPdwYjJDe80BeBNsUTKIt2Zn4="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653717194","signature":"h0Y9oF5lw8vgMpaD4ddPdwYjJDe80BeBNsUTKIt2Zn4="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:17 GMT
 - request:
     method: get
@@ -1218,7 +1218,7 @@ http_interactions:
         Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrxQAH"},"Unit_Type__c":"3
         BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:17 GMT
 - request:
     method: post
@@ -1265,8 +1265,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653718091","signature":"Bj/GHJ9K5+L17mNyyhsFJ6/BqrPxnsTVYTl8Jkj71go="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653718091","signature":"Bj/GHJ9K5+L17mNyyhsFJ6/BqrPxnsTVYTl8Jkj71go="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:18 GMT
 - request:
     method: get
@@ -1327,7 +1327,7 @@ http_interactions:
         Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151D00000178BWQAY"},"Assistance_Amount__c":1100.0,"Id":"a151D00000178BWQAY","Lease__c":"a130P000005TeZrQAK","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
         Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151D0000017J8OQAU"},"Assistance_Amount__c":1100.0,"Id":"a151D0000017J8OQAU","Lease__c":"a130P000005TeZrQAK","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
         Charities"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:18 GMT
 - request:
     method: get
@@ -1379,6 +1379,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":9,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:15:18 GMT
 recorded_with: VCR 5.0.0

@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572647080345","signature":"q8mNi80rOJjKYCZD9Fn9j9tULdQtEGzTQCDuYF8oa+w="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572647080345","signature":"q8mNi80rOJjKYCZD9Fn9j9tULdQtEGzTQCDuYF8oa+w="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 22:24:40 GMT
 - request:
     method: get
@@ -178,6 +178,6 @@ http_interactions:
         682-3386","Lending_Agent_Status__c":"Active","NMLS__c":"342702","BMR_Certified__c":false,"DALP_Certified__c":true,"MCC_Certified__c":true,"Accepting_New_MOHCD_Clients__c":true,"RecordTypeId":"012U0000000A9jKIAS"}]}},{"attributes":{"type":"Account","url":"/services/data/v45.0/sobjects/Account/0010P00001tS1DHQA0"},"Name":"Test
         Lender Account","Id":"0010P00001tS1DHQA0","RecordTypeId":"012U0000000A9j7IAC"},{"attributes":{"type":"Account","url":"/services/data/v45.0/sobjects/Account/0010P00001tRrD5QAK"},"Name":"Test
         Lenders","Id":"0010P00001tRrD5QAK","RecordTypeId":"012U0000000A9j7IAC","Contacts":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Contact","url":"/services/data/v45.0/sobjects/Contact/0030P000028bVwqQAE"},"AccountId":"0010P00001tRrD5QAK","Id":"0030P000028bVwqQAE","FirstName":"Michael","LastName":"Solomontestlend","BMR_Certified__c":false,"DALP_Certified__c":false,"MCC_Certified__c":false,"Accepting_New_MOHCD_Clients__c":false,"RecordTypeId":"012U0000000A9jKIAS"}]}}]'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 22:24:41 GMT
 recorded_with: VCR 5.0.0

@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644129100","signature":"RIBCakhOIPRlf2zCPepFB1SxIaOB6HRH7Fsy5b0e6GE="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644129100","signature":"RIBCakhOIPRlf2zCPepFB1SxIaOB6HRH7Fsy5b0e6GE="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:29 GMT
 - request:
     method: patch
@@ -94,6 +94,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:29 GMT
 recorded_with: VCR 5.0.0

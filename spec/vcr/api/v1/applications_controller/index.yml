@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642480041","signature":"62TbJtFtrsbA1EH9rpusnTQcBX6XqSnzfWjxdJ5VonU="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642480041","signature":"62TbJtFtrsbA1EH9rpusnTQcBX6XqSnzfWjxdJ5VonU="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:00 GMT
 - request:
     method: get
@@ -169,7 +169,7 @@ http_interactions:
         Test Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n1D000000nqTaQAI"},"First_Name__c":"Test","Last_Name__c":"Supp
         app test","Email__c":"eee@eeee.com","Phone__c":null,"Residence_Address__c":"123
         MAIN ST, SAN FRANCISCO, CA, 94105-1804","Mailing_Address__c":null},"Application_Submitted_Date__c":"2019-03-12","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":true,"General_Lottery_Rank__c":null,"Processing_Status__c":null}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:00 GMT
 - request:
     method: get
@@ -221,6 +221,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":28,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:00 GMT
 recorded_with: VCR 5.0.0

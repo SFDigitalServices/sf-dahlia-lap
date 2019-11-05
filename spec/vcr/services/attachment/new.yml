@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653422893","signature":"9yaFfBZASnQzdZQ6lXF18fKZnNNN7CqieIkquG92bqM="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572653422893","signature":"9yaFfBZASnQzdZQ6lXF18fKZnNNN7CqieIkquG92bqM="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:22 GMT
 - request:
     method: get
@@ -103,7 +103,7 @@ http_interactions:
         from SFHA verifying address","Related_Application__c":"a0o1D0000013w7pQAA","Related_Application_Preference__c":"a0w1D000000bVleQAE"},{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x1D000000n1uDQAQ"},"Id":"a0x1D000000n1uDQAQ","Document_Type__c":"Money
         order","Related_Application__c":"a0o1D0000013w7pQAA","Related_Application_Preference__c":"a0w1D000000bVlaQAE"},{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x1D000000n1uIQAQ"},"Id":"a0x1D000000n1uIQAQ","Document_Type__c":"Copy
         of Lease","Related_Application__c":"a0o1D0000013w7pQAA","Related_Application_Preference__c":"a0w1D000000bVlaQAE"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:23 GMT
 - request:
     method: get
@@ -155,7 +155,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:23 GMT
 - request:
     method: get
@@ -207,7 +207,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"ContentDocumentLink","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocumentLink/06A1D000000WfV3UAK"},"Id":"06A1D000000WfV3UAK","LinkedEntityId":"a0x1D000000n1tyQAA","ContentDocumentId":"0691D000000NKcpQAG","ContentDocument":{"attributes":{"type":"ContentDocument","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocument/0691D000000NKcpQAG"},"LatestPublishedVersionId":"0681D000000NUGIQA4"}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:23 GMT
 - request:
     method: get
@@ -259,7 +259,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:24 GMT
 - request:
     method: get
@@ -311,7 +311,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"ContentDocumentLink","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocumentLink/06A1D000000WfV8UAK"},"Id":"06A1D000000WfV8UAK","LinkedEntityId":"a0x1D000000n1u3QAA","ContentDocumentId":"0691D000000NKcuQAG","ContentDocument":{"attributes":{"type":"ContentDocument","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocument/0691D000000NKcuQAG"},"LatestPublishedVersionId":"0681D000000NUGNQA4"}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:24 GMT
 - request:
     method: get
@@ -363,7 +363,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:24 GMT
 - request:
     method: get
@@ -415,7 +415,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"ContentDocumentLink","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocumentLink/06A1D000000WfVDUA0"},"Id":"06A1D000000WfVDUA0","LinkedEntityId":"a0x1D000000n1u8QAA","ContentDocumentId":"0691D000000NKczQAG","ContentDocument":{"attributes":{"type":"ContentDocument","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocument/0691D000000NKczQAG"},"LatestPublishedVersionId":"0681D000000NUGSQA4"}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:25 GMT
 - request:
     method: get
@@ -467,7 +467,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:25 GMT
 - request:
     method: get
@@ -519,7 +519,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"ContentDocumentLink","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocumentLink/06A1D000000WfVIUA0"},"Id":"06A1D000000WfVIUA0","LinkedEntityId":"a0x1D000000n1uDQAQ","ContentDocumentId":"0691D000000NKd4QAG","ContentDocument":{"attributes":{"type":"ContentDocument","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocument/0691D000000NKd4QAG"},"LatestPublishedVersionId":"0681D000000NUGXQA4"}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:25 GMT
 - request:
     method: get
@@ -571,7 +571,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:26 GMT
 - request:
     method: get
@@ -623,6 +623,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"ContentDocumentLink","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocumentLink/06A1D000000WfVNUA0"},"Id":"06A1D000000WfVNUA0","LinkedEntityId":"a0x1D000000n1uIQAQ","ContentDocumentId":"0691D000000NKd9QAG","ContentDocument":{"attributes":{"type":"ContentDocument","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocument/0691D000000NKd9QAG"},"LatestPublishedVersionId":"0681D000000NUGcQAO"}}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:10:26 GMT
 recorded_with: VCR 5.0.0

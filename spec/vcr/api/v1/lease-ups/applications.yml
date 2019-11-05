@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642481612","signature":"hZ+c4uzIItu3m3pPDJqvKjhU0RdsIZtkavL29AZ068Y="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642481612","signature":"hZ+c4uzIItu3m3pPDJqvKjhU0RdsIZtkavL29AZ068Y="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:01 GMT
 - request:
     method: get
@@ -160,7 +160,7 @@ http_interactions:
         Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":7.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQKlQAP"},"Record_Type_For_App_Preferences__c":"Custom"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkoQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Id":"a0o0P00000IvWghQAF","Name":"APP-00304155","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
         9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
         Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":7.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQKlQAP"},"Record_Type_For_App_Preferences__c":"Custom"}}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:02 GMT
 - request:
     method: get
@@ -212,7 +212,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":31,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:02 GMT
 - request:
     method: post
@@ -259,8 +259,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642483431","signature":"5FIOK3R9s3QenF+6Y/dtGl/xlhh2Yh9V6XTeLStVlyA="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642483431","signature":"5FIOK3R9s3QenF+6Y/dtGl/xlhh2Yh9V6XTeLStVlyA="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:03 GMT
 - request:
     method: get
@@ -312,6 +312,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":11,"done":true,"records":[{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:51:18.000+0000","Application__c":"a0o0P00000Iv7H4QAJ"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:49:46.000+0000","Application__c":"a0o0P00000IvWgcQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:48:41.000+0000","Application__c":"a0o0P00000GZaz9QAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:44:46.000+0000","Application__c":"a0o0P00000IvWgXQAV"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:50:13.000+0000","Application__c":"a0o0P00000IvMoaQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:50:42.000+0000","Application__c":"a0o0P00000GZayuQAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:44:18.000+0000","Application__c":"a0o0P00000Isnf4QAB"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:45:16.000+0000","Application__c":"a0o0P00000IvWghQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-23T17:48:25.000+0000","Application__c":"a0o0P00000GZazsQAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-23T17:49:38.000+0000","Application__c":"a0o0P00000GZazOQAT"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-08-09T19:41:08.000+0000","Application__c":"a0o0P00000IvWt8QAF"}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:08:03 GMT
 recorded_with: VCR 5.0.0

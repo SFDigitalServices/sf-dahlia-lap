@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652763021","signature":"JsXCXrQoSvkbLbzXP9YExoTE+KzbMVMBFBygWel73oo="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652763021","signature":"JsXCXrQoSvkbLbzXP9YExoTE+KzbMVMBFBygWel73oo="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:23 GMT
 - request:
     method: get
@@ -142,7 +142,7 @@ http_interactions:
         BR","BMR_Rent_Monthly__c":null,"BMR_Rental_Minimum_Monthly_Income_Needed__c":0.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HCD/TCAC","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":60.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001GcI3IQAV"},"Unit_Type__c":"3
         BR","BMR_Rent_Monthly__c":null,"BMR_Rental_Minimum_Monthly_Income_Needed__c":0.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","AMI_chart_year__c":2018.0,"of_AMI_for_Pricing_Unit__c":55.0,"Reserved_Type__c":null}]}}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:23 GMT
 - request:
     method: post
@@ -189,8 +189,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652764223","signature":"s1fs2lrb/hsEy5rbow45cyU2nWZ8fAmfnBD6CdmCzec="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652764223","signature":"s1fs2lrb/hsEy5rbow45cyU2nWZ8fAmfnBD6CdmCzec="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:24 GMT
 - request:
     method: post
@@ -237,7 +237,7 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652764744","signature":"fGe2B5wAcQm5HlTHsKgIenyb7jJUnfx9Fv+jIkPWUSU="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652764744","signature":"fGe2B5wAcQm5HlTHsKgIenyb7jJUnfx9Fv+jIkPWUSU="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:24 GMT
 recorded_with: VCR 5.0.0

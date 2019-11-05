@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652866531","signature":"rKfx6bMpj0huOW1FlpCvP/VGEaCdO+/yZca2HlNp2IQ="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652866531","signature":"rKfx6bMpj0huOW1FlpCvP/VGEaCdO+/yZca2HlNp2IQ="}'
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:01:06 GMT
 - request:
     method: get
@@ -101,6 +101,6 @@ http_interactions:
         Folsom","Lottery_Date__c":"2018-12-04T23:30:00.000+0000","Lottery_Results_Date__c":"2018-12-11","In_Lottery__c":5242.0,"Units_Available__c":11.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2019-10-21T22:24:38.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hbr3mUAB"},"Id":"a0W0P00000Hbr3mUAB","Name":"Mission
         Bay by Windsor Unit 303","Lottery_Date__c":"2019-09-26T18:00:00.000+0000","Lottery_Results_Date__c":"2019-09-27","In_Lottery__c":547.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2019-10-04T18:09:13.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Id":"a0W0P00000GbyuQUAR","Name":"Partners
         Test Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000","Lottery_Results_Date__c":"2018-06-05","In_Lottery__c":29.0,"Units_Available__c":9.0,"Lease_Signed_Application__c":8.0,"LastModifiedDate":"2019-11-01T21:08:37.000+0000"}]}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 02 Nov 2019 00:01:06 GMT
 recorded_with: VCR 5.0.0

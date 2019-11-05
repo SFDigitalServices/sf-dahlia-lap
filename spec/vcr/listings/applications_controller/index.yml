@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652757722","signature":"2oXkmjtb0YfJUsRx32hkQaZJdK0Bk+aM47x1bNOBGrA="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652757722","signature":"2oXkmjtb0YfJUsRx32hkQaZJdK0Bk+aM47x1bNOBGrA="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:17 GMT
 - request:
     method: get
@@ -475,7 +475,7 @@ http_interactions:
         YyI6IkhVRCBVbmFkanVzdGVkIiwiQU1JX2NoYXJ0X3llYXJfX2MiOjIwMTgu
         MCwib2ZfQU1JX2Zvcl9QcmljaW5nX1VuaXRfX2MiOjU1LjAsIlJlc2VydmVk
         X1R5cGVfX2MiOm51bGx9XX19XX0=
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:18 GMT
 - request:
     method: post
@@ -522,8 +522,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652758626","signature":"qgw42u9eGgzi4WE4IbS/psuzAqm6J5suP0fBktmk1R0="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652758626","signature":"qgw42u9eGgzi4WE4IbS/psuzAqm6J5suP0fBktmk1R0="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:18 GMT
 - request:
     method: get
@@ -649,7 +649,7 @@ http_interactions:
         Test Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n1D000000nu8jQAA"},"First_Name__c":"Test","Last_Name__c":"Supp
         app test","Email__c":"eee@eeee.com","Phone__c":null,"Residence_Address__c":"123
         MAIN ST, SAN FRANCISCO, CA, 94105-1804","Mailing_Address__c":null},"Application_Submitted_Date__c":"2019-03-12","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":true,"General_Lottery_Rank__c":null,"Processing_Status__c":null}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:19 GMT
 - request:
     method: post
@@ -696,7 +696,7 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652759527","signature":"z+WhZrlBexi0BND/mKOqEUkjz5pMAUlcg4aooJkiHdA="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572652759527","signature":"z+WhZrlBexi0BND/mKOqEUkjz5pMAUlcg4aooJkiHdA="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 23:59:19 GMT
 recorded_with: VCR 5.0.0

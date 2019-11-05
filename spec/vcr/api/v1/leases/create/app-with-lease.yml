@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644124561","signature":"9ivUHwBVO3lueXJBE1rdrs59keePLFi3qQDgeTLnNMM="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644124561","signature":"9ivUHwBVO3lueXJBE1rdrs59keePLFi3qQDgeTLnNMM="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:24 GMT
 - request:
     method: get
@@ -98,7 +98,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000005TeZrQAK"},"Id":"a130P000005TeZrQAK","Unit__c":"a0b0P00001HIHrnQAH","Lease_Start_Date__c":"2019-01-01","Lease_Status__c":"Draft","Monthly_Parking_Rent__c":832.15,"Preference_Used__c":null,"No_Preference_Used__c":true,"Total_Monthly_Rent_without_Parking__c":352.1,"Monthly_Tenant_Contribution__c":367.74}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:25 GMT
 - request:
     method: get
@@ -150,7 +150,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:25 GMT
 - request:
     method: post
@@ -197,8 +197,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644125880","signature":"1MzGNRqJIoKrL1tiNOfsTgXK2EdxTGWZBaWmSQmz3P0="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644125880","signature":"1MzGNRqJIoKrL1tiNOfsTgXK2EdxTGWZBaWmSQmz3P0="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:25 GMT
 - request:
     method: patch
@@ -246,6 +246,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:26 GMT
 recorded_with: VCR 5.0.0

@@ -45,8 +45,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644126701","signature":"YQUZTgBULDwT/k1V6OE2B5Z58GfX2OTcpBMJUGNxEr4="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644126701","signature":"YQUZTgBULDwT/k1V6OE2B5Z58GfX2OTcpBMJUGNxEr4="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:26 GMT
 - request:
     method: get
@@ -98,7 +98,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:27 GMT
 - request:
     method: get
@@ -150,7 +150,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:27 GMT
 - request:
     method: post
@@ -197,8 +197,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644127938","signature":"SEcrWkY8JpE/GkMWIrfNrysZaB0XMokRJUj6tgcKJZk="}'
-    http_version: 
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572644127938","signature":"SEcrWkY8JpE/GkMWIrfNrysZaB0XMokRJUj6tgcKJZk="}'
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:27 GMT
 - request:
     method: post
@@ -254,6 +254,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"id":"a131D000000QhfFQAS","success":true,"errors":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2019 21:35:28 GMT
 recorded_with: VCR 5.0.0
