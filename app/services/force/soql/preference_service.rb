@@ -19,36 +19,45 @@ module Force
 
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
-        query_scope.where_contains('Application__r.Name', opts[:application_number]) if opts[:application_number].present?
-        query_scope.where_eq('Application__r.Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
-        query_scope.where_eq('Application__r.Applicant__r.Last_Name__c', "'#{opts[:last_name]}'") if opts[:last_name].present?
-        query_scope.where_eq('Preference_Name__c', "'#{opts[:preference]}'") if opts[:preference].present?
-        query_scope = status_query(query_scope, opts)
 
         query_scope.query
       end
 
       private
 
-      def status_query(query_scope, opts)
-        if opts[:status] == 'No Status'
-          query_scope.where_eq('Application__r.Processing_Status__c', 'NULL')
-        elsif opts[:status].present?
-          query_scope.where_eq('Application__r.Processing_Status__c', "'#{opts[:status]}'")
-        end
-        query_scope
-      end
+      def buildAppPreferencesFilters(opts)
+        filters = ''
+        filters += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
+        filters += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
+        filters += "and Application__r.Applicant__r.First_Name__c = '#{opts[:first_name]}' " if opts[:first_name].present?
+        filters += "and Application__r.Applicant__r.Last_Name__c = '#{opts[:last_name]}' " if opts[:last_name].present?
+        filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
 
-      def app_preferences_for_listing_query(opts)
-        builder.from(:Application_Preference__c)
-               .select(query_fields(:app_preferences_for_listing))
-               .where("Listing_Preference_ID__c IN (#{listing_subquery(opts[:listing_id])})")
-               .where('Preference_Lottery_Rank__c != NULL')
-               .where_eq('Receives_Preference__c', true)
-               .paginate(opts)
-               .order_by('Preference_Order__c', 'Preference_Lottery_Rank__c')
-               .transform_results { |results| massage(results) }
-      end
+        filters
+    end
+
+    def app_preferences_for_listing_query(opts)
+      # The query for this was put together to combine the general
+      # preferences with all other preferences as general was not
+      # originally included as a preference name. Because of the
+      # complexity of the query we are dynamically adding filters
+      # within the WHERE clause with the helper function above. The
+      # Preference_All_Name and Preference_All_Lottery_Rank fields
+      # were added to bring all prefernces into the same query.
+      filters = buildAppPreferencesFilters(opts)
+      builder.from(:Application_Preference__c)
+             .select(query_fields(:app_preferences_for_listing))
+             .where(%(
+                Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
+                #{filters}
+                and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
+                or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
+                and Application__c IN \(SELECT id FROM Application__c\)
+              ))
+             .paginate(opts)
+             .order_by("Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc")
+             .transform_results { |results| massage(results) }
+    end
 
       def listing_subquery(listing_id)
         builder.from(:Listing_Lottery_Preference__c)

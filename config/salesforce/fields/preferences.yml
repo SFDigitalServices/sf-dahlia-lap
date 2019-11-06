@@ -7,9 +7,9 @@ preferences:
     Type_of_proof__c:
     Opt_Out__c:
     Lottery_Status__c:
-      label: 'Pre-lottery Validation'
+      label: "Pre-lottery Validation"
     Preference_Lottery_Rank__c:
-      label: 'Lottery Rank'
+      label: "Lottery Rank"
     Listing_Preference_ID__c:
     Receives_Preference__c:
     Application_Member__c:
@@ -30,8 +30,11 @@ preferences:
     Total_Household_Rent__c:
   app_preferences_for_listing_fields:
     Application__c:
-    Application__r.Id:
     Application__r.Name:
+    Listing_ID__c:
+    Application__r.Id:
+    Application__r.General_Lottery__c:
+    Application__r.General_Lottery_Rank__c:
     Application__r.Applicant__r.First_Name__c:
     Application__r.Applicant__r.Last_Name__c:
     Application__r.Applicant__r.Email__c:
@@ -39,11 +42,14 @@ preferences:
     Application__r.Applicant__r.Residence_Address__c:
     Application__r.Applicant__r.Mailing_Address__c:
     Preference_Order__c:
+    Receives_Preference__c:
+    Preference_All_Name__c:
+    Preference_All_Lottery_Rank__c:
     Post_Lottery_Validation__c:
     Preference_Lottery_Rank__c:
     Receives_Preference__c:
     Application__r.Processing_Status__c:
-      label: 'Lease Up Status'
+      label: "Lease Up Status"
     LastModifiedDate:
-      label: 'Status Updated'
+      label: "Status Updated"
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:

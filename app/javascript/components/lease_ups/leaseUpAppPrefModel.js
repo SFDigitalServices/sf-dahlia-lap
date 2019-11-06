@@ -16,8 +16,9 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     lease_up_status: application.processing_status,
     status_last_updated: application.status_last_updated,
     preference_order: applicationPreference.preference_order,
-    preference_record_type: listingPreference.record_type_for_app_preferences,
-    preference_lottery_rank: applicationPreference.preference_lottery_rank,
+    // Application preference names have abbreviations but General does not, here we check if it is general, otherwise use the abbreviation
+    preference_record_type: applicationPreference.preference_name && applicationPreference.preference_name.includes('General') ? applicationPreference.preference_name : listingPreference.record_type_for_app_preferences,
+    preference_lottery_rank: applicationPreference.preference_all_lottery_rank || applicationPreference.preference_lottery_rank,
     post_lottery_validation: applicationPreference.post_lottery_validation
   }
 }
