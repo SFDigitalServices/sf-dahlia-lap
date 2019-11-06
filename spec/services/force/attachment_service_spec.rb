@@ -3,8 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Force::Soql::AttachmentService do
+  # Application with old type of proof attachement (Attachment)
   OLD_APPLICATION_ID = 'a0o0P00000GZazOQAT'
-  NEW_APPLICATION_ID = 'a0o0t000000lpJ0AAI'
+  # Application with newer proof attachment (File)
+  NEW_APPLICATION_ID = 'a0o1D0000013w7pQAA'
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   subject { Force::Soql::AttachmentService.new(user) }
 
