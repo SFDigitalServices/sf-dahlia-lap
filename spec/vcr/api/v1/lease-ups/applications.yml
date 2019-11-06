@@ -1,318 +1,357 @@
 ---
 http_interactions:
-  - request:
-      method: post
-      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-      body:
-        encoding: US-ASCII
-        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-      headers:
-        User-Agent:
-          - Faraday v0.15.4
-        Content-Type:
-          - application/x-www-form-urlencoded
-        Accept-Encoding:
-          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-        Accept:
-          - "*/*"
-    response:
-      status:
-        code: 200
-        message: OK
-      headers:
-        Date:
-          - Fri, 01 Nov 2019 21:08:01 GMT
-        Strict-Transport-Security:
-          - max-age=31536000; includeSubDomains
-        X-Content-Type-Options:
-          - nosniff
-        X-Xss-Protection:
-          - 1; mode=block
-        Cache-Control:
-          - no-cache,must-revalidate,max-age=0,no-store,private
-        Set-Cookie:
-          - BrowserId=sB1glvzrEemgcA2NKiex6g;Path=/;Domain=.salesforce.com;Expires=Tue,
-            31-Dec-2019 21:08:01 GMT;Max-Age=5184000
-        Expires:
-          - Thu, 01 Jan 1970 00:00:00 GMT
-        X-Readonlymode:
-          - "false"
-        Content-Type:
-          - application/json;charset=UTF-8
-        Vary:
-          - Accept-Encoding
-        Transfer-Encoding:
-          - chunked
-      body:
-        encoding: ASCII-8BIT
-        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642481612","signature":"hZ+c4uzIItu3m3pPDJqvKjhU0RdsIZtkavL29AZ068Y="}'
-      http_version:
-    recorded_at: Fri, 01 Nov 2019 21:08:01 GMT
-  - request:
-      method: get
-      uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Application__c,%20Application__r.Name,%20Listing_ID__c,%20Application__r.Id,%20Application__r.General_Lottery__c,%20Application__r.General_Lottery_Rank__c,%20Application__r.Applicant__r.First_Name__c,%20Application__r.Applicant__r.Last_Name__c,%20Application__r.Applicant__r.Email__c,%20Application__r.Applicant__r.Phone__c,%20Application__r.Applicant__r.Residence_Address__c,%20Application__r.Applicant__r.Mailing_Address__c,%20Preference_Order__c,%20Receives_Preference__c,%20Preference_All_Name__c,%20Preference_All_Lottery_Rank__c,%20Post_Lottery_Validation__c,%20Preference_Lottery_Rank__c,%20Application__r.Processing_Status__c,%20LastModifiedDate,%20Listing_Preference_ID__r.Record_Type_For_App_Preferences__c%20FROM%20Application_Preference__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing_ID__c%20=%20%27a0W0P00000GbyuQ%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20((Preference_Lottery_Rank__c%20!=%20null%20and%20Receives_Preference__c%20=%20true)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20or%20(Preference_Name__c%20=%20%27Live%20or%20Work%20in%20San%20Francisco%20Preference%27%20and%20Application__r.General_Lottery_Rank__c%20!=%20null))%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20Application__c%20IN%20(SELECT%20id%20FROM%20Application__c)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20ORDER%20BY%20Receives_Preference__c%20desc,%20Preference_Order__c,%20Preference_Lottery_Rank__c,%20%20Application__r.General_Lottery_Rank__c%20asc%20LIMIT%20100%20OFFSET%200"
-      body:
-        encoding: US-ASCII
-        string: ""
-      headers:
-        User-Agent:
-          - Faraday v0.15.4
-        Authorization:
-          - OAuth <<ACCESS_TOKEN>>
-        Accept-Encoding:
-          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-        Accept:
-          - "*/*"
-    response:
-      status:
-        code: 200
-        message: OK
-      headers:
-        Date:
-          - Fri, 01 Nov 2019 21:08:01 GMT
-        Strict-Transport-Security:
-          - max-age=31536002; includeSubDomains
-        Public-Key-Pins-Report-Only:
-          - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-            pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-            includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
-        Expect-Ct:
-          - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
-        X-Robots-Tag:
-          - none
-        Cache-Control:
-          - no-cache,must-revalidate,max-age=0,no-store,private
-        Set-Cookie:
-          - BrowserId=sHKE4_zrEem4HycxOnlt1g;Path=/;Domain=.salesforce.com;Expires=Tue,
-            31-Dec-2019 21:08:01 GMT;Max-Age=5184000
-        Expires:
-          - Thu, 01 Jan 1970 00:00:00 GMT
-        Sforce-Limit-Info:
-          - api-usage=4984/5000000
-        Content-Type:
-          - application/json;charset=UTF-8
-        Vary:
-          - Accept-Encoding
-        Transfer-Encoding:
-          - chunked
-      body:
-        encoding: ASCII-8BIT
-        string:
-          '{"totalSize":31,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJceQAH"},"Application__c":"a0o0P00000GZazsQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazsQAD"},"Id":"a0o0P00000GZazsQAD","Name":"APP-00243703","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Portia","Last_Name__c":"Toole","Email__c":null,"Phone__c":"4155559312","Residence_Address__c":"1
-          S VAN NESS AVE, SAN FRANCISCO, CA, 94103-1267","Mailing_Address__c":"1 S VAN
-          NESS AVE, SAN FRANCISCO, CA, 94103-1267"},"Processing_Status__c":"Withdrawn"},"Preference_Order__c":1.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAEE3QAP"},"Application__c":"a0o0P00000IvMoaQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Id":"a0o0P00000IvMoaQAF","Name":"APP-00302547","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1QLSQA3"},"First_Name__c":"Julietest","Last_Name__c":"Manumuatest","Email__c":"234@234.com","Phone__c":"222-222-3333","Residence_Address__c":"123
-          Balboa St, San Francisco, CA, 95555","Mailing_Address__c":null},"Processing_Status__c":"Lease
-          Signed"},"Preference_Order__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:50:12.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkWQAT"},"Application__c":"a0o0P00000IvWgcQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgcQAF"},"Id":"a0o0P00000IvWgcQAF","Name":"APP-00304154","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF7QAN"},"First_Name__c":"Esther","Last_Name__c":"Yuan","Email__c":"478@asoinapiubv.com","Phone__c":"489-294-2894","Residence_Address__c":"789
-          Van Ness, San Francisco, CA, 94117","Mailing_Address__c":"789 Van Ness, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":3.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:49:45.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrwUPQAZ"},"Application__c":"a0o0P00000Isnf4QAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isnf4QAB"},"Id":"a0o0P00000Isnf4QAB","Name":"APP-00258654","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0LInQAN"},"First_Name__c":"Christine","Last_Name__c":"Dolendo","Email__c":"chris.dolendo@gmail.com","Phone__c":"2222222222","Residence_Address__c":"PO
-          BOX 1262, MOUNT SHASTA, CA, 96067","Mailing_Address__c":null},"Processing_Status__c":"Lease
-          Signed"},"Preference_Order__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":4.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:44:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkJQAT"},"Application__c":"a0o0P00000IvWgXQAV","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgXQAV"},"Id":"a0o0P00000IvWgXQAV","Name":"APP-00304153","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF0QAN"},"First_Name__c":"Edwardtest","Last_Name__c":"Williamstest","Email__c":"123@1234sdf.com","Phone__c":"333-444-1938","Residence_Address__c":"123
-          Main St, San Francisco, CA, 94110","Mailing_Address__c":"456 Main St, San
-          Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":5.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-23T17:30:26.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp3pQAD"},"Application__c":"a0o0P00000IvWt8QAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWt8QAF"},"Id":"a0o0P00000IvWt8QAF","Name":"APP-00304173","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XS7QAN"},"First_Name__c":"Nancytest","Last_Name__c":"Nakamuratest","Email__c":"sdfi@gmail.com","Phone__c":"578-289-1946","Residence_Address__c":"678
-          West St, San Francisco, CA, 94117","Mailing_Address__c":"789 Market St, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Appealed"},"Preference_Order__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":6.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJbXQAX"},"Application__c":"a0o0P00000GZaz9QAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZaz9QAD"},"Id":"a0o0P00000GZaz9QAD","Name":"APP-00243694","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qHXQAZ"},"First_Name__c":"Partha","Last_Name__c":"Nerr","Email__c":null,"Phone__c":"4155556868","Residence_Address__c":"25
-          VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033","Mailing_Address__c":"25 VAN
-          NESS AVE, SAN FRANCISCO, CA, 94102-6033"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":2.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:48:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAEE5QAP"},"Application__c":"a0o0P00000IvMoaQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Id":"a0o0P00000IvMoaQAF","Name":"APP-00302547","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1QLSQA3"},"First_Name__c":"Julietest","Last_Name__c":"Manumuatest","Email__c":"234@234.com","Phone__c":"222-222-3333","Residence_Address__c":"123
-          Balboa St, San Francisco, CA, 95555","Mailing_Address__c":null},"Processing_Status__c":"Lease
-          Signed"},"Preference_Order__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:50:12.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkmQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Id":"a0o0P00000IvWghQAF","Name":"APP-00304155","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
-          9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":3.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrwUQQAZ"},"Application__c":"a0o0P00000Isnf4QAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isnf4QAB"},"Id":"a0o0P00000Isnf4QAB","Name":"APP-00258654","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0LInQAN"},"First_Name__c":"Christine","Last_Name__c":"Dolendo","Email__c":"chris.dolendo@gmail.com","Phone__c":"2222222222","Residence_Address__c":"PO
-          BOX 1262, MOUNT SHASTA, CA, 96067","Mailing_Address__c":null},"Processing_Status__c":"Lease
-          Signed"},"Preference_Order__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":4.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:44:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtdHQAR"},"Application__c":"a0o0P00000ItlpiQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpiQAB"},"Id":"a0o0P00000ItlpiQAB","Name":"APP-00271364","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m5PQAR"},"First_Name__c":"Some
-          first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Preference_Order__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":5.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp3oQAD"},"Application__c":"a0o0P00000IvWt8QAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWt8QAF"},"Id":"a0o0P00000IvWt8QAF","Name":"APP-00304173","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XS7QAN"},"First_Name__c":"Nancytest","Last_Name__c":"Nakamuratest","Email__c":"sdfi@gmail.com","Phone__c":"578-289-1946","Residence_Address__c":"678
-          West St, San Francisco, CA, 94117","Mailing_Address__c":"789 Market St, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Appealed"},"Preference_Order__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":6.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc2QAH"},"Application__c":"a0o0P00000GZazOQAT","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Id":"a0o0P00000GZazOQAT","Name":"APP-00243697","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
-          Test Lease Up Application","Last_Name__c":"(do not modify)","Email__c":"tessiel@email.com","Phone__c":null,"Residence_Address__c":"123
-          Test St, Testville, CA, 00000","Mailing_Address__c":"123 Test St, Testville,
-          CA, 00000"},"Processing_Status__c":"Processing"},"Preference_Order__c":3.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-23T17:49:38.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w0mQAB"},"Record_Type_For_App_Preferences__c":"RB_AHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJcgQAH"},"Application__c":"a0o0P00000GZazsQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazsQAD"},"Id":"a0o0P00000GZazsQAD","Name":"APP-00243703","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Portia","Last_Name__c":"Toole","Email__c":null,"Phone__c":"4155559312","Residence_Address__c":"1
-          S VAN NESS AVE, SAN FRANCISCO, CA, 94103-1267","Mailing_Address__c":"1 S VAN
-          NESS AVE, SAN FRANCISCO, CA, 94103-1267"},"Processing_Status__c":"Withdrawn"},"Preference_Order__c":3.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w0mQAB"},"Record_Type_For_App_Preferences__c":"RB_AHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc3QAH"},"Application__c":"a0o0P00000GZazOQAT","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Id":"a0o0P00000GZazOQAT","Name":"APP-00243697","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
-          Test Lease Up Application","Last_Name__c":"(do not modify)","Email__c":"tessiel@email.com","Phone__c":null,"Residence_Address__c":"123
-          Test St, Testville, CA, 00000","Mailing_Address__c":"123 Test St, Testville,
-          CA, 00000"},"Processing_Status__c":"Processing"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-23T17:49:38.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJbZQAX"},"Application__c":"a0o0P00000GZaz9QAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZaz9QAD"},"Id":"a0o0P00000GZaz9QAD","Name":"APP-00243694","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qHXQAZ"},"First_Name__c":"Partha","Last_Name__c":"Nerr","Email__c":null,"Phone__c":"4155556868","Residence_Address__c":"25
-          VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033","Mailing_Address__c":"25 VAN
-          NESS AVE, SAN FRANCISCO, CA, 94102-6033"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:48:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJchQAH"},"Application__c":"a0o0P00000GZazsQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazsQAD"},"Id":"a0o0P00000GZazsQAD","Name":"APP-00243703","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Portia","Last_Name__c":"Toole","Email__c":null,"Phone__c":"4155559312","Residence_Address__c":"1
-          S VAN NESS AVE, SAN FRANCISCO, CA, 94103-1267","Mailing_Address__c":"1 S VAN
-          NESS AVE, SAN FRANCISCO, CA, 94103-1267"},"Processing_Status__c":"Withdrawn"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Invalid","Preference_Lottery_Rank__c":3.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAEE4QAP"},"Application__c":"a0o0P00000IvMoaQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Id":"a0o0P00000IvMoaQAF","Name":"APP-00302547","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1QLSQA3"},"First_Name__c":"Julietest","Last_Name__c":"Manumuatest","Email__c":"234@234.com","Phone__c":"222-222-3333","Residence_Address__c":"123
-          Balboa St, San Francisco, CA, 95555","Mailing_Address__c":null},"Processing_Status__c":"Lease
-          Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":4.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:50:12.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJbFQAX"},"Application__c":"a0o0P00000GZayuQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZayuQAD"},"Id":"a0o0P00000GZayuQAD","Name":"APP-00243691","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qGvQAJ"},"First_Name__c":"Lisa","Last_Name__c":"Patest","Email__c":"lisapt@email.com","Phone__c":"4155552525","Residence_Address__c":"101
-          MONTGOMERY ST, SAN FRANCISCO, CA, 94104-4151","Mailing_Address__c":"101 MONTGOMERY
-          ST, SAN FRANCISCO, CA, 94104-4151"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":5.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:50:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqXQAV"},"Application__c":"a0o0P00000Iv7H4QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Id":"a0o0P00000Iv7H4QAJ","Name":"APP-00299776","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Claudiatest","Last_Name__c":"Johnsontest","Email__c":"123@123.com","Phone__c":"111-222-3333","Residence_Address__c":"123
-          Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission St, San
-          Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":6.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkknQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Id":"a0o0P00000IvWghQAF","Name":"APP-00304155","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
-          9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":7.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkVQAT"},"Application__c":"a0o0P00000IvWgcQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgcQAF"},"Id":"a0o0P00000IvWgcQAF","Name":"APP-00304154","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF7QAN"},"First_Name__c":"Esther","Last_Name__c":"Yuan","Email__c":"478@asoinapiubv.com","Phone__c":"489-294-2894","Residence_Address__c":"789
-          Van Ness, San Francisco, CA, 94117","Mailing_Address__c":"789 Van Ness, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":8.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:49:45.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrwURQAZ"},"Application__c":"a0o0P00000Isnf4QAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isnf4QAB"},"Id":"a0o0P00000Isnf4QAB","Name":"APP-00258654","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0LInQAN"},"First_Name__c":"Christine","Last_Name__c":"Dolendo","Email__c":"chris.dolendo@gmail.com","Phone__c":"2222222222","Residence_Address__c":"PO
-          BOX 1262, MOUNT SHASTA, CA, 96067","Mailing_Address__c":null},"Processing_Status__c":"Lease
-          Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":9.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:44:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp45QAD"},"Application__c":"a0o0P00000IvWtNQAV","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWtNQAV"},"Id":"a0o0P00000IvWtNQAV","Name":"APP-00304174","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XSLQA3"},"First_Name__c":"Davidtest","Last_Name__c":"Garciatest","Email__c":"23sadf@gmail.com","Phone__c":"111-222-3333","Residence_Address__c":"123
-          Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission, San Francisco,
-          CA, 94110"},"Processing_Status__c":null},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":10.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkKQAT"},"Application__c":"a0o0P00000IvWgXQAV","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgXQAV"},"Id":"a0o0P00000IvWgXQAV","Name":"APP-00304153","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF0QAN"},"First_Name__c":"Edwardtest","Last_Name__c":"Williamstest","Email__c":"123@1234sdf.com","Phone__c":"333-444-1938","Residence_Address__c":"123
-          Main St, San Francisco, CA, 94110","Mailing_Address__c":"456 Main St, San
-          Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":11.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-23T17:30:26.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtdJQAR"},"Application__c":"a0o0P00000ItlpiQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpiQAB"},"Id":"a0o0P00000ItlpiQAB","Name":"APP-00271364","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m5PQAR"},"First_Name__c":"Some
-          first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":12.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp3qQAD"},"Application__c":"a0o0P00000IvWt8QAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWt8QAF"},"Id":"a0o0P00000IvWt8QAF","Name":"APP-00304173","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XS7QAN"},"First_Name__c":"Nancytest","Last_Name__c":"Nakamuratest","Email__c":"sdfi@gmail.com","Phone__c":"578-289-1946","Residence_Address__c":"678
-          West St, San Francisco, CA, 94117","Mailing_Address__c":"789 Market St, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Appealed"},"Preference_Order__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":13.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OpvXbQAJ"},"Application__c":"a0o0P00000GZayuQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZayuQAD"},"Id":"a0o0P00000GZayuQAD","Name":"APP-00243691","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qGvQAJ"},"First_Name__c":"Lisa","Last_Name__c":"Patest","Email__c":"lisapt@email.com","Phone__c":"4155552525","Residence_Address__c":"101
-          MONTGOMERY ST, SAN FRANCISCO, CA, 94104-4151","Mailing_Address__c":"101 MONTGOMERY
-          ST, SAN FRANCISCO, CA, 94104-4151"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":6.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:50:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQGzQAP"},"Record_Type_For_App_Preferences__c":"NRHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqTQAV"},"Application__c":"a0o0P00000Iv7H4QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Id":"a0o0P00000Iv7H4QAJ","Name":"APP-00299776","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Claudiatest","Last_Name__c":"Johnsontest","Email__c":"123@123.com","Phone__c":"111-222-3333","Residence_Address__c":"123
-          Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission St, San
-          Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":6.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQGzQAP"},"Record_Type_For_App_Preferences__c":"NRHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqSQAV"},"Application__c":"a0o0P00000Iv7H4QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Id":"a0o0P00000Iv7H4QAJ","Name":"APP-00299776","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Claudiatest","Last_Name__c":"Johnsontest","Email__c":"123@123.com","Phone__c":"111-222-3333","Residence_Address__c":"123
-          Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission St, San
-          Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":7.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":1.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQKlQAP"},"Record_Type_For_App_Preferences__c":"Custom"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkoQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Id":"a0o0P00000IvWghQAF","Name":"APP-00304155","Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
-          9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
-          Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Preference_Order__c":7.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Receives_Preference__c":true,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQKlQAP"},"Record_Type_For_App_Preferences__c":"Custom"}}]}'
-      http_version:
-    recorded_at: Fri, 01 Nov 2019 21:08:02 GMT
-  - request:
-      method: get
-      uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Application_Preference__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing_ID__c%20=%20%27a0W0P00000GbyuQ%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20((Preference_Lottery_Rank__c%20!=%20null%20and%20Receives_Preference__c%20=%20true)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20or%20(Preference_Name__c%20=%20%27Live%20or%20Work%20in%20San%20Francisco%20Preference%27%20and%20Application__r.General_Lottery_Rank__c%20!=%20null))%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20Application__c%20IN%20(SELECT%20id%20FROM%20Application__c)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20)"
-      body:
-        encoding: US-ASCII
-        string: ""
-      headers:
-        User-Agent:
-          - Faraday v0.15.4
-        Authorization:
-          - OAuth <<ACCESS_TOKEN>>
-        Accept-Encoding:
-          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-        Accept:
-          - "*/*"
-    response:
-      status:
-        code: 200
-        message: OK
-      headers:
-        Date:
-          - Fri, 01 Nov 2019 21:08:02 GMT
-        Strict-Transport-Security:
-          - max-age=31536002; includeSubDomains
-        Public-Key-Pins-Report-Only:
-          - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-            pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-            includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
-        Expect-Ct:
-          - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
-        X-Robots-Tag:
-          - none
-        Cache-Control:
-          - no-cache,must-revalidate,max-age=0,no-store,private
-        Set-Cookie:
-          - BrowserId=sOk7ZfzrEemA0Isx5n9MYQ;Path=/;Domain=.salesforce.com;Expires=Tue,
-            31-Dec-2019 21:08:02 GMT;Max-Age=5184000
-        Expires:
-          - Thu, 01 Jan 1970 00:00:00 GMT
-        Sforce-Limit-Info:
-          - api-usage=4983/5000000
-        Content-Type:
-          - application/json;charset=UTF-8
-        Vary:
-          - Accept-Encoding
-        Transfer-Encoding:
-          - chunked
-      body:
-        encoding: ASCII-8BIT
-        string: '{"totalSize":31,"done":true,"records":[]}'
-      http_version:
-    recorded_at: Fri, 01 Nov 2019 21:08:02 GMT
-  - request:
-      method: post
-      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-      body:
-        encoding: US-ASCII
-        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-      headers:
-        User-Agent:
-          - Faraday v0.15.4
-        Content-Type:
-          - application/x-www-form-urlencoded
-        Accept-Encoding:
-          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-        Accept:
-          - "*/*"
-    response:
-      status:
-        code: 200
-        message: OK
-      headers:
-        Date:
-          - Fri, 01 Nov 2019 21:08:03 GMT
-        Strict-Transport-Security:
-          - max-age=31536000; includeSubDomains
-        X-Content-Type-Options:
-          - nosniff
-        X-Xss-Protection:
-          - 1; mode=block
-        Cache-Control:
-          - no-cache,must-revalidate,max-age=0,no-store,private
-        Set-Cookie:
-          - BrowserId=sRuWUfzrEemk4vfC-jWXTA;Path=/;Domain=.salesforce.com;Expires=Tue,
-            31-Dec-2019 21:08:03 GMT;Max-Age=5184000
-        Expires:
-          - Thu, 01 Jan 1970 00:00:00 GMT
-        X-Readonlymode:
-          - "false"
-        Content-Type:
-          - application/json;charset=UTF-8
-        Vary:
-          - Accept-Encoding
-        Transfer-Encoding:
-          - chunked
-      body:
-        encoding: ASCII-8BIT
-        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1572642483431","signature":"5FIOK3R9s3QenF+6Y/dtGl/xlhh2Yh9V6XTeLStVlyA="}'
-      http_version:
-    recorded_at: Fri, 01 Nov 2019 21:08:03 GMT
-  - request:
-      method: get
-      uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20MAX(Processing_Date_Updated__c)%20Status_Last_Updated,%20Application__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Field_Update_Comment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20IN%20(%27a0o0P00000GZazsQAD%27,%20%27a0o0P00000IvMoaQAF%27,%20%27a0o0P00000IvWgcQAF%27,%20%27a0o0P00000Isnf4QAB%27,%20%27a0o0P00000IvWgXQAV%27,%20%27a0o0P00000IvWt8QAF%27,%20%27a0o0P00000GZaz9QAD%27,%20%27a0o0P00000IvMoaQAF%27,%20%27a0o0P00000IvWghQAF%27,%20%27a0o0P00000Isnf4QAB%27,%20%27a0o0P00000ItlpiQAB%27,%20%27a0o0P00000IvWt8QAF%27,%20%27a0o0P00000GZazOQAT%27,%20%27a0o0P00000GZazsQAD%27,%20%27a0o0P00000GZazOQAT%27,%20%27a0o0P00000GZaz9QAD%27,%20%27a0o0P00000GZazsQAD%27,%20%27a0o0P00000IvMoaQAF%27,%20%27a0o0P00000GZayuQAD%27,%20%27a0o0P00000Iv7H4QAJ%27,%20%27a0o0P00000IvWghQAF%27,%20%27a0o0P00000IvWgcQAF%27,%20%27a0o0P00000Isnf4QAB%27,%20%27a0o0P00000IvWtNQAV%27,%20%27a0o0P00000IvWgXQAV%27,%20%27a0o0P00000ItlpiQAB%27,%20%27a0o0P00000IvWt8QAF%27,%20%27a0o0P00000GZayuQAD%27,%20%27a0o0P00000Iv7H4QAJ%27,%20%27a0o0P00000Iv7H4QAJ%27,%20%27a0o0P00000IvWghQAF%27)%0A%20%20%20%20%20%20%20%20%20%20GROUP%20BY%20Application__c%0A%20%20%20%20%20%20%20%20"
-      body:
-        encoding: US-ASCII
-        string: ""
-      headers:
-        User-Agent:
-          - Faraday v0.15.4
-        Authorization:
-          - OAuth <<ACCESS_TOKEN>>
-        Accept-Encoding:
-          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-        Accept:
-          - "*/*"
-    response:
-      status:
-        code: 200
-        message: OK
-      headers:
-        Date:
-          - Fri, 01 Nov 2019 21:08:03 GMT
-        Strict-Transport-Security:
-          - max-age=31536002; includeSubDomains
-        Public-Key-Pins-Report-Only:
-          - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-            pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-            includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
-        Expect-Ct:
-          - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
-        X-Robots-Tag:
-          - none
-        Cache-Control:
-          - no-cache,must-revalidate,max-age=0,no-store,private
-        Set-Cookie:
-          - BrowserId=sYr6JfzrEemwEHPRQEBKzw;Path=/;Domain=.salesforce.com;Expires=Tue,
-            31-Dec-2019 21:08:03 GMT;Max-Age=5184000
-        Expires:
-          - Thu, 01 Jan 1970 00:00:00 GMT
-        Sforce-Limit-Info:
-          - api-usage=4984/5000000
-        Content-Type:
-          - application/json;charset=UTF-8
-        Vary:
-          - Accept-Encoding
-        Transfer-Encoding:
-          - chunked
-      body:
-        encoding: ASCII-8BIT
-        string: '{"totalSize":11,"done":true,"records":[{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:51:18.000+0000","Application__c":"a0o0P00000Iv7H4QAJ"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:49:46.000+0000","Application__c":"a0o0P00000IvWgcQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:48:41.000+0000","Application__c":"a0o0P00000GZaz9QAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:44:46.000+0000","Application__c":"a0o0P00000IvWgXQAV"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:50:13.000+0000","Application__c":"a0o0P00000IvMoaQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:50:42.000+0000","Application__c":"a0o0P00000GZayuQAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:44:18.000+0000","Application__c":"a0o0P00000Isnf4QAB"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:45:16.000+0000","Application__c":"a0o0P00000IvWghQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-23T17:48:25.000+0000","Application__c":"a0o0P00000GZazsQAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-23T17:49:38.000+0000","Application__c":"a0o0P00000GZazOQAT"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-08-09T19:41:08.000+0000","Application__c":"a0o0P00000IvWt8QAF"}]}'
-      http_version:
-    recorded_at: Fri, 01 Nov 2019 21:08:03 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Nov 2019 18:22:47 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=bzMASADCEeqWDY-MMeeRzQ;Path=/;Domain=.salesforce.com;Expires=Sun,
+        05-Jan-2020 18:22:47 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1573064568050","signature":"rWeHSMSz7G/DesJ7fKZJZ7CYnM75Y3xRt7lARKamN3c="}'
+    http_version: 
+  recorded_at: Wed, 06 Nov 2019 18:22:48 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Application__c,%20Application__r.Name,%20Listing_ID__c,%20Application__r.Id,%20Application__r.General_Lottery__c,%20Application__r.General_Lottery_Rank__c,%20Application__r.Applicant__r.First_Name__c,%20Application__r.Applicant__r.Last_Name__c,%20Application__r.Applicant__r.Email__c,%20Application__r.Applicant__r.Phone__c,%20Application__r.Applicant__r.Residence_Address__c,%20Application__r.Applicant__r.Mailing_Address__c,%20Preference_Order__c,%20Receives_Preference__c,%20Preference_All_Name__c,%20Preference_All_Lottery_Rank__c,%20Post_Lottery_Validation__c,%20Preference_Lottery_Rank__c,%20Application__r.Processing_Status__c,%20LastModifiedDate,%20Listing_Preference_ID__r.Record_Type_For_App_Preferences__c%20FROM%20Application_Preference__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing_ID__c%20=%20%27a0W0P00000GbyuQ%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20((Preference_Lottery_Rank__c%20!=%20null%20and%20Receives_Preference__c%20=%20true)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20or%20(Preference_Name__c%20=%20%27Live%20or%20Work%20in%20San%20Francisco%20Preference%27%20and%20Application__r.General_Lottery_Rank__c%20!=%20null))%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20Application__c%20IN%20(SELECT%20id%20FROM%20Application__c)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20ORDER%20BY%20Receives_Preference__c%20desc,%20Preference_Order__c,%20Preference_Lottery_Rank__c,%20%20Application__r.General_Lottery_Rank__c%20asc%20LIMIT%20100%20OFFSET%200"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Nov 2019 18:22:48 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=b7UAmwDCEeqJAM_J-VRL5w;Path=/;Domain=.salesforce.com;Expires=Sun,
+        05-Jan-2020 18:22:48 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=7089/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":45,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJceQAH"},"Application__c":"a0o0P00000GZazsQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazsQAD"},"Name":"APP-00243703","Id":"a0o0P00000GZazsQAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Portia","Last_Name__c":"Toole","Email__c":null,"Phone__c":"4155559312","Residence_Address__c":"1
+        S VAN NESS AVE, SAN FRANCISCO, CA, 94103-1267","Mailing_Address__c":"1 S VAN
+        NESS AVE, SAN FRANCISCO, CA, 94103-1267"},"Processing_Status__c":"Waitlisted"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":1.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Certificate
+        of Preference (COP)","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"LastModifiedDate":"2019-11-06T18:11:08.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAEE3QAP"},"Application__c":"a0o0P00000IvMoaQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Name":"APP-00302547","Id":"a0o0P00000IvMoaQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1QLSQA3"},"First_Name__c":"Julietest","Last_Name__c":"Manumuatest","Email__c":"234@234.com","Phone__c":"222-222-3333","Residence_Address__c":"123
+        Balboa St, San Francisco, CA, 95555","Mailing_Address__c":null},"Processing_Status__c":"Lease
+        Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":1.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Certificate
+        of Preference (COP)","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"LastModifiedDate":"2019-10-21T16:50:12.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkWQAT"},"Application__c":"a0o0P00000IvWgcQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgcQAF"},"Name":"APP-00304154","Id":"a0o0P00000IvWgcQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF7QAN"},"First_Name__c":"Esther","Last_Name__c":"Yuan","Email__c":"478@asoinapiubv.com","Phone__c":"489-294-2894","Residence_Address__c":"789
+        Van Ness, San Francisco, CA, 94117","Mailing_Address__c":"789 Van Ness, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":1.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Certificate
+        of Preference (COP)","Preference_All_Lottery_Rank__c":3.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":3.0,"LastModifiedDate":"2019-10-21T16:49:45.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrwUPQAZ"},"Application__c":"a0o0P00000Isnf4QAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isnf4QAB"},"Name":"APP-00258654","Id":"a0o0P00000Isnf4QAB","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0LInQAN"},"First_Name__c":"Christine","Last_Name__c":"Dolendo","Email__c":"chris.dolendo@gmail.com","Phone__c":"2222222222","Residence_Address__c":"PO
+        BOX 1262, MOUNT SHASTA, CA, 96067","Mailing_Address__c":null},"Processing_Status__c":"Lease
+        Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":1.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Certificate
+        of Preference (COP)","Preference_All_Lottery_Rank__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":4.0,"LastModifiedDate":"2019-11-01T21:30:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkJQAT"},"Application__c":"a0o0P00000IvWgXQAV","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgXQAV"},"Name":"APP-00304153","Id":"a0o0P00000IvWgXQAV","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF0QAN"},"First_Name__c":"Edwardtest","Last_Name__c":"Williamstest","Email__c":"123@1234sdf.com","Phone__c":"333-444-1938","Residence_Address__c":"123
+        Main St, San Francisco, CA, 94110","Mailing_Address__c":"456 Main St, San
+        Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":1.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Certificate
+        of Preference (COP)","Preference_All_Lottery_Rank__c":5.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":5.0,"LastModifiedDate":"2019-11-01T21:28:53.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp3pQAD"},"Application__c":"a0o0P00000IvWt8QAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWt8QAF"},"Name":"APP-00304173","Id":"a0o0P00000IvWt8QAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XS7QAN"},"First_Name__c":"Nancytest","Last_Name__c":"Nakamuratest","Email__c":"sdfi@gmail.com","Phone__c":"578-289-1946","Residence_Address__c":"678
+        West St, San Francisco, CA, 94117","Mailing_Address__c":"789 Market St, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Appealed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":1.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Certificate
+        of Preference (COP)","Preference_All_Lottery_Rank__c":6.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":6.0,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxUQAR"},"Record_Type_For_App_Preferences__c":"COP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJbXQAX"},"Application__c":"a0o0P00000GZaz9QAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZaz9QAD"},"Name":"APP-00243694","Id":"a0o0P00000GZaz9QAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qHXQAZ"},"First_Name__c":"Partha","Last_Name__c":"Nerr","Email__c":null,"Phone__c":"4155556868","Residence_Address__c":"25
+        VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033","Mailing_Address__c":"25 VAN
+        NESS AVE, SAN FRANCISCO, CA, 94102-6033"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":2.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"LastModifiedDate":"2019-10-21T16:48:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAEE5QAP"},"Application__c":"a0o0P00000IvMoaQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Name":"APP-00302547","Id":"a0o0P00000IvMoaQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1QLSQA3"},"First_Name__c":"Julietest","Last_Name__c":"Manumuatest","Email__c":"234@234.com","Phone__c":"222-222-3333","Residence_Address__c":"123
+        Balboa St, San Francisco, CA, 95555","Mailing_Address__c":null},"Processing_Status__c":"Lease
+        Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":2.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"LastModifiedDate":"2019-10-21T16:50:12.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkmQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Name":"APP-00304155","Id":"a0o0P00000IvWghQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
+        9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":2.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Preference_All_Lottery_Rank__c":3.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":3.0,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrwUQQAZ"},"Application__c":"a0o0P00000Isnf4QAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isnf4QAB"},"Name":"APP-00258654","Id":"a0o0P00000Isnf4QAB","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0LInQAN"},"First_Name__c":"Christine","Last_Name__c":"Dolendo","Email__c":"chris.dolendo@gmail.com","Phone__c":"2222222222","Residence_Address__c":"PO
+        BOX 1262, MOUNT SHASTA, CA, 96067","Mailing_Address__c":null},"Processing_Status__c":"Lease
+        Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":2.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Preference_All_Lottery_Rank__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":4.0,"LastModifiedDate":"2019-11-01T21:30:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtdHQAR"},"Application__c":"a0o0P00000ItlpiQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpiQAB"},"Name":"APP-00271364","Id":"a0o0P00000ItlpiQAB","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m5PQAR"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":2.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Preference_All_Lottery_Rank__c":5.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":5.0,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp3oQAD"},"Application__c":"a0o0P00000IvWt8QAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWt8QAF"},"Name":"APP-00304173","Id":"a0o0P00000IvWt8QAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XS7QAN"},"First_Name__c":"Nancytest","Last_Name__c":"Nakamuratest","Email__c":"sdfi@gmail.com","Phone__c":"578-289-1946","Residence_Address__c":"678
+        West St, San Francisco, CA, 94117","Mailing_Address__c":"789 Market St, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Appealed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":2.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Preference_All_Lottery_Rank__c":6.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":6.0,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1vxyQAB"},"Record_Type_For_App_Preferences__c":"DTHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc2QAH"},"Application__c":"a0o0P00000GZazOQAT","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Name":"APP-00243697","Id":"a0o0P00000GZazOQAT","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
+        Test Lease Up Application","Last_Name__c":"(do not modify)","Email__c":"tessiel@email.com","Phone__c":null,"Residence_Address__c":"123
+        Test St, Testville, CA, 00000","Mailing_Address__c":"123 Test St, Testville,
+        CA, 00000"},"Processing_Status__c":"Withdrawn"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":3.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Rent
+        Burdened / Assisted Housing Preference","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"LastModifiedDate":"2019-11-06T03:09:49.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w0mQAB"},"Record_Type_For_App_Preferences__c":"RB_AHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJcgQAH"},"Application__c":"a0o0P00000GZazsQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazsQAD"},"Name":"APP-00243703","Id":"a0o0P00000GZazsQAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Portia","Last_Name__c":"Toole","Email__c":null,"Phone__c":"4155559312","Residence_Address__c":"1
+        S VAN NESS AVE, SAN FRANCISCO, CA, 94103-1267","Mailing_Address__c":"1 S VAN
+        NESS AVE, SAN FRANCISCO, CA, 94103-1267"},"Processing_Status__c":"Waitlisted"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":3.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Rent
+        Burdened / Assisted Housing Preference","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":2.0,"LastModifiedDate":"2019-11-06T18:11:08.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w0mQAB"},"Record_Type_For_App_Preferences__c":"RB_AHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc3QAH"},"Application__c":"a0o0P00000GZazOQAT","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Name":"APP-00243697","Id":"a0o0P00000GZazOQAT","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
+        Test Lease Up Application","Last_Name__c":"(do not modify)","Email__c":"tessiel@email.com","Phone__c":null,"Residence_Address__c":"123
+        Test St, Testville, CA, 00000","Mailing_Address__c":"123 Test St, Testville,
+        CA, 00000"},"Processing_Status__c":"Withdrawn"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":"Confirmed","Preference_Lottery_Rank__c":1.0,"LastModifiedDate":"2019-11-06T03:09:49.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJbZQAX"},"Application__c":"a0o0P00000GZaz9QAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZaz9QAD"},"Name":"APP-00243694","Id":"a0o0P00000GZaz9QAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qHXQAZ"},"First_Name__c":"Partha","Last_Name__c":"Nerr","Email__c":null,"Phone__c":"4155556868","Residence_Address__c":"25
+        VAN NESS AVE, SAN FRANCISCO, CA, 94102-6033","Mailing_Address__c":"25 VAN
+        NESS AVE, SAN FRANCISCO, CA, 94102-6033"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"LastModifiedDate":"2019-10-21T16:48:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJchQAH"},"Application__c":"a0o0P00000GZazsQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazsQAD"},"Name":"APP-00243703","Id":"a0o0P00000GZazsQAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Portia","Last_Name__c":"Toole","Email__c":null,"Phone__c":"4155559312","Residence_Address__c":"1
+        S VAN NESS AVE, SAN FRANCISCO, CA, 94103-1267","Mailing_Address__c":"1 S VAN
+        NESS AVE, SAN FRANCISCO, CA, 94103-1267"},"Processing_Status__c":"Waitlisted"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":3.0,"Post_Lottery_Validation__c":"Invalid","Preference_Lottery_Rank__c":3.0,"LastModifiedDate":"2019-11-06T18:11:08.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAEE4QAP"},"Application__c":"a0o0P00000IvMoaQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Name":"APP-00302547","Id":"a0o0P00000IvMoaQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1QLSQA3"},"First_Name__c":"Julietest","Last_Name__c":"Manumuatest","Email__c":"234@234.com","Phone__c":"222-222-3333","Residence_Address__c":"123
+        Balboa St, San Francisco, CA, 95555","Mailing_Address__c":null},"Processing_Status__c":"Lease
+        Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":4.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":4.0,"LastModifiedDate":"2019-10-21T16:50:12.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJbFQAX"},"Application__c":"a0o0P00000GZayuQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZayuQAD"},"Name":"APP-00243691","Id":"a0o0P00000GZayuQAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qGvQAJ"},"First_Name__c":"Lisa","Last_Name__c":"Patest","Email__c":"lisapt@email.com","Phone__c":"4155552525","Residence_Address__c":"101
+        MONTGOMERY ST, SAN FRANCISCO, CA, 94104-4151","Mailing_Address__c":"101 MONTGOMERY
+        ST, SAN FRANCISCO, CA, 94104-4151"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":5.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":5.0,"LastModifiedDate":"2019-10-21T16:50:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqXQAV"},"Application__c":"a0o0P00000Iv7H4QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Name":"APP-00299776","Id":"a0o0P00000Iv7H4QAJ","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Claudiatest","Last_Name__c":"Johnsontest","Email__c":"123@123.com","Phone__c":"111-222-3333","Residence_Address__c":"123
+        Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission St, San
+        Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":6.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":6.0,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkknQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Name":"APP-00304155","Id":"a0o0P00000IvWghQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
+        9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":7.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":7.0,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkVQAT"},"Application__c":"a0o0P00000IvWgcQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgcQAF"},"Name":"APP-00304154","Id":"a0o0P00000IvWgcQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF7QAN"},"First_Name__c":"Esther","Last_Name__c":"Yuan","Email__c":"478@asoinapiubv.com","Phone__c":"489-294-2894","Residence_Address__c":"789
+        Van Ness, San Francisco, CA, 94117","Mailing_Address__c":"789 Van Ness, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":8.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":8.0,"LastModifiedDate":"2019-10-21T16:49:45.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrwURQAZ"},"Application__c":"a0o0P00000Isnf4QAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isnf4QAB"},"Name":"APP-00258654","Id":"a0o0P00000Isnf4QAB","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0LInQAN"},"First_Name__c":"Christine","Last_Name__c":"Dolendo","Email__c":"chris.dolendo@gmail.com","Phone__c":"2222222222","Residence_Address__c":"PO
+        BOX 1262, MOUNT SHASTA, CA, 96067","Mailing_Address__c":null},"Processing_Status__c":"Lease
+        Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":9.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":9.0,"LastModifiedDate":"2019-11-01T21:30:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp45QAD"},"Application__c":"a0o0P00000IvWtNQAV","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWtNQAV"},"Name":"APP-00304174","Id":"a0o0P00000IvWtNQAV","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XSLQA3"},"First_Name__c":"Davidtest","Last_Name__c":"Garciatest","Email__c":"23sadf@gmail.com","Phone__c":"111-222-3333","Residence_Address__c":"123
+        Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission, San Francisco,
+        CA, 94110"},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":10.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":10.0,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkKQAT"},"Application__c":"a0o0P00000IvWgXQAV","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgXQAV"},"Name":"APP-00304153","Id":"a0o0P00000IvWgXQAV","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF0QAN"},"First_Name__c":"Edwardtest","Last_Name__c":"Williamstest","Email__c":"123@1234sdf.com","Phone__c":"333-444-1938","Residence_Address__c":"123
+        Main St, San Francisco, CA, 94110","Mailing_Address__c":"456 Main St, San
+        Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":11.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":11.0,"LastModifiedDate":"2019-11-01T21:28:53.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtdJQAR"},"Application__c":"a0o0P00000ItlpiQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpiQAB"},"Name":"APP-00271364","Id":"a0o0P00000ItlpiQAB","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m5PQAR"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":12.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":12.0,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAp3qQAD"},"Application__c":"a0o0P00000IvWt8QAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWt8QAF"},"Name":"APP-00304173","Id":"a0o0P00000IvWt8QAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XS7QAN"},"First_Name__c":"Nancytest","Last_Name__c":"Nakamuratest","Email__c":"sdfi@gmail.com","Phone__c":"578-289-1946","Residence_Address__c":"678
+        West St, San Francisco, CA, 94117","Mailing_Address__c":"789 Market St, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Appealed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Live
+        or Work in San Francisco Preference","Preference_All_Lottery_Rank__c":13.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":13.0,"LastModifiedDate":"2019-08-15T21:49:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OpvXbQAJ"},"Application__c":"a0o0P00000GZayuQAD","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZayuQAD"},"Name":"APP-00243691","Id":"a0o0P00000GZayuQAD","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qGvQAJ"},"First_Name__c":"Lisa","Last_Name__c":"Patest","Email__c":"lisapt@email.com","Phone__c":"4155552525","Residence_Address__c":"101
+        MONTGOMERY ST, SAN FRANCISCO, CA, 94104-4151","Mailing_Address__c":"101 MONTGOMERY
+        ST, SAN FRANCISCO, CA, 94104-4151"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":6.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Neighborhood
+        Resident Housing Preference (NRHP)","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":1.0,"LastModifiedDate":"2019-10-21T16:50:41.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQGzQAP"},"Record_Type_For_App_Preferences__c":"NRHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqTQAV"},"Application__c":"a0o0P00000Iv7H4QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Name":"APP-00299776","Id":"a0o0P00000Iv7H4QAJ","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Claudiatest","Last_Name__c":"Johnsontest","Email__c":"123@123.com","Phone__c":"111-222-3333","Residence_Address__c":"123
+        Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission St, San
+        Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":6.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Neighborhood
+        Resident Housing Preference (NRHP)","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQGzQAP"},"Record_Type_For_App_Preferences__c":"NRHP"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqSQAV"},"Application__c":"a0o0P00000Iv7H4QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Name":"APP-00299776","Id":"a0o0P00000Iv7H4QAJ","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Claudiatest","Last_Name__c":"Johnsontest","Email__c":"123@123.com","Phone__c":"111-222-3333","Residence_Address__c":"123
+        Folsom, San Francisco, CA, 94110","Mailing_Address__c":"456 Mission St, San
+        Francisco, CA, 94110"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":7.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Artist
+        Fund (Test Custom Pref)","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":1.0,"LastModifiedDate":"2019-10-21T16:51:17.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQKlQAP"},"Record_Type_For_App_Preferences__c":"Custom"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PAkkoQAD"},"Application__c":"a0o0P00000IvWghQAF","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWghQAF"},"Name":"APP-00304155","Id":"a0o0P00000IvWghQAF","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XFLQA3"},"First_Name__c":"William","Last_Name__c":"Gonzalez","Email__c":"2839@sldkfjaoskdfj.com","Phone__c":"478-289-1987","Residence_Address__c":"189
+        9th Ave, San Francisco, CA, 94117","Mailing_Address__c":"189 9th Ave, San
+        Francisco, CA, 94117"},"Processing_Status__c":"Lease Signed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":7.0,"Receives_Preference__c":true,"Preference_All_Name__c":"Artist
+        Fund (Test Custom Pref)","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"LastModifiedDate":"2019-10-22T21:45:15.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001QRQKlQAP"},"Record_Type_For_App_Preferences__c":"Custom"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PC0opQAD"},"Application__c":"a0o0P00000IvwNUQAZ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvwNUQAZ"},"Name":"APP-00306509","Id":"a0o0P00000IvwNUQAZ","General_Lottery__c":true,"General_Lottery_Rank__c":1.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1jNNQAZ"},"First_Name__c":"Test","Last_Name__c":"Testerino","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":1.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PCeqaQAD"},"Application__c":"a0o0P00000Iw6S6QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iw6S6QAJ"},"Name":"APP-00308590","Id":"a0o0P00000Iw6S6QAJ","General_Lottery__c":true,"General_Lottery_Rank__c":2.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1oyJQAR"},"First_Name__c":"cynthiatest","Last_Name__c":"smithtest","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":2.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:16.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PCeqSQAT"},"Application__c":"a0o0P00000Iw6S1QAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iw6S1QAJ"},"Name":"APP-00308589","Id":"a0o0P00000Iw6S1QAJ","General_Lottery__c":true,"General_Lottery_Rank__c":3.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1oyEQAR"},"First_Name__c":"cythiatest","Last_Name__c":"smithtest","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":3.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PCeqAQAT"},"Application__c":"a0o0P00000Iw6RwQAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iw6RwQAJ"},"Name":"APP-00308588","Id":"a0o0P00000Iw6RwQAJ","General_Lottery__c":true,"General_Lottery_Rank__c":4.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1oy9QAB"},"First_Name__c":"cynthiatest","Last_Name__c":"289dinlask","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":4.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PCeq2QAD"},"Application__c":"a0o0P00000Iw6RrQAJ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iw6RrQAJ"},"Name":"APP-00308587","Id":"a0o0P00000Iw6RrQAJ","General_Lottery__c":true,"General_Lottery_Rank__c":5.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1oy4QAB"},"First_Name__c":"8dns___!","Last_Name__c":"smithtest","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":5.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PCenrQAD"},"Application__c":"a0o0P00000Iw6RXQAZ","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iw6RXQAZ"},"Name":"APP-00308583","Id":"a0o0P00000Iw6RXQAZ","General_Lottery__c":true,"General_Lottery_Rank__c":6.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1oxuQAB"},"First_Name__c":"987sj","Last_Name__c":"sjld9","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":6.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000NrYVcQAN"},"Application__c":"a0o0P00000Isg1AQAR","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Isg1AQAR"},"Name":"APP-00255019","Id":"a0o0P00000Isg1AQAR","General_Lottery__c":true,"General_Lottery_Rank__c":7.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0EQGQA3"},"First_Name__c":"Jesse","Last_Name__c":"Arnold","Email__c":"jesse.james@exygy.com","Phone__c":"6462481112","Residence_Address__c":"4106
+        TERRACE ST, OAKLAND, CA, 94611","Mailing_Address__c":null},"Processing_Status__c":"Appealed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":7.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtXcQAJ"},"Application__c":"a0o0P00000ItlloQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlloQAB"},"Name":"APP-00271348","Id":"a0o0P00000ItlloQAB","General_Lottery__c":true,"General_Lottery_Rank__c":8.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m26QAB"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":8.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJZbQAP"},"Application__c":"a0o0P00000GZawFQAT","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZawFQAT"},"Name":"APP-00243687","Id":"a0o0P00000GZawFQAT","General_Lottery__c":true,"General_Lottery_Rank__c":9.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qFpQAJ"},"First_Name__c":"Lappy","Last_Name__c":"Laptest","Email__c":"lappyt@email.com","Phone__c":"4155551122","Residence_Address__c":"333
+        BUSH ST, SAN FRANCISCO, CA, 94104-2806","Mailing_Address__c":"333 BUSH ST,
+        SAN FRANCISCO, CA, 94104-2806"},"Processing_Status__c":"Processing"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":9.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtdCQAR"},"Application__c":"a0o0P00000ItlpdQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpdQAB"},"Name":"APP-00271363","Id":"a0o0P00000ItlpdQAB","General_Lottery__c":true,"General_Lottery_Rank__c":10.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m55QAB"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":"Appealed"},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":10.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtXqQAJ"},"Application__c":"a0o0P00000ItllyQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItllyQAB"},"Name":"APP-00271350","Id":"a0o0P00000ItllyQAB","General_Lottery__c":true,"General_Lottery_Rank__c":11.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m2LQAR"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":11.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtXjQAJ"},"Application__c":"a0o0P00000ItlltQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlltQAB"},"Name":"APP-00271349","Id":"a0o0P00000ItlltQAB","General_Lottery__c":true,"General_Lottery_Rank__c":12.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m2GQAR"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":12.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtXLQAZ"},"Application__c":"a0o0P00000ItlleQAB","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlleQAB"},"Name":"APP-00271346","Id":"a0o0P00000ItlleQAB","General_Lottery__c":true,"General_Lottery_Rank__c":13.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m1mQAB"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":13.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OrtX9QAJ"},"Application__c":"a0o0P00000ItllUQAR","Application__r":{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItllUQAR"},"Name":"APP-00271344","Id":"a0o0P00000ItllUQAR","General_Lottery__c":true,"General_Lottery_Rank__c":14.0,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m1XQAR"},"First_Name__c":"Some
+        first name","Last_Name__c":"Some last name","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Processing_Status__c":null},"Listing_ID__c":"a0W0P00000GbyuQ","Preference_Order__c":4.0,"Receives_Preference__c":false,"Preference_All_Name__c":"General","Preference_All_Lottery_Rank__c":14.0,"Post_Lottery_Validation__c":null,"Preference_Lottery_Rank__c":null,"LastModifiedDate":"2019-08-15T21:49:14.000+0000","Listing_Preference_ID__r":{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l0P00001Q1w1BQAR"},"Record_Type_For_App_Preferences__c":"L_W"}}]}'
+    http_version: 
+  recorded_at: Wed, 06 Nov 2019 18:22:48 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Application_Preference__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing_ID__c%20=%20%27a0W0P00000GbyuQ%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20((Preference_Lottery_Rank__c%20!=%20null%20and%20Receives_Preference__c%20=%20true)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20or%20(Preference_Name__c%20=%20%27Live%20or%20Work%20in%20San%20Francisco%20Preference%27%20and%20Application__r.General_Lottery_Rank__c%20!=%20null))%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20and%20Application__c%20IN%20(SELECT%20id%20FROM%20Application__c)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20)"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Nov 2019 18:22:48 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=b-iTxQDCEeqJAM_J-VRL5w;Path=/;Domain=.salesforce.com;Expires=Sun,
+        05-Jan-2020 18:22:48 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=7090/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":45,"done":true,"records":[]}'
+    http_version: 
+  recorded_at: Wed, 06 Nov 2019 18:22:48 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Nov 2019 18:22:49 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=cCavAgDCEeq-d4fXjPGX9A;Path=/;Domain=.salesforce.com;Expires=Sun,
+        05-Jan-2020 18:22:49 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1573064569600","signature":"OU6IZHl/cDqewp1Jkj6DBFptWb5hWIb3/SXnhNVY44g="}'
+    http_version: 
+  recorded_at: Wed, 06 Nov 2019 18:22:49 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20MAX(Processing_Date_Updated__c)%20Status_Last_Updated,%20Application__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Field_Update_Comment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20IN%20(%27a0o0P00000GZazsQAD%27,%20%27a0o0P00000IvMoaQAF%27,%20%27a0o0P00000IvWgcQAF%27,%20%27a0o0P00000Isnf4QAB%27,%20%27a0o0P00000IvWgXQAV%27,%20%27a0o0P00000IvWt8QAF%27,%20%27a0o0P00000GZaz9QAD%27,%20%27a0o0P00000IvMoaQAF%27,%20%27a0o0P00000IvWghQAF%27,%20%27a0o0P00000Isnf4QAB%27,%20%27a0o0P00000ItlpiQAB%27,%20%27a0o0P00000IvWt8QAF%27,%20%27a0o0P00000GZazOQAT%27,%20%27a0o0P00000GZazsQAD%27,%20%27a0o0P00000GZazOQAT%27,%20%27a0o0P00000GZaz9QAD%27,%20%27a0o0P00000GZazsQAD%27,%20%27a0o0P00000IvMoaQAF%27,%20%27a0o0P00000GZayuQAD%27,%20%27a0o0P00000Iv7H4QAJ%27,%20%27a0o0P00000IvWghQAF%27,%20%27a0o0P00000IvWgcQAF%27,%20%27a0o0P00000Isnf4QAB%27,%20%27a0o0P00000IvWtNQAV%27,%20%27a0o0P00000IvWgXQAV%27,%20%27a0o0P00000ItlpiQAB%27,%20%27a0o0P00000IvWt8QAF%27,%20%27a0o0P00000GZayuQAD%27,%20%27a0o0P00000Iv7H4QAJ%27,%20%27a0o0P00000Iv7H4QAJ%27,%20%27a0o0P00000IvWghQAF%27,%20%27a0o0P00000IvwNUQAZ%27,%20%27a0o0P00000Iw6S6QAJ%27,%20%27a0o0P00000Iw6S1QAJ%27,%20%27a0o0P00000Iw6RwQAJ%27,%20%27a0o0P00000Iw6RrQAJ%27,%20%27a0o0P00000Iw6RXQAZ%27,%20%27a0o0P00000Isg1AQAR%27,%20%27a0o0P00000ItlloQAB%27,%20%27a0o0P00000GZawFQAT%27,%20%27a0o0P00000ItlpdQAB%27,%20%27a0o0P00000ItllyQAB%27,%20%27a0o0P00000ItlltQAB%27,%20%27a0o0P00000ItlleQAB%27,%20%27a0o0P00000ItllUQAR%27)%0A%20%20%20%20%20%20%20%20%20%20GROUP%20BY%20Application__c%0A%20%20%20%20%20%20%20%20"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 06 Nov 2019 18:22:49 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=cHv6MADCEeqBEdcjo209Vg;Path=/;Domain=.salesforce.com;Expires=Sun,
+        05-Jan-2020 18:22:49 GMT;Max-Age=5184000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Sforce-Limit-Info:
+      - api-usage=7089/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":14,"done":true,"records":[{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2018-11-30T01:17:05.000+0000","Application__c":"a0o0P00000GZawFQAT"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:51:18.000+0000","Application__c":"a0o0P00000Iv7H4QAJ"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:49:46.000+0000","Application__c":"a0o0P00000IvWgcQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:48:41.000+0000","Application__c":"a0o0P00000GZaz9QAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:44:46.000+0000","Application__c":"a0o0P00000IvWgXQAV"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2018-12-06T21:36:28.000+0000","Application__c":"a0o0P00000ItlpdQAB"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:50:13.000+0000","Application__c":"a0o0P00000IvMoaQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-21T16:50:42.000+0000","Application__c":"a0o0P00000GZayuQAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:44:18.000+0000","Application__c":"a0o0P00000Isnf4QAB"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-10-22T21:45:16.000+0000","Application__c":"a0o0P00000IvWghQAF"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2018-12-06T21:33:26.000+0000","Application__c":"a0o0P00000Isg1AQAR"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-11-06T18:02:54.000+0000","Application__c":"a0o0P00000GZazsQAD"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-11-06T03:09:49.000+0000","Application__c":"a0o0P00000GZazOQAT"},{"attributes":{"type":"AggregateResult"},"Status_Last_Updated":"2019-08-09T19:41:08.000+0000","Application__c":"a0o0P00000IvWt8QAF"}]}'
+    http_version: 
+  recorded_at: Wed, 06 Nov 2019 18:22:49 GMT
 recorded_with: VCR 5.0.0
