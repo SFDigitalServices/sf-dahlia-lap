@@ -41,7 +41,7 @@ module Force
       builder.from(:Application_Preference__c)
              .select(query_fields(:app_preferences_for_listing))
              .where(%(
-                Listing_ID__c = '#{opts[:listing_id][0...-3]}'
+                Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
                 #{filters}
                 and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
                 or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
