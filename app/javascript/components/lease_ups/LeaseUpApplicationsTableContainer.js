@@ -64,9 +64,9 @@ const LeaseUpTableContainer = ({
       rowData.address = result.residence_address
     }
 
-    rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank || result.preference_all_lottery_rank}`
+    rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank}`
     var prefNum = parseFloat(result.preference_order)
-    var rankNum = parseFloat(result.preference_lottery_rank || result.preference_all_lottery_rank)
+    var rankNum = parseFloat(result.preference_lottery_rank)
     rowData.rankOrder = prefNum + (rankNum * 0.0001)
     return rowData
   }
