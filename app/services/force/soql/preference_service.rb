@@ -26,17 +26,24 @@ module Force
       private
 
       def buildAppPreferencesFilters(opts)
-        subQuery = ''
-        subQuery += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
-        subQuery += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
-        subQuery += "and Application__r.Applicant__r.First_Name__c = '#{opts[:first_name]}' " if opts[:first_name].present?
-        subQuery += "and Application__r.Applicant__r.Last_Name__c = '#{opts[:last_name]}' " if opts[:last_name].present?
-        subQuery += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
+        filters = ''
+        filters += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
+        filters += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
+        filters += "and Application__r.Applicant__r.First_Name__c = '#{opts[:first_name]}' " if opts[:first_name].present?
+        filters += "and Application__r.Applicant__r.Last_Name__c = '#{opts[:last_name]}' " if opts[:last_name].present?
+        filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
 
-        subQuery
+        filters
     end
 
     def app_preferences_for_listing_query(opts)
+      # The query for this was put together to combine the general
+      # preferences with all other preferences as general was not
+      # originally included as a preference name. Because of the
+      # complexity of the query we are dynamically adding filters
+      # within the WHERE clause with the helper function above. The
+      # Preference_All_Name and Preference_All_Lottery_Rank fields
+      # were added to bring all prefernces into the same query.
       filters = buildAppPreferencesFilters(opts)
       builder.from(:Application_Preference__c)
              .select(query_fields(:app_preferences_for_listing))
