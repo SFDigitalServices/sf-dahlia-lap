@@ -48,12 +48,23 @@ const removePreference = (form, i) => {
   form.change(FIELD_NAME, preferences)
 }
 
+const clearPreference = (form, i, target) => {
+  console.log('calling clear preference')
+  if (target === '') {
+    form.change(`preferences[${i}]`, {})
+    form.resetFieldState(`preferences`)
+  } else {
+    form.change(`preferences[${i}]`, {'listing_preference_id': target})
+    form.resetFieldState(`preferences`)
+  }
+}
+
 const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) => {
   const selectedPreference = findSelectedPreference(i, form, listingPreferences)
   const preferencesNotSelected = findPreferencesNotSelected(form, listingPreferences, selectedPreference)
   const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
-
+  console.log('form preference state', form.getState().values.preferences)
   return (
     <FormGroup>
       <Row>
@@ -63,6 +74,7 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
             fieldName={`${name}.listing_preference_id`}
             options={listingPreferencesOptions}
             id={`select-paper-preference-${i}`}
+            onChange={(event) => clearPreference(form, i, event.target.value)}
           />
         </Column>
         <PreferenceAdditionalOptions

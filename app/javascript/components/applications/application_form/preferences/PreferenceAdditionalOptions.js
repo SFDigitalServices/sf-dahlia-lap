@@ -13,8 +13,9 @@ import AliceGriffithFields from './AliceGriffithFields'
 const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPreferences, listingPreferenceID, individualPreference }) => {
   const preference = find(listingPreferences, { id: listingPreferenceID })
   const propsFields = { i, householdMembers }
-
+  console.log('getting pref additional options', listingPreferences)
   if (preference) {
+    console.log('Preference', preference)
     switch (preference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
         return <CertOfPreferenceFields {...propsFields} />
@@ -34,6 +35,7 @@ const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPrefere
         return <DefaultPreferenceFields {...propsFields} />
     }
   } else {
+    console.log('returning null')
     return null
   }
 }
