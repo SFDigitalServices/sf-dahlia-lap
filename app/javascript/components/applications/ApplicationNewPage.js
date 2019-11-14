@@ -23,7 +23,6 @@ const ApplicationNewPage = ({ listing, lendingInstitutions }) => {
   const pageHeader = {
     title: `New Application: ${listing.name}`
   }
-  console.log('listing', listing)
   return (
     <CardLayout pageHeader={pageHeader}>
       <ApplicationNewForm listing={listing} lendingInstitutions={lendingInstitutions} />

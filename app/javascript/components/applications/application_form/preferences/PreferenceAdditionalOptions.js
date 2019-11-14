@@ -13,7 +13,6 @@ import AliceGriffithFields from './AliceGriffithFields'
 const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPreferences, listingPreferenceID, individualPreference }) => {
   const preference = find(listingPreferences, { id: listingPreferenceID })
   const propsFields = { i, householdMembers }
-  console.log('getting pref additional options', listingPreferences)
   if (preference) {
     console.log('Preference', preference)
     switch (preference.lottery_preference.name) {
