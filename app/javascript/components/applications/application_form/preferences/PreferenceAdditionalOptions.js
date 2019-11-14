@@ -14,7 +14,6 @@ const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPrefere
   const preference = find(listingPreferences, { id: listingPreferenceID })
   const propsFields = { i, householdMembers }
   if (preference) {
-    console.log('Preference', preference)
     switch (preference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
         return <CertOfPreferenceFields {...propsFields} />
@@ -34,7 +33,6 @@ const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPrefere
         return <DefaultPreferenceFields {...propsFields} />
     }
   } else {
-    console.log('returning null')
     return null
   }
 }

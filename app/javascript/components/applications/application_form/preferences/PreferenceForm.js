@@ -55,8 +55,8 @@ const clearPreference = (form, i, target) => {
   } else {
     // Reset the form state for preference additional options
     // if they've been touched so they don't show errors
-    for (const field in form.getState().dirtyFields) {
-      if (field.startsWith('preference')) {
+    for (const field in form.getState().touched) {
+      if (field.startsWith(`preferences.${i}`)) {
         form.resetFieldState(field)
       }
     }
