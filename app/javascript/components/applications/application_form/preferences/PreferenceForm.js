@@ -49,13 +49,19 @@ const removePreference = (form, i) => {
 }
 
 const clearPreference = (form, i, target) => {
-  console.log('calling clear preference')
+  // If user switches to "Select One..." empty the preference state
   if (target === '') {
     form.change(`preferences[${i}]`, {})
-    form.resetFieldState(`preferences`)
   } else {
+    // Reset the form state for preference additional options
+    // if they've been touched so they don't show errors
+    for (const field in form.getState().dirtyFields) {
+      if (field.startsWith('preference')) {
+        form.resetFieldState(field)
+      }
+    }
+    // Keep the new listing preference id, but clear all other state.
     form.change(`preferences[${i}]`, {'listing_preference_id': target})
-    form.resetFieldState(`preferences`)
   }
 }
 
@@ -64,7 +70,6 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
   const preferencesNotSelected = findPreferencesNotSelected(form, listingPreferences, selectedPreference)
   const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
-  console.log('form preference state', form.getState().values.preferences)
   return (
     <FormGroup>
       <Row>
