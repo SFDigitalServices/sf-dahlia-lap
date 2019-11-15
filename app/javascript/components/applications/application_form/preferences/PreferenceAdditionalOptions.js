@@ -1,5 +1,4 @@
 import React from 'react'
-import { find } from 'lodash'
 
 import CertOfPreferenceFields from './CertOfPreferenceFields'
 import DisplacedFields from './DisplacedFields'
@@ -10,11 +9,10 @@ import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFiel
 import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
 
-const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPreferences, listingPreferenceID, individualPreference }) => {
-  const preference = find(listingPreferences, { id: listingPreferenceID })
+const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPreference }) => {
   const propsFields = { i, householdMembers }
-  if (preference) {
-    switch (preference.lottery_preference.name) {
+  if (listingPreference) {
+    switch (listingPreference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
         return <CertOfPreferenceFields {...propsFields} />
       case 'Neighborhood Resident Housing Preference (NRHP)':
@@ -22,7 +20,7 @@ const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPrefere
       case 'Displaced Tenant Housing Preference (DTHP)':
         return <DisplacedFields {...propsFields} />
       case 'Live or Work in San Francisco Preference':
-        return <LiveWorkFields individualPreference={individualPreference} {...propsFields} form={form} />
+        return <LiveWorkFields {...propsFields} form={form} />
       case 'Anti-Displacement Housing Preference (ADHP)':
         return <AntiDisplacementFields {...propsFields} />
       case 'Rent Burdened / Assisted Housing Preference':
