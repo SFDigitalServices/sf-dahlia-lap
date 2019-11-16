@@ -100,7 +100,6 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
               blockNote={blockNote} />
             <select {...input}
               onChange={(event) => {
-                console.log('calling onChange on smaller select', event.target.value)
                 input.onChange(event)
                 onChange && onChange(event)
               }}
