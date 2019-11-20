@@ -48,7 +48,9 @@ module Force
       end
 
       def submit(custom_api_attrs)
-        api_post('/LeasingAgentPortal/shortForm', application_defaults.merge(custom_api_attrs))
+        application_params = application_defaults.merge(custom_api_attrs)
+        api_post('/LeasingAgentPortal/shortForm', application_params)
+        application(application_params['id'])
       end
 
       private

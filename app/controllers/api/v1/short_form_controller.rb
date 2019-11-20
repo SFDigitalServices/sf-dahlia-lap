@@ -11,7 +11,9 @@ class Api::V1::ShortFormController < ApiController
     if short_form_validator.valid?
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
-      render json: { application: application }
+      updated_application = soql_application_service.application(application_api_params[:id])
+
+      render json: { application: updated_application }
     else
       render status: 422, json: { errors: short_form_validator.errors.full_messages }
     end
@@ -165,5 +167,9 @@ class Api::V1::ShortFormController < ApiController
 
   def custom_api_application_service
     Force::CustomApi::ApplicationService.new(current_user)
+  end
+
+  def soql_application_service
+    Force::Soql::ApplicationService.new(current_user)
   end
 end

@@ -58,7 +58,8 @@ const createFieldUpdateComment = async (data) => {
       ...(data.subStatus ? { Sub_Status__c: data.subStatus } : {})
     }
   }
-  return request.post('/field-update-comments/create', postData)
+  const { result } = await request.post('/field-update-comments/create', postData)
+  return result
 }
 
 const updatePreference = async (preference) => {

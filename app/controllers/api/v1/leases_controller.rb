@@ -29,10 +29,10 @@ module Api
 
       def update
         response = rest_lease_service.update(lease_params)
-
         if response
           logger.debug "lease update response: #{response}"
-          render json: { lease: response }
+          updated_lease = soql_lease_service.application_lease(params[:application_id])
+          render json: { lease: updated_lease }
         else
           render status: 422, json: false
         end
@@ -49,7 +49,7 @@ module Api
           :no_preference_used,
           :preference_used,
           :total_monthly_rent_without_parking,
-          :unit,
+          :unit
         )
       end
 

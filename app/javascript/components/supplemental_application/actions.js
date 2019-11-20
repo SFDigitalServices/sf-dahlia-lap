@@ -6,14 +6,18 @@ import { isEmpty, find, isEqual, every } from 'lodash'
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const promises = [updateLease(application['lease'], primaryApplicantContact, application['id'])]
-
   // Concat lease promise with rental assistances
   promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
   const applicationApi = domainToApi.buildApplicationShape(application)
   promises.push(apiService.submitApplication(applicationApi))
   const responses = await Promise.all(promises)
 
-  return every(responses, (promise) => promise !== false)
+  if (every(responses, (promise) => promise !== false)) {
+    const [ { lease }, { application } ] = responses
+    application.lease = lease
+    return application
+  }
+  return false
 }
 
 const updateUnsavedRentalAssistances = (application, prevApplication) => {
