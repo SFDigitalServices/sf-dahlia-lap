@@ -7,7 +7,7 @@ const application = {
     'last_name': 'jones',
     'middle_name': 'elizabeth',
     'name': 'karen elizabeth jones',
-    'date_of_birth': ['1950', '01', '01'],
+    'date_of_birth': {'year': '1950', 'month': '01', 'day': '01'},
     'phone_type': 'Cell',
     'phone': '9548883321',
     'second_phone_type': null,
@@ -30,7 +30,7 @@ const application = {
     'gender_other': 'gender other',
     'race': 'Decline to state',
     'sexual_orientation': 'Decline to state',
-    'sexual_orientation_other': 'sexual orientation other',
+    'sexual_orientation_other': 'sexual orientation other'
   },
   'alternate_contact': {
     'first_name': 'Federic',
@@ -94,22 +94,22 @@ const application = {
       'application_member_id': 'a0n0x000000AbE6AAK'
     },
     {
-      "zip_code": null,
-      "state": null,
-      "recordtype_developername": "NRHP",
-      "type_of_proof": null,
-      "post_lottery_validation": null,
-      "opt_out": false,
-      "lw_type_of_proof": null,
-      "listing_preference_id": "a0l0P00001QRQGzQAP",
+      'zip_code': null,
+      'state': null,
+      'recordtype_developername': 'NRHP',
+      'type_of_proof': null,
+      'post_lottery_validation': null,
+      'opt_out': false,
+      'lw_type_of_proof': null,
+      'listing_preference_id': 'a0l0P00001QRQGzQAP',
       'receives_preference': false,
-      "individual_preference": null,
-      "city": null,
-      "certificate_number": null,
-      "application_member_id": "a0n0x000000AbE6AAK",
-      "street": null,
-      "preference_name": "Neighborhood Resident Housing Preference (NRHP)"
-    },
+      'individual_preference': null,
+      'city': null,
+      'certificate_number': null,
+      'application_member_id': 'a0n0x000000AbE6AAK',
+      'street': null,
+      'preference_name': 'Neighborhood Resident Housing Preference (NRHP)'
+    }
   ],
   'proof_files': [
     {

@@ -1,4 +1,3 @@
-/* global wait */
 import React from 'react'
 import { clone } from 'lodash'
 import { mount } from 'enzyme'
@@ -63,14 +62,16 @@ describe('PaperApplicationForm', () => {
           onSubmit={() => (null)}
         />
       )
+      const altNameErrorSelector = 'Field[name="alternate_contact.first_name"] FieldError'
+
       await wrapper.find('form').first().simulate('submit')
       // Expect no errors since alternate contact is filled out with required values
-      expect(wrapper.text()).not.toContain('Please enter a First Name')
+      expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toBeUndefined()
 
       // Delete alt contact first name and expect validation
       wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
       wrapper.find('form').first().simulate('submit')
-      expect(wrapper.text()).toContain('Please enter a First Name')
+      expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toEqual('Please enter a First Name')
 
       // Remove all values and expect the validation to go away
       wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
@@ -78,7 +79,7 @@ describe('PaperApplicationForm', () => {
       wrapper.find('#alt_last_name input').simulate('change', { target: { value: '' } })
       wrapper.find('[name="alternate_contact.email"] input').simulate('change', { target: { value: '' } })
       wrapper.find('form').first().simulate('submit')
-      expect(wrapper.text()).not.toContain('Please enter a First Name')
+      expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toBeUndefined()
     })
 
     test('Annual Income', async () => {
@@ -193,8 +194,6 @@ describe('PaperApplicationForm', () => {
       wrapper.find('input[name="terms_acknowledged"]').simulate('blur')
       wrapper.find('form').first().simulate('submit')
 
-      await wait(100)
-
       expect(wrapper.text()).not.toContain('Signature on Terms of Agreement is required')
     })
   })
@@ -269,6 +268,106 @@ describe('PaperApplicationForm', () => {
           expect(wrapper.find('#lending_agent select').props().value).toEqual('003U000001Wnp5gIAB')
         })
       })
+    })
+  })
+  describe('preferences section', () => {
+    // Helper function for updating preference select successfully
+    const updatePreference = async (wrapper, prefId) => {
+      await act(async () => {
+        await wrapper.find('#select-paper-preference-0 select').simulate('change', { target: { value: prefId } })
+      })
+      wrapper.update()
+    }
+
+    test('add preference button is disabled without primary applicant', async () => {
+      const wrapper = mount(
+        <PaperApplicationForm
+          listing={listing}
+          lendingInstitutions={{}}
+          onSubmit={() => (null)}
+        />
+      )
+      expect(wrapper.find('#add-preference-button').prop('disabled')).toEqual(true)
+    })
+
+    test('Should clear values on preference select change to null', async () => {
+      testApplication.preferences = [{}]
+      let wrapper
+      await act(async () => {
+        wrapper = mount(
+          <PaperApplicationForm
+            listing={listing}
+            lendingInstitutions={{}}
+            onSubmit={() => (null)}
+            application={testApplication}
+          />
+        )
+      })
+      // Select a preference to start with
+      const copPreferenceId = 'a0l0P00001Lx8XKQAZ'
+      const hhNaturalKey = 'karen,jones,1950-01-01'
+
+      await updatePreference(wrapper, copPreferenceId)
+
+      // Fill out a field in the preference
+      await wrapper.find('Field[name="preferences.0.naturalKey"] select').simulate('change', { target: { value: hhNaturalKey } })
+
+      // Verify that it's in the state
+      const expectedPreferenceValue = {
+        'listing_preference_id': copPreferenceId,
+        'recordtype_developername': 'COP',
+        'naturalKey': hhNaturalKey
+      }
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toMatchObject(expectedPreferenceValue)
+
+      // Change to no preference
+      await updatePreference(wrapper, '')
+      // Verify the state is cleared
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual({})
+    })
+
+    test('Should clear values on preference select change to other preference', async () => {
+      testApplication.preferences = [{}]
+      let wrapper
+      await act(async () => {
+        wrapper = mount(
+          <PaperApplicationForm
+            listing={listing}
+            lendingInstitutions={{}}
+            onSubmit={() => (null)}
+            application={testApplication}
+          />
+        )
+      })
+      // Select a preference to start with
+      const copPreferenceId = 'a0l0P00001Lx8XKQAZ'
+      const liveWorkPreferenceId = 'a0l0P00001Lx8XeQAJ'
+      const hhNaturalKey = 'karen,jones,1950-01-01'
+
+      await updatePreference(wrapper, copPreferenceId)
+
+      // Fill out a field in the preference
+      await wrapper.find('Field[name="preferences.0.naturalKey"] select').simulate('change', { target: { value: hhNaturalKey } })
+
+      // Verify that it's in the state
+      const expectedPreferenceValue = {
+        'listing_preference_id': copPreferenceId,
+        'recordtype_developername': 'COP',
+        'naturalKey': hhNaturalKey
+      }
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(expectedPreferenceValue)
+
+      // Change to different preference
+      await updatePreference(wrapper, liveWorkPreferenceId)
+      // Verify the state is cleared except for listing preference id
+      const expectedNewPreferenceValue = {
+        'listing_preference_id': liveWorkPreferenceId,
+        'recordtype_developername': 'L_W'
+      }
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(expectedNewPreferenceValue)
+
+      // Verify that naturalKey doesn't have any form errors.
+      expect(wrapper.find('Field[name="preferences.0.naturalKey"] FieldError .error').exists()).toEqual(false)
     })
   })
 })
