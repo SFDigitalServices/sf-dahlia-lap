@@ -130,7 +130,7 @@ const application = {
       'last_name': 'maradona',
       'middle_name': 'm',
       'relationship_to_applicant': null,
-      'date_of_birth': ['1976', '06', '11'],
+      'date_of_birth': {'year': '1976', 'month': '06', 'day': '11'},
       'street': '9 de julio',
       'city': 'buenos aires',
       'state': 'fl',

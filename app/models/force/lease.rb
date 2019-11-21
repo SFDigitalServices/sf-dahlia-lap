@@ -50,22 +50,5 @@ module Force
 
       domain_fields
     end
-
-    def self.date_to_domain(api_date)
-      # Convert string date into array
-      return nil if api_date.blank?
-      api_date.split('-')
-    end
-
-    def self.date_to_json(api_date)
-      date = date_to_domain(api_date)
-      { year: date[0], month: date[1], day: date[2] }
-    end
-
-    def self.date_to_salesforce(domain_date)
-      return nil unless domain_date&.any?(&:present?)
-      lease_date = Date.new(domain_date[0].to_i, domain_date[1].to_i, domain_date[2].to_i)
-      lease_date.strftime('%F')
-    end
   end
 end

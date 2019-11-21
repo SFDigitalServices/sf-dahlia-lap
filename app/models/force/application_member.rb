@@ -61,7 +61,7 @@ module Force
         ].compact.join(', ').strip
 
         # Date of birth
-        domain_fields.date_of_birth = @fields.custom_api.DOB&.split('-')
+        domain_fields.date_of_birth = self.class.date_to_json(@fields.custom_api.DOB) if @fields.custom_api.DOB
       end
 
       domain_fields

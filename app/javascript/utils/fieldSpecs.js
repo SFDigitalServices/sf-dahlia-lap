@@ -15,10 +15,16 @@ const getRenderType = (value) => {
   }
 }
 
+const dateIsJson = (date) => {
+  return (typeof date === 'object' && 'month' in date && 'day' in date && 'year' in date)
+}
+
 export const formatValue = (value, type) => {
   if (type === 'date') {
-    // Convert domain date array to string if needed
-    if (value && value.length === 3) { return moment(value.join('-'), utils.API_DATE_FORMAT).format('L') }
+    // Convert domain date object to string if needed
+    if (dateIsJson(value)) {
+      return moment(`${value.year}-${value.month}-${value.day}`, utils.API_DATE_FORMAT).format('L')
+    }
     return moment(value).format('L')
   } else {
     return value
