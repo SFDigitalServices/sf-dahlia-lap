@@ -9,30 +9,15 @@ import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap } from './values'
 import { FIELD_NAME, buildHouseholdMembersOptions } from './utils'
 
-const setRecordTypeDevName = (i, form, matched) => {
-  if (!!matched && matched.lottery_preference) {
-    const prefName = matched.lottery_preference.name
-    form.getState().values.preferences[i].recordtype_developername = recordTypeMap[prefName] || 'Custom'
-  }
-}
-
-const findSelectedPreference = (i, form, listingPreferences) => {
-  let selected = form.getState().values.preferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.id === selected.listing_preference_id)
-  setRecordTypeDevName(i, form, matched)
-  return selected
-}
-
-// omit any listingPreferences that are already selected, excluding the current one
-const findPreferencesNotSelected = (form, listingPreferences, selectedPreference) => {
-  return omitBy(listingPreferences, (listingPref) => {
+const buildListingPreferencesOptions = (form, listingPreferences, selectedId) => {
+  // Exclude preferences that are already present in application elsewhere
+  // The currently selected preference is a valid option
+  const preferenceOptions = omitBy(listingPreferences, (listingPref) => {
     let isSelected = find(form.getState().values.preferences, { listing_preference_id: listingPref.id })
-    return (isSelected && isSelected !== selectedPreference)
+    return (isSelected && isSelected.listing_preference_id !== selectedId)
   })
-}
 
-const buildListingPreferencesOptions = (preferencesNotSelected) => {
-  const listingPrefOptions = map(preferencesNotSelected, (listingPref) => {
+  const listingPrefOptions = map(preferenceOptions, (listingPref) => {
     return {
       value: listingPref.id,
       label: listingPref.lottery_preference.name,
@@ -48,10 +33,33 @@ const removePreference = (form, i) => {
   form.change(FIELD_NAME, preferences)
 }
 
+const clearPreference = (form, i, target) => {
+  // If user switches to "Select One..." empty the preference state
+  if (target === '') {
+    form.change(`preferences[${i}]`, {})
+  } else {
+    // Reset the form state for preference additional options
+    // if they've been touched so they don't show errors
+    for (const field in form.getState().touched) {
+      if (field.startsWith(`preferences.${i}`)) {
+        form.resetFieldState(field)
+      }
+    }
+    // Keep the new listing preference id, but clear all other state.
+    form.change(`preferences[${i}]`, {'listing_preference_id': target})
+  }
+}
+
 const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) => {
-  const selectedPreference = findSelectedPreference(i, form, listingPreferences)
-  const preferencesNotSelected = findPreferencesNotSelected(form, listingPreferences, selectedPreference)
-  const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
+  const selectedId = (form.getState().values.preferences[i] || {}).listing_preference_id
+  const selectedPreference = find(listingPreferences, pref => pref.id === selectedId)
+  const listingPreferencesOptions = buildListingPreferencesOptions(form, listingPreferences, selectedId)
+
+  // Set the hidden recordType DeveloperName value
+  if (!!selectedPreference && selectedPreference.lottery_preference) {
+    const prefName = selectedPreference.lottery_preference.name
+    form.change(`preferences[${i}].recordtype_developername`, recordTypeMap[prefName] || 'Custom')
+  }
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
@@ -63,14 +71,13 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
             fieldName={`${name}.listing_preference_id`}
             options={listingPreferencesOptions}
             id={`select-paper-preference-${i}`}
+            onChange={(event) => clearPreference(form, i, event.target.value)}
           />
         </Column>
         <PreferenceAdditionalOptions
           i={i}
           form={form}
-          listingPreferenceID={selectedPreference.listing_preference_id}
-          listingPreferences={listingPreferences}
-          individualPreference={selectedPreference.individual_preference}
+          listingPreference={selectedPreference}
           householdMembers={householdMembersOptions}
         />
       </Row>

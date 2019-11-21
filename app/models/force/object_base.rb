@@ -72,5 +72,17 @@ module Force
       return nil unless @fields.salesforce[field_name]
       salesforce_fields[field_name] = salesforce_fields[field_name].gsub(/[$,]/, '').to_f
     end
+
+    def self.date_to_json(api_date)
+      return nil if api_date.blank?
+      date = api_date.split('-')
+      { year: date[0], month: date[1], day: date[2] }
+    end
+
+    def self.date_to_salesforce(domain_date)
+      return nil unless !domain_date.blank? && %i[year month day].all? {|s| domain_date.key? s}
+      lease_date = Date.new(domain_date[:year].to_i, domain_date[:month].to_i, domain_date[:day].to_i)
+      lease_date.strftime('%F')
+    end
   end
 end

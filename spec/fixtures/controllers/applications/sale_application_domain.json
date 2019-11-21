@@ -46,11 +46,11 @@
     "last_name": "Sale Application",
     "first_name": "Automated Test",
     "email": "auto@test.com",
-    "date_of_birth": [
-      "1983",
-      "03",
-      "04"
-    ],
+    "date_of_birth": {
+      "year": "1983",
+      "month": "03",
+      "day": "04"
+    },
     "city": "San Francisco",
     "id": "a0n0P00000DXQcMQAX",
     "second_phone_type": null,
@@ -79,11 +79,11 @@
       "last_name": "Bob",
       "first_name": "Uncle",
       "email": null,
-      "date_of_birth": [
-        "1910",
-        "01",
-        "01"
-      ],
+      "date_of_birth": {
+        "year": "1910",
+        "month": "01",
+        "day": "01"
+      },
       "city": null,
       "id": "a0n1D000000nuDAQAY",
       "second_phone_type": null,
