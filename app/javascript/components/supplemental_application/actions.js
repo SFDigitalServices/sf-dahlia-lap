@@ -14,8 +14,10 @@ export const updateApplication = async (application, prevApplication) => {
 
   if (every(responses, (promise) => promise !== false)) {
     const [ { lease }, { application } ] = responses
-    application.lease = lease
-    return application
+    if (application) {
+      application.lease = lease
+      return application
+    }
   }
   return false
 }

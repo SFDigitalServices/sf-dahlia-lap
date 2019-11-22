@@ -43,7 +43,7 @@ describe('updateApplication', () => {
     const applicationDomain = mapApplication(supplementalApplication)
     const response = await updateApplication(applicationDomain)
 
-    expect(response).toEqual(true)
+    expect(response).not.toEqual(false)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(mockSupplementalSubmitPayload)
   })
@@ -60,7 +60,7 @@ describe('updateApplication', () => {
     }
 
     const response = await updateApplication(application)
-    expect(response).toEqual(true)
+    expect(response).not.toEqual(false)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(1)
   })
@@ -74,7 +74,7 @@ describe('updateApplication', () => {
       'lease': {}
     }
     const response = await updateApplication(application)
-    expect(response).toEqual(true)
+    expect(response).not.toEqual(false)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(0)
   })
@@ -95,7 +95,7 @@ describe('updateApplication', () => {
     application.rental_assistances[2] = {assistance_amount: 22, recipient: 'recipient3'}
 
     const response = await updateApplication(application, baseApplication)
-    expect(response).toEqual(true)
+    expect(response).not.toEqual(false)
     expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
     expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
   })
