@@ -221,7 +221,7 @@ describe('SupplementalApplicationPage', () => {
       const expectedLease = {
         'id': undefined,
         'unit': 'id1',
-        'lease_start_date': ['2019', '1', '12'],
+        'lease_start_date': {'year': '2019', 'month': '1', 'day': '12'},
         'no_preference_used': false,
         'preference_used': 'testValidPref',
         'total_monthly_rent_without_parking': 1,

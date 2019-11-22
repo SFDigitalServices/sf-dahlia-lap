@@ -44,11 +44,11 @@
     "last_name": "(do not modify)",
     "first_name": "Automated Test Lease Up A",
     "email": "tessiel@email.com",
-    "date_of_birth": [
-      "1989",
-      "01",
-      "05"
-    ],
+    "date_of_birth": {
+      "year": "1989",
+      "month": "01",
+      "day": "05"
+    },
     "city": "Testville",
     "id": "a0n0P00000D3qIZQAZ",
     "second_phone_type": null,
