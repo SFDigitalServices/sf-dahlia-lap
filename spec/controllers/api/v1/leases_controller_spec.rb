@@ -22,7 +22,7 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['lease']).to eq(true) # update returns true
+      expect(json['lease']).not_to eq(false)
     end
     it 'creates a new lease if application doesn\'t have lease' do
       VCR.use_cassette('api/v1/leases/create/app-without-lease') do
@@ -55,7 +55,7 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['lease']).to eq(true) # update returns true
+      expect(json['lease']).not_to eq(false)
     end
   end
 end
