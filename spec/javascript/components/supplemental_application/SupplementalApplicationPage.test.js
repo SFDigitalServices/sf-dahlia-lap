@@ -17,9 +17,9 @@ window.scrollTo = jest.fn()
 
 jest.mock('apiService', () => {
   return {
-    submitApplication: async (data) => {
-      mockSubmitApplication(data)
-      return true
+    submitApplication: async (application) => {
+      mockSubmitApplication(application)
+      return { application }
     },
     updateApplication: async (data) => {
       mockUpdateApplication(data)
@@ -32,9 +32,9 @@ jest.mock('apiService', () => {
     getAMI: async (data) => {
       return { ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }] }
     },
-    createOrUpdateLease: async (data) => {
-      mockCreateOrUpdateLease(data)
-      return true
+    createOrUpdateLease: async (lease) => {
+      mockCreateOrUpdateLease(lease)
+      return { lease }
     }
   }
 })

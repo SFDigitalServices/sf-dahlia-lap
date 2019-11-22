@@ -147,7 +147,7 @@ class SupplementalApplicationPage extends React.Component {
       ...(subStatus ? { subStatus } : {})
     }
 
-    const updatedApplication = await updateApplication(fromApplication, this.state.application)
+    const updatedApplication = await updateApplication(fromApplication, application)
     const updatedStatusHistory = updatedApplication !== false ? await apiService.createFieldUpdateComment(data) : null
 
     if (updatedApplication === false || (updatedStatusHistory === false || updatedStatusHistory.length === 0)) {
@@ -159,12 +159,12 @@ class SupplementalApplicationPage extends React.Component {
       })
       this.setState({loading: false})
     } else {
-      this.updateStatusModal({loading: false, isOpen: false})
+      console.log(setApplicationsDefaults(mapApplication(updatedApplication)))
       this.setState({
         application: setApplicationsDefaults(mapApplication(updatedApplication)),
         statusHistory: mapList(mapFieldUpdateComment, updatedStatusHistory),
         loading: false
-      })
+      }, () => this.updateStatusModal({loading: false, isOpen: false}))
     }
   }
 

@@ -10,14 +10,14 @@ const mockCreateRentalFn = jest.fn()
 const mockUpdateRentalFn = jest.fn()
 
 jest.mock('apiService', () => {
-  const mockSubmitApplication = async (data) => {
-    mockSubmitAppFn(data)
-    return true
+  const mockSubmitApplication = async (application) => {
+    mockSubmitAppFn(application)
+    return { application }
   }
 
-  const mockCreateOrUpdateLease = async (data) => {
-    mockSubmitLeaseFn(data)
-    return true
+  const mockCreateOrUpdateLease = async (lease) => {
+    mockSubmitLeaseFn(lease)
+    return { lease }
   }
 
   const mockCreateRental = async (data) => {
@@ -60,6 +60,7 @@ describe('updateApplication', () => {
     }
 
     const response = await updateApplication(application)
+
     expect(response).not.toEqual(false)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(1)
@@ -74,6 +75,7 @@ describe('updateApplication', () => {
       'lease': {}
     }
     const response = await updateApplication(application)
+
     expect(response).not.toEqual(false)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(0)
@@ -95,6 +97,7 @@ describe('updateApplication', () => {
     application.rental_assistances[2] = {assistance_amount: 22, recipient: 'recipient3'}
 
     const response = await updateApplication(application, baseApplication)
+
     expect(response).not.toEqual(false)
     expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
     expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
