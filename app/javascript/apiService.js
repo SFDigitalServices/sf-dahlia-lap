@@ -14,9 +14,9 @@ const updateFlaggedApplication = async (data) => {
   return response.result
 }
 
-const submitApplication = async (data) => {
+const submitApplication = async (data, isSupplemental = false) => {
   let postData = { application: data }
-  return request.post('/short-form/submit', postData)
+  return request.post(`/short-form/submit${isSupplemental ? '?supplemental=true' : ''}`, postData)
 }
 
 const fetchApplications = async ({ page, filters }) => {

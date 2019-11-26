@@ -9,7 +9,7 @@ export const updateApplication = async (application, prevApplication) => {
   // Concat lease promise with rental assistances
   promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
   const applicationApi = domainToApi.buildApplicationShape(application)
-  promises.push(apiService.submitApplication(applicationApi))
+  promises.push(apiService.submitApplication(applicationApi, true))
   const responses = await Promise.all(promises)
 
   if (every(responses, (promise) => promise !== false)) {

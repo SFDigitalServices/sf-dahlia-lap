@@ -11,9 +11,12 @@ class Api::V1::ShortFormController < ApiController
     if short_form_validator.valid?
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
-      updated_application = soql_application_service.application(application_api_params[:id])
+      if params[:supplemental]
+        application = soql_application_service.application(application[:id] || application_api_params[:id])
+        logger.debug "updated application: #{application}"
+      end
 
-      render json: { application: updated_application }
+      render json: { application: application }
     else
       render status: 422, json: { errors: short_form_validator.errors.full_messages }
     end
@@ -163,6 +166,10 @@ class Api::V1::ShortFormController < ApiController
             :Id,
             :Application_Submission_Type__c,
           )
+  end
+
+  def application_query_params
+    params
   end
 
   def custom_api_application_service
