@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactTable from 'react-table'
 import { trim } from 'lodash'
 
@@ -45,6 +45,12 @@ const PreferenceRankCell = ({cell}) => {
 }
 
 const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage, atMaxPages }) => {
+  const [currentPage, setCurrentPage] = useState(0)
+
+  useEffect(() => {
+    setCurrentPage(0)
+  }, [pages])
+
   const maxPagesMsg = `Unfortunately, we can only display the first ${MAX_SERVER_LIMIT / rowsPerPage} pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
@@ -107,6 +113,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       manual
       className='rt-table-status'
       data={dataSet}
+      page={currentPage}
       pages={pages}
       columns={columns}
       getTdProps={getTdProps}
@@ -114,7 +121,10 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       defaultPageSize={rowsPerPage}
       sortable={false}
       loading={loading}
-      onFetchData={onFetchData}
+      onFetchData={(state, instance) => {
+        setCurrentPage(state.page)
+        onFetchData(state, instance)
+      }}
       noDataText={noDataMsg}
       getPaginationProps={getPaginationProps}
     />
