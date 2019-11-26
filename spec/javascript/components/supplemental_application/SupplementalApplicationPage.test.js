@@ -76,7 +76,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves expected values if no changes are made', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload)
+    const payload = cloneDeep(mockShortFormSubmitPayload())
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -109,7 +109,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves demographics correctly', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload)
+    const payload = cloneDeep(mockShortFormSubmitPayload((true)))
     payload.numberOfDependents = '2'
     payload.numberOfSeniors = '3'
     payload.numberOfMinors = '4'
@@ -138,7 +138,7 @@ describe('SupplementalApplicationPage', () => {
 
   test('it saves an application preference panel', async () => {
     const withValidPreferences = cloneDeep(supplementalApplication)
-    const payload = cloneDeep(mockShortFormSubmitPayload)
+    const payload = cloneDeep(mockShortFormSubmitPayload())
 
     merge(payload.shortFormPreferences[0], {
       appMemberID: 'xxx',
