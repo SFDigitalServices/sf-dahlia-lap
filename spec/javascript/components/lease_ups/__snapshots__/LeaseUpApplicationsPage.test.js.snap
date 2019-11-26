@@ -1357,6 +1357,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                 ofText="of"
                 onFetchData={[Function]}
                 originalKey="_original"
+                page={0}
                 pageJumpText="jump to page"
                 pageSizeOptions={
                   Array [
