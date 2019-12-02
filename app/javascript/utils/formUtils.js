@@ -1,4 +1,4 @@
-import { isObjectLike, isArray, isEmpty } from 'lodash'
+import { isObjectLike, isArray } from 'lodash'
 
 const toOption = (item) => {
   if (isArray(item)) {
@@ -47,11 +47,6 @@ export const maxLengthMap = {
   gender_other: 100,
   sexual_orientation_other: 100,
   income: 16
-}
-
-export const reorderEmptyOptions = (options) => {
-  options.some((option, i) => isEmpty(option.value) && options.unshift(option) && options.splice(i + 1, 1))
-  return options
 }
 
 export default {
