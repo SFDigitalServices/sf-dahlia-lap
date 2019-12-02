@@ -1194,6 +1194,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value=""
                               />
                               <label
                                 className="form-label"
@@ -1223,6 +1224,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value=""
                               />
                               <label
                                 className="form-label"
@@ -1252,6 +1254,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value=""
                               />
                               <label
                                 className="form-label"
@@ -1742,6 +1745,7 @@ Array [
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="checkbox"
+                        value=""
                       />
                       <label
                         className="form-label"

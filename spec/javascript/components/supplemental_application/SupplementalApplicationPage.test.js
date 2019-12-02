@@ -109,7 +109,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves demographics correctly', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload((true)))
+    const payload = cloneDeep(mockShortFormSubmitPayload())
     payload.numberOfDependents = '2'
     payload.numberOfSeniors = '3'
     payload.numberOfMinors = '4'
