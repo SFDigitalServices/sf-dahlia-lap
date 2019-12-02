@@ -769,6 +769,10 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               options={
                                 Array [
                                   Object {
+                                    "label": "All Status",
+                                    "value": null,
+                                  },
+                                  Object {
                                     "label": "No Status",
                                     "value": "No Status",
                                   },
@@ -811,10 +815,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     "label": "Lease Signed",
                                     "style": "is-leased",
                                     "value": "Lease Signed",
-                                  },
-                                  Object {
-                                    "label": "All Status",
-                                    "value": null,
                                   },
                                 ]
                               }
@@ -871,10 +871,10 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                       value=""
                                     >
                                       <option
-                                        key=""
+                                        key="null"
                                         value=""
                                       >
-                                        Select One...
+                                        All Status
                                       </option>
                                       <option
                                         key="No Status"
@@ -923,12 +923,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                         value="Lease Signed"
                                       >
                                         Lease Signed
-                                      </option>
-                                      <option
-                                        key="null"
-                                        value=""
-                                      >
-                                        All Status
                                       </option>
                                     </select>
                                     <FieldError
