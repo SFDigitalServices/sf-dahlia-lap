@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-final-form'
 import { InputField, SelectField } from '~/utils/form/final_form/Field'
-import formUtils from '~/utils/formUtils'
+import formUtils, { reorderEmptyOptions } from '~/utils/formUtils'
 import LEASE_UP_STATUS_OPTIONS from '~/utils/statusUtils'
 import Loading from '~/components/molecules/Loading'
 import { clone } from 'lodash'
@@ -10,11 +10,11 @@ const statusFilterOptions = clone(LEASE_UP_STATUS_OPTIONS)
 statusFilterOptions.unshift({value: 'No Status', label: 'No Status'})
 statusFilterOptions.push({value: null, label: 'All Status'})
 
-const StatusOptions = formUtils.toOptions(statusFilterOptions)
+const StatusOptions = reorderEmptyOptions(formUtils.toOptions(statusFilterOptions))
 
 const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false }) => {
   preferences.push([null, 'All Preferences'], ['general', 'General'])
-  const preferenceOptions = formUtils.toOptions(preferences)
+  let preferenceOptions = reorderEmptyOptions(formUtils.toOptions(preferences))
 
   return (
     <Loading isLoading={loading}>
