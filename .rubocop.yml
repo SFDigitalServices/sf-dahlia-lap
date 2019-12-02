@@ -1,18 +1,18 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.6
   Include:
-    - '**/Rakefile'
-    - '**/config.ru'
-    - 'lib/tasks/**/*'
+    - "**/Rakefile"
+    - "**/config.ru"
+    - "lib/tasks/**/*"
   Exclude:
     - Gemfile*
-    - 'db/migrate/*'
-    - 'db/schema.rb'
-    - 'bin/**/*'
-    - 'vendor/bundle/**/*'
-    - 'node_modules/**/*'
-    - 'config/environments/production.rb'
-    - 'config/initializers/devise.rb'
+    - "db/migrate/*"
+    - "db/schema.rb"
+    - "bin/**/*"
+    - "vendor/bundle/**/*"
+    - "node_modules/**/*"
+    - "config/environments/production.rb"
+    - "config/initializers/devise.rb"
 
 # We don't care about method length, since we check method cyclomatic
 # complexity.
@@ -44,8 +44,8 @@ Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     # Using `[]` for string arrays instead of `()`, since normal arrays are
     # indicated with `[]` not `()`.
-    '%w': '[]'
-    '%W': '[]'
+    "%w": "[]"
+    "%W": "[]"
 
 Style/AndOr:
   # Whether `and` and `or` are banned only in conditionals (conditionals)
@@ -55,7 +55,7 @@ Style/AndOr:
 
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'app/controllers/**/*'
+    - "app/controllers/**/*"
 
 Style/ConditionalAssignment:
   Enabled: false
@@ -63,11 +63,11 @@ Style/ConditionalAssignment:
 Metrics/LineLength:
   Max: 140
   Exclude:
-    - 'config/routes.rb'
+    - "config/routes.rb"
 
 Metrics/BlockLength:
   Max: 25
   Exclude:
-    - 'config/routes.rb'
-    - 'spec/**/*_spec.rb'
-    - 'spec/support/**/*'
+    - "config/routes.rb"
+    - "spec/**/*_spec.rb"
+    - "spec/support/**/*"
