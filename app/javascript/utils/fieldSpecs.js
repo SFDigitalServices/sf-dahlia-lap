@@ -16,7 +16,7 @@ const getRenderType = (value) => {
 }
 
 const dateIsJson = (date) => {
-  return (typeof date === 'object' && 'month' in date && 'day' in date && 'year' in date)
+  return (date && typeof date === 'object' && 'month' in date && 'day' in date && 'year' in date)
 }
 
 export const formatValue = (value, type) => {
