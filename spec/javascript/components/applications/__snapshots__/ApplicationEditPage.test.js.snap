@@ -1614,6 +1614,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value={true}
                               />
                               <label
                                 className="form-label"
@@ -1643,6 +1644,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value={true}
                               />
                               <label
                                 className="form-label"
@@ -1672,6 +1674,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value={true}
                               />
                               <label
                                 className="form-label"
@@ -1694,6 +1697,89 @@ Array [
                 <h3>
                   Preferences
                 </h3>
+                <div
+                  className="border-bottom margin-bottom--2x"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <div
+                      className="row "
+                    >
+                      <div
+                        className="columns small-6  "
+                      >
+                        <label>
+                          Preference
+                        </label>
+                        <div
+                          className="form-group"
+                        >
+                          <select
+                            className=""
+                            id="select-paper-preference-0"
+                            name="preferences[0].listing_preference_id"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            value=""
+                          >
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XKQAZ"
+                            >
+                              Certificate of Preference (COP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XZQAZ"
+                            >
+                              Rent Burdened / Assisted Housing Preference
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XPQAZ"
+                            >
+                              Displaced Tenant Housing Preference (DTHP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XUQAZ"
+                            >
+                              Neighborhood Resident Housing Preference (NRHP)
+                            </option>
+                            <option
+                              value="a0l0P00001Lx8XeQAJ"
+                            >
+                              Live or Work in San Francisco Preference
+                            </option>
+                            <option
+                              value="a0l0P00001PsqDoQAJ"
+                            >
+                              Alice Griffith Housing Development Resident
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="row "
+                    >
+                      <div
+                        className="columns small-4  "
+                      >
+                        <button
+                          className="mb-4 btn btn-danger"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div
                   className="row"
                 >
@@ -2162,6 +2248,7 @@ Array [
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="checkbox"
+                        value={true}
                       />
                       <label
                         className="form-label"
@@ -3836,6 +3923,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value={true}
                               />
                               <label
                                 className="form-label"
@@ -3865,6 +3953,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value={true}
                               />
                               <label
                                 className="form-label"
@@ -3894,6 +3983,7 @@ Array [
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 type="checkbox"
+                                value={true}
                               />
                               <label
                                 className="form-label"
@@ -4721,6 +4811,7 @@ Array [
                         onChange={[Function]}
                         onFocus={[Function]}
                         type="checkbox"
+                        value={true}
                       />
                       <label
                         className="form-label"
