@@ -294,94 +294,66 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               }
                               placeholder="Preference"
                             >
-                              <ReactFinalForm(Field)
+                              <Field
                                 component="select"
                                 name="preference"
                                 parse={[Function]}
                               >
-                                <Field
-                                  component="select"
-                                  format={[Function]}
-                                  name="preference"
-                                  parse={[Function]}
-                                  reactFinalForm={
-                                    Object {
-                                      "batch": [Function],
-                                      "blur": [Function],
-                                      "change": [Function],
-                                      "destroyOnUnregister": false,
-                                      "focus": [Function],
-                                      "getFieldState": [Function],
-                                      "getRegisteredFields": [Function],
-                                      "getState": [Function],
-                                      "initialize": [Function],
-                                      "isValidationPaused": [Function],
-                                      "mutators": Object {},
-                                      "pauseValidation": [Function],
-                                      "registerField": [Function],
-                                      "reset": [Function],
-                                      "resetFieldState": [Function],
-                                      "resumeValidation": [Function],
-                                      "setConfig": [Function],
-                                      "submit": [Function],
-                                      "subscribe": [Function],
-                                    }
-                                  }
+                                <div
+                                  className="form-group"
                                 >
-                                  <div
-                                    className="form-group"
+                                  <Label
+                                    fieldName="preference"
+                                    id="form-preference"
+                                  />
+                                  <select
+                                    className=""
+                                    id="form-preference"
+                                    name="preference"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    value=""
                                   >
-                                    <Label
-                                      fieldName="preference"
-                                      id="form-preference"
-                                    />
-                                    <select
-                                      className=""
-                                      id="form-preference"
-                                      name="preference"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
+                                    <option
+                                      key="null"
                                       value=""
                                     >
-                                      <option
-                                        key="null"
-                                        value=""
-                                      >
-                                        Any Preference
-                                      </option>
-                                      <option
-                                        key="general"
-                                        value="general"
-                                      >
-                                        General
-                                      </option>
-                                    </select>
-                                    <FieldError
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
+                                      Any Preference
+                                    </option>
+                                    <option
+                                      key="general"
+                                      value="general"
+                                    >
+                                      General
+                                    </option>
+                                  </select>
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
                                       }
-                                    />
-                                  </div>
-                                </Field>
-                              </ReactFinalForm(Field)>
+                                    }
+                                  />
+                                </div>
+                              </Field>
                             </SelectField>
                           </div>
                           <div
@@ -391,116 +363,92 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               fieldName="application_number"
                               placeholder="Application Number"
                             >
-                              <ReactFinalForm(Field)
+                              <Field
                                 name="application_number"
                                 parse={[Function]}
                               >
-                                <Field
-                                  format={[Function]}
-                                  name="application_number"
-                                  parse={[Function]}
-                                  reactFinalForm={
-                                    Object {
-                                      "batch": [Function],
-                                      "blur": [Function],
-                                      "change": [Function],
-                                      "destroyOnUnregister": false,
-                                      "focus": [Function],
-                                      "getFieldState": [Function],
-                                      "getRegisteredFields": [Function],
-                                      "getState": [Function],
-                                      "initialize": [Function],
-                                      "isValidationPaused": [Function],
-                                      "mutators": Object {},
-                                      "pauseValidation": [Function],
-                                      "registerField": [Function],
-                                      "reset": [Function],
-                                      "resetFieldState": [Function],
-                                      "resumeValidation": [Function],
-                                      "setConfig": [Function],
-                                      "submit": [Function],
-                                      "subscribe": [Function],
-                                    }
-                                  }
+                                <div
+                                  className=""
                                 >
-                                  <div
-                                    className=""
+                                  <Label
+                                    fieldName="application_number"
+                                    id="form-application_number"
+                                  />
+                                  <Input
+                                    id="form-application_number"
+                                    input={
+                                      Object {
+                                        "checked": undefined,
+                                        "name": "application_number",
+                                        "onBlur": [Function],
+                                        "onChange": [Function],
+                                        "onFocus": [Function],
+                                        "value": "",
+                                      }
+                                    }
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                    placeholder="Application Number"
+                                    type="text"
                                   >
-                                    <Label
-                                      fieldName="application_number"
+                                    <input
+                                      className=""
                                       id="form-application_number"
-                                    />
-                                    <Input
-                                      id="form-application_number"
-                                      input={
-                                        Object {
-                                          "name": "application_number",
-                                          "onBlur": [Function],
-                                          "onChange": [Function],
-                                          "onFocus": [Function],
-                                          "value": "",
-                                        }
-                                      }
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
-                                      }
+                                      name="application_number"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
                                       placeholder="Application Number"
                                       type="text"
-                                    >
-                                      <input
-                                        className=""
-                                        id="form-application_number"
-                                        name="application_number"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Application Number"
-                                        type="text"
-                                        value=""
-                                      />
-                                    </Input>
-                                    <FieldError
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
-                                      }
+                                      value=""
                                     />
-                                  </div>
-                                </Field>
-                              </ReactFinalForm(Field)>
+                                  </Input>
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                  />
+                                </div>
+                              </Field>
                             </InputField>
                           </div>
                           <div
@@ -510,116 +458,92 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               fieldName="first_name"
                               placeholder="First Name"
                             >
-                              <ReactFinalForm(Field)
+                              <Field
                                 name="first_name"
                                 parse={[Function]}
                               >
-                                <Field
-                                  format={[Function]}
-                                  name="first_name"
-                                  parse={[Function]}
-                                  reactFinalForm={
-                                    Object {
-                                      "batch": [Function],
-                                      "blur": [Function],
-                                      "change": [Function],
-                                      "destroyOnUnregister": false,
-                                      "focus": [Function],
-                                      "getFieldState": [Function],
-                                      "getRegisteredFields": [Function],
-                                      "getState": [Function],
-                                      "initialize": [Function],
-                                      "isValidationPaused": [Function],
-                                      "mutators": Object {},
-                                      "pauseValidation": [Function],
-                                      "registerField": [Function],
-                                      "reset": [Function],
-                                      "resetFieldState": [Function],
-                                      "resumeValidation": [Function],
-                                      "setConfig": [Function],
-                                      "submit": [Function],
-                                      "subscribe": [Function],
-                                    }
-                                  }
+                                <div
+                                  className=""
                                 >
-                                  <div
-                                    className=""
+                                  <Label
+                                    fieldName="first_name"
+                                    id="form-first_name"
+                                  />
+                                  <Input
+                                    id="form-first_name"
+                                    input={
+                                      Object {
+                                        "checked": undefined,
+                                        "name": "first_name",
+                                        "onBlur": [Function],
+                                        "onChange": [Function],
+                                        "onFocus": [Function],
+                                        "value": "",
+                                      }
+                                    }
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                    placeholder="First Name"
+                                    type="text"
                                   >
-                                    <Label
-                                      fieldName="first_name"
+                                    <input
+                                      className=""
                                       id="form-first_name"
-                                    />
-                                    <Input
-                                      id="form-first_name"
-                                      input={
-                                        Object {
-                                          "name": "first_name",
-                                          "onBlur": [Function],
-                                          "onChange": [Function],
-                                          "onFocus": [Function],
-                                          "value": "",
-                                        }
-                                      }
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
-                                      }
+                                      name="first_name"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
                                       placeholder="First Name"
                                       type="text"
-                                    >
-                                      <input
-                                        className=""
-                                        id="form-first_name"
-                                        name="first_name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="First Name"
-                                        type="text"
-                                        value=""
-                                      />
-                                    </Input>
-                                    <FieldError
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
-                                      }
+                                      value=""
                                     />
-                                  </div>
-                                </Field>
-                              </ReactFinalForm(Field)>
+                                  </Input>
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                  />
+                                </div>
+                              </Field>
                             </InputField>
                           </div>
                           <div
@@ -629,116 +553,92 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               fieldName="last_name"
                               placeholder="Last Name"
                             >
-                              <ReactFinalForm(Field)
+                              <Field
                                 name="last_name"
                                 parse={[Function]}
                               >
-                                <Field
-                                  format={[Function]}
-                                  name="last_name"
-                                  parse={[Function]}
-                                  reactFinalForm={
-                                    Object {
-                                      "batch": [Function],
-                                      "blur": [Function],
-                                      "change": [Function],
-                                      "destroyOnUnregister": false,
-                                      "focus": [Function],
-                                      "getFieldState": [Function],
-                                      "getRegisteredFields": [Function],
-                                      "getState": [Function],
-                                      "initialize": [Function],
-                                      "isValidationPaused": [Function],
-                                      "mutators": Object {},
-                                      "pauseValidation": [Function],
-                                      "registerField": [Function],
-                                      "reset": [Function],
-                                      "resetFieldState": [Function],
-                                      "resumeValidation": [Function],
-                                      "setConfig": [Function],
-                                      "submit": [Function],
-                                      "subscribe": [Function],
-                                    }
-                                  }
+                                <div
+                                  className=""
                                 >
-                                  <div
-                                    className=""
+                                  <Label
+                                    fieldName="last_name"
+                                    id="form-last_name"
+                                  />
+                                  <Input
+                                    id="form-last_name"
+                                    input={
+                                      Object {
+                                        "checked": undefined,
+                                        "name": "last_name",
+                                        "onBlur": [Function],
+                                        "onChange": [Function],
+                                        "onFocus": [Function],
+                                        "value": "",
+                                      }
+                                    }
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                    placeholder="Last Name"
+                                    type="text"
                                   >
-                                    <Label
-                                      fieldName="last_name"
+                                    <input
+                                      className=""
                                       id="form-last_name"
-                                    />
-                                    <Input
-                                      id="form-last_name"
-                                      input={
-                                        Object {
-                                          "name": "last_name",
-                                          "onBlur": [Function],
-                                          "onChange": [Function],
-                                          "onFocus": [Function],
-                                          "value": "",
-                                        }
-                                      }
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
-                                      }
+                                      name="last_name"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
                                       placeholder="Last Name"
                                       type="text"
-                                    >
-                                      <input
-                                        className=""
-                                        id="form-last_name"
-                                        name="last_name"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Last Name"
-                                        type="text"
-                                        value=""
-                                      />
-                                    </Input>
-                                    <FieldError
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
-                                      }
+                                      value=""
                                     />
-                                  </div>
-                                </Field>
-                              </ReactFinalForm(Field)>
+                                  </Input>
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                  />
+                                </div>
+                              </Field>
                             </InputField>
                           </div>
                           <div
@@ -800,136 +700,108 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               }
                               placeholder="Status"
                             >
-                              <ReactFinalForm(Field)
+                              <Field
                                 component="select"
                                 name="status"
                                 parse={[Function]}
                               >
-                                <Field
-                                  component="select"
-                                  format={[Function]}
-                                  name="status"
-                                  parse={[Function]}
-                                  reactFinalForm={
-                                    Object {
-                                      "batch": [Function],
-                                      "blur": [Function],
-                                      "change": [Function],
-                                      "destroyOnUnregister": false,
-                                      "focus": [Function],
-                                      "getFieldState": [Function],
-                                      "getRegisteredFields": [Function],
-                                      "getState": [Function],
-                                      "initialize": [Function],
-                                      "isValidationPaused": [Function],
-                                      "mutators": Object {},
-                                      "pauseValidation": [Function],
-                                      "registerField": [Function],
-                                      "reset": [Function],
-                                      "resetFieldState": [Function],
-                                      "resumeValidation": [Function],
-                                      "setConfig": [Function],
-                                      "submit": [Function],
-                                      "subscribe": [Function],
-                                    }
-                                  }
+                                <div
+                                  className="form-group"
                                 >
-                                  <div
-                                    className="form-group"
+                                  <Label
+                                    fieldName="status"
+                                    id="form-status"
+                                  />
+                                  <select
+                                    className=""
+                                    id="form-status"
+                                    name="status"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    value=""
                                   >
-                                    <Label
-                                      fieldName="status"
-                                      id="form-status"
-                                    />
-                                    <select
-                                      className=""
-                                      id="form-status"
-                                      name="status"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
+                                    <option
+                                      key="null"
                                       value=""
                                     >
-                                      <option
-                                        key="null"
-                                        value=""
-                                      >
-                                        Any Status
-                                      </option>
-                                      <option
-                                        key="No Status"
-                                        value="No Status"
-                                      >
-                                        No Status
-                                      </option>
-                                      <option
-                                        key="Processing"
-                                        value="Processing"
-                                      >
-                                        Processing
-                                      </option>
-                                      <option
-                                        key="Withdrawn"
-                                        value="Withdrawn"
-                                      >
-                                        Withdrawn
-                                      </option>
-                                      <option
-                                        key="Appealed"
-                                        value="Appealed"
-                                      >
-                                        Appealed
-                                      </option>
-                                      <option
-                                        key="Waitlisted"
-                                        value="Waitlisted"
-                                      >
-                                        Waitlisted
-                                      </option>
-                                      <option
-                                        key="Disqualified"
-                                        value="Disqualified"
-                                      >
-                                        Disqualified
-                                      </option>
-                                      <option
-                                        key="Approved"
-                                        value="Approved"
-                                      >
-                                        Approved
-                                      </option>
-                                      <option
-                                        key="Lease Signed"
-                                        value="Lease Signed"
-                                      >
-                                        Lease Signed
-                                      </option>
-                                    </select>
-                                    <FieldError
-                                      meta={
-                                        Object {
-                                          "active": false,
-                                          "data": Object {},
-                                          "dirty": false,
-                                          "dirtySinceLastSubmit": false,
-                                          "error": undefined,
-                                          "initial": undefined,
-                                          "invalid": false,
-                                          "modified": false,
-                                          "pristine": true,
-                                          "submitError": undefined,
-                                          "submitFailed": false,
-                                          "submitSucceeded": false,
-                                          "submitting": false,
-                                          "touched": false,
-                                          "valid": true,
-                                          "visited": false,
-                                        }
+                                      Any Status
+                                    </option>
+                                    <option
+                                      key="No Status"
+                                      value="No Status"
+                                    >
+                                      No Status
+                                    </option>
+                                    <option
+                                      key="Processing"
+                                      value="Processing"
+                                    >
+                                      Processing
+                                    </option>
+                                    <option
+                                      key="Withdrawn"
+                                      value="Withdrawn"
+                                    >
+                                      Withdrawn
+                                    </option>
+                                    <option
+                                      key="Appealed"
+                                      value="Appealed"
+                                    >
+                                      Appealed
+                                    </option>
+                                    <option
+                                      key="Waitlisted"
+                                      value="Waitlisted"
+                                    >
+                                      Waitlisted
+                                    </option>
+                                    <option
+                                      key="Disqualified"
+                                      value="Disqualified"
+                                    >
+                                      Disqualified
+                                    </option>
+                                    <option
+                                      key="Approved"
+                                      value="Approved"
+                                    >
+                                      Approved
+                                    </option>
+                                    <option
+                                      key="Lease Signed"
+                                      value="Lease Signed"
+                                    >
+                                      Lease Signed
+                                    </option>
+                                  </select>
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
                                       }
-                                    />
-                                  </div>
-                                </Field>
-                              </ReactFinalForm(Field)>
+                                    }
+                                  />
+                                </div>
+                              </Field>
                             </SelectField>
                           </div>
                           <div
