@@ -6,15 +6,15 @@ import LEASE_UP_STATUS_OPTIONS from '~/utils/statusUtils'
 import Loading from '~/components/molecules/Loading'
 import { clone } from 'lodash'
 
-const statusFilterOptions = clone(LEASE_UP_STATUS_OPTIONS)
-statusFilterOptions.unshift({value: 'No Status', label: 'No Status'})
-statusFilterOptions.push({value: null, label: 'All Status'})
+const statusFilterOptions = [
+  ...[{value: null, label: 'Any Status'}, {value: 'No Status', label: 'No Status'}],
+  ...clone(LEASE_UP_STATUS_OPTIONS)
+]
 
 const StatusOptions = formUtils.toOptions(statusFilterOptions)
 
 const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false }) => {
-  preferences.push([null, 'All Preferences'], ['general', 'General'])
-  const preferenceOptions = formUtils.toOptions(preferences)
+  const preferenceOptions = formUtils.toOptions([[null, 'Any Preference'], ...preferences, ['general', 'General']])
 
   return (
     <Loading isLoading={loading}>

@@ -236,16 +236,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                 },
                 "loading": false,
                 "pages": NaN,
-                "preferences": Array [
-                  Array [
-                    null,
-                    "All Preferences",
-                  ],
-                  Array [
-                    "general",
-                    "General",
-                  ],
-                ],
+                "preferences": Array [],
                 "rowsPerPage": 20,
                 "statusModal": Object {
                   "applicationId": null,
@@ -262,18 +253,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
             <LeaseUpApplicationsFilter
               loading={false}
               onSubmit={[Function]}
-              preferences={
-                Array [
-                  Array [
-                    null,
-                    "All Preferences",
-                  ],
-                  Array [
-                    "general",
-                    "General",
-                  ],
-                ]
-              }
+              preferences={Array []}
             >
               <Loading
                 isLoading={false}
@@ -303,7 +283,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               options={
                                 Array [
                                   Object {
-                                    "label": "All Preferences",
+                                    "label": "Any Preference",
                                     "value": null,
                                   },
                                   Object {
@@ -339,7 +319,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                       key="null"
                                       value=""
                                     >
-                                      All Preferences
+                                      Any Preference
                                     </option>
                                     <option
                                       key="general"
@@ -669,6 +649,10 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               options={
                                 Array [
                                   Object {
+                                    "label": "Any Status",
+                                    "value": null,
+                                  },
+                                  Object {
                                     "label": "No Status",
                                     "value": "No Status",
                                   },
@@ -712,10 +696,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     "style": "is-leased",
                                     "value": "Lease Signed",
                                   },
-                                  Object {
-                                    "label": "All Status",
-                                    "value": null,
-                                  },
                                 ]
                               }
                               placeholder="Status"
@@ -742,10 +722,10 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     value=""
                                   >
                                     <option
-                                      key=""
+                                      key="null"
                                       value=""
                                     >
-                                      Select One...
+                                      Any Status
                                     </option>
                                     <option
                                       key="No Status"
@@ -794,12 +774,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                       value="Lease Signed"
                                     >
                                       Lease Signed
-                                    </option>
-                                    <option
-                                      key="null"
-                                      value=""
-                                    >
-                                      All Status
                                     </option>
                                   </select>
                                   <FieldError
