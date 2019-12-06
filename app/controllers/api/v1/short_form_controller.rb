@@ -11,6 +11,7 @@ class Api::V1::ShortFormController < ApiController
     if short_form_validator.valid?
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
+      # if submitting a supplemental application we will re-fetch updated data from salesforce
       if params[:supplemental]
         application = soql_application_service.application(application[:id] || application_api_params[:id])
         logger.debug "updated application: #{application}"
@@ -166,10 +167,6 @@ class Api::V1::ShortFormController < ApiController
             :Id,
             :Application_Submission_Type__c,
           )
-  end
-
-  def application_query_params
-    params
   end
 
   def custom_api_application_service

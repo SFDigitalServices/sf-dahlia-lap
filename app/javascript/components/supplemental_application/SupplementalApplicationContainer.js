@@ -144,8 +144,7 @@ const SupplementalApplicationContainer = ({ store }) => {
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
-    openUpdateStatusModal,
-    statusHistory
+    openUpdateStatusModal
   } = store
 
   return (
@@ -186,7 +185,7 @@ const SupplementalApplicationContainer = ({ store }) => {
             <div className='button-pager'>
               <div className='button-pager_row align-buttons-left primary inset-wide'>
                 <StatusDropdown
-                  status={statusHistory && statusHistory[0] ? statusHistory[0].status : application.processing_status}
+                  status={application.processing_status}
                   onChange={(value) => !checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null}
                   buttonClasses={['small', 'has-status-width']}
                   wrapperClasses={['dropdown-inline']}

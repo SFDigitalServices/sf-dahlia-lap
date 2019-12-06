@@ -159,7 +159,6 @@ class SupplementalApplicationPage extends React.Component {
       })
       this.setState({loading: false})
     } else {
-      console.log(setApplicationsDefaults(mapApplication(updatedApplication)))
       this.setState({
         application: setApplicationsDefaults(mapApplication(updatedApplication)),
         statusHistory: mapList(mapFieldUpdateComment, updatedStatusHistory),
