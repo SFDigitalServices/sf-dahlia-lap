@@ -7987,7 +7987,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 ]
                               }
                               onChange={[Function]}
-                              status="Approved"
                               wrapperClasses={
                                 Array [
                                   "dropdown-inline",
@@ -7997,7 +7996,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               <Dropdown
                                 buttonClasses={
                                   Array [
-                                    "is-approved",
+                                    "tertiary",
                                     "small",
                                     "has-status-width",
                                   ]
@@ -8054,7 +8053,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 }
                                 onChange={[Function]}
                                 prompt="Status"
-                                value="Approved"
                                 wrapperClasses={
                                   Array [
                                     "dropdown-inline",
@@ -8067,7 +8065,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                 >
                                   <button
                                     aria-expanded="true"
-                                    className="button dropdown-button has-icon--right text-align-left is-approved small has-status-width"
+                                    className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
                                     disabled={false}
                                     onClick={[Function]}
                                     type="button"
@@ -8081,7 +8079,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         />
                                       </svg>
                                     </span>
-                                    Approved
+                                    Status
                                   </button>
                                   <div
                                     aria-hidden="false"
@@ -8145,7 +8143,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "top": 40,
                                         }
                                       }
-                                      value="Approved"
                                     >
                                       <ul
                                         aria-activedescendant={true}
@@ -8284,13 +8281,13 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           label="Approved"
                                           onChange={[Function]}
                                           onKeyDown={[Function]}
-                                          selected={true}
+                                          selected={false}
                                           style="is-approved"
                                           value="Approved"
                                         >
                                           <li
-                                            aria-selected={true}
-                                            className="dropdown-menu_item is-selected is-approved"
+                                            aria-selected={false}
+                                            className="dropdown-menu_item is-approved"
                                             role="option"
                                           >
                                             <a

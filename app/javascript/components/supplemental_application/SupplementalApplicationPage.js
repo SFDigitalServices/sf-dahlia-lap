@@ -55,7 +55,6 @@ class SupplementalApplicationPage extends React.Component {
   handleSaveApplication = async (application) => {
     this.setLoading(true)
     const updatedApplication = await updateApplication(application, this.state.application)
-
     if (updatedApplication) {
       this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false })
     } else {
@@ -146,6 +145,7 @@ class SupplementalApplicationPage extends React.Component {
       applicationId: application.id,
       ...(subStatus ? { subStatus } : {})
     }
+    fromApplication.processing_status = status
 
     const updatedApplication = await updateApplication(fromApplication, application)
     const updatedStatusHistory = updatedApplication !== false ? await apiService.createFieldUpdateComment(data) : null
