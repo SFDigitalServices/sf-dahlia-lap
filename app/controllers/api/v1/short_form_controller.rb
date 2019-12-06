@@ -14,6 +14,7 @@ class Api::V1::ShortFormController < ApiController
       # if submitting a supplemental application we will re-fetch updated data from salesforce
       if params[:supplemental]
         application = soql_application_service.application(application[:id] || application_api_params[:id])
+        application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(application[:id] || application_api_params[:id])
         logger.debug "updated application: #{application}"
       end
 
@@ -175,5 +176,9 @@ class Api::V1::ShortFormController < ApiController
 
   def soql_application_service
     Force::Soql::ApplicationService.new(current_user)
+  end
+
+  def soql_rental_assistance_service
+    Force::Soql::RentalAssistanceService.new(current_user)
   end
 end
