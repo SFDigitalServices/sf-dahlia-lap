@@ -17,6 +17,7 @@ export const RentBurdenedPanel = ({ preferenceIndex }) => (
       </div>
     </FormItem>
     <FormItem>
+      {/* Total monthly rent is stored in the application, not the preference. */}
       <CurrencyField
         fieldName='total_monthly_rent'
         type='number'

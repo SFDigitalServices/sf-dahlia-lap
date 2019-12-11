@@ -16,6 +16,7 @@ module Api
         response = rest_application_service.update(application_params.merge(id: params[:id]))
         if response
           render json: true
+        end
       end
 
       private
