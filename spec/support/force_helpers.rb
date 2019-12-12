@@ -9,6 +9,7 @@ module ForceHelpers
   NOT_YET_RUN_LISTING_ID = 'a0W0P00000F8YG4UAN'
 
   LEASE_UP_APPLICATION_ID = 'a0o0P00000GZazOQAT'
+  LEASE_UP_PREFERENCE_ID = 'a0w0P00000OUJc3QAH' # preference is associated with application above
 
   SALE_APPLICATION_ID = 'a0o0P00000IWVdaQAH'
 
@@ -35,6 +36,10 @@ module ForceHelpers
 
   def lease_up_application_id
     LEASE_UP_APPLICATION_ID
+  end
+
+  def lease_up_preference_id
+    LEASE_UP_PREFERENCE_ID
   end
 
   def sale_application_id
