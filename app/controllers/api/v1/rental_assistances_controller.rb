@@ -24,7 +24,8 @@ module Api
         )
 
         if response
-          render json: true
+          updated_rental_assistances = soql_rental_assistance_service.application_rental_assistances(params[:application_id])
+          render json: { rental_assistances: updated_rental_assistances }
         else
           render status: 422, json: false
         end
@@ -48,6 +49,10 @@ module Api
 
       def custom_api_rental_assistance_service
         Force::CustomApi::RentalAssistanceService.new(current_user)
+      end
+
+      def soql_rental_assistance_service
+        Force::Soql::RentalAssistanceService.new(current_user)
       end
 
       def soql_lease_service
