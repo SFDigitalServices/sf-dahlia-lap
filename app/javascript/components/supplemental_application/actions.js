@@ -5,17 +5,25 @@ import { isEmpty, find, isEqual, every } from 'lodash'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
-  const promises = [updateLease(application['lease'], primaryApplicantContact, application['id'])]
-  // Concat lease promise with rental assistances
-  promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
-  const applicationApi = domainToApi.buildApplicationShape(application)
-  promises.push(apiService.submitApplication(applicationApi, true))
-  const responses = await Promise.all(promises)
 
-  if (every(responses, (promise) => promise !== false)) {
-    const [ { lease }, { application } ] = responses
+  const applicationApi = domainToApi.buildApplicationShape(application)
+
+  const initialResponses = await Promise.all([
+    updateLease(application['lease'], primaryApplicantContact, application['id']),
+    apiService.submitApplication(applicationApi, true)
+  ])
+
+  const rentalAssistanceResponses = await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))
+  let rentalAssistances = []
+  if (rentalAssistanceResponses && rentalAssistanceResponses.length >= 1) {
+    rentalAssistances = rentalAssistanceResponses[rentalAssistanceResponses.length - 1].rental_assistances
+  }
+
+  if (every(initialResponses, (promise) => promise !== false)) {
+    const [ { lease }, { application } ] = initialResponses
     if (application) {
       application.lease = lease
+      application.rental_assistances = rentalAssistances
       return application
     }
   }
@@ -36,6 +44,7 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
       promises.push(apiService.updateRentalAssistance(rentalAssistance, application.id))
     }
   })
+
   return promises
 }
 

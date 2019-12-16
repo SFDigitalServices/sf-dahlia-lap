@@ -27,7 +27,8 @@ module Force
         query_scope.query
       end
 
-      def application(id)
+      def application(id, opts = { include_lease: true })
+        puts opts
         application = query_first(%(
           SELECT #{query_fields(:show)}
           FROM Application__c
@@ -38,7 +39,9 @@ module Force
         application['preferences'] = app_preferences(id)
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
         application['household_members'] = app_household_members(application)
-        application['lease'] = soql_lease_service.application_lease(id)
+        if (opts[:include_lease])
+          application['lease'] = soql_lease_service.application_lease(id)
+        end
         application
       end
 

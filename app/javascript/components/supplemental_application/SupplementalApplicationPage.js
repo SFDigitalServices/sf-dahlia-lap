@@ -55,8 +55,11 @@ class SupplementalApplicationPage extends React.Component {
   handleSaveApplication = async (application) => {
     this.setLoading(true)
     const updatedApplication = await updateApplication(application, this.state.application)
+
     if (updatedApplication) {
-      this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false })
+      this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false }, () => {
+        this.handleCloseRentalAssistancePanel()
+      })
     } else {
       Alerts.error()
       this.setLoading(false)
@@ -149,6 +152,7 @@ class SupplementalApplicationPage extends React.Component {
 
     const updatedApplication = await updateApplication(fromApplication, application)
     const updatedStatusHistory = updatedApplication !== false ? await apiService.createFieldUpdateComment(data) : null
+    this.handleCloseRentalAssistancePanel()
 
     if (updatedApplication === false || (updatedStatusHistory === false || updatedStatusHistory.length === 0)) {
       this.updateStatusModal({
@@ -167,7 +171,9 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleCloseRentalAssistancePanel = () => {
+  handleCloseRentalAssistancePanel = (props) => {
+    console.log('HANDLE CLOSE')
+    console.log(props)
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 
