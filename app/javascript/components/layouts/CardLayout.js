@@ -12,7 +12,9 @@ const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
     document.body.classList.add('bg-snow')
   }, [])
 
-  if (tabSection && !tabSection.currentUrl) { tabSection.currentUrl = window.location.pathname }
+  // This gives us the url path with associated params
+  const currentUrl = window.location.href.split(window.location.host)[1]
+  if (tabSection && !tabSection.currentUrl) { tabSection.currentUrl = currentUrl }
   return (
     <React.Fragment>
       <PageHeader {...pageHeader} background='snow' />
