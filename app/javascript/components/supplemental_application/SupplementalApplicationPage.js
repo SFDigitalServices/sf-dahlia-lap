@@ -258,7 +258,7 @@ class SupplementalApplicationPage extends React.Component {
     if (this.state.supplementalAppTouched) {
       this.setState({ leaveConfirmationModal: { isOpen: true } })
     } else {
-      window.location.href = appPaths.toApplication(this.state.application.id)
+      window.location.href = appPaths.toLeaseUpShortForm(this.state.application.id)
     }
   }
 
@@ -286,7 +286,6 @@ class SupplementalApplicationPage extends React.Component {
       items: [
         {
           title: 'Short Form Application',
-          url: appPaths.toApplication(application.id),
           onClick: this.handleLeaveSuppAppTab
         },
         {
