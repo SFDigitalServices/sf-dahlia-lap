@@ -13,6 +13,7 @@ class ApplicationsController < ApplicationController
     @application = find_application(params[:id])
     @fields = soql_application_service.show_fields
     @file_base_url = file_base_url
+    @is_lease_up = params[:lease_up] == 'true'
   end
 
   def edit
