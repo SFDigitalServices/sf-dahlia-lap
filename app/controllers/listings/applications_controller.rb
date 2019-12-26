@@ -14,7 +14,7 @@ module Listings
     end
 
     def new
-      @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
+      @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
     end
 
     private
@@ -24,11 +24,11 @@ module Listings
     end
 
     def load_listing
-      @listing = listing_service.listing(params[:listing_id])
+      @listing = soql_listing_service.listing(params[:listing_id])
     end
 
-    def listing_service
-      Force::ListingService.new(current_user)
+    def soql_listing_service
+      Force::Soql::ListingService.new(current_user)
     end
 
     def soql_application_service
