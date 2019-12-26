@@ -158,7 +158,6 @@ describe('SupplementalApplicationPage', () => {
       )
     })
 
-    await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
     // Click edit to open up the panel
     await wrapper.find('.preferences-table .action-link').first().simulate('click')
     // Save the preference panel without making updates
