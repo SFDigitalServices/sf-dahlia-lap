@@ -67,7 +67,6 @@ Array [
         role="none"
       >
         <button
-          aria-selected={false}
           className="button-unstyled"
           onClick={[Function]}
           onFocus={[Function]}
@@ -80,16 +79,16 @@ Array [
         </button>
       </li>
       <li
-        className="tab-title"
+        className="tab-title active"
         role="none"
       >
         <a
-          aria-selected={false}
+          aria-selected={true}
           href="/applications/a0o0x000000OcOzAAK/supplementals"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="0"
+          tabIndex="-1"
         >
           Supplemental Information
         </a>
@@ -1765,14 +1764,13 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       }
       tabSection={
         Object {
-          "currentUrl": undefined,
           "items": Array [
             Object {
               "onClick": [Function],
               "title": "Short Form Application",
-              "url": "/applications/a0o0x000000OcOzAAK",
             },
             Object {
+              "active": true,
               "title": "Supplemental Information",
               "url": "/applications/a0o0x000000OcOzAAK/supplementals",
             },
@@ -1911,9 +1909,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
             Object {
               "onClick": [Function],
               "title": "Short Form Application",
-              "url": "/applications/a0o0x000000OcOzAAK",
             },
             Object {
+              "active": true,
               "title": "Supplemental Information",
               "url": "/applications/a0o0x000000OcOzAAK/supplementals",
             },
@@ -1929,9 +1927,9 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                 Object {
                   "onClick": [Function],
                   "title": "Short Form Application",
-                  "url": "/applications/a0o0x000000OcOzAAK",
                 },
                 Object {
+                  "active": true,
                   "title": "Supplemental Information",
                   "url": "/applications/a0o0x000000OcOzAAK/supplementals",
                 },
@@ -1943,21 +1941,18 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
               role="menubar"
             >
               <Tab
-                active={false}
-                key="/applications/a0o0x000000OcOzAAK"
+                key="Short Form Application"
                 linkRefs={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 title="Short Form Application"
-                url="/applications/a0o0x000000OcOzAAK"
               >
                 <li
                   className="tab-title"
                   role="none"
                 >
                   <button
-                    aria-selected={false}
                     className="button-unstyled"
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -1971,8 +1966,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                 </li>
               </Tab>
               <Tab
-                active={false}
-                key="/applications/a0o0x000000OcOzAAK/supplementals"
+                active={true}
+                key="Supplemental Information"
                 linkRefs={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
@@ -1980,16 +1975,16 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                 url="/applications/a0o0x000000OcOzAAK/supplementals"
               >
                 <li
-                  className="tab-title"
+                  className="tab-title active"
                   role="none"
                 >
                   <a
-                    aria-selected={false}
+                    aria-selected={true}
                     href="/applications/a0o0x000000OcOzAAK/supplementals"
                     onFocus={[Function]}
                     onKeyDown={[Function]}
                     role="menuitem"
-                    tabIndex="0"
+                    tabIndex="-1"
                   >
                     Supplemental Information
                   </a>

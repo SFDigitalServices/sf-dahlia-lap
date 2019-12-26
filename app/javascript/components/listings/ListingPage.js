@@ -10,10 +10,9 @@ const ListingPageDetails = ({ listing }) => {
 const ListingPage = ({ listing }) => {
   const tabs = {
     items: [
-      { title: 'Listing Details', url: `/listings/${listing.id}` },
+      { title: 'Listing Details', url: `/listings/${listing.id}`, active: true },
       { title: 'Applications', url: `/listings/${listing.id}/applications` }
-    ],
-    currentUrl: window.location.pathname
+    ]
   }
 
   return (

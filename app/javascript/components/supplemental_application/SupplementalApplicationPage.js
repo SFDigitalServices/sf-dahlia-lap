@@ -290,7 +290,8 @@ class SupplementalApplicationPage extends React.Component {
         },
         {
           title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(application.id)
+          url: appPaths.toApplicationSupplementals(application.id),
+          active: true
         }
       ]
     }

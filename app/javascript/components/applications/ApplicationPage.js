@@ -41,7 +41,7 @@ const ApplicationPage = (props) => {
 
     tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toLeaseUpShortForm(application.id) },
+        { title: 'Short Form Application', url: appPaths.toLeaseUpShortForm(application.id), active: true },
         { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
       ]
     }
