@@ -177,8 +177,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCloseRentalAssistancePanel = (props) => {
-    console.log('HANDLE CLOSE')
-    console.log(props)
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 

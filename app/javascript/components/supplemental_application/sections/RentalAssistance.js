@@ -250,7 +250,6 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
 }
 
 const RentalAssistance = ({ store, form, submitting }) => {
-  console.log(submitting)
   const {
     application,
     applicationMembers,
