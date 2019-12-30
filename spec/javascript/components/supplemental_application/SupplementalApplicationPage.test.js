@@ -86,7 +86,7 @@ describe('SupplementalApplicationPage', () => {
           units={units} />
       )
     })
-    await wrapper.find('form').first().simulate('submit')
+    await act(async () => { wrapper.find('form').first().simulate('submit') })
 
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
     expect(mockSubmitApplication).toHaveBeenCalledWith(payload)
@@ -128,7 +128,7 @@ describe('SupplementalApplicationPage', () => {
     wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
     wrapper.find('#demographics-minors select option[value=4]').simulate('change')
     wrapper.find('#demographics-marital-status select option[value="Domestic Partner"]').simulate('change')
-    wrapper.find('form').first().simulate('submit')
+    await act(async () => { wrapper.find('form').first().simulate('submit') })
 
     await wait(100)
 
@@ -136,22 +136,20 @@ describe('SupplementalApplicationPage', () => {
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
   })
 
-  test('it saves an application preference panel', async () => {
+  test('it saves a live/work application preference panel', async () => {
     const withValidPreferences = cloneDeep(supplementalApplication)
-    const payload = cloneDeep(mockShortFormSubmitPayload())
-
-    merge(payload.shortFormPreferences[0], {
-      appMemberID: 'xxx',
-      naturalKey: 'Bla,Ble,',
-      individualPreference: 'Live in SF'
-    })
-
     merge(withValidPreferences.preferences[0], {
       Preference_Name: 'Live or Work in San Francisco Preference',
       Individual_preference: 'Live in SF',
       Receives_Preference: true,
-      Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' }
+      'RecordType.DeveloperName': 'L_W',
+      LW_Type_of_Proof: 'Water bill',
+      Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' },
+      Id: 'preference_id',
+      Post_Lottery_Validation: 'Unconfirmed',
+      Name: 'AP-1234'
     })
+
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -162,13 +160,70 @@ describe('SupplementalApplicationPage', () => {
       )
     })
 
-    wrapper.find('.preferences-table .action-link').first().simulate('click')
-    wrapper.find('.preferences-table .save-panel-btn').simulate('click')
+    // Click edit to open up the panel
+    await wrapper.find('.preferences-table .action-link').first().simulate('click')
+    // Save the preference panel without making updates
+    await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
 
-    await wait(100)
+    const expectedPreferencePayload = {
+      id: 'preference_id',
+      application_member_id: 'xxx',
+      individual_preference: 'Live in SF',
+      type_of_proof: null,
+      lw_type_of_proof: 'Water bill',
+      post_lottery_validation: 'Unconfirmed'
+    }
 
+    expect(mockUpdateApplication.mock.calls.length).toBe(0)
+    expect(mockUpdatePreference.mock.calls.length).toBe(1)
+    // Additional fields are sent to the API, but these are the fields that we care about.
+    expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
+  })
+
+  test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
+    const withValidPreferences = cloneDeep(supplementalApplication)
+
+    merge(withValidPreferences.preferences[0], {
+      Preference_Name: 'Rent Burdened Assisted Housing',
+      Individual_preference: 'Rent Burdened',
+      Receives_Preference: true,
+      Type_of_proof: 'Lease and rent proof',
+      Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' },
+      Id: 'preference_id',
+      Post_Lottery_Validation: 'Unconfirmed',
+      Name: 'AP-1234',
+      'RecordType.DeveloperName': 'RB_AHP'
+    })
+
+    withValidPreferences.Id = 'application_id'
+    withValidPreferences.Total_Monthly_Rent = '50'
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={withValidPreferences}
+          statusHistory={statusHistory}
+        />
+      )
+    })
+
+    // Click edit to open up the panel
+    await wrapper.find('.preferences-table .action-link').first().simulate('click')
+    // Save the preference panel without making updates
+    await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
+
+    const expectedPreferencePayload = {
+      id: 'preference_id',
+      application_member_id: 'xxx',
+      individual_preference: 'Rent Burdened',
+      type_of_proof: 'Lease and rent proof',
+      lw_type_of_proof: null,
+      post_lottery_validation: 'Unconfirmed'
+    }
     expect(mockUpdateApplication.mock.calls.length).toBe(1)
     expect(mockUpdatePreference.mock.calls.length).toBe(1)
+    expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
+    expect(mockUpdateApplication).toHaveBeenCalledWith({'id': 'application_id', 'total_monthly_rent': '$50.00'})
   })
 
   describe('Lease Section', () => {
@@ -216,7 +271,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('[name="lease.monthly_tenant_contribution"] input').simulate('change', { target: { value: '$3' } })
 
       // Assert that they're sent to the API
-      await wrapper.find('form').first().simulate('submit')
+      await act(async () => { await wrapper.find('form').first().simulate('submit') })
 
       const expectedLease = {
         'id': undefined,
@@ -239,7 +294,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
 
       // Hit save
-      await wrapper.find('form').first().simulate('submit')
+      await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       // Verify that the API was called with null unit value
       expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)

@@ -67,10 +67,15 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSavePreference = async (preferenceIndex, formApplicationValues) => {
-    const responses = await Promise.all([
-      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
-      updatePreference(formApplicationValues.preferences[preferenceIndex])
-    ])
+    const preference = formApplicationValues.preferences[preferenceIndex]
+    let updates = [ updatePreference(preference) ]
+    // If updating a rent burdened preference, we need to independently
+    // update the rent on the application.
+    if (preference.individual_preference === 'Rent Burdened') {
+      updates.push(updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent))
+    }
+
+    const responses = await Promise.all(updates)
     const failed = some(responses, response => response === false)
 
     if (!failed) {
