@@ -28,7 +28,6 @@ module Force
       end
 
       def application(id, opts = { include_lease: true, include_rental_assistances: true })
-        puts opts
         application = query_first(%(
           SELECT #{query_fields(:show)}
           FROM Application__c
