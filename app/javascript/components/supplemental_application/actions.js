@@ -1,7 +1,7 @@
 import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
-import { isEmpty, find, isEqual, every } from 'lodash'
+import { isEmpty, find, isEqual, every, reject } from 'lodash'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
@@ -31,10 +31,12 @@ export const updateApplication = async (application, prevApplication) => {
 }
 
 const updateUnsavedRentalAssistances = (application, prevApplication) => {
-  if (isEmpty(application.rental_assistances)) return []
+  // remove any canceled or non filled out rental assistances. i.e. {}
+  const rentalAssistances = reject(application.rental_assistances, isEmpty)
+  if (isEmpty(rentalAssistances)) return []
   const promises = []
 
-  application.rental_assistances.forEach(rentalAssistance => {
+  rentalAssistances.forEach(rentalAssistance => {
     // update rental assistances without id (new) and changed
     if (isEmpty(rentalAssistance.id)) {
       promises.push(apiService.createRentalAssistance(rentalAssistance, application.id))
@@ -44,6 +46,11 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
       promises.push(apiService.updateRentalAssistance(rentalAssistance, application.id))
     }
   })
+  // if no promises have been pushed then we are not updating
+  // anything but already have the data we need so return the assistances
+  if (promises.length === 0) {
+    return [Promise.resolve({rental_assistances: rentalAssistances})]
+  }
 
   return promises
 }

@@ -76,7 +76,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves expected values if no changes are made', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload())
+    const payload = cloneDeep(mockShortFormSubmitPayload(true))
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -114,6 +114,7 @@ describe('SupplementalApplicationPage', () => {
     payload.numberOfSeniors = '3'
     payload.numberOfMinors = '4'
     payload.primaryApplicant.maritalStatus = 'Domestic Partner'
+    payload.rental_assistances = []
     let wrapper
     await act(async () => {
       wrapper = mount(

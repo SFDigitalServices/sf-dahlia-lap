@@ -76,7 +76,9 @@ const payload = {
          city: 'buenos aires',
          state: 'fl',
          zip: '33026',
-         relationship: 'Child' } ]
+         relationship: 'Child' } ],
+    lease: undefined,
+    rental_assistances: []
 }
 
 export default payload

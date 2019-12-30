@@ -90,7 +90,8 @@ const payload = (withLease = false) => ({
       primary_applicant_contact: "a0n0x000000AbE6AAK",
       total_monthly_rent_without_parking: null,
       unit: undefined,
-    }} : {})
+    }} : {}),
+    rental_assistances: []
   })
 
 export default payload
