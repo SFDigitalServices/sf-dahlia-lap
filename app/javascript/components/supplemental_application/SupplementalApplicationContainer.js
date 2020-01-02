@@ -18,6 +18,7 @@ import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate, { touchAllFields } from '~/utils/form/validations'
+import ParkingInformationInputs from './sections/ParkingInformationInputs'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -73,11 +74,17 @@ const ConfirmedHousehold = ({ listingAmiCharts, form }) => (
   </ContentSection>
 )
 
-const LeaseInformationSection = ({form}) => (
+const LeaseInformationSection = ({form, values}) => (
   <ContentSection title='Lease Information'>
-    <ContentSection.Content borderBottom>
+    <ContentSection.Sub
+      title='Unit'>
       <LeaseInformationInputs form={form} />
-    </ContentSection.Content>
+    </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Parking'
+      description='If the applicant will receive a below market rate parking space, indicate the monthly cost.'>
+      <ParkingInformationInputs form={form} values={values} />
+    </ContentSection.Sub>
   </ContentSection>
 )
 
@@ -153,7 +160,7 @@ const SupplementalApplicationContainer = ({ store }) => {
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}
-      render={({ handleSubmit, form, touched, submitting }) => (
+      render={({ handleSubmit, form, touched, submitting, values }) => (
         <React.Fragment>
           { failed && (
             <AlertBox
@@ -173,7 +180,7 @@ const SupplementalApplicationContainer = ({ store }) => {
               form={form}
             />
             <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
-            <LeaseInformationSection form={form} />
+            <LeaseInformationSection form={form} values={values} />
             <RentalAssistanceSection form={form} submitting={submitting} />
             <DemographicsSection />
             <ScrollableAnchor id={'status-history-section'}>

@@ -65,7 +65,7 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
   </Field>
 )
 
-export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength }) => (
+export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled }) => (
   <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={identity} formatOnBlur>
     {({ input, meta }) => (
       <React.Fragment>
@@ -79,14 +79,15 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
             type='text'
             placeholder={placeholder || '$0.00'}
             className={(meta.error && meta.touched && 'error') || ''}
-            maxLength={maxLength} />
+            maxLength={maxLength}
+            disabled={disabled} />
           <FieldError meta={meta} />
         </div>
       </React.Fragment>
     )}
   </Field>
 )
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue }) => (
   <Field name={fieldName} validate={validation} component='select' parse={identity}>
     {({ input, meta }) => {
       const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options)
@@ -106,6 +107,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
               id={id || `form-${fieldName}`}
               name={input.name}
               className={classNames(className, (meta.error && meta.touched && 'error') || '')}
+              {...(selectValue && { value: selectValue })}
               {...(disabled && { disabled })}>
               { selectOptions.map(({ value, label, disabled }) => (
                 <option key={value} value={value || ''} disabled={disabled}>{label}</option>
