@@ -13,13 +13,14 @@ const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
 const mockUpdatePreference = jest.fn()
 const mockCreateOrUpdateLease = jest.fn()
+const mockGetRentalAssistances = jest.fn()
 window.scrollTo = jest.fn()
 
 jest.mock('apiService', () => {
   return {
     submitApplication: async (application) => {
       mockSubmitApplication(application)
-      return { application }
+      return application
     },
     updateApplication: async (data) => {
       mockUpdateApplication(data)
@@ -34,7 +35,11 @@ jest.mock('apiService', () => {
     },
     createOrUpdateLease: async (lease) => {
       mockCreateOrUpdateLease(lease)
-      return { lease }
+      return lease
+    },
+    getRentalAssistances: async (applicationId) => {
+      mockGetRentalAssistances(applicationId)
+      return []
     }
   }
 })
