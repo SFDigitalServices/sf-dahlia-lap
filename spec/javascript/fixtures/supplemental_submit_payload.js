@@ -77,7 +77,7 @@ const payload = {
          state: 'fl',
          zip: '33026',
          relationship: 'Child' } ],
-    lease: undefined,
+    lease: true,
     rental_assistances: []
 }
 
