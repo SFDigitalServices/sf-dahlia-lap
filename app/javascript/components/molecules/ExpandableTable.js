@@ -36,7 +36,7 @@ const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, ex
   )
 }
 
-const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expandedRowRenderer, originals, classes, toggleAllRows }) => (
+const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expandedRowRenderer, originals, classes, closeAllRows }) => (
   <table className={classNames('td-light td-plain th-plain', classes)} role='grid'>
     <thead>
       <tr>
@@ -58,7 +58,7 @@ const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expande
           numColumns={columns.length}
           expanderRenderer={expanderRenderer}
           expandedRowRenderer={expandedRowRenderer}
-          closeRow={toggleAllRows} />
+          closeRow={closeAllRows} />
       ))}
     </tbody>
   </table>

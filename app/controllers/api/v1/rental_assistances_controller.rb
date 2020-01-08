@@ -6,6 +6,16 @@ module Api
     class RentalAssistancesController < ApiController
       before_action :find_or_create_application_lease, except: :destroy
 
+      def index
+        rental_assistances = soql_rental_assistance_service.application_rental_assistances(params[:application_id])
+
+        if rental_assistances
+          render json: { rental_assistances: rental_assistances }
+        else
+          render status: 422, json: false
+        end
+      end
+
       def create
         response = rest_rental_assistance_service.create(
           rental_assistance_params.merge(lease: @lease_id),
@@ -24,8 +34,7 @@ module Api
         )
 
         if response
-          updated_rental_assistances = soql_rental_assistance_service.application_rental_assistances(params[:application_id])
-          render json: { rental_assistances: updated_rental_assistances }
+          render json: true
         else
           render status: 422, json: false
         end

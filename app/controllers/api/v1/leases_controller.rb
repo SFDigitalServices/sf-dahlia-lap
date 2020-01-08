@@ -21,7 +21,8 @@ module Api
 
         if response
           logger.debug "lease create response: #{response}"
-          render json: { lease: response }
+          lease = soql_lease_service.application_lease(params[:application_id])
+          render json: { lease: lease }
         else
           render status: 422, json: false
         end
@@ -31,8 +32,8 @@ module Api
         response = rest_lease_service.update(lease_params)
         if response
           logger.debug "lease update response: #{response}"
-          updated_lease = soql_lease_service.application_lease(params[:application_id])
-          render json: { lease: updated_lease }
+          lease = soql_lease_service.application_lease(params[:application_id])
+          render json: { lease: lease }
         else
           render status: 422, json: false
         end

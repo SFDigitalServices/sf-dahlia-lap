@@ -5,25 +5,24 @@ import { isEmpty, find, isEqual, every, reject } from 'lodash'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
+  const applicationId = application['id']
 
   const applicationApi = domainToApi.buildApplicationShape(application)
-
+  // await lease and base application updates first
   const initialResponses = await Promise.all([
-    updateLease(application['lease'], primaryApplicantContact, application['id']),
+    updateLease(application['lease'], primaryApplicantContact, applicationId),
     apiService.submitApplication(applicationApi, true)
   ])
-
-  const rentalAssistanceResponses = await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))
-  let rentalAssistances = []
-  if (rentalAssistanceResponses && rentalAssistanceResponses.length >= 1) {
-    rentalAssistances = rentalAssistanceResponses[rentalAssistanceResponses.length - 1].rental_assistances
-  }
-
+  // next we update rental assistances if applicable
+  await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))
+  // then retrieve all rental assistances together instead of on each create/update
+  const rentalAssistances = await apiService.getRentalAssistances(applicationId)
+  // then combine our responses to rebuild the structure in the UI
   if (every(initialResponses, (promise) => promise !== false)) {
-    const [ { lease }, { application } ] = initialResponses
+    const [lease, application] = initialResponses
     if (application) {
       application.lease = lease
-      application.rental_assistances = rentalAssistances
+      application.rental_assistances = rentalAssistances || []
       return application
     }
   }
