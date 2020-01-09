@@ -365,7 +365,7 @@ DEPENDENCIES
   pg (~> 0.21.0)
   pry-byebug (~> 3.4.0)
   pry-rails
-  puma (~> 3.12)
+  puma (~> 3.12.2)
   rack (>= 2.0.6)
   rails (~> 5.1.6.1)
   rails-controller-testing
