@@ -14,9 +14,9 @@ const mockSubmitApplication = jest.fn()
 
 jest.mock('apiService', () => {
   return {
-    submitApplication: async (data) => {
-      mockSubmitApplication(data)
-      return true
+    submitApplication: async (application) => {
+      mockSubmitApplication(application)
+      return { application }
     }
   }
 })

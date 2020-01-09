@@ -5,7 +5,8 @@ class Api::V1::FieldUpdateCommentsController < ApiController
   before_action :authenticate_user!
 
   def create
-    result = service.create(field_update_comment_params)
+    service.create(field_update_comment_params)
+    result = service.status_history_by_application(field_update_comment_params[:Application__c])
     render json: { result: result }
   end
 

@@ -30,10 +30,8 @@ const testStatusModalUpdate = async (page) => {
       expect(response.status()).toBe(200)
     }
   })
-
-  // Wait for the page to reload after the status modal submit
-  await page.waitForNavigation()
-
+  // wait for modal overlay to be hidden after submit
+  await page.waitForSelector('.ReactModal__Overlay.ReactModal__Overlay--after-open', { hidden: true })
   // The latest status in the status history should be the status that was just selected and saved
   const latestStatus = await page.$eval('.status-list .status-list_item:last-child .status-list_tag', e => e.textContent)
   expect(latestStatus).toBe(newSelectedStatus)

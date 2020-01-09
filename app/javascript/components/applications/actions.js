@@ -3,18 +3,18 @@ import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 
-export const saveApplication = async (submitType, submittedValues, application, listing, editPage) => {
+export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
   const applicationData = domainToApi.buildApplicationShape(submittedValues)
   const response = await apiService.submitApplication(applicationData)
 
-  if (response === false) {
+  if (!response) {
     window.alert('An error has occurred. Please try to save again. Contact MOHCD if you still have problems.')
     return response
   }
 
   if (submitType === 'Save') {
     const showAddBtn = editPage ? '' : '?showAddBtn=true'
-    window.location.href = `/applications/${response.application.id}${showAddBtn}`
+    window.location.href = `/applications/${response.id}${showAddBtn}`
   } else {
     window.location.href = `/listings/${listing.id}/applications/new`
   }

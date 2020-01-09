@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNil, uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
+import { uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -18,9 +18,19 @@ const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
 }
 
+const setApplicationsDefaults = (application) => {
+  const applicationWithDefaults = cloneDeep(application)
+  // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
+  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
+    delete applicationWithDefaults.lease.preference_used
+  }
+  return applicationWithDefaults
+}
+
 class SupplementalApplicationPage extends React.Component {
   state = {
     application: this.props.application,
+    statusHistory: this.props.statusHistory,
     confirmedPreferencesFailed: false,
     supplementalAppTouched: false,
     listingAmiCharts: getListingAmiCharts(this.props.units),
@@ -44,11 +54,13 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    const response = await updateApplication(application, this.state.application)
 
-    if (response !== false) {
-      // Reload the page to pull updated data from Salesforce
-      window.location.reload()
+    const updatedApplication = await updateApplication(application, this.state.application)
+
+    if (updatedApplication) {
+      this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false }, () => {
+        this.handleCloseRentalAssistancePanel()
+      })
     } else {
       Alerts.error()
       this.setLoading(false)
@@ -142,10 +154,13 @@ class SupplementalApplicationPage extends React.Component {
       applicationId: application.id,
       ...(subStatus ? { subStatus } : {})
     }
-    const appResponse = await updateApplication(fromApplication, this.state.application)
-    const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
+    fromApplication.processing_status = status
 
-    if (appResponse === false || commentResponse === false) {
+    const updatedApplication = await updateApplication(fromApplication, application)
+    const updatedStatusHistory = updatedApplication !== false ? await apiService.createFieldUpdateComment(data) : null
+    this.handleCloseRentalAssistancePanel()
+
+    if (updatedApplication === false || (updatedStatusHistory === false || updatedStatusHistory.length === 0)) {
       this.updateStatusModal({
         loading: false,
         showAlert: true,
@@ -154,13 +169,15 @@ class SupplementalApplicationPage extends React.Component {
       })
       this.setState({loading: false})
     } else {
-      this.updateStatusModal({loading: false, isOpen: false})
-      // Reload the page to fetch the field update comment just created.
-      window.location.reload()
+      this.setState({
+        application: setApplicationsDefaults(mapApplication(updatedApplication)),
+        statusHistory: mapList(mapFieldUpdateComment, updatedStatusHistory),
+        loading: false
+      }, () => this.updateStatusModal({loading: false, isOpen: false}))
     }
   }
 
-  handleCloseRentalAssistancePanel = () => {
+  handleCloseRentalAssistancePanel = (props) => {
     this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 
@@ -276,8 +293,8 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render () {
-    const { statusHistory, fileBaseUrl, availableUnits } = this.props
-    const { leaveConfirmationModal, application } = this.state
+    const { fileBaseUrl, availableUnits } = this.props
+    const { leaveConfirmationModal, application, statusHistory } = this.state
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -337,24 +354,6 @@ class SupplementalApplicationPage extends React.Component {
       </Context.Provider>
     )
   }
-}
-
-const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
-  if (isNil(annualIncome) && !isNil(monthlyIncome)) {
-    return (monthlyIncome * 12).toFixed(2)
-  } else {
-    return annualIncome
-  }
-}
-
-const setApplicationsDefaults = (application) => {
-  const applicationWithDefaults = cloneDeep(application)
-  applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
-  // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
-  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
-    delete applicationWithDefaults.lease.preference_used
-  }
-  return applicationWithDefaults
 }
 
 const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {

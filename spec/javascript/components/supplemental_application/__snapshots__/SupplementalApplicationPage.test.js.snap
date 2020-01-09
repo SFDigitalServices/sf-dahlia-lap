@@ -6512,6 +6512,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "subscribe": [Function],
                             }
                           }
+                          submitting={false}
                         >
                           <Component
                             description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
@@ -6578,6 +6579,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "subscribe": [Function],
                                     }
                                   }
+                                  submitting={false}
                                 >
                                   <RentalAssistance
                                     form={
@@ -6900,6 +6902,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "supplementalAppTouched": false,
                                       }
                                     }
+                                    submitting={false}
                                   >
                                     <Button
                                       id="add-rental-assistance"
