@@ -60,9 +60,10 @@ const updateLease = async (lease, primaryApplicantContact, applicationId) => {
     // TODO: We should consider setting the Tenant on a Lease more explicitly
     // either via a non-interactable form element or using Salesforce
     leaseApi['primary_applicant_contact'] = primaryApplicantContact
-    return apiService.createOrUpdateLease(leaseApi, applicationId)
+    const newOrUpdatedLease = await apiService.createOrUpdateLease(leaseApi, applicationId)
+    return newOrUpdatedLease
   } else {
-    return true
+    return lease
   }
 }
 

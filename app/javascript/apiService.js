@@ -111,7 +111,7 @@ export const createOrUpdateLease = async (lease, applicationId) => {
     const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
     return lease
   } else {
-    const { lease } = request.post(`/applications/${applicationId}/leases`, data)
+    const { lease } = await request.post(`/applications/${applicationId}/leases`, data)
     return lease
   }
 }
