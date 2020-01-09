@@ -86,7 +86,7 @@ describe('updateApplication', () => {
     const response = await updateApplication(application)
 
     expect(response.id).toEqual(application.id)
-    expect(response.lease).toEqual(true)
+    expect(response.lease).toEqual({})
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(0)
   })
