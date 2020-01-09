@@ -27,13 +27,13 @@ class PaperApplicationForm extends React.Component {
   }
 
   submitShortForm = async (submittedValues) => {
-    const { listing, application, onSubmit, editPage } = this.props
+    const { listing, onSubmit, editPage } = this.props
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true, failed: false })
 
-    const response = await onSubmit(submitType, submittedValues, application, listing, editPage)
-    if (response === false) {
+    const response = await onSubmit(submitType, submittedValues, listing, editPage)
+    if (!response) {
       this.setState({ loading: false, failed: true })
     }
   }

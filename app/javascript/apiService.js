@@ -14,9 +14,10 @@ const updateFlaggedApplication = async (data) => {
   return response.result
 }
 
-const submitApplication = async (data) => {
+const submitApplication = async (data, isSupplemental = false) => {
   let postData = { application: data }
-  return request.post('/short-form/submit', postData)
+  const { application } = await request.post(`/short-form/submit${isSupplemental ? '?supplemental=true' : ''}`, postData)
+  return application
 }
 
 const fetchApplications = async ({ page, filters }) => {
@@ -58,7 +59,8 @@ const createFieldUpdateComment = async (data) => {
       ...(data.subStatus ? { Sub_Status__c: data.subStatus } : {})
     }
   }
-  return request.post('/field-update-comments/create', postData)
+  const { result } = await request.post('/field-update-comments/create', postData)
+  return result
 }
 
 const updatePreference = async (preference) => {
@@ -83,6 +85,11 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
   return request.post('/rental-assistances', postData)
 }
 
+const getRentalAssistances = async (applicationId) => {
+  const { rental_assistances: rentalAssistances } = await request.get('/rental-assistances', { params: { application_id: applicationId } })
+  return rentalAssistances
+}
+
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
   const putData = {
     rental_assistance: rentalAssistance,
@@ -101,9 +108,11 @@ export const createOrUpdateLease = async (lease, applicationId) => {
     lease: lease
   }
   if (leaseId) {
-    return request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+    const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+    return lease
   } else {
-    return request.post(`/applications/${applicationId}/leases`, data)
+    const { lease } = await request.post(`/applications/${applicationId}/leases`, data)
+    return lease
   }
 }
 
@@ -116,6 +125,7 @@ export default {
   getAMI,
   updatePreference,
   createFieldUpdateComment,
+  getRentalAssistances,
   createRentalAssistance,
   updateRentalAssistance,
   deleteRentalAssistance,

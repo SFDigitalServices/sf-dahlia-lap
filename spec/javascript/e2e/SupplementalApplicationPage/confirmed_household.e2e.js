@@ -34,9 +34,6 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     // Click save
     await supplementalApplicationSteps.savePage(page)
 
-    // Wait for page to load
-    await page.waitForNavigation()
-
     // Verify that the values are there (as numbers, not currency)
     expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual('$' + String(hhAssetsValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual('$' + String(confirmedAnnualValue.float.toFixed(2)))
