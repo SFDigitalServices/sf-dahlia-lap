@@ -7,8 +7,8 @@ import { mapApplication } from '~/components/mappers/soqlToDomain'
 import { saveApplication } from './actions'
 
 const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstitutions }) => {
-  const saveEditApplication = async (submitType, submittedValues, application, listing, editPage) => {
-    return saveApplication(submitType, submittedValues, application, listing, editPage)
+  const saveEditApplication = async (submitType, submittedValues, listing, editPage) => {
+    return saveApplication(submitType, submittedValues, listing, editPage)
   }
   return (
     <PaperApplicationForm
