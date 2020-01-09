@@ -81,11 +81,11 @@ const LeaseInformationSection = ({form}) => (
   </ContentSection>
 )
 
-const RentalAssistanceSection = ({form}) => (
+const RentalAssistanceSection = ({form, submitting}) => (
   <ContentSection.Sub
     title='Rental Assistance Information'
     description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-    <RentalAssistance form={form} />
+    <RentalAssistance form={form} submitting={submitting} />
   </ContentSection.Sub>
 )
 
@@ -153,7 +153,7 @@ const SupplementalApplicationContainer = ({ store }) => {
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}
-      render={({ handleSubmit, form, touched }) => (
+      render={({ handleSubmit, form, touched, submitting }) => (
         <React.Fragment>
           { failed && (
             <AlertBox
@@ -174,7 +174,7 @@ const SupplementalApplicationContainer = ({ store }) => {
             />
             <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
             <LeaseInformationSection form={form} />
-            <RentalAssistanceSection form={form} />
+            <RentalAssistanceSection form={form} submitting={submitting} />
             <DemographicsSection />
             <ScrollableAnchor id={'status-history-section'}>
               <div>

@@ -54,7 +54,7 @@
   "Status": "Submitted",
   "Total_Household_Size": 1.0,
   "Application_Submission_Type": "Electronic",
-  "Application_Submitted_Date": "2019-11-02",
+  "Application_Submitted_Date": "2019-12-28",
   "CreatedBy": {
     "attributes": {
       "type": "User",
@@ -63,9 +63,9 @@
     "Name": "DAHLIA API"
   },
   "Annual_Income": 5000.0,
-  "Confirmed_Household_Annual_Income": 626.64,
-  "Household_Assets": 986.03,
-  "HH_Total_Income_with_Assets_Annual": 791.06,
+  "Confirmed_Household_Annual_Income": 589.52,
+  "Household_Assets": 242.97,
+  "HH_Total_Income_with_Assets_Annual": 128.23,
   "Monthly_Income": null,
   "Housing_Voucher_or_Subsidy": "true",
   "Referral_Source": null,
@@ -89,298 +89,6 @@
   "Has_Completed_Homebuyer_Education": false,
   "Has_Loan_Pre_approval": false,
   "Lending_Agent": null,
-  "preferences": [
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc0QAH"
-      },
-      "Id": "a0w0P00000OUJc0QAH",
-      "Name": "AP-0000826196",
-      "Preference_Name": "Certificate of Preference (COP)",
-      "Person_who_claimed_Name": null,
-      "Type_of_proof": null,
-      "Opt_Out": false,
-      "Lottery_Status": null,
-      "Preference_Lottery_Rank": null,
-      "Listing_Preference_ID": "a0l0P00001Q1vxUQAR",
-      "Receives_Preference": false,
-      "Application_Member": null,
-      "Individual_preference": null,
-      "Certificate_Number": null,
-      "Preference_Order": 1.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BHQA0"
-        },
-        "DeveloperName": "COP"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": null,
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc3QAH"
-      },
-      "Id": "a0w0P00000OUJc3QAH",
-      "Name": "AP-0000826199",
-      "Preference_Name": "Live or Work in San Francisco Preference",
-      "Person_who_claimed_Name": "Automated Test Lease Up Application (do not modify)",
-      "Type_of_proof": "Paystub with employer address",
-      "Opt_Out": false,
-      "Lottery_Status": "None",
-      "Preference_Lottery_Rank": 1.0,
-      "Listing_Preference_ID": "a0l0P00001Q1w1BQAR",
-      "Receives_Preference": true,
-      "Application_Member": {
-        "attributes": {
-          "type": "Application_Member",
-          "url": "/services/data/v43.0/sobjects/Application_Member/a0n0P00000D3qIZQAZ"
-        },
-        "First_Name": "Automated Test Lease Up Application",
-        "Last_Name": "(do not modify)",
-        "Date_of_Birth": "1989-01-05",
-        "Id": "a0n0P00000D3qIZQAZ"
-      },
-      "Individual_preference": "Work in SF",
-      "Certificate_Number": null,
-      "Preference_Order": 4.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BKQA0"
-        },
-        "DeveloperName": "L_W"
-      },
-      "LW_Type_of_Proof": "Paystub with employer address",
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": "Confirmed",
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc1QAH"
-      },
-      "Id": "a0w0P00000OUJc1QAH",
-      "Name": "AP-0000826197",
-      "Preference_Name": "Displaced Tenant Housing Preference (DTHP)",
-      "Person_who_claimed_Name": null,
-      "Type_of_proof": null,
-      "Opt_Out": false,
-      "Lottery_Status": null,
-      "Preference_Lottery_Rank": null,
-      "Listing_Preference_ID": "a0l0P00001Q1vxyQAB",
-      "Receives_Preference": false,
-      "Application_Member": null,
-      "Individual_preference": null,
-      "Certificate_Number": null,
-      "Preference_Order": 2.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BJQA0"
-        },
-        "DeveloperName": "DTHP"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": null,
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000Oqew3QAB"
-      },
-      "Id": "a0w0P00000Oqew3QAB",
-      "Name": "AP-0000919888",
-      "Preference_Name": "Neighborhood Resident Housing Preference (NRHP)",
-      "Person_who_claimed_Name": null,
-      "Type_of_proof": null,
-      "Opt_Out": false,
-      "Lottery_Status": null,
-      "Preference_Lottery_Rank": null,
-      "Listing_Preference_ID": "a0l0P00001QRQGzQAP",
-      "Receives_Preference": false,
-      "Application_Member": null,
-      "Individual_preference": null,
-      "Certificate_Number": null,
-      "Preference_Order": 6.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BLQA0"
-        },
-        "DeveloperName": "NRHP"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": null,
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000PC8JoQAL"
-      },
-      "Id": "a0w0P00000PC8JoQAL",
-      "Name": "AP-0001011481",
-      "Preference_Name": "Anti-Displacement Housing Preference (ADHP)",
-      "Person_who_claimed_Name": null,
-      "Type_of_proof": null,
-      "Opt_Out": false,
-      "Lottery_Status": "Unconfirmed",
-      "Preference_Lottery_Rank": null,
-      "Listing_Preference_ID": "a0l0P00001RbKCJQA3",
-      "Receives_Preference": false,
-      "Application_Member": null,
-      "Individual_preference": null,
-      "Certificate_Number": null,
-      "Preference_Order": 8.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BGQA0"
-        },
-        "DeveloperName": "ADHP"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": null,
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc2QAH"
-      },
-      "Id": "a0w0P00000OUJc2QAH",
-      "Name": "AP-0000826198",
-      "Preference_Name": "Rent Burdened / Assisted Housing Preference",
-      "Person_who_claimed_Name": "Automated Test Lease Up Application (do not modify)",
-      "Type_of_proof": "Lease and rent proof",
-      "Opt_Out": false,
-      "Lottery_Status": "None",
-      "Preference_Lottery_Rank": 1.0,
-      "Listing_Preference_ID": "a0l0P00001Q1w0mQAB",
-      "Receives_Preference": true,
-      "Application_Member": {
-        "attributes": {
-          "type": "Application_Member",
-          "url": "/services/data/v43.0/sobjects/Application_Member/a0n0P00000D3qIZQAZ"
-        },
-        "First_Name": "Automated Test Lease Up Application",
-        "Last_Name": "(do not modify)",
-        "Date_of_Birth": "1989-01-05",
-        "Id": "a0n0P00000D3qIZQAZ"
-      },
-      "Individual_preference": "Assisted Housing",
-      "Certificate_Number": null,
-      "Preference_Order": 3.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BMQA0"
-        },
-        "DeveloperName": "RB_AHP"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": "Confirmed",
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000Oqew2QAB"
-      },
-      "Id": "a0w0P00000Oqew2QAB",
-      "Name": "AP-0000919887",
-      "Preference_Name": "Alice Griffith Housing Development Resident",
-      "Person_who_claimed_Name": null,
-      "Type_of_proof": null,
-      "Opt_Out": false,
-      "Lottery_Status": "None",
-      "Preference_Lottery_Rank": null,
-      "Listing_Preference_ID": "a0l0P00001QRPiaQAH",
-      "Receives_Preference": false,
-      "Application_Member": null,
-      "Individual_preference": null,
-      "Certificate_Number": null,
-      "Preference_Order": 5.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000NHVqQAO"
-        },
-        "DeveloperName": "AG"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": null,
-      "Total_Household_Rent": 0.0
-    },
-    {
-      "attributes": {
-        "type": "Application_Preference",
-        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000Oqew4QAB"
-      },
-      "Id": "a0w0P00000Oqew4QAB",
-      "Name": "AP-0000919889",
-      "Preference_Name": "Artist Fund (Test Custom Pref)",
-      "Person_who_claimed_Name": null,
-      "Type_of_proof": null,
-      "Opt_Out": false,
-      "Lottery_Status": "Unconfirmed",
-      "Preference_Lottery_Rank": null,
-      "Listing_Preference_ID": "a0l0P00001QRQKlQAP",
-      "Receives_Preference": false,
-      "Application_Member": null,
-      "Individual_preference": null,
-      "Certificate_Number": null,
-      "Preference_Order": 7.0,
-      "RecordType": {
-        "attributes": {
-          "type": "RecordType",
-          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BIQA0"
-        },
-        "DeveloperName": "Custom"
-      },
-      "LW_Type_of_Proof": null,
-      "City": null,
-      "State": null,
-      "Street": null,
-      "Zip_Code": null,
-      "Post_Lottery_Validation": null,
-      "Total_Household_Rent": 0.0
-    }
-  ],
   "proof_files": [
     {
       "id": "00P0P00000t0P3vUAE",
@@ -400,23 +108,315 @@
   "household_members": [],
   "lease": {
     "id": "a130P000005TeZrQAK",
-    "unit": "a0b0P00001HIHrnQAH",
     "lease_start_date": {
-      "year": "2019",
+      "day": "01",
       "month": "01",
-      "day": "01"
+      "year": "2019"
     },
     "lease_status": "Draft",
-    "monthly_parking_rent": "$578.56",
-    "preference_used": null,
+    "monthly_parking_rent": "$493.27",
+    "monthly_tenant_contribution": "$486.01",
     "no_preference_used": false,
-    "total_monthly_rent_without_parking": "$787.26",
-    "monthly_tenant_contribution": "$941.74"
+    "preference_used": null,
+    "total_monthly_rent_without_parking": "$372.40",
+    "unit": "a0b0P00001HIHrnQAH"
   },
+  "preferences": [
+    {
+      "Application_Member": null,
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000OUJc0QAH",
+      "Individual_preference": null,
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001Q1vxUQAR",
+      "Lottery_Status": null,
+      "Name": "AP-0000826196",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": null,
+      "Post_Lottery_Validation": null,
+      "Preference_Lottery_Rank": null,
+      "Preference_Name": "Certificate of Preference (COP)",
+      "Preference_Order": 1.0,
+      "Receives_Preference": false,
+      "RecordType": {
+        "DeveloperName": "COP",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BHQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": null,
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc0QAH"
+      }
+    },
+    {
+      "Application_Member": {
+        "Date_of_Birth": "1989-01-05",
+        "First_Name": "Automated Test Lease Up Application",
+        "Id": "a0n0P00000D3qIZQAZ",
+        "Last_Name": "(do not modify)",
+        "attributes": {
+          "type": "Application_Member",
+          "url": "/services/data/v43.0/sobjects/Application_Member/a0n0P00000D3qIZQAZ"
+        }
+      },
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000OUJc3QAH",
+      "Individual_preference": "Work in SF",
+      "LW_Type_of_Proof": "Paystub with employer address",
+      "Listing_Preference_ID": "a0l0P00001Q1w1BQAR",
+      "Lottery_Status": "None",
+      "Name": "AP-0000826199",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": "Automated Test Lease Up Application (do not modify)",
+      "Post_Lottery_Validation": "Unconfirmed",
+      "Preference_Lottery_Rank": 1.0,
+      "Preference_Name": "Live or Work in San Francisco Preference",
+      "Preference_Order": 4.0,
+      "Receives_Preference": true,
+      "RecordType": {
+        "DeveloperName": "L_W",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BKQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": "Paystub with employer address",
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc3QAH"
+      }
+    },
+    {
+      "Application_Member": null,
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000OUJc1QAH",
+      "Individual_preference": null,
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001Q1vxyQAB",
+      "Lottery_Status": null,
+      "Name": "AP-0000826197",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": null,
+      "Post_Lottery_Validation": null,
+      "Preference_Lottery_Rank": null,
+      "Preference_Name": "Displaced Tenant Housing Preference (DTHP)",
+      "Preference_Order": 2.0,
+      "Receives_Preference": false,
+      "RecordType": {
+        "DeveloperName": "DTHP",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BJQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": null,
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc1QAH"
+      }
+    },
+    {
+      "Application_Member": null,
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000Oqew3QAB",
+      "Individual_preference": null,
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001QRQGzQAP",
+      "Lottery_Status": null,
+      "Name": "AP-0000919888",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": null,
+      "Post_Lottery_Validation": null,
+      "Preference_Lottery_Rank": null,
+      "Preference_Name": "Neighborhood Resident Housing Preference (NRHP)",
+      "Preference_Order": 6.0,
+      "Receives_Preference": false,
+      "RecordType": {
+        "DeveloperName": "NRHP",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BLQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": null,
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000Oqew3QAB"
+      }
+    },
+    {
+      "Application_Member": null,
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000PC8JoQAL",
+      "Individual_preference": null,
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001RbKCJQA3",
+      "Lottery_Status": "Unconfirmed",
+      "Name": "AP-0001011481",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": null,
+      "Post_Lottery_Validation": null,
+      "Preference_Lottery_Rank": null,
+      "Preference_Name": "Anti-Displacement Housing Preference (ADHP)",
+      "Preference_Order": 8.0,
+      "Receives_Preference": false,
+      "RecordType": {
+        "DeveloperName": "ADHP",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BGQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": null,
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000PC8JoQAL"
+      }
+    },
+    {
+      "Application_Member": {
+        "Date_of_Birth": "1989-01-05",
+        "First_Name": "Automated Test Lease Up Application",
+        "Id": "a0n0P00000D3qIZQAZ",
+        "Last_Name": "(do not modify)",
+        "attributes": {
+          "type": "Application_Member",
+          "url": "/services/data/v43.0/sobjects/Application_Member/a0n0P00000D3qIZQAZ"
+        }
+      },
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000OUJc2QAH",
+      "Individual_preference": "Assisted Housing",
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001Q1w0mQAB",
+      "Lottery_Status": "None",
+      "Name": "AP-0000826198",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": "Automated Test Lease Up Application (do not modify)",
+      "Post_Lottery_Validation": "Unconfirmed",
+      "Preference_Lottery_Rank": 1.0,
+      "Preference_Name": "Rent Burdened / Assisted Housing Preference",
+      "Preference_Order": 3.0,
+      "Receives_Preference": true,
+      "RecordType": {
+        "DeveloperName": "RB_AHP",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BMQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": "Lease and rent proof",
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000OUJc2QAH"
+      }
+    },
+    {
+      "Application_Member": null,
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000Oqew2QAB",
+      "Individual_preference": null,
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001QRPiaQAH",
+      "Lottery_Status": "None",
+      "Name": "AP-0000919887",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": null,
+      "Post_Lottery_Validation": null,
+      "Preference_Lottery_Rank": null,
+      "Preference_Name": "Alice Griffith Housing Development Resident",
+      "Preference_Order": 5.0,
+      "Receives_Preference": false,
+      "RecordType": {
+        "DeveloperName": "AG",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000NHVqQAO"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": null,
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000Oqew2QAB"
+      }
+    },
+    {
+      "Application_Member": null,
+      "Certificate_Number": null,
+      "City": null,
+      "Id": "a0w0P00000Oqew4QAB",
+      "Individual_preference": null,
+      "LW_Type_of_Proof": null,
+      "Listing_Preference_ID": "a0l0P00001QRQKlQAP",
+      "Lottery_Status": "Unconfirmed",
+      "Name": "AP-0000919889",
+      "Opt_Out": false,
+      "Person_who_claimed_Name": null,
+      "Post_Lottery_Validation": null,
+      "Preference_Lottery_Rank": null,
+      "Preference_Name": "Artist Fund (Test Custom Pref)",
+      "Preference_Order": 7.0,
+      "Receives_Preference": false,
+      "RecordType": {
+        "DeveloperName": "Custom",
+        "attributes": {
+          "type": "RecordType",
+          "url": "/services/data/v43.0/sobjects/RecordType/0120P000000R7BIQA0"
+        }
+      },
+      "State": null,
+      "Street": null,
+      "Total_Household_Rent": 0.0,
+      "Type_of_proof": null,
+      "Zip_Code": null,
+      "attributes": {
+        "type": "Application_Preference",
+        "url": "/services/data/v43.0/sobjects/Application_Preference/a0w0P00000Oqew4QAB"
+      }
+    }
+  ],
   "rental_assistances": [
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D00000177rWQAQ",
+      "id": "a151D0000017Vv0QAE",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -425,7 +425,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D00000177rbQAA",
+      "id": "a151D0000017Vv5QAE",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -434,7 +434,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D00000177rgQAA",
+      "id": "a151D0000017WsQQAU",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -443,7 +443,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D00000177rqQAA",
+      "id": "a151D0000017WxBQAU",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -452,7 +452,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D00000177rvQAA",
+      "id": "a151D0000017XCaQAM",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -461,7 +461,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D000001787KQAQ",
+      "id": "a151D0000017XpoQAE",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -470,7 +470,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D000001787PQAQ",
+      "id": "a151D000001BytXQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -479,7 +479,7 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D00000178BWQAY",
+      "id": "a151D000001DRxuQAG",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -488,7 +488,34 @@
     },
     {
       "assistance_amount": "$1,100.00",
-      "id": "a151D0000017J8OQAU",
+      "id": "a151D000001DRyZQAW",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": "$1,100.00",
+      "id": "a151D000001DSKXQA4",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": "$1,100.00",
+      "id": "a151D000001DSSqQAO",
+      "lease": "a130P000005TeZrQAK",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": "$1,100.00",
+      "id": "a151D000001DSSvQAO",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",

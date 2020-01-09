@@ -1,26 +1,41 @@
 import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
-import { isEmpty, find, isEqual, every } from 'lodash'
+import { isEmpty, find, isEqual, every, reject } from 'lodash'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
-  const promises = [updateLease(application['lease'], primaryApplicantContact, application['id'])]
+  const applicationId = application['id']
 
-  // Concat lease promise with rental assistances
-  promises.concat(updateUnsavedRentalAssistances(application, prevApplication))
   const applicationApi = domainToApi.buildApplicationShape(application)
-  promises.push(apiService.submitApplication(applicationApi))
-  const responses = await Promise.all(promises)
-
-  return every(responses, (promise) => promise !== false)
+  // await lease and base application updates first
+  const initialResponses = await Promise.all([
+    updateLease(application['lease'], primaryApplicantContact, applicationId),
+    apiService.submitApplication(applicationApi, true)
+  ])
+  // next we update rental assistances if applicable
+  await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))
+  // then retrieve all rental assistances together instead of on each create/update
+  const rentalAssistances = await apiService.getRentalAssistances(applicationId)
+  // then combine our responses to rebuild the structure in the UI
+  if (every(initialResponses, (promise) => promise !== false)) {
+    const [lease, application] = initialResponses
+    if (application) {
+      application.lease = lease
+      application.rental_assistances = rentalAssistances || []
+      return application
+    }
+  }
+  return false
 }
 
 const updateUnsavedRentalAssistances = (application, prevApplication) => {
-  if (isEmpty(application.rental_assistances)) return []
+  // remove any canceled or non filled out rental assistances. i.e. {}
+  const rentalAssistances = reject(application.rental_assistances, isEmpty)
+  if (isEmpty(rentalAssistances)) return []
   const promises = []
 
-  application.rental_assistances.forEach(rentalAssistance => {
+  rentalAssistances.forEach(rentalAssistance => {
     // update rental assistances without id (new) and changed
     if (isEmpty(rentalAssistance.id)) {
       promises.push(apiService.createRentalAssistance(rentalAssistance, application.id))
@@ -30,6 +45,12 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
       promises.push(apiService.updateRentalAssistance(rentalAssistance, application.id))
     }
   })
+  // if no promises have been pushed then we are not updating
+  // anything but already have the data we need so return the assistances
+  if (promises.length === 0) {
+    return [Promise.resolve({rental_assistances: rentalAssistances})]
+  }
+
   return promises
 }
 
@@ -39,9 +60,10 @@ const updateLease = async (lease, primaryApplicantContact, applicationId) => {
     // TODO: We should consider setting the Tenant on a Lease more explicitly
     // either via a non-interactable form element or using Salesforce
     leaseApi['primary_applicant_contact'] = primaryApplicantContact
-    return apiService.createOrUpdateLease(leaseApi, applicationId)
+    const newOrUpdatedLease = await apiService.createOrUpdateLease(leaseApi, applicationId)
+    return newOrUpdatedLease
   } else {
-    return true
+    return lease
   }
 }
 
