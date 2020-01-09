@@ -22,7 +22,7 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['lease']).to eq(true)
+      expect(json['lease']['monthly_parking_rent']).to eq("$100.00")
     end
     it 'creates a new lease if application doesn\'t have lease' do
       VCR.use_cassette('api/v1/leases/create/app-without-lease') do
@@ -36,7 +36,7 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['lease'].size).to eq(lease_id_length) # create returns lease id
+      expect(json['lease']['id'].size).to eq(lease_id_length) # create returns lease id
     end
   end
 
