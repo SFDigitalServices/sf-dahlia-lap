@@ -1,4 +1,4 @@
-const payload = {
+const payload = (withLease = false) => ({
   id: 'a0o0x000000OcOzAAK',
   applicationLanguage: 'English',
   hasMilitaryService: null,
@@ -78,7 +78,20 @@ const payload = {
        city: 'buenos aires',
        state: 'fl',
        zip: '33026',
-       relationship: 'Child' } ]
-}
+       relationship: 'Child' } ],
+  ...(withLease ? {
+    lease: {
+      id: undefined,
+      lease_start_date: undefined,
+      monthly_parking_rent: null,
+      monthly_tenant_contribution: null,
+      no_preference_used: undefined,
+      preference_used: undefined,
+      primary_applicant_contact: "a0n0x000000AbE6AAK",
+      total_monthly_rent_without_parking: null,
+      unit: undefined,
+    }} : {}),
+    rental_assistances: []
+  })
 
 export default payload

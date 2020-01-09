@@ -11,9 +11,15 @@ class Api::V1::ShortFormController < ApiController
     if short_form_validator.valid?
       application = custom_api_application_service.submit(application_api_params)
       logger.debug "application submit response: #{application}"
+      # if submitting a supplemental application we will re-fetch updated data from salesforce
+      if params[:supplemental]
+        application = soql_application_service.application(application[:id] || application_api_params[:id], { include_lease: false })
+        logger.debug "updated application: #{application}"
+      end
+
       render json: { application: application }
     else
-      render status: 422, json: { errors: short_form_validator.errors.full_messages }
+      render status: 422, json: { errors: short_form_validator.errors.full_messages || 'Unknown Error' }
     end
   end
 
@@ -165,5 +171,13 @@ class Api::V1::ShortFormController < ApiController
 
   def custom_api_application_service
     Force::CustomApi::ApplicationService.new(current_user)
+  end
+
+  def soql_application_service
+    Force::Soql::ApplicationService.new(current_user)
+  end
+
+  def soql_rental_assistance_service
+    Force::Soql::RentalAssistanceService.new(current_user)
   end
 end

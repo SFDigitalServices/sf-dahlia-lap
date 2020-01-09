@@ -36,7 +36,7 @@ const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
 
 const isOther = (values) => values && values.type_of_assistance === 'Other'
 
-const RentalAssistanceTable = ({ form, rentalAssistances, onEdit, applicationMembers }) => {
+const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, applicationMembers }) => {
   const columns = [
     { content: 'Type of Assistance' },
     { content: 'Recurring Assistance' },
@@ -76,16 +76,15 @@ const RentalAssistanceTable = ({ form, rentalAssistances, onEdit, applicationMem
 
   return (
     <TableWrapper>
-      <React.Fragment>
-        <ExpandableTable
-          originals={rentalAssistances}
-          columns={columns}
-          rows={rows}
-          expanderRenderer={expanderRenderer}
-          expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-          classes={['rental-assistances']}
-        />
-      </React.Fragment>
+      <ExpandableTable
+        originals={rentalAssistances}
+        columns={columns}
+        rows={rows}
+        expanderRenderer={expanderRenderer}
+        expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
+        closeAllRows={submitting}
+        classes={['rental-assistances']}
+      />
     </TableWrapper>
   )
 }
@@ -250,7 +249,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   )
 }
 
-const RentalAssistance = ({ store, form }) => {
+const RentalAssistance = ({ store, form, submitting }) => {
   const {
     application,
     applicationMembers,
@@ -280,6 +279,7 @@ const RentalAssistance = ({ store, form }) => {
           applicationMembers={applicationMembers}
           onEdit={hideAddRentalAssistanceBtn}
           form={form}
+          submitting={submitting}
         />
       )}
 
