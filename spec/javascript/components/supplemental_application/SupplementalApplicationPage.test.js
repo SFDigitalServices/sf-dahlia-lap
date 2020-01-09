@@ -13,13 +13,14 @@ const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
 const mockUpdatePreference = jest.fn()
 const mockCreateOrUpdateLease = jest.fn()
+const mockGetRentalAssistances = jest.fn()
 window.scrollTo = jest.fn()
 
 jest.mock('apiService', () => {
   return {
-    submitApplication: async (data) => {
-      mockSubmitApplication(data)
-      return true
+    submitApplication: async (application) => {
+      mockSubmitApplication(application)
+      return application
     },
     updateApplication: async (data) => {
       mockUpdateApplication(data)
@@ -32,9 +33,13 @@ jest.mock('apiService', () => {
     getAMI: async (data) => {
       return { ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }] }
     },
-    createOrUpdateLease: async (data) => {
-      mockCreateOrUpdateLease(data)
-      return true
+    createOrUpdateLease: async (lease) => {
+      mockCreateOrUpdateLease(lease)
+      return lease
+    },
+    getRentalAssistances: async (applicationId) => {
+      mockGetRentalAssistances(applicationId)
+      return []
     }
   }
 })
@@ -76,7 +81,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves expected values if no changes are made', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload)
+    const payload = cloneDeep(mockShortFormSubmitPayload(true))
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -109,11 +114,12 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves demographics correctly', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload)
+    const payload = cloneDeep(mockShortFormSubmitPayload(true))
     payload.numberOfDependents = '2'
     payload.numberOfSeniors = '3'
     payload.numberOfMinors = '4'
     payload.primaryApplicant.maritalStatus = 'Domestic Partner'
+    payload.rental_assistances = []
     let wrapper
     await act(async () => {
       wrapper = mount(

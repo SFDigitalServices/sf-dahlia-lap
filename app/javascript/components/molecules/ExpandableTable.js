@@ -1,9 +1,15 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { kebabCase } from 'lodash'
 
-const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, expandedRowRenderer, original }) => {
+const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, expandedRowRenderer, original, closeRow = false }) => {
   const [expanded, setExpanded] = useState(false)
+
+  useEffect(() => {
+    if (closeRow) {
+      setExpanded(false)
+    }
+  }, [closeRow])
 
   const toggleExpandedRow = () => setExpanded(!expanded)
 
@@ -30,7 +36,7 @@ const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, ex
   )
 }
 
-const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expandedRowRenderer, originals, classes }) => (
+const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expandedRowRenderer, originals, classes, closeAllRows }) => (
   <table className={classNames('td-light td-plain th-plain', classes)} role='grid'>
     <thead>
       <tr>
@@ -51,7 +57,8 @@ const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expande
           row={row}
           numColumns={columns.length}
           expanderRenderer={expanderRenderer}
-          expandedRowRenderer={expandedRowRenderer} />
+          expandedRowRenderer={expandedRowRenderer}
+          closeRow={closeAllRows} />
       ))}
     </tbody>
   </table>
