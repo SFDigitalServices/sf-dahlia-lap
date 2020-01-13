@@ -13,6 +13,7 @@ module Force
                    :Lease_Start_Date__c,
                    :Lease_Status__c,
                    :Monthly_Parking_Rent__c,
+                   :BMR_Parking_Space_Assigned__c,
                    :Preference_Used__c,
                    :No_Preference_Used__c,
                    :Total_Monthly_Rent_without_Parking__c,

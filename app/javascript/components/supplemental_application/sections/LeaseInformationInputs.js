@@ -71,13 +71,6 @@ const LeaseInformationInputs = ({ form, store }) => {
         </FormGrid.Item>
         <FormGrid.Item>
           <CurrencyField
-            label='Monthly Parking Cost'
-            fieldName='lease.monthly_parking_rent'
-            placeholder='Enter Amount'
-            validation={validateLeaseCurrency} />
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <CurrencyField
             label='Monthly Tenant Contribution'
             fieldName='lease.monthly_tenant_contribution'
             placeholder='Enter Amount'

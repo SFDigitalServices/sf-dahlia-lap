@@ -102,11 +102,9 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
   return request.destroy(`/rental-assistances/${rentalAssistanceId}`)
 }
 
-export const createOrUpdateLease = async (lease, applicationId) => {
-  const leaseId = lease['id']
-  const data = {
-    lease: lease
-  }
+export const createOrUpdateLease = async (leaseToCreateOrUpdate, applicationId) => {
+  const leaseId = leaseToCreateOrUpdate['id']
+  const data = { lease: leaseToCreateOrUpdate }
   if (leaseId) {
     const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
     return lease
