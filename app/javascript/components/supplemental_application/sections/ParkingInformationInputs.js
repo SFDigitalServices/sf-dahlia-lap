@@ -11,8 +11,8 @@ const validateLeaseCurrency = (value) => {
   )
 }
 
-const ParkingInformationInputs = ({ values: { lease: { monthly_parking_rent: monthlyParkingRent } } }) => {
-  const [parkingSpaceAssigned, setParkingSpaceAssigned] = useState(monthlyParkingRent ? 'yes' : 'no')
+const ParkingInformationInputs = ({ values: { lease } }) => {
+  const [parkingSpaceAssigned, setParkingSpaceAssigned] = useState(lease && lease['monthly_parking_rent'] ? 'yes' : 'no')
   const selectParkingSpaceAssigned = (event) => {
     const { target: { value } } = event
     setParkingSpaceAssigned(value)
