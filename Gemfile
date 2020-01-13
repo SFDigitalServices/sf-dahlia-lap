@@ -7,9 +7,9 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6.1'
+gem 'rails', '~> 5.1.7'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.0.6
-gem 'rack', '>= 2.0.6'
+gem 'rack', '>= 2.0.8'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
