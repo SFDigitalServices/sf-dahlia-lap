@@ -6,12 +6,12 @@ import TabsMenu from 'components/molecules/TabsMenu'
 describe('TabsMenu', () => {
   test('should render tab', () => {
     const items = [
-      { title: 'Short Form Application', url: '/url1' },
+      { title: 'Short Form Application', url: '/url1', active: true },
       { title: 'Supplemental Information', url: '/url2' }
     ]
 
     const wrapper = mount(
-      <TabsMenu items={items} currentUrl={'/url1'} />
+      <TabsMenu items={items} />
     )
 
     expect(wrapper).toMatchSnapshot()

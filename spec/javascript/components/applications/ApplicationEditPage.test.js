@@ -1,6 +1,6 @@
-/* global wait */
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { act } from 'react-dom/test-utils'
 import { clone } from 'lodash'
 import { mount } from 'enzyme'
 
@@ -34,17 +34,19 @@ describe('ApplicationEditPage', () => {
   })
 
   test('it should save correctly', async () => {
-    const wrapper = mount(
-      <ApplicationEditPage
-        listing={listing}
-        application={application}
-        lendingInstitutions={lendingInstitutions}
-        editPage />
-    )
-
-    wrapper.find('form').first().simulate('submit')
-
-    await wait(100)
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <ApplicationEditPage
+          listing={listing}
+          application={application}
+          lendingInstitutions={lendingInstitutions}
+          editPage />
+      )
+    })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
 
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(mockApplicationApiEditPayload)

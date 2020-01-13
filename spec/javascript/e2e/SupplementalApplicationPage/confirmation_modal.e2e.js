@@ -33,7 +33,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
     await page.waitForNavigation()
 
     // Verify that we're now on the application snapshot page
-    expect(page.url()).toBe(`http://localhost:3000/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    expect(page.url()).toBe(`http://localhost:3000/applications/${LEASE_UP_LISTING_APPLICATION_ID}?lease_up=true`)
 
     await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)

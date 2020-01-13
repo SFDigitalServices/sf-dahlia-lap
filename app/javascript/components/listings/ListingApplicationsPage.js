@@ -52,9 +52,8 @@ const ListingApplicationsPage = ({ listing, applications }) => {
   const tabs = {
     items: [
       { title: 'Listing Details', url: `/listings/${listing.id}` },
-      { title: 'Applications', url: `/listings/${listing.id}/applications` }
-    ],
-    currentUrl: window.location.pathname
+      { title: 'Applications', url: `/listings/${listing.id}/applications`, active: true }
+    ]
   }
 
   return (
