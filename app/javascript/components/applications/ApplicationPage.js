@@ -17,7 +17,7 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
 }
 
 const ApplicationPage = (props) => {
-  const { application, showAddBtn } = props
+  const { application, showAddBtn, isLeaseUp } = props
 
   let pageHeader = {}
   let tabSection = false
@@ -27,7 +27,9 @@ const ApplicationPage = (props) => {
       title: 'Application',
       content: (<span>Name of Listing:</span>)
     }
-  } else if (application.is_snapshot) {
+  // If the lease_up=true param is passed in the url, then we should display the application as if it's
+  // a part of the lease up section.
+  } else if (isLeaseUp) {
     pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -39,7 +41,7 @@ const ApplicationPage = (props) => {
 
     tabSection = {
       items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
+        { title: 'Short Form Application', url: appPaths.toLeaseUpShortForm(application.id), active: true },
         { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
       ]
     }
@@ -60,12 +62,13 @@ const ApplicationPage = (props) => {
   )
 }
 
-const mapProperties = ({ application, showAddBtn, fileBaseUrl }) => {
+const mapProperties = ({ application, showAddBtn, fileBaseUrl, isLeaseUp }) => {
   return {
     application: application,
     fields: labelMapperFields,
     showAddBtn: showAddBtn,
-    fileBaseUrl: fileBaseUrl
+    fileBaseUrl: fileBaseUrl,
+    isLeaseUp: isLeaseUp
   }
 }
 

@@ -85,7 +85,7 @@ module Force
       domain_fields = super
       return if domain_fields.blank?
 
-      domain_fields[:is_sale] = Force::ListingService.sale?(domain_fields)
+      domain_fields[:is_sale] = Force::Soql::ListingService.sale?(domain_fields)
       domain_fields[:is_rental] = !domain_fields[:is_sale]
       domain_fields.owner = domain_fields.dig(:owner, :Name) if domain_fields[:owner]
       domain_fields.account = domain_fields.dig(:account, :Name) if domain_fields[:account]

@@ -11,6 +11,7 @@ exports[`TabsMenu it should render correctly 1`] = `
         "url": "/url1",
       },
       Object {
+        "active": true,
         "title": "Supplemental Information",
         "url": "/url2",
       },
@@ -29,6 +30,7 @@ exports[`TabsMenu it should render correctly 1`] = `
             "url": "/url1",
           },
           Object {
+            "active": true,
             "title": "Supplemental Information",
             "url": "/url2",
           },
@@ -40,8 +42,7 @@ exports[`TabsMenu it should render correctly 1`] = `
         role="menubar"
       >
         <Tab
-          active={true}
-          key="/url1"
+          key="Short Form Application"
           linkRefs={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -49,24 +50,23 @@ exports[`TabsMenu it should render correctly 1`] = `
           url="/url1"
         >
           <li
-            className="tab-title active"
+            className="tab-title"
             role="none"
           >
             <a
-              aria-selected={true}
               href="/url1"
               onFocus={[Function]}
               onKeyDown={[Function]}
               role="menuitem"
-              tabIndex="-1"
+              tabIndex="0"
             >
               Short Form Application
             </a>
           </li>
         </Tab>
         <Tab
-          active={false}
-          key="/url2"
+          active={true}
+          key="Supplemental Information"
           linkRefs={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -74,16 +74,16 @@ exports[`TabsMenu it should render correctly 1`] = `
           url="/url2"
         >
           <li
-            className="tab-title"
+            className="tab-title active"
             role="none"
           >
             <a
-              aria-selected={false}
+              aria-selected={true}
               href="/url2"
               onFocus={[Function]}
               onKeyDown={[Function]}
               role="menuitem"
-              tabIndex="0"
+              tabIndex="-1"
             >
               Supplemental Information
             </a>

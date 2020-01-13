@@ -825,16 +825,16 @@ Array [
       role="menubar"
     >
       <li
-        className="tab-title"
+        className="tab-title active"
         role="none"
       >
         <a
-          aria-selected={false}
+          aria-selected={true}
           href="/listings/a0W0x000000GhJUEA0"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="0"
+          tabIndex="-1"
         >
           Listing Details
         </a>
@@ -844,7 +844,6 @@ Array [
         role="none"
       >
         <a
-          aria-selected={false}
           href="/listings/a0W0x000000GhJUEA0/applications"
           onFocus={[Function]}
           onKeyDown={[Function]}

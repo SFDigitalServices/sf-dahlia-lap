@@ -1,4 +1,5 @@
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { mount } from 'enzyme'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import { statusRequiresComments } from '../../utils/statusUtils'
@@ -59,10 +60,10 @@ let mockApplications = [
 ]
 
 const listing = {
-  Id: 'listingId',
-  Name: 'listingName',
-  Building_Street_Address: 'buildingAddress',
-  Report_id: 'REPORT_ID'
+  id: 'listingId',
+  name: 'listingName',
+  building_street_address: 'buildingAddress',
+  report_id: 'REPORT_ID'
 }
 
 const openStatusModal = (wrapper) => {
@@ -202,7 +203,9 @@ describe('LeaseUpApplicationsPage', () => {
 
       // Fill out the comment and submit
       wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
-      wrapper.find(updateButtonSelector).simulate('submit')
+      await act(async () => {
+        wrapper.find(updateButtonSelector).simulate('submit')
+      })
       await tick()
       wrapper.update()
 
