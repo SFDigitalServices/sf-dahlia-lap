@@ -82,7 +82,7 @@ const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, ap
         rows={rows}
         expanderRenderer={expanderRenderer}
         expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-        toggleAllRows={submitting}
+        closeAllRows={submitting}
         classes={['rental-assistances']}
       />
     </TableWrapper>

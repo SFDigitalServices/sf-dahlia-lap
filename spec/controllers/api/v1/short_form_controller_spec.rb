@@ -51,7 +51,6 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
         end
         expect(response).to have_http_status(:success)
         json = JSON.parse(response.body)
-        # puts json['application']
         expect(json['application']).not_to be_empty
         expect(json['application']['Application_Submission_Type']).to eq('Paper')
       end

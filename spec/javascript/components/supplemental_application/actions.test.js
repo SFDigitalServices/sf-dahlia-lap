@@ -8,16 +8,17 @@ const mockSubmitAppFn = jest.fn()
 const mockSubmitLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
 const mockUpdateRentalFn = jest.fn()
+const mockGetRentalAssistancesFn = jest.fn()
 
 jest.mock('apiService', () => {
   const mockSubmitApplication = async (application) => {
     mockSubmitAppFn(application)
-    return { application }
+    return application
   }
 
   const mockCreateOrUpdateLease = async (lease) => {
     mockSubmitLeaseFn(lease)
-    return { lease }
+    return lease
   }
 
   const mockCreateRental = async (data) => {
@@ -30,11 +31,17 @@ jest.mock('apiService', () => {
     return true
   }
 
+  const mockGetRentalAssistances = async (applicationId) => {
+    mockGetRentalAssistancesFn(applicationId)
+    return []
+  }
+
   return {
     submitApplication: mockSubmitApplication,
     createOrUpdateLease: mockCreateOrUpdateLease,
     createRentalAssistance: mockCreateRental,
-    updateRentalAssistance: mockUpdateRental
+    updateRentalAssistance: mockUpdateRental,
+    getRentalAssistances: mockGetRentalAssistances
   }
 })
 
@@ -79,7 +86,7 @@ describe('updateApplication', () => {
     const response = await updateApplication(application)
 
     expect(response.id).toEqual(application.id)
-    expect(response.lease).toEqual(undefined)
+    expect(response.lease).toEqual({})
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(0)
   })
