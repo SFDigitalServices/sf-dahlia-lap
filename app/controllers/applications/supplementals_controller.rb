@@ -10,7 +10,7 @@ module Applications
       @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
       @file_base_url = file_base_url
       @available_units = units_service.available_units_for_application(@application.Listing.Id, @application.Id)
-      @units = listing_service.units(@application.Listing.Id)
+      @units = soql_listing_service.units(@application.Listing.Id)
       @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.Id)
     end
 
@@ -30,8 +30,8 @@ module Applications
       Force::UnitsService.new(current_user)
     end
 
-    def listing_service
-      Force::ListingService.new(current_user)
+    def soql_listing_service
+      Force::Soql::ListingService.new(current_user)
     end
 
     def soql_rental_assistance_service

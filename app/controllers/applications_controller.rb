@@ -6,19 +6,20 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = listing_service.listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
+    @listings = soql_listing_service.pre_lottery_listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
   end
 
   def show
     @application = find_application(params[:id])
     @fields = soql_application_service.show_fields
     @file_base_url = file_base_url
+    @is_lease_up = params[:lease_up] == 'true'
   end
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = listing_service.listing(@application.Listing.Id)
-    @lending_institutions = listing_service.sale?(@listing) ? lending_institutions : {}
+    @listing = soql_listing_service.listing(@application.Listing.Id)
+    @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
     redirect_to application_url(id: @application.Id) if
       @listing.lottery_status != 'Not Yet Run' ||
       @application&.Application_Submission_Type != 'Paper'
@@ -27,7 +28,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_listing
-    @listing = listing_service.listing(params[:listing_id])
+    @listing = soql_listing_service.listing(params[:listing_id])
   end
 
   def custom_api_application_service
@@ -38,8 +39,8 @@ class ApplicationsController < ApplicationController
     Force::Soql::ApplicationService.new(current_user)
   end
 
-  def listing_service
-    Force::ListingService.new(current_user)
+  def soql_listing_service
+    Force::Soql::ListingService.new(current_user)
   end
 
   def soql_preference_service

@@ -46,7 +46,7 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
   )
 }
 
-const TabsMenu = ({ items, currentUrl }) => {
+const TabsMenu = ({ items }) => {
   const tabRefs = arrayUtils.cycle([])
 
   const handleKeyDown = (e) => {
@@ -71,12 +71,12 @@ const TabsMenu = ({ items, currentUrl }) => {
         items.map((item) => (
           <Tab
             {...item}
-            key={item.url}
+            key={item.title}
             onKeyDown={handleKeyDown}
             onFocus={handleOnFocus}
             onClick={item.onClick}
             linkRefs={addTabRef}
-            active={item.url === currentUrl} />)
+            active={item.active} />)
         )
       }
     </ul>
