@@ -1,4 +1,3 @@
-/* global wait */
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { act } from 'react-dom/test-utils'
@@ -134,9 +133,8 @@ describe('SupplementalApplicationPage', () => {
     wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
     wrapper.find('#demographics-minors select option[value=4]').simulate('change')
     wrapper.find('#demographics-marital-status select option[value="Domestic Partner"]').simulate('change')
-    await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-    await wait(100)
+    await act(async () => { wrapper.find('form').first().simulate('submit') })
 
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
@@ -277,7 +275,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('[name="lease.monthly_tenant_contribution"] input').simulate('change', { target: { value: '$3' } })
 
       // Assert that they're sent to the API
-      await act(async () => { await wrapper.find('form').first().simulate('submit') })
+      await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedLease = {
         'id': undefined,

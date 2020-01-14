@@ -1319,7 +1319,7 @@ http_interactions:
   recorded_at: Mon, 30 Dec 2019 18:07:48 GMT
 - request:
     method: get
-    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20of_AMI_for_Pricing_Unit__c,%20Reserved_Type__c%0A%20%20%20%20%20%20%20%20FROM%20Unit__c%0A%20%20%20%20%20%20%20%20WHERE%20Listing__c%20=%20%27a0W0P00000GbyuQUAR%27%0A%20%20%20%20%20%20"
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20of_AMI_for_Pricing_Unit__c,%20Reserved_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Unit__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Listing__c%20=%20%27a0W0P00000GbyuQUAR%27%0A%20%20%20%20%20%20%20%20"
     body:
       encoding: US-ASCII
       string: ''

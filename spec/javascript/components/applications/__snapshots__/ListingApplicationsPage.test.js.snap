@@ -35,7 +35,6 @@ Array [
         role="none"
       >
         <a
-          aria-selected={false}
           href="/listings/1"
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -46,16 +45,16 @@ Array [
         </a>
       </li>
       <li
-        className="tab-title"
+        className="tab-title active"
         role="none"
       >
         <a
-          aria-selected={false}
+          aria-selected={true}
           href="/listings/1/applications"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="0"
+          tabIndex="-1"
         >
           Applications
         </a>

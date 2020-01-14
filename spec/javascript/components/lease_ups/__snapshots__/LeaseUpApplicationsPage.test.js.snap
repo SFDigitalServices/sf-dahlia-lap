@@ -4,34 +4,42 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
 <LeaseUpApplicationsPage
   listing={
     Object {
-      "Building_Street_Address": "buildingAddress",
-      "Id": "listingId",
-      "Name": "listingName",
-      "Report_id": "REPORT_ID",
+      "building_street_address": "buildingAddress",
+      "id": "listingId",
+      "name": "listingName",
+      "report_id": "REPORT_ID",
     }
   }
 >
   <TableLayout
     pageHeader={
       Object {
-        "action": null,
+        "action": Object {
+          "link": "/REPORT_ID?csv=1",
+          "title": "Export",
+        },
         "breadcrumbs": Array [
           Object {
             "link": "/listings/lease-ups",
             "title": "Lease Ups",
           },
           Object {
-            "link": "/listings/lease-ups/undefined/applications",
-            "title": undefined,
+            "link": "/listings/lease-ups/listingId/applications",
+            "title": "listingName",
           },
         ],
-        "content": undefined,
-        "title": undefined,
+        "content": "buildingAddress",
+        "title": "listingName",
       }
     }
   >
     <PageHeader
-      action={null}
+      action={
+        Object {
+          "link": "/REPORT_ID?csv=1",
+          "title": "Export",
+        }
+      }
       background="dust"
       breadcrumbs={
         Array [
@@ -40,11 +48,13 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
             "title": "Lease Ups",
           },
           Object {
-            "link": "/listings/lease-ups/undefined/applications",
-            "title": undefined,
+            "link": "/listings/lease-ups/listingId/applications",
+            "title": "listingName",
           },
         ]
       }
+      content="buildingAddress"
+      title="listingName"
     >
       <header
         className="lead-header short has-breadcrumbs bg-dust"
@@ -63,8 +73,8 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     "title": "Lease Ups",
                   },
                   Object {
-                    "link": "/listings/lease-ups/undefined/applications",
-                    "title": undefined,
+                    "link": "/listings/lease-ups/listingId/applications",
+                    "title": "listingName",
                   },
                 ]
               }
@@ -96,8 +106,8 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     current={true}
                     item={
                       Object {
-                        "link": "/listings/lease-ups/undefined/applications",
-                        "title": undefined,
+                        "link": "/listings/lease-ups/listingId/applications",
+                        "title": "listingName",
                       }
                     }
                   >
@@ -106,8 +116,10 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                     >
                       <a
                         aria-current="page"
-                        href="/listings/lease-ups/undefined/applications"
-                      />
+                        href="/listings/lease-ups/listingId/applications"
+                      >
+                        listingName
+                      </a>
                     </li>
                   </Item>
                 </ol>
@@ -118,10 +130,49 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
             >
               <h1
                 className="lead-header_title small c-oil"
-              />
+              >
+                listingName
+              </h1>
+              <div
+                className="medium-8 columns no-padding"
+              >
+                <p>
+                  buildingAddress
+                </p>
+              </div>
               <Actions
-                actions={null}
-              />
+                actions={
+                  Object {
+                    "link": "/REPORT_ID?csv=1",
+                    "title": "Export",
+                  }
+                }
+              >
+                <div
+                  className="medium-4 columns no-padding"
+                >
+                  <span
+                    className="lead-header_secondary-action"
+                  >
+                    <DefaultAction
+                      action={
+                        Object {
+                          "link": "/REPORT_ID?csv=1",
+                          "title": "Export",
+                        }
+                      }
+                      key="0"
+                    >
+                      <a
+                        className="alt-caps"
+                        href="/REPORT_ID?csv=1"
+                      >
+                        Export
+                      </a>
+                    </DefaultAction>
+                  </span>
+                </div>
+              </Actions>
             </hgroup>
           </div>
         </div>
@@ -229,10 +280,10 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                 "handleOnFetchData": [Function],
                 "handleOnFilter": [Function],
                 "listing": Object {
-                  "Building_Street_Address": "buildingAddress",
-                  "Id": "listingId",
-                  "Name": "listingName",
-                  "Report_id": "REPORT_ID",
+                  "building_street_address": "buildingAddress",
+                  "id": "listingId",
+                  "name": "listingName",
+                  "report_id": "REPORT_ID",
                 },
                 "loading": false,
                 "pages": NaN,
@@ -926,6 +977,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                   },
                 ]
               }
+              listingId="listingId"
               loading={false}
               onCellClick={[Function]}
               onFetchData={[Function]}
