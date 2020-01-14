@@ -2,10 +2,10 @@
 
 exports[`TabsMenu should render tab 1`] = `
 <TabsMenu
-  currentUrl="/url1"
   items={
     Array [
       Object {
+        "active": true,
         "title": "Short Form Application",
         "url": "/url1",
       },
@@ -22,7 +22,7 @@ exports[`TabsMenu should render tab 1`] = `
   >
     <Tab
       active={true}
-      key="/url1"
+      key="Short Form Application"
       linkRefs={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -46,8 +46,7 @@ exports[`TabsMenu should render tab 1`] = `
       </li>
     </Tab>
     <Tab
-      active={false}
-      key="/url2"
+      key="Supplemental Information"
       linkRefs={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -59,7 +58,6 @@ exports[`TabsMenu should render tab 1`] = `
         role="none"
       >
         <a
-          aria-selected={false}
           href="/url2"
           onFocus={[Function]}
           onKeyDown={[Function]}

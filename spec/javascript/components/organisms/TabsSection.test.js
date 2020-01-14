@@ -7,7 +7,7 @@ describe('TabsMenu', () => {
   test('it should render correctly', () => {
     const items = [
       { title: 'Short Form Application', url: '/url1' },
-      { title: 'Supplemental Information', url: '/url2' }
+      { title: 'Supplemental Information', url: '/url2', active: true }
     ]
 
     const wrapper = mount(

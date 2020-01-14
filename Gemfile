@@ -7,11 +7,11 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6.1'
+gem 'rails', '~> 5.1.7'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.0.6
-gem 'rack', '>= 2.0.6'
+gem 'rack', '>= 2.0.8'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,7 +40,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.142.7'
   gem 'dotenv-rails', '~> 2.2'
   gem 'pry-rails'
   gem 'binding_of_caller'
