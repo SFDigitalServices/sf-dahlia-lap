@@ -129,4 +129,11 @@ export const touchAllFields = (form, touchedState) => {
   Object.keys(touchedState).map(fieldName => form.blur(fieldName))
 }
 
+export const validateLeaseCurrency = (value) => {
+  return (
+    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
+  )
+}
+
 export default validate

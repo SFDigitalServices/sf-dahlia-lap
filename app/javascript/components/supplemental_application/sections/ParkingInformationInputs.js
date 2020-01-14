@@ -2,18 +2,11 @@ import React, { useState } from 'react'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { SelectField, CurrencyField } from '~/utils/form/final_form/Field.js'
-import validate from '~/utils/form/validations'
+import { validateLeaseCurrency } from '~/utils/form/validations'
 
 const monthlyRentFieldName = 'lease.monthly_parking_rent'
 const Yes = 'Yes'
 const No = 'No'
-
-const validateLeaseCurrency = (value) => {
-  return (
-    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
-  )
-}
 
 const ParkingInformationInputs = ({ form: { change }, values: { lease } }) => {
   const [parkingSpaceAssigned, setParkingSpaceAssigned] = useState(lease && lease['monthly_parking_rent'] ? Yes : No)

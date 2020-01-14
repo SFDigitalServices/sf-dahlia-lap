@@ -7,7 +7,7 @@ import formUtils from '~/utils/formUtils'
 import { withContext } from '../context'
 import { SelectField, CurrencyField } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
-import validate from '~/utils/form/validations'
+import { validateLeaseCurrency } from '~/utils/form/validations'
 
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
@@ -15,13 +15,6 @@ const toggleNoPreferenceUsed = (form, event) => {
     form.change('lease.preference_used', '')
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
-}
-
-const validateLeaseCurrency = (value) => {
-  return (
-    validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
-  )
 }
 
 const LeaseInformationInputs = ({ form, store }) => {
