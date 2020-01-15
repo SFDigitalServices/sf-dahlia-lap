@@ -46,6 +46,7 @@ module Api
           { :lease_start_date => [:month, :day, :year] },
           :lease_status,
           :monthly_parking_rent,
+          :bmr_parking_space_assigned,
           :monthly_tenant_contribution,
           :no_preference_used,
           :preference_used,

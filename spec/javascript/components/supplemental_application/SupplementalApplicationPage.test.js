@@ -271,7 +271,7 @@ describe('SupplementalApplicationPage', () => {
 
       // Costs
       wrapper.find('[name="lease.total_monthly_rent_without_parking"] input').simulate('change', { target: { value: '$1' } })
-      wrapper.find('[name="lease.monthly_parking_rent"] input').simulate('change', { target: { value: '$2' } })
+      wrapper.find('[name="lease.monthly_parking_rent"] input').at(0).simulate('change', { target: { value: '$2' } })
       wrapper.find('[name="lease.monthly_tenant_contribution"] input').simulate('change', { target: { value: '$3' } })
 
       // Assert that they're sent to the API

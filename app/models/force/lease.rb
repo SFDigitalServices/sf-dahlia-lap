@@ -11,6 +11,7 @@ module Force
       { domain: 'lease_status', salesforce: 'Lease_Status' },
       { domain: 'lease_start_date', salesforce: 'Lease_Start_Date' },
       { domain: 'monthly_parking_rent', salesforce: 'Monthly_Parking_Rent' },
+      { domain: 'bmr_parking_space_assigned', salesforce: 'BMR_Parking_Space_Assigned' },
       { domain: 'monthly_tenant_contribution', salesforce: 'Monthly_Tenant_Contribution' },
       { domain: 'no_preference_used', salesforce: 'No_Preference_Used' },
       { domain: 'preference_used', salesforce: 'Preference_Used' },
