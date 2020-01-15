@@ -1,11 +1,11 @@
 import { isEmpty, map } from 'lodash'
 
-const labelize = (options, attrs = {}) => {
+const labelize = (options, attrs = {}, noPlaceholder = false) => {
   if (isEmpty(options)) return []
 
   let emptyInitialOptionPresent =
     isEmpty(options[0]) ||
-    (options[0].hasOwnProperty('value') && isEmpty(options[0].value))
+    (options[0].hasOwnProperty('value') && isEmpty(options[0].value)) || noPlaceholder
 
   let labelizedOptions = []
   if (!emptyInitialOptionPresent) {

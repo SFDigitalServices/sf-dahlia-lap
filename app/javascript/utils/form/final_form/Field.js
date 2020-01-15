@@ -87,10 +87,10 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
     )}
   </Field>
 )
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue, noPlaceholder }) => (
   <Field name={fieldName} validate={validation} component='select' parse={identity}>
     {({ input, meta }) => {
-      const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options)
+      const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
       return (
         <React.Fragment>
           <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >

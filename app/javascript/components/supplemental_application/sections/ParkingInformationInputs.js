@@ -27,7 +27,8 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease } }) => {
               selectValue={parkingSpaceAssigned}
               onChange={selectParkingSpaceAssigned}
               fieldName='lease.bmr_parking_space_assigned'
-              options={[Yes, No]} />
+              options={[Yes, No]}
+              noPlaceholder />
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
