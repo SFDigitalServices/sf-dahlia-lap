@@ -981,32 +981,6 @@ Array [
               >
                 <label
                   className="form-label"
-                  htmlFor="form-lease.monthly_parking_rent"
-                  id="label-lease-monthly_parking_rent"
-                >
-                  Monthly Parking Cost
-                </label>
-                <input
-                  className=""
-                  id="form-lease.monthly_parking_rent"
-                  name="lease.monthly_parking_rent"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Enter Amount"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="form-label"
                   htmlFor="form-lease.monthly_tenant_contribution"
                   id="label-lease-monthly_tenant_contribution"
                 >
@@ -1058,32 +1032,27 @@ Array [
                 >
                   <label
                     className="form-label"
-                    htmlFor="form-lease.bmr_parking"
-                    id="label-lease-bmr_parking"
+                    htmlFor="form-lease.bmr_parking_space_assigned"
+                    id="label-lease-bmr_parking_space_assigned"
                   >
                     BMR Parking Space Assigned?
                   </label>
                   <select
                     className=""
-                    id="form-lease.bmr_parking"
-                    name="lease.bmr_parking"
+                    id="form-lease.bmr_parking_space_assigned"
+                    name="lease.bmr_parking_space_assigned"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
-                    value="no"
+                    value="No"
                   >
                     <option
-                      value=""
-                    >
-                      Select One...
-                    </option>
-                    <option
-                      value="yes"
+                      value="Yes"
                     >
                       Yes
                     </option>
                     <option
-                      value="no"
+                      value="No"
                     >
                       No
                     </option>
@@ -6606,80 +6575,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               className="form-grid_item small-12 medium-6 large-3 column"
                                             >
                                               <CurrencyField
-                                                fieldName="lease.monthly_parking_rent"
-                                                label="Monthly Parking Cost"
-                                                placeholder="Enter Amount"
-                                                validation={[Function]}
-                                              >
-                                                <Field
-                                                  component="input"
-                                                  format={[Function]}
-                                                  formatOnBlur={true}
-                                                  name="lease.monthly_parking_rent"
-                                                  parse={[Function]}
-                                                  validate={[Function]}
-                                                >
-                                                  <div
-                                                    className="form-group"
-                                                  >
-                                                    <Label
-                                                      fieldName="lease.monthly_parking_rent"
-                                                      id="form-lease.monthly_parking_rent"
-                                                      label="Monthly Parking Cost"
-                                                    >
-                                                      <label
-                                                        className="form-label"
-                                                        htmlFor="form-lease.monthly_parking_rent"
-                                                        id="label-lease-monthly_parking_rent"
-                                                      >
-                                                        Monthly Parking Cost
-                                                      </label>
-                                                    </Label>
-                                                    <input
-                                                      className=""
-                                                      id="form-lease.monthly_parking_rent"
-                                                      name="lease.monthly_parking_rent"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onFocus={[Function]}
-                                                      placeholder="Enter Amount"
-                                                      type="text"
-                                                      value=""
-                                                    />
-                                                    <FieldError
-                                                      meta={
-                                                        Object {
-                                                          "active": false,
-                                                          "data": Object {},
-                                                          "dirty": false,
-                                                          "dirtySinceLastSubmit": false,
-                                                          "error": undefined,
-                                                          "initial": undefined,
-                                                          "invalid": false,
-                                                          "length": undefined,
-                                                          "modified": false,
-                                                          "pristine": true,
-                                                          "submitError": undefined,
-                                                          "submitFailed": false,
-                                                          "submitSucceeded": false,
-                                                          "submitting": false,
-                                                          "touched": false,
-                                                          "valid": true,
-                                                          "validating": false,
-                                                          "visited": false,
-                                                        }
-                                                      }
-                                                    />
-                                                  </div>
-                                                </Field>
-                                              </CurrencyField>
-                                            </div>
-                                          </Component>
-                                          <Component>
-                                            <div
-                                              className="form-grid_item small-12 medium-6 large-3 column"
-                                            >
-                                              <CurrencyField
                                                 fieldName="lease.monthly_tenant_contribution"
                                                 label="Monthly Tenant Contribution"
                                                 placeholder="Enter Amount"
@@ -7005,68 +6900,57 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 className="form-group"
                                               >
                                                 <SelectField
-                                                  fieldName="lease.bmr_parking"
+                                                  fieldName="lease.bmr_parking_space_assigned"
                                                   label="BMR Parking Space Assigned?"
+                                                  noPlaceholder={true}
                                                   onChange={[Function]}
                                                   options={
                                                     Array [
-                                                      Object {
-                                                        "label": "Yes",
-                                                        "value": "yes",
-                                                      },
-                                                      Object {
-                                                        "label": "No",
-                                                        "value": "no",
-                                                      },
+                                                      "Yes",
+                                                      "No",
                                                     ]
                                                   }
-                                                  selectValue="no"
+                                                  selectValue="No"
                                                 >
                                                   <Field
                                                     component="select"
-                                                    name="lease.bmr_parking"
+                                                    name="lease.bmr_parking_space_assigned"
                                                     parse={[Function]}
                                                   >
                                                     <div
                                                       className="form-group"
                                                     >
                                                       <Label
-                                                        fieldName="lease.bmr_parking"
-                                                        id="form-lease.bmr_parking"
+                                                        fieldName="lease.bmr_parking_space_assigned"
+                                                        id="form-lease.bmr_parking_space_assigned"
                                                         label="BMR Parking Space Assigned?"
                                                       >
                                                         <label
                                                           className="form-label"
-                                                          htmlFor="form-lease.bmr_parking"
-                                                          id="label-lease-bmr_parking"
+                                                          htmlFor="form-lease.bmr_parking_space_assigned"
+                                                          id="label-lease-bmr_parking_space_assigned"
                                                         >
                                                           BMR Parking Space Assigned?
                                                         </label>
                                                       </Label>
                                                       <select
                                                         className=""
-                                                        id="form-lease.bmr_parking"
-                                                        name="lease.bmr_parking"
+                                                        id="form-lease.bmr_parking_space_assigned"
+                                                        name="lease.bmr_parking_space_assigned"
                                                         onBlur={[Function]}
                                                         onChange={[Function]}
                                                         onFocus={[Function]}
-                                                        value="no"
+                                                        value="No"
                                                       >
                                                         <option
-                                                          key=""
-                                                          value=""
-                                                        >
-                                                          Select One...
-                                                        </option>
-                                                        <option
-                                                          key="yes"
-                                                          value="yes"
+                                                          key="Yes"
+                                                          value="Yes"
                                                         >
                                                           Yes
                                                         </option>
                                                         <option
-                                                          key="no"
-                                                          value="no"
+                                                          key="No"
+                                                          value="No"
                                                         >
                                                           No
                                                         </option>
