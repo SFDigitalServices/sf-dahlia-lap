@@ -29,8 +29,8 @@ module Force
         filters = ''
         filters += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
         filters += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
-        filters += "and Application__r.Applicant__r.First_Name__c = '#{opts[:first_name]}' " if opts[:first_name].present?
-        filters += "and Application__r.Applicant__r.Last_Name__c = '#{opts[:last_name]}' " if opts[:last_name].present?
+        filters += "and Application__r.Applicant__r.First_Name__c like '%#{opts[:first_name]}%' " if opts[:first_name].present?
+        filters += "and Application__r.Applicant__r.Last_Name__c like '%#{opts[:last_name]}%' " if opts[:last_name].present?
         filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
 
         filters
