@@ -25,7 +25,7 @@ module Force
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
           WHERE Listing__c in ('#{listing_ids.join("', '")}')
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
-        ), :pending_review).reject { |set| set['Rule_Name'] == 'Residence Address' }
+        ), :pending_review)
       end
     end
 
