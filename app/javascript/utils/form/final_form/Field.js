@@ -10,7 +10,13 @@ const {
 
 // Make react-final-form does include empty values on submit.
 // Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
-const identity = value => (value)
+const identity = (value, isCurrency) => {
+  if (isCurrency) {
+    const onlyCurrency = value.replace(/[^0-9$,.]/g, '')
+    return onlyCurrency
+  }
+  return value
+}
 
 export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
@@ -66,7 +72,7 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
 )
 
 export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled }) => (
-  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={identity} formatOnBlur>
+  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={(value) => identity(value, true)} formatOnBlur>
     {({ input, meta }) => (
       <React.Fragment>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
@@ -76,7 +82,7 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
             fieldName={fieldName} />
           <input {...input}
             id={id || `form-${fieldName}`}
-            type='text'
+
             placeholder={placeholder || '$0.00'}
             className={(meta.error && meta.touched && 'error') || ''}
             maxLength={maxLength}
