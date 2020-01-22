@@ -9,7 +9,7 @@ import formOptions from '~/components/applications/application_form/formOptions'
 import validate from '~/utils/form/validations'
 const { labelize } = formOptions
 
-export const RentBurdenedPanel = ({ preferenceIndex }) => (
+export const RentBurdenedPanel = ({ preferenceIndex, visited }) => (
   <FormGrid.Row expand={false}>
     <FormItem label='Preference Name'>
       <div className='text-value'>
@@ -22,7 +22,8 @@ export const RentBurdenedPanel = ({ preferenceIndex }) => (
         fieldName='total_monthly_rent'
         type='number'
         label='Total Household Monthly Rent'
-        validation={validate.isValidCurrency('Please enter a valid dollar amount.')} />
+        validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
+        isDirty={visited && visited['total_monthly_rent']} />
     </FormItem>
     <FormItem>
       <SelectField

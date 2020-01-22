@@ -134,7 +134,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   )
 })
 
-const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form }) => {
+const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form, visited }) => {
   const validateAssistanceAmount = (value) => {
     return validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
       validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
@@ -197,6 +197,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
               fieldName={`rental_assistances.${index}.assistance_amount`}
               validation={validateAssistanceAmount}
               id='assistance_amount'
+              isDirty={visited && visited[`rental_assistances.${index}.assistance_amount`]}
             />
           </FormGrid.Item>
           <FormGrid.Item>
@@ -249,7 +250,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   )
 }
 
-const RentalAssistance = ({ store, form, submitting }) => {
+const RentalAssistance = ({ store, form, submitting, visited }) => {
   const {
     application,
     applicationMembers,
@@ -292,6 +293,7 @@ const RentalAssistance = ({ store, form, submitting }) => {
           values={{type_of_assistance: null}}
           index={application.rental_assistances.length}
           form={form}
+          visited={visited}
           isNew
         />
       )}

@@ -40,7 +40,7 @@ const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   )
 })
 
-const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form }) => (
+const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, form, visited }) => (
   <ContentSection
     title='Confirmed Preferences'
     description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
@@ -58,37 +58,38 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
         fileBaseUrl={fileBaseUrl}
         onPanelClose={onDismissError}
         form={form}
+        visited={visited}
       />
     </ContentSection.Content>
   </ContentSection>
 )
 
-const ConfirmedHousehold = ({ listingAmiCharts, form }) => (
+const ConfirmedHousehold = ({ listingAmiCharts, form, visited }) => (
   <ContentSection title='Confirmed Household'>
     <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
       <ConfirmedUnits />
     </ContentSection.Sub>
     <ContentSection.Sub title='Confirmed Household Income'>
-      <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} form={form} />
+      <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} form={form} visited={visited} />
     </ContentSection.Sub>
   </ContentSection>
 )
 
-const LeaseInformationSection = ({form, values}) => (
+const LeaseInformationSection = ({form, values, visited}) => (
   <ContentSection title='Lease Information'>
     <ContentSection.Sub
       title='Unit'>
-      <LeaseInformationInputs form={form} />
+      <LeaseInformationInputs form={form} visited={visited} />
     </ContentSection.Sub>
     <ContentSection.Sub
       title='Parking'
       description='If the applicant will receive a below market rate parking space, indicate the monthly cost.'>
-      <ParkingInformationInputs form={form} values={values} />
+      <ParkingInformationInputs form={form} values={values} visited={visited} />
     </ContentSection.Sub>
   </ContentSection>
 )
 
-const RentalAssistanceSection = ({form, submitting}) => (
+const RentalAssistanceSection = ({form, submitting, visited}) => (
   <ContentSection.Sub
     title='Rental Assistance Information'
     description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
@@ -160,7 +161,7 @@ const SupplementalApplicationContainer = ({ store }) => {
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}
-      render={({ handleSubmit, form, touched, submitting, values }) => (
+      render={({ handleSubmit, form, touched, submitting, values, visited }) => (
         <React.Fragment>
           { failed && (
             <AlertBox
@@ -179,9 +180,9 @@ const SupplementalApplicationContainer = ({ store }) => {
               confirmedPreferencesFailed={confirmedPreferencesFailed}
               form={form}
             />
-            <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} />
-            <LeaseInformationSection form={form} values={values} />
-            <RentalAssistanceSection form={form} submitting={submitting} />
+            <ConfirmedHousehold form={form} listingAmiCharts={listingAmiCharts} visited={visited} />
+            <LeaseInformationSection form={form} values={values} visited={visited} />
+            <RentalAssistanceSection form={form} submitting={submitting} visited={visited} />
             <DemographicsSection />
             <ScrollableAnchor id={'status-history-section'}>
               <div>

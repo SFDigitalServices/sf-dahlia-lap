@@ -32,7 +32,7 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, form }) => {
+const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, form, visited }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
   const memberOption = (member) => { return { value: member.id, label: `${member.first_name} ${member.last_name}` } }
@@ -55,6 +55,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
           preference={preference}
           form={form}
           applicationMembersOptions={applicationMembersOptions}
+          visited={visited}
         />
         <FormGrid.Row expand={false}>
           <div className='form-grid_item column'>

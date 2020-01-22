@@ -8,7 +8,7 @@ const {
   householdVouchersSubsidiesOptions
 } = formOptions
 
-const HouseholdIncomeSection = () => {
+const HouseholdIncomeSection = ({ visited }) => {
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Declared Household Income</h3>
@@ -20,6 +20,7 @@ const HouseholdIncomeSection = () => {
             label='Annual Income'
             maxLength={maxLengthMap['income']}
             validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
+            isDirty={visited && visited['annual_income']}
           />
         </div>
         <div className='small-6 columns'>

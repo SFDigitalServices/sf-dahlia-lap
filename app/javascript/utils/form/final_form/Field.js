@@ -12,8 +12,7 @@ const {
 // Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
 const identity = (value, isCurrency) => {
   if (isCurrency) {
-    const onlyCurrency = value.replace(/[^0-9$,.]/g, '')
-    return onlyCurrency
+    return value.replace(/[^\d]/g, '')
   }
   return value
 }
@@ -71,25 +70,23 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
   </Field>
 )
 
-export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled }) => (
-  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={(value) => identity(value, true)} formatOnBlur>
+export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
+  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={(value) => identity(value, true)} formatOnBlur={isDirty}>
     {({ input, meta }) => (
-      <React.Fragment>
-        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-          <Label
-            label={label}
-            id={id || `form-${fieldName}`}
-            fieldName={fieldName} />
-          <input {...input}
-            id={id || `form-${fieldName}`}
+      <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+        <Label
+          label={label}
+          id={id || `form-${fieldName}`}
+          fieldName={fieldName} />
+        <input {...input}
+          id={id || `form-${fieldName}`}
 
-            placeholder={placeholder || '$0.00'}
-            className={(meta.error && meta.touched && 'error') || ''}
-            maxLength={maxLength}
-            disabled={disabled} />
-          <FieldError meta={meta} />
-        </div>
-      </React.Fragment>
+          placeholder={placeholder || '$0.00'}
+          className={(meta.error && meta.touched && 'error') || ''}
+          maxLength={maxLength}
+          disabled={disabled} />
+        <FieldError meta={meta} />
+      </div>
     )}
   </Field>
 )

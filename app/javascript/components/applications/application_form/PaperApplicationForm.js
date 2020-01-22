@@ -104,7 +104,7 @@ class PaperApplicationForm extends React.Component {
           mutators={{
             ...arrayMutators
           }}
-          render={({ handleSubmit, form, values }) => (
+          render={({ handleSubmit, form, values, visited }) => (
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
@@ -125,7 +125,7 @@ class PaperApplicationForm extends React.Component {
                     listingPreferences={listing.listing_lottery_preferences}
                     editValues={application}
                   />
-                  <HouseholdIncomeSection />
+                  <HouseholdIncomeSection visited={visited} />
                   <DemographicInfoSection
                     values={values}
                     genderSpecifyRequired={this.state.genderSpecifyRequired}

@@ -42,9 +42,10 @@ export const getAmiPercent = ({income, ami}) => {
   return formatPercent(incomeFloat / Number(ami))
 }
 
-const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
-  const totalHouseholdSize = form.getState().values.total_household_size
-  const hhTotalIncomeWithAssetsAnnual = form.getState().values.hh_total_income_with_assets_annual
+const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
+  const { values } = form.getState()
+  const totalHouseholdSize = values.total_household_size
+  const hhTotalIncomeWithAssetsAnnual = values.hh_total_income_with_assets_annual
 
   const [ amiCharts, setAmiCharts ] = useState([])
   // This is the hooks version of componentDidMount.
@@ -67,6 +68,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
               label='Household Assets'
               placeholder='Enter Amount'
               validation={validateIncomeCurrency}
+              isDirty={visited && visited['household_assets']}
             />
           </FormGrid.Group>
         </FormGrid.Item>
@@ -77,6 +79,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
               label='Confirmed Annual Income'
               placeholder='Enter Amount'
               validation={validateIncomeCurrency}
+              isDirty={visited && visited['confirmed_household_annual_income']}
             />
             <span className='form-note shift-up' id='household-annual-income'>
               Not Including % of Assets
@@ -90,6 +93,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form }) => {
               label='Final Household Annual Income'
               placeholder='Enter Amount'
               validation={validateIncomeCurrency}
+              isDirty={visited && visited['hh_total_income_with_assets_annual']}
             />
             <span className='form-note shift-up' id='final-household-annual-income'>Includes % of assets if applicable</span>
           </FormGrid.Group>
