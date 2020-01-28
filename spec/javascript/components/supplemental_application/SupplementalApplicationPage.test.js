@@ -227,7 +227,7 @@ describe('SupplementalApplicationPage', () => {
     expect(mockUpdateApplication.mock.calls.length).toBe(1)
     expect(mockUpdatePreference.mock.calls.length).toBe(1)
     expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
-    expect(mockUpdateApplication).toHaveBeenCalledWith({'id': 'application_id', 'total_monthly_rent': '$50.00'})
+    expect(mockUpdateApplication).toHaveBeenCalledWith({'id': 'application_id', 'total_monthly_rent': '50'})
   })
 
   describe('Lease Section', () => {
@@ -283,9 +283,9 @@ describe('SupplementalApplicationPage', () => {
         'lease_start_date': {'year': '2019', 'month': '1', 'day': '12'},
         'no_preference_used': false,
         'preference_used': 'testValidPref',
-        'total_monthly_rent_without_parking': 1,
-        'monthly_parking_rent': 2,
-        'monthly_tenant_contribution': 3,
+        'total_monthly_rent_without_parking': '1',
+        'monthly_parking_rent': '2',
+        'monthly_tenant_contribution': '3',
         'primary_applicant_contact': mockApplication['Applicant']['Id']
       }
 

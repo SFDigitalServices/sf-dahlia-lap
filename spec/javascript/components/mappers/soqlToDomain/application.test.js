@@ -32,11 +32,11 @@ describe('mapApplication', () => {
     soqlApplication.Household_Assets = 8.5
     soqlApplication.Total_Monthly_Rent = 1234
     const expectedDomainCurrencyValues = {
-      annual_income: '$45,000.00',
-      confirmed_household_annual_income: '$23,456.78',
-      hh_total_income_with_assets_annual: '$34,567.89',
-      household_assets: '$8.50',
-      total_monthly_rent: '$1,234.00'
+      annual_income: 45000,
+      confirmed_household_annual_income: 23456.78,
+      hh_total_income_with_assets_annual: 34567.89,
+      household_assets: 8.50,
+      total_monthly_rent: 1234.00
     }
 
     const mappedApplication = mapApplication(soqlApplication)

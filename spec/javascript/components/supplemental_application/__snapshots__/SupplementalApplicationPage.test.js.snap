@@ -647,7 +647,6 @@ Array [
                     onChange={[Function]}
                     onFocus={[Function]}
                     placeholder="Enter Amount"
-                    type="text"
                     value=""
                   />
                 </div>
@@ -677,7 +676,6 @@ Array [
                     onChange={[Function]}
                     onFocus={[Function]}
                     placeholder="Enter Amount"
-                    type="text"
                     value="$115,000.00"
                   />
                 </div>
@@ -713,7 +711,6 @@ Array [
                     onChange={[Function]}
                     onFocus={[Function]}
                     placeholder="Enter Amount"
-                    type="text"
                     value=""
                   />
                 </div>
@@ -968,7 +965,6 @@ Array [
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="Enter Amount"
-                  type="text"
                   value=""
                 />
               </div>
@@ -994,7 +990,6 @@ Array [
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="Enter Amount"
-                  type="text"
                   value=""
                 />
               </div>
@@ -1082,7 +1077,6 @@ Array [
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="Enter Amount"
-                  type="text"
                   value=""
                 />
               </div>
@@ -1625,7 +1619,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
     application={
       Object {
         "alternate_contact": Object {},
-        "annual_income": "$110,000.00",
+        "annual_income": 110000,
         "answered_community_screening": null,
         "applicant": Object {
           "agency_name": undefined,
@@ -1663,7 +1657,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "application_language": "English",
         "application_submission_type": "Paper",
         "application_submitted_date": "2018-06-21",
-        "confirmed_household_annual_income": "$115,000.00",
+        "confirmed_household_annual_income": 115000,
         "createdby": Object {
           "name": "Prod Vertiba",
         },
@@ -1685,8 +1679,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "has_developmental_disability": null,
         "has_loan_preapproval": undefined,
         "has_military_service": null,
-        "hh_total_income_with_assets_annual": "",
-        "household_assets": "",
+        "hh_total_income_with_assets_annual": undefined,
+        "household_assets": null,
         "household_members": Array [
           Object {
             "agency_name": undefined,
@@ -1786,7 +1780,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "status_last_updated": undefined,
         "terms_acknowledged": true,
         "total_household_size": 1,
-        "total_monthly_rent": "",
+        "total_monthly_rent": null,
       }
     }
     availableUnits={Array []}
@@ -2078,7 +2072,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                       Object {
                         "application": Object {
                           "alternate_contact": Object {},
-                          "annual_income": "$110,000.00",
+                          "annual_income": 110000,
                           "answered_community_screening": null,
                           "applicant": Object {
                             "agency_name": undefined,
@@ -2116,7 +2110,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "application_language": "English",
                           "application_submission_type": "Paper",
                           "application_submitted_date": "2018-06-21",
-                          "confirmed_household_annual_income": "$115,000.00",
+                          "confirmed_household_annual_income": 115000,
                           "createdby": Object {
                             "name": "Prod Vertiba",
                           },
@@ -2138,8 +2132,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "has_developmental_disability": null,
                           "has_loan_preapproval": undefined,
                           "has_military_service": null,
-                          "hh_total_income_with_assets_annual": "",
-                          "household_assets": "",
+                          "hh_total_income_with_assets_annual": undefined,
+                          "household_assets": null,
                           "household_members": Array [
                             Object {
                               "agency_name": undefined,
@@ -2239,7 +2233,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "status_last_updated": undefined,
                           "terms_acknowledged": true,
                           "total_household_size": 1,
-                          "total_monthly_rent": "",
+                          "total_monthly_rent": null,
                         },
                         "applicationMembers": Array [
                           Object {
@@ -2364,7 +2358,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                       initialValues={
                         Object {
                           "alternate_contact": Object {},
-                          "annual_income": "$110,000.00",
+                          "annual_income": 110000,
                           "answered_community_screening": null,
                           "applicant": Object {
                             "agency_name": undefined,
@@ -2402,7 +2396,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "application_language": "English",
                           "application_submission_type": "Paper",
                           "application_submitted_date": "2018-06-21",
-                          "confirmed_household_annual_income": "$115,000.00",
+                          "confirmed_household_annual_income": 115000,
                           "createdby": Object {
                             "name": "Prod Vertiba",
                           },
@@ -2424,8 +2418,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "has_developmental_disability": null,
                           "has_loan_preapproval": undefined,
                           "has_military_service": null,
-                          "hh_total_income_with_assets_annual": "",
-                          "household_assets": "",
+                          "hh_total_income_with_assets_annual": undefined,
+                          "household_assets": null,
                           "household_members": Array [
                             Object {
                               "agency_name": undefined,
@@ -2525,7 +2519,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "status_last_updated": undefined,
                           "terms_acknowledged": true,
                           "total_household_size": 1,
-                          "total_monthly_rent": "",
+                          "total_monthly_rent": null,
                         }
                       }
                       mutators={
@@ -2567,7 +2561,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               Object {
                                 "application": Object {
                                   "alternate_contact": Object {},
-                                  "annual_income": "$110,000.00",
+                                  "annual_income": 110000,
                                   "answered_community_screening": null,
                                   "applicant": Object {
                                     "agency_name": undefined,
@@ -2605,7 +2599,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "application_language": "English",
                                   "application_submission_type": "Paper",
                                   "application_submitted_date": "2018-06-21",
-                                  "confirmed_household_annual_income": "$115,000.00",
+                                  "confirmed_household_annual_income": 115000,
                                   "createdby": Object {
                                     "name": "Prod Vertiba",
                                   },
@@ -2627,8 +2621,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "has_developmental_disability": null,
                                   "has_loan_preapproval": undefined,
                                   "has_military_service": null,
-                                  "hh_total_income_with_assets_annual": "",
-                                  "household_assets": "",
+                                  "hh_total_income_with_assets_annual": undefined,
+                                  "household_assets": null,
                                   "household_members": Array [
                                     Object {
                                       "agency_name": undefined,
@@ -2728,7 +2722,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "status_last_updated": undefined,
                                   "terms_acknowledged": true,
                                   "total_household_size": 1,
-                                  "total_monthly_rent": "",
+                                  "total_monthly_rent": null,
                                 },
                                 "applicationMembers": Array [
                                   Object {
@@ -3042,7 +3036,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           application={
                             Object {
                               "alternate_contact": Object {},
-                              "annual_income": "$110,000.00",
+                              "annual_income": 110000,
                               "answered_community_screening": null,
                               "applicant": Object {
                                 "agency_name": undefined,
@@ -3080,7 +3074,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "application_language": "English",
                               "application_submission_type": "Paper",
                               "application_submitted_date": "2018-06-21",
-                              "confirmed_household_annual_income": "$115,000.00",
+                              "confirmed_household_annual_income": 115000,
                               "createdby": Object {
                                 "name": "Prod Vertiba",
                               },
@@ -3102,8 +3096,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "has_developmental_disability": null,
                               "has_loan_preapproval": undefined,
                               "has_military_service": null,
-                              "hh_total_income_with_assets_annual": "",
-                              "household_assets": "",
+                              "hh_total_income_with_assets_annual": undefined,
+                              "household_assets": null,
                               "household_members": Array [
                                 Object {
                                   "agency_name": undefined,
@@ -3203,7 +3197,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "status_last_updated": undefined,
                               "terms_acknowledged": true,
                               "total_household_size": 1,
-                              "total_monthly_rent": "",
+                              "total_monthly_rent": null,
                             }
                           }
                           applicationMembers={
@@ -3346,7 +3340,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   application={
                                     Object {
                                       "alternate_contact": Object {},
-                                      "annual_income": "$110,000.00",
+                                      "annual_income": 110000,
                                       "answered_community_screening": null,
                                       "applicant": Object {
                                         "agency_name": undefined,
@@ -3384,7 +3378,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "application_language": "English",
                                       "application_submission_type": "Paper",
                                       "application_submitted_date": "2018-06-21",
-                                      "confirmed_household_annual_income": "$115,000.00",
+                                      "confirmed_household_annual_income": 115000,
                                       "createdby": Object {
                                         "name": "Prod Vertiba",
                                       },
@@ -3406,8 +3400,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "has_developmental_disability": null,
                                       "has_loan_preapproval": undefined,
                                       "has_military_service": null,
-                                      "hh_total_income_with_assets_annual": "",
-                                      "household_assets": "",
+                                      "hh_total_income_with_assets_annual": undefined,
+                                      "household_assets": null,
                                       "household_members": Array [
                                         Object {
                                           "agency_name": undefined,
@@ -3507,7 +3501,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "status_last_updated": undefined,
                                       "terms_acknowledged": true,
                                       "total_household_size": 1,
-                                      "total_monthly_rent": "",
+                                      "total_monthly_rent": null,
                                     }
                                   }
                                   applicationMembers={
@@ -3622,7 +3616,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     application={
                                       Object {
                                         "alternate_contact": Object {},
-                                        "annual_income": "$110,000.00",
+                                        "annual_income": 110000,
                                         "answered_community_screening": null,
                                         "applicant": Object {
                                           "agency_name": undefined,
@@ -3660,7 +3654,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "application_language": "English",
                                         "application_submission_type": "Paper",
                                         "application_submitted_date": "2018-06-21",
-                                        "confirmed_household_annual_income": "$115,000.00",
+                                        "confirmed_household_annual_income": 115000,
                                         "createdby": Object {
                                           "name": "Prod Vertiba",
                                         },
@@ -3682,8 +3676,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "has_developmental_disability": null,
                                         "has_loan_preapproval": undefined,
                                         "has_military_service": null,
-                                        "hh_total_income_with_assets_annual": "",
-                                        "household_assets": "",
+                                        "hh_total_income_with_assets_annual": undefined,
+                                        "household_assets": null,
                                         "household_members": Array [
                                           Object {
                                             "agency_name": undefined,
@@ -3783,7 +3777,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "status_last_updated": undefined,
                                         "terms_acknowledged": true,
                                         "total_household_size": 1,
-                                        "total_monthly_rent": "",
+                                        "total_monthly_rent": null,
                                       }
                                     }
                                     applicationMembers={
@@ -3897,7 +3891,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       Object {
                                         "application": Object {
                                           "alternate_contact": Object {},
-                                          "annual_income": "$110,000.00",
+                                          "annual_income": 110000,
                                           "answered_community_screening": null,
                                           "applicant": Object {
                                             "agency_name": undefined,
@@ -3935,7 +3929,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "application_language": "English",
                                           "application_submission_type": "Paper",
                                           "application_submitted_date": "2018-06-21",
-                                          "confirmed_household_annual_income": "$115,000.00",
+                                          "confirmed_household_annual_income": 115000,
                                           "createdby": Object {
                                             "name": "Prod Vertiba",
                                           },
@@ -3957,8 +3951,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_developmental_disability": null,
                                           "has_loan_preapproval": undefined,
                                           "has_military_service": null,
-                                          "hh_total_income_with_assets_annual": "",
-                                          "household_assets": "",
+                                          "hh_total_income_with_assets_annual": undefined,
+                                          "household_assets": null,
                                           "household_members": Array [
                                             Object {
                                               "agency_name": undefined,
@@ -4058,7 +4052,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "status_last_updated": undefined,
                                           "terms_acknowledged": true,
                                           "total_household_size": 1,
-                                          "total_monthly_rent": "",
+                                          "total_monthly_rent": null,
                                         },
                                         "applicationMembers": Array [
                                           Object {
@@ -4332,6 +4326,33 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             }
                           }
                           listingAmiCharts={Array []}
+                          visited={
+                            Object {
+                              "applicant.marital_status": false,
+                              "confirmed_household_annual_income": false,
+                              "has_ada_priorities_selected.hearing_impairments": false,
+                              "has_ada_priorities_selected.mobility_impairments": false,
+                              "has_ada_priorities_selected.vision_impairments": false,
+                              "has_developmental_disability": false,
+                              "has_military_service": false,
+                              "hh_total_income_with_assets_annual": false,
+                              "household_assets": false,
+                              "housing_voucher_or_subsidy": false,
+                              "lease.bmr_parking_space_assigned": false,
+                              "lease.lease_start_date.day": false,
+                              "lease.lease_start_date.month": false,
+                              "lease.lease_start_date.year": false,
+                              "lease.monthly_parking_rent": false,
+                              "lease.monthly_tenant_contribution": false,
+                              "lease.preference_used": false,
+                              "lease.total_monthly_rent_without_parking": false,
+                              "lease.unit": false,
+                              "number_of_dependents": false,
+                              "number_of_minors": false,
+                              "number_of_seniors": false,
+                              "reserved_senior": false,
+                            }
+                          }
                         >
                           <ContentSection
                             title="Confirmed Household"
@@ -5062,6 +5083,33 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       }
                                     }
                                     listingAmiCharts={Array []}
+                                    visited={
+                                      Object {
+                                        "applicant.marital_status": false,
+                                        "confirmed_household_annual_income": false,
+                                        "has_ada_priorities_selected.hearing_impairments": false,
+                                        "has_ada_priorities_selected.mobility_impairments": false,
+                                        "has_ada_priorities_selected.vision_impairments": false,
+                                        "has_developmental_disability": false,
+                                        "has_military_service": false,
+                                        "hh_total_income_with_assets_annual": false,
+                                        "household_assets": false,
+                                        "housing_voucher_or_subsidy": false,
+                                        "lease.bmr_parking_space_assigned": false,
+                                        "lease.lease_start_date.day": false,
+                                        "lease.lease_start_date.month": false,
+                                        "lease.lease_start_date.year": false,
+                                        "lease.monthly_parking_rent": false,
+                                        "lease.monthly_tenant_contribution": false,
+                                        "lease.preference_used": false,
+                                        "lease.total_monthly_rent_without_parking": false,
+                                        "lease.unit": false,
+                                        "number_of_dependents": false,
+                                        "number_of_minors": false,
+                                        "number_of_seniors": false,
+                                        "reserved_senior": false,
+                                      }
+                                    }
                                   >
                                     <Component
                                       expand={true}
@@ -5176,6 +5224,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               >
                                                 <CurrencyField
                                                   fieldName="household_assets"
+                                                  isDirty={false}
                                                   label="Household Assets"
                                                   placeholder="Enter Amount"
                                                   validation={[Function]}
@@ -5183,7 +5232,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <Field
                                                     component="input"
                                                     format={[Function]}
-                                                    formatOnBlur={true}
+                                                    formatOnBlur={false}
                                                     name="household_assets"
                                                     parse={[Function]}
                                                     validate={[Function]}
@@ -5212,7 +5261,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         onChange={[Function]}
                                                         onFocus={[Function]}
                                                         placeholder="Enter Amount"
-                                                        type="text"
                                                         value=""
                                                       />
                                                       <FieldError
@@ -5223,7 +5271,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             "dirty": false,
                                                             "dirtySinceLastSubmit": false,
                                                             "error": undefined,
-                                                            "initial": "",
+                                                            "initial": null,
                                                             "invalid": false,
                                                             "length": undefined,
                                                             "modified": false,
@@ -5256,6 +5304,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               >
                                                 <CurrencyField
                                                   fieldName="confirmed_household_annual_income"
+                                                  isDirty={false}
                                                   label="Confirmed Annual Income"
                                                   placeholder="Enter Amount"
                                                   validation={[Function]}
@@ -5263,7 +5312,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <Field
                                                     component="input"
                                                     format={[Function]}
-                                                    formatOnBlur={true}
+                                                    formatOnBlur={false}
                                                     name="confirmed_household_annual_income"
                                                     parse={[Function]}
                                                     validate={[Function]}
@@ -5292,7 +5341,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         onChange={[Function]}
                                                         onFocus={[Function]}
                                                         placeholder="Enter Amount"
-                                                        type="text"
                                                         value="$115,000.00"
                                                       />
                                                       <FieldError
@@ -5303,7 +5351,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             "dirty": false,
                                                             "dirtySinceLastSubmit": false,
                                                             "error": undefined,
-                                                            "initial": "$115,000.00",
+                                                            "initial": 115000,
                                                             "invalid": false,
                                                             "length": undefined,
                                                             "modified": false,
@@ -5342,6 +5390,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               >
                                                 <CurrencyField
                                                   fieldName="hh_total_income_with_assets_annual"
+                                                  isDirty={false}
                                                   label="Final Household Annual Income"
                                                   placeholder="Enter Amount"
                                                   validation={[Function]}
@@ -5349,7 +5398,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                   <Field
                                                     component="input"
                                                     format={[Function]}
-                                                    formatOnBlur={true}
+                                                    formatOnBlur={false}
                                                     name="hh_total_income_with_assets_annual"
                                                     parse={[Function]}
                                                     validate={[Function]}
@@ -5378,7 +5427,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         onChange={[Function]}
                                                         onFocus={[Function]}
                                                         placeholder="Enter Amount"
-                                                        type="text"
                                                         value=""
                                                       />
                                                       <FieldError
@@ -5389,7 +5437,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                             "dirty": false,
                                                             "dirtySinceLastSubmit": false,
                                                             "error": undefined,
-                                                            "initial": "",
+                                                            "initial": undefined,
                                                             "invalid": false,
                                                             "length": undefined,
                                                             "modified": false,
@@ -5473,7 +5521,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           values={
                             Object {
                               "alternate_contact": Object {},
-                              "annual_income": "$110,000.00",
+                              "annual_income": 110000,
                               "answered_community_screening": null,
                               "applicant": Object {
                                 "agency_name": undefined,
@@ -5511,7 +5559,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "application_language": "English",
                               "application_submission_type": "Paper",
                               "application_submitted_date": "2018-06-21",
-                              "confirmed_household_annual_income": "$115,000.00",
+                              "confirmed_household_annual_income": 115000,
                               "createdby": Object {
                                 "name": "Prod Vertiba",
                               },
@@ -5533,8 +5581,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "has_developmental_disability": null,
                               "has_loan_preapproval": undefined,
                               "has_military_service": null,
-                              "hh_total_income_with_assets_annual": "",
-                              "household_assets": "",
+                              "hh_total_income_with_assets_annual": undefined,
+                              "household_assets": null,
                               "household_members": Array [
                                 Object {
                                   "agency_name": undefined,
@@ -5634,7 +5682,34 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "status_last_updated": undefined,
                               "terms_acknowledged": true,
                               "total_household_size": 1,
-                              "total_monthly_rent": "",
+                              "total_monthly_rent": null,
+                            }
+                          }
+                          visited={
+                            Object {
+                              "applicant.marital_status": false,
+                              "confirmed_household_annual_income": false,
+                              "has_ada_priorities_selected.hearing_impairments": false,
+                              "has_ada_priorities_selected.mobility_impairments": false,
+                              "has_ada_priorities_selected.vision_impairments": false,
+                              "has_developmental_disability": false,
+                              "has_military_service": false,
+                              "hh_total_income_with_assets_annual": false,
+                              "household_assets": false,
+                              "housing_voucher_or_subsidy": false,
+                              "lease.bmr_parking_space_assigned": false,
+                              "lease.lease_start_date.day": false,
+                              "lease.lease_start_date.month": false,
+                              "lease.lease_start_date.year": false,
+                              "lease.monthly_parking_rent": false,
+                              "lease.monthly_tenant_contribution": false,
+                              "lease.preference_used": false,
+                              "lease.total_monthly_rent_without_parking": false,
+                              "lease.unit": false,
+                              "number_of_dependents": false,
+                              "number_of_minors": false,
+                              "number_of_seniors": false,
+                              "reserved_senior": false,
                             }
                           }
                         >
@@ -5712,6 +5787,33 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "subscribe": [Function],
                                       }
                                     }
+                                    visited={
+                                      Object {
+                                        "applicant.marital_status": false,
+                                        "confirmed_household_annual_income": false,
+                                        "has_ada_priorities_selected.hearing_impairments": false,
+                                        "has_ada_priorities_selected.mobility_impairments": false,
+                                        "has_ada_priorities_selected.vision_impairments": false,
+                                        "has_developmental_disability": false,
+                                        "has_military_service": false,
+                                        "hh_total_income_with_assets_annual": false,
+                                        "household_assets": false,
+                                        "housing_voucher_or_subsidy": false,
+                                        "lease.bmr_parking_space_assigned": false,
+                                        "lease.lease_start_date.day": false,
+                                        "lease.lease_start_date.month": false,
+                                        "lease.lease_start_date.year": false,
+                                        "lease.monthly_parking_rent": false,
+                                        "lease.monthly_tenant_contribution": false,
+                                        "lease.preference_used": false,
+                                        "lease.total_monthly_rent_without_parking": false,
+                                        "lease.unit": false,
+                                        "number_of_dependents": false,
+                                        "number_of_minors": false,
+                                        "number_of_seniors": false,
+                                        "reserved_senior": false,
+                                      }
+                                    }
                                   >
                                     <LeaseInformationInputs
                                       form={
@@ -5753,7 +5855,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         Object {
                                           "application": Object {
                                             "alternate_contact": Object {},
-                                            "annual_income": "$110,000.00",
+                                            "annual_income": 110000,
                                             "answered_community_screening": null,
                                             "applicant": Object {
                                               "agency_name": undefined,
@@ -5791,7 +5893,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "application_language": "English",
                                             "application_submission_type": "Paper",
                                             "application_submitted_date": "2018-06-21",
-                                            "confirmed_household_annual_income": "$115,000.00",
+                                            "confirmed_household_annual_income": 115000,
                                             "createdby": Object {
                                               "name": "Prod Vertiba",
                                             },
@@ -5813,8 +5915,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "has_developmental_disability": null,
                                             "has_loan_preapproval": undefined,
                                             "has_military_service": null,
-                                            "hh_total_income_with_assets_annual": "",
-                                            "household_assets": "",
+                                            "hh_total_income_with_assets_annual": undefined,
+                                            "household_assets": null,
                                             "household_members": Array [
                                               Object {
                                                 "agency_name": undefined,
@@ -5914,7 +6016,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "status_last_updated": undefined,
                                             "terms_acknowledged": true,
                                             "total_household_size": 1,
-                                            "total_monthly_rent": "",
+                                            "total_monthly_rent": null,
                                           },
                                           "applicationMembers": Array [
                                             Object {
@@ -6032,6 +6134,33 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "status": undefined,
                                           },
                                           "supplementalAppTouched": false,
+                                        }
+                                      }
+                                      visited={
+                                        Object {
+                                          "applicant.marital_status": false,
+                                          "confirmed_household_annual_income": false,
+                                          "has_ada_priorities_selected.hearing_impairments": false,
+                                          "has_ada_priorities_selected.mobility_impairments": false,
+                                          "has_ada_priorities_selected.vision_impairments": false,
+                                          "has_developmental_disability": false,
+                                          "has_military_service": false,
+                                          "hh_total_income_with_assets_annual": false,
+                                          "household_assets": false,
+                                          "housing_voucher_or_subsidy": false,
+                                          "lease.bmr_parking_space_assigned": false,
+                                          "lease.lease_start_date.day": false,
+                                          "lease.lease_start_date.month": false,
+                                          "lease.lease_start_date.year": false,
+                                          "lease.monthly_parking_rent": false,
+                                          "lease.monthly_tenant_contribution": false,
+                                          "lease.preference_used": false,
+                                          "lease.total_monthly_rent_without_parking": false,
+                                          "lease.unit": false,
+                                          "number_of_dependents": false,
+                                          "number_of_minors": false,
+                                          "number_of_seniors": false,
+                                          "reserved_senior": false,
                                         }
                                       }
                                     >
@@ -6502,6 +6631,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             >
                                               <CurrencyField
                                                 fieldName="lease.total_monthly_rent_without_parking"
+                                                isDirty={false}
                                                 label="Monthly Rent"
                                                 placeholder="Enter Amount"
                                                 validation={[Function]}
@@ -6509,7 +6639,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <Field
                                                   component="input"
                                                   format={[Function]}
-                                                  formatOnBlur={true}
+                                                  formatOnBlur={false}
                                                   name="lease.total_monthly_rent_without_parking"
                                                   parse={[Function]}
                                                   validate={[Function]}
@@ -6538,7 +6668,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
                                                       placeholder="Enter Amount"
-                                                      type="text"
                                                       value=""
                                                     />
                                                     <FieldError
@@ -6576,6 +6705,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             >
                                               <CurrencyField
                                                 fieldName="lease.monthly_tenant_contribution"
+                                                isDirty={false}
                                                 label="Monthly Tenant Contribution"
                                                 placeholder="Enter Amount"
                                                 validation={[Function]}
@@ -6583,7 +6713,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                 <Field
                                                   component="input"
                                                   format={[Function]}
-                                                  formatOnBlur={true}
+                                                  formatOnBlur={false}
                                                   name="lease.monthly_tenant_contribution"
                                                   parse={[Function]}
                                                   validate={[Function]}
@@ -6612,7 +6742,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
                                                       placeholder="Enter Amount"
-                                                      type="text"
                                                       value=""
                                                     />
                                                     <FieldError
@@ -6719,7 +6848,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                     values={
                                       Object {
                                         "alternate_contact": Object {},
-                                        "annual_income": "$110,000.00",
+                                        "annual_income": 110000,
                                         "answered_community_screening": null,
                                         "applicant": Object {
                                           "agency_name": undefined,
@@ -6757,7 +6886,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "application_language": "English",
                                         "application_submission_type": "Paper",
                                         "application_submitted_date": "2018-06-21",
-                                        "confirmed_household_annual_income": "$115,000.00",
+                                        "confirmed_household_annual_income": 115000,
                                         "createdby": Object {
                                           "name": "Prod Vertiba",
                                         },
@@ -6779,8 +6908,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "has_developmental_disability": null,
                                         "has_loan_preapproval": undefined,
                                         "has_military_service": null,
-                                        "hh_total_income_with_assets_annual": "",
-                                        "household_assets": "",
+                                        "hh_total_income_with_assets_annual": undefined,
+                                        "household_assets": null,
                                         "household_members": Array [
                                           Object {
                                             "agency_name": undefined,
@@ -6880,7 +7009,34 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "status_last_updated": undefined,
                                         "terms_acknowledged": true,
                                         "total_household_size": 1,
-                                        "total_monthly_rent": "",
+                                        "total_monthly_rent": null,
+                                      }
+                                    }
+                                    visited={
+                                      Object {
+                                        "applicant.marital_status": false,
+                                        "confirmed_household_annual_income": false,
+                                        "has_ada_priorities_selected.hearing_impairments": false,
+                                        "has_ada_priorities_selected.mobility_impairments": false,
+                                        "has_ada_priorities_selected.vision_impairments": false,
+                                        "has_developmental_disability": false,
+                                        "has_military_service": false,
+                                        "hh_total_income_with_assets_annual": false,
+                                        "household_assets": false,
+                                        "housing_voucher_or_subsidy": false,
+                                        "lease.bmr_parking_space_assigned": false,
+                                        "lease.lease_start_date.day": false,
+                                        "lease.lease_start_date.month": false,
+                                        "lease.lease_start_date.year": false,
+                                        "lease.monthly_parking_rent": false,
+                                        "lease.monthly_tenant_contribution": false,
+                                        "lease.preference_used": false,
+                                        "lease.total_monthly_rent_without_parking": false,
+                                        "lease.unit": false,
+                                        "number_of_dependents": false,
+                                        "number_of_minors": false,
+                                        "number_of_seniors": false,
+                                        "reserved_senior": false,
                                       }
                                     }
                                   >
@@ -6993,6 +7149,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             <CurrencyField
                                               disabled={true}
                                               fieldName="lease.monthly_parking_rent"
+                                              isDirty={false}
                                               label="Monthly Parking Cost"
                                               placeholder="Enter Amount"
                                               validation={[Function]}
@@ -7000,7 +7157,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                               <Field
                                                 component="input"
                                                 format={[Function]}
-                                                formatOnBlur={true}
+                                                formatOnBlur={false}
                                                 name="lease.monthly_parking_rent"
                                                 parse={[Function]}
                                                 validate={[Function]}
@@ -7030,7 +7187,6 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     onChange={[Function]}
                                                     onFocus={[Function]}
                                                     placeholder="Enter Amount"
-                                                    type="text"
                                                     value=""
                                                   />
                                                   <FieldError
@@ -7107,6 +7263,33 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                             }
                           }
                           submitting={false}
+                          visited={
+                            Object {
+                              "applicant.marital_status": false,
+                              "confirmed_household_annual_income": false,
+                              "has_ada_priorities_selected.hearing_impairments": false,
+                              "has_ada_priorities_selected.mobility_impairments": false,
+                              "has_ada_priorities_selected.vision_impairments": false,
+                              "has_developmental_disability": false,
+                              "has_military_service": false,
+                              "hh_total_income_with_assets_annual": false,
+                              "household_assets": false,
+                              "housing_voucher_or_subsidy": false,
+                              "lease.bmr_parking_space_assigned": false,
+                              "lease.lease_start_date.day": false,
+                              "lease.lease_start_date.month": false,
+                              "lease.lease_start_date.year": false,
+                              "lease.monthly_parking_rent": false,
+                              "lease.monthly_tenant_contribution": false,
+                              "lease.preference_used": false,
+                              "lease.total_monthly_rent_without_parking": false,
+                              "lease.unit": false,
+                              "number_of_dependents": false,
+                              "number_of_minors": false,
+                              "number_of_seniors": false,
+                              "reserved_senior": false,
+                            }
+                          }
                         >
                           <Component
                             description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
@@ -7215,7 +7398,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       Object {
                                         "application": Object {
                                           "alternate_contact": Object {},
-                                          "annual_income": "$110,000.00",
+                                          "annual_income": 110000,
                                           "answered_community_screening": null,
                                           "applicant": Object {
                                             "agency_name": undefined,
@@ -7253,7 +7436,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "application_language": "English",
                                           "application_submission_type": "Paper",
                                           "application_submitted_date": "2018-06-21",
-                                          "confirmed_household_annual_income": "$115,000.00",
+                                          "confirmed_household_annual_income": 115000,
                                           "createdby": Object {
                                             "name": "Prod Vertiba",
                                           },
@@ -7275,8 +7458,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "has_developmental_disability": null,
                                           "has_loan_preapproval": undefined,
                                           "has_military_service": null,
-                                          "hh_total_income_with_assets_annual": "",
-                                          "household_assets": "",
+                                          "hh_total_income_with_assets_annual": undefined,
+                                          "household_assets": null,
                                           "household_members": Array [
                                             Object {
                                               "agency_name": undefined,
@@ -7376,7 +7559,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "status_last_updated": undefined,
                                           "terms_acknowledged": true,
                                           "total_household_size": 1,
-                                          "total_monthly_rent": "",
+                                          "total_monthly_rent": null,
                                         },
                                         "applicationMembers": Array [
                                           Object {
@@ -8128,7 +8311,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   Object {
                                     "application": Object {
                                       "alternate_contact": Object {},
-                                      "annual_income": "$110,000.00",
+                                      "annual_income": 110000,
                                       "answered_community_screening": null,
                                       "applicant": Object {
                                         "agency_name": undefined,
@@ -8166,7 +8349,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "application_language": "English",
                                       "application_submission_type": "Paper",
                                       "application_submitted_date": "2018-06-21",
-                                      "confirmed_household_annual_income": "$115,000.00",
+                                      "confirmed_household_annual_income": 115000,
                                       "createdby": Object {
                                         "name": "Prod Vertiba",
                                       },
@@ -8188,8 +8371,8 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "has_developmental_disability": null,
                                       "has_loan_preapproval": undefined,
                                       "has_military_service": null,
-                                      "hh_total_income_with_assets_annual": "",
-                                      "household_assets": "",
+                                      "hh_total_income_with_assets_annual": undefined,
+                                      "household_assets": null,
                                       "household_members": Array [
                                         Object {
                                           "agency_name": undefined,
@@ -8289,7 +8472,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "status_last_updated": undefined,
                                       "terms_acknowledged": true,
                                       "total_household_size": 1,
-                                      "total_monthly_rent": "",
+                                      "total_monthly_rent": null,
                                     },
                                     "applicationMembers": Array [
                                       Object {
