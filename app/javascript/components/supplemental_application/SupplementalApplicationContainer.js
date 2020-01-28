@@ -19,6 +19,7 @@ import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate, { touchAllFields } from '~/utils/form/validations'
 import ParkingInformationInputs from './sections/ParkingInformationInputs'
+import { convertCurrency } from '../../utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -157,7 +158,7 @@ const SupplementalApplicationContainer = ({ store }) => {
 
   return (
     <Form
-      onSubmit={onSubmit}
+      onSubmit={(values) => onSubmit(convertCurrency(values))}
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}

@@ -1,5 +1,7 @@
 import moment from 'moment'
 import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
+import flatten, { unflatten } from 'flat'
+
 import { API_DATE_FORMAT } from '~/utils/utils'
 
 const run = (rules, values, ifRules) => {
@@ -134,6 +136,17 @@ export const validateLeaseCurrency = (value) => {
     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
     validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
   )
+}
+
+// format currency in one call instead of in different mappers
+export const convertCurrency = (values) => {
+  let flattenedValues = flatten(values)
+  Object.keys(flattenedValues).map(key => {
+    if (flattenedValues[key] && flattenedValues[key][0] === '$') {
+      flattenedValues[key] = parseFloat(flattenedValues[key].replace('$', '')).toFixed(2)
+    }
+  })
+  return unflatten(flattenedValues)
 }
 
 export default validate
