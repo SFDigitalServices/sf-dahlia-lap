@@ -91,7 +91,6 @@ describe('SupplementalApplicationPage', () => {
       )
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
-
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
     expect(mockSubmitApplication).toHaveBeenCalledWith(payload)
   })

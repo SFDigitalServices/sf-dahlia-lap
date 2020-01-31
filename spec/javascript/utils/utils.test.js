@@ -16,8 +16,6 @@ const defaultFormObject = {
 describe('convertCurrency', () => {
   test('should convert currency values to float from form object', async () => {
     const updatedFormValues = convertCurrency(defaultFormObject)
-    console.log(updatedFormValues)
-    console.log(typeof updatedFormValues.applicant.annual_income)
     expect(updatedFormValues.applicant.annual_income).toEqual(25000.00)
     expect(updatedFormValues.lease.monthly_rent).toEqual(598.65)
     expect(updatedFormValues.lease.another_nested_level.additional_rent).toEqual(425.99)
