@@ -115,11 +115,11 @@
       "year": "2019"
     },
     "lease_status": "Draft",
-    "monthly_parking_rent": "$100.00",
-    "monthly_tenant_contribution": "$5.83",
+    "monthly_parking_rent": 100.0,
+    "monthly_tenant_contribution": 5.83,
     "no_preference_used": false,
     "preference_used": null,
-    "total_monthly_rent_without_parking": "$23.81",
+    "total_monthly_rent_without_parking": 23.81,
     "unit": "a0b0P00001HIHrnQAH"
   },
   "preferences": [
@@ -416,7 +416,7 @@
   ],
   "rental_assistances": [
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk1wQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -425,7 +425,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk21QAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -434,7 +434,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk26QAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -443,7 +443,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk2BQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -452,7 +452,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk2GQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -461,7 +461,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk2LQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -470,7 +470,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001Dk2QQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -479,7 +479,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DnrqQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -488,7 +488,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DnsUQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -497,7 +497,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DntIQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -506,7 +506,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DnuaQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -515,7 +515,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DnufQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -524,7 +524,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DnukQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -533,7 +533,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DnvJQAS",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
@@ -542,7 +542,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": "$1,100.00",
+      "assistance_amount": 1100.0,
       "id": "a151D000001DoM0QAK",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
