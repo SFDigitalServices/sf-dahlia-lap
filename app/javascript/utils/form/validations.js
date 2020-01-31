@@ -138,12 +138,19 @@ export const validateLeaseCurrency = (value) => {
   )
 }
 
-// format currency in one call instead of in different mappers
+/**
+ * Convert Currency
+ *
+ * Takes in form values object, flattens all fields down to
+ * the top level so that we can iterate through and parse the
+ * currency fields then unflattens back to the correct object
+ */
 export const convertCurrency = (values) => {
   let flattenedValues = flatten(values)
   Object.keys(flattenedValues).map(key => {
     if (flattenedValues[key] && flattenedValues[key][0] === '$') {
-      flattenedValues[key] = parseFloat(flattenedValues[key].replace('$', '')).toFixed(2)
+      // here we parseFloat twice because toFixed returns a string
+      flattenedValues[key] = parseFloat(parseFloat(flattenedValues[key].replace(/\$|,/g, '')).toFixed(2))
     }
   })
   return unflatten(flattenedValues)

@@ -16,6 +16,7 @@ import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { includes, isEmpty, map, values as _values } from 'lodash'
 import { getFullHousehold, naturalKeyFromMember } from './preferences/utils.js'
+import { convertCurrency } from '../../../utils/form/validations'
 
 class PaperApplicationForm extends React.Component {
   state = {
@@ -98,7 +99,7 @@ class PaperApplicationForm extends React.Component {
     return (
       <div>
         <Form
-          onSubmit={this.submitShortForm}
+          onSubmit={values => this.submitShortForm(convertCurrency(values))}
           initialValues={application}
           validate={this.validateForm}
           mutators={{

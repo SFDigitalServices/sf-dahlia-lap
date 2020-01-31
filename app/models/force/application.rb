@@ -91,7 +91,6 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
-      currency_to_float('Total_Monthly_Rent', salesforce_fields)
       add_salesforce_suffix(salesforce_fields)
     end
   end

@@ -12,6 +12,8 @@ const {
 // Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
 const identity = (value, name, isCurrency = false) => {
   if (value && isCurrency) {
+    // Here we replace anyting that is not a numeric digit
+    // or a decimal place while editing the field
     return value.toString().replace(/[^\d|.]/g, '')
   }
   return value

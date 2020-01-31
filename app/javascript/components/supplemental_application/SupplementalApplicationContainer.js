@@ -158,7 +158,7 @@ const SupplementalApplicationContainer = ({ store }) => {
 
   return (
     <Form
-      onSubmit={(values) => onSubmit(convertCurrency(values))}
+      onSubmit={values => onSubmit(convertCurrency(values))}
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}
@@ -215,7 +215,7 @@ const SupplementalApplicationContainer = ({ store }) => {
           <StatusModalWrapper
             {...statusModal}
             onClose={handleStatusModalClose}
-            onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, form.getState().values)}
+            onSubmit={(submittedValues) => handleStatusModalSubmit(convertCurrency(submittedValues), form.getState().values)}
           />
         </React.Fragment>
       )}
