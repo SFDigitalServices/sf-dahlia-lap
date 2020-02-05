@@ -14,7 +14,7 @@ module Force
       { domain: 'property_type', salesforce: 'Property_Type' },
       { domain: 'ami_chart_type', salesforce: 'AMI_chart_type' },
       { domain: 'ami_chart_year', salesforce: 'AMI_chart_year' },
-      { domain: 'of_ami_for_pricing_unit', salesforce: 'of_AMI_for_Pricing_Unit' },
+      { domain: 'max_ami_for_qualifying_unit', salesforce: 'Max_AMI_for_Qualifying_Unit' },
       { domain: 'reserved_type', salesforce: 'Reserved_Type' },
     ].freeze
   end

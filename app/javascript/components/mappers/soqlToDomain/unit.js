@@ -9,7 +9,7 @@ export const mapUnit = (unit) => {
     property_type: unit.Property_Type,
     ami_chart_type: unit.AMI_chart_type,
     ami_chart_year: unit.AMI_chart_year,
-    of_ami_for_pricing_unit: unit.of_AMI_for_Pricing_Unit,
+    max_ami_for_qualifying_unit: unit.Max_AMI_for_Qualifying_Unit,
     reserved_type: unit.Reserved_Type
   }
 }
