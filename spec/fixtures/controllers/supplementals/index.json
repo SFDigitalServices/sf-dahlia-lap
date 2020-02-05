@@ -115,11 +115,11 @@
       "year": "2019"
     },
     "lease_status": "Draft",
-    "monthly_parking_rent": 100.0,
-    "monthly_tenant_contribution": 5.83,
+    "monthly_parking_rent": 608.71,
+    "monthly_tenant_contribution": 723.85,
     "no_preference_used": false,
     "preference_used": null,
-    "total_monthly_rent_without_parking": 23.81,
+    "total_monthly_rent_without_parking": 368.56,
     "unit": "a0b0P00001HIHrnQAH"
   },
   "preferences": [
@@ -417,7 +417,7 @@
   "rental_assistances": [
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk1wQAC",
+      "id": "a151D000001DoweQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -426,7 +426,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk21QAC",
+      "id": "a151D000001DowjQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -435,7 +435,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk26QAC",
+      "id": "a151D000001DowoQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -444,7 +444,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk2BQAS",
+      "id": "a151D000001DowtQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -453,7 +453,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk2GQAS",
+      "id": "a151D000001DowyQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -462,7 +462,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk2LQAS",
+      "id": "a151D000001Dox3QAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -471,7 +471,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001Dk2QQAS",
+      "id": "a151D000001DpOAQA0",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -480,7 +480,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001DnrqQAC",
+      "id": "a151D000001DpT8QAK",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -489,7 +489,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001DnsUQAS",
+      "id": "a151D000001Dpe6QAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -498,7 +498,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001DntIQAS",
+      "id": "a151D000001Dq2aQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -507,43 +507,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151D000001DnuaQAC",
-      "lease": "a130P000005TeZrQAK",
-      "other_assistance_name": null,
-      "recipient": "a0n0P00000D3qIZQAZ",
-      "recurring_assistance": "Yes",
-      "type_of_assistance": "Catholic Charities"
-    },
-    {
-      "assistance_amount": 1100.0,
-      "id": "a151D000001DnufQAC",
-      "lease": "a130P000005TeZrQAK",
-      "other_assistance_name": null,
-      "recipient": "a0n0P00000D3qIZQAZ",
-      "recurring_assistance": "Yes",
-      "type_of_assistance": "Catholic Charities"
-    },
-    {
-      "assistance_amount": 1100.0,
-      "id": "a151D000001DnukQAC",
-      "lease": "a130P000005TeZrQAK",
-      "other_assistance_name": null,
-      "recipient": "a0n0P00000D3qIZQAZ",
-      "recurring_assistance": "Yes",
-      "type_of_assistance": "Catholic Charities"
-    },
-    {
-      "assistance_amount": 1100.0,
-      "id": "a151D000001DnvJQAS",
-      "lease": "a130P000005TeZrQAK",
-      "other_assistance_name": null,
-      "recipient": "a0n0P00000D3qIZQAZ",
-      "recurring_assistance": "Yes",
-      "type_of_assistance": "Catholic Charities"
-    },
-    {
-      "assistance_amount": 1100.0,
-      "id": "a151D000001DoM0QAK",
+      "id": "a151D000001Dq2fQAC",
       "lease": "a130P000005TeZrQAK",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
