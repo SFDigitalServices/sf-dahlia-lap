@@ -56,11 +56,10 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
 
 const updateLease = async (lease, primaryApplicantContact, applicationId) => {
   if (!isEmpty(lease)) {
-    let leaseApi = domainToApi.mapLease(lease)
     // TODO: We should consider setting the Tenant on a Lease more explicitly
     // either via a non-interactable form element or using Salesforce
-    leaseApi['primary_applicant_contact'] = primaryApplicantContact
-    const newOrUpdatedLease = await apiService.createOrUpdateLease(leaseApi, applicationId)
+    lease['primary_applicant_contact'] = primaryApplicantContact
+    const newOrUpdatedLease = await apiService.createOrUpdateLease(lease, applicationId)
     return newOrUpdatedLease
   } else {
     return lease

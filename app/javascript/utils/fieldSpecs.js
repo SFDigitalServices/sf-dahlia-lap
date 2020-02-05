@@ -7,8 +7,6 @@ import formUtils from '~/utils/formUtils'
 export const getFormatType = (field) => {
   if (includes(toLower(field), 'date')) {
     return 'date'
-  } else if (field.includes('rent') || field.includes('income')) {
-    return 'currency'
   }
   return null
 }
@@ -26,6 +24,7 @@ const dateIsJson = (date) => {
 }
 
 export const formatValue = (value, type) => {
+  console.log(value, type)
   if (type === 'date') {
     // Convert domain date object to string if needed
     if (dateIsJson(value)) {

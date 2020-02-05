@@ -11,12 +11,11 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
-import validate from '~/utils/form/validations'
+import validate, { convertCurrency } from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { includes, isEmpty, map, values as _values } from 'lodash'
 import { getFullHousehold, naturalKeyFromMember } from './preferences/utils.js'
-import { convertCurrency } from '../../../utils/form/validations'
 
 class PaperApplicationForm extends React.Component {
   state = {

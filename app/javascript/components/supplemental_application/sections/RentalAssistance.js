@@ -9,7 +9,7 @@ import { withContext } from '../context'
 import FormGrid from '~/components/molecules/FormGrid'
 import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import formUtils from '~/utils/formUtils'
-import validate from '~/utils/form/validations'
+import validate, { convertCurrency } from '~/utils/form/validations'
 import { InputField, SelectField, YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field'
 
 const { ExpanderButton } = ExpandableTable
@@ -67,7 +67,7 @@ const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, ap
     return [
       { content: ra.other_assistance_name || ra.type_of_assistance },
       { content: ra.recurring_assistance },
-      { content: ra.assistance_amount ? ra.assistance_amount : '' },
+      { content: ra.assistance_amount ? ra.assistance_amount : '', formatType: 'currency' },
       { content: appMemberName }
     ]
   })
@@ -158,7 +158,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
 
   const onSaveWithIndex = () => {
     if (isFormValid()) {
-      onSave(index, form.getState().values.rental_assistances[index])
+      onSave(index, convertCurrency(form.getState().values.rental_assistances[index]))
     }
   }
 
