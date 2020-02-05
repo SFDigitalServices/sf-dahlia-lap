@@ -2,6 +2,7 @@ import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 import { isEmpty, find, isEqual, every, reject } from 'lodash'
+import { convertCurrency } from '~/utils/form/validations'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
@@ -80,10 +81,10 @@ export const updatePreference = async (preference) => {
 }
 
 export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
-  const attributes = {
+  const attributes = convertCurrency({
     id: id,
     total_monthly_rent: totalMonthlyRent
-  }
+  })
   const response = await apiService.updateApplication(attributes)
 
   return response

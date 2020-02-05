@@ -35,8 +35,8 @@ export const aafFields = [
   'Accessibility',
   'Fee',
   'Amenities',
-  'Deposit_Min',
-  'Deposit_Max',
+  { field: 'Deposit_Min', formatType: 'currency' },
+  { field: 'Deposit_Max', formatType: 'currency' },
   'Costs_Not_Included'
 ]
 
