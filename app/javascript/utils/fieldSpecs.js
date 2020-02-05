@@ -24,7 +24,6 @@ const dateIsJson = (date) => {
 }
 
 export const formatValue = (value, type) => {
-  console.log(value, type)
   if (type === 'date') {
     // Convert domain date object to string if needed
     if (dateIsJson(value)) {
