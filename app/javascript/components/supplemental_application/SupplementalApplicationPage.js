@@ -54,7 +54,6 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-
     const updatedApplication = await updateApplication(application, this.state.application)
 
     if (updatedApplication) {

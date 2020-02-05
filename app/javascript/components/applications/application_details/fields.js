@@ -7,7 +7,7 @@ export const applicationDataFields = [
   'application_submitted_date',
   'application_language',
   'total_household_size',
-  'total_monthly_rent',
+  { field: 'total_monthly_rent', formatType: 'currency' },
   'status',
   'referral_source',
   { field: 'createdby.name', label: 'Created By' }
@@ -72,8 +72,8 @@ export const applicationPreferencesFields = [
 ]
 
 export const declareHousholdIncome = [
-  'annual_income',
-  'monthly_income',
+  { field: 'annual_income', formatType: 'currency' },
+  { field: 'monthly_income', formatType: 'currency' },
   'housing_voucher_or_subsidy'
 ]
 

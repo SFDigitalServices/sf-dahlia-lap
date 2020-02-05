@@ -6,7 +6,6 @@ import { mapFlaggedApplication } from './flagged_application'
 import { mapListing } from './listing'
 import { mapUser } from './user'
 import { mapShape, mapList } from '../utils'
-import formUtils from '~/utils/formUtils'
 
 const parseList = text => split(text, ';')
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
@@ -32,17 +31,17 @@ export const mapApplication = (a) => {
     total_household_size: a.Total_Household_Size,
     application_submission_type: a.Application_Submission_Type,
     application_submitted_date: a.Application_Submitted_Date,
-    annual_income: formUtils.formatPrice(a.Annual_Income),
-    confirmed_household_annual_income: formUtils.formatPrice(a.Confirmed_Household_Annual_Income),
-    hh_total_income_with_assets_annual: formUtils.formatPrice(a.HH_Total_Income_with_Assets_Annual),
-    household_assets: formUtils.formatPrice(a.Household_Assets),
+    annual_income: a.Annual_Income,
+    confirmed_household_annual_income: a.Confirmed_Household_Annual_Income,
+    hh_total_income_with_assets_annual: a.HH_Total_Income_with_Assets_Annual,
+    household_assets: a.Household_Assets,
     monthly_income: a.Monthly_Income,
     housing_voucher_or_subsidy: a.Housing_Voucher_or_Subsidy,
     referral_source: a.Referral_Source,
     application_language: a.Application_Language,
     lottery_number_manual: a.Lottery_Number_Manual,
     lottery_number: a.Lottery_Number,
-    total_monthly_rent: formUtils.formatPrice(a.Total_Monthly_Rent),
+    total_monthly_rent: a.Total_Monthly_Rent,
     general_lottery: a.General_Lottery,
     general_lottery_rank: a.General_Lottery_Rank,
     answered_community_screening: a.Answered_Community_Screening,

@@ -10,7 +10,14 @@ const {
 
 // Make react-final-form does include empty values on submit.
 // Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
-const identity = value => (value)
+const identity = (value, name, isCurrency = false) => {
+  if (value && isCurrency) {
+    // Here we remove anything that is not a numeric digit
+    // or a decimal place while editing the field
+    return value.toString().replace(/[^\d|.]/g, '')
+  }
+  return value
+}
 
 export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
@@ -65,25 +72,22 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
   </Field>
 )
 
-export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled }) => (
-  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={identity} formatOnBlur>
+export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
+  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={(value, name) => identity(value, name, true)} formatOnBlur={isDirty}>
     {({ input, meta }) => (
-      <React.Fragment>
-        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-          <Label
-            label={label}
-            id={id || `form-${fieldName}`}
-            fieldName={fieldName} />
-          <input {...input}
-            id={id || `form-${fieldName}`}
-            type='text'
-            placeholder={placeholder || '$0.00'}
-            className={(meta.error && meta.touched && 'error') || ''}
-            maxLength={maxLength}
-            disabled={disabled} />
-          <FieldError meta={meta} />
-        </div>
-      </React.Fragment>
+      <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+        <Label
+          label={label}
+          id={id || `form-${fieldName}`}
+          fieldName={fieldName} />
+        <input {...input}
+          id={id || `form-${fieldName}`}
+          placeholder={placeholder || '$0.00'}
+          className={(meta.error && meta.touched && 'error') || ''}
+          maxLength={maxLength}
+          disabled={disabled} />
+        <FieldError meta={meta} />
+      </div>
     )}
   </Field>
 )

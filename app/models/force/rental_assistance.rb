@@ -17,14 +17,12 @@ module Force
 
     def to_domain
       domain_fields = super
-      float_to_currency('assistance_amount', domain_fields)
 
       domain_fields
     end
 
     def to_salesforce
       salesforce_fields = super
-      currency_to_float('Assistance_Amount__c', salesforce_fields)
 
       salesforce_fields
     end

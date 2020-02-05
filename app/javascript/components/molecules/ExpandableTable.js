@@ -2,6 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { kebabCase } from 'lodash'
 
+import formUtils from '~/utils/formUtils'
+
 const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, expandedRowRenderer, original, closeRow = false }) => {
   const [expanded, setExpanded] = useState(false)
 
@@ -14,7 +16,7 @@ const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, ex
   const toggleExpandedRow = () => setExpanded(!expanded)
 
   const cells = row.map((datum, j) =>
-    <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>{datum.content}</td>
+    <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>{datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}</td>
   )
 
   const rowId = rowKeyIndex ? kebabCase(row[rowKeyIndex].content) : null

@@ -11,7 +11,7 @@ import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
 import AlertBox from '~/components/molecules/AlertBox'
-import validate from '~/utils/form/validations'
+import validate, { convertCurrency } from '~/utils/form/validations'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { includes, isEmpty, map, values as _values } from 'lodash'
@@ -98,13 +98,13 @@ class PaperApplicationForm extends React.Component {
     return (
       <div>
         <Form
-          onSubmit={this.submitShortForm}
+          onSubmit={values => this.submitShortForm(convertCurrency(values))}
           initialValues={application}
           validate={this.validateForm}
           mutators={{
             ...arrayMutators
           }}
-          render={({ handleSubmit, form, values }) => (
+          render={({ handleSubmit, form, values, visited }) => (
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
@@ -125,7 +125,7 @@ class PaperApplicationForm extends React.Component {
                     listingPreferences={listing.listing_lottery_preferences}
                     editValues={application}
                   />
-                  <HouseholdIncomeSection />
+                  <HouseholdIncomeSection visited={visited} />
                   <DemographicInfoSection
                     values={values}
                     genderSpecifyRequired={this.state.genderSpecifyRequired}

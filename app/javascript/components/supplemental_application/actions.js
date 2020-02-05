@@ -2,6 +2,7 @@ import apiService from '~/apiService'
 import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 import { isEmpty, find, isEqual, every, reject } from 'lodash'
+import { convertCurrency } from '~/utils/form/validations'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
@@ -56,11 +57,10 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
 
 const updateLease = async (lease, primaryApplicantContact, applicationId) => {
   if (!isEmpty(lease)) {
-    let leaseApi = domainToApi.mapLease(lease)
     // TODO: We should consider setting the Tenant on a Lease more explicitly
     // either via a non-interactable form element or using Salesforce
-    leaseApi['primary_applicant_contact'] = primaryApplicantContact
-    const newOrUpdatedLease = await apiService.createOrUpdateLease(leaseApi, applicationId)
+    lease['primary_applicant_contact'] = primaryApplicantContact
+    const newOrUpdatedLease = await apiService.createOrUpdateLease(lease, applicationId)
     return newOrUpdatedLease
   } else {
     return lease
@@ -81,10 +81,10 @@ export const updatePreference = async (preference) => {
 }
 
 export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
-  const attributes = {
+  const attributes = convertCurrency({
     id: id,
     total_monthly_rent: totalMonthlyRent
-  }
+  })
   const response = await apiService.updateApplication(attributes)
 
   return response

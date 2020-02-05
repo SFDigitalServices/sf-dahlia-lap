@@ -3,7 +3,7 @@ const payload = (withLease = false) => ({
   applicationLanguage: 'English',
   hasMilitaryService: null,
   hasDevelopmentalDisability: null,
-  HHTotalIncomeWithAssets: null,
+  HHTotalIncomeWithAssets: undefined,
   answeredCommunityScreening: null,
   applicationSubmissionType: 'Paper',
   annualIncome: 110000,
@@ -79,18 +79,7 @@ const payload = (withLease = false) => ({
        state: 'fl',
        zip: '33026',
        relationship: 'Child' } ],
-  ...(withLease ? {
-    lease: {
-      id: undefined,
-      lease_start_date: undefined,
-      monthly_parking_rent: null,
-      monthly_tenant_contribution: null,
-      no_preference_used: undefined,
-      preference_used: undefined,
-      primary_applicant_contact: "a0n0x000000AbE6AAK",
-      total_monthly_rent_without_parking: null,
-      unit: undefined,
-    }} : {}),
+  ...(withLease ? {lease: undefined} : {}),
     rental_assistances: []
   })
 
