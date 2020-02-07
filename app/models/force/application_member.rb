@@ -32,7 +32,23 @@ module Force
       { custom_api: '', domain: 'residence_address', salesforce: 'Residence_Address' },
       { custom_api: 'state', domain: 'state', salesforce: 'State' },
       { custom_api: 'zip', domain: 'zip_code', salesforce: 'Zip_Code' },
+      # Demographics, just for primary applicants
+      { custom_api: 'ethnicity', domain: 'ethnicity', salesforce: '?'},
+      { custom_api: 'gender', domain: 'gender', salesforce: '?'},
+      { custom_api: 'sexualOrientation', domain: 'sexual_orientation', salesforce: '?'},
+      { custom_api: 'race', domain: 'race', salesforce: '?'},
+      { custom_api: 'genderOther', domain: 'gender_other', salesforce: '?'},
+      { custom_api: 'sexualOrientationOther', domain: 'sexual_orientation_other', salesforce: '?'}
     ].freeze
+
+    def to_custom_api
+      custom_api_fields = super
+      # Convert array date into string
+      if @fields.domain and @fields.domain['date_of_birth']
+        custom_api_fields['DOB'] = self.class.date_to_salesforce(@fields.domain['date_of_birth'])
+      end
+      custom_api_fields
+    end
 
     def to_domain
       domain_fields = super

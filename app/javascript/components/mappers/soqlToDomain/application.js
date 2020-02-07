@@ -7,7 +7,7 @@ import { mapListing } from './listing'
 import { mapUser } from './user'
 import { mapShape, mapList } from '../utils'
 
-const parseList = text => split(text, ';')
+const parseList = text => { return (text ? split(text, ';') : []) }
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {

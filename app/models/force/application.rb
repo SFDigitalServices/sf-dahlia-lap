@@ -19,6 +19,7 @@ module Force
       { custom_api: 'applicationSubmissionType', domain: 'application_submission_type', salesforce: 'Application_Submission_Type' },
       { custom_api: 'applicationSubmittedDate', domain: 'application_submitted_date', salesforce: 'Application_Submitted_Date' },
       { custom_api: 'appRTType', domain: '', salesforce: '' },
+      { custom_api: 'confirmedHouseholdAnnualIncome', domain: 'confirmed_household_annual_income', salesforce: '?' },
       { custom_api: '', domain: 'createdby', salesforce: 'CreatedBy' },
       { custom_api: 'didApplicantUseHousingCounselingAgency', domain: '', salesforce: 'Applicant_used_housing_counseling_agency' },
       { custom_api: 'externalSessionId', domain: '', salesforce: 'Third_Party_External_ID' },
@@ -26,7 +27,9 @@ module Force
       { custom_api: 'formMetadata', domain: '', salesforce: '' },
       { custom_api: '', domain: 'general_lottery', salesforce: 'General_Lottery' },
       { custom_api: '', domain: 'general_lottery_rank', salesforce: 'General_Lottery_Rank' },
+      { custom_api: 'hasCompletedHomebuyerEducation', domain: 'has_completed_homebuyer_education', salesforce: '?' },
       { custom_api: 'hasDevelopmentalDisability', domain: 'has_developmental_disability', salesforce: 'Has_DevelopmentalDisability' },
+      { custom_api: 'hasLoanPreapproval', domain: 'has_loan_preapproval', salesforce: '?' },
       { custom_api: 'hasMilitaryService', domain: 'has_military_service', salesforce: 'Has_Military_Service' },
       { custom_api: 'hasPublicHousing', domain: '', salesforce: '' },
       { custom_api: 'hasSenior', domain: 'reserved_senior', salesforce: 'Reserved_Senior' },
@@ -35,8 +38,10 @@ module Force
       { custom_api: 'householdVouchersSubsidies', domain: 'housing_voucher_or_subsidy', salesforce: 'Housing_Voucher_or_Subsidy' },
       { custom_api: 'housingCounselingAgency', domain: '', salesforce: 'Which_One' },
       { custom_api: 'id', domain: 'id', salesforce: 'Id' },
+      { custom_api: 'isFirstTimeHomebuyer', domain: 'is_first_time_homebuyer', salesforce: '?' },
       { custom_api: 'interviewScheduledDate', domain: '', salesforce: 'Interview_Scheduled_Date' },
-      { custom_api: 'listingID', domain: '', salesforce: 'Listing' },
+      { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: '?' },
+      { custom_api: 'listingID', domain: 'listing_id', salesforce: 'Listing' },
       { custom_api: 'lotteryNumber', domain: 'lottery_number', salesforce: 'Lottery_Number' },
       { custom_api: 'lotteryNumberManual', domain: 'lottery_number_manual', salesforce: 'Lottery_Number_Manual' },
       { custom_api: 'monthlyIncome', domain: 'monthly_income', salesforce: 'Monthly_Income' },
@@ -45,6 +50,7 @@ module Force
       { custom_api: 'numberOfSeniors', domain: 'number_of_seniors', salesforce: 'Number_of_Seniors' },
       { custom_api: 'numberOfMinors', domain: 'number_of_minors', salesforce: 'Number_of_Minors' },
       { custom_api: 'otherHousingCounselingAgency', domain: '', salesforce: 'Other' },
+      { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?' },
       { custom_api: 'primaryApplicantContact', domain: 'primary_applicant_contact', salesforce: 'Primary_Applicant' },
       { custom_api: 'processingStatus', domain: 'processing_status', salesforce: 'Processing_Status' },
       { custom_api: 'referral', domain: 'referral_source', salesforce: 'Referral_Source' },
@@ -80,6 +86,57 @@ module Force
 
       domain_fields
     end
+
+    def to_custom_api
+      custom_api_fields = super
+      # Start with just from domain to API, then figure out if I want to have case for from SOQL in here too.
+      domain_fields = @fields[:domain].presence
+      return custom_api_fields if !domain_fields.present?
+
+
+      # Convert preferences
+      if domain_fields['preferences']
+        api_preferences = []
+        domain_fields['preferences'].each do |pref_fields|
+          api_preferences << Force::Preference.from_domain(pref_fields).to_custom_api
+        end
+        custom_api_fields['shortFormPreferences'] = api_preferences
+      end
+
+      # Convert alt contact
+      if !domain_fields['alternate_contact']&.empty?
+        custom_api_fields['alternateContact'] = Force::ApplicationMember.from_domain(domain_fields['alternate_contact']).to_custom_api
+      else
+        custom_api_fields['alternateContact'] = nil
+      end
+
+      # Convert hh members
+      if domain_fields['household_members']
+        hh_members = []
+        domain_fields['household_members'].each do |hh_fields|
+          hh_members << Force::ApplicationMember.from_domain(hh_fields).to_custom_api
+        end
+        custom_api_fields['householdMembers'] = hh_members
+      end
+
+      # Convert primary applicant
+      primary_app_fields = domain_fields['applicant']&.merge(domain_fields['demographics'])
+      custom_api_fields['primaryApplicant'] = Force::ApplicationMember.from_domain(primary_app_fields).to_custom_api
+
+      # Right now listing ids are handled differently on supp apps
+      custom_api_fields['listingID'] = domain_fields['listing_id'] || domain_fields.listing&.id
+
+      # ADA priorities need to be converted from a checklist to a string.
+      ada_hash = domain_fields['has_ada_priorities_selected']
+      if ada_hash
+        ada_string = ada_hash.select {|k,v| v }.keys.map {|v| v.humanize.capitalize}.join(';')
+        custom_api_fields['adaPrioritiesSelected'] = ada_string
+      end
+      custom_api_fields
+    end
+
+
+
 
     # TODO: There is code somewhere in this app that causes the Salesforce field
     # names we use in SOQL queries to have the "__c" suffix automatically added
