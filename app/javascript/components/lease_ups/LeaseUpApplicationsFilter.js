@@ -2,13 +2,18 @@ import React from 'react'
 import { Form } from 'react-final-form'
 import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import formUtils from '~/utils/formUtils'
-import LEASE_UP_STATUS_OPTIONS from '~/utils/statusUtils'
+import LEASE_UP_STATUS_OPTIONS, { LEASE_UP_ACCESSIBILITY_OPTIONS } from '~/utils/statusUtils'
 import Loading from '~/components/molecules/Loading'
 import { clone } from 'lodash'
 
 const statusFilterOptions = [
   ...[{value: null, label: 'Any Status'}, {value: 'No Status', label: 'No Status'}],
   ...clone(LEASE_UP_STATUS_OPTIONS)
+]
+
+const accessibilitFilterOptions = [
+  {value: null, label: 'Any Accessibility Request'},
+  ...clone(LEASE_UP_ACCESSIBILITY_OPTIONS)
 ]
 
 const StatusOptions = formUtils.toOptions(statusFilterOptions)
@@ -38,6 +43,9 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
                 </div>
                 <div className='filter-group_item'>
                   <SelectField fieldName='status' options={StatusOptions} placeholder='Status' />
+                </div>
+                <div className='filter-group_item'>
+                  <SelectField fieldName='accessibility' options={accessibilitFilterOptions} placeholder='Accessibility Requests' />
                 </div>
                 <div className='filter-group_action'>
                   <button className='small'>Filter</button>

@@ -19,7 +19,7 @@ module Force
 
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
-
+        puts query_scope
         query_scope.query
       end
 
@@ -32,6 +32,7 @@ module Force
         filters += "and Application__r.Applicant__r.First_Name__c = '#{opts[:first_name]}' " if opts[:first_name].present?
         filters += "and Application__r.Applicant__r.Last_Name__c = '#{opts[:last_name]}' " if opts[:last_name].present?
         filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
+        filters += "and Application__r.Has_ADA_Priorities_Selected__c INCLUDES ('#{opts[:accessibility]}') " if opts[:accessibility].present?
 
         filters
     end

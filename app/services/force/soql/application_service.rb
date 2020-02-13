@@ -10,7 +10,7 @@ module Force
 
       def applications(opts = { page: 0 })
         query_scope = applications_query(opts)
-
+        puts "HELLO #{opts}"
         query_scope.where_contains(:Name, opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Listing__r.Id', "'#{opts[:listing_id]}'") if opts[:listing_id].present?
         query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?

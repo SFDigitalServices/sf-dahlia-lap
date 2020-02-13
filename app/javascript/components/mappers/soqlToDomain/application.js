@@ -12,6 +12,7 @@ const parseList = text => split(text, ';')
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {
+  console.log(a.Has_ADA_Priorities_Selected)
   return {
     applicant: mapShape(mapApplicationMember, a.Applicant),
     demographics: mapShape(mapDemographics, a.Applicant),
