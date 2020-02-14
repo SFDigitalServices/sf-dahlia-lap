@@ -84,5 +84,17 @@ module Force
       lease_date = Date.new(domain_date[:year].to_i, domain_date[:month].to_i, domain_date[:day].to_i)
       lease_date.strftime('%F')
     end
+
+    def self.get_domain_keys(obj = self)
+      # Return a list of all domain keys in an object, including nested objects.
+      mapped = obj::FIELD_NAME_MAPPINGS.map do |v|
+        if v.has_key? :object
+          { v[:domain] => get_keys(v[:object]) }
+        else
+          v[:domain] if !v[:domain].empty?
+        end
+      end
+      mapped.compact
+    end
   end
 end

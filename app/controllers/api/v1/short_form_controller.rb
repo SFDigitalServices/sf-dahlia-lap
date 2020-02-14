@@ -11,7 +11,7 @@ class Api::V1::ShortFormController < ApiController
 
     # if short_form_validator.valid?
     # FIXME: validatate / permit on the params
-    custom_api_application = Force::Application.from_domain(application_api_params.to_unsafe_h).to_custom_api
+    custom_api_application = Force::Application.from_domain(application_api_params).to_custom_api
     puts 'Custom api application', custom_api_application.to_json
     application = custom_api_application_service.submit(custom_api_application)
     logger.debug "application submit response: #{application}"
@@ -31,7 +31,10 @@ class Api::V1::ShortFormController < ApiController
   private
 
   def application_api_params
-    params.require(:application)
+
+
+    params.require(:application).permit(Force::Application.get_domain_keys)
+
   end
 
   def application_db_params

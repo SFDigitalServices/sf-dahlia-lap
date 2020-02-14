@@ -64,6 +64,8 @@ module Force
       { custom_api: 'hasCompletedHomebuyerEducation', domain: 'has_completed_homebuyer_education', salesforce: 'Has_Completed_Homebuyer_Education' },
       { custom_api: 'hasLoanPreapproval', domain: 'has_loan_preapproval', salesforce: 'Has_Loan_Pre_approval' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: 'Lending_Agent' },
+      { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference},
+      { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember},
     ].freeze
 
     def to_domain

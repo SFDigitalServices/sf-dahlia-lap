@@ -31,6 +31,13 @@ RSpec.describe Force::ObjectBase do
       expect(Force::ObjectBase.date_to_salesforce({})).to eq(nil)
     end
   end
+
+  describe '#get_domain_keys' do
+    it 'generates a list of all of the permitted keys' do
+      result = Force::Application.get_domain_keys()
+      expect(result).to eq 'something'
+    end
+  end
 end
 
 
