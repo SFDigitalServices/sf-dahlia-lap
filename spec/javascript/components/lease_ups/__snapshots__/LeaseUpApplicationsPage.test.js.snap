@@ -856,6 +856,107 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             </SelectField>
                           </div>
                           <div
+                            className="filter-group_item"
+                          >
+                            <SelectField
+                              fieldName="accessibility"
+                              options={
+                                Array [
+                                  Object {
+                                    "label": "Any Accessibility Request",
+                                    "value": null,
+                                  },
+                                  Object {
+                                    "label": "Mobility",
+                                    "value": "Mobility impairments",
+                                  },
+                                  Object {
+                                    "label": "Vision",
+                                    "value": "Vision impairments",
+                                  },
+                                  Object {
+                                    "label": "Hearing",
+                                    "value": "Hearing impairments",
+                                  },
+                                ]
+                              }
+                              placeholder="Accessibility Requests"
+                            >
+                              <Field
+                                component="select"
+                                name="accessibility"
+                                parse={[Function]}
+                              >
+                                <div
+                                  className="form-group"
+                                >
+                                  <Label
+                                    fieldName="accessibility"
+                                    id="form-accessibility"
+                                  />
+                                  <select
+                                    className=""
+                                    id="form-accessibility"
+                                    name="accessibility"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    value=""
+                                  >
+                                    <option
+                                      key="null"
+                                      value=""
+                                    >
+                                      Any Accessibility Request
+                                    </option>
+                                    <option
+                                      key="Mobility impairments"
+                                      value="Mobility impairments"
+                                    >
+                                      Mobility
+                                    </option>
+                                    <option
+                                      key="Vision impairments"
+                                      value="Vision impairments"
+                                    >
+                                      Vision
+                                    </option>
+                                    <option
+                                      key="Hearing impairments"
+                                      value="Hearing impairments"
+                                    >
+                                      Hearing
+                                    </option>
+                                  </select>
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                  />
+                                </div>
+                              </Field>
+                            </SelectField>
+                          </div>
+                          <div
                             className="filter-group_action"
                           >
                             <button
