@@ -1,6 +1,5 @@
 import { toPairs, filter, map, join, compact } from 'lodash'
 import { createFieldMapper } from '~/utils/objectUtils'
-import { currencyToFloat } from '~/utils/utils'
 const checkListToString = (list) => {
   return join(compact(list), ';')
 }
@@ -31,12 +30,12 @@ export const applicationFieldMapper = {
   reserved_senior: 'hasSenior',
   application_submission_type: 'applicationSubmissionType',
   processing_status: 'processingStatus',
-  householdAssets: (source) => currencyToFloat(source.household_assets),
-  annualIncome: (source) => currencyToFloat(source.annual_income),
-  monthlyIncome: (source) => currencyToFloat(source.monthly_income),
-  confirmedHouseholdAnnualIncome: (source) => currencyToFloat(source.confirmed_household_annual_income),
-  HHTotalIncomeWithAssets: (source) => currencyToFloat(source.hh_total_income_with_assets_annual),
-  totalMonthlyRent: (source) => currencyToFloat(source.total_monthly_rent),
+  household_assets: 'householdAssets',
+  annual_income: 'annualIncome',
+  monthly_income: 'monthlyIncome',
+  confirmed_household_annual_income: 'confirmedHouseholdAnnualIncome',
+  hh_total_income_with_assets_annual: 'HHTotalIncomeWithAssets',
+  total_monthly_rent: 'totalMonthlyRent',
   adaPrioritiesSelected: (source) => checkListToString(mapAdaPrioritiesMap(source.has_ada_priorities_selected)),
   is_first_time_homebuyer: 'isFirstTimeHomebuyer',
   has_completed_homebuyer_education: 'hasCompletedHomebuyerEducation',

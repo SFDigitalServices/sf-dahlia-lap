@@ -66,7 +66,7 @@ RSpec.describe Force::Lease do
       lease = Force::Lease.from_salesforce(lease_salesforce_soql)
       domain_lease = lease.to_domain
 
-      expect(domain_lease['monthly_parking_rent']).to eq('$1,000.00')
+      expect(domain_lease['monthly_parking_rent']).to eq(1000)
     end
   end
 end

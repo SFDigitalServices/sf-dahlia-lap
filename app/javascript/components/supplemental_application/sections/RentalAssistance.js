@@ -9,7 +9,7 @@ import { withContext } from '../context'
 import FormGrid from '~/components/molecules/FormGrid'
 import ExpandablePanel from '~/components/molecules/ExpandablePanel'
 import formUtils from '~/utils/formUtils'
-import validate from '~/utils/form/validations'
+import validate, { convertCurrency } from '~/utils/form/validations'
 import { InputField, SelectField, YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field'
 
 const { ExpanderButton } = ExpandableTable
@@ -67,7 +67,7 @@ const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, ap
     return [
       { content: ra.other_assistance_name || ra.type_of_assistance },
       { content: ra.recurring_assistance },
-      { content: ra.assistance_amount ? ra.assistance_amount : '' },
+      { content: ra.assistance_amount ? ra.assistance_amount : '', formatType: 'currency' },
       { content: appMemberName }
     ]
   })
@@ -134,7 +134,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   )
 })
 
-const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form }) => {
+const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form, visited }) => {
   const validateAssistanceAmount = (value) => {
     return validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
       validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
@@ -158,7 +158,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
 
   const onSaveWithIndex = () => {
     if (isFormValid()) {
-      onSave(index, form.getState().values.rental_assistances[index])
+      onSave(index, convertCurrency(form.getState().values.rental_assistances[index]))
     }
   }
 
@@ -197,6 +197,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
               fieldName={`rental_assistances.${index}.assistance_amount`}
               validation={validateAssistanceAmount}
               id='assistance_amount'
+              isDirty={visited && visited[`rental_assistances.${index}.assistance_amount`]}
             />
           </FormGrid.Item>
           <FormGrid.Item>
@@ -249,7 +250,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   )
 }
 
-const RentalAssistance = ({ store, form, submitting }) => {
+const RentalAssistance = ({ store, form, submitting, visited }) => {
   const {
     application,
     applicationMembers,
@@ -292,6 +293,7 @@ const RentalAssistance = ({ store, form, submitting }) => {
           values={{type_of_assistance: null}}
           index={application.rental_assistances.length}
           form={form}
+          visited={visited}
           isNew
         />
       )}

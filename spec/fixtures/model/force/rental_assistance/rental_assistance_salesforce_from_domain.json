@@ -1,5 +1,5 @@
 {
-  "Assistance_Amount__c": 100.0,
+  "Assistance_Amount__c": "100",
   "Lease__c": "a130U0000001n4wQAA",
   "Other_Assistance_Name__c": "Test Other Assistance Name",
   "Household_Member__c": "a0n0U0000030y0dQAA",

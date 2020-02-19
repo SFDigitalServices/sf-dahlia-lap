@@ -8,7 +8,7 @@ const monthlyRentFieldName = 'lease.monthly_parking_rent'
 const Yes = 'Yes'
 const No = 'No'
 
-const ParkingInformationInputs = ({ form: { change }, values: { lease } }) => {
+const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited }) => {
   const [parkingSpaceAssigned, setParkingSpaceAssigned] = useState(lease && lease['monthly_parking_rent'] ? Yes : No)
   const selectParkingSpaceAssigned = (event) => {
     const { target: { value } } = event
@@ -37,7 +37,8 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease } }) => {
             fieldName={monthlyRentFieldName}
             placeholder='Enter Amount'
             validation={validateLeaseCurrency}
-            disabled={parkingSpaceAssigned === No} />
+            disabled={parkingSpaceAssigned === No}
+            isDirty={visited && visited[monthlyRentFieldName]} />
         </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>

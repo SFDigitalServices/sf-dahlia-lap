@@ -17,7 +17,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
-const LeaseInformationInputs = ({ form, store }) => {
+const LeaseInformationInputs = ({ form, store, visited }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
@@ -60,14 +60,16 @@ const LeaseInformationInputs = ({ form, store }) => {
             label='Monthly Rent'
             fieldName='lease.total_monthly_rent_without_parking'
             placeholder='Enter Amount'
-            validation={validateLeaseCurrency} />
+            validation={validateLeaseCurrency}
+            isDirty={visited && visited['lease.total_monthly_rent_without_parking']} />
         </FormGrid.Item>
         <FormGrid.Item>
           <CurrencyField
             label='Monthly Tenant Contribution'
             fieldName='lease.monthly_tenant_contribution'
             placeholder='Enter Amount'
-            validation={validateLeaseCurrency} />
+            validation={validateLeaseCurrency}
+            isDirty={visited && visited['lease.monthly_tenant_contribution']} />
         </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>

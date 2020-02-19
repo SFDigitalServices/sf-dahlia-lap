@@ -2,9 +2,13 @@ import { each, replace, get, toLower, includes, isString, camelCase, startCase, 
 import moment from 'moment'
 
 import utils from '~/utils/utils'
+import formUtils from '~/utils/formUtils'
 
 export const getFormatType = (field) => {
-  if (includes(toLower(field), 'date')) { return 'date' } else { return null }
+  if (includes(toLower(field), 'date')) {
+    return 'date'
+  }
+  return null
 }
 
 const getRenderType = (value) => {
@@ -26,6 +30,8 @@ export const formatValue = (value, type) => {
       return moment(`${value.year}-${value.month}-${value.day}`, utils.API_DATE_FORMAT).format('L')
     }
     return moment(value).format('L')
+  } else if (type === 'currency') {
+    return formUtils.formatPrice(value)
   } else {
     return value
   }
