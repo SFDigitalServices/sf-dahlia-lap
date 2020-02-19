@@ -73,12 +73,14 @@ module Force
       salesforce_fields[field_name] = salesforce_fields[field_name].gsub(/[$,]/, '').to_f
     end
 
+    # TODO: Automate this conversion for date objects.
     def self.date_to_json(api_date)
       return nil if api_date.blank?
       date = api_date.split('-')
       { year: date[0], month: date[1], day: date[2] }
     end
 
+    # TODO: Automate this conversion for date objects.
     def self.date_to_salesforce(domain_date)
       return nil unless !domain_date.blank? && %i[year month day].all? {|s| domain_date.key? s}
       lease_date = Date.new(domain_date[:year].to_i, domain_date[:month].to_i, domain_date[:day].to_i)
@@ -88,10 +90,15 @@ module Force
     def self.get_domain_keys(obj = self)
       # Return a list of all domain keys in an object, including nested objects.
       mapped = obj::FIELD_NAME_MAPPINGS.map do |v|
+        next unless !v[:domain].empty?
         if v.has_key? :object
-          { v[:domain] => get_keys(v[:object]) }
+          { v[:domain] => get_domain_keys(v[:object]) }
+        elsif v[:type] == 'date'
+          { v[:domain] => ['day', 'year', 'month'] }
+        elsif v[:type] == 'ada_priorities'
+          { v[:domain] => ['vision_impairments', 'hearing_impairments', 'mobility_impairments']}
         else
-          v[:domain] if !v[:domain].empty?
+          v[:domain]
         end
       end
       mapped.compact

@@ -68,7 +68,13 @@ RSpec.describe Force::Application do
         expect(api_application['adaPrioritiesSelected']).to eq('')
       end
 
-      it 'does not include alternateContact if it\'s empty' do
+      it 'does not include alternateContact if it\'s empty or missing' do
+        domain_app = {
+          'id': 'something',
+        }
+        application = Force::Application.from_domain(domain_app)
+        expect(application.to_custom_api['alternateContact']).to be_nil
+
         domain_app = {
           'alternate_contact': {},
         }

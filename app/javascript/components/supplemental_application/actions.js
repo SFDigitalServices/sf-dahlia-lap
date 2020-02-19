@@ -6,8 +6,9 @@ import { convertCurrency } from '~/utils/form/validations'
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
-
-  console.log('ada priorities', application['has_ada_priorities_selected'])
+  // TODO: Update mapping from SOQL to map listing id to listing_id in domain, separate other listing info
+  // into listing object instead of including it in application object.
+  application['listing_id'] = application['listing']['id']
   // await lease and base application updates first
   const initialResponses = await Promise.all([
     updateLease(application['lease'], primaryApplicantContact, applicationId),

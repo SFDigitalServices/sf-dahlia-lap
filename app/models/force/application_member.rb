@@ -13,7 +13,7 @@ module Force
       { custom_api: 'alternatePhone', domain: 'second_phone', salesforce: 'Second_Phone' },
       { custom_api: 'alternatePhoneType', domain: 'second_phone_type', salesforce: 'Second_Phone_Type' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
-      { custom_api: 'DOB', domain: 'date_of_birth', salesforce: 'Date_of_Birth' },
+      { custom_api: 'DOB', domain: 'date_of_birth', salesforce: 'Date_of_Birth', type: 'date' },
       { custom_api: 'email', domain: 'email', salesforce: 'Email' },
       { custom_api: 'firstName', domain: 'first_name', salesforce: 'First_Name' },
       { custom_api: 'appMemberId', domain: 'id', salesforce: 'Id' },

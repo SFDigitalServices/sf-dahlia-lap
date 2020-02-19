@@ -11,7 +11,7 @@ module Force
     # TODO: Once we add more models and more fields, consider moving the
     # field mappings into YML files or other places.
     FIELD_NAME_MAPPINGS = [
-      { custom_api: 'adaPrioritiesSelected', domain: 'has_ada_priorities_selected', salesforce: 'Has_ADA_Priorities_Selected' },
+      { custom_api: 'adaPrioritiesSelected', domain: 'has_ada_priorities_selected', salesforce: 'Has_ADA_Priorities_Selected', type: 'ada_priorities' },
       { custom_api: 'agreeToTerms', domain: 'terms_acknowledged', salesforce: 'Terms_Acknowledged' },
       { custom_api: 'annualIncome', domain: 'annual_income', salesforce: 'Annual_Income' },
       { custom_api: 'answeredCommunityScreening', domain: 'answered_community_screening', salesforce: 'Answered_Community_Screening' },
@@ -66,6 +66,9 @@ module Force
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: 'Lending_Agent' },
       { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference},
       { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember},
+      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember},
+      { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember},
+      { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics},
     ].freeze
 
     def to_domain
@@ -106,7 +109,7 @@ module Force
       end
 
       # Convert alt contact
-      if !domain_fields['alternate_contact']&.empty?
+      if domain_fields['alternate_contact']&.present?
         custom_api_fields['alternateContact'] = Force::ApplicationMember.from_domain(domain_fields['alternate_contact']).to_custom_api
       else
         custom_api_fields['alternateContact'] = nil
@@ -125,8 +128,7 @@ module Force
       primary_app_fields = domain_fields['applicant']&.merge(domain_fields['demographics'])
       custom_api_fields['primaryApplicant'] = Force::ApplicationMember.from_domain(primary_app_fields).to_custom_api
 
-      # Right now listing ids are handled differently on supp apps
-      custom_api_fields['listingID'] = domain_fields['listing_id'] || domain_fields.listing&.id
+      custom_api_fields['listingID'] = domain_fields['listing_id']
 
       # ADA priorities need to be converted from a checklist to a string.
       ada_hash = domain_fields['has_ada_priorities_selected']
