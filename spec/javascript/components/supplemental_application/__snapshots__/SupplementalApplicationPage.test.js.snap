@@ -932,7 +932,7 @@ Array [
                     value=""
                   >
                     <option
-                      value=""
+                      value={null}
                     >
                       None
                     </option>
@@ -1149,7 +1149,7 @@ Array [
                     value={2}
                   >
                     <option
-                      value=""
+                      value={0}
                     >
                       0
                     </option>
@@ -1228,7 +1228,7 @@ Array [
                     value={3}
                   >
                     <option
-                      value=""
+                      value={0}
                     >
                       0
                     </option>
@@ -1313,7 +1313,7 @@ Array [
                     value={4}
                   >
                     <option
-                      value=""
+                      value={0}
                     >
                       0
                     </option>
@@ -1672,9 +1672,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
         "flagged_applications": Array [],
         "general_lottery": true,
         "general_lottery_rank": null,
-        "has_ada_priorities_selected": Object {
-          "": true,
-        },
+        "has_ada_priorities_selected": Object {},
         "has_completed_homebuyer_education": undefined,
         "has_developmental_disability": null,
         "has_loan_preapproval": undefined,
@@ -2125,9 +2123,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "flagged_applications": Array [],
                           "general_lottery": true,
                           "general_lottery_rank": null,
-                          "has_ada_priorities_selected": Object {
-                            "": true,
-                          },
+                          "has_ada_priorities_selected": Object {},
                           "has_completed_homebuyer_education": undefined,
                           "has_developmental_disability": null,
                           "has_loan_preapproval": undefined,
@@ -2411,9 +2407,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                           "flagged_applications": Array [],
                           "general_lottery": true,
                           "general_lottery_rank": null,
-                          "has_ada_priorities_selected": Object {
-                            "": true,
-                          },
+                          "has_ada_priorities_selected": Object {},
                           "has_completed_homebuyer_education": undefined,
                           "has_developmental_disability": null,
                           "has_loan_preapproval": undefined,
@@ -2614,9 +2608,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                   "flagged_applications": Array [],
                                   "general_lottery": true,
                                   "general_lottery_rank": null,
-                                  "has_ada_priorities_selected": Object {
-                                    "": true,
-                                  },
+                                  "has_ada_priorities_selected": Object {},
                                   "has_completed_homebuyer_education": undefined,
                                   "has_developmental_disability": null,
                                   "has_loan_preapproval": undefined,
@@ -3089,9 +3081,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "flagged_applications": Array [],
                               "general_lottery": true,
                               "general_lottery_rank": null,
-                              "has_ada_priorities_selected": Object {
-                                "": true,
-                              },
+                              "has_ada_priorities_selected": Object {},
                               "has_completed_homebuyer_education": undefined,
                               "has_developmental_disability": null,
                               "has_loan_preapproval": undefined,
@@ -3393,9 +3383,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "flagged_applications": Array [],
                                       "general_lottery": true,
                                       "general_lottery_rank": null,
-                                      "has_ada_priorities_selected": Object {
-                                        "": true,
-                                      },
+                                      "has_ada_priorities_selected": Object {},
                                       "has_completed_homebuyer_education": undefined,
                                       "has_developmental_disability": null,
                                       "has_loan_preapproval": undefined,
@@ -3669,9 +3657,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "flagged_applications": Array [],
                                         "general_lottery": true,
                                         "general_lottery_rank": null,
-                                        "has_ada_priorities_selected": Object {
-                                          "": true,
-                                        },
+                                        "has_ada_priorities_selected": Object {},
                                         "has_completed_homebuyer_education": undefined,
                                         "has_developmental_disability": null,
                                         "has_loan_preapproval": undefined,
@@ -3944,9 +3930,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "flagged_applications": Array [],
                                           "general_lottery": true,
                                           "general_lottery_rank": null,
-                                          "has_ada_priorities_selected": Object {
-                                            "": true,
-                                          },
+                                          "has_ada_priorities_selected": Object {},
                                           "has_completed_homebuyer_education": undefined,
                                           "has_developmental_disability": null,
                                           "has_loan_preapproval": undefined,
@@ -5574,9 +5558,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                               "flagged_applications": Array [],
                               "general_lottery": true,
                               "general_lottery_rank": null,
-                              "has_ada_priorities_selected": Object {
-                                "": true,
-                              },
+                              "has_ada_priorities_selected": Object {},
                               "has_completed_homebuyer_education": undefined,
                               "has_developmental_disability": null,
                               "has_loan_preapproval": undefined,
@@ -5908,9 +5890,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                             "flagged_applications": Array [],
                                             "general_lottery": true,
                                             "general_lottery_rank": null,
-                                            "has_ada_priorities_selected": Object {
-                                              "": true,
-                                            },
+                                            "has_ada_priorities_selected": Object {},
                                             "has_completed_homebuyer_education": undefined,
                                             "has_developmental_disability": null,
                                             "has_loan_preapproval": undefined,
@@ -6580,7 +6560,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                         >
                                                           <option
                                                             key="null"
-                                                            value=""
+                                                            value={null}
                                                           >
                                                             None
                                                           </option>
@@ -6901,9 +6881,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                         "flagged_applications": Array [],
                                         "general_lottery": true,
                                         "general_lottery_rank": null,
-                                        "has_ada_priorities_selected": Object {
-                                          "": true,
-                                        },
+                                        "has_ada_priorities_selected": Object {},
                                         "has_completed_homebuyer_education": undefined,
                                         "has_developmental_disability": null,
                                         "has_loan_preapproval": undefined,
@@ -7451,9 +7429,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                           "flagged_applications": Array [],
                                           "general_lottery": true,
                                           "general_lottery_rank": null,
-                                          "has_ada_priorities_selected": Object {
-                                            "": true,
-                                          },
+                                          "has_ada_priorities_selected": Object {},
                                           "has_completed_homebuyer_education": undefined,
                                           "has_developmental_disability": null,
                                           "has_loan_preapproval": undefined,
@@ -7791,7 +7767,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     >
                                                       <option
                                                         key="0"
-                                                        value=""
+                                                        value={0}
                                                       >
                                                         0
                                                       </option>
@@ -7940,7 +7916,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     >
                                                       <option
                                                         key="0"
-                                                        value=""
+                                                        value={0}
                                                       >
                                                         0
                                                       </option>
@@ -8095,7 +8071,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                                     >
                                                       <option
                                                         key="0"
-                                                        value=""
+                                                        value={0}
                                                       >
                                                         0
                                                       </option>
@@ -8364,9 +8340,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
                                       "flagged_applications": Array [],
                                       "general_lottery": true,
                                       "general_lottery_rank": null,
-                                      "has_ada_priorities_selected": Object {
-                                        "": true,
-                                      },
+                                      "has_ada_priorities_selected": Object {},
                                       "has_completed_homebuyer_education": undefined,
                                       "has_developmental_disability": null,
                                       "has_loan_preapproval": undefined,

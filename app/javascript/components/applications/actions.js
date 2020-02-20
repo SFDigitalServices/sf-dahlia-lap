@@ -3,7 +3,6 @@ import apiService from '~/apiService'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
-  console.log('submittedValues', submittedValues)
   const response = await apiService.submitApplication(submittedValues)
 
   if (!response) {

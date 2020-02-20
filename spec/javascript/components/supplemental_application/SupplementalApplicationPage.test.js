@@ -6,7 +6,7 @@ import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import units from '../../fixtures/units'
-import mockShortFormSubmitPayload from '../../fixtures/short_form_submit_payload'
+import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
@@ -80,7 +80,9 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves expected values if no changes are made', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload(true))
+    const payload = mapApplication(supplementalApplication)
+    payload['listing_id'] = 'a0W0x000000GhJUEA0'
+    payload['rental_assistances'] = []
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -112,12 +114,12 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves demographics correctly', async () => {
-    const payload = cloneDeep(mockShortFormSubmitPayload(true))
-    payload.numberOfDependents = '2'
-    payload.numberOfSeniors = '3'
-    payload.numberOfMinors = '4'
-    payload.primaryApplicant.maritalStatus = 'Domestic Partner'
-    payload.rental_assistances = []
+    const expectedDemographics = {
+      'number_of_dependents': '2',
+      'number_of_seniors': '3',
+      'number_of_minors': '0',
+      'applicant': {'marital_status': 'Domestic Partner'}
+    }
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -130,13 +132,13 @@ describe('SupplementalApplicationPage', () => {
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
-    wrapper.find('#demographics-minors select option[value=4]').simulate('change')
+    wrapper.find('#demographics-minors select option[value=0]').simulate('change')
     wrapper.find('#demographics-marital-status select option[value="Domestic Partner"]').simulate('change')
 
     await act(async () => { wrapper.find('form').first().simulate('submit') })
 
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(payload)
+    expect(mockSubmitApplication.mock.calls[0][0]).toMatchObject(expectedDemographics)
   })
 
   test('it saves a live/work application preference panel', async () => {
