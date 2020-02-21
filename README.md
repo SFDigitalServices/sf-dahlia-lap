@@ -68,6 +68,8 @@ Then re-run your test. **Be aware that now that request in your test will actual
 
 ## React/Javascript tests
 
+TEST STRING
+
 ### Running unit tests
 
 `yarn unit`
