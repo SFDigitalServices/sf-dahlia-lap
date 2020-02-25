@@ -11,7 +11,7 @@ const statusFilterOptions = [
   ...clone(LEASE_UP_STATUS_OPTIONS)
 ]
 
-const accessibilitFilterOptions = [
+const accessibilityFilterOptions = [
   {value: null, label: 'Any Accessibility Request'},
   ...clone(LEASE_UP_ACCESSIBILITY_OPTIONS)
 ]
@@ -45,7 +45,7 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
                   <SelectField fieldName='status' options={StatusOptions} placeholder='Status' />
                 </div>
                 <div className='filter-group_item'>
-                  <SelectField fieldName='accessibility' options={accessibilitFilterOptions} placeholder='Accessibility Requests' />
+                  <SelectField fieldName='accessibility' options={accessibilityFilterOptions} placeholder='Accessibility Requests' />
                 </div>
                 <div className='filter-group_action'>
                   <button className='small'>Filter</button>
