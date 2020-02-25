@@ -19,7 +19,7 @@ module Force
 
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
-        puts query_scope
+
         query_scope.query
       end
 

@@ -4,7 +4,6 @@ module Api::V1
   # Lease Up Applications controller for access via the API
   class LeaseUpApplicationsController < ApiController
     def index
-      puts "Hello #{lease_up_apps_params}"
       applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
       application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
 
