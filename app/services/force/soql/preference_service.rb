@@ -23,9 +23,10 @@ module Force
         query_scope.query
       end
 
-      private
-
       def buildAppPreferencesFilters(opts)
+        # This builds the syntax need for soql to do an
+        # OR statement when passing the option of `Vision/Hearing`
+        # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
         if opts[:accessibility]
           accessibility_filters = opts[:accessibility].split(', ')
           accessibility_string = accessibility_filters.length == 1 ? "'#{accessibility_filters[0]}'" : "'#{accessibility_filters[0]}', '#{accessibility_filters[1]}'"
@@ -41,6 +42,8 @@ module Force
 
         filters
     end
+
+    private
 
     def app_preferences_for_listing_query(opts)
       # The query for this was put together to combine the general
