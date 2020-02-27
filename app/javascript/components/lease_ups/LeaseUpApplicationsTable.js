@@ -60,7 +60,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     { Header: 'Last Name', accessor: 'last_name', Cell: resizableCell, className: 'text-left' },
     { Header: 'Phone', accessor: 'phone', Cell: resizableCell, className: 'text-left' },
     { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Address', accessor: 'address', Cell: resizableCell, className: 'text-left' },
+    { Header: 'Accessibility Requests', accessor: 'accessibility', Cell: resizableCell, className: 'text-left' },
     { Header: 'Status Updated', accessor: 'status_last_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
     { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> }
   ]
