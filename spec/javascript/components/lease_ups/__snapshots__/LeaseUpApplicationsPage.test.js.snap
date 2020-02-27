@@ -966,7 +966,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                           >
                             <button
                               className="small"
-                              id="lease-up-filter-submit"
                             >
                               Filter
                             </button>
