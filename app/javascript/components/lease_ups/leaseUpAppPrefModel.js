@@ -13,6 +13,7 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     email: applicant.email,
     mailing_address: applicant.mailing_address,
     residence_address: applicant.residence_address,
+    has_ada_priorities_selected: application.has_ada_priorities_selected,
     lease_up_status: application.processing_status,
     status_last_updated: application.status_last_updated,
     preference_order: applicationPreference.preference_order,

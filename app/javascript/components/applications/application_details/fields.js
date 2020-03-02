@@ -50,9 +50,7 @@ export const householdMembersFields = [
   'zip_code'
 ]
 
-const adaPrioritiesToString = (list) => {
-  return join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]), ';')
-}
+const adaPrioritiesToString = (list) => join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]), ';')
 
 export const reservedAndPriorityFields = [
   'has_military_service',
