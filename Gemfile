@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Heroku API
+gem 'platform-api', github: 'envoy/platform-api', branch: 'review_apps'
+
 gem 'newrelic_rpm'
 
 group :development, :test do
