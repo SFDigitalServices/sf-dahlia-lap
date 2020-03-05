@@ -9259,7 +9259,7 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
       </TabsSection>
     </CardLayout>
     <LeaveConfirmationModal
-      destination="/applications/a0o0x000000OcOzAAK"
+      destination="/applications/a0o0x000000OcOzAAK?lease_up=true"
       handleClose={[Function]}
       isOpen={false}
     >

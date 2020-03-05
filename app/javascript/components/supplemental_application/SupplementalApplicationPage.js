@@ -350,7 +350,7 @@ class SupplementalApplicationPage extends React.Component {
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}
           handleClose={this.handleLeaveModalClose}
-          destination={appPaths.toApplication(application.id)} />
+          destination={appPaths.toLeaseUpShortForm(application.id)} />
       </Context.Provider>
     )
   }
