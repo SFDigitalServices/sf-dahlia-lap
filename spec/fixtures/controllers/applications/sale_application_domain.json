@@ -1,7 +1,7 @@
 {
   "total_monthly_rent": null,
   "sub_status": null,
-  "status": "Submitted",
+  "status": "Removed",
   "referral_source": null,
   "processing_status": null,
   "number_of_seniors": null,
@@ -186,7 +186,7 @@
       "flagged_record": {
         "id": "a0r0P00002WUNWsQAP",
         "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 2.0
+        "total_number_of_pending_review": 120.0
       }
     }
   ],

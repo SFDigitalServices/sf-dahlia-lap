@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::ShortFormController, type: :controller do
   login_admin
 
-  listing_id = 'a0W0P00000GbyuQ' # LAP Test Listing - Yellow Acres
+  listing_id = 'a0W0P00000F8YG4UAN' # LAP Test Listing - Yellow Acres
   base_application = {
     applicationSubmissionType: 'Paper',
     applicationSubmittedDate: '2019-03-12',
