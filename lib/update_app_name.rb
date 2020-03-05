@@ -9,6 +9,7 @@ class UdpateAppName
   end
 
   def self.call
+    puts 'Updating Review Apps...'
     new.call
   end
 
@@ -20,10 +21,8 @@ class UdpateAppName
 
     return if apps.empty?
 
-    review_apps = @heroku.review_app.list('c3953280-7b7a-42b2-8ec6-7815ec32c2d0')
-
     apps.each do |app|
-      review_app = review_apps.select { |a| a['app']['id'] == app['id'] }.first
+      review_app = @heroku.review_app.get_review_app_by_app_id(app['id'])
       update_app(review_app)
     end
   end
@@ -31,7 +30,9 @@ class UdpateAppName
   def update_app(app)
     return if app.nil? || app['pr_number'].nil?
 
+    puts "Updating app #{new_name}"
+
     new_name = "dahlia-lap-full-pr-#{app['pr_number']}"
-    @heroku.app.update(app['app']['id'], name: new_name)
+    puts @heroku.app.update(app['app']['id'], name: new_name)
   end
 end
