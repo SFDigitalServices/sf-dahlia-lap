@@ -4,13 +4,12 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ShortFormController, type: :controller do
   login_admin
-
-  listing_id = 'a0W0P00000GbyuQ' # LAP Test Listing - Yellow Acres
-  base_application = {
+  pre_lottery_listing_id = 'a0W0P00000F8YG4UAN' # Automated Test Listing
+  new_application = {
     applicationSubmissionType: 'Paper',
     applicationSubmittedDate: '2019-03-12',
     status: 'Submitted',
-    listingID: listing_id,
+    listingID: pre_lottery_listing_id,
     annualIncome: 110_000,
     applicationLanguage: 'English',
     primaryApplicant: {
@@ -34,25 +33,26 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
   }
 
   describe '#submit' do
-    describe 'without a lease' do
+    describe 'application to pre-lottery listing' do
       it 'receives a successful response from Salesforce' do
-        VCR.use_cassette('api/v1/short-form/submit/without-lease') do
-          post :submit, params: { application: base_application }
+        VCR.use_cassette('api/v1/short-form/submit/pre-lottery/success') do
+          post :submit, params: { application: new_application }
         end
         expect(response).to have_http_status(:success)
         json = JSON.parse(response.body)
         expect(json['application']).not_to be_empty
       end
-    end
-    describe 'with supplemental param' do
-      it 'receives a successful response with updated application from Salesforce' do
-        VCR.use_cassette('api/v1/short-form/submit/with-supplemental-param') do
-          post :submit, params: { application: base_application, supplemental: true }
+      # TODO: Consider making this an update to an application on Yellow acres to make this more realistic.
+      describe 'with supplemental param' do
+        it 'receives a successful response with updated application from Salesforce' do
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
+            post :submit, params: { application: new_application, supplemental: true }
+          end
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json['application']).not_to be_empty
+          expect(json['application']['Application_Submission_Type']).to eq('Paper')
         end
-        expect(response).to have_http_status(:success)
-        json = JSON.parse(response.body)
-        expect(json['application']).not_to be_empty
-        expect(json['application']['Application_Submission_Type']).to eq('Paper')
       end
     end
   end
