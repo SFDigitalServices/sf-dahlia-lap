@@ -5,19 +5,19 @@ class UdpateAppName
   SKIPPED_APPS = %w[dahlia-lap-full dahlia-lap-nonepic dahlia-lap-qa dahlia-lap-production dahlia-lap-preprod].freeze
 
   def initialize
-    @heroku = PlatformAPI.connect_oauth('b1bc0455-04db-4db8-920f-79600ebdab9f')
+    @heroku = PlatformAPI.connect_oauth(ENV['HEROKU_TOKEN'])
   end
 
   def self.call
-    puts 'Updating Review Apps...'
     new.call
   end
 
   def call
     apps = @heroku.app.list
-    apps = apps.select { |app| app['name'] =~ /dahlia-lap-/ }
-    apps.reject! { |app| SKIPPED_APPS.any? { |name| name == app['name'] } }
-    apps.reject! { |app| app['name'] =~ /dahlia-lap-full-pr-/ }
+
+    @lap_apps = apps.select { |app| app['name'] =~ /dahlia-lap-/ }
+    apps = @lap_apps.reject { |app| SKIPPED_APPS.any? { |name| name == app['name'] } }
+    apps.reject! { |app| app['name'] =~ /dahlia-lap-full-/ }
 
     return if apps.empty?
 
@@ -27,12 +27,32 @@ class UdpateAppName
     end
   end
 
+  private
+
   def update_app(app)
-    return if app.nil? || app['pr_number'].nil?
+    return if app.blank?
 
-    puts "Updating app #{new_name}"
+    puts "Updating app #{app['id']}"
 
-    new_name = "dahlia-lap-full-pr-#{app['pr_number']}"
-    puts @heroku.app.update(app['app']['id'], name: new_name)
+    puts @heroku.app.update(app['app']['id'], name: new_app_name(app))
+  end
+
+  def new_app_name(app)
+    if app['pr_number'].present?
+      "dahlia-lap-full-pr-#{app['pr_number']}"
+    else
+      failback_name
+    end
+  end
+
+  def failback_name
+    name = 'dahlia-lap-full-failback-1'
+    failback_apps = @lap_apps.select { |app| app['name'] =~ /dahlia-lap-full-failback-/ }
+    index = 1
+    while failback_apps.any? { |app| app['name'] == name }
+      index += 1
+      name = "dahlia-lap-full-failback-#{index}"
+    end
+    name
   end
 end
