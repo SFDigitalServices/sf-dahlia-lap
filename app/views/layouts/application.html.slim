@@ -29,3 +29,13 @@ html
 
     javascript:
       var SALESFORCE_BASE_URL = "#{{current_user&.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']}}"
+
+    - if Rails.env.production?
+      script{ async src="https://www.googletagmanager.com/gtag/js?id=#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}" }
+      javascript:
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        document.addEventListener('turbolinks:load', function() {
+          gtag('config', "#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}")
+        });
