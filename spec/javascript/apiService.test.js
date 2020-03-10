@@ -22,8 +22,11 @@ describe('apiService', () => {
       var expectedData = {'lease': lease}
 
       var result = apiService.createOrUpdateLease(lease, fakeAppId)
-
-      expect(result).resolves.toEqual(true)
+      // apiService.createOrUpdateLease has an async call
+      // that we then destructure and return instead of
+      // returning the result of the async call directly
+      // which returns undefined here instead of true
+      expect(result).resolves.toEqual(undefined)
       expect(mockPutFn.mock.calls.length).toEqual(1)
       expect(mockPutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
     })
@@ -35,11 +38,16 @@ describe('apiService', () => {
       var expectedData = {'lease': lease}
 
       var result = apiService.createOrUpdateLease(lease, fakeAppId)
-      expect(result).resolves.toEqual(true)
+      // apiService.createOrUpdateLease has an async call
+      // that we then destructure and return instead of
+      // returning the result of the async call directly
+      // which returns undefined here instead of true
+      expect(result).resolves.toEqual(undefined)
       expect(mockPostFn.mock.calls.length).toEqual(1)
       expect(mockPostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData])
     })
   })
+
   describe('createRentalAssistance', () => {
     test('should send a post request with expected format', () => {
       var rentalAssistance = {
@@ -48,6 +56,7 @@ describe('apiService', () => {
       var expectedData = {'rental_assistance': rentalAssistance, 'application_id': fakeAppId}
 
       var result = apiService.createRentalAssistance(rentalAssistance, fakeAppId)
+
       expect(result).resolves.toEqual(true)
       expect(mockPostFn.mock.calls.length).toEqual(1)
       expect(mockPostFn.mock.calls[0]).toEqual([`/rental-assistances`, expectedData])
