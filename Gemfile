@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.7'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.0.6
 gem 'rack', '>= 2.0.8'
 # Use Puma as the app server
-gem 'puma', '~> 3.12.3'
+gem 'puma', '~> 3.12.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

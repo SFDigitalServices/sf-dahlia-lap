@@ -382,7 +382,7 @@ DEPENDENCIES
   platform-api!
   pry-byebug (~> 3.4.0)
   pry-rails
-  puma (~> 3.12.3)
+  puma (~> 3.12.4)
   rack (>= 2.0.8)
   rails (~> 5.1.7)
   rails-controller-testing

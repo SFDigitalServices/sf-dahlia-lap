@@ -2,7 +2,7 @@ import React from 'react'
 import ReactTable from 'react-table'
 import { cellFormat } from '~/utils/reactTableUtils'
 
-const PAGE_SIZE = 5
+const PAGE_SIZE = 20
 
 const LeaseUpListingsTable = ({ listings, onCellClick }) => {
   const columns = [
