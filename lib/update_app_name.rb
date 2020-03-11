@@ -45,7 +45,7 @@ class UpdateAppName
     end
   end
 
-  def failback_name
+  def fallback_name
     name = 'dahlia-lap-full-failback-1'
     failback_apps = @lap_apps.select { |app| app['name'] =~ /dahlia-lap-full-failback-/ }
     index = 1
