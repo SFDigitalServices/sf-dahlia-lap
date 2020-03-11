@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Service for updating Heroku review app's name, to keep app name convension: 'dahlia-lap-full-pr-XXX'.
-class UdpateAppName
+class UpdateAppName
   SKIPPED_APPS = %w[dahlia-lap-full dahlia-lap-nonepic dahlia-lap-qa dahlia-lap-production dahlia-lap-preprod].freeze
 
   def initialize
