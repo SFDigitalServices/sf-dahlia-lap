@@ -3,9 +3,9 @@
 require 'update_app_name'
 require 'rails_helper'
 
-RSpec.describe UdpateAppName do
+RSpec.describe UpdateAppName do
   describe '#call' do
-    subject { UdpateAppName.call }
+    subject { UpdateAppName.call }
     before :each do
       allow(PlatformAPI).to receive(:connect_oauth).and_return(client)
       allow(client).to receive(:app).and_return(app)
