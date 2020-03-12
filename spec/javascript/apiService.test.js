@@ -26,10 +26,7 @@ describe('apiService', () => {
       var expectedData = {'lease': lease}
 
       var result = await apiService.createOrUpdateLease(lease, fakeAppId)
-      // apiService.createOrUpdateLease has an async call
-      // that we then destructure and return instead of
-      // returning the result of the async call directly
-      // which returns undefined here instead of true
+
       expect(result).toEqual(true)
       expect(mockLeasePutFn.mock.calls.length).toEqual(1)
       expect(mockLeasePutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
@@ -42,10 +39,7 @@ describe('apiService', () => {
       var expectedData = {'lease': lease}
 
       var result = await apiService.createOrUpdateLease(lease, fakeAppId)
-      // apiService.createOrUpdateLease has an async call
-      // that we then destructure and return instead of
-      // returning the result of the async call directly
-      // which returns undefined here instead of true
+
       expect(result).toEqual(true)
       expect(mockLeasePostFn.mock.calls.length).toEqual(1)
       expect(mockLeasePostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData])
