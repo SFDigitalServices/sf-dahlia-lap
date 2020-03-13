@@ -30,7 +30,7 @@ html
     javascript:
       var SALESFORCE_BASE_URL = "#{{current_user&.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']}}"
 
-    - if Rails.env.production?
+    - if ENV['GOOGLE_ANALYTICS_TRACKING_ID']
       script{ async src="https://www.googletagmanager.com/gtag/js?id=#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}" }
       javascript:
         window.dataLayer = window.dataLayer || [];
