@@ -6,7 +6,7 @@ class UpdateAppName
 
   def initialize
     @fallback_id = 0
-    @heroku = PlatformAPI.connect_oauth(ENV['HEROKU_TOKEN'] || '7b1680c7-b954-4909-b55d-95c2d44a3615')
+    @heroku = PlatformAPI.connect_oauth(ENV['HEROKU_TOKEN'])
   end
 
   def self.call
