@@ -36,6 +36,4 @@ html
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
         gtag('js', new Date());
-        document.addEventListener('turbolinks:load', function() {
-          gtag('config', "#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}")
-        });
+        gtag('config', "#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}")
