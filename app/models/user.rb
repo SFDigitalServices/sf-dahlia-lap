@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :omniauthable, :trackable, :timeoutable
 
   def self.from_omniauth(auth)
-    user = User.where(provider: auth.provider, uid: auth.uid, email: auth.extra.username).first ||
+    user = User.where(provider: auth.provider, uid: auth.uid).first ||
            User.new
     user.provider = auth.provider
     user.uid = auth.uid

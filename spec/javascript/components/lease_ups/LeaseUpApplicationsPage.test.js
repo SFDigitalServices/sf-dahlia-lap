@@ -39,6 +39,7 @@ const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
       'Id': 1000 + uniqId,
       'Name': `Application Name ${uniqId}`,
       'Status_Last_Updated': '2018-04-26T12:31:39.000+0000',
+      'Has_ADA_Priorities_Selected': 'vision_impairments',
       'Applicant': {
         'Id': '1',
         'Residence_Address': `1316 BURNETT ${uniqId}`,
@@ -86,8 +87,8 @@ describe('LeaseUpApplicationsPage', () => {
   test('Should render LeaseUpTable', async () => {
     expect(wrapper).toMatchSnapshot()
   })
-  test('Should render address when present', async () => {
-    expect(wrapper.find('div.rt-tbody .rt-tr-group').first().text()).toContain('1316 BURNETT')
+  test('Should render accessibility when present', async () => {
+    expect(wrapper.find('div.rt-tbody .rt-tr-group').first().text()).toContain('Vision')
   })
 
   describe('StatusModal', () => {

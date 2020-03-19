@@ -57,7 +57,7 @@ class SupplementalApplicationPage extends React.Component {
     const updatedApplication = await updateApplication(application, this.state.application)
 
     if (updatedApplication) {
-      this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false }, () => {
+      this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false, supplementalAppTouched: false }, () => {
         this.handleCloseRentalAssistancePanel()
       })
     } else {
@@ -171,7 +171,8 @@ class SupplementalApplicationPage extends React.Component {
       this.setState({
         application: setApplicationsDefaults(mapApplication(updatedApplication)),
         statusHistory: mapList(mapFieldUpdateComment, updatedStatusHistory),
-        loading: false
+        loading: false,
+        supplementalAppTouched: false
       }, () => this.updateStatusModal({loading: false, isOpen: false}))
     }
   }
@@ -349,7 +350,7 @@ class SupplementalApplicationPage extends React.Component {
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}
           handleClose={this.handleLeaveModalClose}
-          destination={appPaths.toApplication(application.id)} />
+          destination={appPaths.toLeaseUpShortForm(application.id)} />
       </Context.Provider>
     )
   }

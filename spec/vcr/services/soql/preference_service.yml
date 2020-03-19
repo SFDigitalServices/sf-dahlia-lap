@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:03:02 GMT
+      - Thu, 05 Mar 2020 20:03:06 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -31,8 +31,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=Ugy5dF8cEeqdjANrxtiMag; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:03:02 GMT; Max-Age=31536000
+      - BrowserId=VHiJzl8cEeq70k397YSm4A; domain=.salesforce.com; path=/; expires=Fri,
+        05-Mar-2021 20:03:06 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -45,7 +45,7 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438583291","signature":"ea7Cn59ViLlaPx4U+3IvL76DAkyNaDKA6p+UFEo/E6c="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438587363","signature":"qhwFqmgUShGe6Q49p+tekM7Ibcv6Hfl16gIbbBcKXI8="}'
     http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:03:04 GMT
+  recorded_at: Thu, 05 Mar 2020 20:03:07 GMT
 recorded_with: VCR 5.0.0

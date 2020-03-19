@@ -74,4 +74,9 @@ export const validateStatusForm = values => {
   return null
 }
 
+export const LEASE_UP_ACCESSIBILITY_OPTIONS = [
+  { value: 'Mobility impairments', label: 'Mobility' },
+  { value: 'Vision impairments, Hearing impairments', label: 'Vision/Hearing' }
+]
+
 export default LEASE_UP_STATUS_OPTIONS

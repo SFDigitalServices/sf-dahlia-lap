@@ -23,18 +23,27 @@ module Force
         query_scope.query
       end
 
-      private
-
       def buildAppPreferencesFilters(opts)
+        # This builds the syntax need for soql to do an
+        # OR statement when passing the option of `Vision/Hearing`
+        # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
+        if opts[:accessibility]
+          accessibility_filters = opts[:accessibility].split(', ')
+          accessibility_string = accessibility_filters.length == 1 ? "'#{accessibility_filters[0]}'" : "'#{accessibility_filters[0]}', '#{accessibility_filters[1]}'"
+        end
+
         filters = ''
         filters += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
         filters += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
         filters += "and Application__r.Applicant__r.First_Name__c like '%#{opts[:first_name]}%' " if opts[:first_name].present?
         filters += "and Application__r.Applicant__r.Last_Name__c like '%#{opts[:last_name]}%' " if opts[:last_name].present?
         filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
+        filters += "and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
 
         filters
     end
+
+    private
 
     def app_preferences_for_listing_query(opts)
       # The query for this was put together to combine the general

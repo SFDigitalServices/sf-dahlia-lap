@@ -1,5 +1,5 @@
 import React from 'react'
-import { trim, map, cloneDeep } from 'lodash'
+import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
@@ -57,11 +57,11 @@ const LeaseUpTableContainer = ({
 
   const buildRowData = (result) => {
     let rowData = cloneDeep(result)
+    // get keys and remove empty values
+    const accessibilityKeys = compact(Object.keys(result.has_ada_priorities_selected))
 
-    if (trim(result.mailing_address)) {
-      rowData.address = result.mailing_address
-    } else {
-      rowData.address = result.residence_address
+    if (accessibilityKeys && accessibilityKeys.length > 0) {
+      rowData.accessibility = accessibilityKeys.map(key => capitalize(key.split('_')[0])).join(', ')
     }
 
     rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank}`

@@ -13,7 +13,7 @@ RSpec.describe Api::V1::ApplicationsController, type: :controller do
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['records'].size).to eq(28)
+      expect(json['records'].size).to eq(69)
     end
   end
 
