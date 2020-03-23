@@ -10,7 +10,7 @@ html
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga')
 
         ga('create', "#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}", 'auto')
-        // turbolinks:load even fires on each rails route so send the pageview to GA when event fires
+        // turbolinks:load event fires on each rails route so send the pageview to GA when event fires
         window.addEventListener('turbolinks:load', () => ga('send', 'pageview', location.pathname + location.search))
 
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
