@@ -6,30 +6,30 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
   login_admin
   pre_lottery_listing_id = 'a0W0P00000F8YG4UAN' # Automated Test Listing
   new_application = {
-    applicationSubmissionType: 'Paper',
-    applicationSubmittedDate: '2019-03-12',
+    application_submission_type: 'Paper',
+    application_submitted_date: '2019-03-12',
     status: 'Submitted',
-    listingID: pre_lottery_listing_id,
-    annualIncome: 110_000,
-    applicationLanguage: 'English',
-    primaryApplicant: {
-      firstName: 'Test',
-      lastName: 'Supp app test',
+    listing_id: pre_lottery_listing_id,
+    annual_income: 110_000,
+    application_language: 'English',
+    applicant: {
+      first_name: 'Test',
+      last_name: 'Supp app test',
       email: 'eee@eeee.com',
-      DOB: '1950-01-01',
+      date_of_birth: { day: 1, year: 1950, month: 1 },
       address: '123 MAIN ST',
       city: 'SAN FRANCISCO',
       state: 'CA',
-      zip: '94105-1804',
+      zip_code: '94105-1804',
     },
-    householdMembers: [
+    household_members: [
       {
-        firstName: 'member',
-        lastName: 'test',
-        DOB: '1976-06-11',
+        first_name: 'member',
+        last_name: 'test',
+        date_of_birth: { day: 11, year: 1976, month: 6 },
       },
     ],
-    shortFormPreferences: [],
+    shortForm_preferences: [],
   }
 
   describe '#submit' do

@@ -16,7 +16,7 @@ export const mapApplication = (a) => {
     primary_applicant_contact: a.Primary_Applicant,
     // Remove id from alternate contact to allow leasing agents to delete alt contact.
     alternate_contact: omit(mapShape(mapApplicationMember, a.Alternate_Contact), 'id'),
-    listing_id: a.Listing.Id,
+    listing_id: a.Listing ? a.Listing.Id : null,
     preferences: mapList(mapApplicationPreference, a.preferences),
     proof_files: a.proof_files,
     household_members: mapList(mapApplicationMember, a.household_members),

@@ -11,10 +11,8 @@ class Api::V1::ShortFormController < ApiController
     # FIXME: validatate / permit on the params
     # Unpermitted parameter: :primary_language
     custom_api_application = Force::Application.from_domain(application_api_params).to_custom_api
-    puts 'Custom api application', custom_api_application.to_json
     application = custom_api_application_service.submit(custom_api_application)
     logger.debug "application submit response: #{application}"
-    puts "application submit response: #{application}"
     # if submitting a supplemental application we will re-fetch updated data from salesforce
     if params[:supplemental]
       # Unpermitted parameters: :listing, :proof_files, :flagged_applications, :lease, :rental_assistances, :createdby, :lending_institution
@@ -22,7 +20,7 @@ class Api::V1::ShortFormController < ApiController
       logger.debug "updated application: #{application}"
     end
 
-    # TODO should we check for errors here?
+    # TODO: should we check for errors here?
     render json: { application: application }
     # else
     #   render status: 422, json: { errors: short_form_validator.errors.full_messages || 'Unknown Error' }
