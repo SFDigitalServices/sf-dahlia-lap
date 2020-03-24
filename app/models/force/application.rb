@@ -64,11 +64,11 @@ module Force
       { custom_api: 'hasCompletedHomebuyerEducation', domain: 'has_completed_homebuyer_education', salesforce: 'Has_Completed_Homebuyer_Education' },
       { custom_api: 'hasLoanPreapproval', domain: 'has_loan_preapproval', salesforce: 'Has_Loan_Pre_approval' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: 'Lending_Agent' },
-      { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference},
-      { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember},
-      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember},
-      { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember},
-      { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics},
+      { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference },
+      { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember },
+      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember },
+      { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember },
+      { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
     ].freeze
 
     def to_domain
@@ -96,8 +96,7 @@ module Force
       custom_api_fields = super
       # Start with just from domain to API, then figure out if I want to have case for from SOQL in here too.
       domain_fields = @fields[:domain].presence
-      return custom_api_fields if !domain_fields.present?
-
+      return custom_api_fields unless domain_fields.present?
 
       # Convert preferences
       if domain_fields['preferences']
@@ -133,14 +132,11 @@ module Force
       # ADA priorities need to be converted from a checklist to a string.
       ada_hash = domain_fields['has_ada_priorities_selected']
       if ada_hash
-        ada_string = ada_hash.select {|k,v| v }.keys.map {|v| v.humanize.capitalize}.join(';')
+        ada_string = ada_hash.select { |_, v| v }.keys.map { |v| v.humanize.capitalize }.join(';')
         custom_api_fields['adaPrioritiesSelected'] = ada_string
       end
       custom_api_fields
     end
-
-
-
 
     # TODO: There is code somewhere in this app that causes the Salesforce field
     # names we use in SOQL queries to have the "__c" suffix automatically added

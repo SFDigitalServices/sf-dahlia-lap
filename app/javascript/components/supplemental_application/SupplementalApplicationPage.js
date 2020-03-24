@@ -5,7 +5,7 @@ import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
-import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
+import { mapApplication, mapFieldUpdateComment, mapListing, mapUnit } from '~/components/mappers/soqlToDomain'
 import Alerts from '~/components/Alerts'
 import { updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
 import { mapList } from '~/components/mappers/utils'
@@ -293,13 +293,13 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render () {
-    const { fileBaseUrl, availableUnits } = this.props
+    const { fileBaseUrl, availableUnits, listing } = this.props
     const { leaveConfirmationModal, application, statusHistory } = this.state
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
         { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
+        { title: listing.name, link: appPaths.toListingLeaseUps(application.listing_id) },
         { title: application.name, link: '#' }
       ]
     }
@@ -359,6 +359,7 @@ class SupplementalApplicationPage extends React.Component {
 const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
     application: setApplicationsDefaults(mapApplication(application)),
+    listing: mapListing(application.Listing),
     statusHistory: mapList(mapFieldUpdateComment, statusHistory),
     onSubmit: (values) => updateApplication(values, application),
     fileBaseUrl: fileBaseUrl,
