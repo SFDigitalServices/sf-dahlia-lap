@@ -1,5 +1,6 @@
 {
   "name": "sf-dahlia-lap",
+  "stack": "heroku-18",
   "scripts": {
     "postdeploy": "./postdeploy.sh"
   },
