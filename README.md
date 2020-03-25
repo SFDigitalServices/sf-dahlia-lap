@@ -32,7 +32,6 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * In a separate tab, change to the partners directory and run `grunt`
 
 ## Linting
-
 To lint Ruby code run: `rubocop`
 
 To lint the React code run: `yarn lint`
