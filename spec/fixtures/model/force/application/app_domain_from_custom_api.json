@@ -1,28 +1,103 @@
 {
-  "annual_income": null,
-  "answered_community_screening": null,
   "application_language": "English",
-  "application_submission_type": "Paper",
-  "application_submitted_date": "2018-08-03",
+  "housing_voucher_or_subsidy": "false",
+  "terms_acknowledged": true,
+  "annual_income": 60000,
   "has_ada_priorities_selected": {
-    "mobility_impairments": true,
+    "vision_impairments": true,
     "hearing_impairments": true
   },
-  "has_developmental_disability": null,
-  "has_military_service": null,
-  "hh_total_income_with_assets_annual": null,
-  "household_assets": null,
-  "housing_voucher_or_subsidy": "true",
-  "id": "a0o0U000000VVw8QAG",
-  "lottery_number": "00262254",
-  "lottery_number_manual": null,
-  "monthly_income": null,
-  "name": "APP-00262254",
-  "number_of_dependents": null,
-  "processing_status":  "Waitlisted",
-  "referral_source": null,
-  "reserved_senior": null,
-  "status": "Submitted",
-  "terms_acknowledged": false,
-  "total_monthly_rent": null
+  "listing_id": "a0W0P00000F8YG4UAN",
+  "alternate_contact": {
+    "firstName": "Alty",
+    "lastName": "Contact",
+    "middleName": "Sample",
+    "alternateContactType": "Other",
+    "alternateContactTypeOther": "Other Alt",
+    "agency": "Meda",
+    "email": "alt@test.com",
+    "phone": "4158675309",
+    "phoneType": "Cell"
+  },
+  "applicant": {
+    "email": "sample@test.com",
+    "firstName": "Sample",
+    "lastName": "application",
+    "middleName": "domain",
+    "address": "123 Main st",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94103",
+    "mailingAddress": "123 Mailing way",
+    "mailingCity": "San Francisco",
+    "mailingState": "CA",
+    "mailingZip": "94103",
+    "phone": "4158675309",
+    "phoneType": "Cell",
+    "alternatePhone": "1234567890",
+    "alternatePhoneType": "Work",
+    "DOB": "1990-01-01",
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "genderOther": "other gender",
+    "sexualOrientation": "Not Listed",
+    "sexualOrientationOther": "other orientation"
+  },
+  "preferences": [
+    {
+      "recordTypeDevName": "L_W",
+      "individualPreference": "Live in SF",
+      "preferenceProof": "Telephone bill",
+      "listingPreferenceID": "a0l0P00001Lx8XeQAJ",
+      "naturalKey": "Sample,application,1990-01-01"
+    },
+    {
+      "recordTypeDevName": "COP",
+      "certificateNumber": "1232",
+      "listingPreferenceID": "a0l0P00001Lx8XKQAZ",
+      "naturalKey": "Sample,application,1990-01-01"
+    },
+    {
+      "recordTypeDevName": "RB_AHP",
+      "individualPreference": "Rent Burdened",
+      "listingPreferenceID": "a0l0P00001Lx8XZQAZ",
+      "naturalKey": "Sample,application,1990-01-01"
+    },
+    {
+      "recordTypeDevName": "DTHP",
+      "certificateNumber": "1234",
+      "listingPreferenceID": "a0l0P00001Lx8XPQAZ",
+      "naturalKey": "Brother,Bob,1950-01-01"
+    },
+    {
+      "recordTypeDevName": "NRHP",
+      "preferenceProof": "Cable and internet bill",
+      "listingPreferenceID": "a0l0P00001Lx8XUQAZ",
+      "naturalKey": "Sample,application,1990-01-01"
+    },
+    {
+      "recordTypeDevName": "AG",
+      "preferenceProof": "Letter from SFHA verifying address",
+      "city": "San Francisco",
+      "state": "CA",
+      "address": "123 AG way",
+      "zip": "94103",
+      "listingPreferenceID": "a0l0P00001PsqDoQAJ",
+      "naturalKey": "Brother,Bob,1950-01-01"
+    }
+  ],
+  "household_members": [
+    {
+      "firstName": "Brother",
+      "lastName": "Bob",
+      "middleName": "M",
+      "address": "123 Bob lane",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103",
+      "relationship": "Sibling",
+      "DOB": "1950-01-01"
+    }
+  ]
 }

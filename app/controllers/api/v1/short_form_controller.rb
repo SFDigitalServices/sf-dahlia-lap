@@ -6,10 +6,7 @@ class Api::V1::ShortFormController < ApiController
 
   def submit
     logger.debug "application_api_params: #{application_api_params}"
-    # short_form_validator = ShortFormValidator.new(application_api_params)
-    # if short_form_validator.valid?
-    # FIXME: validatate / permit on the params
-    # Unpermitted parameter: :primary_language
+    # TODO: Consider adding a validator to check that all required params are present
     custom_api_application = Force::Application.from_domain(application_api_params).to_custom_api
     application = custom_api_application_service.submit(custom_api_application)
     logger.debug "application submit response: #{application}"

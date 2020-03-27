@@ -28,11 +28,7 @@
    },
    "Primary_Applicant":"0030U00000P8lxaQAB",
    "Alternate_Contact":null,
-   "Listing":{
-      "Name":"Partners Test Listing (do not modify) - Yellow Acres",
-      "Id":"a0W0U000000MX4vUAG",
-      "Reserved_community_type":null
-   },
+   "ListingID": "a0W0U000000MX4vUAG",
    "Status":"Submitted",
    "Total_Household_Size":3,
    "Application_Submission_Type":"Paper",

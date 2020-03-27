@@ -10,7 +10,6 @@ RSpec.describe Force::Application do
   let(:app_domain_from_custom_api) { fixture('model/force/application/app_domain_from_custom_api.json') }
 
   describe '#to_domain' do
-
     it 'should convert from custom API fields to domain' do
       application = Force::Application.from_custom_api(paper_app_custom_api)
       domain_application = application.to_domain
