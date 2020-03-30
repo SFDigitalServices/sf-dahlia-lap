@@ -10,7 +10,7 @@ RSpec.describe Force::CustomApi::LendingInstitutionsService do
     it 'should return institutions with agents' do
       VCR.use_cassette('services/custom_api/lending_institutions') do
         lending_institutions = subject.lending_institutions
-        expect(lending_institutions.values.first.first[:Id]).to be_truthy
+        expect(lending_institutions.values.first.first['Id']).to be_truthy
         expect(lending_institutions.values.first.first.keys).to eq %w[Id FirstName LastName Active]
       end
     end
