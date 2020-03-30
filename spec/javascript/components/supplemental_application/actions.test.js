@@ -57,9 +57,7 @@ describe('updateApplication', () => {
     const application = {
       'id': 'appID',
       'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
-      },
+      'listing_id': 'listingID',
       'lease': {
         'id': 'leaseID'
       }
@@ -68,7 +66,7 @@ describe('updateApplication', () => {
     const response = await updateApplication(application)
 
     expect(response.id).toEqual(application.id)
-    expect(response.listing_id).toEqual(application.listing.id)
+    expect(response.listing_id).toEqual(application.listing_id)
     expect(response.lease.id).toEqual(application.lease.id)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(1)

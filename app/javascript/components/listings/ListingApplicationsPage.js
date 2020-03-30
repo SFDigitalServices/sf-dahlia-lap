@@ -66,7 +66,7 @@ const ListingApplicationsPage = ({ listing, applications }) => {
 const mapProperties = ({ listing, applications }) => {
   return {
     listing,
-    applications: applications.map(i => buildListingApplicationModel(mapApplication(i)))
+    applications: applications.map(i => buildListingApplicationModel(mapApplication(i), listing))
   }
 }
 

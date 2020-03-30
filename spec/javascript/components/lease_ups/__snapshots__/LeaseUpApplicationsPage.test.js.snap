@@ -916,7 +916,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                   >
                                     <option
                                       key="null"
-                                      value=""
+                                      value={null}
                                     >
                                       Any Accessibility Request
                                     </option>
