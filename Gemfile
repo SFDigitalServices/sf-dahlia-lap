@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.6.3'
+ruby '2.7.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.7'
+gem 'rails', '~> 5.2.4'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.0.6
 gem 'rack', '>= 2.0.8'
 # Use Puma as the app server
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec-rails', '~> 3.7'
   gem 'webmock'
-  gem "pry-byebug", '~> 3.4.0'
+  gem "pry-byebug", '~> 3.9.0'
   gem 'awesome_print'
   gem 'vcr'
   gem 'rails-controller-testing'

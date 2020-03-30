@@ -10,9 +10,9 @@ Only showing rspec tests for now:
 Cross-browser testing done with <a href="https://www.browserstack.com/"><img src="./Browserstack-logo@2x.png?raw=true" height="36" ></a>
 
 ## Setup
-* Use Ruby 2.6.3 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
-* Install [Bundler](https://github.com/bundler/bundler) for this version of Ruby `gem install bundler -v 2.0.2`
-* Use Node v8.10.x (npm v5.5.x)
+* Use Ruby 2.7.0 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
+* Install [Bundler](https://github.com/bundler/bundler) for this version of Ruby `gem install bundler -v 2.1.2`
+* Use Node v12.16.x (npm v6.13.4)
 * Install Yarn (if you have Homebrew you can run `brew install yarn`)
 * Run `yarn install`
 * Run `bundle install`
@@ -32,7 +32,6 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * In a separate tab, change to the partners directory and run `grunt`
 
 ## Linting
-
 To lint Ruby code run: `rubocop`
 
 To lint the React code run: `yarn lint`
