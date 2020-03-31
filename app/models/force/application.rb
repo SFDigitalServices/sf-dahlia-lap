@@ -108,7 +108,7 @@ module Force
       end
 
       # Convert alt contact
-      if domain_fields['alternate_contact']&.present?
+      if domain_fields['alternate_contact']&.present? && !domain_fields['alternate_contact'].values.all?(&:blank?)
         custom_api_fields['alternateContact'] = Force::ApplicationMember.from_domain(domain_fields['alternate_contact']).to_custom_api
       else
         custom_api_fields['alternateContact'] = nil

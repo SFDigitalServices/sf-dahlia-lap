@@ -80,6 +80,15 @@ RSpec.describe Force::Application do
         application = Force::Application.from_domain(domain_app)
         expect(application.to_custom_api['alternateContact']).to be_nil
       end
+
+      it 'does not include alternateContact if it contains only empty strings' do
+        domain_app = {
+          'id': 'something',
+          'alternate_contact': {'first_name': ''}
+        }
+        application = Force::Application.from_domain(domain_app)
+        expect(application.to_custom_api['alternateContact']).to be_nil
+      end
     end
   end
 end
