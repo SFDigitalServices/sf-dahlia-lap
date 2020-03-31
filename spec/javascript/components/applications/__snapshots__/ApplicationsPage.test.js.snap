@@ -114,7 +114,7 @@ Array [
                   value=""
                 >
                   <option
-                    value=""
+                    value={null}
                   >
                     Any Listing
                   </option>
@@ -190,7 +190,7 @@ Array [
                     Electronic
                   </option>
                   <option
-                    value=""
+                    value={null}
                   >
                     Any type
                   </option>

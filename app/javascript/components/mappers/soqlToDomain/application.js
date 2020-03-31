@@ -3,11 +3,10 @@ import { mapApplicationMember } from './application_member'
 import { mapApplicationPreference } from './application_preference'
 import { mapDemographics } from './demographics'
 import { mapFlaggedApplication } from './flagged_application'
-import { mapListing } from './listing'
 import { mapUser } from './user'
 import { mapShape, mapList } from '../utils'
 
-const parseList = text => split(text, ';')
+const parseList = text => { return (text ? split(text, ';') : []) }
 const toChecklist = list => fromPairs(list.map(i => [snakeCase(i), true]))
 
 export const mapApplication = (a) => {
@@ -17,7 +16,7 @@ export const mapApplication = (a) => {
     primary_applicant_contact: a.Primary_Applicant,
     // Remove id from alternate contact to allow leasing agents to delete alt contact.
     alternate_contact: omit(mapShape(mapApplicationMember, a.Alternate_Contact), 'id'),
-    listing: mapShape(mapListing, a.Listing),
+    listing_id: a.Listing ? a.Listing.Id : null,
     preferences: mapList(mapApplicationPreference, a.preferences),
     proof_files: a.proof_files,
     household_members: mapList(mapApplicationMember, a.household_members),

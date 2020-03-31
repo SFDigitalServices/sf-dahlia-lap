@@ -9,10 +9,7 @@ const applications = [
     'Application_Submitted_Date': '05/30/18',
     'Total_Household_Size': 0,
     'Application_Submission_Type': 'Electronic',
-    'Listing': {
-      'Name': 'Test 5/30',
-      'Lottery_Date': '2019-01-12T17:00:00.000+0000'
-    },
+    'ListingId': 'listingId',
     'Applicant': {
       'First_Name': 'karen',
       'Last_Name': 'jones'
@@ -24,10 +21,7 @@ const applications = [
     'Application_Submitted_Date': '06/12/18',
     'Total_Household_Size': 0,
     'Application_Submission_Type': 'Electronic',
-    'Listing': {
-      'Name': 'Test 5/30',
-      'Lottery_Date': '2019-01-12T17:00:00.000+0000'
-    },
+    'ListingId': 'listingId',
     'Applicant': {
       'First_Name': 'Grace',
       'Last_Name': 'Jones'
@@ -37,7 +31,7 @@ const applications = [
 
 describe('ListingApplicationsPage', () => {
   test('should render succesfully', () => {
-    const listing = { id: 1, name: 'xxxxListing' }
+    const listing = { id: 'listingId', name: 'listing name', lottery_date: '2017-03-22T18:00:00.000+0000' }
 
     const wrapper = renderer.create(
       <ListingApplicationsPage

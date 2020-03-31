@@ -1,7 +1,6 @@
 import { updateApplication } from 'components/supplemental_application/actions'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
-import mockSupplementalSubmitPayload from '../../fixtures/supplemental_submit_payload'
 import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
@@ -52,15 +51,13 @@ describe('updateApplication', () => {
 
     expect(response.id).toEqual(supplementalApplication.Id)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(mockSupplementalSubmitPayload)
+    expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
   })
   test('it should submit lease to backend if lease is present in application', async () => {
     const application = {
       'id': 'appID',
       'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
-      },
+      'listing_id': 'listingID',
       'lease': {
         'id': 'leaseID'
       }
@@ -69,7 +66,7 @@ describe('updateApplication', () => {
     const response = await updateApplication(application)
 
     expect(response.id).toEqual(application.id)
-    expect(response.listingID).toEqual(application.listing.id)
+    expect(response.listing_id).toEqual(application.listing_id)
     expect(response.lease.id).toEqual(application.lease.id)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitLeaseFn.mock.calls.length).toEqual(1)

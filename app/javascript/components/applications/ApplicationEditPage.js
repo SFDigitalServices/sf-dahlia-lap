@@ -8,6 +8,7 @@ import { saveApplication } from './actions'
 
 const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstitutions }) => {
   const saveEditApplication = async (submitType, submittedValues, listing, editPage) => {
+    submittedValues.listing_id = listing.id
     return saveApplication(submitType, submittedValues, listing, editPage)
   }
   return (

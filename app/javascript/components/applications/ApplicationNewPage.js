@@ -6,7 +6,7 @@ import { saveApplication } from './actions'
 
 const ApplicationNewForm = ({ listing, lendingInstitutions }) => {
   const saveNewApplication = async (submitType, submittedValues, listing, editPage) => {
-    submittedValues.listing = { id: listing.id }
+    submittedValues.listing_id = listing.id
     return saveApplication(submitType, submittedValues, listing, editPage)
   }
 

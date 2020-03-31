@@ -383,7 +383,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                   >
                                     <option
                                       key="null"
-                                      value=""
+                                      value={null}
                                     >
                                       Any Preference
                                     </option>
@@ -789,7 +789,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                   >
                                     <option
                                       key="null"
-                                      value=""
+                                      value={null}
                                     >
                                       Any Status
                                     </option>
@@ -916,7 +916,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                   >
                                     <option
                                       key="null"
-                                      value=""
+                                      value={null}
                                     >
                                       Any Accessibility Request
                                     </option>

@@ -11,6 +11,7 @@ export const mapApplicationMember = (value) => {
     second_phone_type: value.Second_Phone_Type,
     second_phone: value.Second_Phone,
     email: value.Email,
+    // TODO is this needed?
     primary_language: value.Primary_Language,
     residence_address: value.Residence_Address,
     street: value.Street,

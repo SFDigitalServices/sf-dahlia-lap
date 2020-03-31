@@ -16,6 +16,7 @@ module Force
 
     def initialize(fields, format)
       raise ArgumentError, 'Field format is required when fields are provided.' if fields && !format
+
       @fields = Hashie::Mash.new(FIELD_TYPES.map { |t| [t, Hashie::Mash.new] }.to_h)
       @fields[format] = fields
     end
@@ -65,24 +66,48 @@ module Force
 
     def float_to_currency(field_name, domain_fields)
       return unless @fields.domain[field_name]
+
       domain_fields[field_name] = ActionController::Base.helpers.number_to_currency(@fields.domain[field_name])
     end
 
     def currency_to_float(field_name, salesforce_fields)
       return nil unless @fields.salesforce[field_name]
+
       salesforce_fields[field_name] = salesforce_fields[field_name].gsub(/[$,]/, '').to_f
     end
 
+    # TODO: Automate this conversion for date objects.
     def self.date_to_json(api_date)
       return nil if api_date.blank?
+
       date = api_date.split('-')
       { year: date[0], month: date[1], day: date[2] }
     end
 
+    # TODO: Automate this conversion for date objects.
     def self.date_to_salesforce(domain_date)
       return nil unless !domain_date.blank? && %i[year month day].all? {|s| domain_date.key? s}
+
       lease_date = Date.new(domain_date[:year].to_i, domain_date[:month].to_i, domain_date[:day].to_i)
       lease_date.strftime('%F')
+    end
+
+    def self.get_domain_keys(obj = self)
+      # Return a list of all domain keys in an object, including nested objects.
+      mapped = obj::FIELD_NAME_MAPPINGS.map do |v|
+        next if v[:domain].empty?
+
+        if v.key? :object
+          { v[:domain] => get_domain_keys(v[:object]) }
+        elsif v[:type] == 'date'
+          { v[:domain] => %w[day year month] }
+        elsif v[:type] == 'ada_priorities'
+          { v[:domain] => %w[vision_impairments hearing_impairments mobility_impairments] }
+        else
+          v[:domain]
+        end
+      end
+      mapped.compact
     end
   end
 end

@@ -1,5 +1,4 @@
 import apiService from '~/apiService'
-import domainToApi from '~/components/mappers/domainToApi'
 import Alerts from '~/components/Alerts'
 import { isEmpty, find, isEqual, every, reject } from 'lodash'
 import { convertCurrency } from '~/utils/form/validations'
@@ -7,12 +6,10 @@ import { convertCurrency } from '~/utils/form/validations'
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
-
-  const applicationApi = domainToApi.buildApplicationShape(application)
   // await lease and base application updates first
   const initialResponses = await Promise.all([
     updateLease(application['lease'], primaryApplicantContact, applicationId),
-    apiService.submitApplication(applicationApi, true)
+    apiService.submitApplication(application, true)
   ])
   // next we update rental assistances if applicable
   await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))

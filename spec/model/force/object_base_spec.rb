@@ -7,7 +7,7 @@ RSpec.describe Force::ObjectBase do
     it 'should convert string dates to array' do
       salesforce_date = '2019-01-22'
       domain_date = Force::ObjectBase.date_to_json(salesforce_date)
-      expected = {'year': '2019', 'month': '01', 'day': '22'}
+      expected = { 'year': '2019', 'month': '01', 'day': '22' }
       expect(domain_date).to eq(expected)
     end
 
@@ -31,7 +31,12 @@ RSpec.describe Force::ObjectBase do
       expect(Force::ObjectBase.date_to_salesforce({})).to eq(nil)
     end
   end
+
+  describe '#get_domain_keys' do
+    it 'generates a list of all of the permitted keys' do
+      result = Force::Application.get_domain_keys
+      expected_keys = %w[listing_id annual_income lending_agent lottery_number]
+      expect(result).to include(*expected_keys)
+    end
+  end
 end
-
-
-

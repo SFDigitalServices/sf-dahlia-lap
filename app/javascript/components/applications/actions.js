@@ -1,11 +1,9 @@
 import { map } from 'lodash'
 import apiService from '~/apiService'
-import domainToApi from '~/components/mappers/domainToApi'
 import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
-  const applicationData = domainToApi.buildApplicationShape(submittedValues)
-  const response = await apiService.submitApplication(applicationData)
+  const response = await apiService.submitApplication(submittedValues)
 
   if (!response) {
     window.alert('An error has occurred. Please try to save again. Contact MOHCD if you still have problems.')

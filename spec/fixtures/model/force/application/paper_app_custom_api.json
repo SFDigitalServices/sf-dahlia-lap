@@ -1,14 +1,11 @@
 {
-  "application_language": "English",
-  "housing_voucher_or_subsidy": "false",
-  "terms_acknowledged": true,
-  "annual_income": 60000,
-  "has_ada_priorities_selected": {
-    "vision_impairments": true,
-    "hearing_impairments": true
-  },
-  "listing_id": "a0W0P00000F8YG4UAN",
-  "alternate_contact": {
+  "applicationLanguage": "English",
+  "householdVouchersSubsidies": "false",
+  "agreeToTerms": true,
+  "annualIncome": 60000,
+  "adaPrioritiesSelected": "Vision impairments;Hearing impairments",
+  "listingID": "a0W0P00000F8YG4UAN",
+  "alternateContact": {
     "firstName": "Alty",
     "lastName": "Contact",
     "middleName": "Sample",
@@ -19,7 +16,7 @@
     "phone": "4158675309",
     "phoneType": "Cell"
   },
-  "applicant": {
+  "primaryApplicant": {
     "email": "sample@test.com",
     "firstName": "Sample",
     "lastName": "application",
@@ -44,7 +41,7 @@
     "sexualOrientation": "Not Listed",
     "sexualOrientationOther": "other orientation"
   },
-  "preferences": [
+  "shortFormPreferences": [
     {
       "recordTypeDevName": "L_W",
       "individualPreference": "Live in SF",
@@ -87,7 +84,7 @@
       "naturalKey": "Brother,Bob,1950-01-01"
     }
   ],
-  "household_members": [
+  "householdMembers": [
     {
       "firstName": "Brother",
       "lastName": "Bob",
