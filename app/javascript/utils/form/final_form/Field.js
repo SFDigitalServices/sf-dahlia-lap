@@ -73,7 +73,14 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
 )
 
 export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
-  <Field name={fieldName} validate={validation} component='input' format={formUtils.formatPrice} parse={(value, name) => identity(value, name, true)} formatOnBlur={isDirty}>
+  <Field
+    name={fieldName}
+    validate={validation}
+    component='input'
+    format={formUtils.formatPrice}
+    parse={(value, name) => identity(value, name, true)}
+    formatOnBlur={isDirty}
+  >
     {({ input, meta }) => (
       <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
         <Label
@@ -92,7 +99,12 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
   </Field>
 )
 export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue, noPlaceholder }) => (
-  <Field name={fieldName} validate={validation} component='select' parse={identity}>
+  <Field
+    name={fieldName}
+    validate={validation}
+    component='select'
+    parse={identity}
+  >
     {({ input, meta }) => {
       const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
       return (

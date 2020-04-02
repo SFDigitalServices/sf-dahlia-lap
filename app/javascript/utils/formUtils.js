@@ -15,8 +15,9 @@ const toOptions = (items) => {
 }
 
 // Formats a numer to currency in format eg. $1,000.00
+// If the field is empty, return null to prevent salesforce issues.
 const formatPrice = (value) => {
-  if (!value) return ''
+  if (!value) return null
   let valueString = value.toString().replace(/[^.|\d]/g, '')
 
   // return value if value is not valid number
