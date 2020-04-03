@@ -1,1478 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SupplementalApplicationPage it should render as expected 1`] = `
-Array [
-  <header
-    className="lead-header short has-breadcrumbs bg-snow"
-  >
-    <div
-      className="row full-width inner--3x"
-    >
-      <div
-        className="large-12 columns"
-      >
-        <nav
-          aria-label="breadcrumb"
-        >
-          <ol
-            className="breadcrumbs"
-          >
-            <li>
-              <a
-                href="/listings/lease-ups"
-              >
-                Lease Ups
-              </a>
-            </li>
-            <li>
-              <a
-                href="/listings/lease-ups/a0W0x000000GhJUEA0/applications"
-              >
-                Test 5/30
-              </a>
-            </li>
-            <li
-              className="current"
-            >
-              <a
-                aria-current="page"
-                href="#"
-              >
-                APP-00191270
-              </a>
-            </li>
-          </ol>
-        </nav>
-        <hgroup
-          className="lead-header_group"
-        >
-          <h1
-            className="lead-header_title small c-oil"
-          >
-            APP-00191270: karen jones
-          </h1>
-        </hgroup>
-      </div>
-    </div>
-  </header>,
-  <div
-    className="tabs-section tabs-row row full-width inner--3x bg-snow"
-  >
-    <ul
-      className="tabs full-width-small-only"
-      role="menubar"
-    >
-      <li
-        className="tab-title"
-        role="none"
-      >
-        <button
-          className="button-unstyled"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="0"
-          type="button"
-        >
-          Short Form Application
-        </button>
-      </li>
-      <li
-        className="tab-title active"
-        role="none"
-      >
-        <a
-          aria-selected={true}
-          href="/applications/a0o0x000000OcOzAAK/supplementals"
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          Supplemental Information
-        </a>
-      </li>
-    </ul>
-  </div>,
-  <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x"
-  >
-    <div
-      className="app-card form-card tabs-card max-width expand-on-small"
-    >
-      <form
-        id="shortForm"
-        noValidate={true}
-        onChange={[Function]}
-        onSubmit={[Function]}
-        style={
-          Object {
-            "margin": "0px",
-          }
-        }
-      >
-        <div
-          className="app-inner inset-wide padding-bottom-none margin-top"
-        >
-          <div
-            className="status-update expand-wide tertiary"
-          >
-            <h3
-              className="status-update_title"
-            >
-              Update Status
-            </h3>
-            <div
-              className="status-update_action"
-            >
-              <div
-                className="dropdown"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "position": "relative",
-                  }
-                }
-              >
-                <button
-                  aria-expanded="false"
-                  className="button dropdown-button has-icon--right text-align-left tertiary small"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <span
-                    className="ui-icon ui-small"
-                  >
-                    <svg>
-                      <use
-                        xlinkHref="#i-arrow-down"
-                      />
-                    </svg>
-                  </span>
-                  Status
-                </button>
-                <div
-                  aria-hidden="true"
-                  className="dropdown-menu-wrapper"
-                  role="menu"
-                />
-              </div>
-            </div>
-            <div
-              className="status-update_message"
-            >
-              <div
-                className="status-update_comment"
-              >
-                <p
-                  className="status-update_note c-steel"
-                >
-                  Update status or add a comment
-                </p>
-              </div>
-              <div
-                className="status-update_footer"
-              >
-                <button
-                  className="button tiny tertiary"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Add a comment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Confirmed Preferences
-          </h2>
-          <p
-            className="form-note max-width"
-          >
-            Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
-          </p>
-        </div>
-        <div
-          className="app-inner inset-wide"
-        >
-          <div
-            className="preferences-table"
-          >
-            <div
-              className="form-grid row expand"
-            >
-              <div
-                className="small-12 column"
-              >
-                <div
-                  className="scrollable-table-container-under-xlarge"
-                >
-                  <table
-                    className="td-light td-plain th-plain"
-                    role="grid"
-                  >
-                    <thead>
-                      <tr>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Preference Name
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Person Who Claimed
-                        </th>
-                        <th
-                          className="text-right"
-                          scope="col"
-                        >
-                          Preference Rank
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Type of proof
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Status
-                        </th>
-                        <th
-                          className=""
-                          scope="col"
-                        >
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody />
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Confirmed Household
-          </h2>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Confirmed Reserved and Priority Units
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Senior in Household
-                </label>
-                <div
-                  className="radio-group-inline"
-                >
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="reserved_senior-undefined-yes"
-                      name="reserved_senior"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="Yes"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="reserved_senior-undefined-yes"
-                    >
-                      Yes
-                    </label>
-                  </p>
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="reserved_senior-undefined-no"
-                      name="reserved_senior"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="No"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="reserved_senior-undefined-no"
-                    >
-                      No
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Veteran in Household
-                </label>
-                <div
-                  className="radio-group-inline"
-                >
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="has_military_service-undefined-yes"
-                      name="has_military_service"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="Yes"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="has_military_service-undefined-yes"
-                    >
-                      Yes
-                    </label>
-                  </p>
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="has_military_service-undefined-no"
-                      name="has_military_service"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="No"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="has_military_service-undefined-no"
-                    >
-                      No
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Person with Developmental Disability in Household
-                </label>
-                <div
-                  className="radio-group-inline"
-                >
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="has_developmental_disability-undefined-yes"
-                      name="has_developmental_disability"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="Yes"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="has_developmental_disability-undefined-yes"
-                    >
-                      Yes
-                    </label>
-                  </p>
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="has_developmental_disability-undefined-no"
-                      name="has_developmental_disability"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="No"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="has_developmental_disability-undefined-no"
-                    >
-                      No
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Household ADA Priorities
-                </label>
-                <div
-                  className="checkbox-group form-checkbox-item"
-                  role="group"
-                >
-                  <div
-                    className="form-group"
-                  >
-                    <input
-                      checked={false}
-                      className=""
-                      id="form-has_ada_priorities_selected.mobility_impairments"
-                      name="has_ada_priorities_selected.mobility_impairments"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="checkbox"
-                    />
-                    <label
-                      className="form-label"
-                      htmlFor="form-has_ada_priorities_selected.mobility_impairments"
-                      id="label-has_ada_priorities_selected-mobility_impairments"
-                    >
-                      Mobility Impairments
-                    </label>
-                  </div>
-                  <div
-                    className="form-group"
-                  >
-                    <input
-                      checked={false}
-                      className=""
-                      id="form-has_ada_priorities_selected.vision_impairments"
-                      name="has_ada_priorities_selected.vision_impairments"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="checkbox"
-                    />
-                    <label
-                      className="form-label"
-                      htmlFor="form-has_ada_priorities_selected.vision_impairments"
-                      id="label-has_ada_priorities_selected-vision_impairments"
-                    >
-                      Vision Impairments
-                    </label>
-                  </div>
-                  <div
-                    className="form-group"
-                  >
-                    <input
-                      checked={false}
-                      className=""
-                      id="form-has_ada_priorities_selected.hearing_impairments"
-                      name="has_ada_priorities_selected.hearing_impairments"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="checkbox"
-                    />
-                    <label
-                      className="form-label"
-                      htmlFor="form-has_ada_priorities_selected.hearing_impairments"
-                      id="label-has_ada_priorities_selected-hearing_impairments"
-                    >
-                      Hearing Impairments
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Confirmed Household Income
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  htmlFor=""
-                >
-                  Recurring Voucher/Subsidy
-                </label>
-                <div
-                  className="radio-group-inline"
-                >
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={true}
-                      id="housing_voucher_or_subsidy-undefined-yes"
-                      name="housing_voucher_or_subsidy"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="true"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="housing_voucher_or_subsidy-undefined-yes"
-                    >
-                      Yes
-                    </label>
-                  </p>
-                  <p
-                    className="radio-inline"
-                  >
-                    <input
-                      checked={false}
-                      id="housing_voucher_or_subsidy-undefined-no"
-                      name="housing_voucher_or_subsidy"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="radio"
-                      value="false"
-                    />
-                    <label
-                      className="radio-inline_label"
-                      htmlFor="housing_voucher_or_subsidy-undefined-no"
-                    >
-                      No
-                    </label>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="form-household_assets"
-                    id="label-household_assets"
-                  >
-                    Household Assets
-                  </label>
-                  <input
-                    className=""
-                    id="form-household_assets"
-                    name="household_assets"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="Enter Amount"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="form-confirmed_household_annual_income"
-                    id="label-confirmed_household_annual_income"
-                  >
-                    Confirmed Annual Income
-                  </label>
-                  <input
-                    className=""
-                    id="form-confirmed_household_annual_income"
-                    name="confirmed_household_annual_income"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="Enter Amount"
-                    value="$115,000.00"
-                  />
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="household-annual-income"
-                >
-                  Not Including % of Assets
-                </span>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="form-hh_total_income_with_assets_annual"
-                    id="label-hh_total_income_with_assets_annual"
-                  >
-                    Final Household Annual Income
-                  </label>
-                  <input
-                    className=""
-                    id="form-hh_total_income_with_assets_annual"
-                    name="hh_total_income_with_assets_annual"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="Enter Amount"
-                    value=""
-                  />
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="final-household-annual-income"
-                >
-                  Includes % of assets if applicable
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className=""
-                  htmlFor="ami-hud-unadjusted-2017"
-                >
-                  Calculated % of AMI - HUD Unadjusted
-                </label>
-                <div
-                  aria-describedby="ami-hud-unadjusted-2017"
-                  className="text-value"
-                  id="ami-hud-unadjusted-2017"
-                >
-                  Enter HH Income
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="ami-hud-unadjusted-2017"
-                >
-                  Based on Final Household Income
-                </span>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className=""
-                  htmlFor="ami-non-hera-2016"
-                >
-                  Calculated % of AMI - Non-Hera
-                </label>
-                <div
-                  aria-describedby="ami-non-hera-2016"
-                  className="text-value"
-                  id="ami-non-hera-2016"
-                >
-                  Enter HH Income
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="ami-non-hera-2016"
-                >
-                  Based on Final Household Income
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner header-wide"
-        >
-          <h2
-            className="app-card_h2"
-          >
-            Lease Information
-          </h2>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Unit
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="lease_assigned_unit"
-                    id="label-lease-unit"
-                  >
-                    Assigned Unit Number
-                  </label>
-                  <select
-                    className=""
-                    disabled={true}
-                    id="lease_assigned_unit"
-                    name="lease.unit"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value=""
-                  >
-                    <option
-                      value=""
-                    >
-                      No Units Available
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="form-label"
-                  htmlFor="lease_start_date"
-                >
-                  Lease Start Date
-                </label>
-                <div
-                  className="form-group-month"
-                >
-                  <input
-                    className=""
-                    id="lease_start_date_month"
-                    maxLength={2}
-                    name="lease.lease_start_date.month"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="MM"
-                    type="text"
-                    value=""
-                  />
-                </div>
-                <div
-                  className="form-group-day"
-                >
-                  <input
-                    className=""
-                    id="lease_start_date_day"
-                    maxLength={2}
-                    name="lease.lease_start_date.day"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="DD"
-                    type="text"
-                    value=""
-                  />
-                </div>
-                <div
-                  className="form-group-year"
-                >
-                  <input
-                    className=""
-                    id="lease_start_date_year"
-                    maxLength={4}
-                    name="lease.lease_start_date.year"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    placeholder="YYYY"
-                    type="text"
-                    value=""
-                  />
-                </div>
-                <div
-                  className="d-inline-block"
-                />
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="form-lease.preference_used"
-                    id="label-lease-preference_used"
-                  >
-                    Preference Used
-                  </label>
-                  <select
-                    className=""
-                    id="form-lease.preference_used"
-                    name="lease.preference_used"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value=""
-                  >
-                    <option
-                      value={null}
-                    >
-                      None
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="form-label"
-                  htmlFor="form-lease.total_monthly_rent_without_parking"
-                  id="label-lease-total_monthly_rent_without_parking"
-                >
-                  Monthly Rent
-                </label>
-                <input
-                  className=""
-                  id="form-lease.total_monthly_rent_without_parking"
-                  name="lease.total_monthly_rent_without_parking"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Enter Amount"
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="form-label"
-                  htmlFor="form-lease.monthly_tenant_contribution"
-                  id="label-lease-monthly_tenant_contribution"
-                >
-                  Monthly Tenant Contribution
-                </label>
-                <input
-                  className=""
-                  id="form-lease.monthly_tenant_contribution"
-                  name="lease.monthly_tenant_contribution"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Enter Amount"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Parking
-          </h3>
-          <p
-            className="form-note max-width"
-          >
-            If the applicant will receive a below market rate parking space, indicate the monthly cost.
-          </p>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="form-lease.bmr_parking_space_assigned"
-                    id="label-lease-bmr_parking_space_assigned"
-                  >
-                    BMR Parking Space Assigned?
-                  </label>
-                  <select
-                    className=""
-                    id="form-lease.bmr_parking_space_assigned"
-                    name="lease.bmr_parking_space_assigned"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value="No"
-                  >
-                    <option
-                      value="Yes"
-                    >
-                      Yes
-                    </option>
-                    <option
-                      value="No"
-                    >
-                      No
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="form-label"
-                  htmlFor="form-lease.monthly_parking_rent"
-                  id="label-lease-monthly_parking_rent"
-                >
-                  Monthly Parking Cost
-                </label>
-                <input
-                  className=""
-                  disabled={true}
-                  id="form-lease.monthly_parking_rent"
-                  name="lease.monthly_parking_rent"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="Enter Amount"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Rental Assistance Information
-          </h3>
-          <p
-            className="form-note max-width"
-          >
-            Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.
-          </p>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <button
-            className="button small"
-            id="add-rental-assistance"
-            onClick={[Function]}
-          >
-            Add Rental Assistance
-          </button>
-        </div>
-        <div
-          className="app-inner subheader-wide"
-        >
-          <h3
-            className="app-card_h3 t-sans"
-          >
-            Demographics
-          </h3>
-        </div>
-        <div
-          className="app-inner inset-wide border-bottom"
-        >
-          <div
-            className="form-grid row expand padding-bottom"
-          >
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="demographics-dependents"
-                    id="label-number_of_dependents"
-                  >
-                    Number of Dependents
-                  </label>
-                  <select
-                    className=""
-                    id="demographics-dependents"
-                    name="number_of_dependents"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value={2}
-                  >
-                    <option
-                      value={0}
-                    >
-                      0
-                    </option>
-                    <option
-                      value={1}
-                    >
-                      1
-                    </option>
-                    <option
-                      value={2}
-                    >
-                      2
-                    </option>
-                    <option
-                      value={3}
-                    >
-                      3
-                    </option>
-                    <option
-                      value={4}
-                    >
-                      4
-                    </option>
-                    <option
-                      value={5}
-                    >
-                      5
-                    </option>
-                    <option
-                      value={6}
-                    >
-                      6
-                    </option>
-                    <option
-                      value={7}
-                    >
-                      7
-                    </option>
-                    <option
-                      value={8}
-                    >
-                      8
-                    </option>
-                    <option
-                      value={9}
-                    >
-                      9
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="demographics-seniors"
-                    id="label-number_of_seniors"
-                  >
-                    Number of Seniors
-                  </label>
-                  <select
-                    className=""
-                    id="demographics-seniors"
-                    name="number_of_seniors"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value={3}
-                  >
-                    <option
-                      value={0}
-                    >
-                      0
-                    </option>
-                    <option
-                      value={1}
-                    >
-                      1
-                    </option>
-                    <option
-                      value={2}
-                    >
-                      2
-                    </option>
-                    <option
-                      value={3}
-                    >
-                      3
-                    </option>
-                    <option
-                      value={4}
-                    >
-                      4
-                    </option>
-                    <option
-                      value={5}
-                    >
-                      5
-                    </option>
-                    <option
-                      value={6}
-                    >
-                      6
-                    </option>
-                    <option
-                      value={7}
-                    >
-                      7
-                    </option>
-                    <option
-                      value={8}
-                    >
-                      8
-                    </option>
-                    <option
-                      value={9}
-                    >
-                      9
-                    </option>
-                  </select>
-                </div>
-                <span
-                  className="form-note"
-                  id="household-annual-income"
-                >
-                  Check the listing to verify the age cutoff for seniors.
-                </span>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="demographics-minors"
-                    id="label-number_of_minors"
-                  >
-                    Number of Minors
-                  </label>
-                  <select
-                    className=""
-                    id="demographics-minors"
-                    name="number_of_minors"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value={4}
-                  >
-                    <option
-                      value={0}
-                    >
-                      0
-                    </option>
-                    <option
-                      value={1}
-                    >
-                      1
-                    </option>
-                    <option
-                      value={2}
-                    >
-                      2
-                    </option>
-                    <option
-                      value={3}
-                    >
-                      3
-                    </option>
-                    <option
-                      value={4}
-                    >
-                      4
-                    </option>
-                    <option
-                      value={5}
-                    >
-                      5
-                    </option>
-                    <option
-                      value={6}
-                    >
-                      6
-                    </option>
-                    <option
-                      value={7}
-                    >
-                      7
-                    </option>
-                    <option
-                      value={8}
-                    >
-                      8
-                    </option>
-                    <option
-                      value={9}
-                    >
-                      9
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="form-label"
-                    htmlFor="demographics-marital-status"
-                    id="label-applicant-marital_status"
-                  >
-                    Primary Applicant Marital Status
-                  </label>
-                  <select
-                    className=""
-                    id="demographics-marital-status"
-                    name="applicant.marital_status"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    value="Married"
-                  >
-                    <option
-                      value=""
-                    >
-                      Select One...
-                    </option>
-                    <option
-                      value="Single"
-                    >
-                      Single
-                    </option>
-                    <option
-                      value="Married"
-                    >
-                      Married
-                    </option>
-                    <option
-                      value="Domestic Partner"
-                    >
-                      Domestic Partner
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div />
-        <div
-          className="padding-bottom--2x margin-bottom--2x"
-        />
-        <div
-          className="button-pager"
-        >
-          <div
-            className="button-pager_row align-buttons-left primary inset-wide"
-          >
-            <div
-              className="dropdown dropdown-inline"
-              onClick={[Function]}
-            >
-              <button
-                aria-expanded="false"
-                className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <span
-                  className="ui-icon ui-small"
-                >
-                  <svg>
-                    <use
-                      xlinkHref="#i-arrow-down"
-                    />
-                  </svg>
-                </span>
-                Status
-              </button>
-              <div
-                aria-hidden="true"
-                className="dropdown-menu-wrapper"
-                role="menu"
-              />
-            </div>
-            <button
-              className="button primary small save-btn"
-              disabled={false}
-              id="save-supplemental-application"
-              onClick={[Function]}
-              type="submit"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>,
-]
-`;
-
-exports[`SupplementalApplicationPage should render the status update dropdown button and its menu of status options correctly 1`] = `
+exports[`SupplementalApplicationPage Status Modal should render the status update dropdown button and its menu of status options correctly 1`] = `
 <MapProps
   application={
     Object {
@@ -9235,4 +7763,1476 @@ exports[`SupplementalApplicationPage should render the status update dropdown bu
     </LeaveConfirmationModal>
   </SupplementalApplicationPage>
 </MapProps>
+`;
+
+exports[`SupplementalApplicationPage it should render as expected 1`] = `
+Array [
+  <header
+    className="lead-header short has-breadcrumbs bg-snow"
+  >
+    <div
+      className="row full-width inner--3x"
+    >
+      <div
+        className="large-12 columns"
+      >
+        <nav
+          aria-label="breadcrumb"
+        >
+          <ol
+            className="breadcrumbs"
+          >
+            <li>
+              <a
+                href="/listings/lease-ups"
+              >
+                Lease Ups
+              </a>
+            </li>
+            <li>
+              <a
+                href="/listings/lease-ups/a0W0x000000GhJUEA0/applications"
+              >
+                Test 5/30
+              </a>
+            </li>
+            <li
+              className="current"
+            >
+              <a
+                aria-current="page"
+                href="#"
+              >
+                APP-00191270
+              </a>
+            </li>
+          </ol>
+        </nav>
+        <hgroup
+          className="lead-header_group"
+        >
+          <h1
+            className="lead-header_title small c-oil"
+          >
+            APP-00191270: karen jones
+          </h1>
+        </hgroup>
+      </div>
+    </div>
+  </header>,
+  <div
+    className="tabs-section tabs-row row full-width inner--3x bg-snow"
+  >
+    <ul
+      className="tabs full-width-small-only"
+      role="menubar"
+    >
+      <li
+        className="tab-title"
+        role="none"
+      >
+        <button
+          className="button-unstyled"
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="0"
+          type="button"
+        >
+          Short Form Application
+        </button>
+      </li>
+      <li
+        className="tab-title active"
+        role="none"
+      >
+        <a
+          aria-selected={true}
+          href="/applications/a0o0x000000OcOzAAK/supplementals"
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+        >
+          Supplemental Information
+        </a>
+      </li>
+    </ul>
+  </div>,
+  <section
+    className="tabs-card-row row full-width inner--3x margin-bottom--2x"
+  >
+    <div
+      className="app-card form-card tabs-card max-width expand-on-small"
+    >
+      <form
+        id="shortForm"
+        noValidate={true}
+        onChange={[Function]}
+        onSubmit={[Function]}
+        style={
+          Object {
+            "margin": "0px",
+          }
+        }
+      >
+        <div
+          className="app-inner inset-wide padding-bottom-none margin-top"
+        >
+          <div
+            className="status-update expand-wide tertiary"
+          >
+            <h3
+              className="status-update_title"
+            >
+              Update Status
+            </h3>
+            <div
+              className="status-update_action"
+            >
+              <div
+                className="dropdown"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
+              >
+                <button
+                  aria-expanded="false"
+                  className="button dropdown-button has-icon--right text-align-left tertiary small"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span
+                    className="ui-icon ui-small"
+                  >
+                    <svg>
+                      <use
+                        xlinkHref="#i-arrow-down"
+                      />
+                    </svg>
+                  </span>
+                  Status
+                </button>
+                <div
+                  aria-hidden="true"
+                  className="dropdown-menu-wrapper"
+                  role="menu"
+                />
+              </div>
+            </div>
+            <div
+              className="status-update_message"
+            >
+              <div
+                className="status-update_comment"
+              >
+                <p
+                  className="status-update_note c-steel"
+                >
+                  Update status or add a comment
+                </p>
+              </div>
+              <div
+                className="status-update_footer"
+              >
+                <button
+                  className="button tiny tertiary"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Add a comment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner header-wide"
+        >
+          <h2
+            className="app-card_h2"
+          >
+            Confirmed Preferences
+          </h2>
+          <p
+            className="form-note max-width"
+          >
+            Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+          </p>
+        </div>
+        <div
+          className="app-inner inset-wide"
+        >
+          <div
+            className="preferences-table"
+          >
+            <div
+              className="form-grid row expand"
+            >
+              <div
+                className="small-12 column"
+              >
+                <div
+                  className="scrollable-table-container-under-xlarge"
+                >
+                  <table
+                    className="td-light td-plain th-plain"
+                    role="grid"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Preference Name
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Person Who Claimed
+                        </th>
+                        <th
+                          className="text-right"
+                          scope="col"
+                        >
+                          Preference Rank
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Type of proof
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Status
+                        </th>
+                        <th
+                          className=""
+                          scope="col"
+                        >
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody />
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner header-wide"
+        >
+          <h2
+            className="app-card_h2"
+          >
+            Confirmed Household
+          </h2>
+        </div>
+        <div
+          className="app-inner subheader-wide"
+        >
+          <h3
+            className="app-card_h3 t-sans"
+          >
+            Confirmed Reserved and Priority Units
+          </h3>
+        </div>
+        <div
+          className="app-inner inset-wide border-bottom"
+        >
+          <div
+            className="form-grid row expand padding-bottom"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor=""
+                >
+                  Senior in Household
+                </label>
+                <div
+                  className="radio-group-inline"
+                >
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="reserved_senior-undefined-yes"
+                      name="reserved_senior"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="Yes"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="reserved_senior-undefined-yes"
+                    >
+                      Yes
+                    </label>
+                  </p>
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="reserved_senior-undefined-no"
+                      name="reserved_senior"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="No"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="reserved_senior-undefined-no"
+                    >
+                      No
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor=""
+                >
+                  Veteran in Household
+                </label>
+                <div
+                  className="radio-group-inline"
+                >
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="has_military_service-undefined-yes"
+                      name="has_military_service"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="Yes"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="has_military_service-undefined-yes"
+                    >
+                      Yes
+                    </label>
+                  </p>
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="has_military_service-undefined-no"
+                      name="has_military_service"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="No"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="has_military_service-undefined-no"
+                    >
+                      No
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor=""
+                >
+                  Person with Developmental Disability in Household
+                </label>
+                <div
+                  className="radio-group-inline"
+                >
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="has_developmental_disability-undefined-yes"
+                      name="has_developmental_disability"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="Yes"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="has_developmental_disability-undefined-yes"
+                    >
+                      Yes
+                    </label>
+                  </p>
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="has_developmental_disability-undefined-no"
+                      name="has_developmental_disability"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="No"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="has_developmental_disability-undefined-no"
+                    >
+                      No
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor=""
+                >
+                  Household ADA Priorities
+                </label>
+                <div
+                  className="checkbox-group form-checkbox-item"
+                  role="group"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <input
+                      checked={false}
+                      className=""
+                      id="form-has_ada_priorities_selected.mobility_impairments"
+                      name="has_ada_priorities_selected.mobility_impairments"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="checkbox"
+                    />
+                    <label
+                      className="form-label"
+                      htmlFor="form-has_ada_priorities_selected.mobility_impairments"
+                      id="label-has_ada_priorities_selected-mobility_impairments"
+                    >
+                      Mobility Impairments
+                    </label>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <input
+                      checked={false}
+                      className=""
+                      id="form-has_ada_priorities_selected.vision_impairments"
+                      name="has_ada_priorities_selected.vision_impairments"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="checkbox"
+                    />
+                    <label
+                      className="form-label"
+                      htmlFor="form-has_ada_priorities_selected.vision_impairments"
+                      id="label-has_ada_priorities_selected-vision_impairments"
+                    >
+                      Vision Impairments
+                    </label>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <input
+                      checked={false}
+                      className=""
+                      id="form-has_ada_priorities_selected.hearing_impairments"
+                      name="has_ada_priorities_selected.hearing_impairments"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="checkbox"
+                    />
+                    <label
+                      className="form-label"
+                      htmlFor="form-has_ada_priorities_selected.hearing_impairments"
+                      id="label-has_ada_priorities_selected-hearing_impairments"
+                    >
+                      Hearing Impairments
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner subheader-wide"
+        >
+          <h3
+            className="app-card_h3 t-sans"
+          >
+            Confirmed Household Income
+          </h3>
+        </div>
+        <div
+          className="app-inner inset-wide border-bottom"
+        >
+          <div
+            className="form-grid row expand"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  htmlFor=""
+                >
+                  Recurring Voucher/Subsidy
+                </label>
+                <div
+                  className="radio-group-inline"
+                >
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={true}
+                      id="housing_voucher_or_subsidy-undefined-yes"
+                      name="housing_voucher_or_subsidy"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="true"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="housing_voucher_or_subsidy-undefined-yes"
+                    >
+                      Yes
+                    </label>
+                  </p>
+                  <p
+                    className="radio-inline"
+                  >
+                    <input
+                      checked={false}
+                      id="housing_voucher_or_subsidy-undefined-no"
+                      name="housing_voucher_or_subsidy"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="radio"
+                      value="false"
+                    />
+                    <label
+                      className="radio-inline_label"
+                      htmlFor="housing_voucher_or_subsidy-undefined-no"
+                    >
+                      No
+                    </label>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-household_assets"
+                    id="label-household_assets"
+                  >
+                    Household Assets
+                  </label>
+                  <input
+                    className=""
+                    id="form-household_assets"
+                    name="household_assets"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-confirmed_household_annual_income"
+                    id="label-confirmed_household_annual_income"
+                  >
+                    Confirmed Annual Income
+                  </label>
+                  <input
+                    className=""
+                    id="form-confirmed_household_annual_income"
+                    name="confirmed_household_annual_income"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Enter Amount"
+                    value="$115,000.00"
+                  />
+                </div>
+                <span
+                  className="form-note shift-up"
+                  id="household-annual-income"
+                >
+                  Not Including % of Assets
+                </span>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-hh_total_income_with_assets_annual"
+                    id="label-hh_total_income_with_assets_annual"
+                  >
+                    Final Household Annual Income
+                  </label>
+                  <input
+                    className=""
+                    id="form-hh_total_income_with_assets_annual"
+                    name="hh_total_income_with_assets_annual"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="Enter Amount"
+                    value=""
+                  />
+                </div>
+                <span
+                  className="form-note shift-up"
+                  id="final-household-annual-income"
+                >
+                  Includes % of assets if applicable
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="form-grid row expand padding-bottom"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className=""
+                  htmlFor="ami-hud-unadjusted-2017"
+                >
+                  Calculated % of AMI - HUD Unadjusted
+                </label>
+                <div
+                  aria-describedby="ami-hud-unadjusted-2017"
+                  className="text-value"
+                  id="ami-hud-unadjusted-2017"
+                >
+                  Enter HH Income
+                </div>
+                <span
+                  className="form-note shift-up"
+                  id="ami-hud-unadjusted-2017"
+                >
+                  Based on Final Household Income
+                </span>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className=""
+                  htmlFor="ami-non-hera-2016"
+                >
+                  Calculated % of AMI - Non-Hera
+                </label>
+                <div
+                  aria-describedby="ami-non-hera-2016"
+                  className="text-value"
+                  id="ami-non-hera-2016"
+                >
+                  Enter HH Income
+                </div>
+                <span
+                  className="form-note shift-up"
+                  id="ami-non-hera-2016"
+                >
+                  Based on Final Household Income
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner header-wide"
+        >
+          <h2
+            className="app-card_h2"
+          >
+            Lease Information
+          </h2>
+        </div>
+        <div
+          className="app-inner subheader-wide"
+        >
+          <h3
+            className="app-card_h3 t-sans"
+          >
+            Unit
+          </h3>
+        </div>
+        <div
+          className="app-inner inset-wide border-bottom"
+        >
+          <div
+            className="form-grid row expand padding-bottom"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="lease_assigned_unit"
+                    id="label-lease-unit"
+                  >
+                    Assigned Unit Number
+                  </label>
+                  <select
+                    className=""
+                    disabled={true}
+                    id="lease_assigned_unit"
+                    name="lease.unit"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value=""
+                  >
+                    <option
+                      value=""
+                    >
+                      No Units Available
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="lease_start_date"
+                >
+                  Lease Start Date
+                </label>
+                <div
+                  className="form-group-month"
+                >
+                  <input
+                    className=""
+                    id="lease_start_date_month"
+                    maxLength={2}
+                    name="lease.lease_start_date.month"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="MM"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="form-group-day"
+                >
+                  <input
+                    className=""
+                    id="lease_start_date_day"
+                    maxLength={2}
+                    name="lease.lease_start_date.day"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="DD"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="form-group-year"
+                >
+                  <input
+                    className=""
+                    id="lease_start_date_year"
+                    maxLength={4}
+                    name="lease.lease_start_date.year"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    placeholder="YYYY"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="d-inline-block"
+                />
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-lease.preference_used"
+                    id="label-lease-preference_used"
+                  >
+                    Preference Used
+                  </label>
+                  <select
+                    className=""
+                    id="form-lease.preference_used"
+                    name="lease.preference_used"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value=""
+                  >
+                    <option
+                      value={null}
+                    >
+                      None
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="form-grid row expand padding-bottom"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="form-lease.total_monthly_rent_without_parking"
+                  id="label-lease-total_monthly_rent_without_parking"
+                >
+                  Monthly Rent
+                </label>
+                <input
+                  className=""
+                  id="form-lease.total_monthly_rent_without_parking"
+                  name="lease.total_monthly_rent_without_parking"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Enter Amount"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="form-lease.monthly_tenant_contribution"
+                  id="label-lease-monthly_tenant_contribution"
+                >
+                  Monthly Tenant Contribution
+                </label>
+                <input
+                  className=""
+                  id="form-lease.monthly_tenant_contribution"
+                  name="lease.monthly_tenant_contribution"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Enter Amount"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner subheader-wide"
+        >
+          <h3
+            className="app-card_h3 t-sans"
+          >
+            Parking
+          </h3>
+          <p
+            className="form-note max-width"
+          >
+            If the applicant will receive a below market rate parking space, indicate the monthly cost.
+          </p>
+        </div>
+        <div
+          className="app-inner inset-wide border-bottom"
+        >
+          <div
+            className="form-grid row expand padding-bottom"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="form-lease.bmr_parking_space_assigned"
+                    id="label-lease-bmr_parking_space_assigned"
+                  >
+                    BMR Parking Space Assigned?
+                  </label>
+                  <select
+                    className=""
+                    id="form-lease.bmr_parking_space_assigned"
+                    name="lease.bmr_parking_space_assigned"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value="No"
+                  >
+                    <option
+                      value="Yes"
+                    >
+                      Yes
+                    </option>
+                    <option
+                      value="No"
+                    >
+                      No
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="form-lease.monthly_parking_rent"
+                  id="label-lease-monthly_parking_rent"
+                >
+                  Monthly Parking Cost
+                </label>
+                <input
+                  className=""
+                  disabled={true}
+                  id="form-lease.monthly_parking_rent"
+                  name="lease.monthly_parking_rent"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Enter Amount"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="app-inner subheader-wide"
+        >
+          <h3
+            className="app-card_h3 t-sans"
+          >
+            Rental Assistance Information
+          </h3>
+          <p
+            className="form-note max-width"
+          >
+            Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.
+          </p>
+        </div>
+        <div
+          className="app-inner inset-wide border-bottom"
+        >
+          <button
+            className="button small"
+            id="add-rental-assistance"
+            onClick={[Function]}
+          >
+            Add Rental Assistance
+          </button>
+        </div>
+        <div
+          className="app-inner subheader-wide"
+        >
+          <h3
+            className="app-card_h3 t-sans"
+          >
+            Demographics
+          </h3>
+        </div>
+        <div
+          className="app-inner inset-wide border-bottom"
+        >
+          <div
+            className="form-grid row expand padding-bottom"
+          >
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="demographics-dependents"
+                    id="label-number_of_dependents"
+                  >
+                    Number of Dependents
+                  </label>
+                  <select
+                    className=""
+                    id="demographics-dependents"
+                    name="number_of_dependents"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value={2}
+                  >
+                    <option
+                      value={0}
+                    >
+                      0
+                    </option>
+                    <option
+                      value={1}
+                    >
+                      1
+                    </option>
+                    <option
+                      value={2}
+                    >
+                      2
+                    </option>
+                    <option
+                      value={3}
+                    >
+                      3
+                    </option>
+                    <option
+                      value={4}
+                    >
+                      4
+                    </option>
+                    <option
+                      value={5}
+                    >
+                      5
+                    </option>
+                    <option
+                      value={6}
+                    >
+                      6
+                    </option>
+                    <option
+                      value={7}
+                    >
+                      7
+                    </option>
+                    <option
+                      value={8}
+                    >
+                      8
+                    </option>
+                    <option
+                      value={9}
+                    >
+                      9
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="demographics-seniors"
+                    id="label-number_of_seniors"
+                  >
+                    Number of Seniors
+                  </label>
+                  <select
+                    className=""
+                    id="demographics-seniors"
+                    name="number_of_seniors"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value={3}
+                  >
+                    <option
+                      value={0}
+                    >
+                      0
+                    </option>
+                    <option
+                      value={1}
+                    >
+                      1
+                    </option>
+                    <option
+                      value={2}
+                    >
+                      2
+                    </option>
+                    <option
+                      value={3}
+                    >
+                      3
+                    </option>
+                    <option
+                      value={4}
+                    >
+                      4
+                    </option>
+                    <option
+                      value={5}
+                    >
+                      5
+                    </option>
+                    <option
+                      value={6}
+                    >
+                      6
+                    </option>
+                    <option
+                      value={7}
+                    >
+                      7
+                    </option>
+                    <option
+                      value={8}
+                    >
+                      8
+                    </option>
+                    <option
+                      value={9}
+                    >
+                      9
+                    </option>
+                  </select>
+                </div>
+                <span
+                  className="form-note"
+                  id="household-annual-income"
+                >
+                  Check the listing to verify the age cutoff for seniors.
+                </span>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="demographics-minors"
+                    id="label-number_of_minors"
+                  >
+                    Number of Minors
+                  </label>
+                  <select
+                    className=""
+                    id="demographics-minors"
+                    name="number_of_minors"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value={4}
+                  >
+                    <option
+                      value={0}
+                    >
+                      0
+                    </option>
+                    <option
+                      value={1}
+                    >
+                      1
+                    </option>
+                    <option
+                      value={2}
+                    >
+                      2
+                    </option>
+                    <option
+                      value={3}
+                    >
+                      3
+                    </option>
+                    <option
+                      value={4}
+                    >
+                      4
+                    </option>
+                    <option
+                      value={5}
+                    >
+                      5
+                    </option>
+                    <option
+                      value={6}
+                    >
+                      6
+                    </option>
+                    <option
+                      value={7}
+                    >
+                      7
+                    </option>
+                    <option
+                      value={8}
+                    >
+                      8
+                    </option>
+                    <option
+                      value={9}
+                    >
+                      9
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="demographics-marital-status"
+                    id="label-applicant-marital_status"
+                  >
+                    Primary Applicant Marital Status
+                  </label>
+                  <select
+                    className=""
+                    id="demographics-marital-status"
+                    name="applicant.marital_status"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value="Married"
+                  >
+                    <option
+                      value=""
+                    >
+                      Select One...
+                    </option>
+                    <option
+                      value="Single"
+                    >
+                      Single
+                    </option>
+                    <option
+                      value="Married"
+                    >
+                      Married
+                    </option>
+                    <option
+                      value="Domestic Partner"
+                    >
+                      Domestic Partner
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div />
+        <div
+          className="padding-bottom--2x margin-bottom--2x"
+        />
+        <div
+          className="button-pager"
+        >
+          <div
+            className="button-pager_row align-buttons-left primary inset-wide"
+          >
+            <div
+              className="dropdown dropdown-inline"
+              onClick={[Function]}
+            >
+              <button
+                aria-expanded="false"
+                className="button dropdown-button has-icon--right text-align-left tertiary small has-status-width"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="ui-icon ui-small"
+                >
+                  <svg>
+                    <use
+                      xlinkHref="#i-arrow-down"
+                    />
+                  </svg>
+                </span>
+                Status
+              </button>
+              <div
+                aria-hidden="true"
+                className="dropdown-menu-wrapper"
+                role="menu"
+              />
+            </div>
+            <button
+              className="button primary small save-btn"
+              disabled={false}
+              id="save-supplemental-application"
+              onClick={[Function]}
+              type="submit"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>,
+]
 `;
