@@ -215,7 +215,7 @@ const SupplementalApplicationContainer = ({ store }) => {
           <StatusModalWrapper
             {...statusModal}
             onClose={handleStatusModalClose}
-            onSubmit={(submittedValues) => handleStatusModalSubmit(convertCurrency(submittedValues), form.getState().values)}
+            onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, convertCurrency(form.getState().values))}
           />
         </React.Fragment>
       )}
