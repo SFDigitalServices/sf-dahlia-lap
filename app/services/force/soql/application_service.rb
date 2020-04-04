@@ -46,19 +46,6 @@ module Force
         application
       end
 
-      def listing_applications(listing_id)
-        # NOTE: most listings are <5000 but a couple have been in the 5000-7000 range
-        # pro of doing mega-query: can do client side searching/sorting
-        # con: loading a JSON of 7500 on the page, performance?
-        massage(query(%(
-          SELECT #{query_fields(:index)}
-          FROM Application__c
-          WHERE Status__c != '#{DRAFT}'
-          AND Listing__r.Id='#{listing_id}'
-          LIMIT 10000
-        )))
-      end
-
       def application_listing(application_id)
         result = massage(query_first(%(
           SELECT Listing__r.Id, Listing__r.Name, Listing__r.Status__c, Listing__r.Tenure__c, Listing__r.Lottery_Status__c
