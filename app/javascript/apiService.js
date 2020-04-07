@@ -103,6 +103,9 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
 }
 
 export const createOrUpdateLease = async (leaseToCreateOrUpdate, applicationId) => {
+  if (!leaseToCreateOrUpdate['lease_start_date']) {
+    leaseToCreateOrUpdate['lease_start_date'] = {}
+  }
   const leaseId = leaseToCreateOrUpdate['id']
   const data = { lease: leaseToCreateOrUpdate }
   if (leaseId) {
