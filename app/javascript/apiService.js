@@ -104,6 +104,10 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
 
 export const createOrUpdateLease = async (leaseToCreateOrUpdate, applicationId) => {
   const leaseId = leaseToCreateOrUpdate['id']
+  // check if lease_start_date was removed
+  if (!leaseToCreateOrUpdate['lease_start_date']) {
+    leaseToCreateOrUpdate['lease_start_date'] = {}
+  }
   const data = { lease: leaseToCreateOrUpdate }
   if (leaseId) {
     const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
