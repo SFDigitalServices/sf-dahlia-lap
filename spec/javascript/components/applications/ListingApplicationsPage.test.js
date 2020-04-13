@@ -11,21 +11,15 @@ jest.mock('apiService', () => {
   }
 })
 
-// FIXME: extract this out and make it generic
-var wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
-
 describe('ListingApplicationsPage', () => {
   const listing = { id: 'listingId', name: 'listing name', lottery_date: '2017-03-22T18:00:00.000+0000' }
 
-  test('should render succesfully', (done) => {
+  test('should render succesfully', () => {
     const wrapper = renderer.create(
       <ListingApplicationsPage
         listing={listing}
       />
     )
-
     expect(wrapper.toJSON()).toMatchSnapshot()
-    wait(2000)
-    done()
   })
 })
