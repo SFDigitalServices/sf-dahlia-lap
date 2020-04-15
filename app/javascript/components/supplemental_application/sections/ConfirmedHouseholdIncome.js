@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { find, kebabCase, isNil, isString, map } from 'lodash'
+import { find, isNil, isString, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { formatPercent } from '~/utils/utils'
-import { YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field.js'
+import { YesNoRadioGroup, CurrencyField, InputField, SelectField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
 import { getAMIAction } from '~/components/supplemental_application/actions'
 
@@ -45,12 +44,23 @@ export const getAmiPercent = ({income, ami}) => {
 const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
   const { values } = form.getState()
   const totalHouseholdSize = values.total_household_size
-  const hhTotalIncomeWithAssetsAnnual = values.hh_total_income_with_assets_annual
 
   const [ amiCharts, setAmiCharts ] = useState([])
-  // This is the hooks version of componentDidMount.
+
   useEffect(() => {
-    getAmis(listingAmiCharts, totalHouseholdSize).then(amis => setAmiCharts(amis))
+    const getAmiCharts = async () => {
+      let amis = await getAmis(listingAmiCharts, totalHouseholdSize)
+      amis = amis.map((chart) => ({
+        value: chart.amount,
+        label: `${chart.name} ${chart.year}`
+      }))
+      if (amis.length > 1) {
+        amis.unshift({ value: null, label: 'Select One...' })
+      }
+      setAmiCharts(amis)
+    }
+
+    getAmiCharts()
   }, [])
 
   return (
@@ -100,20 +110,18 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
-        {amiCharts.map((chart) => {
-          let id = `ami-${kebabCase(chart.name)}-${chart.year}`
-          return (
-            <FormGrid.Item key={`${kebabCase(chart.name)}-${chart.year}`}>
-              <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}
-                id={id}
-                name={id}
-                describeId={id}
-                note='Based on Final Household Income'
-                value={getAmiPercent({income: hhTotalIncomeWithAssetsAnnual, ami: chart.amount})} />
-            </FormGrid.Item>
-          )
-        }
-        )}
+        <FormGrid.Item>
+          <InputField
+            id={'ami_value'}
+            label='AMI'
+            fieldName={'ami'} />
+        </FormGrid.Item>
+        <FormGrid.Item>
+          <SelectField
+            fieldName='ami_chart'
+            label='AMI Charts'
+            options={amiCharts} />
+        </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>
   )
