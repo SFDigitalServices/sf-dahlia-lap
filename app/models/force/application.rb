@@ -151,10 +151,6 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
-      puts '\n\n==========================\n\n'
-      puts '\n\nSALESFORCE\n\n'
-      puts salesforce_fields
-      puts '\n\n==========================\n\n'
       add_salesforce_suffix(salesforce_fields)
     end
   end
