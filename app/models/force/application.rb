@@ -64,6 +64,9 @@ module Force
       { custom_api: 'hasCompletedHomebuyerEducation', domain: 'has_completed_homebuyer_education', salesforce: 'Has_Completed_Homebuyer_Education' },
       { custom_api: 'hasLoanPreapproval', domain: 'has_loan_preapproval', salesforce: 'Has_Loan_Pre_approval' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: 'Lending_Agent' },
+      { custom_api: 'amiChartType', domain: 'ami_chart_type', salesforce: 'AMI_Chart_Type' },
+      { custom_api: 'amiChartYear', domain: 'ami_chart_year', salesforce: 'AMI_Chart_Year' },
+      { custom_api: 'amiPercentage', domain: 'ami_percentage', salesforce: 'AMI_Percentage' },
       { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference },
       { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember },
       { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember },
@@ -148,6 +151,10 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
+      puts '\n\n==========================\n\n'
+      puts '\n\nSALESFORCE\n\n'
+      puts salesforce_fields
+      puts '\n\n==========================\n\n'
       add_salesforce_suffix(salesforce_fields)
     end
   end

@@ -16,6 +16,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     const hhAssetsSelector = '#form-household_assets'
     const confirmedAnnualSelector = '#form-confirmed_household_annual_income'
     const finalHHAnnualSelector = '#form-hh_total_income_with_assets_annual'
+    const amiPercentageSelector = '#ami_percentage'
+    const amiChartYearSelector = '#ami_chart_year'
+    const amiChartTypeSelector = '#ami_chart_type'
 
     // Generate the values (with currency and non-currency strings)
     const hhAssetsValue = supplementalApplicationSteps.generateRandomCurrency()
@@ -27,9 +30,8 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     await sharedSteps.enterValue(page, confirmedAnnualSelector, confirmedAnnualValue.currency)
     await sharedSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
 
-    // Verify that AMI percentage is being calculated
-    const amiPercentage = await page.$eval('#ami-hud-unadjusted-2018', e => e.textContent)
-    expect(amiPercentage).toContain('%')
+    // Enter AMI Percentage
+    await sharedSteps.enterValue(page, amiPercentageSelector, '5')
 
     // Click save
     await supplementalApplicationSteps.savePage(page)
@@ -38,6 +40,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual('$' + String(hhAssetsValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual('$' + String(confirmedAnnualValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, finalHHAnnualSelector)).toEqual('$' + String(finalHHAnnualValue.float.toFixed(2)))
+    expect(await sharedSteps.getInputValue(page, amiPercentageSelector)).toEqual('5')
+    expect(await sharedSteps.getInputValue(page, amiChartYearSelector)).toEqual('2018')
+    expect(await sharedSteps.getInputValue(page, amiChartTypeSelector)).toEqual('HUD Unadjusted')
 
     await browser.close()
   }, DEFAULT_E2E_TIME_OUT)

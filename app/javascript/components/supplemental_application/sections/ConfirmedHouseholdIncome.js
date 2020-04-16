@@ -44,24 +44,50 @@ export const getAmiPercent = ({income, ami}) => {
 const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
   const { values } = form.getState()
   const totalHouseholdSize = values.total_household_size
+  const currentAmiChartType = values.ami_chart_type
+  const currentAmiChartYear = values.ami_chart_year
 
-  const [ amiCharts, setAmiCharts ] = useState([])
+  const [ amiChartTypes, setAmiChartTypes ] = useState([])
+  const [ amiChartYears, setAmiChartYears ] = useState([])
+  const [ selectedType, setSelectedType ] = useState(currentAmiChartType || '')
+  const [ selectedYear, setSelectedYear ] = useState(currentAmiChartYear || '')
 
   useEffect(() => {
     const getAmiCharts = async () => {
+      let chartTypes = []
+      let chartYears = []
       let amis = await getAmis(listingAmiCharts, totalHouseholdSize)
-      amis = amis.map((chart) => ({
-        value: chart.amount,
-        label: `${chart.name} ${chart.year}`
-      }))
-      if (amis.length > 1) {
-        amis.unshift({ value: null, label: 'Select One...' })
+      amis.map((chart) => {
+        chartTypes.push({ value: chart.name, label: chart.name })
+        chartYears.push({ value: chart.year, label: chart.year })
+      })
+      if (chartTypes.length > 1) {
+        chartYears.unshift({ value: null, label: 'Select One...' })
+      } else if (chartTypes.length === 1 && chartYears.length === 1) {
+        const initialYear = chartYears[0]
+        const initialType = chartTypes[0]
+        setSelectedYear(initialYear)
+        setSelectedType(initialType)
+        setFormYearAndType(initialYear.value, initialType.value)
       }
-      setAmiCharts(amis)
+      setAmiChartTypes(chartTypes)
+      setAmiChartYears(chartYears)
     }
 
     getAmiCharts()
   }, [])
+
+  const setFormYearAndType = (year, type) => {
+    form.change('ami_chart_year', year)
+    form.change('ami_chart_type', type)
+  }
+
+  const handleAmiSelectChange = ({ target: { value } }, type = 'year') => {
+    if (type === 'year') {
+      return setSelectedYear(value)
+    }
+    return setSelectedType(value)
+  }
 
   return (
     <React.Fragment>
@@ -112,15 +138,29 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <InputField
-            id={'ami_value'}
-            label='AMI'
-            fieldName={'ami'} />
+            id='ami_percentage'
+            label='AMI Percentage'
+            fieldName='ami_percentage'
+            placeholder='Enter Percentage' />
         </FormGrid.Item>
         <FormGrid.Item>
           <SelectField
-            fieldName='ami_chart'
-            label='AMI Charts'
-            options={amiCharts} />
+            id='ami_chart_year'
+            fieldName='ami_chart_year'
+            label='AMI Chart Year'
+            onChange={handleAmiSelectChange}
+            value={selectedYear}
+            options={amiChartYears} />
+        </FormGrid.Item>
+        <FormGrid.Item>
+          <SelectField
+            id='ami_chart_type'
+            fieldName='ami_chart_type'
+            label='AMI Chart Type'
+            onChange={(e) => handleAmiSelectChange(e, 'type')}
+            value={selectedType}
+            options={amiChartTypes}
+            {...(amiChartTypes.length > 1 ? { disabled: !selectedYear } : { noPlaceholder: true })} />
         </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>

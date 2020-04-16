@@ -177,6 +177,9 @@ applications:
     Has_Completed_Homebuyer_Education__c:
     Has_Loan_Pre_approval__c:
     Lending_Agent__c:
+    AMI_Percentage__c:
+    AMI_Chart_Type__c:
+    AMI_Chart_Year__c:
 
 flagged_record_sets:
   pending_review_fields:
