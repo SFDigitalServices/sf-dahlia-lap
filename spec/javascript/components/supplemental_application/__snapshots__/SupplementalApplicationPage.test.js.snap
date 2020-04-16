@@ -147,6 +147,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
     application={
       Object {
         "alternate_contact": Object {},
+        "ami_chart_type": undefined,
+        "ami_chart_year": undefined,
+        "ami_percentage": undefined,
         "annual_income": 110000,
         "answered_community_screening": null,
         "applicant": Object {
@@ -601,6 +604,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                       Object {
                         "application": Object {
                           "alternate_contact": Object {},
+                          "ami_chart_type": undefined,
+                          "ami_chart_year": undefined,
+                          "ami_percentage": undefined,
                           "annual_income": 110000,
                           "answered_community_screening": null,
                           "applicant": Object {
@@ -875,6 +881,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                       initialValues={
                         Object {
                           "alternate_contact": Object {},
+                          "ami_chart_type": undefined,
+                          "ami_chart_year": undefined,
+                          "ami_percentage": undefined,
                           "annual_income": 110000,
                           "answered_community_screening": null,
                           "applicant": Object {
@@ -1066,6 +1075,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                               Object {
                                 "application": Object {
                                   "alternate_contact": Object {},
+                                  "ami_chart_type": undefined,
+                                  "ami_chart_year": undefined,
+                                  "ami_percentage": undefined,
                                   "annual_income": 110000,
                                   "answered_community_screening": null,
                                   "applicant": Object {
@@ -1529,6 +1541,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           application={
                             Object {
                               "alternate_contact": Object {},
+                              "ami_chart_type": undefined,
+                              "ami_chart_year": undefined,
+                              "ami_percentage": undefined,
                               "annual_income": 110000,
                               "answered_community_screening": null,
                               "applicant": Object {
@@ -1821,6 +1836,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                   application={
                                     Object {
                                       "alternate_contact": Object {},
+                                      "ami_chart_type": undefined,
+                                      "ami_chart_year": undefined,
+                                      "ami_percentage": undefined,
                                       "annual_income": 110000,
                                       "answered_community_screening": null,
                                       "applicant": Object {
@@ -2085,6 +2103,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     application={
                                       Object {
                                         "alternate_contact": Object {},
+                                        "ami_chart_type": undefined,
+                                        "ami_chart_year": undefined,
+                                        "ami_percentage": undefined,
                                         "annual_income": 110000,
                                         "answered_community_screening": null,
                                         "applicant": Object {
@@ -2348,6 +2369,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       Object {
                                         "application": Object {
                                           "alternate_contact": Object {},
+                                          "ami_chart_type": undefined,
+                                          "ami_chart_year": undefined,
+                                          "ami_percentage": undefined,
                                           "annual_income": 110000,
                                           "answered_community_screening": null,
                                           "applicant": Object {
@@ -2773,6 +2797,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           listingAmiCharts={Array []}
                           visited={
                             Object {
+                              "ami_chart_type": false,
+                              "ami_chart_year": false,
+                              "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
                               "has_ada_priorities_selected.hearing_impairments": false,
@@ -3530,6 +3557,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     listingAmiCharts={Array []}
                                     visited={
                                       Object {
+                                        "ami_chart_type": false,
+                                        "ami_chart_year": false,
+                                        "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
                                         "has_ada_priorities_selected.hearing_impairments": false,
@@ -3919,7 +3949,259 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     >
                                       <div
                                         className="form-grid row expand padding-bottom"
-                                      />
+                                      >
+                                        <Component>
+                                          <div
+                                            className="form-grid_item small-12 medium-6 large-3 column"
+                                          >
+                                            <InputField
+                                              fieldName="ami_percentage"
+                                              id="ami_percentage"
+                                              label="AMI Percentage"
+                                              placeholder="Enter Percentage"
+                                            >
+                                              <Field
+                                                name="ami_percentage"
+                                                parse={[Function]}
+                                              >
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <Label
+                                                    fieldName="ami_percentage"
+                                                    id="ami_percentage"
+                                                    label="AMI Percentage"
+                                                  >
+                                                    <label
+                                                      className="form-label"
+                                                      htmlFor="ami_percentage"
+                                                      id="label-ami_percentage"
+                                                    >
+                                                      AMI Percentage
+                                                    </label>
+                                                  </Label>
+                                                  <Input
+                                                    id="ami_percentage"
+                                                    input={
+                                                      Object {
+                                                        "checked": undefined,
+                                                        "name": "ami_percentage",
+                                                        "onBlur": [Function],
+                                                        "onChange": [Function],
+                                                        "onFocus": [Function],
+                                                        "value": "",
+                                                      }
+                                                    }
+                                                    meta={
+                                                      Object {
+                                                        "active": false,
+                                                        "data": Object {},
+                                                        "dirty": false,
+                                                        "dirtySinceLastSubmit": false,
+                                                        "error": undefined,
+                                                        "initial": undefined,
+                                                        "invalid": false,
+                                                        "length": undefined,
+                                                        "modified": false,
+                                                        "pristine": true,
+                                                        "submitError": undefined,
+                                                        "submitFailed": false,
+                                                        "submitSucceeded": false,
+                                                        "submitting": false,
+                                                        "touched": false,
+                                                        "valid": true,
+                                                        "validating": false,
+                                                        "visited": false,
+                                                      }
+                                                    }
+                                                    placeholder="Enter Percentage"
+                                                    type="text"
+                                                  >
+                                                    <input
+                                                      className=""
+                                                      id="ami_percentage"
+                                                      name="ami_percentage"
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      onFocus={[Function]}
+                                                      placeholder="Enter Percentage"
+                                                      type="text"
+                                                      value=""
+                                                    />
+                                                  </Input>
+                                                  <FieldError
+                                                    meta={
+                                                      Object {
+                                                        "active": false,
+                                                        "data": Object {},
+                                                        "dirty": false,
+                                                        "dirtySinceLastSubmit": false,
+                                                        "error": undefined,
+                                                        "initial": undefined,
+                                                        "invalid": false,
+                                                        "length": undefined,
+                                                        "modified": false,
+                                                        "pristine": true,
+                                                        "submitError": undefined,
+                                                        "submitFailed": false,
+                                                        "submitSucceeded": false,
+                                                        "submitting": false,
+                                                        "touched": false,
+                                                        "valid": true,
+                                                        "validating": false,
+                                                        "visited": false,
+                                                      }
+                                                    }
+                                                  />
+                                                </div>
+                                              </Field>
+                                            </InputField>
+                                          </div>
+                                        </Component>
+                                        <Component>
+                                          <div
+                                            className="form-grid_item small-12 medium-6 large-3 column"
+                                          >
+                                            <SelectField
+                                              fieldName="ami_chart_year"
+                                              id="ami_chart_year"
+                                              label="AMI Chart Year"
+                                              onChange={[Function]}
+                                              options={Array []}
+                                              value=""
+                                            >
+                                              <Field
+                                                component="select"
+                                                name="ami_chart_year"
+                                                parse={[Function]}
+                                              >
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <Label
+                                                    fieldName="ami_chart_year"
+                                                    id="ami_chart_year"
+                                                    label="AMI Chart Year"
+                                                  >
+                                                    <label
+                                                      className="form-label"
+                                                      htmlFor="ami_chart_year"
+                                                      id="label-ami_chart_year"
+                                                    >
+                                                      AMI Chart Year
+                                                    </label>
+                                                  </Label>
+                                                  <select
+                                                    className=""
+                                                    id="ami_chart_year"
+                                                    name="ami_chart_year"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onFocus={[Function]}
+                                                    value=""
+                                                  />
+                                                  <FieldError
+                                                    meta={
+                                                      Object {
+                                                        "active": false,
+                                                        "data": Object {},
+                                                        "dirty": false,
+                                                        "dirtySinceLastSubmit": false,
+                                                        "error": undefined,
+                                                        "initial": undefined,
+                                                        "invalid": false,
+                                                        "length": undefined,
+                                                        "modified": false,
+                                                        "pristine": true,
+                                                        "submitError": undefined,
+                                                        "submitFailed": false,
+                                                        "submitSucceeded": false,
+                                                        "submitting": false,
+                                                        "touched": false,
+                                                        "valid": true,
+                                                        "validating": false,
+                                                        "visited": false,
+                                                      }
+                                                    }
+                                                  />
+                                                </div>
+                                              </Field>
+                                            </SelectField>
+                                          </div>
+                                        </Component>
+                                        <Component>
+                                          <div
+                                            className="form-grid_item small-12 medium-6 large-3 column"
+                                          >
+                                            <SelectField
+                                              fieldName="ami_chart_type"
+                                              id="ami_chart_type"
+                                              label="AMI Chart Type"
+                                              noPlaceholder={true}
+                                              onChange={[Function]}
+                                              options={Array []}
+                                              value=""
+                                            >
+                                              <Field
+                                                component="select"
+                                                name="ami_chart_type"
+                                                parse={[Function]}
+                                              >
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <Label
+                                                    fieldName="ami_chart_type"
+                                                    id="ami_chart_type"
+                                                    label="AMI Chart Type"
+                                                  >
+                                                    <label
+                                                      className="form-label"
+                                                      htmlFor="ami_chart_type"
+                                                      id="label-ami_chart_type"
+                                                    >
+                                                      AMI Chart Type
+                                                    </label>
+                                                  </Label>
+                                                  <select
+                                                    className=""
+                                                    id="ami_chart_type"
+                                                    name="ami_chart_type"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onFocus={[Function]}
+                                                    value=""
+                                                  />
+                                                  <FieldError
+                                                    meta={
+                                                      Object {
+                                                        "active": false,
+                                                        "data": Object {},
+                                                        "dirty": false,
+                                                        "dirtySinceLastSubmit": false,
+                                                        "error": undefined,
+                                                        "initial": undefined,
+                                                        "invalid": false,
+                                                        "length": undefined,
+                                                        "modified": false,
+                                                        "pristine": true,
+                                                        "submitError": undefined,
+                                                        "submitFailed": false,
+                                                        "submitSucceeded": false,
+                                                        "submitting": false,
+                                                        "touched": false,
+                                                        "valid": true,
+                                                        "validating": false,
+                                                        "visited": false,
+                                                      }
+                                                    }
+                                                  />
+                                                </div>
+                                              </Field>
+                                            </SelectField>
+                                          </div>
+                                        </Component>
+                                      </div>
                                     </Component>
                                   </ConfirmedHouseholdIncome>
                                 </div>
@@ -3966,6 +4248,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           values={
                             Object {
                               "alternate_contact": Object {},
+                              "ami_chart_type": undefined,
+                              "ami_chart_year": undefined,
+                              "ami_percentage": undefined,
                               "annual_income": 110000,
                               "answered_community_screening": null,
                               "applicant": Object {
@@ -4120,6 +4405,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           }
                           visited={
                             Object {
+                              "ami_chart_type": false,
+                              "ami_chart_year": false,
+                              "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
                               "has_ada_priorities_selected.hearing_impairments": false,
@@ -4222,6 +4510,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     }
                                     visited={
                                       Object {
+                                        "ami_chart_type": false,
+                                        "ami_chart_year": false,
+                                        "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
                                         "has_ada_priorities_selected.hearing_impairments": false,
@@ -4288,6 +4579,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         Object {
                                           "application": Object {
                                             "alternate_contact": Object {},
+                                            "ami_chart_type": undefined,
+                                            "ami_chart_year": undefined,
+                                            "ami_percentage": undefined,
                                             "annual_income": 110000,
                                             "answered_community_screening": null,
                                             "applicant": Object {
@@ -4559,6 +4853,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       }
                                       visited={
                                         Object {
+                                          "ami_chart_type": false,
+                                          "ami_chart_year": false,
+                                          "ami_percentage": false,
                                           "applicant.marital_status": false,
                                           "confirmed_household_annual_income": false,
                                           "has_ada_priorities_selected.hearing_impairments": false,
@@ -5269,6 +5566,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     values={
                                       Object {
                                         "alternate_contact": Object {},
+                                        "ami_chart_type": undefined,
+                                        "ami_chart_year": undefined,
+                                        "ami_percentage": undefined,
                                         "annual_income": 110000,
                                         "answered_community_screening": null,
                                         "applicant": Object {
@@ -5423,6 +5723,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     }
                                     visited={
                                       Object {
+                                        "ami_chart_type": false,
+                                        "ami_chart_year": false,
+                                        "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
                                         "has_ada_priorities_selected.hearing_impairments": false,
@@ -5674,6 +5977,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           submitting={false}
                           visited={
                             Object {
+                              "ami_chart_type": false,
+                              "ami_chart_year": false,
+                              "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
                               "has_ada_priorities_selected.hearing_impairments": false,
@@ -5807,6 +6113,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       Object {
                                         "application": Object {
                                           "alternate_contact": Object {},
+                                          "ami_chart_type": undefined,
+                                          "ami_chart_year": undefined,
+                                          "ami_percentage": undefined,
                                           "annual_income": 110000,
                                           "answered_community_screening": null,
                                           "applicant": Object {
@@ -6708,6 +7017,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                   Object {
                                     "application": Object {
                                       "alternate_contact": Object {},
+                                      "ami_chart_type": undefined,
+                                      "ami_chart_year": undefined,
+                                      "ami_percentage": undefined,
                                       "annual_income": 110000,
                                       "answered_community_screening": null,
                                       "applicant": Object {
@@ -8498,24 +8810,23 @@ Array [
                 className="form-group"
               >
                 <label
-                  className=""
-                  htmlFor="ami-hud-unadjusted-2017"
+                  className="form-label"
+                  htmlFor="ami_percentage"
+                  id="label-ami_percentage"
                 >
-                  Calculated % of AMI - HUD Unadjusted
+                  AMI Percentage
                 </label>
-                <div
-                  aria-describedby="ami-hud-unadjusted-2017"
-                  className="text-value"
-                  id="ami-hud-unadjusted-2017"
-                >
-                  Enter HH Income
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="ami-hud-unadjusted-2017"
-                >
-                  Based on Final Household Income
-                </span>
+                <input
+                  className=""
+                  id="ami_percentage"
+                  name="ami_percentage"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Enter Percentage"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
             <div
@@ -8525,24 +8836,78 @@ Array [
                 className="form-group"
               >
                 <label
-                  className=""
-                  htmlFor="ami-non-hera-2016"
+                  className="form-label"
+                  htmlFor="ami_chart_year"
+                  id="label-ami_chart_year"
                 >
-                  Calculated % of AMI - Non-Hera
+                  AMI Chart Year
                 </label>
-                <div
-                  aria-describedby="ami-non-hera-2016"
-                  className="text-value"
-                  id="ami-non-hera-2016"
+                <select
+                  className=""
+                  id="ami_chart_year"
+                  name="ami_chart_year"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
                 >
-                  Enter HH Income
-                </div>
-                <span
-                  className="form-note shift-up"
-                  id="ami-non-hera-2016"
+                  <option
+                    value={null}
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value={2017}
+                  >
+                    2017
+                  </option>
+                  <option
+                    value={2016}
+                  >
+                    2016
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="ami_chart_type"
+                  id="label-ami_chart_type"
                 >
-                  Based on Final Household Income
-                </span>
+                  AMI Chart Type
+                </label>
+                <select
+                  className=""
+                  disabled={true}
+                  id="ami_chart_type"
+                  name="ami_chart_type"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
+                >
+                  <option
+                    value=""
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value="HUD Unadjusted"
+                  >
+                    HUD Unadjusted
+                  </option>
+                  <option
+                    value="Non-Hera"
+                  >
+                    Non-Hera
+                  </option>
+                </select>
               </div>
             </div>
           </div>
