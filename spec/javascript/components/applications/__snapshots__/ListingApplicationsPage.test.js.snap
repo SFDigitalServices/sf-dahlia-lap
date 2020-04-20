@@ -65,6 +65,176 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
   >
     <div
+      className="loading-panel loading"
+    >
+      <div
+        className="spinner sk-fading-circle"
+      >
+        <div
+          className="sk-circle1 sk-circle"
+        />
+        <div
+          className="sk-circle2 sk-circle"
+        />
+        <div
+          className="sk-circle3 sk-circle"
+        />
+        <div
+          className="sk-circle4 sk-circle"
+        />
+        <div
+          className="sk-circle5 sk-circle"
+        />
+        <div
+          className="sk-circle6 sk-circle"
+        />
+        <div
+          className="sk-circle7 sk-circle"
+        />
+        <div
+          className="sk-circle8 sk-circle"
+        />
+        <div
+          className="sk-circle9 sk-circle"
+        />
+        <div
+          className="sk-circle10 sk-circle"
+        />
+        <div
+          className="sk-circle11 sk-circle"
+        />
+        <div
+          className="sk-circle12 sk-circle"
+        />
+      </div>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}
+      >
+        <div
+          className="filter-row"
+        >
+          <div
+            className="filter-group"
+          >
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className=""
+              >
+                <input
+                  className=""
+                  id="form-application_number"
+                  name="application_number"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Application Number"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <input
+                disabled={true}
+                type="text"
+                value="listing name"
+              />
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className=""
+              >
+                <input
+                  className=""
+                  id="form-first_name"
+                  name="first_name"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="First Name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className=""
+              >
+                <input
+                  className=""
+                  id="form-last_name"
+                  name="last_name"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Last Name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="filter-group_item"
+            >
+              <div
+                className="form-group"
+              >
+                <select
+                  className=""
+                  id="form-submission_type"
+                  name="submission_type"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
+                >
+                  <option
+                    value=""
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value="Paper"
+                  >
+                    Paper
+                  </option>
+                  <option
+                    value="Electronic"
+                  >
+                    Electronic
+                  </option>
+                  <option
+                    value={null}
+                  >
+                    Any type
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              className="filter-group_action"
+            >
+              <button
+                className="small"
+              >
+                Filter
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
       className="ReactTable"
       style={Object {}}
     >
@@ -102,7 +272,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th td-min-narrow rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -126,7 +296,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -150,7 +320,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -174,7 +344,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -198,7 +368,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -222,7 +392,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -246,7 +416,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -261,7 +431,7 @@ Array [
               <div
                 className="rt-resizable-header-content"
               >
-                Total Household Size
+                Total Household size
               </div>
               <div
                 className="rt-resizer"
@@ -270,7 +440,7 @@ Array [
               />
             </div>
             <div
-              className="rt-th rt-resizable-header -cursor-pointer"
+              className="rt-th rt-resizable-header"
               onClick={[Function]}
               role="columnheader"
               style={
@@ -296,180 +466,6 @@ Array [
           </div>
         </div>
         <div
-          className="rt-thead -filters"
-          style={
-            Object {
-              "minWidth": "835px",
-            }
-          }
-        >
-          <div
-            className="rt-tr"
-            role="row"
-          >
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "35 0 auto",
-                  "maxWidth": "35px",
-                  "width": "35px",
-                }
-              }
-              tabIndex="-1"
-            />
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            >
-              <input
-                onChange={[Function]}
-                style={
-                  Object {
-                    "width": "100%",
-                  }
-                }
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            >
-              <select
-                onChange={[Function]}
-                style={
-                  Object {
-                    "width": "100%",
-                  }
-                }
-                value="all"
-              >
-                <option
-                  value="all"
-                >
-                  Show All
-                </option>
-                <option
-                  value="listing name"
-                >
-                  listing name
-                </option>
-              </select>
-            </div>
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            />
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            />
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            >
-              <input
-                onChange={[Function]}
-                style={
-                  Object {
-                    "width": "100%",
-                  }
-                }
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            />
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            />
-            <div
-              className="rt-th"
-              onClick={[Function]}
-              role="columnheader"
-              style={
-                Object {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
-            />
-          </div>
-        </div>
-        <div
           className="rt-tbody"
           style={
             Object {
@@ -482,13 +478,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
-              onClick={[Function]}
+              className="rt-tr -padRow -odd"
               role="row"
+              style={Object {}}
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                className="rt-td"
                 role="gridcell"
                 style={
                   Object {
@@ -498,15 +493,12 @@ Array [
                   }
                 }
               >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -516,11 +508,12 @@ Array [
                   }
                 }
               >
-                APP-00191270
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -530,11 +523,12 @@ Array [
                   }
                 }
               >
-                listing name
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -544,11 +538,12 @@ Array [
                   }
                 }
               >
-                03/22/2017
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -558,11 +553,12 @@ Array [
                   }
                 }
               >
-                karen
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -572,11 +568,12 @@ Array [
                   }
                 }
               >
-                jones
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -586,11 +583,12 @@ Array [
                   }
                 }
               >
-                05/30/2018
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -600,11 +598,12 @@ Array [
                   }
                 }
               >
-                0
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -614,7 +613,9 @@ Array [
                   }
                 }
               >
-                Electronic
+                <span>
+                   
+                </span>
               </div>
             </div>
           </div>
@@ -623,13 +624,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
-              onClick={[Function]}
+              className="rt-tr -padRow -even"
               role="row"
+              style={Object {}}
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                className="rt-td"
                 role="gridcell"
                 style={
                   Object {
@@ -639,15 +639,12 @@ Array [
                   }
                 }
               >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -657,11 +654,12 @@ Array [
                   }
                 }
               >
-                APP-00192942
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -671,11 +669,12 @@ Array [
                   }
                 }
               >
-                listing name
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -685,11 +684,12 @@ Array [
                   }
                 }
               >
-                03/22/2017
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -699,11 +699,12 @@ Array [
                   }
                 }
               >
-                Grace
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -713,11 +714,12 @@ Array [
                   }
                 }
               >
-                Jones
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -727,11 +729,12 @@ Array [
                   }
                 }
               >
-                06/12/2018
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -741,11 +744,12 @@ Array [
                   }
                 }
               >
-                0
+                <span>
+                   
+                </span>
               </div>
               <div
                 className="rt-td"
-                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -755,7 +759,9 @@ Array [
                   }
                 }
               >
-                Electronic
+                <span>
+                   
+                </span>
               </div>
             </div>
           </div>
@@ -3436,46 +3442,6 @@ Array [
                 1
               </span>
             </span>
-            <span
-              className="select-wrap -pageSizeOptions"
-            >
-              <select
-                aria-label="rows per page"
-                onChange={[Function]}
-                value={20}
-              >
-                <option
-                  value={5}
-                >
-                  5 rows
-                </option>
-                <option
-                  value={10}
-                >
-                  10 rows
-                </option>
-                <option
-                  value={20}
-                >
-                  20 rows
-                </option>
-                <option
-                  value={25}
-                >
-                  25 rows
-                </option>
-                <option
-                  value={50}
-                >
-                  50 rows
-                </option>
-                <option
-                  value={100}
-                >
-                  100 rows
-                </option>
-              </select>
-            </span>
           </div>
           <div
             className="-next"
@@ -3492,7 +3458,12 @@ Array [
         </div>
       </div>
       <div
-        className="-loading"
+        className="rt-noData"
+      >
+        No rows found
+      </div>
+      <div
+        className="-loading -active"
       >
         <div
           className="-loading-inner"
