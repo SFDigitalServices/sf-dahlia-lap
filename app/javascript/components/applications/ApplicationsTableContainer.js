@@ -7,11 +7,15 @@ import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
 const ROWS_PER_PAGE = 20
 
 class ApplicationsTableContainer extends React.Component {
-  state = { loading: false, applications: [], pages: 0 }
-
   constructor (props) {
     super(props)
     this.eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
+    this.state = {
+      filters: props.filters,
+      loading: false,
+      applications: [],
+      pages: 0
+    }
   }
 
   loadPage = (page, filters) => {
