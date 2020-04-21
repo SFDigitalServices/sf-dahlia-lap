@@ -8,10 +8,7 @@ module Listings
     before_action :validate_listing!
     before_action :listing_accepts_new_applications, only: [:new]
 
-    def index
-      @applications = soql_application_service.listing_applications(params[:listing_id])
-      @fields = soql_application_service.index_fields
-    end
+    def index; end
 
     def new
       @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}

@@ -17,12 +17,21 @@ const buildListingOptions = (listings) => {
 
 const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
   const sortedList = sortBy(listings, 'name')
-  const listingOptions = buildListingOptions(sortedList)
+  const initialValues = {}
+  let listingIdField
+  if (listings.length === 1) {
+    initialValues['listing_id'] = listings[0].id
+    listingIdField = <input value={listings[0].name} type='text' disabled />
+  } else {
+    const listingOptions = buildListingOptions(sortedList)
+    listingIdField = <SelectField fieldName='listing_id' options={listingOptions} placeholder='Any Listing' />
+  }
 
   return (
     <Loading isLoading={loading}>
       <Form
         onSubmit={onSubmit}
+        initialValues={initialValues}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
@@ -31,7 +40,7 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
                   <InputField fieldName='application_number' placeholder='Application Number' />
                 </div>
                 <div className='filter-group_item'>
-                  <SelectField fieldName='listing_id' options={listingOptions} placeholder='Any Listing' />
+                  {listingIdField}
                 </div>
                 <div className='filter-group_item'>
                   <InputField fieldName='first_name' placeholder='First Name' />

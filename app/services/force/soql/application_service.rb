@@ -10,6 +10,7 @@ module Force
 
       def applications(opts = { page: 0 })
         query_scope = applications_query(opts)
+        query_scope.order_by('Application_Submitted_Date__c DESC')
         query_scope.where_contains(:Name, opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Listing__r.Id', "'#{opts[:listing_id]}'") if opts[:listing_id].present?
         query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
@@ -44,19 +45,6 @@ module Force
           application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(id)
         end
         application
-      end
-
-      def listing_applications(listing_id)
-        # NOTE: most listings are <5000 but a couple have been in the 5000-7000 range
-        # pro of doing mega-query: can do client side searching/sorting
-        # con: loading a JSON of 7500 on the page, performance?
-        massage(query(%(
-          SELECT #{query_fields(:index)}
-          FROM Application__c
-          WHERE Status__c != '#{DRAFT}'
-          AND Listing__r.Id='#{listing_id}'
-          LIMIT 10000
-        )))
       end
 
       def application_listing(application_id)
