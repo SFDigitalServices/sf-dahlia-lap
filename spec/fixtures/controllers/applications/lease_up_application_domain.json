@@ -202,9 +202,7 @@
   "is_first_time_homebuyer": false,
   "id": "a0o0P00000GZazOQAT",
   "housing_voucher_or_subsidy": "true",
-  "household_members": [
-
-  ],
+  "household_members": [],
   "household_assets": 837.81,
   "hh_total_income_with_assets_annual": 355.29,
   "reserved_senior": "Yes",
@@ -244,8 +242,6 @@
       "file_type": "Attachment"
     }
   ],
-  "flagged_applications": [
-
-  ],
+  "flagged_applications": [],
   "total_household_size": 1
 }
