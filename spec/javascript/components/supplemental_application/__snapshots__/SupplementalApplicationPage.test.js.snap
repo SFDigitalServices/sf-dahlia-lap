@@ -2798,7 +2798,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           visited={
                             Object {
                               "ami_chart_type": false,
-                              "ami_chart_year": false,
                               "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
@@ -3558,7 +3557,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     visited={
                                       Object {
                                         "ami_chart_type": false,
-                                        "ami_chart_year": false,
                                         "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
@@ -4063,84 +4061,13 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             className="form-grid_item small-12 medium-6 large-3 column"
                                           >
                                             <SelectField
-                                              fieldName="ami_chart_year"
-                                              id="ami_chart_year"
-                                              label="AMI Chart Year"
-                                              onChange={[Function]}
-                                              options={Array []}
-                                              value=""
-                                            >
-                                              <Field
-                                                component="select"
-                                                name="ami_chart_year"
-                                                parse={[Function]}
-                                              >
-                                                <div
-                                                  className="form-group"
-                                                >
-                                                  <Label
-                                                    fieldName="ami_chart_year"
-                                                    id="ami_chart_year"
-                                                    label="AMI Chart Year"
-                                                  >
-                                                    <label
-                                                      className="form-label"
-                                                      htmlFor="ami_chart_year"
-                                                      id="label-ami_chart_year"
-                                                    >
-                                                      AMI Chart Year
-                                                    </label>
-                                                  </Label>
-                                                  <select
-                                                    className=""
-                                                    id="ami_chart_year"
-                                                    name="ami_chart_year"
-                                                    onBlur={[Function]}
-                                                    onChange={[Function]}
-                                                    onFocus={[Function]}
-                                                    value=""
-                                                  />
-                                                  <FieldError
-                                                    meta={
-                                                      Object {
-                                                        "active": false,
-                                                        "data": Object {},
-                                                        "dirty": false,
-                                                        "dirtySinceLastSubmit": false,
-                                                        "error": undefined,
-                                                        "initial": undefined,
-                                                        "invalid": false,
-                                                        "length": undefined,
-                                                        "modified": false,
-                                                        "pristine": true,
-                                                        "submitError": undefined,
-                                                        "submitFailed": false,
-                                                        "submitSucceeded": false,
-                                                        "submitting": false,
-                                                        "touched": false,
-                                                        "valid": true,
-                                                        "validating": false,
-                                                        "visited": false,
-                                                      }
-                                                    }
-                                                  />
-                                                </div>
-                                              </Field>
-                                            </SelectField>
-                                          </div>
-                                        </Component>
-                                        <Component>
-                                          <div
-                                            className="form-grid_item small-12 medium-6 large-3 column"
-                                          >
-                                            <SelectField
                                               fieldName="ami_chart_type"
                                               id="ami_chart_type"
                                               label="AMI Chart Type"
                                               noPlaceholder={true}
                                               onChange={[Function]}
                                               options={Array []}
-                                              value=""
+                                              selectValue="undefined - undefined"
                                             >
                                               <Field
                                                 component="select"
@@ -4170,7 +4097,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     onBlur={[Function]}
                                                     onChange={[Function]}
                                                     onFocus={[Function]}
-                                                    value=""
+                                                    value="undefined - undefined"
                                                   />
                                                   <FieldError
                                                     meta={
@@ -4406,7 +4333,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           visited={
                             Object {
                               "ami_chart_type": false,
-                              "ami_chart_year": false,
                               "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
@@ -4511,7 +4437,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     visited={
                                       Object {
                                         "ami_chart_type": false,
-                                        "ami_chart_year": false,
                                         "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
@@ -4854,7 +4779,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       visited={
                                         Object {
                                           "ami_chart_type": false,
-                                          "ami_chart_year": false,
                                           "ami_percentage": false,
                                           "applicant.marital_status": false,
                                           "confirmed_household_annual_income": false,
@@ -5724,7 +5648,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     visited={
                                       Object {
                                         "ami_chart_type": false,
-                                        "ami_chart_year": false,
                                         "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
@@ -5978,7 +5901,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           visited={
                             Object {
                               "ami_chart_type": false,
-                              "ami_chart_year": false,
                               "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
@@ -8837,46 +8759,6 @@ Array [
               >
                 <label
                   className="form-label"
-                  htmlFor="ami_chart_year"
-                  id="label-ami_chart_year"
-                >
-                  AMI Chart Year
-                </label>
-                <select
-                  className=""
-                  id="ami_chart_year"
-                  name="ami_chart_year"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  value=""
-                >
-                  <option
-                    value={null}
-                  >
-                    Select One...
-                  </option>
-                  <option
-                    value={2017}
-                  >
-                    2017
-                  </option>
-                  <option
-                    value={2016}
-                  >
-                    2016
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div
-              className="form-grid_item small-12 medium-6 large-3 column"
-            >
-              <div
-                className="form-group"
-              >
-                <label
-                  className="form-label"
                   htmlFor="ami_chart_type"
                   id="label-ami_chart_type"
                 >
@@ -8884,28 +8766,27 @@ Array [
                 </label>
                 <select
                   className=""
-                  disabled={true}
                   id="ami_chart_type"
                   name="ami_chart_type"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
-                  value=""
+                  value="undefined - undefined"
                 >
                   <option
-                    value=""
+                    value={null}
                   >
                     Select One...
                   </option>
                   <option
-                    value="HUD Unadjusted"
+                    value="HUD Unadjusted - 2017"
                   >
-                    HUD Unadjusted
+                    HUD Unadjusted - 2017
                   </option>
                   <option
-                    value="Non-Hera"
+                    value="Non-Hera - 2016"
                   >
-                    Non-Hera
+                    Non-Hera - 2016
                   </option>
                 </select>
               </div>
