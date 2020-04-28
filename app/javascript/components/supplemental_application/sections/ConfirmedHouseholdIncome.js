@@ -54,19 +54,21 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
       let chartTypes = []
       let amis = await getAmis(listingAmiCharts, totalHouseholdSize)
 
-      amis.map((chart) => {
-        const value = `${chart.name} - ${chart.year}`
-        chartTypes.push({ value, label: value })
-      })
+      if (amis.length > 0) {
+        amis.map((chart) => {
+          const value = `${chart.name} - ${chart.year}`
+          chartTypes.push({ value, label: value })
+        })
 
-      if (chartTypes.length > 1) {
-        chartTypes.unshift({ value: null, label: 'Select One...' })
-      } else if (chartTypes.length === 1) {
-        const initialType = chartTypes[0]
-        setSelectedType(initialType)
-        setFormYearAndType(initialType.value)
+        if (chartTypes.length > 1) {
+          chartTypes.unshift({ value: null, label: 'Select One...' })
+        } else if (chartTypes.length === 1) {
+          const initialType = chartTypes[0]
+          setSelectedType(initialType)
+          setFormYearAndType(initialType.value)
+        }
+        setAmiChartTypes(chartTypes)
       }
-      setAmiChartTypes(chartTypes)
     }
 
     getAmiCharts()
