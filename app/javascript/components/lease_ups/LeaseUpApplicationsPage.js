@@ -35,6 +35,8 @@ class LeaseUpApplicationsPage extends React.Component {
 
   fetchApplications = async (page, filters) => {
     let { records, pages } = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
+    console.log('> FETCH APPS\n\n')
+    console.log(records)
     records = map(records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
     return { records, pages }
   }

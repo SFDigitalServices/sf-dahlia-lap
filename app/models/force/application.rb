@@ -72,11 +72,13 @@ module Force
       { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember },
       { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember },
       { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
+      { custom_api: '', domain: 'applicant', salesforce: 'Applicant' },
     ].freeze
 
     def to_domain
       domain_fields = super
-
+      puts ">>>> APPLICATION\n\n"
+      puts domain_fields.applicant.First_Name
       # Special field conversion cases for applications
       existing_fields = @fields[:salesforce].presence || @fields[:custom_api].presence
       if existing_fields.present?
@@ -90,6 +92,10 @@ module Force
 
         # Created by
         domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
+      end
+
+      if domain_fields.applicant && domain_fields.applicant.First_Name
+        domain_fields.applicant = Force::ApplicationMember.from_salesforce(domain_fields.applicant).to_domain
       end
 
       domain_fields

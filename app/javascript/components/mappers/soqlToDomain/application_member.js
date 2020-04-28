@@ -1,4 +1,6 @@
 export const mapApplicationMember = (value) => {
+  console.log('> MAP APP MEMBER\n\n')
+  console.log(value)
   return {
     id: value.Id,
     first_name: value.First_Name,

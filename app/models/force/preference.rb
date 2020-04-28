@@ -10,6 +10,7 @@ module Force
     FIELD_NAME_MAPPINGS = [
       { custom_api: 'address', domain: 'street', salesforce: 'Street' },
       { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member' },
+      { custom_api: 'application', domain: 'application', salesforce: 'Application' },
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'shortformPreferenceID', domain: 'id', salesforce: 'Id' },
@@ -73,6 +74,10 @@ module Force
           t[:recordtype_developername] == recordtype_developername
         end
         domain_fields.preference_name = preference_type[:name] if preference_type
+      end
+
+      if domain_fields.application
+        domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain
       end
 
       domain_fields

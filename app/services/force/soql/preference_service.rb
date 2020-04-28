@@ -20,7 +20,9 @@ module Force
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
 
-        query_scope.query
+        result = query_scope.query
+
+        result
       end
 
       def buildAppPreferencesFilters(opts)
