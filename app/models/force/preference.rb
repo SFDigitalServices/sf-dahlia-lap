@@ -15,7 +15,7 @@ module Force
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'shortformPreferenceID', domain: 'id', salesforce: 'Id' },
       { custom_api: 'individualPreference', domain: 'individual_preference', salesforce: 'Individual_preference' },
-      { custom_api: 'listingPreferenceID', domain: 'listing_preference_id', salesforce: 'Listing_Preference_ID' },
+      { custom_api: 'listingPreferenceID', domain: 'listing_preference', salesforce: 'Listing_Preference_ID' },
       { custom_api: '', domain: 'lottery_status', salesforce: 'Lottery_Status' },
       { custom_api: 'lwPreferenceProof', domain: 'lw_type_of_proof', salesforce: 'LW_Type_of_Proof' },
       { custom_api: '', domain: 'name', salesforce: 'Name' },
@@ -78,6 +78,12 @@ module Force
 
       if domain_fields.application
         domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain
+      end
+
+      if domain_fields.listing_preference
+        domain_fields.listing_preference.record_type_for_app_preferences = domain_fields.listing_preference.Record_Type_For_App_Preferences
+        domain_fields.listing_preference.delete 'attributes'
+        domain_fields.listing_preference.delete 'Record_Type_For_App_Preferences'
       end
 
       domain_fields

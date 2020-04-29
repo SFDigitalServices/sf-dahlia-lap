@@ -11,6 +11,17 @@ module Force
       { domain: 'id', salesforce: 'Id' },
       { domain: 'rule_name', salesforce: 'Rule_Name' },
       { domain: 'total_number_of_pending_review', salesforce: 'Total_Number_of_Pending_Review' },
+      { domain: 'total_number_of_appealed', salesforce: 'Total_Number_of_Appealed' },
+      { domain: 'total_number_of_duplicates', salesforce: 'Total_Number_of_Duplicates' },
+      { domain: 'listing', salesforce: 'Listing' },
     ].freeze
+
+    def to_domain
+      domain_fields = super
+
+      domain_fields.listing = Force::Listing.from_salesforce(domain_fields.listing).to_domain
+
+      domain_fields
+    end
   end
 end

@@ -41,7 +41,7 @@ module Force
       { custom_api: 'isFirstTimeHomebuyer', domain: 'is_first_time_homebuyer', salesforce: '?' },
       { custom_api: 'interviewScheduledDate', domain: '', salesforce: 'Interview_Scheduled_Date' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: '?' },
-      { custom_api: 'listingID', domain: 'listing_id', salesforce: 'Listing' },
+      { custom_api: 'listingID', domain: 'listing', salesforce: 'Listing' },
       { custom_api: 'lotteryNumber', domain: 'lottery_number', salesforce: 'Lottery_Number' },
       { custom_api: 'lotteryNumberManual', domain: 'lottery_number_manual', salesforce: 'Lottery_Number_Manual' },
       { custom_api: 'monthlyIncome', domain: 'monthly_income', salesforce: 'Monthly_Income' },
@@ -73,12 +73,12 @@ module Force
       { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember },
       { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
       { custom_api: '', domain: 'applicant', salesforce: 'Applicant' },
+      { custom_api: '', domain: 'listing_preference', salesforce: 'Listing_Preference_ID' },
     ].freeze
 
     def to_domain
       domain_fields = super
-      puts ">>>> APPLICATION\n\n"
-      puts domain_fields.applicant.First_Name
+
       # Special field conversion cases for applications
       existing_fields = @fields[:salesforce].presence || @fields[:custom_api].presence
       if existing_fields.present?
@@ -96,6 +96,11 @@ module Force
 
       if domain_fields.applicant && domain_fields.applicant.First_Name
         domain_fields.applicant = Force::ApplicationMember.from_salesforce(domain_fields.applicant).to_domain
+      end
+
+      puts domain_fields
+      if domain_fields.listing
+        domain_fields.listing = Force::Listing.from_salesforce(domain_fields.listing).to_domain
       end
 
       domain_fields
@@ -136,7 +141,7 @@ module Force
       primary_app_fields = domain_fields['applicant']&.merge(domain_fields['demographics'])
       custom_api_fields['primaryApplicant'] = Force::ApplicationMember.from_domain(primary_app_fields).to_custom_api
 
-      custom_api_fields['listingID'] = domain_fields['listing_id']
+      custom_api_fields['listingID'] = domain_fields['listing']
 
       # ADA priorities need to be converted from a checklist to a string.
       ada_hash = domain_fields['has_ada_priorities_selected']
