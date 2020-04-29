@@ -20,7 +20,6 @@ export const saveApplication = async (submitType, submittedValues, listing, edit
 
 export const fetchApplications = async (page, { filters }) => {
   const response = await apiService.fetchApplications({ page, filters })
-  console.log(response)
   return {
     records: response.records,
     pages: response.pages

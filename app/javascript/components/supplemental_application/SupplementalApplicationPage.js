@@ -293,7 +293,7 @@ class SupplementalApplicationPage extends React.Component {
   render () {
     const { fileBaseUrl, availableUnits, listing } = this.props
     const { leaveConfirmationModal, application, statusHistory } = this.state
-    console.log(listing)
+
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -356,7 +356,6 @@ class SupplementalApplicationPage extends React.Component {
 }
 
 const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
-  console.log(statusHistory)
   return {
     application: setApplicationsDefaults(application),
     listing: application.listing,

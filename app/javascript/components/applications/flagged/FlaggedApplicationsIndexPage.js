@@ -70,7 +70,6 @@ const buildFlaggedRecordModel = (flaggedRecord) => {
 }
 
 const mapProperties = ({ title, flaggedRecords, type }) => {
-  console.log(flaggedRecords)
   return {
     type,
     title,

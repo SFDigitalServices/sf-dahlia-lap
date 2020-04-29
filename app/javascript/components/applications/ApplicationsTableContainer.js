@@ -45,7 +45,6 @@ class ApplicationsTableContainer extends React.Component {
   render () {
     const { listings } = this.props
     const { loading, applications, pages, atMaxPages } = this.state
-    console.log(applications)
     return (
       <React.Fragment>
         <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings} loading={loading} />
