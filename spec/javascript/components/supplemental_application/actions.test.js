@@ -48,7 +48,7 @@ describe('updateApplication', () => {
     const applicationDomain = supplementalApplication
     const response = await updateApplication(applicationDomain)
 
-    expect(response.id).toEqual(supplementalApplication.Id)
+    expect(response.id).toEqual(supplementalApplication.id)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
   })

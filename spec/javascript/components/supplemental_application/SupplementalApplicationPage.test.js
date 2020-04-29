@@ -43,8 +43,8 @@ jest.mock('apiService', () => {
 })
 
 const statusHistory = [
-  { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated: '2018-05-10T19:54:11.000+0000' },
-  { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated: '2018-05-10T19:54:11.000+0000' }
+  { status: 'Approved', comment: 'xxxx1', date: '2018-05-10T19:54:11.000+0000' },
+  { status: 'Pending', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
 ]
 
 describe('SupplementalApplicationPage', () => {
@@ -272,14 +272,14 @@ describe('SupplementalApplicationPage', () => {
 
       // Add a valid preference for preference used
       merge(mockApplication.preferences[0], {
-        Id: 'testValidPref',
-        Post_Lottery_Validation: 'Confirmed'
+        id: 'testValidPref',
+        post_lottery_validation: 'Confirmed'
       })
 
       // Add available units
       const mockAvailableUnits = [
-        {'Unit_Number': 1, 'Id': 'id1'},
-        {'Unit_Number': 2, 'Id': 'id2'}
+        {'unit_number': 1, 'id': 'id1'},
+        {'unit_number': 2, 'id': 'id2'}
       ]
 
       await act(async () => {
@@ -321,7 +321,7 @@ describe('SupplementalApplicationPage', () => {
         'total_monthly_rent_without_parking': '1',
         'monthly_parking_rent': '2',
         'monthly_tenant_contribution': '3',
-        'primary_applicant_contact': mockApplication['Applicant']['Id']
+        'primary_applicant_contact': mockApplication['applicant']['id']
       }
 
       expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)
