@@ -1,6 +1,5 @@
 import { fromPairs, omit, snakeCase, split } from 'lodash'
 import { mapApplicationMember } from './application_member'
-import { mapApplicationPreference } from './application_preference'
 import { mapDemographics } from './demographics'
 import { mapFlaggedApplication } from './flagged_application'
 import { mapUser } from './user'
@@ -19,7 +18,7 @@ export const mapApplication = (a) => {
     listing_id: a.Listing ? a.Listing.Id : null,
     listing_name: a.Listing ? a.Listing.Name : null,
     listing_lottery_date: a.Listing ? a.Listing.Lottery_Date : '',
-    preferences: mapList(mapApplicationPreference, a.preferences),
+    preferences: a.preferences,
     proof_files: a.proof_files,
     household_members: mapList(mapApplicationMember, a.household_members),
     flagged_applications: mapList(mapFlaggedApplication, a.flagged_applications),

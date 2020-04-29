@@ -19,6 +19,7 @@ const toggleNoPreferenceUsed = (form, event) => {
 
 const LeaseInformationInputs = ({ form, store, visited }) => {
   const { availableUnits, application } = store
+  console.log(availableUnits)
   const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
   const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })

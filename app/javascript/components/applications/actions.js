@@ -1,6 +1,5 @@
-import { map } from 'lodash'
+
 import apiService from '~/apiService'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
   const response = await apiService.submitApplication(submittedValues)
@@ -21,8 +20,9 @@ export const saveApplication = async (submitType, submittedValues, listing, edit
 
 export const fetchApplications = async (page, { filters }) => {
   const response = await apiService.fetchApplications({ page, filters })
+  console.log(response)
   return {
-    records: map(response.records, mapApplication),
+    records: response.records,
     pages: response.pages
   }
 }
