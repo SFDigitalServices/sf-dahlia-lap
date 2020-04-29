@@ -6,12 +6,12 @@ module Applications
     before_action :authenticate_user!
 
     def index
-      @application = soql_application_service.application(params[:application_id])
-      @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
+      @application = Force::Application.from_salesforce(soql_application_service.application(params[:application_id])).to_domain
+      @status_history = field_update_comment_service.status_history_by_application(@application.id).map { |s| Force::FieldUpdateComment.from_salesforce(s).to_domain }
       @file_base_url = file_base_url
-      @available_units = units_service.available_units_for_application(@application.Listing.Id, @application.Id)
-      @units = soql_listing_service.units(@application.Listing.Id)
-      @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.Id)
+      @available_units = Force::Unit.from_salesforce(units_service.available_units_for_application(@application.listing.id, @application.id)).to_domain
+      @units = soql_listing_service.units(@application.listing.id).map { |u| Force::Unit.from_salesforce(u).to_domain }
+      @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.id)
     end
 
     def update

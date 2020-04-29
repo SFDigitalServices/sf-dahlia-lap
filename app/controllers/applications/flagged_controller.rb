@@ -26,14 +26,14 @@ module Applications
     private
 
     def pending_data
-      pending_review_record_sets = flagged_record_set_get_service.pending_review_record_sets
+      pending_review_record_sets = flagged_record_set_get_service.pending_review_record_sets.map { |d| Force::FlaggedRecordSet.from_salesforce(d).to_domain }
       fields = flagged_record_set_get_service.pending_review_index_fields
 
       [pending_review_record_sets, fields]
     end
 
     def duplicated_data
-      marked_duplicate_record_sets = flagged_record_set_get_service.marked_duplicate_record_sets
+      marked_duplicate_record_sets = flagged_record_set_get_service.marked_duplicate_record_sets.map { |d| Force::FlaggedRecordSet.from_salesforce(d).to_domain }
       fields = flagged_record_set_get_service.marked_duplicate_index_fields
 
       [marked_duplicate_record_sets, fields]

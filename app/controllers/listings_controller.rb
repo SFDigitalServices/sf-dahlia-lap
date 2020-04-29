@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = service.listing(params[:id])
+    @listing = Force::Listing.from_salesforce(service.listing(params[:id])).to_domain
   end
 
   private
