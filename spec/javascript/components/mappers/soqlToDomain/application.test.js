@@ -1,5 +1,4 @@
 // TODO: Expand these tests to test all fields in application.
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 import soqlApplication from '../../../fixtures/application'
 import { forEach, cloneDeep } from 'lodash'
 
@@ -12,7 +11,7 @@ describe('mapApplication', () => {
     soqlApplication.Sexual_Orientation = 'Decline to state'
     soqlApplication.Sexual_Orientation_Other = 'sexual orientation other'
 
-    const mappedApplication = mapApplication(soqlApplication)
+    const mappedApplication = soqlApplication
 
     const expectedDomainDemographics = {
       'ethnicity': 'Decline to state',
@@ -39,7 +38,7 @@ describe('mapApplication', () => {
       total_monthly_rent: 1234.00
     }
 
-    const mappedApplication = mapApplication(soqlApplication)
+    const mappedApplication = soqlApplication
 
     forEach(expectedDomainCurrencyValues, (value, domainFieldName) => {
       expect(mappedApplication[domainFieldName]).toEqual(value)
@@ -80,7 +79,7 @@ describe('mapApplication', () => {
       'name': undefined
     }
 
-    const mappedApplication = mapApplication(mockSoqlApplication)
+    const mappedApplication = mockSoqlApplication
     expect(mappedApplication['alternate_contact']).toEqual(expectedAlternateContact)
   })
 })

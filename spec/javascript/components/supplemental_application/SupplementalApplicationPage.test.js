@@ -6,7 +6,6 @@ import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import units from '../../fixtures/units'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
@@ -80,7 +79,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves expected values if no changes are made', async () => {
-    const payload = mapApplication(supplementalApplication)
+    const payload = supplementalApplication
     payload['listing_id'] = 'a0W0x000000GhJUEA0'
     payload['rental_assistances'] = []
     let wrapper
@@ -233,7 +232,7 @@ describe('SupplementalApplicationPage', () => {
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-      const expectedApplication = mapApplication(supplementalApplication)
+      const expectedApplication = supplementalApplication
       expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
       expectedApplication['rental_assistances'] = []
       expectedApplication['confirmed_household_annual_income'] = 1234.0
@@ -255,7 +254,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
-      const expectedApplication = mapApplication(supplementalApplication)
+      const expectedApplication = supplementalApplication
       expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
       expectedApplication['rental_assistances'] = []
       expectedApplication['confirmed_household_annual_income'] = null

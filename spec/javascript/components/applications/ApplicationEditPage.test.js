@@ -8,7 +8,6 @@ import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import listing from '../../fixtures/listing'
 import application from '../../fixtures/application'
 import lendingInstitutions from '../../fixtures/lending_institutions'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 const mockSubmitApplication = jest.fn()
 
@@ -48,7 +47,7 @@ describe('ApplicationEditPage', () => {
       wrapper.find('form').first().simulate('submit')
     })
 
-    let domainApplication = mapApplication(application)
+    let domainApplication = application
     domainApplication['listing_id'] = listing['id']
     domainApplication['preferences'][0]['naturalKey'] = 'karen,jones,1950-01-01'
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
