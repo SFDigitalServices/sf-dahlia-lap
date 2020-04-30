@@ -21,7 +21,7 @@ jobs:
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
-            - ./vendor/bundle
+            - ./bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - restore_cache:
           keys:
@@ -46,6 +46,9 @@ jobs:
           - PGUSER: root
       - image: circleci/node:12.16.1
     steps:
+      - restore_cache:
+          key: 1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
   frontend:
