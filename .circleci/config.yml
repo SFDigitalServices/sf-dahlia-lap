@@ -40,7 +40,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: install yarn dependencies
-          command: yarn install
+          command: yarn install --check-files
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
@@ -63,6 +63,17 @@ jobs:
       - *restore_cache
       - run: yarn lint
       - run: yarn unit
+  e2e:
+    executor: ruby_node
+    steps:
+      - checkout
+      - *attach_workspace
+      - *restore_cache
+      - run: bundle exec rake db:setup
+      - run: bundle exec rake db:test:prepare
+      - run: bundle exec rake assets:precompile
+      - run: bundle exec rails server -p 3000 -d
+      - run: yarn e2e
 workflows:
   version: 2.1
   build-and-deploy:
