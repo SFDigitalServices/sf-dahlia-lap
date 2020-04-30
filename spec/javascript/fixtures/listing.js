@@ -76,9 +76,9 @@ const listing = {
         type: "Open_Houses",
         url: "/services/data/v43.0/sobjects/Open_Houses/a0Y0P00000EyLvJUAV"
       },
-      Date: "2018-02-23",
-      Start_Time: "9:00AM",
-      End_Time: "12:00PM"
+      date: "2018-02-23",
+      start_time: "9:00AM",
+      end_time: "12:00PM"
     }
   ],
   listing_lottery_preferences: [

@@ -21,7 +21,7 @@ module Listings
     end
 
     def load_listing
-      @listing = Force::Listing.from_salesforce(soql_listing_service.listing(params[:listing_id])).to_domain
+      @listing = soql_listing_service.listing(params[:listing_id])
     end
 
     def soql_listing_service
