@@ -85,3 +85,6 @@ workflows:
       - frontend:
           requires:
             - build
+      - e2e:
+          requires:
+            - build
