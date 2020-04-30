@@ -73,7 +73,17 @@ jobs:
       - *attach_workspace
       - *restore_cache
       - run: bundle --path vendor/bundle
-      - run: bundle exec rails server -p 3000 -d
+      - run:
+          name: Run rails server in background
+          command: bundle exec rails server -e test -p 3000
+          background: true
+      - run:
+          name: Wait for server
+          command: |
+            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:5002/admin); do
+                printf '.'
+                sleep 5
+            done
       - run: yarn e2e
 workflows:
   version: 2.1
