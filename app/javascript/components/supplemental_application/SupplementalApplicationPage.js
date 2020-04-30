@@ -88,7 +88,7 @@ class SupplementalApplicationPage extends React.Component {
     return !failed
   }
 
-  handleDismissError = (preferenceIndex) => {
+  handleDismissError = () => {
     this.setState({ confirmedPreferencesFailed: false })
   }
 

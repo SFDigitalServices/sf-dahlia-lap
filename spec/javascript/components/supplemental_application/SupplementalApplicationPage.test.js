@@ -128,15 +128,15 @@ describe('SupplementalApplicationPage', () => {
     test('it saves a live/work application preference panel', async () => {
       const withValidPreferences = cloneDeep(supplementalApplication)
       merge(withValidPreferences.preferences[0], {
-        Preference_Name: 'Live or Work in San Francisco Preference',
-        Individual_preference: 'Live in SF',
-        Receives_Preference: true,
-        'RecordType.DeveloperName': 'L_W',
-        LW_Type_of_Proof: 'Water bill',
-        Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' },
-        Id: 'preference_id',
-        Post_Lottery_Validation: 'Unconfirmed',
-        Name: 'AP-1234'
+        preference_name: 'Live or Work in San Francisco Preference',
+        individual_preference: 'Live in SF',
+        receives_preference: true,
+        recordType: { developername: 'L_W' },
+        lw_type_of_proof: 'Water bill',
+        application_member_id: 'xxx',
+        id: 'preference_id',
+        post_lottery_validation: 'Unconfirmed',
+        name: 'AP-1234'
       })
 
       let wrapper
@@ -173,19 +173,20 @@ describe('SupplementalApplicationPage', () => {
       const withValidPreferences = cloneDeep(supplementalApplication)
 
       merge(withValidPreferences.preferences[0], {
-        Preference_Name: 'Rent Burdened Assisted Housing',
-        Individual_preference: 'Rent Burdened',
-        Receives_Preference: true,
-        Type_of_proof: 'Lease and rent proof',
-        Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' },
-        Id: 'preference_id',
-        Post_Lottery_Validation: 'Unconfirmed',
-        Name: 'AP-1234',
-        'RecordType.DeveloperName': 'RB_AHP'
+        preference_name: 'Rent Burdened Assisted Housing',
+        individual_preference: 'Rent Burdened',
+        receives_preference: true,
+        type_of_proof: 'Lease and rent proof',
+        application_member_id: 'xxx',
+        id: 'preference_id',
+        post_lottery_validation: 'Unconfirmed',
+        name: 'AP-1234',
+        recordType: { developername: 'RB_AHP' }
       })
 
-      withValidPreferences.Id = 'application_id'
-      withValidPreferences.Total_Monthly_Rent = '50'
+      withValidPreferences.id = 'application_id'
+      withValidPreferences.total_monthly_rent = '50'
+
       let wrapper
       await act(async () => {
         wrapper = mount(
@@ -202,12 +203,18 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
 
       const expectedPreferencePayload = {
-        id: 'preference_id',
-        application_member_id: 'xxx',
-        individual_preference: 'Rent Burdened',
-        type_of_proof: 'Lease and rent proof',
-        lw_type_of_proof: null,
-        post_lottery_validation: 'Unconfirmed'
+        'application_member_id': 'xxx',
+        'id': 'preference_id',
+        'individual_preference': 'Rent Burdened',
+        'listing_preference_id': 'a0l0x000000RI8nAAG',
+        'lottery_status': 'None',
+        'name': 'AP-1234',
+        'post_lottery_validation': 'Unconfirmed',
+        'preference_name': 'Rent Burdened Assisted Housing',
+        'preference_order': 0,
+        'receives_preference': true,
+        'recordType': { 'developername': 'RB_AHP' },
+        'type_of_proof': 'Lease and rent proof'
       }
       expect(mockUpdateApplication.mock.calls.length).toBe(1)
       expect(mockUpdatePreference.mock.calls.length).toBe(1)

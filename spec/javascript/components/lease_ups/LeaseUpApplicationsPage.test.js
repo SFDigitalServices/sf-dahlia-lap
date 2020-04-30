@@ -60,8 +60,6 @@ let mockApplications = [
   buildMockApplicationWithPreference(5, '1', '1')
 ]
 
-console.log(mockApplications)
-
 const listing = {
   id: 'listingId',
   name: 'listingName',
