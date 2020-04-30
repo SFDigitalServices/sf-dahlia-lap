@@ -37,39 +37,42 @@ jobs:
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
-  backend:
-    docker:
-      - image: 'circleci/ruby:2.7.0-node-browsers'
-        environment:
-          - RAILS_ENV: test
-          - PGHOST: 127.0.0.1
-          - PGUSER: root
-      - image: circleci/node:12.16.1
-    steps:
-      - restore_cache:
-          key: 1-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
-  frontend:
-    docker:
-      - image: 'circleci/ruby:2.7.0-node-browsers'
-        environment:
-          - RAILS_ENV: test
-          - PGHOST: 127.0.0.1
-          - PGUSER: root
-      - image: circleci/node:12.16.1
-    steps:
       - run: yarn lint
       - run: yarn unit
+  # backend:
+  #   docker:
+  #     - image: 'circleci/ruby:2.7.0-node-browsers'
+  #       environment:
+  #         - RAILS_ENV: test
+  #         - PGHOST: 127.0.0.1
+  #         - PGUSER: root
+  #   steps:
+  #     - restore_cache:
+  #         key: 1-dependencies-{{ checksum "Gemfile.lock" }}
+  #     - run: bundle --path vendor/bundle
+  #     - run: bundle exec rubocop
+  #     - run: bundle exec rake spec
+  # frontend:
+  #   docker:
+  #     - image: 'circleci/ruby:2.7.0-node-browsers'
+  #       environment:
+  #         - RAILS_ENV: test
+  #         - PGHOST: 127.0.0.1
+  #         - PGUSER: root
+  #     - image: circleci/node:12.16.1
+  #   steps:
+  #     - run: yarn lint
+  #     - run: yarn unit
 workflows:
   version: 2.1
   build-and-deploy:
     jobs:
-      - build
-      - backend:
-          requires:
-            - build
-      - frontend:
-          requires:
-            - build
+      - build_and_test
+      # - backend:
+      #     requires:
+      #       - build
+      # - frontend:
+      #     requires:
+      #       - build
