@@ -1,7 +1,7 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-jobs:
-  build_and_test:
+executors:
+  ruby_node:
     docker:
       - image: 'circleci/ruby:2.7.0-node-browsers'
         environment:
@@ -9,12 +9,27 @@ jobs:
           - PGHOST: 127.0.0.1
           - PGUSER: root
       - image: circleci/node:12.16.1
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
+aliases:
+  - &attach_workspace
+    attach_workspace:
+      at: ./
+  - &restore_cache
+    restore_cache:
+        name: Restore Cache
+        keys:
+            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ .Branch }}
+            - yarn-packages-master
+            - yarn-packages-
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
+jobs:
+  build:
+    executor: ruby_node
+    steps:
+      - checkout
+      - *attach_workspace
+      - *restore_cache
       - run:
           name: install dependencies
           command: |
@@ -23,12 +38,6 @@ jobs:
           paths:
             - ./bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-      - restore_cache:
-          keys:
-            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-{{ .Branch }}
-            - yarn-packages-master
-            - yarn-packages-
       - run:
           name: install yarn dependencies
           command: yarn install
@@ -37,42 +46,31 @@ jobs:
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
+  backend:
+    executor: ruby_node
+    steps:
+      - checkout
+      - *attach_workspace
+      - *restore_cache
+      - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
+  frontend:
+    executor: ruby_node
+    steps:
+      - checkout
+      - *attach_workspace
+      - *restore_cache
       - run: yarn lint
       - run: yarn unit
-  # backend:
-  #   docker:
-  #     - image: 'circleci/ruby:2.7.0-node-browsers'
-  #       environment:
-  #         - RAILS_ENV: test
-  #         - PGHOST: 127.0.0.1
-  #         - PGUSER: root
-  #   steps:
-  #     - restore_cache:
-  #         key: 1-dependencies-{{ checksum "Gemfile.lock" }}
-  #     - run: bundle --path vendor/bundle
-  #     - run: bundle exec rubocop
-  #     - run: bundle exec rake spec
-  # frontend:
-  #   docker:
-  #     - image: 'circleci/ruby:2.7.0-node-browsers'
-  #       environment:
-  #         - RAILS_ENV: test
-  #         - PGHOST: 127.0.0.1
-  #         - PGUSER: root
-  #     - image: circleci/node:12.16.1
-  #   steps:
-  #     - run: yarn lint
-  #     - run: yarn unit
 workflows:
   version: 2.1
   build-and-deploy:
     jobs:
-      - build_and_test
-      # - backend:
-      #     requires:
-      #       - build
-      # - frontend:
-      #     requires:
-      #       - build
+      - build
+      - backend:
+          requires:
+            - build
+      - frontend:
+          requires:
+            - build
