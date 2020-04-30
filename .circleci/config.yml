@@ -72,6 +72,7 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
+      - run: bundle --path vendor/bundle
       - run: bundle exec rails server -p 3000 -d
       - run: yarn e2e
 workflows:
