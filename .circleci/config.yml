@@ -75,7 +75,7 @@ jobs:
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
-          command: bundle exec rails server -e test -p 3000
+          command: bundle exec rails server -p 3000
           background: true
       - run:
           name: Wait for server
