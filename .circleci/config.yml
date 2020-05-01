@@ -49,9 +49,13 @@ jobs:
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run: bundle exec rake assets:precompile
-      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
-      - run: chmod +x ./tmp/cc-test-reporter
-      - run: ./tmp/cc-test-reporter before-build
+      - run:
+          name:  Download cc-test-reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+            ./tmp/cc-test-reporter before-build
       - persist_to_workspace:
           root: tmp
           paths:
@@ -96,8 +100,8 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - attach_workspace:
+          at: ~/tmp
       - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
       - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
@@ -122,6 +126,5 @@ workflows:
             - build
       - coverage:
           requires:
-            - build
             - backend
             - frontend
