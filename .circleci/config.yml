@@ -52,6 +52,10 @@ jobs:
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
       - run: chmod +x ./tmp/cc-test-reporter
       - run: ./tmp/cc-test-reporter before-build
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
   backend:
     executor: ruby_node
     steps:
@@ -98,6 +102,10 @@ jobs:
       - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.*.json
 workflows:
   version: 2.1
   build-and-deploy:
