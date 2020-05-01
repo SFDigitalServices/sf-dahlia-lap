@@ -49,6 +49,9 @@ jobs:
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run: bundle exec rake assets:precompile
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+      - run: chmod +x ./tmp/cc-test-reporter
+      - run: ./tmp/cc-test-reporter before-build
   backend:
     executor: ruby_node
     steps:
@@ -85,6 +88,16 @@ jobs:
                 sleep 5
             done
       - run: yarn e2e
+  coverage:
+    executor: ruby_node
+    steps:
+      - checkout
+      - *attach_workspace
+      - *restore_cache
+      - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
+      - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
+      - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+      - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
 workflows:
   version: 2.1
   build-and-deploy:
@@ -99,3 +112,8 @@ workflows:
       - e2e:
           requires:
             - build
+      - coverage:
+          requires:
+            - build
+            - backend
+            - frontend
