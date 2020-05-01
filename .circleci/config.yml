@@ -95,6 +95,11 @@ jobs:
                 printf '.'
                 sleep 5
             done
+      - run:
+          name: App server test
+          command: |
+            wget localhost:3000
+            cat index.html
       - run: yarn e2e
   coverage:
     executor: ruby_node
@@ -126,5 +131,6 @@ workflows:
             - build
       - coverage:
           requires:
+            - build
             - backend
             - frontend
