@@ -2,6 +2,7 @@
 version: 2.1
 executors:
   ruby_node:
+    working_directory: ~/repo
     docker:
       - image: 'circleci/ruby:2.7.0-node-browsers'
         environment:
@@ -12,7 +13,7 @@ executors:
 aliases:
   - &attach_workspace
     attach_workspace:
-      at: ./
+      at: ./repo
   - &restore_cache
     restore_cache:
         name: Restore Cache
@@ -106,7 +107,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/tmp
+          at: ~/repo/tmp
       - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
       - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
