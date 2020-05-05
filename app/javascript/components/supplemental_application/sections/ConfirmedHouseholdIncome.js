@@ -36,7 +36,6 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
 
   useEffect(() => {
     const getAmiCharts = async () => {
-      console.log(listingAmiCharts)
       if (listingAmiCharts.length > 0) {
         let chartTypes = listingAmiCharts.map((chart) => {
           const value = `${chart.ami_chart_type} - ${chart.ami_chart_year}`
