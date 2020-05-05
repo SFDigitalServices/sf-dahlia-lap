@@ -1,30 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { find, isNil, isString, map } from 'lodash'
+import { isNil, isString } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { formatPercent } from '~/utils/utils'
 import { YesNoRadioGroup, CurrencyField, InputField, SelectField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
-import { getAMIAction } from '~/components/supplemental_application/actions'
 
 const validateIncomeCurrency = (value) => {
   return (
     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
     validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
   )
-}
-
-export const getAmis = async (chartsToLoad, totalHouseholdSize) => {
-  const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
-  const amis = await Promise.all(promises)
-
-  // Filter by household size and format
-  return amis.map((amisForAllSizes) => {
-    let ami = find(amisForAllSizes, {'numOfHousehold': totalHouseholdSize})
-    if (!isNil(ami)) {
-      return ({'name': ami.chartType, 'year': ami.year, 'numHousehold': ami.numOfHousehold, 'amount': ami.amount})
-    }
-  })
 }
 
 export const getAmiPercent = ({income, ami}) => {
@@ -43,7 +29,6 @@ export const getAmiPercent = ({income, ami}) => {
 
 const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
   const { values } = form.getState()
-  const totalHouseholdSize = values.total_household_size
   const currentAmiChartType = `${values.ami_chart_type} - ${values.ami_chart_year}`
 
   const [ amiChartTypes, setAmiChartTypes ] = useState([])
@@ -51,22 +36,21 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
 
   useEffect(() => {
     const getAmiCharts = async () => {
-      let chartTypes = []
-      let amis = await getAmis(listingAmiCharts, totalHouseholdSize)
+      if (listingAmiCharts.length > 0) {
+        let chartTypes = listingAmiCharts.map((chart) => {
+          const value = `${chart.ami_chart_type} - ${chart.ami_chart_year}`
+          return { value, label: value }
+        })
 
-      amis.map((chart) => {
-        const value = `${chart.name} - ${chart.year}`
-        chartTypes.push({ value, label: value })
-      })
-
-      if (chartTypes.length > 1) {
-        chartTypes.unshift({ value: null, label: 'Select One...' })
-      } else if (chartTypes.length === 1) {
-        const initialType = chartTypes[0]
-        setSelectedType(initialType)
-        setFormYearAndType(initialType.value)
+        if (chartTypes.length > 1) {
+          chartTypes.unshift({ value: null, label: 'Select One...' })
+        } else if (chartTypes.length === 1) {
+          const initialType = chartTypes[0]
+          setSelectedType(initialType)
+          setFormYearAndType(initialType.value)
+        }
+        setAmiChartTypes(chartTypes)
       }
-      setAmiChartTypes(chartTypes)
     }
 
     getAmiCharts()
