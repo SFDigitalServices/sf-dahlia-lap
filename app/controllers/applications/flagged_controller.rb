@@ -19,7 +19,17 @@ module Applications
     def show
       # TODO: lookup listing, pass down to view
       # view needs to not render editable stuff if listing lottery status == lottery complete
-      @flagged_applications = flagged_record_set_get_service.flagged_applications(params[:id])
+      @flagged_applications = flagged_record_set_get_service.flagged_applications(params[:id]).map { |d|
+          flaggedApplication = {}
+          flaggedApplication[:id] = d.Id
+          flaggedApplication[:primary_application_applicant_name] = d.Primary_Application_Applicant_Name
+          flaggedApplication[:review_status] = d.Review_Status
+          flaggedApplication[:comments] = d.Comments
+          flaggedApplication[:application] = Force::Application.from_salesforce(d.Application).to_domain
+          flaggedApplication[:flagged_record] = Force::FlaggedRecordSet.from_salesforce(d.Flagged_Record_Set).to_domain
+
+          flaggedApplication
+      }
       @fields = flagged_record_set_get_service.flagged_applications_fields
     end
 

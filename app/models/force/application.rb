@@ -97,9 +97,8 @@ module Force
       if domain_fields.applicant && domain_fields.applicant.First_Name
         domain_fields.applicant = Force::ApplicationMember.from_salesforce(domain_fields.applicant).to_domain
       end
-
-      puts domain_fields
-      if domain_fields.listing
+      listingIsString = domain_fields.listing.is_a? String
+      if domain_fields.listing && !listingIsString
         domain_fields.listing = Force::Listing.from_salesforce(domain_fields.listing).to_domain
       end
 

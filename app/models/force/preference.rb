@@ -80,7 +80,8 @@ module Force
         domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain
       end
 
-      if domain_fields.listing_preference
+      preferenceIsString = domain_fields.listing_preference.is_a? String
+      if domain_fields.listing_preference && !preferenceIsString
         domain_fields.listing_preference.record_type_for_app_preferences = domain_fields.listing_preference.Record_Type_For_App_Preferences
         domain_fields.listing_preference.delete 'attributes'
         domain_fields.listing_preference.delete 'Record_Type_For_App_Preferences'

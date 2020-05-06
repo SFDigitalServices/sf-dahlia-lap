@@ -28,7 +28,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_listing
-    @listing = soql_listing_service.listing(params[:listing_id]))
+    @listing = soql_listing_service.listing(params[:listing_id])
   end
 
   def custom_api_application_service
