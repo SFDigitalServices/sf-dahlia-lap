@@ -3,7 +3,8 @@ import { isNil, isString } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { formatPercent } from '~/utils/utils'
-import { YesNoRadioGroup, CurrencyField, InputField, SelectField } from '~/utils/form/final_form/Field.js'
+
+import { YesNoRadioGroup, CurrencyField, PercentField, SelectField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
 
 const validateIncomeCurrency = (value) => {
@@ -117,11 +118,13 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
-          <InputField
+          <PercentField
             id='ami_percentage'
             label='AMI Percentage'
             fieldName='ami_percentage'
-            placeholder='Enter Percentage' />
+            placeholder='Enter Percentage'
+            validation={validate.isValidPercent('Please enter a valid percent.')}
+            isDirty={visited && visited['ami_percentage']} />
         </FormGrid.Item>
         <FormGrid.Item>
           <SelectField

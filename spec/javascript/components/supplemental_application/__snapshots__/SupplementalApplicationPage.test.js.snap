@@ -3952,15 +3952,21 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           <div
                                             className="form-grid_item small-12 medium-6 large-3 column"
                                           >
-                                            <InputField
+                                            <PercentField
                                               fieldName="ami_percentage"
                                               id="ami_percentage"
+                                              isDirty={false}
                                               label="AMI Percentage"
                                               placeholder="Enter Percentage"
+                                              validation={[Function]}
                                             >
                                               <Field
+                                                component="input"
+                                                format={[Function]}
+                                                formatOnBlur={false}
                                                 name="ami_percentage"
                                                 parse={[Function]}
+                                                validate={[Function]}
                                               >
                                                 <div
                                                   className="form-group"
@@ -3978,55 +3984,16 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       AMI Percentage
                                                     </label>
                                                   </Label>
-                                                  <Input
+                                                  <input
+                                                    className=""
                                                     id="ami_percentage"
-                                                    input={
-                                                      Object {
-                                                        "checked": undefined,
-                                                        "name": "ami_percentage",
-                                                        "onBlur": [Function],
-                                                        "onChange": [Function],
-                                                        "onFocus": [Function],
-                                                        "value": "",
-                                                      }
-                                                    }
-                                                    meta={
-                                                      Object {
-                                                        "active": false,
-                                                        "data": Object {},
-                                                        "dirty": false,
-                                                        "dirtySinceLastSubmit": false,
-                                                        "error": undefined,
-                                                        "initial": undefined,
-                                                        "invalid": false,
-                                                        "length": undefined,
-                                                        "modified": false,
-                                                        "pristine": true,
-                                                        "submitError": undefined,
-                                                        "submitFailed": false,
-                                                        "submitSucceeded": false,
-                                                        "submitting": false,
-                                                        "touched": false,
-                                                        "valid": true,
-                                                        "validating": false,
-                                                        "visited": false,
-                                                      }
-                                                    }
+                                                    name="ami_percentage"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onFocus={[Function]}
                                                     placeholder="Enter Percentage"
-                                                    type="text"
-                                                  >
-                                                    <input
-                                                      className=""
-                                                      id="ami_percentage"
-                                                      name="ami_percentage"
-                                                      onBlur={[Function]}
-                                                      onChange={[Function]}
-                                                      onFocus={[Function]}
-                                                      placeholder="Enter Percentage"
-                                                      type="text"
-                                                      value=""
-                                                    />
-                                                  </Input>
+                                                    value=""
+                                                  />
                                                   <FieldError
                                                     meta={
                                                       Object {
@@ -4053,7 +4020,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   />
                                                 </div>
                                               </Field>
-                                            </InputField>
+                                            </PercentField>
                                           </div>
                                         </Component>
                                         <Component>
@@ -8746,7 +8713,6 @@ Array [
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="Enter Percentage"
-                  type="text"
                   value=""
                 />
               </div>
