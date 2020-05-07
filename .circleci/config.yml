@@ -9,6 +9,8 @@ executors:
           - PGHOST: 127.0.0.1
           - PGUSER: root
       - image: circleci/node:12.16.1
+        environment:
+          - NODE_OPTIONS: --max_old_space_size=4096
 aliases:
   - &attach_workspace
     attach_workspace:
