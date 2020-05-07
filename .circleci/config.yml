@@ -34,7 +34,6 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
-      - puppeteer/install
       - run:
           name: install dependencies
           command: |
@@ -88,6 +87,10 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
+      - puppeteer/install
+      - run:
+          name: install yarn dependencies
+          command: yarn install --check-files
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
