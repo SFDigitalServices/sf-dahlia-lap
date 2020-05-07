@@ -108,6 +108,9 @@ jobs:
           command: |
             wget localhost:3000
             cat index.html
+      - run:
+          name: CircleCI debug test
+          command: yarn test:all spec/javascript/e2e/CircleCIDebug.e2e.js
       - run: yarn e2e
   coverage:
     executor: ruby_node
