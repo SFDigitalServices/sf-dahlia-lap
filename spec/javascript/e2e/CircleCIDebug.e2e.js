@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer'
 
 describe('CircleCI Test', () => {
   test('lead header loads correctly', async () => {
-    let browser = await puppeteer.launch({ headless: true })
+    let browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
 
     console.log('browser', browser)
     let version = await browser.version()
