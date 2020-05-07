@@ -34,6 +34,7 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
+      - puppeteer/install
       - run:
           name: install dependencies
           command: |
@@ -88,7 +89,6 @@ jobs:
       - *attach_workspace
       - *restore_cache
       - run: bundle --path vendor/bundle
-      - puppeteer/install
       - run:
           name: Run rails server in background
           command: bundle exec rails server -p 3000
