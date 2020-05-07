@@ -51,7 +51,7 @@ const getInputValue = async (page, selector) => {
 }
 
 const getText = async (page, selector) => {
-  return page.$eval(selector, e => e.textContent)
+  return page.$eval('selector', e => e.textContent)
 }
 
 const generateRandomString = (length) => {
