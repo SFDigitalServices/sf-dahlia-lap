@@ -6,9 +6,12 @@ describe('CircleCI Test', () => {
     let browser = await puppeteer.launch({ headless: true })
 
     console.log('browser', browser)
-    console.log('browser version', browser.version())
+    let version = await browser.version()
+    console.log('browser version', version)
     let page = await browser.newPage()
     await page.goto('http://google.com')
+    let content = await page.content()
+    console.log('google page content', content)
     let googleFooter = await page.$eval('div.gb_1f', e => e.textContent)
     console.log('google page content', googleFooter)
     expect(googleFooter).toBe('Google\'s page content')
