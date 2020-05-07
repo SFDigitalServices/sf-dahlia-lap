@@ -39,7 +39,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual('$' + String(hhAssetsValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual('$' + String(confirmedAnnualValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, finalHHAnnualSelector)).toEqual('$' + String(finalHHAnnualValue.float.toFixed(2)))
-    expect(await sharedSteps.getInputValue(page, amiPercentageSelector)).toEqual('5')
+    expect(await sharedSteps.getInputValue(page, amiPercentageSelector)).toEqual('5%')
     expect(await sharedSteps.getInputValue(page, amiChartTypeSelector)).toEqual('HUD Unadjusted - 2018')
 
     await browser.close()
