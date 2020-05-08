@@ -16,7 +16,7 @@ executors:
 aliases:
   - &attach_workspace
     attach_workspace:
-      at: ./
+      at: /repo
   - &restore_cache
     restore_cache:
         name: Restore Cache
@@ -53,6 +53,10 @@ jobs:
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run: bundle exec rake assets:precompile
+      - persist_to_workspace:
+          root: /repo
+          paths:
+            - db/test.sqlite3
       - run:
           name:  Download cc-test-reporter
           command: |
@@ -61,9 +65,9 @@ jobs:
             chmod +x ./tmp/cc-test-reporter
             ./tmp/cc-test-reporter before-build
       - persist_to_workspace:
-          root: tmp
+          root: /repo
           paths:
-            - cc-test-reporter
+            - tmp/cc-test-reporter
   backend:
     executor: ruby_node
     steps:
@@ -92,8 +96,6 @@ jobs:
           name: install yarn dependencies
           command: yarn install --check-files
       - run: bundle --path vendor/bundle
-      - run: bundle exec rake db:setup
-      - run: bundle exec rake db:test:prepare
       - run: bundle exec rake assets:precompile
       - run:
           name: Run rails server in background
@@ -111,10 +113,10 @@ jobs:
           command: |
             wget localhost:3000
             cat index.html
+      - run: yarn e2e
       - run:
           name: CircleCI debug test
           command: yarn test:all spec/javascript/e2e/CircleCIDebug.e2e.js
-      - run: yarn e2e
   coverage:
     executor: ruby_node
     steps:
@@ -126,9 +128,9 @@ jobs:
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
       - persist_to_workspace:
-          root: tmp
+          root: /repo
           paths:
-            - codeclimate.*.json
+            - tmp/codeclimate.*.json
 workflows:
   version: 2.1
   build-and-deploy:
