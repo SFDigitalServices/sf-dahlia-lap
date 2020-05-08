@@ -13,10 +13,11 @@ executors:
       - image: circleci/node:12.16.1-browsers
         environment:
           - NODE_OPTIONS: --max_old_space_size=4096
+    working_directory: /tmp
 aliases:
   - &attach_workspace
     attach_workspace:
-      at: /repo
+      at: /tmp/workspace
   - &restore_cache
     restore_cache:
         name: Restore Cache
@@ -54,9 +55,9 @@ jobs:
       - run: bundle exec rake db:test:prepare
       - run: bundle exec rake assets:precompile
       - persist_to_workspace:
-          root: /repo
+          root: db
           paths:
-            - db/test.sqlite3
+            - test.sqlite3
       - run:
           name:  Download cc-test-reporter
           command: |
@@ -65,9 +66,9 @@ jobs:
             chmod +x ./tmp/cc-test-reporter
             ./tmp/cc-test-reporter before-build
       - persist_to_workspace:
-          root: /repo
+          root: tmp
           paths:
-            - tmp/cc-test-reporter
+            - cc-test-reporter
   backend:
     executor: ruby_node
     steps:
@@ -75,6 +76,7 @@ jobs:
       - *attach_workspace
       - *restore_cache
       - run: bundle --path vendor/bundle
+      - run: cat tmp
       - run: bundle exec rubocop
       - run: bundle exec rake spec
   frontend:
