@@ -92,6 +92,9 @@ jobs:
           name: install yarn dependencies
           command: yarn install --check-files
       - run: bundle --path vendor/bundle
+      - run: bundle exec rake db:setup
+      - run: bundle exec rake db:test:prepare
+      - run: bundle exec rake assets:precompile
       - run:
           name: Run rails server in background
           command: bundle exec rails server -p 3000
