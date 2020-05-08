@@ -8,26 +8,13 @@ const {
   labelize
 } = formOptions
 
-const FieldType = {
-  Text: 0,
-  Currency: 1,
-  Percent: 2
-}
-Object.freeze(FieldType)
-
 // Make react-final-form does include empty values on submit.
 // Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
-const identity = (value, name, fieldType = FieldType.Text) => {
-  if (value) {
-    switch (fieldType) {
-      case FieldType.Currency:
-        // Here we remove anything that is not a numeric digit
-        // or a decimal place while editing the field
-        return value.toString().replace(/[^\d|.]/g, '')
-      case FieldType.Percent:
-        // Only allow digits for percent fields
-        return value.toString().replace(/[^\d]/g, '')
-    }
+const identity = (value, name, isFloat) => {
+  if (value && isFloat) {
+    // Here we remove anything that is not a numeric digit
+    // or a decimal place while editing the field
+    return value.toString().replace(/[^\d|.]/g, '')
   }
 
   return value
@@ -92,7 +79,7 @@ export const CurrencyField = ({ fieldName, validation, id, label, placeholder, m
     validate={validation}
     component='input'
     format={formUtils.formatPrice}
-    parse={(value, name) => identity(value, name, FieldType.Currency)}
+    parse={(value, name) => identity(value, name, true)}
     formatOnBlur={isDirty}
   >
     {({ input, meta }) => (
@@ -122,7 +109,7 @@ export const PercentField = ({ fieldName, validation, id, label, placeholder, ma
     validate={validation}
     component='input'
     format={formUtils.formatPercent}
-    parse={(value, name) => identity(value, name, FieldType.Percent)}
+    parse={(value, name) => identity(value, name, true)}
     formatOnBlur={isDirty}
   >
     {({ input, meta }) => (

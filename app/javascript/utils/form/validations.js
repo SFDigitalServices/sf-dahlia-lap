@@ -74,7 +74,7 @@ const isValidPercent = (value) => {
     return true
   } else {
     // Example passing values: 5, 10, 50%, 524%
-    return /^[0-9]+%?$/.test(value)
+    return /^[0-9]+\.?[0-9]*%?$/.test(value)
   }
 }
 
@@ -182,13 +182,13 @@ export const convertCurrency = (values) => {
  * then unflattens back to the correct object
  */
 export const convertPercentAndCurrency = (values) => {
-  const convertPercentToInt = (value) => parseInt(value)
+  const convertPercentToFloat = (value) => parseFloat(value)
   const convertCurrencyToFloat = (value) => parseFloat(parseFloat(value.replace(/\$|,/g, '')).toFixed(2))
   return convertValues(values, (value) => {
     if (typeof value !== 'string') return value
 
     if (value.endsWith('%') && isValidPercent(value)) {
-      return convertPercentToInt(value)
+      return convertPercentToFloat(value)
     } else if (isCurrencyString(value)) {
       return convertCurrencyToFloat(value)
     }

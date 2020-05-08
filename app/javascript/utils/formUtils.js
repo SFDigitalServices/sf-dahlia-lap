@@ -28,12 +28,12 @@ const formatPrice = (value) => {
   }
 }
 
-// Formats a number to percent in format: 50%
+// Formats a number to percent in format: 50%, 5.5%, etc
 const formatPercent = (value) => {
   if (!value) return null
-  let valueString = value.toString().replace(/[^\d]/g, '')
-  if (!isNaN(parseInt(valueString))) {
-    return parseInt(valueString) + '%'
+  if (!isNaN(parseFloat(value))) {
+    // Outer parseFloat removes trailing zeros.
+    return parseFloat(parseFloat(value).toFixed(3)) + '%'
   } else {
     return value
   }

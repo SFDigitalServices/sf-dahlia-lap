@@ -106,8 +106,15 @@ describe('validate', () => {
         expect(validate.isValidPercent(VALIDATION_MSG)('2000')).toEqual(undefined)
         expect(validate.isValidPercent(VALIDATION_MSG)('002000')).toEqual(undefined)
       })
+      test('when a number with a trailing decimal is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('2000.')).toEqual(undefined)
+      })
       test('when a percent string is entered', () => {
         expect(validate.isValidPercent(VALIDATION_MSG)('20%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.0%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.3%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.12345%')).toEqual(undefined)
       })
     })
     describe('fails validation', () => {
@@ -115,11 +122,12 @@ describe('validate', () => {
         expect(validate.isValidPercent(VALIDATION_MSG)(-20)).toEqual(VALIDATION_MSG)
         expect(validate.isValidPercent(VALIDATION_MSG)('-20')).toEqual(VALIDATION_MSG)
       })
-      test('when a string containing decimals is entered', () => {
-        expect(validate.isValidPercent(VALIDATION_MSG)('100.')).toEqual(VALIDATION_MSG)
-        expect(validate.isValidPercent(VALIDATION_MSG)('100.0')).toEqual(VALIDATION_MSG)
-        expect(validate.isValidPercent(VALIDATION_MSG)('100.23')).toEqual(VALIDATION_MSG)
+      test('when a string containing multiple decimals is entered', () => {
         expect(validate.isValidPercent(VALIDATION_MSG)('100.3.4')).toEqual(VALIDATION_MSG)
+      })
+      test('when a string containing decimals but no digits is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('.')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('.%')).toEqual(VALIDATION_MSG)
       })
       test('when a string containing letters is entered', () => {
         expect(validate.isValidPercent(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
@@ -318,7 +326,7 @@ describe('validate', () => {
     describe('modifies percent values on', () => {
       test('object that is only percent strings', () => {
         expect(convertPercentAndCurrency(mockObjectWithValues('100%'))).toEqual(mockObjectWithValues(100))
-        expect(convertPercentAndCurrency(mockObjectWithValues('100%', '200%'))).toEqual(mockObjectWithValues(100, 200))
+        expect(convertPercentAndCurrency(mockObjectWithValues('100.00%', '200.5%'))).toEqual(mockObjectWithValues(100, 200.5))
         expect(convertPercentAndCurrency(mockObjectWithValues('0%'))).toEqual(mockObjectWithValues(0))
       })
       test('object that is percent and non percent strings', () => {

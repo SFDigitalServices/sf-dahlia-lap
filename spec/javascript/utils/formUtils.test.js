@@ -28,6 +28,26 @@ describe('formatPercent', () => {
     expect(formUtils.formatPercent('00')).toEqual('0%')
   })
 
+  test('should trim trailing zeros', async () => {
+    expect(formUtils.formatPercent('1.0')).toEqual('1%')
+    expect(formUtils.formatPercent('1.10')).toEqual('1.1%')
+    expect(formUtils.formatPercent('1.101')).toEqual('1.101%')
+    expect(formUtils.formatPercent('1.010')).toEqual('1.01%')
+
+    // to check for bug that happens if you use .toPrecision() instead of .toFixed()
+    expect(formUtils.formatPercent('123456.010')).toEqual('123456.01%')
+  })
+
+  test('should trim any digits after the hundredths place', async () => {
+    expect(formUtils.formatPercent('1.1')).toEqual('1.1%')
+    expect(formUtils.formatPercent('1.11')).toEqual('1.11%')
+    expect(formUtils.formatPercent('1.111')).toEqual('1.111%')
+    expect(formUtils.formatPercent('1.1111')).toEqual('1.111%')
+    expect(formUtils.formatPercent('1.5555')).toEqual('1.556%')
+    expect(formUtils.formatPercent('1.9999')).toEqual('2%')
+    expect(formUtils.formatPercent('123456.99999')).toEqual('123457%')
+  })
+
   test('should format 0 correctly', async () => {
     expect(formUtils.formatPercent('0')).toEqual('0%')
   })
