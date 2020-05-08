@@ -13,11 +13,11 @@ executors:
       - image: circleci/node:12.16.1-browsers
         environment:
           - NODE_OPTIONS: --max_old_space_size=4096
-    working_directory: /tmp
+    working_directory: ~/tmp
 aliases:
   - &attach_workspace
     attach_workspace:
-      at: /tmp/workspace
+      at: ~/tmp
   - &restore_cache
     restore_cache:
         name: Restore Cache
@@ -54,10 +54,6 @@ jobs:
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run: bundle exec rake assets:precompile
-      - persist_to_workspace:
-          root: db
-          paths:
-            - test.sqlite3
       - run:
           name:  Download cc-test-reporter
           command: |
@@ -66,9 +62,9 @@ jobs:
             chmod +x ./tmp/cc-test-reporter
             ./tmp/cc-test-reporter before-build
       - persist_to_workspace:
-          root: tmp
+          root: .
           paths:
-            - cc-test-reporter
+            - .
   backend:
     executor: ruby_node
     steps:
@@ -123,14 +119,13 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/tmp
+      - *attach_workspace
       - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
       - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
       - persist_to_workspace:
-          root: /repo
+          root: .
           paths:
             - tmp/codeclimate.*.json
 workflows:
