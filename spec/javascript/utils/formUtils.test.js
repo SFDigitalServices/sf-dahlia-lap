@@ -59,6 +59,8 @@ describe('formatPercent', () => {
   test('should leave improper values as-is', async () => {
     expect(formUtils.formatPercent('%')).toEqual('%')
     expect(formUtils.formatPercent('abc')).toEqual('abc')
+    expect(formUtils.formatPercent('5.5.5%')).toEqual('5.5.5%')
+    expect(formUtils.formatPercent('5..5')).toEqual('5..5')
   })
 
   test('should be empty if there is no value', async () => {

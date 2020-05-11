@@ -69,7 +69,7 @@ const isValidCurrency = (value) => {
   }
 }
 
-const isValidPercent = (value) => {
+export const isValidPercent = (value) => {
   if (isNil(value) || value.length === 0) {
     return true
   } else {
