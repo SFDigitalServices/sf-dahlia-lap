@@ -30,7 +30,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     await sharedSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
 
     // Enter AMI Percentage
-    await sharedSteps.enterValue(page, amiPercentageSelector, '5')
+    await sharedSteps.enterValue(page, amiPercentageSelector, '5.55')
 
     // Click save
     await supplementalApplicationSteps.savePage(page)
@@ -39,7 +39,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual('$' + String(hhAssetsValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual('$' + String(confirmedAnnualValue.float.toFixed(2)))
     expect(await sharedSteps.getInputValue(page, finalHHAnnualSelector)).toEqual('$' + String(finalHHAnnualValue.float.toFixed(2)))
-    expect(await sharedSteps.getInputValue(page, amiPercentageSelector)).toEqual('5')
+    expect(await sharedSteps.getInputValue(page, amiPercentageSelector)).toEqual('5.55%')
     expect(await sharedSteps.getInputValue(page, amiChartTypeSelector)).toEqual('HUD Unadjusted - 2018')
 
     await browser.close()

@@ -14,15 +14,26 @@ const toOptions = (items) => {
   return items.map(toOption)
 }
 
-// Formats a numer to currency in format eg. $1,000.00
+// Formats a number to currency in format eg. $1,000.00
 // If the field is empty, return null to prevent salesforce issues.
 const formatPrice = (value) => {
   if (!value) return null
   let valueString = value.toString().replace(/[^.|\d]/g, '')
 
   // return value if value is not valid number
-  if (parseFloat(valueString)) {
+  if (!isNaN(parseFloat(valueString))) {
     return '$' + parseFloat(valueString).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+  } else {
+    return value
+  }
+}
+
+// Formats a number to percent in format: 50%, 5.5%, etc
+const formatPercent = (value) => {
+  if (!value) return null
+  if (!isNaN(parseFloat(value))) {
+    // Outer parseFloat removes trailing zeros.
+    return parseFloat(parseFloat(value).toFixed(3)) + '%'
   } else {
     return value
   }
@@ -53,5 +64,6 @@ export const maxLengthMap = {
 export default {
   toOption,
   toOptions,
-  formatPrice
+  formatPrice,
+  formatPercent
 }
