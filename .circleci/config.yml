@@ -80,9 +80,9 @@ jobs:
             bundle exec rake spec
             ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - persist_to_workspace:
-          root: .
+          root: tmp
           paths:
-            - tmp
+            - codeclimate.backend.json
   frontend:
     executor: ruby_node
     steps:
@@ -93,9 +93,9 @@ jobs:
       - run: yarn unit
       - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
       - persist_to_workspace:
-          root: .
+          root: tmp
           paths:
-            - tmp
+            - codeclimate.frontend.json
   e2e:
     executor: ruby_node
     steps:
