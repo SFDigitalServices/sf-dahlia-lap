@@ -74,7 +74,15 @@ jobs:
       - run: bundle --path vendor/bundle
       - run: ls tmp
       - run: bundle exec rubocop
-      - run: bundle exec rake spec
+      - run:
+          name: Run backend tests
+          command: |
+            bundle exec rake spec
+            ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.backend.json
   frontend:
     executor: ruby_node
     steps:
@@ -83,6 +91,15 @@ jobs:
       - *restore_cache
       - run: yarn lint
       - run: yarn unit
+      - run:
+          name: Run frontend tests
+          command: |
+            yarn unit
+            ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/lcov.info
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.frontend.json
   e2e:
     executor: ruby_node
     steps:
@@ -117,8 +134,8 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
-      - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
+      # - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
+      # - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
       - persist_to_workspace:
