@@ -114,7 +114,7 @@ Array [
                   value=""
                 >
                   <option
-                    value={null}
+                    value=""
                   >
                     Any Listing
                   </option>
@@ -177,7 +177,7 @@ Array [
                   <option
                     value=""
                   >
-                    Select One...
+                    Any type
                   </option>
                   <option
                     value="Paper"
@@ -188,11 +188,6 @@ Array [
                     value="Electronic"
                   >
                     Electronic
-                  </option>
-                  <option
-                    value={null}
-                  >
-                    Any type
                   </option>
                 </select>
               </div>
