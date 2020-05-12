@@ -15,6 +15,14 @@ describe('formatPrice', () => {
   test('should format 0 correctly', async () => {
     expect(formUtils.formatPrice('0')).toEqual('$0.00')
   })
+  test('should not modify currency values that are already formatted', async () => {
+    expect(formUtils.formatPrice('$11,000.00')).toEqual('$11,000.00')
+  })
+  test('should not format invalid currencies', async () => {
+    expect(formUtils.formatPrice('0.0.0')).toEqual('0.0.0')
+    expect(formUtils.formatPrice('abc')).toEqual('abc')
+    expect(formUtils.formatPrice('$$200')).toEqual('$$200')
+  })
 })
 
 describe('formatPercent', () => {

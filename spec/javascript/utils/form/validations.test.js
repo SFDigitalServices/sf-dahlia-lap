@@ -160,15 +160,20 @@ describe('validate', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)('$2000.53')).toEqual(undefined)
         expect(validate.isValidCurrency(VALIDATION_MSG)('2,000')).toEqual(undefined)
       })
-      // TODO: Enhance currency validation to exclude these cases.
-      test('when any string with $s and ,s is entered', () => {
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000$')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,000,')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$')).toEqual(undefined)
+      // Maybe validation should be enhanced for this case?
+      test('when a currency string with too many commas is entered', () => {
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,0,0,0')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$,,')).toEqual(undefined)
         expect(validate.isValidCurrency(VALIDATION_MSG)(',')).toEqual(undefined)
       })
     })
     describe('fails validation', () => {
+      test('when a non-currency string with $s and ,s is entered', () => {
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000$')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$$2000')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$')).toEqual(VALIDATION_MSG)
+      })
       test('when a string contains letters is entered', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
         expect(validate.isValidCurrency(VALIDATION_MSG)('2000.5z')).toEqual(VALIDATION_MSG)

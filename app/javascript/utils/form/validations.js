@@ -61,19 +61,22 @@ const isValidEmail = (email) => {
   return true
 }
 
-const isValidCurrency = (value) => {
-  if (isNil(value)) {
+const isEmptyString = (value) => isNil(value) || value.length === 0
+
+export const isValidCurrency = (value) => {
+  if (isEmptyString(value)) {
     return true
   } else {
-    return !(/[^0-9$,.]/.test(value))
+    // Example passing values: 5, $5, 5.01, $5.01
+    return /^\$?[0-9,]+\.?[0-9]*$/.test(value)
   }
 }
 
 export const isValidPercent = (value) => {
-  if (isNil(value) || value.length === 0) {
+  if (isEmptyString(value)) {
     return true
   } else {
-    // Example passing values: 5, 10, 50%, 524%
+    // Example passing values: 5, 10.2, 50.50%, 524%
     return /^[0-9]+\.?[0-9]*%?$/.test(value)
   }
 }
