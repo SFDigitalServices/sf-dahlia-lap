@@ -28,13 +28,13 @@ module Force
       end
 
       def application(id, opts = { include_lease: true, include_rental_assistances: true })
-        application = query_first(%(
+        application = Force::Application.from_salesforce(query_first(%(
           SELECT #{query_fields(:show)}
           FROM Application__c
           WHERE Id = '#{id}'
           AND Status__c != '#{DRAFT}'
           LIMIT 1
-        ))
+        ))).to_domain
         application['preferences'] = app_preferences(id)
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
         application['household_members'] = app_household_members(application)
@@ -80,8 +80,8 @@ module Force
         parsed_index_query(%(
           SELECT #{query_fields(:show_household_members)}
           FROM Application_Member__c
-          WHERE Application__c = '#{application.Id}'
-          AND Id != '#{application.Applicant.Id}'
+          WHERE Application__c = '#{application.id}'
+          AND Id != '#{application.applicant.id}'
           AND Id != '#{alternate_contact_id}'
         ), :show_household_members)
       end

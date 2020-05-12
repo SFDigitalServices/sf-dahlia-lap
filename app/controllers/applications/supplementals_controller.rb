@@ -6,7 +6,7 @@ module Applications
     before_action :authenticate_user!
 
     def index
-      @application = Force::Application.from_salesforce(soql_application_service.application(params[:application_id])).to_domain
+      @application = find_application(params[:application_id])
       @status_history = field_update_comment_service.status_history_by_application(@application.id).map { |s| Force::FieldUpdateComment.from_salesforce(s).to_domain }
       @file_base_url = file_base_url
       @available_units = Force::Unit.from_salesforce(units_service.available_units_for_application(@application.listing.id, params[:application_id])).to_domain
@@ -18,12 +18,24 @@ module Applications
       application_service.update
     end
 
+    def find_application(id)
+      application = Force::Application.from_salesforce(soql_application_service.application(id)).to_domain
+
+      application.preferences = soql_preference_service.app_preferences_for_application(id)
+
+      application
+    end
+
     def field_update_comment_service
       Force::FieldUpdateCommentService.new(current_user)
     end
 
     def soql_application_service
       Force::Soql::ApplicationService.new(current_user)
+    end
+
+    def soql_preference_service
+      Force::Soql::PreferenceService.new(current_user)
     end
 
     def units_service

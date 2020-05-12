@@ -100,6 +100,7 @@ module Force
       listingIsString = domain_fields.listing.is_a? String
       if domain_fields.listing && !listingIsString
         domain_fields.listing = Force::Listing.from_salesforce(domain_fields.listing).to_domain
+        domain_fields.listing_id = domain_fields.listing.id
       end
 
       domain_fields

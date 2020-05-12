@@ -18,9 +18,9 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = soql_listing_service.listing(@application.Listing.Id)
+    @listing = soql_listing_service.listing(@application.listing.id)
     @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
-    redirect_to application_url(id: @application.Id) if
+    redirect_to application_url(id: @application.id) if
       @listing.lottery_status != 'Not Yet Run' ||
       @application&.Application_Submission_Type != 'Paper'
   end
@@ -103,6 +103,8 @@ class ApplicationsController < ApplicationController
     # added to custom API short form response so that we don't
     # have to do this here.
     application.total_household_size = application.household_members.length + 1
+
+    application.preferences = soql_preference_service.app_preferences_for_application(id)
 
     # Return a domain-formatted application with additional
     # domain-formatted info added onto it
