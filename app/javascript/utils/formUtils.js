@@ -1,4 +1,5 @@
 import { isObjectLike, isArray } from 'lodash'
+import { isValidPercent, isValidCurrency } from './form/validations'
 
 const toOption = (item) => {
   if (isArray(item)) {
@@ -21,7 +22,7 @@ const formatPrice = (value) => {
   let valueString = value.toString().replace(/[^.|\d]/g, '')
 
   // return value if value is not valid number
-  if (!isNaN(parseFloat(valueString))) {
+  if (isValidCurrency(value) && !isNaN(parseFloat(valueString))) {
     return '$' + parseFloat(valueString).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
   } else {
     return value
@@ -31,7 +32,7 @@ const formatPrice = (value) => {
 // Formats a number to percent in format: 50%, 5.5%, etc
 const formatPercent = (value) => {
   if (!value) return null
-  if (!isNaN(parseFloat(value))) {
+  if (isValidPercent(value) && !isNaN(parseFloat(value))) {
     // Outer parseFloat removes trailing zeros.
     return parseFloat(parseFloat(value).toFixed(3)) + '%'
   } else {
