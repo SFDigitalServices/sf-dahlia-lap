@@ -1,4 +1,4 @@
-import { getAmis, getAmiPercent } from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'
+import { getAmiPercent } from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'
 
 jest.mock('apiService', () => ({
   getAMI: async (data) => {
@@ -24,19 +24,6 @@ describe('ConfirmedHouseholdIncome', () => {
     })
     test('it returns error message if income is invalid', () => {
       expect(getAmiPercent({'income': 'zzz', 'ami': '100000'})).toBe('Fix HH Income')
-    })
-  })
-  describe('getAmis', () => {
-    test('finds the proper AMI value when one type of chart is requested', async () => {
-      const chartsToLoad = [{'ami_chart_type': 'Chart Name', 'ami_chart_year': 2016}]
-      expect(await getAmis(chartsToLoad, 2)).toStrictEqual([{name: 'Chart Name', year: 2016, amount: 200, numHousehold: 2}])
-    })
-    test('finds proper AMI values when there is more than one chart on a listing', async () => {
-      const chartsToLoad = [{'ami_chart_type': 'Chart Name', 'ami_chart_year': 2016}, {'ami_chart_type': 'Chart Name B', 'ami_chart_year': 2016}]
-      expect(await getAmis(chartsToLoad, 2)).toStrictEqual([
-        {name: 'Chart Name', year: 2016, amount: 200, numHousehold: 2},
-        {name: 'Chart Name B', year: 2016, amount: 200, numHousehold: 2}
-      ])
     })
   })
 })

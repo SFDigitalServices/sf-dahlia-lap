@@ -1,31 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { find, kebabCase, isNil, isString, map } from 'lodash'
+import { isNil, isString } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import FormGroupTextValue from '~/components/atoms/FormGroupTextValue'
 import { formatPercent } from '~/utils/utils'
-import { YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field.js'
+
+import { YesNoRadioGroup, CurrencyField, PercentField, SelectField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
-import { getAMIAction } from '~/components/supplemental_application/actions'
 
 const validateIncomeCurrency = (value) => {
   return (
     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
     validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
   )
-}
-
-export const getAmis = async (chartsToLoad, totalHouseholdSize) => {
-  const promises = map(chartsToLoad, chart => getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year }))
-  const amis = await Promise.all(promises)
-
-  // Filter by household size and format
-  return amis.map((amisForAllSizes) => {
-    let ami = find(amisForAllSizes, {'numOfHousehold': totalHouseholdSize})
-    if (!isNil(ami)) {
-      return ({'name': ami.chartType, 'year': ami.year, 'numHousehold': ami.numOfHousehold, 'amount': ami.amount})
-    }
-  })
 }
 
 export const getAmiPercent = ({income, ami}) => {
@@ -44,14 +30,45 @@ export const getAmiPercent = ({income, ami}) => {
 
 const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
   const { values } = form.getState()
-  const totalHouseholdSize = values.total_household_size
-  const hhTotalIncomeWithAssetsAnnual = values.hh_total_income_with_assets_annual
+  const currentAmiChartType = `${values.ami_chart_type} - ${values.ami_chart_year}`
 
-  const [ amiCharts, setAmiCharts ] = useState([])
-  // This is the hooks version of componentDidMount.
+  const [ amiChartTypes, setAmiChartTypes ] = useState([])
+  const [ selectedType, setSelectedType ] = useState(currentAmiChartType || '')
+
   useEffect(() => {
-    getAmis(listingAmiCharts, totalHouseholdSize).then(amis => setAmiCharts(amis))
+    const getAmiCharts = async () => {
+      if (listingAmiCharts.length > 0) {
+        let chartTypes = listingAmiCharts.map((chart) => {
+          const value = `${chart.ami_chart_type} - ${chart.ami_chart_year}`
+          return { value, label: value }
+        })
+
+        if (chartTypes.length > 1) {
+          chartTypes.unshift({ value: null, label: 'Select One...' })
+        } else if (chartTypes.length === 1) {
+          const initialType = chartTypes[0]
+          setSelectedType(initialType)
+          setFormYearAndType(initialType.value)
+        }
+        setAmiChartTypes(chartTypes)
+      }
+    }
+
+    getAmiCharts()
   }, [])
+
+  const setFormYearAndType = (combinedValue) => {
+    const idx = combinedValue.lastIndexOf(' - ')
+    const type = combinedValue.substr(0, idx)
+    const year = combinedValue.substr(idx).replace(' - ', '')
+    form.change('ami_chart_type', type)
+    form.change('ami_chart_year', year)
+  }
+
+  const handleAmiSelectChange = ({ target: { value } }) => {
+    setFormYearAndType(value)
+    setSelectedType(value)
+  }
 
   return (
     <React.Fragment>
@@ -100,20 +117,25 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row paddingBottom>
-        {amiCharts.map((chart) => {
-          let id = `ami-${kebabCase(chart.name)}-${chart.year}`
-          return (
-            <FormGrid.Item key={`${kebabCase(chart.name)}-${chart.year}`}>
-              <FormGroupTextValue label={`Calculated % of AMI - ${chart.name}`}
-                id={id}
-                name={id}
-                describeId={id}
-                note='Based on Final Household Income'
-                value={getAmiPercent({income: hhTotalIncomeWithAssetsAnnual, ami: chart.amount})} />
-            </FormGrid.Item>
-          )
-        }
-        )}
+        <FormGrid.Item>
+          <PercentField
+            id='ami_percentage'
+            label='AMI Percentage'
+            fieldName='ami_percentage'
+            placeholder='Enter Percentage'
+            validation={validate.isValidPercent('Please enter a valid percent.')}
+            isDirty={visited && visited['ami_percentage']} />
+        </FormGrid.Item>
+        <FormGrid.Item>
+          <SelectField
+            id='ami_chart_type'
+            fieldName='ami_chart_type'
+            label='AMI Chart Type'
+            onChange={handleAmiSelectChange}
+            selectValue={selectedType}
+            options={amiChartTypes}
+            noPlaceholder />
+        </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>
   )
