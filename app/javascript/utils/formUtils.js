@@ -40,6 +40,21 @@ const formatPercent = (value) => {
   }
 }
 
+// filter an object to only include keys that correspond to values that pass the given predicate
+const filterValues = (obj, predicate) => Object.fromEntries(
+  Object.keys(obj)
+    .filter(key => predicate(obj[key]))
+    .map(key => [key, obj[key]]))
+
+// remove keys from obj if the values are empty (null or undefined).
+// Optionally scrub empty strings ('') as well.
+const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
+  const valueIsNonEmpty = (value) =>
+    value !== undefined && value !== null && (!scrubEmptyStrings || value !== '')
+
+  return filterValues(obj, valueIsNonEmpty)
+}
+
 export const maxLengthMap = {
   first_name: 40,
   middle_name: 20,
@@ -66,5 +81,6 @@ export default {
   toOption,
   toOptions,
   formatPrice,
-  formatPercent
+  formatPercent,
+  scrubEmptyValues
 }

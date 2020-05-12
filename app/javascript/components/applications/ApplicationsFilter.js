@@ -6,11 +6,14 @@ import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import formUtils from '~/utils/formUtils'
 import Loading from '~/components/molecules/Loading'
 
-const submissionTypeOptions = formUtils.toOptions(['Paper', 'Electronic', [null, 'Any type']])
+// Can't use null or value will default to label name on submit.
+const createEmptySelectOption = (label) => ['', label]
+
+const submissionTypeOptions = formUtils.toOptions([createEmptySelectOption('Any type'), 'Paper', 'Electronic'])
 
 const buildListingOptions = (listings) => {
   return formUtils.toOptions([
-    [null, 'Any Listing'],
+    createEmptySelectOption('Any Listing'),
     ...map(listings, i => [i.id, i.name])
   ])
 }
@@ -24,13 +27,13 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
     listingIdField = <input value={listings[0].name} type='text' disabled />
   } else {
     const listingOptions = buildListingOptions(sortedList)
-    listingIdField = <SelectField fieldName='listing_id' options={listingOptions} placeholder='Any Listing' />
+    listingIdField = <SelectField fieldName='listing_id' options={listingOptions} />
   }
 
   return (
     <Loading isLoading={loading}>
       <Form
-        onSubmit={onSubmit}
+        onSubmit={(filters) => onSubmit(formUtils.scrubEmptyValues(filters, true))}
         initialValues={initialValues}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit} noValidate>

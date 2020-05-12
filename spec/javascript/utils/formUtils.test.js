@@ -70,10 +70,73 @@ describe('formatPercent', () => {
     expect(formUtils.formatPercent('5.5.5%')).toEqual('5.5.5%')
     expect(formUtils.formatPercent('5..5')).toEqual('5..5')
   })
+})
 
-  test('should be empty if there is no value', async () => {
-    expect(formUtils.formatPercent(undefined)).toEqual(null)
-    expect(formUtils.formatPercent(null)).toEqual(null)
-    expect(formUtils.formatPercent('')).toEqual(null)
+describe('scrubEmptyValues', () => {
+  describe('when scrubEmptyStrings is false', async () => {
+    test('does not modify object without any values', async () => {
+      expect(formUtils.scrubEmptyValues({})).toEqual({})
+    })
+
+    test('does not modify object without any empty values', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: 2 })).toEqual({ 1: 2 })
+      expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4 })).toEqual({ 1: 2, 3: 4 })
+      expect(formUtils.scrubEmptyValues({ 'a': 'b' })).toEqual({ 'a': 'b' })
+    })
+
+    test('does not modify object with falsy but non empty values', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: 0 })).toEqual({ 1: 0 })
+      expect(formUtils.scrubEmptyValues({ 1: '' })).toEqual({ 1: '' })
+      expect(formUtils.scrubEmptyValues({ 1: 'false' })).toEqual({ 1: 'false' })
+    })
+
+    test('removes empty entries', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: null })).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: undefined })).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined })).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' })).toEqual({ 3: 'a', 4: '' })
+    })
+
+    test('does not modify object with empty nested values', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: { 2: undefined } })).toEqual({ 1: { 2: undefined } })
+    })
+  })
+
+  describe('when scrubEmptyStrings is true', async () => {
+    test('does not modify object without any values', async () => {
+      expect(formUtils.scrubEmptyValues({}, true)).toEqual({})
+    })
+
+    test('does not modify object without any empty values', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: 2 }, true)).toEqual({ 1: 2 })
+      expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4 }, true)).toEqual({ 1: 2, 3: 4 })
+      expect(formUtils.scrubEmptyValues({ 'a': 'b' }, true)).toEqual({ 'a': 'b' })
+    })
+
+    test('does not modify object with falsy but non empty values', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: 0 }, true)).toEqual({ 1: 0 })
+      expect(formUtils.scrubEmptyValues({ 1: 'false' }, true)).toEqual({ 1: 'false' })
+    })
+
+    test('removes empty strings as if they were null', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: '' }, true)).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4, 4: '' }, true)).toEqual({ 1: 2, 3: 4 })
+    })
+
+    test('removes empty entries', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: null }, true)).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: undefined }, true)).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined }, true)).toEqual({ })
+    })
+
+    test('removes empty strings as if they were null', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: '' }, true)).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4, 4: '' }, true)).toEqual({ 1: 2, 3: 4 })
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' }, true)).toEqual({ 3: 'a' })
+    })
+
+    test('does not modify object with empty nested values', async () => {
+      expect(formUtils.scrubEmptyValues({ 1: { 2: undefined } }, true)).toEqual({ 1: { 2: undefined } })
+    })
   })
 })
