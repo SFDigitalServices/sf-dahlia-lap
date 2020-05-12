@@ -68,7 +68,7 @@ export const isValidCurrency = (value) => {
     return true
   } else {
     // Example passing values: 5, $5, 5.01, $5.01
-    return /^\$?[0-9,]+\.?[0-9]*$/.test(value)
+    return /^\$?[0-9]+[0-9,]*\.?[0-9]*$/.test(value)
   }
 }
 
