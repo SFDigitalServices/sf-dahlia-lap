@@ -8,6 +8,7 @@ module Api
 
       def index
         attributes = params.slice(:page, :application_number, :listing_id, :first_name, :last_name, :submission_type)
+        attributes.delete('submission_type') if attributes['submission_type'] == 'Any type'
         applications = soql_application_service.applications(attributes)
         render json: applications
       end
