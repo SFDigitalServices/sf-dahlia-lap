@@ -6,14 +6,11 @@ import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import formUtils from '~/utils/formUtils'
 import Loading from '~/components/molecules/Loading'
 
-// Can't use null or value will default to label name on submit.
-const createEmptySelectOption = (label) => ['', label]
-
-const submissionTypeOptions = formUtils.toOptions([createEmptySelectOption('Any type'), 'Paper', 'Electronic'])
+const submissionTypeOptions = formUtils.toOptions([formUtils.toEmptyOption('Any type'), 'Paper', 'Electronic'])
 
 const buildListingOptions = (listings) => {
   return formUtils.toOptions([
-    createEmptySelectOption('Any Listing'),
+    formUtils.toEmptyOption('Any Listing'),
     ...map(listings, i => [i.id, i.name])
   ])
 }

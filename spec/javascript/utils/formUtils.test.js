@@ -139,4 +139,10 @@ describe('scrubEmptyValues', () => {
       expect(formUtils.scrubEmptyValues({ 1: { 2: undefined } }, true)).toEqual({ 1: { 2: undefined } })
     })
   })
+
+  describe('toEmptyOption', async () => {
+    test('converts a label into an empty option with that label', async () => {
+      expect(formUtils.toEmptyOption('Label')).toEqual({ value: '', label: 'Label' })
+    })
+  })
 })

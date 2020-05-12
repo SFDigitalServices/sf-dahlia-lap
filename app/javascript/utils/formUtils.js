@@ -11,6 +11,10 @@ const toOption = (item) => {
   }
 }
 
+// return an empty input option. Note that the value isn't set to null because that
+// will cause the input to fall back to the label on submit.
+const toEmptyOption = (label) => toOption(['', label])
+
 const toOptions = (items) => {
   return items.map(toOption)
 }
@@ -78,6 +82,7 @@ export const maxLengthMap = {
 }
 
 export default {
+  toEmptyOption,
   toOption,
   toOptions,
   formatPrice,
