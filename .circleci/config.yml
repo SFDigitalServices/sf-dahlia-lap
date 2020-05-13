@@ -103,6 +103,9 @@ jobs:
       - *attach_workspace
       - *restore_cache
       - run: bundle --path vendor/bundle
+      - run:
+          name: install yarn dependencies
+          command: yarn install --check-files
       - puppeteer/install
       - run:
           name: Run rails server in background
