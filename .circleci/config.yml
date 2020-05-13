@@ -71,11 +71,12 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
-      - run: bundle --path vendor/bundle
       - run: ls tmp
       - run: bundle exec rubocop
       - run: bundle exec rake spec
       - run: ls .
+      - store_artifacts:
+          path: coverage
       - persist_to_workspace:
           root: .
           paths:
@@ -89,6 +90,8 @@ jobs:
       - run: yarn lint
       - run: yarn unit
       - run: ls .
+      - store_artifacts:
+          path: coverage
       - persist_to_workspace:
           root: .
           paths:
@@ -100,11 +103,6 @@ jobs:
       - *attach_workspace
       - *restore_cache
       - puppeteer/install
-      - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
-      - run: bundle --path vendor/bundle
-      - run: bundle exec rake assets:precompile
       - run:
           name: Run rails server in background
           command: bundle exec rails server -p 3000
@@ -127,12 +125,8 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      # - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
-      # - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
-
       - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
-      - run: ls
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
       - persist_to_workspace:
