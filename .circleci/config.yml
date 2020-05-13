@@ -71,7 +71,7 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
-      - run: ls tmp
+      - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
       - run: ls .
@@ -102,6 +102,7 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
+      - run: bundle --path vendor/bundle
       - puppeteer/install
       - run:
           name: Run rails server in background
