@@ -102,11 +102,12 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
-      - run: bundle --path vendor/bundle
+      - puppeteer/install
       - run:
           name: install yarn dependencies
           command: yarn install --check-files
-      - puppeteer/install
+      - run: bundle --path vendor/bundle
+      - run: bundle exec rake assets:precompile
       - run:
           name: Run rails server in background
           command: bundle exec rails server -p 3000
