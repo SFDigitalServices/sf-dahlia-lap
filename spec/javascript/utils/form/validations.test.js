@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import validate from 'utils/form/validations'
+import validate, { convertPercentAndCurrency, convertCurrency } from 'utils/form/validations'
 
 // Validations will return this message if failed, null if passed
 const VALIDATION_MSG = 'failed validation'
@@ -8,6 +8,15 @@ const DATE_VALIDATION_MSG = 'Please enter a valid date.'
 const dateErrorObject = (message) => (
   {all: message, day: message, month: message, year: message}
 )
+
+const mockObjectWithValues = (...values) => {
+  const mockObject = {}
+  for (let i = 0; i < values.length; i++) {
+    mockObject[i] = values[i]
+  }
+
+  return mockObject
+}
 
 describe('validate', () => {
   describe('isOldEnough', () => {
@@ -85,6 +94,55 @@ describe('validate', () => {
       })
     })
   })
+  describe('isValidPercent', () => {
+    describe('passes validation', () => {
+      test('when a null or empty string is passed', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)(null)).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('')).toEqual(undefined)
+      })
+      test('when a number is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)(2000)).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)(2)).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('2000')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('002000')).toEqual(undefined)
+      })
+      test('when a number with a trailing decimal is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('2000.')).toEqual(undefined)
+      })
+      test('when a percent string is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('20%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.0%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.3%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.12345%')).toEqual(undefined)
+      })
+    })
+    describe('fails validation', () => {
+      test('when a negative number is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)(-20)).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('-20')).toEqual(VALIDATION_MSG)
+      })
+      test('when a string containing multiple decimals is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('100.3.4')).toEqual(VALIDATION_MSG)
+      })
+      test('when a string containing decimals but no digits is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('.')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('.%')).toEqual(VALIDATION_MSG)
+      })
+      test('when a string containing letters is entered', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20005z')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('a130')).toEqual(VALIDATION_MSG)
+      })
+      test('when the percent sign is not at the end of the value', () => {
+        expect(validate.isValidPercent(VALIDATION_MSG)('%2000')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('2000%%')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('%2000%')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20%00')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidPercent(VALIDATION_MSG)('%')).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
   describe('isValidCurrency', () => {
     describe('passes validation', () => {
       test('when a null or empty string is passed', () => {
@@ -102,15 +160,25 @@ describe('validate', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)('$2000.53')).toEqual(undefined)
         expect(validate.isValidCurrency(VALIDATION_MSG)('2,000')).toEqual(undefined)
       })
-      // TODO: Enhance currency validation to exclude these cases.
-      test('when any string with $s and ,s is entered', () => {
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000$')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,000,')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)(',')).toEqual(undefined)
+      test('when a currency string with too many commas is entered', () => {
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,.52')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,0,0,0')).toEqual(undefined)
       })
     })
     describe('fails validation', () => {
+      test('when a non-currency string with $s and ,s is entered', () => {
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000$')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$$2000')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$')).toEqual(VALIDATION_MSG)
+      })
+      test('when the value starts with a comma', () => {
+        expect(validate.isValidCurrency(VALIDATION_MSG)(',')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)(',,')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)(',1.00')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$,')).toEqual(VALIDATION_MSG)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$,.00')).toEqual(VALIDATION_MSG)
+      })
       test('when a string contains letters is entered', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)('zzz')).toEqual(VALIDATION_MSG)
         expect(validate.isValidCurrency(VALIDATION_MSG)('2000.5z')).toEqual(VALIDATION_MSG)
@@ -196,6 +264,92 @@ describe('validate', () => {
 
       test('a valid date and primary applicant is old enough', () => {
         expect(validate.isValidDate({year: 1950, month: 10, day: 1}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject(undefined))
+      })
+    })
+  })
+  describe('convertCurrency', () => {
+    describe('does not modify values on', () => {
+      test('plain numbers', () => {
+        expect(convertCurrency(mockObjectWithValues(10, 20, 30))).toEqual(mockObjectWithValues(10, 20, 30))
+        expect(convertCurrency(mockObjectWithValues('10', '20', '30'))).toEqual(mockObjectWithValues('10', '20', '30'))
+      })
+      test('non-currency or percent strings', () => {
+        expect(convertCurrency(mockObjectWithValues('abc', 'def', 'ghi'))).toEqual(mockObjectWithValues('abc', 'def', 'ghi'))
+        expect(convertCurrency(mockObjectWithValues('12%3', 'ab$', '%ab'))).toEqual(mockObjectWithValues('12%3', 'ab$', '%ab'))
+      })
+      test('empty values', () => {
+        expect(convertCurrency(mockObjectWithValues(null, undefined, '', 0))).toEqual(mockObjectWithValues(null, undefined, '', 0))
+      })
+      test('any non-currency string that starts with $', () => {
+        expect(convertCurrency(mockObjectWithValues('$abc'))).toEqual(mockObjectWithValues('$abc'))
+      })
+      test('any non-percent string that ends with %', () => {
+        expect(convertCurrency(mockObjectWithValues('abc%'))).toEqual(mockObjectWithValues('abc%'))
+      })
+    })
+    describe('modifies currency values on', () => {
+      test('object that is only currency strings', () => {
+        expect(convertCurrency(mockObjectWithValues('$100'))).toEqual(mockObjectWithValues(100))
+        expect(convertCurrency(mockObjectWithValues('$100', '$200'))).toEqual(mockObjectWithValues(100, 200))
+        expect(convertCurrency(mockObjectWithValues('$100.01'))).toEqual(mockObjectWithValues(100.01))
+        expect(convertCurrency(mockObjectWithValues('$100.0100'))).toEqual(mockObjectWithValues(100.01))
+      })
+      test('object that is currency and non currency strings', () => {
+        expect(convertCurrency(mockObjectWithValues('$100', '$200a'))).toEqual(mockObjectWithValues(100, '$200a'))
+        expect(convertCurrency(mockObjectWithValues('abc', '$200'))).toEqual(mockObjectWithValues('abc', 200))
+        expect(convertCurrency(mockObjectWithValues('100%', '$200'))).toEqual(mockObjectWithValues('100%', 200))
+      })
+    })
+  })
+  describe('convertPercentAndCurrency', () => {
+    describe('does not modify values on', () => {
+      test('plain numbers', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues(10, 20, 30))).toEqual(mockObjectWithValues(10, 20, 30))
+        expect(convertPercentAndCurrency(mockObjectWithValues('10', '20', '30'))).toEqual(mockObjectWithValues('10', '20', '30'))
+      })
+      test('non-currency or percent strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('abc', 'def', 'ghi'))).toEqual(mockObjectWithValues('abc', 'def', 'ghi'))
+        expect(convertPercentAndCurrency(mockObjectWithValues('12%3', 'ab$', '%ab'))).toEqual(mockObjectWithValues('12%3', 'ab$', '%ab'))
+      })
+      test('empty values', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues(null, undefined, '', 0))).toEqual(mockObjectWithValues(null, undefined, '', 0))
+      })
+      test('any non-currency string that starts with $', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('$abc'))).toEqual(mockObjectWithValues('$abc'))
+      })
+      test('any non-percent string that ends with %', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('abc%'))).toEqual(mockObjectWithValues('abc%'))
+      })
+    })
+    describe('modifies currency values on', () => {
+      test('object that is only currency strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('$100'))).toEqual(mockObjectWithValues(100))
+        expect(convertPercentAndCurrency(mockObjectWithValues('$100', '$200'))).toEqual(mockObjectWithValues(100, 200))
+        expect(convertPercentAndCurrency(mockObjectWithValues('$100.01'))).toEqual(mockObjectWithValues(100.01))
+        expect(convertPercentAndCurrency(mockObjectWithValues('$100.0100'))).toEqual(mockObjectWithValues(100.01))
+      })
+      test('object that is currency and non currency strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('$100', '$200a'))).toEqual(mockObjectWithValues(100, '$200a'))
+        expect(convertPercentAndCurrency(mockObjectWithValues('abc', '$200'))).toEqual(mockObjectWithValues('abc', 200))
+      })
+    })
+    describe('modifies percent values on', () => {
+      test('object that is only percent strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('100%'))).toEqual(mockObjectWithValues(100))
+        expect(convertPercentAndCurrency(mockObjectWithValues('100.00%', '200.5%'))).toEqual(mockObjectWithValues(100, 200.5))
+        expect(convertPercentAndCurrency(mockObjectWithValues('0%'))).toEqual(mockObjectWithValues(0))
+      })
+      test('object that is percent and non percent strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('100%', 'abc', 'abc%', null))).toEqual(mockObjectWithValues(100, 'abc', 'abc%', null))
+      })
+    })
+    describe('modifies percent and currency values on', () => {
+      test('object that is only percent and currency strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('$105', '100%'))).toEqual(mockObjectWithValues(105, 100))
+        expect(convertPercentAndCurrency(mockObjectWithValues('100%', '$105'))).toEqual(mockObjectWithValues(100, 105))
+      })
+      test('object that is percent, currency, and non percent or currency strings', () => {
+        expect(convertPercentAndCurrency(mockObjectWithValues('100%', '$105', 'abc', 'abc%', '0%'))).toEqual(mockObjectWithValues(100, 105, 'abc', 'abc%', 0))
       })
     })
   })

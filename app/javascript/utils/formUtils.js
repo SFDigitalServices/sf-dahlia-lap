@@ -1,4 +1,5 @@
 import { isObjectLike, isArray } from 'lodash'
+import { isValidPercent, isValidCurrency } from './form/validations'
 
 const toOption = (item) => {
   if (isArray(item)) {
@@ -10,22 +11,52 @@ const toOption = (item) => {
   }
 }
 
+// return an empty input option. Note that the value isn't set to null because that
+// will cause the input to fall back to the label on submit.
+const toEmptyOption = (label) => toOption(['', label])
+
 const toOptions = (items) => {
   return items.map(toOption)
 }
 
-// Formats a numer to currency in format eg. $1,000.00
+// Formats a number to currency in format eg. $1,000.00
 // If the field is empty, return null to prevent salesforce issues.
 const formatPrice = (value) => {
   if (!value) return null
   let valueString = value.toString().replace(/[^.|\d]/g, '')
 
   // return value if value is not valid number
-  if (parseFloat(valueString)) {
+  if (isValidCurrency(value) && !isNaN(parseFloat(valueString))) {
     return '$' + parseFloat(valueString).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
   } else {
     return value
   }
+}
+
+// Formats a number to percent in format: 50%, 5.5%, etc
+const formatPercent = (value) => {
+  if (!value) return null
+  if (isValidPercent(value) && !isNaN(parseFloat(value))) {
+    // Outer parseFloat removes trailing zeros.
+    return parseFloat(parseFloat(value).toFixed(3)) + '%'
+  } else {
+    return value
+  }
+}
+
+// filter an object to only include keys that correspond to values that pass the given predicate
+const filterValues = (obj, predicate) => Object.fromEntries(
+  Object.keys(obj)
+    .filter(key => predicate(obj[key]))
+    .map(key => [key, obj[key]]))
+
+// remove keys from obj if the values are empty (null or undefined).
+// Optionally scrub empty strings ('') as well.
+const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
+  const valueIsNonEmpty = (value) =>
+    value !== undefined && value !== null && (!scrubEmptyStrings || value !== '')
+
+  return filterValues(obj, valueIsNonEmpty)
 }
 
 export const maxLengthMap = {
@@ -51,7 +82,10 @@ export const maxLengthMap = {
 }
 
 export default {
+  toEmptyOption,
   toOption,
   toOptions,
-  formatPrice
+  formatPrice,
+  formatPercent,
+  scrubEmptyValues
 }

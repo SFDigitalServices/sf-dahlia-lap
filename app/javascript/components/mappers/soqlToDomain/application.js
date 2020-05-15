@@ -57,6 +57,9 @@ export const mapApplication = (a) => {
     is_first_time_homebuyer: a.Is_First_Time_Homebuyer,
     has_completed_homebuyer_education: a.Has_Completed_Homebuyer_Education,
     has_loan_preapproval: a.Has_Loan_Pre_approval,
-    lending_agent: a.Lending_Agent
+    lending_agent: a.Lending_Agent,
+    ami_chart_type: a.AMI_Chart_Type,
+    ami_chart_year: a.AMI_Chart_Year,
+    ami_percentage: a.AMI_Percentage
   }
 }

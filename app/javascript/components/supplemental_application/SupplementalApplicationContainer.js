@@ -19,7 +19,7 @@ import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate, { touchAllFields } from '~/utils/form/validations'
 import ParkingInformationInputs from './sections/ParkingInformationInputs'
-import { convertCurrency } from '../../utils/form/validations'
+import { convertPercentAndCurrency } from '../../utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
@@ -158,7 +158,7 @@ const SupplementalApplicationContainer = ({ store }) => {
 
   return (
     <Form
-      onSubmit={values => onSubmit(convertCurrency(values))}
+      onSubmit={values => onSubmit(convertPercentAndCurrency(values))}
       initialValues={application}
       validate={validateForm}
       mutators={{ ...arrayMutators }}
@@ -215,7 +215,7 @@ const SupplementalApplicationContainer = ({ store }) => {
           <StatusModalWrapper
             {...statusModal}
             onClose={handleStatusModalClose}
-            onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, convertCurrency(form.getState().values))}
+            onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, convertPercentAndCurrency(form.getState().values))}
           />
         </React.Fragment>
       )}

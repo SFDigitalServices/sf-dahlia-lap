@@ -350,7 +350,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                 Array [
                                   Object {
                                     "label": "Any Preference",
-                                    "value": null,
+                                    "value": "",
                                   },
                                   Object {
                                     "label": "General",
@@ -382,8 +382,8 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     value=""
                                   >
                                     <option
-                                      key="null"
-                                      value={null}
+                                      key=""
+                                      value=""
                                     >
                                       Any Preference
                                     </option>
@@ -716,7 +716,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                 Array [
                                   Object {
                                     "label": "Any Status",
-                                    "value": null,
+                                    "value": "",
                                   },
                                   Object {
                                     "label": "No Status",
@@ -788,8 +788,8 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     value=""
                                   >
                                     <option
-                                      key="null"
-                                      value={null}
+                                      key=""
+                                      value=""
                                     >
                                       Any Status
                                     </option>
@@ -879,7 +879,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                 Array [
                                   Object {
                                     "label": "Any Accessibility Request",
-                                    "value": null,
+                                    "value": "",
                                   },
                                   Object {
                                     "label": "Mobility",
@@ -915,8 +915,8 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     value=""
                                   >
                                     <option
-                                      key="null"
-                                      value={null}
+                                      key=""
+                                      value=""
                                     >
                                       Any Accessibility Request
                                     </option>

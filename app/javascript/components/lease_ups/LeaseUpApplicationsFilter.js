@@ -7,24 +7,29 @@ import Loading from '~/components/molecules/Loading'
 import { clone } from 'lodash'
 
 const statusFilterOptions = [
-  ...[{value: null, label: 'Any Status'}, {value: 'No Status', label: 'No Status'}],
+  formUtils.toEmptyOption('Any Status'),
+  formUtils.toOption('No Status'),
   ...clone(LEASE_UP_STATUS_OPTIONS)
 ]
 
 const accessibilityFilterOptions = [
-  {value: null, label: 'Any Accessibility Request'},
+  formUtils.toEmptyOption('Any Accessibility Request'),
   ...clone(LEASE_UP_ACCESSIBILITY_OPTIONS)
 ]
 
 const StatusOptions = formUtils.toOptions(statusFilterOptions)
 
 const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false }) => {
-  const preferenceOptions = formUtils.toOptions([[null, 'Any Preference'], ...preferences, ['general', 'General']])
+  const preferenceOptions = formUtils.toOptions([
+    formUtils.toEmptyOption('Any Preference'),
+    ...preferences,
+    ['general', 'General']
+  ])
 
   return (
     <Loading isLoading={loading}>
       <Form
-        onSubmit={onSubmit}
+        onSubmit={(filters) => onSubmit(formUtils.scrubEmptyValues(filters, true))}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>

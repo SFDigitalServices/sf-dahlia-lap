@@ -61,11 +61,23 @@ const isValidEmail = (email) => {
   return true
 }
 
-const isValidCurrency = (value) => {
-  if (isNil(value)) {
+const isEmptyString = (value) => isNil(value) || value.length === 0
+
+export const isValidCurrency = (value) => {
+  if (isEmptyString(value)) {
     return true
   } else {
-    return !(/[^0-9$,.]/.test(value))
+    // Example passing values: 5, $5, 5.01, $5.01
+    return /^\$?[0-9]+[0-9,]*\.?[0-9]*$/.test(value)
+  }
+}
+
+export const isValidPercent = (value) => {
+  if (isEmptyString(value)) {
+    return true
+  } else {
+    // Example passing values: 5, 10.2, 50.50%, 524%
+    return /^[0-9]+\.?[0-9]*%?$/.test(value)
   }
 }
 
@@ -94,6 +106,7 @@ validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isDate = decorateValidator(isDate)
 validate.isValidCurrency = decorateValidator(isValidCurrency)
+validate.isValidPercent = decorateValidator(isValidPercent)
 validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal))
 validate.isPresent = decorateValidator(isPresent)
 validate.isChecked = decorateValidator(isChecked)
@@ -138,6 +151,17 @@ export const validateLeaseCurrency = (value) => {
   )
 }
 
+const convertValues = (values, convertValueFunc) => {
+  let flattenedValues = flatten(values)
+  Object.keys(flattenedValues).map(key => {
+    flattenedValues[key] = convertValueFunc(flattenedValues[key])
+  })
+
+  return unflatten(flattenedValues)
+}
+
+const isCurrencyString = (value) => typeof value === 'string' && value.startsWith('$') && isValidCurrency(value)
+
 /**
  * Convert Currency
  *
@@ -146,14 +170,34 @@ export const validateLeaseCurrency = (value) => {
  * currency fields then unflattens back to the correct object
  */
 export const convertCurrency = (values) => {
-  let flattenedValues = flatten(values)
-  Object.keys(flattenedValues).map(key => {
-    if (flattenedValues[key] && flattenedValues[key][0] === '$') {
-      // here we parseFloat twice because toFixed returns a string
-      flattenedValues[key] = parseFloat(parseFloat(flattenedValues[key].replace(/\$|,/g, '')).toFixed(2))
-    }
+  const convertToFloat = (value) => parseFloat(parseFloat(value.replace(/\$|,/g, '')).toFixed(2))
+  return convertValues(values, (value) => {
+    return isCurrencyString(value) ? convertToFloat(value) : value
   })
-  return unflatten(flattenedValues)
+}
+
+/**
+ * Convert Currency and Percent strings to numbers
+ *
+ * Takes in form values object, flattens all fields down to
+ * the top level so that we can iterate through and parse the
+ * currency fields into floats and the percent fields into integers
+ * then unflattens back to the correct object
+ */
+export const convertPercentAndCurrency = (values) => {
+  const convertPercentToFloat = (value) => parseFloat(value)
+  const convertCurrencyToFloat = (value) => parseFloat(parseFloat(value.replace(/\$|,/g, '')).toFixed(2))
+  return convertValues(values, (value) => {
+    if (typeof value !== 'string') return value
+
+    if (value.endsWith('%') && isValidPercent(value)) {
+      return convertPercentToFloat(value)
+    } else if (isCurrencyString(value)) {
+      return convertCurrencyToFloat(value)
+    }
+
+    return value
+  })
 }
 
 export default validate
