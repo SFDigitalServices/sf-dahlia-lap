@@ -53,7 +53,10 @@ group :development, :test do
   gem 'awesome_print'
   gem 'vcr'
   gem 'rails-controller-testing'
-  gem 'simplecov', require: false
+  # Workaround for cc-test-reporter with SimpleCov 0.18.
+  # Stop upgrading SimpleCov until the following issue will be resolved.
+  # https://github.com/codeclimate/test-reporter/issues/418
+  gem 'simplecov', '~> 0.10', '< 0.18', require: false
   gem 'ruby-debug-ide'
   gem 'debase'
 end

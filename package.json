@@ -78,7 +78,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "unit": "jest --testPathPattern=.*.test.js$ --coverage",
+    "unit": "jest --testPathPattern=.*.test.js$ --coverage --maxWorkers=2",
     "e2e": "jest --testPathPattern=.*e2e.* --runInBand. --forceExit",
     "test:all": "jest",
     "lint": "standard \"./**/*.js\" | snazzy",

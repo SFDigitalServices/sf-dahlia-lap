@@ -51,6 +51,7 @@ const getInputValue = async (page, selector) => {
 }
 
 const getText = async (page, selector) => {
+  await page.waitForSelector(selector)
   return page.$eval(selector, e => e.textContent)
 }
 

@@ -305,10 +305,11 @@ GEM
     sentry-raven (2.9.0)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.14.1)
-    simplecov (0.18.5)
+    simplecov (0.17.1)
       docile (~> 1.1)
-      simplecov-html (~> 0.11)
-    simplecov-html (0.12.2)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -405,7 +406,7 @@ DEPENDENCIES
   scout_apm
   selenium-webdriver (~> 3.142.7)
   sentry-raven (~> 2.9.0)
-  simplecov
+  simplecov (~> 0.10, < 0.18)
   slim-rails (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
