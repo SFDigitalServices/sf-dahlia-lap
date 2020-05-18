@@ -2759,45 +2759,11 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           </ContentSection>
                         </ConfirmedPreferencesSection>
                         <ConfirmedHousehold
-                          form={
-                            Object {
-                              "batch": [Function],
-                              "blur": [Function],
-                              "change": [Function],
-                              "destroyOnUnregister": false,
-                              "focus": [Function],
-                              "getFieldState": [Function],
-                              "getRegisteredFields": [Function],
-                              "getState": [Function],
-                              "initialize": [Function],
-                              "isValidationPaused": [Function],
-                              "mutators": Object {
-                                "concat": [Function],
-                                "insert": [Function],
-                                "move": [Function],
-                                "pop": [Function],
-                                "push": [Function],
-                                "remove": [Function],
-                                "removeBatch": [Function],
-                                "shift": [Function],
-                                "swap": [Function],
-                                "unshift": [Function],
-                                "update": [Function],
-                              },
-                              "pauseValidation": [Function],
-                              "registerField": [Function],
-                              "reset": [Function],
-                              "resetFieldState": [Function],
-                              "resumeValidation": [Function],
-                              "setConfig": [Function],
-                              "submit": [Function],
-                              "subscribe": [Function],
-                            }
-                          }
                           listingAmiCharts={Array []}
                           visited={
                             Object {
                               "ami_chart_type": false,
+                              "ami_chart_year": false,
                               "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
@@ -3518,45 +3484,11 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                   className="app-inner inset-wide border-bottom"
                                 >
                                   <ConfirmedHouseholdIncome
-                                    form={
-                                      Object {
-                                        "batch": [Function],
-                                        "blur": [Function],
-                                        "change": [Function],
-                                        "destroyOnUnregister": false,
-                                        "focus": [Function],
-                                        "getFieldState": [Function],
-                                        "getRegisteredFields": [Function],
-                                        "getState": [Function],
-                                        "initialize": [Function],
-                                        "isValidationPaused": [Function],
-                                        "mutators": Object {
-                                          "concat": [Function],
-                                          "insert": [Function],
-                                          "move": [Function],
-                                          "pop": [Function],
-                                          "push": [Function],
-                                          "remove": [Function],
-                                          "removeBatch": [Function],
-                                          "shift": [Function],
-                                          "swap": [Function],
-                                          "unshift": [Function],
-                                          "update": [Function],
-                                        },
-                                        "pauseValidation": [Function],
-                                        "registerField": [Function],
-                                        "reset": [Function],
-                                        "resetFieldState": [Function],
-                                        "resumeValidation": [Function],
-                                        "setConfig": [Function],
-                                        "submit": [Function],
-                                        "subscribe": [Function],
-                                      }
-                                    }
                                     listingAmiCharts={Array []}
                                     visited={
                                       Object {
                                         "ami_chart_type": false,
+                                        "ami_chart_year": false,
                                         "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
@@ -4032,9 +3964,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               id="ami_chart_type"
                                               label="AMI Chart Type"
                                               noPlaceholder={true}
-                                              onChange={[Function]}
                                               options={Array []}
-                                              selectValue="undefined - undefined"
                                             >
                                               <Field
                                                 component="select"
@@ -4064,7 +3994,77 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     onBlur={[Function]}
                                                     onChange={[Function]}
                                                     onFocus={[Function]}
-                                                    value="undefined - undefined"
+                                                    value=""
+                                                  />
+                                                  <FieldError
+                                                    meta={
+                                                      Object {
+                                                        "active": false,
+                                                        "data": Object {},
+                                                        "dirty": false,
+                                                        "dirtySinceLastSubmit": false,
+                                                        "error": undefined,
+                                                        "initial": undefined,
+                                                        "invalid": false,
+                                                        "length": undefined,
+                                                        "modified": false,
+                                                        "pristine": true,
+                                                        "submitError": undefined,
+                                                        "submitFailed": false,
+                                                        "submitSucceeded": false,
+                                                        "submitting": false,
+                                                        "touched": false,
+                                                        "valid": true,
+                                                        "validating": false,
+                                                        "visited": false,
+                                                      }
+                                                    }
+                                                  />
+                                                </div>
+                                              </Field>
+                                            </SelectField>
+                                          </div>
+                                        </Component>
+                                        <Component>
+                                          <div
+                                            className="form-grid_item small-12 medium-6 large-3 column"
+                                          >
+                                            <SelectField
+                                              fieldName="ami_chart_year"
+                                              id="ami_chart_year"
+                                              label="AMI Chart Year"
+                                              noPlaceholder={false}
+                                              options={Array []}
+                                            >
+                                              <Field
+                                                component="select"
+                                                name="ami_chart_year"
+                                                parse={[Function]}
+                                              >
+                                                <div
+                                                  className="form-group"
+                                                >
+                                                  <Label
+                                                    fieldName="ami_chart_year"
+                                                    id="ami_chart_year"
+                                                    label="AMI Chart Year"
+                                                  >
+                                                    <label
+                                                      className="form-label"
+                                                      htmlFor="ami_chart_year"
+                                                      id="label-ami_chart_year"
+                                                    >
+                                                      AMI Chart Year
+                                                    </label>
+                                                  </Label>
+                                                  <select
+                                                    className=""
+                                                    id="ami_chart_year"
+                                                    name="ami_chart_year"
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onFocus={[Function]}
+                                                    value=""
                                                   />
                                                   <FieldError
                                                     meta={
@@ -4300,6 +4300,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           visited={
                             Object {
                               "ami_chart_type": false,
+                              "ami_chart_year": false,
                               "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
@@ -4404,6 +4405,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     visited={
                                       Object {
                                         "ami_chart_type": false,
+                                        "ami_chart_year": false,
                                         "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
@@ -4746,6 +4748,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       visited={
                                         Object {
                                           "ami_chart_type": false,
+                                          "ami_chart_year": false,
                                           "ami_percentage": false,
                                           "applicant.marital_status": false,
                                           "confirmed_household_annual_income": false,
@@ -5615,6 +5618,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     visited={
                                       Object {
                                         "ami_chart_type": false,
+                                        "ami_chart_year": false,
                                         "ami_percentage": false,
                                         "applicant.marital_status": false,
                                         "confirmed_household_annual_income": false,
@@ -5868,6 +5872,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                           visited={
                             Object {
                               "ami_chart_type": false,
+                              "ami_chart_year": false,
                               "ami_percentage": false,
                               "applicant.marital_status": false,
                               "confirmed_household_annual_income": false,
@@ -6385,6 +6390,12 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       value={2}
                                                     >
                                                       <option
+                                                        key=""
+                                                        value=""
+                                                      >
+                                                        Select One...
+                                                      </option>
+                                                      <option
                                                         key="0"
                                                         value={0}
                                                       >
@@ -6533,6 +6544,12 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onFocus={[Function]}
                                                       value={3}
                                                     >
+                                                      <option
+                                                        key=""
+                                                        value=""
+                                                      >
+                                                        Select One...
+                                                      </option>
                                                       <option
                                                         key="0"
                                                         value={0}
@@ -6688,6 +6705,12 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onFocus={[Function]}
                                                       value={4}
                                                     >
+                                                      <option
+                                                        key=""
+                                                        value=""
+                                                      >
+                                                        Select One...
+                                                      </option>
                                                       <option
                                                         key="0"
                                                         value={0}
@@ -8737,22 +8760,77 @@ Array [
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
-                  value="undefined - undefined"
+                  value=""
                 >
                   <option
-                    value={null}
+                    value=""
                   >
                     Select One...
                   </option>
                   <option
-                    value="HUD Unadjusted - 2017"
+                    value="HUD Unadjusted"
                   >
-                    HUD Unadjusted - 2017
+                    HUD Unadjusted
                   </option>
                   <option
-                    value="Non-Hera - 2016"
+                    value="Non-Hera"
                   >
-                    Non-Hera - 2016
+                    Non-Hera
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              className="form-grid_item small-12 medium-6 large-3 column"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="ami_chart_year"
+                  id="label-ami_chart_year"
+                >
+                  AMI Chart Year
+                </label>
+                <select
+                  className=""
+                  id="ami_chart_year"
+                  name="ami_chart_year"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  value=""
+                >
+                  <option
+                    value=""
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value={2016}
+                  >
+                    2016
+                  </option>
+                  <option
+                    value={2017}
+                  >
+                    2017
+                  </option>
+                  <option
+                    value={2018}
+                  >
+                    2018
+                  </option>
+                  <option
+                    value={2019}
+                  >
+                    2019
+                  </option>
+                  <option
+                    value={2020}
+                  >
+                    2020
                   </option>
                 </select>
               </div>
@@ -9126,6 +9204,11 @@ Array [
                     value={2}
                   >
                     <option
+                      value=""
+                    >
+                      Select One...
+                    </option>
+                    <option
                       value={0}
                     >
                       0
@@ -9204,6 +9287,11 @@ Array [
                     onFocus={[Function]}
                     value={3}
                   >
+                    <option
+                      value=""
+                    >
+                      Select One...
+                    </option>
                     <option
                       value={0}
                     >
@@ -9289,6 +9377,11 @@ Array [
                     onFocus={[Function]}
                     value={4}
                   >
+                    <option
+                      value=""
+                    >
+                      Select One...
+                    </option>
                     <option
                       value={0}
                     >
