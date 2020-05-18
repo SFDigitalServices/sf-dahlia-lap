@@ -1,6 +1,6 @@
 import { concat, forEach, range } from 'lodash'
 
-// Example passing values: 1999, 2020, 0001
+// Example passing values: 1999, 2020, '0001'
 const isFourDigitYear = (value) => /^\d{4}$/.test(value)
 
 // Return true if the string is a valid year string and represents a year within 10 years (in past or future)
@@ -31,7 +31,8 @@ const getRangeOfAmiYears = (yearOptions, currentYear) => {
  * Ex: input charts with years [2018, 2019] will return [2018, 2019, 2020] if the current year is 2020.
  *
  * @param {*} listingAmiCharts list of objects with "ami_chart_year" attributes.
- * @param {*} currentYear optional param primarily used for stubbing in tests.
+ * @param {*} currentYear optional param primarily used for stubbing in tests. You should probably just use the default
+ *   value, which is the system's current year.
  */
 const getAmiChartYears = (listingAmiCharts, currentYear = (new Date()).getFullYear()) => {
   const fourDigitYearOptions = []
