@@ -1,10 +1,13 @@
+import { isEmpty } from 'lodash'
+
 const isNullOrEmptyString = (value) => value === undefined || value === null || value === ''
 
 const labelize = (options, attrs = {}, noPlaceholder = false) => {
-  if (options.length === 0) return []
+  if (isEmpty(options)) return []
 
   let emptyInitialOptionPresent =
     noPlaceholder ||
+    isEmpty(options) ||
     options[0] === '' ||
     (options[0].hasOwnProperty('value') && isNullOrEmptyString(options[0].value))
 
