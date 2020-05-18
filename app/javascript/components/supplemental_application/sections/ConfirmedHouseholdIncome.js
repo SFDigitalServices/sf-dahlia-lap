@@ -115,7 +115,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
             fieldName='ami_chart_year'
             label='AMI Chart Year'
             options={amiChartYears}
-            noPlaceholder={false} />
+            noPlaceholder={amiChartYears.length <= 1} />
         </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>

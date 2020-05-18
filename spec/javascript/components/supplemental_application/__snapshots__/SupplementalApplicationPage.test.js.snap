@@ -4033,7 +4033,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               fieldName="ami_chart_year"
                                               id="ami_chart_year"
                                               label="AMI Chart Year"
-                                              noPlaceholder={false}
+                                              noPlaceholder={true}
                                               options={Array []}
                                             >
                                               <Field
