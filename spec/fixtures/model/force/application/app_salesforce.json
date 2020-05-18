@@ -162,10 +162,10 @@
          "Total_Household_Rent":0
       }
    ],
-   "proof_files":[
+   "Proof_Files":[
 
    ],
-   "household_members":[
+   "Household_Members":[
       {
          "Id":"a0n0U0000030tBhQAI",
          "Name":"Flappy Laptest",
@@ -193,7 +193,7 @@
          "Zip_Code":null
       }
    ],
-   "flagged_applications":[
+   "Flagged_Applications":[
 
    ]
 }

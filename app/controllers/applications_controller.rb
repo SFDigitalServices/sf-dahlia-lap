@@ -18,11 +18,11 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = soql_listing_service.listing(@application.listing.id)
+    @listing = soql_listing_service.listing(@application[:listing_id])
     @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
     redirect_to application_url(id: @application.id) if
       @listing.lottery_status != 'Not Yet Run' ||
-      @application&.Application_Submission_Type != 'Paper'
+      @application&.application_submission_type != 'Paper'
   end
 
   private

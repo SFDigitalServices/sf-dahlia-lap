@@ -41,7 +41,8 @@ module Force
       { custom_api: 'isFirstTimeHomebuyer', domain: 'is_first_time_homebuyer', salesforce: '?' },
       { custom_api: 'interviewScheduledDate', domain: '', salesforce: 'Interview_Scheduled_Date' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: '?' },
-      { custom_api: 'listingID', domain: 'listing', salesforce: 'Listing' },
+      { custom_api: '', domain: 'listing', salesforce: 'Listing' },
+      { custom_api: 'listingID', domain: 'listing_id', salesforce: '?' },
       { custom_api: 'lotteryNumber', domain: 'lottery_number', salesforce: 'Lottery_Number' },
       { custom_api: 'lotteryNumberManual', domain: 'lottery_number_manual', salesforce: 'Lottery_Number_Manual' },
       { custom_api: 'monthlyIncome', domain: 'monthly_income', salesforce: 'Monthly_Income' },
@@ -141,7 +142,7 @@ module Force
       primary_app_fields = domain_fields['applicant']&.merge(domain_fields['demographics'])
       custom_api_fields['primaryApplicant'] = Force::ApplicationMember.from_domain(primary_app_fields).to_custom_api
 
-      custom_api_fields['listingID'] = domain_fields['listing']
+      custom_api_fields['listingID'] = domain_fields['listing_id']
 
       # ADA priorities need to be converted from a checklist to a string.
       ada_hash = domain_fields['has_ada_priorities_selected']

@@ -9,8 +9,8 @@ module Applications
       @application = find_application(params[:application_id])
       @status_history = field_update_comment_service.status_history_by_application(@application.id).map { |s| Force::FieldUpdateComment.from_salesforce(s).to_domain }
       @file_base_url = file_base_url
-      @available_units = Force::Unit.from_salesforce(units_service.available_units_for_application(@application.listing.id, params[:application_id])).to_domain
-      @units = soql_listing_service.units(@application.listing.id).map { |u| Force::Unit.from_salesforce(u).to_domain }
+      @available_units = units_service.available_units_for_application(@application[:listing_id], params[:application_id])
+      @units = soql_listing_service.units(@application[:listing_id]).map { |u| Force::Unit.from_salesforce(u).to_domain }
       @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.id)
     end
 
