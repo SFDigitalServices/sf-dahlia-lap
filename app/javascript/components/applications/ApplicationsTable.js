@@ -23,8 +23,8 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerP
   const noDataText = atMaxPages ? maxPagesMsg : 'No rows found'
   const columns = [
     { Header: 'Application Number', accessor: 'name', headerClassName: 'td-min-narrow' },
-    { Header: 'Listing Name', accessor: 'listing.name' },
-    { Header: 'Lottery Date', accessor: 'listing.lottery_date', Cell: (cell) => (<PrettyTime time={cell.value} />) },
+    { Header: 'Listing Name', accessor: 'listing_name' },
+    { Header: 'Lottery Date', accessor: 'listing_lottery_date', Cell: (cell) => (cell.value ? <PrettyTime time={cell.value} /> : null) },
     { Header: 'First Name', accessor: 'applicant.first_name' },
     { Header: 'Last Name', accessor: 'applicant.last_name' },
     { Header: 'Application Submitted Date', accessor: 'application_submitted_date' },
