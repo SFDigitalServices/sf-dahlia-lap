@@ -28,5 +28,27 @@ describe('labelize', () => {
       const option = { value: 'test', label: 'test' }
       expect(labelize([option])[0]).toEqual(emptyOption)
     })
+    test('does not add an empty option with empty value', () => {
+      let option = { value: '', label: 'test' }
+      expect(labelize([option])[0]).toEqual(option)
+    })
+    test('does not add an empty option with first option as empty string', () => {
+      let option = ''
+      expect(labelize([option])[0]).toEqual({ value: '', label: '' })
+    })
+    test('does not add an empty option with noPlaceholder=true', () => {
+      const option = { value: 'test', label: 'test' }
+      expect(labelize([option], {}, true)[0]).toEqual(option)
+    })
+  })
+  describe('when all or part of an option is null', () => {
+    test('it keeps label as null', () => {
+      const option = { value: 'test', label: null }
+      expect(labelize([option], {}, true)[0]).toEqual(option)
+    })
+    test('it keeps value as null', () => {
+      const option = { value: null, label: 'label' }
+      expect(labelize([option], {}, true)[0]).toEqual(option)
+    })
   })
 })
