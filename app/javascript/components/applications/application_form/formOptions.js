@@ -1,11 +1,15 @@
-import { isEmpty, map } from 'lodash'
+import { isEmpty } from 'lodash'
+
+const isNullOrEmptyString = (value) => value === undefined || value === null || value === ''
 
 const labelize = (options, attrs = {}, noPlaceholder = false) => {
   if (isEmpty(options)) return []
 
   let emptyInitialOptionPresent =
-    isEmpty(options[0]) ||
-    (options[0].hasOwnProperty('value') && isEmpty(options[0].value)) || noPlaceholder
+    noPlaceholder ||
+    isEmpty(options) ||
+    options[0] === '' ||
+    (options[0].hasOwnProperty('value') && isNullOrEmptyString(options[0].value))
 
   let labelizedOptions = []
   if (!emptyInitialOptionPresent) {
@@ -17,13 +21,13 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
   }
 
   return labelizedOptions.concat(
-    map(options, (option) => (
-      {
+    options.map(option => {
+      return {
         value: option.hasOwnProperty('value') ? option.value : option,
-        label: option.label || option,
+        label: option.hasOwnProperty('label') ? option.label : option,
         ...(option.disabled && { disabled: option.disabled })
       }
-    ))
+    })
   )
 }
 

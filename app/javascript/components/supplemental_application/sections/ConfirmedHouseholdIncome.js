@@ -3,6 +3,8 @@ import { isNil, isString } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { formatPercent } from '~/utils/utils'
+import getAmiChartYears from '~/utils/amiYearUtils'
+import formUtils from '~/utils/formUtils'
 
 import { YesNoRadioGroup, CurrencyField, PercentField, SelectField } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
@@ -28,47 +30,20 @@ export const getAmiPercent = ({income, ami}) => {
   return formatPercent(incomeFloat / Number(ami))
 }
 
-const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
-  const { values } = form.getState()
-  const currentAmiChartType = `${values.ami_chart_type} - ${values.ami_chart_year}`
-
+const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
   const [ amiChartTypes, setAmiChartTypes ] = useState([])
-  const [ selectedType, setSelectedType ] = useState(currentAmiChartType || '')
+  const [ amiChartYears, setAmiChartYears ] = useState([])
 
   useEffect(() => {
     const getAmiCharts = async () => {
       if (listingAmiCharts.length > 0) {
-        let chartTypes = listingAmiCharts.map((chart) => {
-          const value = `${chart.ami_chart_type} - ${chart.ami_chart_year}`
-          return { value, label: value }
-        })
-
-        if (chartTypes.length > 1) {
-          chartTypes.unshift({ value: null, label: 'Select One...' })
-        } else if (chartTypes.length === 1) {
-          const initialType = chartTypes[0]
-          setSelectedType(initialType)
-          setFormYearAndType(initialType.value)
-        }
-        setAmiChartTypes(chartTypes)
+        setAmiChartYears(formUtils.toOptions(getAmiChartYears(listingAmiCharts)))
+        setAmiChartTypes(formUtils.toOptions(listingAmiCharts.map(x => x.ami_chart_type)))
       }
     }
 
     getAmiCharts()
   }, [])
-
-  const setFormYearAndType = (combinedValue) => {
-    const idx = combinedValue.lastIndexOf(' - ')
-    const type = combinedValue.substr(0, idx)
-    const year = combinedValue.substr(idx).replace(' - ', '')
-    form.change('ami_chart_type', type)
-    form.change('ami_chart_year', year)
-  }
-
-  const handleAmiSelectChange = ({ target: { value } }) => {
-    setFormYearAndType(value)
-    setSelectedType(value)
-  }
 
   return (
     <React.Fragment>
@@ -131,10 +106,16 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, form, visited }) => {
             id='ami_chart_type'
             fieldName='ami_chart_type'
             label='AMI Chart Type'
-            onChange={handleAmiSelectChange}
-            selectValue={selectedType}
             options={amiChartTypes}
-            noPlaceholder />
+            noPlaceholder={amiChartTypes.length <= 1} />
+        </FormGrid.Item>
+        <FormGrid.Item>
+          <SelectField
+            id='ami_chart_year'
+            fieldName='ami_chart_year'
+            label='AMI Chart Year'
+            options={amiChartYears}
+            noPlaceholder={amiChartYears.length <= 1} />
         </FormGrid.Item>
       </FormGrid.Row>
     </React.Fragment>
