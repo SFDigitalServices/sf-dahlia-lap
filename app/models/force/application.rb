@@ -43,6 +43,8 @@ module Force
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: '?' },
       { custom_api: '', domain: 'listing', salesforce: 'Listing' },
       { custom_api: 'listingID', domain: 'listing_id', salesforce: '?' },
+      { custom_api: '', domain: 'listing_name', salesforce: '?' },
+      { custom_api: '', domain: 'listing_lottery_date', salesforce: '?' },
       { custom_api: 'lotteryNumber', domain: 'lottery_number', salesforce: 'Lottery_Number' },
       { custom_api: 'lotteryNumberManual', domain: 'lottery_number_manual', salesforce: 'Lottery_Number_Manual' },
       { custom_api: 'monthlyIncome', domain: 'monthly_income', salesforce: 'Monthly_Income' },
