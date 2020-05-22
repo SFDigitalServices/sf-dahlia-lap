@@ -22,7 +22,13 @@ const application = {
     'mailing_city': 'SF Mailing',
     'mailing_state': 'CA',
     'mailing_zip_code': '94105-1804',
-    'mailing_address': '123 Mailing St, SF Mailing, CA, 94105-1804'
+    'mailing_address': '123 Mailing St, SF Mailing, CA, 94105-1804',
+    'ethnicity': 'Decline to state',
+    'gender': 'Decline to state',
+    'gender_other': 'gender other',
+    'race': 'Decline to state',
+    'sexual_orientation': 'Decline to state',
+    'sexual_orientation_other': 'sexual orientation other'
   },
   'demographics': {
     'ethnicity': 'Decline to state',

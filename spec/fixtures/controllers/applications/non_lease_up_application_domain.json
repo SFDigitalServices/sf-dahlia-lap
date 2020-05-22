@@ -192,6 +192,14 @@
     "residence_address": "4053 18TH ST, SAN FRANCISCO, CA, 94114-2535",
     "mailing_address": "4053 18TH ST, SAN FRANCISCO, CA, 94114-2535"
   },
+  "demographics": {
+    "sexual_orientation_other": "Ziggy Stardust",
+    "sexual_orientation": "Not listed",
+    "race": "Other/Multiracial",
+    "gender_other": "Dothraki",
+    "gender": "Not Listed",
+    "ethnicity": "Not Hispanic/Latino",
+  },
   "number_of_seniors": null,
   "number_of_minors": null,
   "number_of_dependents": null,

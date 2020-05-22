@@ -119,6 +119,14 @@
     "residence_address": "123 Main Street, San Francisco, CA",
     "mailing_address": ""
   },
+  "demographics": {
+    "sexual_orientation_other": null,
+    "sexual_orientation": "Gay/Lesbian/Same-Gender Loving",
+    "race": "Asian",
+    "gender_other": null,
+    "gender": "Male",
+    "ethnicity": "Not Hispanic/Latino"
+  },
   "number_of_seniors": null,
   "number_of_minors": null,
   "number_of_dependents": null,

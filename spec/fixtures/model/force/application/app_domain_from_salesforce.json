@@ -15,7 +15,11 @@
   },
   "applicant": {
     "city": "SAN FRANCISCO",
-    "date_of_birth": "1980-02-02",
+    "date_of_birth": {
+      "year": "1980",
+      "month": "02",
+      "day": "02"
+    },
     "email": "lappyt@email.com",
     "first_name": "Lappy",
     "id": "a0n0U0000030tBrQAI",
@@ -36,6 +40,14 @@
     "state": "CA",
     "street": "333 BUSH ST",
     "zip_code": "94104-2806"
+  },
+  "demographics": {
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "genderOther": "other gender",
+    "sexualOrientation": "Not Listed",
+    "sexualOrientationOther": "other orientation"
   },
   "has_developmental_disability": null,
   "has_military_service": null,

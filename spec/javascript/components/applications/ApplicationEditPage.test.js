@@ -54,6 +54,32 @@ describe('ApplicationEditPage', () => {
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(domainApplication)
   })
 
+  test('it should not save with demographics validation errors', async () => {
+    let applicationWithInvalidDemo = {
+      ...application,
+      demographics: {
+        sexual_orientation: 'not listed',
+        sexual_orientation_other: null
+      }
+    }
+
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <ApplicationEditPage
+          listing={listing}
+          application={applicationWithInvalidDemo}
+          lendingInstitutions={lendingInstitutions}
+          editPage />
+      )
+    })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
+
+    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+  })
+
   describe('should render', () => {
     test('successfully', () => {
       const wrapper = renderer.create(

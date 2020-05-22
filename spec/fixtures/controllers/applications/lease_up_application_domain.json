@@ -236,6 +236,14 @@
     "residence_address": "123 Test St, Testville, CA, 00000",
     "mailing_address": "123 Test St, Testville, CA, 00000"
   },
+  "demographics": {
+    "sexual_orientation_other": null,
+    "sexual_orientation": null,
+    "race": null,
+    "gender_other": null,
+    "gender": null,
+    "ethnicity": null
+  },
   "number_of_seniors": null,
   "number_of_minors": null,
   "number_of_dependents": 1.0,

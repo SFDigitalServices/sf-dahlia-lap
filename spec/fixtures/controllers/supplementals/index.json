@@ -15,7 +15,11 @@
     "last_name": "(do not modify)",
     "middle_name": null,
     "name": "Automated Test Lease Up Application (do not modify)",
-    "date_of_birth": "1989-01-05",
+    "date_of_birth": {
+      "year": "1989",
+      "month": "01",
+      "day": "05"
+    },
     "phone_type": null,
     "phone": null,
     "second_phone_type": null,
@@ -33,6 +37,14 @@
     "mailing_state": "CA",
     "mailing_zip_code": "00000",
     "marital_status": "Single",
+    "ethnicity": null,
+    "race": null,
+    "gender": null,
+    "gender_other": null,
+    "sexual_orientation": null,
+    "sexual_orientation_other": null
+  },
+  "demographics": {
     "ethnicity": null,
     "race": null,
     "gender": null,
@@ -150,7 +162,11 @@
         },
         "first_name": "Automated Test Lease Up Application",
         "last_name": "(do not modify)",
-        "date_of_birth": "1989-01-05",
+        "date_of_birth": {
+          "year": "1989",
+          "month": "01",
+          "day": "05"
+        },
         "id": "a0n0P00000D3qIZQAZ"
       },
       "individual_preference": "Work in SF",
@@ -295,7 +311,11 @@
         },
         "first_name": "Automated Test Lease Up Application",
         "last_name": "(do not modify)",
-        "date_of_birth": "1989-01-05",
+        "date_of_birth": {
+          "year": "1989",
+          "month": "01",
+          "day": "05"
+        },
         "id": "a0n0P00000D3qIZQAZ"
       },
       "individual_preference": "Assisted Housing",

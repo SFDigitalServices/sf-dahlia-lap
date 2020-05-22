@@ -15,7 +15,11 @@ const application = {
     'last_name': 'jones',
     'middle_name': 'elizabeth',
     'name': 'karen elizabeth jones',
-    'date_of_birth': '1950-01-01',
+    'date_of_birth': {
+      'year': '1950',
+      'month': '01',
+      'day': '01',
+    },
     'phone_type': 'Cell',
     'phone': '9548883321',
     'second_phone_type': null,
@@ -59,6 +63,14 @@ const application = {
     'mailing_city': 'SF Mailing',
     'mailing_state': 'CA',
     'mailing_zip_code': '94105-1804'
+  },
+  'demographics': {
+    'ethnicity': 'Decline to state',
+    'race': 'Decline to state',
+    'gender': 'Decline to state',
+    'gender_other': 'gender other',
+    'sexual_orientation': 'Decline to state',
+    'sexual_orientation_other': 'sexual orientation other'
   },
   'listing': {
     'attributes': {
@@ -111,7 +123,11 @@ const application = {
         attributes: {type: 'Application_member', url: '/services/data/v43.0/sobjects/Application_member/a0n1D000000z51OQAQ'},
         first_name: 'karen',
         last_name: 'jones',
-        date_of_birth: '1950-01-01',
+        date_of_birth: {
+          year: '1950',
+          month: '01',
+          day: '01',
+        },
         id: 'a0n0x000000AbE6AAK'
       },
       'individual_preference': null,
@@ -138,7 +154,11 @@ const application = {
       'last_name': 'maradona',
       'middle_name': 'm',
       'relationship_to_applicant': 'Child',
-      'date_of_birth': '1976-06-11',
+      date_of_birth: {
+        year: '1976',
+        month: '06',
+        day: '11',
+      },
       'street': '9 de julio',
       'city': 'buenos aires',
       'state': 'fl',

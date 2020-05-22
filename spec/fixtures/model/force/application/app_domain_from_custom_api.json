@@ -44,6 +44,14 @@
     "sexualOrientation": "Not Listed",
     "sexualOrientationOther": "other orientation"
   },
+  "demographics": {
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "genderOther": "other gender",
+    "sexualOrientation": "Not Listed",
+    "sexualOrientationOther": "other orientation"
+  },
   "preferences": [
     {
       "recordTypeDevName": "L_W",

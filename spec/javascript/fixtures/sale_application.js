@@ -60,7 +60,21 @@ const application = {
     "street": "2601 MISSION ST STE 300",
     "name": "Test Test",
     "residence_address": "2601 MISSION ST STE 300, SAN FRANCISCO, CA, 94110-3134",
-    "mailing_address": "2601 MISSION ST STE 300, SAN FRANCISCO, CA, 94110-3134"
+    "mailing_address": "2601 MISSION ST STE 300, SAN FRANCISCO, CA, 94110-3134",
+    "ethnicity": null,
+    "gender": null,
+    "gender_other": null,
+    "race": null,
+    "sexual_orientation": null,
+    "sexual_orientation_other": null,
+  },
+  "demographics": {
+    "ethnicity": null,
+    "gender": null,
+    "gender_other": null,
+    "race": null,
+    "sexual_orientation": null,
+    "sexual_orientation_other": null,
   },
   "household_members": [],
   "preferences": [
