@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationsPage should render succesfully 1`] = `
+exports[`ApplicationsPage should render successfully 1`] = `
 Array [
   <header
     className="lead-header short  bg-dust"

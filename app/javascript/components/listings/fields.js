@@ -10,90 +10,89 @@ export const detailsFields = [
 ]
 
 export const buildingInformationFields = [
-  'Building_Name',
-  'Building_Street_Address',
-  'Building_City',
-  'Building_State',
-  'Building_Zip_Code',
-  'Neighborhood',
-  'Developer',
-  { field: 'Building_URL', label: 'Building URL' },
-  'Year_Built',
-  'Description',
-  'Lottery_Preferences'
+  'building_name',
+  'building_street_address',
+  'building_city',
+  'building_state',
+  'building_zip_code',
+  'neighborhood',
+  'developer',
+  { field: 'building_url', label: 'Building URL' },
+  'year_built',
+  'description',
+  'lottery_preferences'
 ]
 
 export const lotteryPreferencesFields = [
-  { field: 'Lottery_Preference.Name', label: 'Name' },
-  'Description',
-  { field: 'PDF_URL', label: 'PDF URL' },
-  'Order',
-  'Available_Units'
+  { field: 'lottery_preference.name', label: 'Name' },
+  'description',
+  { field: 'pdf_url', label: 'PDF URL' },
+  'order',
+  'available_units'
 ]
 
 export const aafFields = [
-  'Accessibility',
-  'Fee',
-  'Amenities',
-  { field: 'Deposit_Min', formatType: 'currency' },
-  { field: 'Deposit_Max', formatType: 'currency' },
-  'Costs_Not_Included'
+  'accessibility',
+  'fee',
+  'amenities',
+  { field: 'deposit_min', formatType: 'currency' },
+  { field: 'deposit_max', formatType: 'currency' },
+  'costs_not_included'
 ]
 
 export const lotteryInfoFields = [
-  'Lottery_Date',
-  'Lottery_Results_Date',
-  'Lottery_Venue',
-  'Lottery_Status',
-  'Lottery_Street_Address',
-  'Lottery_Summary',
-  'Lottery_City'
+  'lottery_date',
+  'lottery_results_date',
+  'lottery_venue',
+  'lottery_status',
+  'lottery_street_address',
+  'lottery_summary',
+  'lottery_city'
 ]
 
 export const appInfoFields = [
-  'Application_Phone',
-  'Office_Hours',
-  'Application_Organization',
-  'Application_Street_Address',
-  'Application_City',
-  'Application_State',
-  'Application_Postal_Code',
-  { field: 'Download_URL', label: 'Download URL' }
+  'application_phone',
+  'office_hours',
+  'application_organization',
+  'application_street_address',
+  'application_city',
+  'application_state',
+  'application_postal_code',
+  { field: 'download_url', label: 'Download URL' }
 ]
 
 export const agentDevInfoFields = [
   'leasing_agent_name',
   'leasing_agent_title',
   'leasing_agent_email',
-  'leasing_agent_phone',
-  'preference_Detail'
+  'leasing_agent_phone'
 ]
 
 export const eligibilityRulesFields = [
-  'Building_Selection_Criteria',
-  'Eviction_History',
-  'Criminal_History',
-  'Credit_Rating'
+  'building_selection_criteria',
+  'eviction_history',
+  'criminal_history',
+  'credit_rating'
 ]
 
 export const additionalInfoFields = [
-  'Required_Documents',
-  'Smoking_Policy',
-  { field: 'Legal_Disclaimers', renderType: 'html' },
-  'Pet_Policy'
+  'required_documents',
+  'smoking_policy',
+  { field: 'legal_disclaimers', renderType: 'html' },
+  'pet_policy'
 ]
 
 export const openHousesFields = [
-  'Date',
-  'Start_Time',
-  'End_Time'
+  'date',
+  'start_time',
+  'end_time'
 ]
 
 export const infoSessionsFields = [
-  'Date',
-  'Start_Time',
-  'End_Time',
-  'Venue',
-  'Street_Address',
-  'City'
+  'date',
+  'start_time',
+  'end_time',
+  'venue',
+  'street_address',
+  'city'
 ]

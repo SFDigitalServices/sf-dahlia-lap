@@ -14467,7 +14467,21 @@ Array [
                   onFocus={[Function]}
                   value="HUD Unadjusted"
                 >
-                  <option />
+                  <option
+                    value=""
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value="HUD Unadjusted"
+                  >
+                    HUD Unadjusted
+                  </option>
+                  <option
+                    value="Non-Hera"
+                  >
+                    Non-Hera
+                  </option>
                 </select>
               </div>
             </div>
@@ -14493,7 +14507,36 @@ Array [
                   onFocus={[Function]}
                   value="2018"
                 >
-                  <option />
+                  <option
+                    value=""
+                  >
+                    Select One...
+                  </option>
+                  <option
+                    value={2016}
+                  >
+                    2016
+                  </option>
+                  <option
+                    value={2017}
+                  >
+                    2017
+                  </option>
+                  <option
+                    value={2018}
+                  >
+                    2018
+                  </option>
+                  <option
+                    value={2019}
+                  >
+                    2019
+                  </option>
+                  <option
+                    value={2020}
+                  >
+                    2020
+                  </option>
                 </select>
               </div>
             </div>

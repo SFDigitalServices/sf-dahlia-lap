@@ -57,8 +57,9 @@ module Force
 
       # Special field conversion cases for application members
 
-      # Name
-      # TODO DOes this break if someone doesn't have a middle name? Where is it even used in the js
+      # Combined name (Ex: James Bernard Wills)
+      # TODO Fields like this with redundant info repackaged for presentation purposes only should be removed from responses
+      # We can concatenate these names on the frontend.
       domain_fields.name = [
         domain_fields.first_name,
         domain_fields.middle_name,
@@ -66,7 +67,8 @@ module Force
       ].compact.join(' ')
 
       # Addresses
-      # TODO does this break if something's nt there, also can we delete the extra fields and just keep this combined one?
+      # TODO Fields like this with redundant info repackaged for presentation purposes only should be removed from responses
+      # We can concatenate these names on the frontend.
       domain_fields.residence_address = [
         domain_fields.street,
         domain_fields.city,

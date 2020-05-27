@@ -40,8 +40,7 @@ const ListingDetails = ({ listing }) => {
       { !isEmpty(listing.open_houses) && (
         <Table title='Open Houses'
           table='open_houses'
-          fields={openHousesFields}
-          keepFieldCase />
+          fields={openHousesFields} />
       )
       }
       { !isEmpty(listing.information_sessions) && (

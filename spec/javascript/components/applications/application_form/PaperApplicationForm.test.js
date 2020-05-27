@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils'
 
 import PaperApplicationForm from 'components/applications/application_form/PaperApplicationForm'
 import listing from '../../../fixtures/listing'
-import application from '../../../fixtures/domain_application'
+import application from '../../../fixtures/application'
 import lendingInstitutions from '../../../fixtures/lending_institutions'
 
 const DECLINE = 'Decline to state'

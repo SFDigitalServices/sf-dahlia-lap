@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FlaggedApplicationsIndexPage should render succesfully 1`] = `
+exports[`FlaggedApplicationsIndexPage should render successfully 1`] = `
 Array [
   <header
     className="lead-header short  bg-dust"
@@ -214,8 +214,115 @@ Array [
                   Show All
                 </option>
                 <option
-                  value={null}
-                />
+                  value="100 Van Ness Units 607 and 1005"
+                >
+                  100 Van Ness Units 607 and 1005
+                </option>
+                <option
+                  value="1036 Mission"
+                >
+                  1036 Mission
+                </option>
+                <option
+                  value="1222 Harrison (L Seven)"
+                >
+                  1222 Harrison (L Seven)
+                </option>
+                <option
+                  value="1335 Folsom Street"
+                >
+                  1335 Folsom Street
+                </option>
+                <option
+                  value="181 Sanchez (Duboce)"
+                >
+                  181 Sanchez (Duboce)
+                </option>
+                <option
+                  value="280 Brighton"
+                >
+                  280 Brighton
+                </option>
+                <option
+                  value="450 Mason Unit 705 TRAINING"
+                >
+                  450 Mason Unit 705 TRAINING
+                </option>
+                <option
+                  value="451 Mason TRAINING"
+                >
+                  451 Mason TRAINING
+                </option>
+                <option
+                  value="5880 Third (Waterbend)"
+                >
+                  5880 Third (Waterbend)
+                </option>
+                <option
+                  value="750 Harrison Street"
+                >
+                  750 Harrison Street
+                </option>
+                <option
+                  value="8 Tenth (NEMA) Unit 742"
+                >
+                  8 Tenth (NEMA) Unit 742
+                </option>
+                <option
+                  value="973 Market (The Wilson) Unit 303"
+                >
+                  973 Market (The Wilson) Unit 303
+                </option>
+                <option
+                  value="Alice Griffith Apartments Phase 3"
+                >
+                  Alice Griffith Apartments Phase 3
+                </option>
+                <option
+                  value="Automated Test Listing (please do not modify)"
+                >
+                  Automated Test Listing (please do not modify)
+                </option>
+                <option
+                  value="Merry Go Round Shared Housing"
+                >
+                  Merry Go Round Shared Housing
+                </option>
+                <option
+                  value="Sister Bernie Galvin Apartments Units 206 211"
+                >
+                  Sister Bernie Galvin Apartments Units 206 211
+                </option>
+                <option
+                  value="TEST Listing"
+                >
+                  TEST Listing
+                </option>
+                <option
+                  value="TEST Listing by Donna N"
+                >
+                  TEST Listing by Donna N
+                </option>
+                <option
+                  value="TEST QA LISTING TWO"
+                >
+                  TEST QA LISTING TWO
+                </option>
+                <option
+                  value="Test 450 Mason TRAINING"
+                >
+                  Test 450 Mason TRAINING
+                </option>
+                <option
+                  value="Test 931 Folsom (Green Acres Phase I)"
+                >
+                  Test 931 Folsom (Green Acres Phase I)
+                </option>
+                <option
+                  value="msol test Dec2017 lottery2"
+                >
+                  msol test Dec2017 lottery2
+                </option>
               </select>
             </div>
             <div
@@ -305,7 +412,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                8 Tenth (NEMA) Unit 742
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -317,7 +426,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -329,7 +440,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                4
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -341,7 +454,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -382,7 +497,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                8 Tenth (NEMA) Unit 742
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -394,7 +511,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -406,7 +525,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                4
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -418,7 +539,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -459,7 +582,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                1036 Mission
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -471,7 +596,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -483,7 +610,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -495,7 +624,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -536,7 +667,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Alice Griffith Apartments Phase 3
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -548,7 +681,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -560,7 +695,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -572,7 +709,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -613,7 +752,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Alice Griffith Apartments Phase 3
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -625,7 +766,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -637,7 +780,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -649,7 +794,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -690,7 +837,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing by Donna N
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -702,7 +851,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -714,7 +865,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -726,7 +879,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -767,7 +922,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                1036 Mission
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -779,7 +936,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Email Address
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -791,7 +950,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -803,7 +964,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -844,7 +1007,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing by Donna N
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -856,7 +1021,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -868,7 +1035,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -880,7 +1049,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -921,7 +1092,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Automated Test Listing (please do not modify)
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -933,7 +1106,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -945,7 +1120,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                136
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -957,7 +1134,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -998,7 +1177,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                450 Mason Unit 705 TRAINING
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1010,7 +1191,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1022,7 +1205,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1034,7 +1219,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1075,7 +1262,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing by Donna N
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1087,7 +1276,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1099,7 +1290,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1111,7 +1304,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1152,7 +1347,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                1036 Mission
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1164,7 +1361,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1176,7 +1375,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1188,7 +1389,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1229,7 +1432,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1241,7 +1446,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1253,7 +1460,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                13
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1265,7 +1474,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1306,7 +1517,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Automated Test Listing (please do not modify)
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1318,7 +1531,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1330,7 +1545,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                38
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1342,7 +1559,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1383,7 +1602,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                451 Mason TRAINING
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1395,7 +1616,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1407,7 +1630,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1419,7 +1644,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1460,7 +1687,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1472,7 +1701,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Email Address
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1484,7 +1715,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                1
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1496,7 +1729,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1537,7 +1772,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1549,7 +1786,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1561,7 +1800,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                1
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1573,7 +1814,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1614,7 +1857,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1626,7 +1871,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Email Address
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1638,7 +1885,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1650,7 +1899,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1691,7 +1942,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                TEST Listing
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1703,7 +1956,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                name + DOB
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1715,7 +1970,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                2
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1727,7 +1984,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
           <div
@@ -1768,7 +2027,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                450 Mason Unit 705 TRAINING
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1780,7 +2041,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                Email Address
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1792,7 +2055,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                3
+              </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
@@ -1804,7 +2069,9 @@ Array [
                     "width": "100px",
                   }
                 }
-              />
+              >
+                0
+              </div>
             </div>
           </div>
         </div>

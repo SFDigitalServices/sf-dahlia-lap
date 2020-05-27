@@ -1,42 +1,43 @@
-import values from './values'
-
 const application = (uniqId, attributes = {}) => {
   return {
-    'Preference_Order': '1',
-    'Application': '1',
-    'Application.Name': `Application Name ${uniqId}`,
-    'Preference_Lottery_Rank': '1',
-    'Application.First_Name': `some first name ${uniqId}`,
-    'Application.Last_Name': `some last name ${uniqId}`,
-    'Application.Phone': 'some phone',
-    'Application.Email': `some email ${uniqId}`,
-    'LastModifiedDate:': '14 feb 19',
-    'Application.Processing_Status': 'processing',
-    'Application.Residence_Address': `1316 BURNETT ${uniqId}`,
-    'Listing_Preference_ID.Record_Type_For_App_Preferences': 'CAP',
+    preference_order: '1',
+    application: '1',
+    'application.name': `application Name ${uniqId}`,
+    preference_lottery_rank: '1',
+    'application.first_name': `some first name ${uniqId}`,
+    'application.last_name': `some last name ${uniqId}`,
+    'application.phone': 'some phone',
+    'application.email': `some email ${uniqId}`,
+    last_modified_date: '14 feb 19',
+    'application.processing_status': 'processing',
+    'application.residence_address': `1316 BURNETT ${uniqId}`,
+    'listing_preference_id.record_type_for_app_preferences': 'CAP',
     ...attributes
   }
 }
 
 const applicant = (uniqId) => {
   return {
-    Id: uniqId,
-    Date_of_Birth: values.fixedISOdDate(),
-    'DOB': values.fixedISOdDate(),
-    Email: 'xxxx2',
-    First_Name: 'xxxx3',
-    Last_Name: 'lastName',
-    Middle_Name: 'middleName',
-    Street: 'address',
-    City: 'city',
-    State: 'state',
-    Zip_Code: 'zip',
-    Mailing_Street: 'mailingAddress',
-    Mailing_City: 'mailingCity',
-    Mailing_State: 'mailingState',
-    Mailing_Zip_Code: 'mailingZip',
-    Phone: 'phone',
-    Phone_Type: 'phoneType'
+    id: uniqId,
+    date_of_birth: {
+      year: '1990',
+      month: '01',
+      day: '20'
+    },
+    email: 'xxxx2',
+    first_name: 'xxxx3',
+    last_name: 'lastName',
+    middle_name: 'middleName',
+    street: 'address',
+    city: 'city',
+    state: 'state',
+    zip: 'zip',
+    mailing_street: 'mailingAddress',
+    mailing_city: 'mailingCity',
+    mailing_state: 'mailingState',
+    mailing_zip_code: 'mailingZip',
+    phone: 'phone',
+    phone_type: 'phoneType'
   }
 }
 
@@ -45,7 +46,7 @@ const applicationWithApplicant = (uniqId) => {
 }
 
 const applicationWithListing = (uniqId) => {
-  return application(uniqId, { 'Listing': { 'Id': uniqId } })
+  return application(uniqId, { 'listing': { 'id': uniqId } })
 }
 
 const listing = (uniqId) => {
@@ -73,10 +74,10 @@ const listingFields = () => {
     },
     'lottery_status': null,
     'nflagged_applications': {
-      'label': 'Flagged Applications'
+      'label': 'Flagged applications'
     },
     'in_lottery': {
-      'label': 'Applications In Lottery'
+      'label': 'applications In Lottery'
     }
   }
 }
@@ -103,7 +104,7 @@ const listingDetail = () => {
     status: 'Active',
     building: 'PR-000001',
     min_br: null,
-    lotterry_winners: 0.0,
+    lottery_winners: 0.0,
     max_br: null,
     lottery_results: false,
     min_income: 0.0,
@@ -121,8 +122,8 @@ const listingDetail = () => {
     year_built: 2008.0,
     building_zip_code: '94107',
     description: null,
-    lottery_prefrences: null,
-    acessibility: null,
+    lottery_preferences: null,
+    accessibility: null,
     fee: null,
     amenities: 'Laundry room, underground parking, courtyard, bike room',
     deposit_min: 2102.0,
@@ -167,13 +168,9 @@ const listingDetail = () => {
     information_sessions: null,
     open_houses: [
       {
-        attributes: {
-          type: 'Open_Houses',
-          url: '/services/data/v43.0/sobjects/Open_Houses/a0Y0P00000EyLvJUAV'
-        },
-        Date: '2018-02-23',
-        Start_Time: '9:00AM',
-        End_Time: '12:00PM'
+        date: '2018-02-23',
+        start_time: '9:00AM',
+        end_time: '12:00PM'
       }
     ],
     listing_lottery_preferences: [
@@ -200,7 +197,6 @@ const listingDetail = () => {
         property_type: null,
         ami_chart_type: 'HUD Unadjusted',
         ami_chart_year: 2017.0,
-        of_ami_for_pricing_unit: null,
         reserved_type: null
       }
     ],
@@ -211,19 +207,19 @@ const listingDetail = () => {
 
 const applicationFields = () => {
   return {
-    Id: null,
-    'Listing.Name': {
+    id: null,
+    'listing.name': {
       label: 'Listing Name'
     },
-    Rule_Name: null,
-    Total_Number_of_Duplicates: null
+    rule_name: null,
+    total_number_of_duplicates: null
   }
 }
 
 const applicationsList = () => {
   return [
-    { Id: 'a0r0x000002BhjHAAS', 'Listing.Name': 'TEST Listing', Rule_Name: 'Residence Address', Total_Number_of_Duplicates: 1 },
-    { Id: 'a0r0x000002BhjHAAS', 'Listing.Name': 'TEST Listing', Rule_Name: 'Residence Address', Total_Number_of_Duplicates: 1 }
+    { id: 'a0r0x000002BhjHAAS', 'listing.name': 'TEST Listing', rule_name: 'Residence Address', total_number_of_duplicates: 1 },
+    { Id: 'a0r0x000002BhjHAAS', 'listing.name': 'TEST Listing', rule_name: 'Residence Address', total_number_of_duplicates: 1 }
   ]
 }
 

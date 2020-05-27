@@ -6,7 +6,7 @@ import moment from 'moment'
 import ApplicationsPage from 'components/applications/ApplicationsPage'
 import ApplicationsTableContainer from 'components/applications/ApplicationsTableContainer'
 
-import mockApplicationsPage, { mockUnMappedApplications } from '../../fixtures/applications_page'
+import mockApplicationsPage from '../../fixtures/applications_page'
 import listings from '../../fixtures/listings'
 
 jest.mock('apiService', () => {
@@ -17,19 +17,11 @@ jest.mock('apiService', () => {
   }
 })
 
-jest.mock('apiService', () => {
-  return {
-    fetchApplications: async () => {
-      return { records: mockUnMappedApplications, pages: 1 }
-    }
-  }
-})
-
 // FIXME: extract this out and make it generic
 var wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
 
 describe('ApplicationsPage', () => {
-  test('should render succesfully', (done) => {
+  test('should render successfully', (done) => {
     const wrapper = renderer.create(
       <ApplicationsPage />
     )
@@ -47,8 +39,8 @@ describe('ApplicationsPage', () => {
     table.setState({ loading: false }, () => {
       const firstRowData = wrapper.find('div.rt-tr-group div.rt-tr').first()
 
-      expect(firstRowData.text()).toContain(mockUnMappedApplications[0].Listing.Name)
-      expect(firstRowData.text()).toContain(moment(mockUnMappedApplications[0].Listing.Lottery_Date, '').format('MM/DD/YYYY'))
+      expect(firstRowData.text()).toContain(mockApplicationsPage[0].listing.name)
+      expect(firstRowData.text()).toContain(moment(mockApplicationsPage[0].listing.lottery_date, '').format('MM/DD/YYYY'))
     })
     done()
   })

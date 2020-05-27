@@ -6,7 +6,7 @@ import { mount } from 'enzyme'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import listing from '../../fixtures/listing'
-import application from '../../fixtures/application'
+import mockApplication from '../../fixtures/application'
 import lendingInstitutions from '../../fixtures/lending_institutions'
 
 const mockSubmitApplication = jest.fn()
@@ -38,7 +38,7 @@ describe('ApplicationEditPage', () => {
       wrapper = mount(
         <ApplicationEditPage
           listing={listing}
-          application={application}
+          application={mockApplication}
           lendingInstitutions={lendingInstitutions}
           editPage />
       )
@@ -47,16 +47,41 @@ describe('ApplicationEditPage', () => {
       wrapper.find('form').first().simulate('submit')
     })
 
-    let domainApplication = application
-    domainApplication['listing_id'] = listing['id']
-    domainApplication['preferences'][0]['naturalKey'] = 'karen,jones,1950-01-01'
+    let expectedApplication = {
+      ...mockApplication,
+      listing_id: listing['id']
+    }
+
+    expectedApplication['preferences'][0]['naturalKey'] = 'karen,jones,1950-01-01'
+    expectedApplication['preferences'][1]['naturalKey'] = 'diego,maradona,1976-06-11'
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(domainApplication)
+    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(expectedApplication)
+  })
+
+  test('it should not save if preference members dont match with application members', async () => {
+    const applicationWithInvalidPrefs = { ...mockApplication }
+    applicationWithInvalidPrefs.preferences[1].application_member.first_name = 'james'
+
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <ApplicationEditPage
+          listing={listing}
+          application={applicationWithInvalidPrefs}
+          lendingInstitutions={lendingInstitutions}
+          editPage />
+      )
+    })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
+
+    expect(mockSubmitApplication.mock.calls.length).toBe(0)
   })
 
   test('it should not save with demographics validation errors', async () => {
     let applicationWithInvalidDemo = {
-      ...application,
+      ...mockApplication,
       demographics: {
         sexual_orientation: 'not listed',
         sexual_orientation_other: null
@@ -85,7 +110,7 @@ describe('ApplicationEditPage', () => {
       const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
-          application={application}
+          application={mockApplication}
           lendingInstitutions={lendingInstitutions}
           editPage />
       )
@@ -94,22 +119,26 @@ describe('ApplicationEditPage', () => {
     })
 
     test('successfully with preferences', () => {
-      const applicationWithPreferences = clone(application)
+      const applicationWithPreferences = clone(mockApplication)
 
-      applicationWithPreferences.preferences[0].Application_Member = {
-        Date_of_Birth: '1981-05-04',
-        First_Name: 'Flagby',
-        Id: 'a0n0x000000B3xDAAS',
-        Last_Name: 'Email'
+      applicationWithPreferences.preferences[0].application_member = {
+        date_of_birth: {
+          year: '1981',
+          month: '05',
+          day: '04'
+        },
+        first_name: 'Flagby',
+        id: 'a0n0x000000B3xDAAS',
+        last_name: 'Email'
       }
 
-      expect(applicationWithPreferences.preferences).toHaveLength(1)
-      expect(applicationWithPreferences.preferences[0].Application_Member).toBeTruthy()
+      expect(applicationWithPreferences.preferences).toHaveLength(2)
+      expect(applicationWithPreferences.preferences[0].application_member).toBeTruthy()
 
       const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
-          application={application}
+          application={mockApplication}
           lendingInstitutions={lendingInstitutions}
           editPage />
       )

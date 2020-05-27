@@ -1,7 +1,7 @@
 import React from 'react'
 import { clone } from 'lodash'
 import ApplicationPage from 'components/applications/ApplicationPage'
-import domainApplication from '../../fixtures/domain_application'
+import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
@@ -16,7 +16,7 @@ describe('ApplicationPage', () => {
 
       const wrapper = renderer.create(
         <ApplicationPage
-          application={domainApplication}
+          application={application}
           file_base_url={fileBaseUrl} />
       )
       // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
@@ -25,11 +25,11 @@ describe('ApplicationPage', () => {
 
     test('application without flagged applications', () => {
       const fileBaseUrl = 'http://www.someurl.com'
-      expect(domainApplication.flagged_applications).toHaveLength(0)
+      expect(application.flagged_applications).toHaveLength(0)
 
       const wrapper = mount(
         <ApplicationPage
-          application={domainApplication}
+          application={application}
           file_base_url={fileBaseUrl} />
       )
       // Flagged application content card should not render
@@ -37,7 +37,7 @@ describe('ApplicationPage', () => {
     })
 
     test('application with flagged applications', () => {
-      const applicationWithFlagged = clone(domainApplication)
+      const applicationWithFlagged = clone(application)
       applicationWithFlagged.flagged_applications = [{
         'flagged_record':
           {

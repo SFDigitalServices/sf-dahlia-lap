@@ -22,8 +22,8 @@ const getColums = (entries) => map(entries, (entry, idx) => {
   )
 })
 
-const ListingDetailsContentTable = ({ listing, title, table, fields, keepFieldCase }) => {
-  const fieldSpecs = map(fields, (f) => buildFieldSpecs(f, keepFieldCase))
+const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
+  const fieldSpecs = map(fields, (f) => buildFieldSpecs(f))
   const columns = getColums(fieldSpecs)
   const rows = getRows(listing[table], fieldSpecs)
 
