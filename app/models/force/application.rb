@@ -97,9 +97,16 @@ module Force
         domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
       end
 
-      if domain_fields.applicant && domain_fields.applicant.First_Name
-        domain_fields.applicant = Force::ApplicationMember.from_salesforce(domain_fields.applicant).to_domain
+      if domain_fields.applicant && (domain_fields.applicant.First_Name || domain_fields.applicant.firstName)
+        if domain_fields.applicant.First_Name
+          applicant_object = Force::ApplicationMember.from_salesforce(domain_fields.applicant)
+        else
+          applicant_object = Force::ApplicationMember.from_custom_api(domain_fields.applicant)
+        end
+        domain_fields.applicant = applicant_object.to_domain
+        domain_fields.demographics = applicant_object.to_demographics_fields_domain
       end
+
       listingIsString = domain_fields.listing.is_a? String
       if domain_fields.listing && !listingIsString
         domain_fields.listing = Force::Listing.from_salesforce(domain_fields.listing).to_domain

@@ -35,7 +35,7 @@ module Force
           AND Status__c != '#{DRAFT}'
           LIMIT 1
         ))).to_domain
-        application['preferences'] = app_preferences(id)
+        application['preferences'] = soql_preference_service.app_preferences_for_application(id)
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
         application['household_members'] = app_household_members(application)
         if (opts[:include_lease])
@@ -108,6 +108,10 @@ module Force
 
       def soql_attachment_service
         Force::Soql::AttachmentService.new(@user)
+      end
+
+      def soql_preference_service
+        Force::Soql::PreferenceService.new(@user)
       end
 
       def soql_rental_assistance_service

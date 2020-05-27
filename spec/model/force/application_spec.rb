@@ -20,7 +20,6 @@ RSpec.describe Force::Application do
     it 'should convert from Salesforce fields to domain' do
       application = Force::Application.from_salesforce(app_salesforce)
       domain_application = application.to_domain
-
       expect(domain_application).to eq(app_domain_from_salesforce)
     end
   end

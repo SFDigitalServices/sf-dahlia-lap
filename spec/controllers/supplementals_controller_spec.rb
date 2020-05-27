@@ -24,6 +24,13 @@ RSpec.describe Applications::SupplementalsController, type: :controller do
         expect(application['proof_files']).not_to be_empty
         expect(application['lease']).not_to be_empty
         expect(application['household_members'].length).to eq(0)
+
+        # Checking large sub-objects individually before checking entire application equality simplifies
+        # the diff output when running tests locally.
+        expect(application['applicant']).to eq(expected_supplemental_lease_up_app['applicant'])
+        expect(application['preferences']).to eq(expected_supplemental_lease_up_app['preferences'])
+        expect(application['rental_assistances']).to eq(expected_supplemental_lease_up_app['rental_assistances'])
+
         expect(application).to eq(expected_supplemental_lease_up_app)
       end
     end

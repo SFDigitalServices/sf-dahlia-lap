@@ -24,7 +24,13 @@
       "Mailing_City":"SAN FRANCISCO",
       "Mailing_State":"CA",
       "Mailing_Zip_Code":"94104-2806",
-      "Marital_Status":null
+      "Marital_Status":null,
+      "Ethnicity": "Decline to state",
+      "Race": "Decline to state",
+      "Gender": "Not Listed",
+      "Gender_Other": "other gender",
+      "Sexual_Orientation": "Not Listed",
+      "Sexual_Orientation_Other": "other orientation"
    },
    "Primary_Applicant":"0030U00000P8lxaQAB",
    "Alternate_Contact":null,

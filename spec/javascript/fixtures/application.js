@@ -104,7 +104,7 @@ const application = {
   'general_lottery_rank': null,
   'answered_community_screening': null,
   'has_military_service': null,
-  'has_developmentalDisability': null,
+  'has_developmental_disability': null,
   'has_ada_priorities_selected': 'Vision impairments;Mobility impairments;Hearing impairments',
   'terms_acknowledged': true,
   'preferences': [

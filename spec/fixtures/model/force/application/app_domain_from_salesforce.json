@@ -39,15 +39,21 @@
     "second_phone_type": null,
     "state": "CA",
     "street": "333 BUSH ST",
-    "zip_code": "94104-2806"
+    "zip_code": "94104-2806",
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "gender_other": "other gender",
+    "sexual_orientation": "Not Listed",
+    "sexual_orientation_other": "other orientation"
   },
   "demographics": {
     "ethnicity": "Decline to state",
     "race": "Decline to state",
     "gender": "Not Listed",
-    "genderOther": "other gender",
-    "sexualOrientation": "Not Listed",
-    "sexualOrientationOther": "other orientation"
+    "gender_other": "other gender",
+    "sexual_orientation": "Not Listed",
+    "sexual_orientation_other": "other orientation"
   },
   "has_developmental_disability": null,
   "has_military_service": null,

@@ -80,6 +80,7 @@ describe('SupplementalApplicationPage', () => {
 
   test('it saves expected values if no changes are made', async () => {
     const payload = supplementalApplication
+    payload['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
     payload['listing_id'] = 'a0W0x000000GhJUEA0'
     payload['rental_assistances'] = []
     let wrapper
@@ -131,7 +132,7 @@ describe('SupplementalApplicationPage', () => {
         preference_name: 'Live or Work in San Francisco Preference',
         individual_preference: 'Live in SF',
         receives_preference: true,
-        recordType: { developername: 'L_W' },
+        recordtype_developername: 'L_W',
         lw_type_of_proof: 'Water bill',
         application_member_id: 'xxx',
         id: 'preference_id',
@@ -152,7 +153,7 @@ describe('SupplementalApplicationPage', () => {
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
-      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
+      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
 
       const expectedPreferencePayload = {
         id: 'preference_id',
@@ -181,7 +182,7 @@ describe('SupplementalApplicationPage', () => {
         id: 'preference_id',
         post_lottery_validation: 'Unconfirmed',
         name: 'AP-1234',
-        recordType: { developername: 'RB_AHP' }
+        recordtype_developername: 'RB_AHP'
       })
 
       withValidPreferences.id = 'application_id'
@@ -200,20 +201,20 @@ describe('SupplementalApplicationPage', () => {
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
-      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
+      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
 
       const expectedPreferencePayload = {
         'application_member_id': 'xxx',
         'id': 'preference_id',
         'individual_preference': 'Rent Burdened',
-        'listing_preference_id': 'a0l0x000000RI8nAAG',
-        'lottery_status': 'None',
+        'listing_preference_id': 'a0l0P00001Q1vxUQAR',
+        'lottery_status': null,
         'name': 'AP-1234',
         'post_lottery_validation': 'Unconfirmed',
         'preference_name': 'Rent Burdened Assisted Housing',
-        'preference_order': 0,
+        'preference_order': 1,
         'receives_preference': true,
-        'recordType': { 'developername': 'RB_AHP' },
+        'recordtype_developername': 'RB_AHP',
         'type_of_proof': 'Lease and rent proof'
       }
       expect(mockUpdateApplication.mock.calls.length).toBe(1)
@@ -240,6 +241,7 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedApplication = supplementalApplication
+      expectedApplication['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
       expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
       expectedApplication['rental_assistances'] = []
       expectedApplication['confirmed_household_annual_income'] = 1234.0
@@ -262,6 +264,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
       const expectedApplication = supplementalApplication
+      expectedApplication['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
       expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
       expectedApplication['rental_assistances'] = []
       expectedApplication['confirmed_household_annual_income'] = null
@@ -320,9 +323,11 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedLease = {
-        'id': undefined,
+        'id': 'a130P000005TeZrQAK',
+        'bmr_parking_space_assigned': null,
         'unit': 'id1',
         'lease_start_date': {'year': '2019', 'month': '1', 'day': '12'},
+        'lease_status': 'Draft',
         'no_preference_used': false,
         'preference_used': 'testValidPref',
         'total_monthly_rent_without_parking': '1',
