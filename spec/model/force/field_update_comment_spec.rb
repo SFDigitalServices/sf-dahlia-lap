@@ -10,7 +10,7 @@ RSpec.describe Force::FieldUpdateComment do
       'status' => 'Approved',
       'date' => '2020-05-28T20:13:19.000+0000',
       'substatus' => 'Approval letter sent',
-      'timestamp' => '1590649200',
+      'timestamp' => '1590696799',
     }
   end
   let(:mock_salesforce) do

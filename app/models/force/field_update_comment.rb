@@ -14,7 +14,7 @@ module Force
     def to_domain
       domain_fields = super
 
-      domain_fields.timestamp = domain_fields.date.to_date.to_time.to_i if domain_fields.date
+      domain_fields.timestamp = domain_fields.date.to_time.to_i if domain_fields.date
 
       domain_fields
     end
