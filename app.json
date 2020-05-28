@@ -2,7 +2,7 @@
   "name": "sf-dahlia-lap",
   "stack": "heroku-18",
   "scripts": {
-    "postdeploy": "./postdeploy.sh"
+    "postdeploy": "rake db:migrate"
   },
   "env": {
     "COMMUNITY_LOGIN_URL": {
