@@ -9,10 +9,10 @@ module Force
 
     def create(data)
       formatted_datetime = Time.now.strftime('%Y-%m-%dT%H:%M:%S%z')
-      data = data.merge(Processing_Date_Updated__c: formatted_datetime)
-      data = Hashie::Mash.new(data)
+      data = data.merge(date: formatted_datetime)
+      data = Force::FieldUpdateComment.from_domain(data).to_salesforce_with_suffix
       # TODO: remove this error trigger that is here for testing purposes
-      if data[:Application__c] == 'a0o0P00000AxBWAQA3'
+      if data[:Application] == 'a0o0P00000AxBWAQA3'
         @client.create!('Field_Update_Comment__cfoofoofoo', data)
       else
         @client.create!('Field_Update_Comment__c', data)

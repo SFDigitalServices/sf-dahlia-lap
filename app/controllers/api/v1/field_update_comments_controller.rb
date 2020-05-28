@@ -6,18 +6,18 @@ class Api::V1::FieldUpdateCommentsController < ApiController
 
   def create
     service.create(field_update_comment_params)
-    result = service.status_history_by_application(field_update_comment_params[:Application__c])
-    render json: { result: result }
+    result = service.status_history_by_application(field_update_comment_params[:application])
+    render json: { result: result.map { |r| Force::FieldUpdateComment.from_salesforce(r).to_domain } }
   end
 
   private
 
   def field_update_comment_params
     params.require(:field_update_comment).permit(
-      :Processing_Status__c,
-      :Processing_Comment__c,
-      :Application__c,
-      :Sub_Status__c,
+      :status,
+      :comment,
+      :application,
+      :substatus,
     )
   end
 

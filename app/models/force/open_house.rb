@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Force
-  # Represents an information session object. Provide mapping between
+  # Represents an open house object. Provide mapping between
   # Salesforce object field names, Salesforce custom API field names,
   # and LAP domain field names for listings.
   class OpenHouse < Force::ObjectBase
