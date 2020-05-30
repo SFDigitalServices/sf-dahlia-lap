@@ -85,17 +85,13 @@ module Force
 
     def map_list_to_domain(domain_fields, listDomainFieldName, forceClass)
       if domain_fields[listDomainFieldName]
-        domain_fields[listDomainFieldName] = (domain_fields[listDomainFieldName] || []).map do |i|
-          forceClass.from_salesforce(i).to_domain
-        end
+        domain_fields[listDomainFieldName] = Force::Responses.map_list_to_domain(domain_fields[listDomainFieldName], forceClass)
       end
     end
 
     def map_list_to_salesforce(salesforce_fields, listSalesforceFieldName, forceClass)
       if salesforce_fields[listSalesforceFieldName]
-        salesforce_fields[listSalesforceFieldName] = (salesforce_fields[listSalesforceFieldName] || []).map do |i|
-          forceClass.from_domain(i).to_salesforce
-        end
+        salesforce_fields[listSalesforceFieldName] = Force::Responses.map_list_to_salesforce(salesforce_fields[listSalesforceFieldName], forceClass)
       end
     end
 

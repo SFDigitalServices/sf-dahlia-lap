@@ -7,7 +7,7 @@ class Api::V1::FieldUpdateCommentsController < ApiController
   def create
     service.create(field_update_comment_params)
     result = service.status_history_by_application(field_update_comment_params[:application])
-    render json: { result: result.map { |r| Force::FieldUpdateComment.from_salesforce(r).to_domain } }
+    render json: { result: result }
   end
 
   private

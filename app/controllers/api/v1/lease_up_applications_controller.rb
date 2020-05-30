@@ -6,7 +6,8 @@ module Api::V1
     def index
       applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
       application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
-      applications[:records] = applications[:records].map { |r| Force::Preference.from_salesforce(r).to_domain }
+
+      applications[:records] = Force::Responses.map_list_to_domain(applications[:records], Force::Preference)
 
       # find the last time the status was updated on these applications,
       # i.e. what is the most recently-dated Field Update Comment, if

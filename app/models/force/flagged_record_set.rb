@@ -14,6 +14,14 @@ module Force
       { domain: 'listing', salesforce: 'Listing' },
     ].freeze
 
+    def to_salesforce
+      salesforce_fields = super
+
+      salesforce_fields.Listing = Force::Listing.from_domain(salesforce_fields.Listing).to_salesforce
+
+      salesforce_fields
+    end
+
     def to_domain
       domain_fields = super
 

@@ -8,20 +8,24 @@ module Force
       FIELDS = load_fields(FIELD_NAME).freeze
 
       def lease_up_listings
-        massage(query(%(
+        result = massage(query(%(
           SELECT #{query_fields(:lease_up_listing)}
           FROM Listing__c
           WHERE Status__c = 'Lease Up' AND Is_Applicant_List_for_Leaseup__c = FALSE
           ORDER BY Name
         )))
+
+        Force::Responses.map_list_to_domain(result, Force::Listing)
       end
 
       def pre_lottery_listings
         # Show only listings that are not present in the lease up tab.
-        parsed_index_query(%(
+        result = parsed_index_query(%(
           SELECT #{query_fields(:index)} FROM Listing__c
           WHERE Status__c != 'Lease Up' OR Is_Applicant_List_for_Leaseup__c = TRUE
         ))
+
+        Force::Responses.map_list_to_domain(result, Force::Listing)
       end
 
       def listing(id)
@@ -46,12 +50,14 @@ module Force
       end
 
       def units(listing_id)
-        parsed_index_query(%(
+        result = parsed_index_query(%(
           SELECT Unit_Type__c, BMR_Rent_Monthly__c, BMR_Rental_Minimum_Monthly_Income_Needed__c, Status__c, Property_Type__c,
                  AMI_chart_type__c, AMI_chart_year__c, Max_AMI_for_Qualifying_Unit__c, Reserved_Type__c
           FROM Unit__c
           WHERE Listing__c = '#{listing_id}'
         ))
+
+        Force::Responses.map_list_to_domain(result, Force::Unit)
       end
 
       def sale?(listing)

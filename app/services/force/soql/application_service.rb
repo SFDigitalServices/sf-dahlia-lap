@@ -77,13 +77,15 @@ module Force
 
       def app_household_members(application)
         alternate_contact_id = application.Alternate_Contact ? application.Alternate_Contact.Id : nil
-        parsed_index_query(%(
+        result = parsed_index_query(%(
           SELECT #{query_fields(:show_household_members)}
           FROM Application_Member__c
           WHERE Application__c = '#{application.id}'
           AND Id != '#{application.applicant.id}'
           AND Id != '#{alternate_contact_id}'
         ), :show_household_members)
+
+        Force::Responses.map_list_to_domain(result, Force::ApplicationMember)
       end
 
       def app_preferences(application_id)
@@ -92,6 +94,8 @@ module Force
           FROM Application_Preference__c
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
+
+        Force::Responses.map_list_to_domain(result, Force::Preference)
       end
 
       def application_defaults

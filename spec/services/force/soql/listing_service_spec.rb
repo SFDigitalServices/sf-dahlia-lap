@@ -14,7 +14,7 @@ RSpec.describe Force::Soql::ListingService do
       VCR.use_cassette('services/soql/listing_service') do
         listings = subject.lease_up_listings
 
-        expected_keys = %i[Id Name Lottery_Date Lottery_Results_Date In_Lottery Units_Available Lease_Signed_Application LastModifiedDate]
+        expected_keys = %i[id name lottery_date lottery_results_date in_lottery units_available lease_signed_application last_modified_date]
         expected_keys.each do |key|
           expect(listings.first).to have_key(key)
         end
@@ -24,7 +24,7 @@ RSpec.describe Force::Soql::ListingService do
     it 'should only return lease up listings not using applicant list' do
       VCR.use_cassette('services/soql/listing_service') do
         listings = subject.lease_up_listings
-        ids = listings.map { |listing| listing[:Id] }
+        ids = listings.map { |listing| listing[:id] }
 
         expect(ids).to include(LEASE_UP_LISTING_ID)
         expect(ids).not_to include(NON_LEASE_UP_LISTING_ID)

@@ -6,7 +6,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = soql_listing_service.pre_lottery_listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
+    @listings = soql_listing_service.pre_lottery_listings
   end
 
   def show
@@ -89,13 +89,7 @@ class ApplicationsController < ApplicationController
     # Also, see if we can simplify the structure of flagged_applications in
     # the React app and here. The React app expects a certain shape, hence the
     # seemingly extraneous structure around the flagged applications here.
-    record_sets = flagged_record_set_service.flagged_record_set(id).map(&:Flagged_Record_Set)
-    flagged_applications = []
-    record_sets.each do |fields|
-      set = Force::FlaggedRecordSet.from_salesforce(fields).to_domain
-      flagged_applications << { flagged_record: set }
-    end
-    application.flagged_applications = flagged_applications
+    application.flagged_applications = flagged_record_set_service.flagged_record_set(id).map { |r| { flagged_record: r } }
 
     # Because we are getting the application info through the custom
     # API, we do not get a value for total household size. So, we

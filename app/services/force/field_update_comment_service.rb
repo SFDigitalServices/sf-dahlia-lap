@@ -20,7 +20,7 @@ module Force
     end
 
     def status_history_by_application(application_id)
-      parsed_index_query(
+      result = parsed_index_query(
         %(
           SELECT Application__c, Processing_Comment__c, Processing_Date_Updated__c, Processing_Status__c, Sub_Status__c
           FROM Field_Update_Comment__c
@@ -28,6 +28,8 @@ module Force
           ORDER BY Processing_Date_Updated__c DESC
         ),
       )
+
+      Force::Responses.map_list_to_domain(result, Force::FieldUpdateComment)
     end
   end
 end

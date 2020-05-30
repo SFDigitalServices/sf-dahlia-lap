@@ -6,7 +6,7 @@ module Listings
     before_action :authenticate_user!
 
     def index
-      @listings = soql_listing_service.lease_up_listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
+      @listings = soql_listing_service.lease_up_listings
     end
 
     private

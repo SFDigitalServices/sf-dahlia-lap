@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @listings = service.pre_lottery_listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
+    @listings = service.pre_lottery_listings
     @fields = service.index_fields
   end
 

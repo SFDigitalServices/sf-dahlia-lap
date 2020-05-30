@@ -14,12 +14,14 @@ RSpec.describe Force::Application do
       application = Force::Application.from_custom_api(paper_app_custom_api)
       domain_application = application.to_domain
 
+      expect(domain_application['household_members']).to eq(app_domain_from_custom_api['household_members'])
       expect(domain_application).to eq(app_domain_from_custom_api)
     end
 
     it 'should convert from Salesforce fields to domain' do
       application = Force::Application.from_salesforce(app_salesforce)
       domain_application = application.to_domain
+      expect(domain_application['household_members']).to eq(app_domain_from_salesforce['household_members'])
       expect(domain_application).to eq(app_domain_from_salesforce)
     end
   end

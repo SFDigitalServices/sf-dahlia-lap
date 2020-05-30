@@ -59,6 +59,46 @@
   "has_military_service": null,
   "hh_total_income_with_assets_annual": null,
   "household_assets": null,
+  "household_members": [
+    {
+      "id":"a0n0U0000030tBhQAI",
+      "name":"Flappy Laptest",
+      "first_name":"Flappy",
+      "last_name":"Laptest",
+      "middle_name":null,
+      "mailing_address": "",
+      "residence_address": "",
+      "relationship_to_applicant":null,
+      "date_of_birth": {
+        "day": "05",
+        "month": "05",
+        "year": "2001"
+      },
+      "street":null,
+      "city":null,
+      "state":null,
+      "zip_code":null
+    },
+    {
+      "id":"a0n0U0000030tBmQAI",
+      "name":"Slappy Laptest",
+      "first_name":"Slappy",
+      "last_name":"Laptest",
+      "middle_name":null,
+      "mailing_address": "",
+      "residence_address": "",
+      "relationship_to_applicant":null,
+      "date_of_birth": {
+        "day": "05",
+        "month": "05",
+        "year": "1979"
+      },
+      "street":null,
+      "city":null,
+      "state":null,
+      "zip_code":null
+    }
+  ],
   "housing_voucher_or_subsidy": "true",
   "id": "a0o0U000000VVw8QAG",
   "lottery_number": "00262254",

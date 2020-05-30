@@ -10,7 +10,7 @@ module Api
         attributes = params.slice(:page, :application_number, :listing_id, :first_name, :last_name, :submission_type)
         applications = soql_application_service.applications(attributes)
 
-        applications[:records] = applications[:records].map { |r| Force::Application.from_salesforce(r).to_domain }
+        applications[:records] = Force::Responses.map_list_to_domain(applications[:records], Force::Application)
 
         render json: applications
       end

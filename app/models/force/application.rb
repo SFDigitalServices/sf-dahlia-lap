@@ -71,7 +71,7 @@ module Force
       { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference },
       { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember },
       { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember },
-      { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember },
+      { custom_api: 'householdMembers', domain: 'household_members', salesforce: 'Household_Members', object: Force::ApplicationMember },
       { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
       { custom_api: '', domain: 'applicant', salesforce: 'Applicant' },
       { custom_api: '', domain: 'listing_preference', salesforce: 'Listing_Preference_ID' },
@@ -93,6 +93,15 @@ module Force
 
         # Created by
         domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
+        if existing_fields['householdMembers']
+          domain_fields.household_members = Force::Responses.map_list_custom_api_to_domain(existing_fields['householdMembers'], Force::ApplicationMember)
+        elsif existing_fields['Household_Members']
+          domain_fields.household_members = Force::Responses.map_list_to_domain(existing_fields['Household_Members'], Force::ApplicationMember)
+        end
+
+        if existing_fields['shortFormPreferences']
+          domain_fields.preferences = Force::Responses.map_list_custom_api_to_domain(existing_fields['shortFormPreferences'], Force::Preference)
+        end
       end
 
       if domain_fields.applicant && (domain_fields.applicant.First_Name || domain_fields.applicant.firstName)
