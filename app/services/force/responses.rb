@@ -31,24 +31,15 @@ module Force
       str.to_s.gsub('__c', '').gsub('__r', '')
     end
 
-    # map a list of hashes in salesforce format, return them in domain format
-    def self.map_list_custom_api_to_domain(custom_api_list, forceClass)
-      (custom_api_list || []).map do |i|
-        forceClass.from_custom_api(i).to_domain
-      end
+    # convert one object format to another.
+    # example call: Force::Responses.convert(Force::Application, application_hash, :from_domain, :to_salesforce)
+    def self.convert(force_class, object, from_method = :from_salesforce, to_method = :to_domain)
+      force_class.send(from_method, object).send(to_method)
     end
 
-    # map a list of hashes in salesforce format, return them in domain format
-    def self.map_list_to_domain(salesforce_list, forceClass)
-      (salesforce_list || []).map do |i|
-        forceClass.from_salesforce(i).to_domain
-      end
-    end
-
-    # map a list of hashes in domain format, return them in salesforce format
-    def self.map_list_to_salesforce(domain_list, forceClass)
-      (domain_list || []).map do |i|
-        forceClass.from_domain(i).to_salesforce
+    def self.convert_list(force_class, list, from_method = :from_salesforce, to_method = :to_domain)
+      (list || []).map do |i|
+        convert(force_class, i, from_method, to_method)
       end
     end
   end

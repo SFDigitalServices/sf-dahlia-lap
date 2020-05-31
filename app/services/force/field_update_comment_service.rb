@@ -29,7 +29,7 @@ module Force
         ),
       )
 
-      Force::Responses.map_list_to_domain(result, Force::FieldUpdateComment)
+      Force::Responses.convert_list(Force::FieldUpdateComment, result)
     end
   end
 end

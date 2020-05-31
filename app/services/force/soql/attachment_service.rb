@@ -24,7 +24,7 @@ module Force
           }
         end
 
-        Force::Responses.map_list_to_domain(result, Force::Attachment)
+        Force::Responses.convert_list(Force::Attachment, result)
       end
 
       private

@@ -15,7 +15,7 @@ module Force
           ORDER BY Name
         )))
 
-        Force::Responses.map_list_to_domain(result, Force::Listing)
+        Force::Responses.convert_list(Force::Listing, result)
       end
 
       def pre_lottery_listings
@@ -25,7 +25,7 @@ module Force
           WHERE Status__c != 'Lease Up' OR Is_Applicant_List_for_Leaseup__c = TRUE
         ))
 
-        Force::Responses.map_list_to_domain(result, Force::Listing)
+        Force::Responses.convert_list(Force::Listing, result)
       end
 
       def listing(id)
@@ -57,7 +57,7 @@ module Force
           WHERE Listing__c = '#{listing_id}'
         ))
 
-        Force::Responses.map_list_to_domain(result, Force::Unit)
+        Force::Responses.convert_list(Force::Unit, result)
       end
 
       def sale?(listing)

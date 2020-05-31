@@ -24,7 +24,7 @@ module Force
              .query
              .records
 
-      Force::Responses.map_list_to_domain(result, Force::Unit)
+      Force::Responses.convert_list(Force::Unit, result)
     end
   end
 end
