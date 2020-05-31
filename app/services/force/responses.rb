@@ -30,17 +30,5 @@ module Force
       # calls .to_s so it works for symbols too
       str.to_s.gsub('__c', '').gsub('__r', '')
     end
-
-    # convert one object format to another.
-    # example call: Force::Responses.convert(Force::Application, application_hash, :from_domain, :to_salesforce)
-    def self.convert(force_class, object, from_method = :from_salesforce, to_method = :to_domain)
-      force_class.send(from_method, object).send(to_method)
-    end
-
-    def self.convert_list(force_class, list, from_method = :from_salesforce, to_method = :to_domain)
-      (list || []).map do |i|
-        convert(force_class, i, from_method, to_method)
-      end
-    end
   end
 end

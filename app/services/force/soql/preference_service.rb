@@ -14,7 +14,7 @@ module Force
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
 
-        Force::Responses.convert_list(Force::Preference, result)
+        Force::Preference.convert_list(result)
       end
 
       def app_preferences_for_listing(opts)

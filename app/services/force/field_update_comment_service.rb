@@ -29,7 +29,7 @@ module Force
         ),
       )
 
-      Force::Responses.convert_list(Force::FieldUpdateComment, result)
+      Force::FieldUpdateComment.convert_list(result)
     end
   end
 end

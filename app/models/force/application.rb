@@ -94,13 +94,13 @@ module Force
         # Created by
         domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
         if existing_fields['householdMembers']
-          domain_fields.household_members = Force::Responses.convert_list(Force::ApplicationMember, existing_fields['householdMembers'], :from_custom_api, :to_domain)
+          domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['householdMembers'], :from_custom_api, :to_domain)
         elsif existing_fields['Household_Members']
-          domain_fields.household_members = Force::Responses.convert_list(Force::ApplicationMember, existing_fields['Household_Members'])
+          domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['Household_Members'])
         end
 
         if existing_fields['shortFormPreferences']
-          domain_fields.preferences = Force::Responses.convert_list(Force::Preference, existing_fields['shortFormPreferences'], :from_custom_api, :to_domain)
+          domain_fields.preferences = Force::Preference.convert_list(existing_fields['shortFormPreferences'], :from_custom_api, :to_domain)
         end
       end
 

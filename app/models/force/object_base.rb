@@ -76,6 +76,18 @@ module Force
       salesforce_fields[field_name] = salesforce_fields[field_name].gsub(/[$,]/, '').to_f
     end
 
+    # convert one object format to another.
+    # example call: Force::Application.convert_object(application_hash, :from_domain, :to_salesforce)
+    def self.convert_object(object, from_method = :from_salesforce, to_method = :to_domain)
+      send(from_method, object).send(to_method)
+    end
+
+    # convert a list of objects from one format to another
+    # example call: Force::Application.convert_list(application_hash, :from_domain, :to_salesforce)
+    def self.convert_list(list, from_method = :from_salesforce, to_method = :to_domain)
+      (list || []).map { |i| convert_object(i, from_method, to_method) }
+    end
+
     # TODO: Automate this conversion for date objects.
     def self.date_to_json(api_date)
       return nil if api_date.blank?

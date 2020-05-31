@@ -15,7 +15,7 @@ module Force
           ORDER BY Name
         )))
 
-        Force::Responses.convert_list(Force::Listing, result)
+        Force::Listing.convert_list(result)
       end
 
       def pre_lottery_listings
@@ -25,7 +25,7 @@ module Force
           WHERE Status__c != 'Lease Up' OR Is_Applicant_List_for_Leaseup__c = TRUE
         ))
 
-        Force::Responses.convert_list(Force::Listing, result)
+        Force::Listing.convert_list(result)
       end
 
       def listing(id)
@@ -57,7 +57,7 @@ module Force
           WHERE Listing__c = '#{listing_id}'
         ))
 
-        Force::Responses.convert_list(Force::Unit, result)
+        Force::Unit.convert_list(result)
       end
 
       def sale?(listing)

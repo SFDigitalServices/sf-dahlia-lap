@@ -10,7 +10,7 @@ module Api
         attributes = params.slice(:page, :application_number, :listing_id, :first_name, :last_name, :submission_type)
         applications = soql_application_service.applications(attributes)
 
-        applications[:records] = Force::Responses.convert_list(Force::Application, applications[:records])
+        applications[:records] = Force::Application.convert_list(applications[:records])
 
         render json: applications
       end

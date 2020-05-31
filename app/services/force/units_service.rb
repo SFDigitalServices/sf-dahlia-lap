@@ -24,7 +24,7 @@ module Force
              .query
              .records
 
-      Force::Responses.convert_list(Force::Unit, result)
+      Force::Unit.convert_list(result)
     end
   end
 end

@@ -85,7 +85,7 @@ module Force
           AND Id != '#{alternate_contact_id}'
         ), :show_household_members)
 
-        Force::Responses.convert_list(Force::ApplicationMember, result)
+        Force::ApplicationMember.convert_list(result)
       end
 
       def app_preferences(application_id)
@@ -95,7 +95,7 @@ module Force
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
 
-        Force::Responses.convert_list(Force::Preference, result)
+        Force::Preference.convert_list(result)
       end
 
       def application_defaults

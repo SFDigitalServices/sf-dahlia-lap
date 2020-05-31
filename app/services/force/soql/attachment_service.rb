@@ -24,7 +24,7 @@ module Force
           }
         end
 
-        Force::Responses.convert_list(Force::Attachment, result)
+        Force::Attachment.convert_list(result)
       end
 
       private
