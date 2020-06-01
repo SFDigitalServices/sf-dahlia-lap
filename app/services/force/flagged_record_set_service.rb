@@ -49,7 +49,7 @@ module Force
         WHERE Flagged_Record_Set__c='#{record_set_id}'
       ), :flagged_applications)
 
-      Force::FlaggedRecordSet.convert_list(result)
+      Force::FlaggedApplication.convert_list(result)
     end
 
     def flagged_record_set(application_id)
