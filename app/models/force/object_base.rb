@@ -97,6 +97,12 @@ module Force
     end
 
     # TODO: Automate this conversion for date objects.
+    def self.json_to_date(date_json)
+      return nil if !date_json
+      [date_json.year, date_json.month, date_json.day].join('-')
+    end
+
+    # TODO: Automate this conversion for date objects.
     def self.date_to_salesforce(domain_date)
       return nil unless !domain_date.blank? && %i[year month day].all? {|s| domain_date.key? s}
 

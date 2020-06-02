@@ -91,6 +91,16 @@ module Force
       domain_fields
     end
 
+    def to_salesforce
+      fields = super
+
+      if fields.Date_of_Birth && !fields.Date_of_Birth.is_a?(String)
+        fields.Date_of_Birth = self.class.json_to_date(fields.Date_of_Birth)
+      end
+
+      fields
+    end
+
     def to_demographics_fields_domain
       demographics_keys_domain = DEMOGRAPHICS_FIELD_NAME_MAPPINGS.map { |field| field[:domain] }
 
