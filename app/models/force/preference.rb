@@ -30,7 +30,7 @@ module Force
       { custom_api: '', domain: 'preference_lottery_rank', salesforce: 'Preference_Lottery_Rank' },
       { custom_api: '', domain: 'preference_name', salesforce: 'Preference_Name' },
       { custom_api: '', domain: 'preference_all_lottery_rank', salesforce: 'Preference_All_Lottery_Rank' },
-      { custom_api: '', domain: 'preference_all_name', salesforce: 'Preference_All_Name' },
+      { custom_api: '', domain: '', salesforce: 'Preference_All_Name' },
       { custom_api: '', domain: 'preference_order', salesforce: 'Preference_Order' },
       { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_proof' },
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
@@ -80,13 +80,16 @@ module Force
       # Special field conversion cases for preferences
       domain_fields.total_household_rent = domain_fields.total_household_rent.to_s if domain_fields.total_household_rent
 
-      # Add preference name if it isn't already present
-      if !domain_fields.preference_name && @fields.salesforce.empty?
-        recordtype_developername = @fields.custom_api.recordTypeDevName
-        preference_type = PREFERENCE_TYPES.find do |t|
-          t[:recordtype_developername] == recordtype_developername
+      if !domain_fields.preference_name
+        if @fields.salesforce.Preference_All_Name
+          domain_fields.preference_name = @fields.salesforce.Preference_All_Name
+        elsif @fields.salesforce.empty?
+          recordtype_developername = @fields.custom_api.recordTypeDevName
+          preference_type = PREFERENCE_TYPES.find do |t|
+            t[:recordtype_developername] == recordtype_developername
+          end
+          domain_fields.preference_name = preference_type[:name] if preference_type
         end
-        domain_fields.preference_name = preference_type[:name] if preference_type
       end
 
       if domain_fields.application
