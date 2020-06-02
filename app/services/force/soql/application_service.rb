@@ -37,7 +37,10 @@ module Force
         ))).to_domain
         application['preferences'] = soql_preference_service.app_preferences_for_application(id)
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
-        application['household_members'] = app_household_members(application)
+
+        alternate_contact_id = application.alternate_contact && application.alternate_contact.id
+        application['household_members'] = app_household_members(application.id, application.applicant.id, alternate_contact_id)
+
         if (opts[:include_lease])
           application['lease'] = soql_lease_service.application_lease(id)
         end
@@ -75,14 +78,13 @@ module Force
                .transform_results { |results| massage(results) }
       end
 
-      def app_household_members(application)
-        alternate_contact_id = application.Alternate_Contact ? application.Alternate_Contact.Id : nil
+      def app_household_members(application_id, applicant_id, alt_contact_id)
         result = parsed_index_query(%(
           SELECT #{query_fields(:show_household_members)}
           FROM Application_Member__c
-          WHERE Application__c = '#{application.id}'
-          AND Id != '#{application.applicant.id}'
-          AND Id != '#{alternate_contact_id}'
+          WHERE Application__c = '#{application_id}'
+          AND Id != '#{applicant_id}'
+          AND Id != '#{alt_contact_id}'
         ), :show_household_members)
 
         Force::ApplicationMember.convert_list(result, :from_salesforce, :to_domain)

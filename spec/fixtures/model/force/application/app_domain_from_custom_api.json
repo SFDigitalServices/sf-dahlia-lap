@@ -9,15 +9,18 @@
   },
   "listing_id": "a0W0P00000F8YG4UAN",
   "alternate_contact": {
-    "firstName": "Alty",
-    "lastName": "Contact",
-    "middleName": "Sample",
-    "alternateContactType": "Other",
-    "alternateContactTypeOther": "Other Alt",
-    "agency": "Meda",
+    "first_name": "Alty",
+    "last_name": "Contact",
+    "middle_name": "Sample",
+    "name": "Alty Sample Contact",
+    "alternate_contact_type": "Other",
+    "alternate_contact_type_other": "Other Alt",
+    "agency_name": "Meda",
     "email": "alt@test.com",
     "phone": "4158675309",
-    "phoneType": "Cell"
+    "phone_type": "Cell",
+    "mailing_address": "",
+    "residence_address": ""
   },
   "applicant": {
     "email": "sample@test.com",

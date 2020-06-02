@@ -28,6 +28,8 @@ RSpec.describe Applications::SupplementalsController, type: :controller do
         # Checking large sub-objects individually before checking entire application equality simplifies
         # the diff output when running tests locally.
         expect(application['applicant']).to eq(expected_supplemental_lease_up_app['applicant'])
+        expect(application['alternate_contact']).to eq(expected_supplemental_lease_up_app['alternate_contact'])
+        expect(application['rental_assistances']).to eq(expected_supplemental_lease_up_app['rental_assistances'])
         expect(application['preferences']).to eq(expected_supplemental_lease_up_app['preferences'])
         expect(application['rental_assistances']).to eq(expected_supplemental_lease_up_app['rental_assistances'])
 

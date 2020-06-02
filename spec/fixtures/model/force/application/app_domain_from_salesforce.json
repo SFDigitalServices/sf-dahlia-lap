@@ -47,6 +47,15 @@
     "sexual_orientation": "Not Listed",
     "sexual_orientation_other": "other orientation"
   },
+  "alternate_contact": {
+    "id":"alternateContactId",
+    "first_name":"James",
+    "last_name":"Doe",
+    "middle_name": "Ben",
+    "name":"James Ben Doe",
+    "mailing_address": "",
+    "residence_address": ""
+  },
   "demographics": {
     "ethnicity": "Decline to state",
     "race": "Decline to state",

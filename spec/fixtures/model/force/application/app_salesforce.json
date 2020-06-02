@@ -33,7 +33,13 @@
       "Sexual_Orientation_Other": "other orientation"
    },
    "Primary_Applicant":"0030U00000P8lxaQAB",
-   "Alternate_Contact":null,
+   "Alternate_Contact": {
+      "Id":"alternateContactId",
+      "First_Name":"James",
+      "Last_Name":"Doe",
+      "Middle_Name": "Ben",
+      "Name":"James Ben Doe"
+   },
    "ListingID": "a0W0U000000MX4vUAG",
    "Status":"Submitted",
    "Total_Household_Size":3,

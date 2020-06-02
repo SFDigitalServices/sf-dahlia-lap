@@ -70,7 +70,7 @@ module Force
       { custom_api: 'amiPercentage', domain: 'ami_percentage', salesforce: 'AMI_Percentage' },
       { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference },
       { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember },
-      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember },
+      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: 'Alternate_Contact', object: Force::ApplicationMember },
       { custom_api: 'householdMembers', domain: 'household_members', salesforce: 'Household_Members', object: Force::ApplicationMember },
       { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
       { custom_api: '', domain: 'applicant', salesforce: 'Applicant' },
@@ -101,6 +101,14 @@ module Force
 
         if existing_fields['shortFormPreferences']
           domain_fields.preferences = Force::Preference.convert_list(existing_fields['shortFormPreferences'], :from_custom_api, :to_domain)
+        end
+
+        if domain_fields['alternate_contact'] && !domain_fields['alternate_contact'].values.all?(&:blank?)
+          if existing_fields['Alternate_Contact']
+            domain_fields.alternate_contact = Force::ApplicationMember.from_salesforce(domain_fields.alternate_contact).to_domain
+          else existing_fields['alternateContact']
+            domain_fields.alternate_contact = Force::ApplicationMember.from_custom_api(domain_fields.alternate_contact).to_domain
+          end
         end
       end
 

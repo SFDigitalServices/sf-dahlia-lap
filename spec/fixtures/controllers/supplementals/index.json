@@ -2,8 +2,9 @@
   "ami_chart_type": "HUD Unadjusted",
   "ami_chart_year": "2018",
   "ami_percentage": 5.55,
-  "annual_income": 5000,
+  "annual_income": 5000.0,
   "answered_community_screening": null,
+  "alternate_contact": null,
   "applicant": {
     "city": "Testville",
     "date_of_birth": {
@@ -95,7 +96,7 @@
   "lottery_number_manual": null,
   "monthly_income": null,
   "name": "APP-00243697",
-  "number_of_dependents": 1,
+  "number_of_dependents": 1.0,
   "number_of_minors": null,
   "number_of_seniors": null,
   "preferences": [
@@ -397,6 +398,6 @@
   "reserved_senior": "Yes",
   "status": "Submitted",
   "terms_acknowledged": true,
-  "total_household_size": 1,
+  "total_household_size": 1.0,
   "total_monthly_rent": null
 }
