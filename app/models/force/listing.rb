@@ -85,7 +85,7 @@ module Force
 
     def map_list_to_domain(domain_fields, listDomainFieldName, forceClass)
       if domain_fields[listDomainFieldName]
-        domain_fields[listDomainFieldName] = forceClass.convert_list(domain_fields[listDomainFieldName])
+        domain_fields[listDomainFieldName] = forceClass.convert_list(domain_fields[listDomainFieldName], :from_salesforce, :to_domain)
       end
     end
 

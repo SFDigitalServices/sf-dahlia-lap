@@ -29,7 +29,7 @@ module Force
         ),
       )
 
-      Force::FieldUpdateComment.convert_list(result)
+      Force::FieldUpdateComment.convert_list(result, :from_salesforce, :to_domain)
     end
   end
 end

@@ -24,7 +24,7 @@ module Force
           }
         end
 
-        Force::Attachment.convert_list(result)
+        Force::Attachment.convert_list(result, :from_salesforce, :to_domain)
       end
 
       private

@@ -96,7 +96,7 @@ module Force
         if existing_fields['householdMembers']
           domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['householdMembers'], :from_custom_api, :to_domain)
         elsif existing_fields['Household_Members']
-          domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['Household_Members'])
+          domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['Household_Members'], :from_salesforce, :to_domain)
         end
 
         if existing_fields['shortFormPreferences']

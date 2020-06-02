@@ -24,7 +24,7 @@ module Force
              .query
              .records
 
-      Force::Unit.convert_list(result)
+      Force::Unit.convert_list(result, :from_salesforce, :to_domain)
     end
   end
 end

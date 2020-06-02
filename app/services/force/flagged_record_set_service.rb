@@ -28,7 +28,7 @@ module Force
         ), :pending_review)
       end
 
-      Force::FlaggedRecordSet.convert_list(result)
+      Force::FlaggedRecordSet.convert_list(result, :from_salesforce, :to_domain)
     end
 
     def marked_duplicate_record_sets
@@ -39,7 +39,7 @@ module Force
         AND Total_Number_of_Duplicates__c > 0
       ), :marked_duplicate)
 
-      Force::FlaggedRecordSet.convert_list(result)
+      Force::FlaggedRecordSet.convert_list(result, :from_salesforce, :to_domain)
     end
 
     def flagged_applications(record_set_id)
@@ -49,7 +49,7 @@ module Force
         WHERE Flagged_Record_Set__c='#{record_set_id}'
       ), :flagged_applications)
 
-      Force::FlaggedApplication.convert_list(result)
+      Force::FlaggedApplication.convert_list(result, :from_salesforce, :to_domain)
     end
 
     def flagged_record_set(application_id)
@@ -59,7 +59,7 @@ module Force
         WHERE Application__c  = '#{application_id}'
       ), :show_flagged_records)
 
-      Force::FlaggedRecordSet.convert_list(result.map(&:Flagged_Record_Set))
+      Force::FlaggedRecordSet.convert_list(result.map(&:Flagged_Record_Set), :from_salesforce, :to_domain)
     end
 
     def update_flagged_application(data)
