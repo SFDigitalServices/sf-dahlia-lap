@@ -32,9 +32,7 @@ const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
     'processing_status': 'processing',
     'preference_order': prefOrder,
     'preference_lottery_rank': prefRank,
-    'listing_preference_id': {
-      'record_type_for_app_preferences': 'COP'
-    },
+    'record_type_for_app_preferences': 'COP',
     'application': {
       'id': 1000 + uniqId,
       'name': `Application Name ${uniqId}`,

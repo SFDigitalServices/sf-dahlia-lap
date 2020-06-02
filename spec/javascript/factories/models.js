@@ -11,7 +11,7 @@ const application = (uniqId, attributes = {}) => {
     last_modified_date: '14 feb 19',
     'application.processing_status': 'processing',
     'application.residence_address': `1316 BURNETT ${uniqId}`,
-    'listing_preference_id.record_type_for_app_preferences': 'CAP',
+    record_type_for_app_preferences: 'CAP',
     ...attributes
   }
 }

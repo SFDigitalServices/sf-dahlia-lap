@@ -37,10 +37,10 @@ module Api::V1
     def set_status_last_updated(status_last_updated_dates, applications)
       status_last_updated_dates.each do |status_date|
         applications.each do |app_data|
-          application_id = app_data[:Application] ? app_data[:Application][:Id] : app_data[:Id]
+          application_id = app_data[:application] ? app_data[:application][:id] : app_data[:id]
           if application_id == status_date[:Application]
-            app_data[:Application][:Status_Last_Updated] = status_date[:Status_Last_Updated] if app_data[:Application]
-            app_data[:Status_Last_Updated] = status_date[:Status_Last_Updated] if app_data[:Application].nil?
+            app_data[:application][:status_last_updated] = status_date[:Status_Last_Updated] if app_data[:application]
+            app_data[:status_last_updated] = status_date[:Status_Last_Updated] if app_data[:application].nil?
           end
         end
       end

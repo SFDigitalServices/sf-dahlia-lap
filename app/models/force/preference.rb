@@ -14,7 +14,11 @@ module Force
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'shortformPreferenceID', domain: 'id', salesforce: 'Id' },
+
+      # Individual_preference has a lowercase 'p' on purpose.
       { custom_api: 'individualPreference', domain: 'individual_preference', salesforce: 'Individual_preference' },
+
+      # TODO Split this into two fields, the String Listing_Preference_ID__c version, and the hash Listing_Preference_ID__r version.
       { custom_api: 'listingPreferenceID', domain: 'listing_preference_id', salesforce: 'Listing_Preference_ID' },
       { custom_api: '', domain: 'lottery_status', salesforce: 'Lottery_Status' },
       { custom_api: 'lwPreferenceProof', domain: 'lw_type_of_proof', salesforce: 'LW_Type_of_Proof' },
@@ -31,6 +35,7 @@ module Force
       { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_proof' },
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
       { custom_api: 'recordTypeDevName', domain: 'recordtype_developername', salesforce: 'RecordType.DeveloperName' },
+      { custom_api: '', domain: 'record_type_for_app_preferences', salesforce: 'Listing_Preference_ID.Record_Type_For_App_Preferences' },
       { custom_api: 'state', domain: 'state', salesforce: 'State' },
       { custom_api: '', domain: 'total_household_rent', salesforce: 'Total_Household_Rent' },
       { custom_api: 'zip', domain: 'zip_code', salesforce: 'Zip_Code' },
@@ -50,13 +55,21 @@ module Force
     def self.from_salesforce(attributes)
       preference = super
 
+      fields = preference.fields.salesforce
+
       # Special field conversion cases for preferences
-      if attributes.RecordType
-        preference.fields.salesforce['RecordType.DeveloperName'] = attributes.RecordType.DeveloperName
+      if fields.RecordType
+        preference.fields.salesforce['RecordType.DeveloperName'] = fields.RecordType.DeveloperName
         preference.fields.salesforce.delete 'RecordType'
       end
 
-      preference.fields.salesforce['Application_Member'] = attributes.Application_Member.Id if attributes.Application_Member
+      # Listing_Preference_ID actually refers to both Listing_Preference_ID__r and Listing_Preference_ID__c
+      if fields.Listing_Preference_ID && !fields.Listing_Preference_ID.is_a?(String)
+        preference.fields.salesforce['Listing_Preference_ID.Record_Type_For_App_Preferences'] = fields.Listing_Preference_ID.Record_Type_For_App_Preferences
+        preference.fields.salesforce.delete 'Listing_Preference_ID'
+      end
+
+      preference.fields.salesforce.Application_Member = fields.Application_Member.Id if fields.Application_Member
 
       preference
     end
@@ -78,13 +91,6 @@ module Force
 
       if domain_fields.application
         domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain
-      end
-
-      preferenceIsString = domain_fields.listing_preference.is_a? String
-      if domain_fields.listing_preference && !preferenceIsString
-        domain_fields.listing_preference.record_type_for_app_preferences = domain_fields.listing_preference.Record_Type_For_App_Preferences
-        domain_fields.listing_preference.delete 'attributes'
-        domain_fields.listing_preference.delete 'Record_Type_For_App_Preferences'
       end
 
       domain_fields
