@@ -127,6 +127,12 @@ RSpec.describe Force::Preference do
       let(:expected_pref_domain_from_salesforce) do
         {
           'listing_preference_id' => 'listingprefidstring',
+          "application_member" => {
+            "id" => "fakeappmemberid1",
+            "mailing_address" => "",
+            "name" => "",
+            "residence_address" => ""
+          },
           'recordtype_developername' => 'L_W',
           'street' => '123 Fake Street',
           'application_member_id' => 'fakeappmemberid1',

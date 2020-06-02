@@ -15,6 +15,7 @@ RSpec.describe ApplicationsController, type: :controller do
           get :show, params: { id: lease_up_application_id }
 
           domain_application = assigns(:application)
+          expect(domain_application['preferences']).to eq(expected_lease_up_app['preferences'])
           expect(domain_application).to eq(expected_lease_up_app)
           expect(domain_application.is_snapshot).to be true
         end
@@ -29,6 +30,7 @@ RSpec.describe ApplicationsController, type: :controller do
           get :show, params: { id: non_lease_up_application_id }
 
           domain_application = assigns(:application)
+          expect(domain_application['preferences']).to eq(expected_non_lease_up_app['preferences'])
           expect(domain_application).to eq(expected_non_lease_up_app)
           expect(domain_application.is_snapshot).to be false
         end
@@ -53,6 +55,7 @@ RSpec.describe ApplicationsController, type: :controller do
           get :show, params: { id: sale_application_id }
 
           domain_application = assigns(:application)
+          expect(domain_application['preferences']).to eq(expected_sale_app['preferences'])
           expect(domain_application).to eq(expected_sale_app)
           expect(assigns(:application).listing['is_sale']).to be_truthy
         end

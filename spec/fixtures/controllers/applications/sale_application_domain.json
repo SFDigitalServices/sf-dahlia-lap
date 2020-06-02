@@ -8,6 +8,19 @@
   "preferences": [
     {
       "application_member_id": "a0n0P00000DXQcMQAX",
+      "application_member": {
+        "first_name": "Automated Test",
+        "last_name": "Sale Application",
+        "date_of_birth": {
+            "year": "1983",
+            "month": "03",
+            "day": "04"
+        },
+        "id": "a0n0P00000DXQcMQAX",
+        "name": "Automated Test Sale Application",
+        "residence_address": "",
+        "mailing_address": ""
+      },
       "certificate_number": "1234",
       "city": null,
       "id": "a0w1D000000bZzEQAU",
@@ -32,6 +45,19 @@
     },
     {
       "application_member_id": "a0n1D000000nuDAQAY",
+      "application_member": {
+        "first_name": "Uncle",
+        "last_name": "Bob",
+        "date_of_birth": {
+            "year": "1910",
+            "month": "01",
+            "day": "01"
+        },
+        "id": "a0n1D000000nuDAQAY",
+        "name": "Uncle Bob",
+        "residence_address": "",
+        "mailing_address": ""
+      },
       "certificate_number": "44444",
       "city": null,
       "id": "a0w1D000000bZzFQAU",
@@ -56,6 +82,19 @@
     },
     {
       "application_member_id": "a0n0P00000DXQcMQAX",
+      "application_member": {
+        "first_name": "Automated Test",
+        "last_name": "Sale Application",
+        "date_of_birth": {
+            "year": "1983",
+            "month": "03",
+            "day": "04"
+        },
+        "id": "a0n0P00000DXQcMQAX",
+        "name": "Automated Test Sale Application",
+        "residence_address": "",
+        "mailing_address": ""
+      },
       "certificate_number": null,
       "city": null,
       "id": "a0w1D000000bZzGQAU",

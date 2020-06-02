@@ -69,7 +69,7 @@ export const applicationPreferencesFields = [
   'opt_out'
 ]
 
-export const declareHousholdIncome = [
+export const declareHouseholdIncome = [
   { field: 'annual_income', formatType: 'currency' },
   { field: 'monthly_income', formatType: 'currency' },
   'housing_voucher_or_subsidy'

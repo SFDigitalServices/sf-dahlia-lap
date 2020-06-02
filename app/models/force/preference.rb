@@ -9,7 +9,8 @@ module Force
     # field mappings into YML files or other places.
     FIELD_NAME_MAPPINGS = [
       { custom_api: 'address', domain: 'street', salesforce: 'Street' },
-      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member' },
+      { custom_api: '', domain: 'application_member', salesforce: 'Application_Member' },
+      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member.Id' },
       { custom_api: '', domain: 'application', salesforce: 'Application' },
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
@@ -69,7 +70,7 @@ module Force
         preference.fields.salesforce.delete 'Listing_Preference_ID'
       end
 
-      preference.fields.salesforce.Application_Member = fields.Application_Member.Id if fields.Application_Member
+      preference.fields.salesforce['Application_Member.Id'] = fields.Application_Member.Id if fields.Application_Member
 
       preference
     end
@@ -90,6 +91,10 @@ module Force
           end
           domain_fields.preference_name = preference_type[:name] if preference_type
         end
+      end
+
+      if domain_fields.application_member
+        domain_fields.application_member = Force::ApplicationMember.from_salesforce(domain_fields.application_member).to_domain
       end
 
       if domain_fields.application

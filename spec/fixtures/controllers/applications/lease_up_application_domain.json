@@ -4,7 +4,7 @@
   "status": "Submitted",
   "preferences": [
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc0QAH",
@@ -29,6 +29,19 @@
     },
     {
       "application_member_id": "a0n0P00000D3qIZQAZ",
+      "application_member": {
+        "first_name": "Automated Test Lease Up Application",
+        "last_name": "(do not modify)",
+        "date_of_birth": {
+            "year": "1989",
+            "month": "01",
+            "day": "05"
+        },
+        "id": "a0n0P00000D3qIZQAZ",
+        "name": "Automated Test Lease Up Application (do not modify)",
+        "residence_address": "",
+        "mailing_address": ""
+      },
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc3QAH",
@@ -52,7 +65,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc1QAH",
@@ -76,7 +89,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000Oqew3QAB",
@@ -100,7 +113,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000PC8JoQAL",
@@ -125,6 +138,19 @@
     },
     {
       "application_member_id": "a0n0P00000D3qIZQAZ",
+      "application_member": {
+        "first_name": "Automated Test Lease Up Application",
+        "last_name": "(do not modify)",
+        "date_of_birth": {
+            "year": "1989",
+            "month": "01",
+            "day": "05"
+        },
+        "id": "a0n0P00000D3qIZQAZ",
+        "name": "Automated Test Lease Up Application (do not modify)",
+        "residence_address": "",
+        "mailing_address": ""
+      },
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc2QAH",
@@ -148,7 +174,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000Oqew2QAB",
@@ -172,7 +198,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000Oqew4QAB",

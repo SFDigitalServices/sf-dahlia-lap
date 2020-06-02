@@ -7,7 +7,7 @@
   "ami_percentage": null,
   "preferences": [
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000N1bbAQAR",
@@ -31,7 +31,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000N1bbBQAR",
@@ -55,7 +55,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000N1bbCQAR",
@@ -79,7 +79,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000N1bbDQAR",
@@ -103,7 +103,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000N1bbEQAR",
@@ -127,7 +127,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OWWYeQAP",

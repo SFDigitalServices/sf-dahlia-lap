@@ -101,7 +101,7 @@
   "number_of_seniors": null,
   "preferences": [
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc0QAH",
@@ -115,7 +115,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Certificate of Preference (COP)",
-      "preference_order": 1,
+      "preference_order": 1.0,
       "receives_preference": false,
       "recordtype_developername": "COP",
       "state": null,
@@ -125,6 +125,19 @@
       "zip_code": null
     },
     {
+      "application_member": {
+        "date_of_birth": {
+          "day": "05",
+          "month": "01",
+          "year": "1989"
+        },
+        "first_name": "Automated Test Lease Up Application",
+        "id": "a0n0P00000D3qIZQAZ",
+        "last_name": "(do not modify)",
+        "mailing_address": "",
+        "name": "Automated Test Lease Up Application (do not modify)",
+        "residence_address": ""
+      },
       "application_member_id": "a0n0P00000D3qIZQAZ",
       "certificate_number": null,
       "city": null,
@@ -137,9 +150,9 @@
       "opt_out": false,
       "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
       "post_lottery_validation": "Confirmed",
-      "preference_lottery_rank": 1,
+      "preference_lottery_rank": 1.0,
       "preference_name": "Live or Work in San Francisco Preference",
-      "preference_order": 4,
+      "preference_order": 4.0,
       "receives_preference": true,
       "recordtype_developername": "L_W",
       "state": null,
@@ -149,7 +162,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc1QAH",
@@ -163,7 +176,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Displaced Tenant Housing Preference (DTHP)",
-      "preference_order": 2,
+      "preference_order": 2.0,
       "receives_preference": false,
       "recordtype_developername": "DTHP",
       "state": null,
@@ -173,7 +186,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000Oqew3QAB",
@@ -187,7 +200,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
-      "preference_order": 6,
+      "preference_order": 6.0,
       "receives_preference": false,
       "recordtype_developername": "NRHP",
       "state": null,
@@ -197,7 +210,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000PC8JoQAL",
@@ -211,7 +224,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Anti-Displacement Housing Preference (ADHP)",
-      "preference_order": 8,
+      "preference_order": 8.0,
       "receives_preference": false,
       "recordtype_developername": "ADHP",
       "state": null,
@@ -221,6 +234,19 @@
       "zip_code": null
     },
     {
+      "application_member": {
+        "date_of_birth": {
+          "day": "05",
+          "month": "01",
+          "year": "1989"
+        },
+        "first_name": "Automated Test Lease Up Application",
+        "id": "a0n0P00000D3qIZQAZ",
+        "last_name": "(do not modify)",
+        "mailing_address": "",
+        "name": "Automated Test Lease Up Application (do not modify)",
+        "residence_address": ""
+      },
       "application_member_id": "a0n0P00000D3qIZQAZ",
       "certificate_number": null,
       "city": null,
@@ -233,9 +259,9 @@
       "opt_out": false,
       "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
       "post_lottery_validation": "Unconfirmed",
-      "preference_lottery_rank": 1,
+      "preference_lottery_rank": 1.0,
       "preference_name": "Rent Burdened / Assisted Housing Preference",
-      "preference_order": 3,
+      "preference_order": 3.0,
       "receives_preference": true,
       "recordtype_developername": "RB_AHP",
       "state": null,
@@ -245,7 +271,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000Oqew2QAB",
@@ -259,7 +285,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Alice Griffith Housing Development Resident",
-      "preference_order": 5,
+      "preference_order": 5.0,
       "receives_preference": false,
       "recordtype_developername": "AG",
       "state": null,
@@ -269,7 +295,7 @@
       "zip_code": null
     },
     {
-      "application_member_id": null,
+      "application_member": null,
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000Oqew4QAB",
@@ -283,7 +309,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Artist Fund (Test Custom Pref)",
-      "preference_order": 7,
+      "preference_order": 7.0,
       "receives_preference": false,
       "recordtype_developername": "Custom",
       "state": null,

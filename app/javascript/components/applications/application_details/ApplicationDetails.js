@@ -5,7 +5,7 @@ import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
 import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
 import {
   flaggedApplicationsFields,
-  declareHousholdIncome,
+  declareHouseholdIncome,
   applicationDataFields,
   primaryApplicantFields,
   alternateContactFields,
@@ -79,7 +79,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
       }
       <ApplicationCard
         title='Declared Household Income'
-        fields={declareHousholdIncome} />
+        fields={declareHouseholdIncome} />
       { !isEmpty(application.flagged_applications) && (
         <Table
           title='Flagged Applications'
