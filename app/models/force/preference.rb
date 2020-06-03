@@ -115,9 +115,6 @@ module Force
     def to_salesforce
       salesforce_fields = super
       is_from_domain = @fields.domain.present?
-      if salesforce_fields['Application_Member'] && is_from_domain
-        salesforce_fields['Application_Member'] = Force::ApplicationMember.from_domain(salesforce_fields['Application_Member'])
-      end
 
       if salesforce_fields['Application_Member.Id']
         salesforce_fields['Application_Member'] = salesforce_fields['Application_Member.Id']
