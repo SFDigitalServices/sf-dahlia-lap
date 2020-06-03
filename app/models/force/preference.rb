@@ -114,6 +114,16 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
+      is_from_domain = @fields.domain.present?
+      if salesforce_fields['Application_Member'] && is_from_domain
+        salesfoce_fields['Application_Member'] = Force::ApplicationMember.from_domain(salesfoce_fields['Application_Member'])
+      end
+
+      if salesforce_fields['Application_Member.Id']
+        salesforce_fields['Application_Member'] = salesforce_fields['Application_Member.Id']
+        salesforce_fields.delete 'Application_Member.Id'
+      end
+
       add_salesforce_suffix(salesforce_fields)
     end
   end
