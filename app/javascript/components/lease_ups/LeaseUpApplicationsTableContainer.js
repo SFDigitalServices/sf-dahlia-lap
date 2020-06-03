@@ -58,7 +58,7 @@ const LeaseUpTableContainer = ({
   const buildRowData = (result) => {
     let rowData = cloneDeep(result)
     // get keys and remove empty values
-    const accessibilityKeys = compact(Object.keys(result.has_ada_priorities_selected))
+    const accessibilityKeys = compact(Object.keys(result.has_ada_priorities_selected || []))
 
     if (accessibilityKeys && accessibilityKeys.length > 0) {
       rowData.accessibility = accessibilityKeys.map(key => capitalize(key.split('_')[0])).join(', ')

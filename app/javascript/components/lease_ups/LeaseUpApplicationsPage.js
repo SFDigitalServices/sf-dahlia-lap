@@ -1,12 +1,11 @@
 /* global SALESFORCE_BASE_URL */
 
 import React from 'react'
-import { flow, map, each, set, clone } from 'lodash'
+import { map, each, set, clone } from 'lodash'
 import moment from 'moment'
 
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import { mapApplicationPreference } from '~/components/mappers/soqlToDomain'
 import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
 import appPaths from '~/utils/appPaths'
 import apiService from '~/apiService'
@@ -35,7 +34,7 @@ class LeaseUpApplicationsPage extends React.Component {
 
   fetchApplications = async (page, filters) => {
     let { records, pages } = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
-    records = map(records, flow(mapApplicationPreference, buildLeaseUpAppPrefModel))
+    records = map(records, buildLeaseUpAppPrefModel)
     return { records, pages }
   }
 

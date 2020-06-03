@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Force
-  # Methods for handling Salesforde Responses
+  # Methods for handling Salesforce Responses
   module Responses
     # recursively remove "__c" and "__r" from all keys
     def self.massage(h)

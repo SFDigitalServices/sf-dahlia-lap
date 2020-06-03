@@ -6,7 +6,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = soql_listing_service.pre_lottery_listings.map { |listing| Force::Listing.from_salesforce(listing).to_domain }
+    @listings = soql_listing_service.pre_lottery_listings
   end
 
   def show
@@ -18,11 +18,11 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = soql_application_service.application(params[:id])
-    @listing = soql_listing_service.listing(@application.Listing.Id)
+    @listing = soql_listing_service.listing(@application[:listing_id])
     @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
-    redirect_to application_url(id: @application.Id) if
+    redirect_to application_url(id: @application.id) if
       @listing.lottery_status != 'Not Yet Run' ||
-      @application&.Application_Submission_Type != 'Paper'
+      @application&.application_submission_type != 'Paper'
   end
 
   private
@@ -89,13 +89,7 @@ class ApplicationsController < ApplicationController
     # Also, see if we can simplify the structure of flagged_applications in
     # the React app and here. The React app expects a certain shape, hence the
     # seemingly extraneous structure around the flagged applications here.
-    record_sets = flagged_record_set_service.flagged_record_set(id).map(&:Flagged_Record_Set)
-    flagged_applications = []
-    record_sets.each do |fields|
-      set = Force::FlaggedRecordSet.from_salesforce(fields).to_domain
-      flagged_applications << { flagged_record: set }
-    end
-    application.flagged_applications = flagged_applications
+    application.flagged_applications = flagged_record_set_service.flagged_record_set(id).map { |r| { flagged_record: r } }
 
     # Because we are getting the application info through the custom
     # API, we do not get a value for total household size. So, we
@@ -103,6 +97,8 @@ class ApplicationsController < ApplicationController
     # added to custom API short form response so that we don't
     # have to do this here.
     application.total_household_size = application.household_members.length + 1
+
+    application.preferences = soql_preference_service.app_preferences_for_application(id)
 
     # Return a domain-formatted application with additional
     # domain-formatted info added onto it

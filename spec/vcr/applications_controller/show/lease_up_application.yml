@@ -8,7 +8,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:49 GMT
+      - Fri, 15 May 2020 02:36:52 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -31,8 +31,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=Al8VN18cEeqlV6ddt-89lA; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:49 GMT; Max-Age=31536000
+      - BrowserId=71t5eJZUEeqwIyWs13ZmVA; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:52 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -45,18 +45,18 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438450072","signature":"8SO6lDNONIIQX7ItdzAgV9yFsBQWJqL3dY2fkgcoU28="}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:50 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1589510212885","signature":"af0Y+uJsBB6+npgizIowf11XU97zPKoeLsDJo1+WqSw="}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:52 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Listing__r.Id,%20Listing__r.Name,%20Listing__r.Status__c,%20Listing__r.Tenure__c,%20Listing__r.Lottery_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Listing__r.Id,%20Listing__r.Name,%20Listing__r.Status__c,%20Listing__r.Tenure__c,%20Listing__r.Lottery_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20"
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -69,7 +69,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:52 GMT
+      - Fri, 15 May 2020 02:36:53 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -83,10 +83,10 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=BA_5i18cEeqQzbXxXRqB1A; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:52 GMT; Max-Age=31536000
+      - BrowserId=79FsMJZUEeqycx9M9rpoPQ; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:53 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=17246/5000000
+      - api-usage=7823/5000000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -98,8 +98,8 @@ http_interactions:
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Id":"a0W0P00000GbyuQUAR","Name":"Partners
         Test Listing (do not modify) - Yellow Acres","Status__c":"Lease Up","Tenure__c":"New
         rental","Lottery_Status__c":"Lottery Complete"}}]}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:52 GMT
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:53 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -108,7 +108,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -121,7 +121,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:52 GMT
+      - Fri, 15 May 2020 02:36:53 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -131,8 +131,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=BGL69F8cEeqMdBkUb55IxA; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:52 GMT; Max-Age=31536000
+      - BrowserId=7_zCdJZUEeqNF3s1UwieEQ; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:53 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -145,18 +145,18 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438453429","signature":"6Nt/Y/bLQERPdrty+ywujiCaIKiSzH+nzNLvmYCye5M="}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:53 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1589510213888","signature":"Q5BgUV+Gdozky8ZJJk+6/7xL76sck2BxbGVQsm17AT0="}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:53 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/apexrest/LeasingAgentPortal/shortForm/Archive/a0o0P00000GZazOQAT
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/apexrest/LeasingAgentPortal/shortForm/Archive/a0o0P00000GZazOQAT"
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -169,7 +169,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:54 GMT
+      - Fri, 15 May 2020 02:36:54 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -183,8 +183,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=BYa6sl8cEeqvdZnkPMIAzg; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:54 GMT; Max-Age=31536000
+      - BrowserId=8GKIpJZUEequcjNRQN1cOg; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:54 GMT; Max-Age=31536000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -202,9 +202,9 @@ http_interactions:
         Test St","lendingAgentStatus":null,"lastName":"(do not modify)","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Automated
         Test Lease Up A","ethnicity":null,"email":"tessiel@email.com","DOB":"1989-01-05","contactId":"0030P00002HAKDJQA5","city":"Testville","candidateScore":null,"appMemberType":"Primary
         Applicant","appMemberId":"a0n0P00000D3qIZQAZ","applicationId":"a0o0P00000GZazOQAT","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"123
-        Test St"},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":1.00,"name":"APP-00243697","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00243697","listingID":"a0W0P00000GbyuQUAR","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"id":"a0o0P00000GZazOQAT","housingCounselingAgency":null,"householdVouchersSubsidies":"true","householdMembers":[],"householdAssets":837.81,"HHTotalIncomeWithAssets":355.29,"hasSenior":"Yes","hasPublicHousing":null,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDevelopmentalDisability":"Yes","hasCompletedHomebuyerEducation":false,"formMetadata":null,"finalHouseholdIncome":null,"externalSessionId":null,"didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-12-02","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":5000.00,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":null}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:54 GMT
+        Test St"},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":1.00,"name":"APP-00243697","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00243697","listingID":"a0W0P00000GbyuQUAR","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"id":"a0o0P00000GZazOQAT","housingCounselingAgency":null,"householdVouchersSubsidies":"true","householdMembers":[],"householdAssets":837.81,"HHTotalIncomeWithAssets":355.29,"hasSenior":"Yes","hasPublicHousing":null,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDevelopmentalDisability":"Yes","hasCompletedHomebuyerEducation":false,"formMetadata":null,"finalHouseholdIncome":null,"externalSessionId":null,"didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-12-02","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":5000.00,"amiPercentage":null,"amiChartYear":null,"amiChartType":null,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":null}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:56 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -213,7 +213,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -226,7 +226,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:55 GMT
+      - Fri, 15 May 2020 02:36:56 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -236,8 +236,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=Bg3sDF8cEeqjr-l-DZWzOQ; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:55 GMT; Max-Age=31536000
+      - BrowserId=8f8iPZZUEeqT7aNBkNqNdQ; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:56 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -250,18 +250,18 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438456192","signature":"qsmlUAQRgrkf1gomf1+L2BP7MUiRp2aJkJnR7fyfWlc="}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:56 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1589510217176","signature":"EhxRsyc+ituTATOugq6rSN/DId2YJUzMijDUAT0tHt0="}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:57 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20"
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -274,7 +274,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:57 GMT
+      - Fri, 15 May 2020 02:36:57 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -288,10 +288,10 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=B0Uz1V8cEeq42C_NbM8G1g; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:57 GMT; Max-Age=31536000
+      - BrowserId=8lqIvJZUEeqtKltUxccGsg; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:57 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=17253/5000000
+      - api-usage=7826/5000000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -303,17 +303,17 @@ http_interactions:
       string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x0P00000ELP85QAH"},"Id":"a0x0P00000ELP85QAH","Document_Type__c":"Copy
         of Lease","Related_Application__c":"a0o0P00000GZazOQAT","Related_Application_Preference__c":"a0w0P00000OUJc2QAH"},{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x0P00000ELP8AQAX"},"Id":"a0x0P00000ELP8AQAX","Document_Type__c":"Letter
         from employer","Related_Application__c":"a0o0P00000GZazOQAT","Related_Application_Preference__c":"a0w0P00000OUJc3QAH"}]}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:57 GMT
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:57 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment%0A%20%20%20%20%20%20%20%20%20%20WHERE%20ParentId%20=%20%27a0x0P00000ELP85QAH%27%0A%20%20%20%20%20%20%20%20
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment%0A%20%20%20%20%20%20%20%20%20%20WHERE%20ParentId%20=%20%27a0x0P00000ELP85QAH%27%0A%20%20%20%20%20%20%20%20"
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -326,7 +326,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:58 GMT
+      - Fri, 15 May 2020 02:36:58 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -340,10 +340,10 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=B-6S0l8cEeqFqgkUV7kVdw; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:58 GMT; Max-Age=31536000
+      - BrowserId=8rGpGpZUEequcjNRQN1cOg; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:58 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=17257/5000000
+      - api-usage=7823/5000000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -353,17 +353,17 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Attachment","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment/00P0P00000t0P3vUAE"},"Id":"00P0P00000t0P3vUAE"}]}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:58 GMT
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:58 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment%0A%20%20%20%20%20%20%20%20%20%20WHERE%20ParentId%20=%20%27a0x0P00000ELP8AQAX%27%0A%20%20%20%20%20%20%20%20
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment%0A%20%20%20%20%20%20%20%20%20%20WHERE%20ParentId%20=%20%27a0x0P00000ELP8AQAX%27%0A%20%20%20%20%20%20%20%20"
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -376,7 +376,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:00:59 GMT
+      - Fri, 15 May 2020 02:36:58 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -390,10 +390,10 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=CK4Sp18cEeqMoQNbKHHQNQ; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:00:59 GMT; Max-Age=31536000
+      - BrowserId=8vKCe5ZUEeqO09tCB5we1Q; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:58 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=17246/5000000
+      - api-usage=7823/5000000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -403,8 +403,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Attachment","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment/00P0P00000t0P40UAE"},"Id":"00P0P00000t0P40UAE"}]}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:00:59 GMT
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:58 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -413,7 +413,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -426,7 +426,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:01:00 GMT
+      - Fri, 15 May 2020 02:36:58 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -436,8 +436,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=CQdVeF8cEeq_9_F4ma1Z9Q; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:01:00 GMT; Max-Age=31536000
+      - BrowserId=8x_UD5ZUEeqWrJ3n5hi2iA; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:58 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -450,18 +450,18 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438460975","signature":"//CMNrbjtfy8wtjuPCFtq6d1az/xV8Vbi3X2iN/zjko="}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:01:01 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1589510219110","signature":"V0FBsjP2rG92j/0HrF0HmAqmEglTsSt3J0rtuKuWbP4="}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:59 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Flagged_Record_Set__c,%20Flagged_Record_Set__r.Id,%20Flagged_Record_Set__r.Rule_Name__c,%20Flagged_Record_Set__r.Total_Number_of_Pending_Review__c%0A%20%20%20%20%20%20%20%20FROM%20Flagged_Application__c%0A%20%20%20%20%20%20%20%20WHERE%20Application__c%20%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Flagged_Record_Set__c,%20Flagged_Record_Set__r.Id,%20Flagged_Record_Set__r.Rule_Name__c,%20Flagged_Record_Set__r.Total_Number_of_Pending_Review__c%0A%20%20%20%20%20%20%20%20FROM%20Flagged_Application__c%0A%20%20%20%20%20%20%20%20WHERE%20Application__c%20%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20"
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -474,7 +474,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:01:02 GMT
+      - Fri, 15 May 2020 02:36:59 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -488,10 +488,10 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=ChBhRV8cEeq42C_NbM8G1g; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:01:02 GMT; Max-Age=31536000
+      - BrowserId=837kFpZUEeqO09tCB5we1Q; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:59 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=17254/5000000
+      - api-usage=7824/5000000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -501,8 +501,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:01:02 GMT
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:36:59 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -511,7 +511,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -524,7 +524,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:01:02 GMT
+      - Fri, 15 May 2020 02:36:59 GMT
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       X-Content-Type-Options:
@@ -534,8 +534,8 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=CnR6kV8cEeqlV6ddt-89lA; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:01:02 GMT; Max-Age=31536000
+      - BrowserId=86iLuZZUEeq_zAFfgoiFeA; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:36:59 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -548,7 +548,121 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438463204","signature":"xFl+AAwNn60qGEGUwq5xEsXWxg6rOY9DY9GPcAid2Ts="}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:01:03 GMT
-recorded_with: VCR 5.0.0
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1589510220087","signature":"Dol2cmw6f6HxY9Cf9CTnhaV2nl/aRqzhTj1v4AiQrNs="}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:37:00 GMT
+- request:
+    method: get
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 May 2020 02:37:00 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=9BE5YZZUEequcjNRQN1cOg; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:37:00 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=7824/5000000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc0QAH"},"Id":"a0w0P00000OUJc0QAH","Name":"AP-0000826196","Preference_Name__c":"Certificate
+        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxUQAR","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc3QAH"},"Id":"a0w0P00000OUJc3QAH","Name":"AP-0000826199","Preference_Name__c":"Live
+        or Work in San Francisco Preference","Person_who_claimed_Name__c":"Automated
+        Test Lease Up Application (do not modify)","Type_of_proof__c":"Telephone bill","Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":1.0,"Listing_Preference_ID__c":"a0l0P00001Q1w1BQAR","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D3qIZQAZ","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
+        Test Lease Up Application","Last_Name__c":"(do not modify)","Date_of_Birth__c":"1989-01-05","Id":"a0n0P00000D3qIZQAZ"},"Individual_preference__c":"Live
+        in SF","Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":"Telephone
+        bill","City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc1QAH"},"Id":"a0w0P00000OUJc1QAH","Name":"AP-0000826197","Preference_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxyQAB","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew3QAB"},"Id":"a0w0P00000Oqew3QAB","Name":"AP-0000919888","Preference_Name__c":"Neighborhood
+        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRQGzQAP","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PC8JoQAL"},"Id":"a0w0P00000PC8JoQAL","Name":"AP-0001011481","Preference_Name__c":"Anti-Displacement
+        Housing Preference (ADHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001RbKCJQA3","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":8.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"},"DeveloperName":"ADHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc2QAH"},"Id":"a0w0P00000OUJc2QAH","Name":"AP-0000826198","Preference_Name__c":"Rent
+        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":"Automated
+        Test Lease Up Application (do not modify)","Type_of_proof__c":"Lease and rent
+        proof","Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":1.0,"Listing_Preference_ID__c":"a0l0P00001Q1w0mQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D3qIZQAZ","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
+        Test Lease Up Application","Last_Name__c":"(do not modify)","Date_of_Birth__c":"1989-01-05","Id":"a0n0P00000D3qIZQAZ"},"Individual_preference__c":"Assisted
+        Housing","Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew2QAB"},"Id":"a0w0P00000Oqew2QAB","Name":"AP-0000919887","Preference_Name__c":"Alice
+        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew4QAB"},"Id":"a0w0P00000Oqew4QAB","Name":"AP-0000919889","Preference_Name__c":"Artist
+        Fund (Test Custom Pref)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRQKlQAP","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":7.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BIQA0"},"DeveloperName":"Custom"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0}]}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:37:00 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 May 2020 02:37:00 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=9DxA4ZZUEeqCu3UzlUwzMw; domain=.salesforce.com; path=/; expires=Sat,
+        15-May-2021 02:37:00 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://sfhousing--Full.cs68.my.salesforce.com","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1589510220926","signature":"wslAfzBZcK9T2Dbv0P5dYEU2n0NhU/OFTvT7tBEliFQ="}'
+    http_version: null
+  recorded_at: Fri, 15 May 2020 02:37:00 GMT
+recorded_with: VCR 5.1.0

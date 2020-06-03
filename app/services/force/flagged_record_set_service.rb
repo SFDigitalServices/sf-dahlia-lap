@@ -14,44 +14,52 @@ module Force
     def pending_review_record_sets
       listing_ids = listing_ids_user_can_access
       if @user.admin?
-        parsed_index_query(%(
+        result = parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
           WHERE Listing__c in ('#{listing_ids.join("', '")}')
           AND hideOnCommunity__c = false
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review)
       else
-        parsed_index_query(%(
+        result = parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
           WHERE Listing__c in ('#{listing_ids.join("', '")}')
           AND (Total_Number_of_Pending_Review__c > 0 OR Total_Number_of_Appealed__c > 0)
         ), :pending_review)
       end
+
+      Force::FlaggedRecordSet.convert_list(result, :from_salesforce, :to_domain)
     end
 
     def marked_duplicate_record_sets
       listing_ids = listing_ids_user_can_access
-      parsed_index_query(%(
+      result = parsed_index_query(%(
         SELECT #{query_fields(:marked_duplicate)} FROM Flagged_Record_Set__c
         WHERE Listing__c in ('#{listing_ids.join("', '")}')
         AND Total_Number_of_Duplicates__c > 0
       ), :marked_duplicate)
+
+      Force::FlaggedRecordSet.convert_list(result, :from_salesforce, :to_domain)
     end
 
     def flagged_applications(record_set_id)
-      parsed_index_query(%(
+      result = parsed_index_query(%(
         SELECT #{query_fields(:flagged_applications)}
         FROM Flagged_Application__c
         WHERE Flagged_Record_Set__c='#{record_set_id}'
       ), :flagged_applications)
+
+      Force::FlaggedApplication.convert_list(result, :from_salesforce, :to_domain)
     end
 
     def flagged_record_set(application_id)
-      parsed_index_query(%(
+      result = parsed_index_query(%(
         SELECT #{query_fields(:show_flagged_records)}
         FROM Flagged_Application__c
         WHERE Application__c  = '#{application_id}'
       ), :show_flagged_records)
+
+      Force::FlaggedRecordSet.convert_list(result.map(&:Flagged_Record_Set), :from_salesforce, :to_domain)
     end
 
     def update_flagged_application(data)

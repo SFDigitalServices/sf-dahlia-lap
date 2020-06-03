@@ -7,7 +7,7 @@ const listing = {
   status: "Active",
   building: "PR-007828",
   min_br: null,
-  lotterry_winners: 0.0,
+  lottery_winners: 0.0,
   max_br: null,
   lottery_results: false,
   min_income: 5255.0,
@@ -25,8 +25,8 @@ const listing = {
   year_built: 2009.0,
   building_zip_code: null,
   description: null,
-  lottery_prefrences: null,
-  acessibility: "Elevator to all floors",
+  lottery_preferences: null,
+  accessibility: "Elevator to all floors",
   fee: null,
   amenities: "Laundry room, underground parking, courtyard, bike room",
   deposit_min: 2102.0,
@@ -69,16 +69,25 @@ const listing = {
   lottery_status: "Not Yet Run",
   office_hours: null,
   tenure: "Re-rental",
-  information_sessions: null,
+  information_sessions: [
+    {
+      city: "San Francisco",
+      date: "2020-02-02",
+      end_time: "12:00PM",
+      start_time: "11:00AM",
+      street_address: "123 Fake Street",
+      venue: "Moscone Center"
+    }
+  ],
   open_houses: [
     {
       attributes: {
         type: "Open_Houses",
         url: "/services/data/v43.0/sobjects/Open_Houses/a0Y0P00000EyLvJUAV"
       },
-      Date: "2018-02-23",
-      Start_Time: "9:00AM",
-      End_Time: "12:00PM"
+      date: "2018-02-23",
+      start_time: "9:00AM",
+      end_time: "12:00PM"
     }
   ],
   listing_lottery_preferences: [
@@ -170,7 +179,6 @@ const listing = {
       property_type: null,
       ami_chart_type: "HUD Unadjusted",
       ami_chart_year: 2016.0,
-      of_ami_for_pricing_unit: 100.0,
       reserved_type: null
     }
   ],

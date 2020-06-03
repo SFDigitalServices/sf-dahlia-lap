@@ -6,7 +6,6 @@ import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import units from '../../fixtures/units'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
@@ -44,8 +43,8 @@ jest.mock('apiService', () => {
 })
 
 const statusHistory = [
-  { Processing_Status: 'Approved', Processing_Comment: 'xxxx1', Processing_Date_Updated: '2018-05-10T19:54:11.000+0000' },
-  { Processing_Status: 'Pending', Processing_Comment: 'xxxx2', Processing_Date_Updated: '2018-05-10T19:54:11.000+0000' }
+  { status: 'Approved', comment: 'xxxx1', date: '2018-05-10T19:54:11.000+0000' },
+  { status: 'Pending', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
 ]
 
 describe('SupplementalApplicationPage', () => {
@@ -80,7 +79,8 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it saves expected values if no changes are made', async () => {
-    const payload = mapApplication(supplementalApplication)
+    const payload = supplementalApplication
+    payload['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
     payload['listing_id'] = 'a0W0x000000GhJUEA0'
     payload['rental_assistances'] = []
     let wrapper
@@ -129,15 +129,15 @@ describe('SupplementalApplicationPage', () => {
     test('it saves a live/work application preference panel', async () => {
       const withValidPreferences = cloneDeep(supplementalApplication)
       merge(withValidPreferences.preferences[0], {
-        Preference_Name: 'Live or Work in San Francisco Preference',
-        Individual_preference: 'Live in SF',
-        Receives_Preference: true,
-        'RecordType.DeveloperName': 'L_W',
-        LW_Type_of_Proof: 'Water bill',
-        Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' },
-        Id: 'preference_id',
-        Post_Lottery_Validation: 'Unconfirmed',
-        Name: 'AP-1234'
+        preference_name: 'Live or Work in San Francisco Preference',
+        individual_preference: 'Live in SF',
+        receives_preference: true,
+        recordtype_developername: 'L_W',
+        lw_type_of_proof: 'Water bill',
+        application_member_id: 'xxx',
+        id: 'preference_id',
+        post_lottery_validation: 'Unconfirmed',
+        name: 'AP-1234'
       })
 
       let wrapper
@@ -153,7 +153,7 @@ describe('SupplementalApplicationPage', () => {
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
-      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
+      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
 
       const expectedPreferencePayload = {
         id: 'preference_id',
@@ -174,19 +174,20 @@ describe('SupplementalApplicationPage', () => {
       const withValidPreferences = cloneDeep(supplementalApplication)
 
       merge(withValidPreferences.preferences[0], {
-        Preference_Name: 'Rent Burdened Assisted Housing',
-        Individual_preference: 'Rent Burdened',
-        Receives_Preference: true,
-        Type_of_proof: 'Lease and rent proof',
-        Application_Member: { Id: 'xxx', First_Name: 'Bla', Last_Name: 'Ble', DOB: '03/03/83' },
-        Id: 'preference_id',
-        Post_Lottery_Validation: 'Unconfirmed',
-        Name: 'AP-1234',
-        'RecordType.DeveloperName': 'RB_AHP'
+        preference_name: 'Rent Burdened Assisted Housing',
+        individual_preference: 'Rent Burdened',
+        receives_preference: true,
+        type_of_proof: 'Lease and rent proof',
+        application_member_id: 'xxx',
+        id: 'preference_id',
+        post_lottery_validation: 'Unconfirmed',
+        name: 'AP-1234',
+        recordtype_developername: 'RB_AHP'
       })
 
-      withValidPreferences.Id = 'application_id'
-      withValidPreferences.Total_Monthly_Rent = '50'
+      withValidPreferences.id = 'application_id'
+      withValidPreferences.total_monthly_rent = '50'
+
       let wrapper
       await act(async () => {
         wrapper = mount(
@@ -200,15 +201,21 @@ describe('SupplementalApplicationPage', () => {
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
-      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').simulate('click') })
+      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
 
       const expectedPreferencePayload = {
-        id: 'preference_id',
-        application_member_id: 'xxx',
-        individual_preference: 'Rent Burdened',
-        type_of_proof: 'Lease and rent proof',
-        lw_type_of_proof: null,
-        post_lottery_validation: 'Unconfirmed'
+        'application_member_id': 'xxx',
+        'id': 'preference_id',
+        'individual_preference': 'Rent Burdened',
+        'listing_preference_id': 'a0l0P00001Q1vxUQAR',
+        'lottery_status': null,
+        'name': 'AP-1234',
+        'post_lottery_validation': 'Unconfirmed',
+        'preference_name': 'Rent Burdened Assisted Housing',
+        'preference_order': 1,
+        'receives_preference': true,
+        'recordtype_developername': 'RB_AHP',
+        'type_of_proof': 'Lease and rent proof'
       }
       expect(mockUpdateApplication.mock.calls.length).toBe(1)
       expect(mockUpdatePreference.mock.calls.length).toBe(1)
@@ -233,7 +240,8 @@ describe('SupplementalApplicationPage', () => {
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-      const expectedApplication = mapApplication(supplementalApplication)
+      const expectedApplication = supplementalApplication
+      expectedApplication['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
       expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
       expectedApplication['rental_assistances'] = []
       expectedApplication['confirmed_household_annual_income'] = 1234.0
@@ -255,7 +263,8 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
-      const expectedApplication = mapApplication(supplementalApplication)
+      const expectedApplication = supplementalApplication
+      expectedApplication['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
       expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
       expectedApplication['rental_assistances'] = []
       expectedApplication['confirmed_household_annual_income'] = null
@@ -273,14 +282,14 @@ describe('SupplementalApplicationPage', () => {
 
       // Add a valid preference for preference used
       merge(mockApplication.preferences[0], {
-        Id: 'testValidPref',
-        Post_Lottery_Validation: 'Confirmed'
+        id: 'testValidPref',
+        post_lottery_validation: 'Confirmed'
       })
 
       // Add available units
       const mockAvailableUnits = [
-        {'Unit_Number': 1, 'Id': 'id1'},
-        {'Unit_Number': 2, 'Id': 'id2'}
+        {'unit_number': 1, 'id': 'id1'},
+        {'unit_number': 2, 'id': 'id2'}
       ]
 
       await act(async () => {
@@ -314,15 +323,17 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedLease = {
-        'id': undefined,
+        'id': 'a130P000005TeZrQAK',
+        'bmr_parking_space_assigned': null,
         'unit': 'id1',
         'lease_start_date': {'year': '2019', 'month': '1', 'day': '12'},
+        'lease_status': 'Draft',
         'no_preference_used': false,
         'preference_used': 'testValidPref',
         'total_monthly_rent_without_parking': '1',
         'monthly_parking_rent': '2',
         'monthly_tenant_contribution': '3',
-        'primary_applicant_contact': mockApplication['Applicant']['Id']
+        'primary_applicant_contact': mockApplication['applicant']['id']
       }
 
       expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)

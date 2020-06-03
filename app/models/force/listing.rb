@@ -14,7 +14,7 @@ module Force
       { domain: 'tenure', salesforce: 'Tenure' },
       { domain: 'status', salesforce: 'Status' },
       { domain: 'min_br', salesforce: 'Min_BR' },
-      { domain: 'lotterry_winners', salesforce: 'Lottery_Winners' },
+      { domain: 'lottery_winners', salesforce: 'Lottery_Winners' },
       { domain: 'max_br', salesforce: 'Max_BR' },
       { domain: 'lottery_results', salesforce: 'Lottery_Results' },
       { domain: 'min_income', salesforce: 'Min_Income' },
@@ -31,8 +31,8 @@ module Force
       { domain: 'year_built', salesforce: 'Year_Built' },
       { domain: 'building_zip_code', salesforce: 'Building_Zip_Code' },
       { domain: 'description', salesforce: 'Description' },
-      { domain: 'lottery_prefrences', salesforce: 'Lottery_Preferences' },
-      { domain: 'acessibility', salesforce: 'Accessibility' },
+      { domain: 'lottery_preferences', salesforce: 'Lottery_Preferences' },
+      { domain: 'accessibility', salesforce: 'Accessibility' },
       { domain: 'fee', salesforce: 'Fee' },
       { domain: 'amenities', salesforce: 'Amenities' },
       { domain: 'deposit_min', salesforce: 'Deposit_Min' },
@@ -54,6 +54,8 @@ module Force
       { domain: 'application_state', salesforce: 'Application_State' },
       { domain: 'application_postal_code', salesforce: 'Application_Postal_Code' },
       { domain: 'in_lottery', salesforce: 'In_Lottery' },
+      { domain: 'is_rental' },
+      { domain: 'is_sale' },
       { domain: 'leasing_agent_name', salesforce: 'Leasing_Agent_Name' },
       { domain: 'leasing_agent_title', salesforce: 'Leasing_Agent_Title' },
       { domain: 'leasing_agent_email', salesforce: 'Leasing_Agent_Email' },
@@ -81,6 +83,18 @@ module Force
       { domain: 'units', salesforce: 'Units' },
     ].freeze
 
+    def map_list_to_domain(domain_fields, listDomainFieldName, forceClass)
+      if domain_fields[listDomainFieldName]
+        domain_fields[listDomainFieldName] = forceClass.convert_list(domain_fields[listDomainFieldName], :from_salesforce, :to_domain)
+      end
+    end
+
+    def map_list_to_salesforce(salesforce_fields, listSalesforceFieldName, forceClass)
+      if salesforce_fields[listSalesforceFieldName]
+        salesforce_fields[listSalesforceFieldName] = forceClass.convert_list(salesforce_fields[listSalesforceFieldName], :from_domain, :to_salesforce)
+      end
+    end
+
     def to_domain
       domain_fields = super
       return if domain_fields.blank?
@@ -90,14 +104,33 @@ module Force
       domain_fields.owner = domain_fields.dig(:owner, :Name) if domain_fields[:owner]
       domain_fields.account = domain_fields.dig(:account, :Name) if domain_fields[:account]
       domain_fields.building = domain_fields.dig(:building, :Name) if domain_fields[:building]
-      if domain_fields[:listing_lottery_preferences]
-        domain_fields.listing_lottery_preferences = (domain_fields[:listing_lottery_preferences] || []).map do |p|
-          Force::LotteryPreference.from_salesforce(p).to_domain
-        end
-      end
-      domain_fields.units = (domain_fields[:units] || []).map { |u| Force::Unit.from_salesforce(u).to_domain } if domain_fields[:units]
+
+      # TODO: These sub-object mappings are so common there should be a way to specify them in
+      # FIELD_NAME_MAPPINGS hash so this happens automatically
+      map_list_to_domain(domain_fields, :information_sessions, Force::InformationSession)
+      map_list_to_domain(domain_fields, :open_houses, Force::OpenHouse)
+      map_list_to_domain(domain_fields, :listing_lottery_preferences, Force::LotteryPreference)
+      map_list_to_domain(domain_fields, :units, Force::Unit)
 
       domain_fields
+    end
+
+    def to_salesforce
+      salesforce_fields = super
+      return if salesforce_fields.blank?
+
+      salesforce_fields.Owner = { "Name": salesforce_fields.Owner }
+      salesforce_fields.Account = { "Name": salesforce_fields.Account }
+      salesforce_fields.Building = { "Name": salesforce_fields.Building }
+
+      # TODO: These sub-object mappings are so common there should be a way to specify them in
+      # FIELD_NAME_MAPPINGS hash so this happens automatically
+      map_list_to_salesforce(salesforce_fields, :Information_Sessions, Force::InformationSession)
+      map_list_to_salesforce(salesforce_fields, :Open_Houses, Force::OpenHouse)
+      map_list_to_salesforce(salesforce_fields, :Listing_Lottery_Preferences, Force::LotteryPreference)
+      map_list_to_salesforce(salesforce_fields, :Units, Force::Unit)
+
+      salesforce_fields
     end
   end
 end

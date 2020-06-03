@@ -4,17 +4,110 @@
   "application_language": "English",
   "application_submission_type": "Paper",
   "application_submitted_date": "2018-08-03",
-  "createdby": {"name": "Prod Vertiba"},
+  "createdby": {
+    "name": "Prod Vertiba"
+  },
   "general_lottery": true,
   "general_lottery_rank": 2,
   "has_ada_priorities_selected": {
     "mobility_impairments": true,
     "hearing_impairments": true
   },
+  "applicant": {
+    "city": "SAN FRANCISCO",
+    "date_of_birth": {
+      "year": "1980",
+      "month": "02",
+      "day": "02"
+    },
+    "email": "lappyt@email.com",
+    "first_name": "Lappy",
+    "id": "a0n0U0000030tBrQAI",
+    "last_name": "Laptest",
+    "mailing_address": "333 BUSH ST, SAN FRANCISCO, CA, 94104-2806",
+    "mailing_city": "SAN FRANCISCO",
+    "mailing_state": "CA",
+    "mailing_street": "333 BUSH ST",
+    "mailing_zip_code": "94104-2806",
+    "marital_status": null,
+    "middle_name": null,
+    "name": "Lappy Laptest",
+    "phone": "(415) 555-1122",
+    "phone_type": "Home",
+    "residence_address": "333 BUSH ST, SAN FRANCISCO, CA, 94104-2806",
+    "second_phone": null,
+    "second_phone_type": null,
+    "state": "CA",
+    "street": "333 BUSH ST",
+    "zip_code": "94104-2806",
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "gender_other": "other gender",
+    "sexual_orientation": "Not Listed",
+    "sexual_orientation_other": "other orientation"
+  },
+  "alternate_contact": {
+    "id":"alternateContactId",
+    "first_name":"James",
+    "last_name":"Doe",
+    "middle_name": "Ben",
+    "name":"James Ben Doe",
+    "mailing_address": "",
+    "residence_address": ""
+  },
+  "demographics": {
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "gender_other": "other gender",
+    "sexual_orientation": "Not Listed",
+    "sexual_orientation_other": "other orientation"
+  },
   "has_developmental_disability": null,
   "has_military_service": null,
   "hh_total_income_with_assets_annual": null,
   "household_assets": null,
+  "household_members": [
+    {
+      "id":"a0n0U0000030tBhQAI",
+      "name":"Flappy Laptest",
+      "first_name":"Flappy",
+      "last_name":"Laptest",
+      "middle_name":null,
+      "mailing_address": "",
+      "residence_address": "",
+      "relationship_to_applicant":null,
+      "date_of_birth": {
+        "day": "05",
+        "month": "05",
+        "year": "2001"
+      },
+      "street":null,
+      "city":null,
+      "state":null,
+      "zip_code":null
+    },
+    {
+      "id":"a0n0U0000030tBmQAI",
+      "name":"Slappy Laptest",
+      "first_name":"Slappy",
+      "last_name":"Laptest",
+      "middle_name":null,
+      "mailing_address": "",
+      "residence_address": "",
+      "relationship_to_applicant":null,
+      "date_of_birth": {
+        "day": "05",
+        "month": "05",
+        "year": "1979"
+      },
+      "street":null,
+      "city":null,
+      "state":null,
+      "zip_code":null
+    }
+  ],
   "housing_voucher_or_subsidy": "true",
   "id": "a0o0U000000VVw8QAG",
   "lottery_number": "00262254",
@@ -23,7 +116,7 @@
   "name": "APP-00262254",
   "number_of_dependents": null,
   "primary_applicant_contact": "0030U00000P8lxaQAB",
-  "processing_status":  "Waitlisted",
+  "processing_status": "Waitlisted",
   "referral_source": null,
   "reserved_senior": null,
   "status": "Submitted",

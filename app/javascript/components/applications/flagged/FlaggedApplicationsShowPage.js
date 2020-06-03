@@ -3,7 +3,6 @@ import React from 'react'
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapFlaggedApplication } from '~/components/mappers/soqlToDomain'
 
 const tableFields = {
   'id': {
@@ -73,7 +72,7 @@ const buildFlaggedApplicationModel = (flaggedApplication) => {
 
 const mapProperties = ({ flaggedApplications }) => {
   return {
-    flaggedApplications: flaggedApplications.map(i => buildFlaggedApplicationModel(mapFlaggedApplication(i)))
+    flaggedApplications: flaggedApplications.map(i => buildFlaggedApplicationModel(i))
   }
 }
 

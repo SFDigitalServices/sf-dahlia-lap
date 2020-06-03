@@ -23,5 +23,15 @@ module Force
       }
       domain_fields
     end
+
+    def to_salesforce
+      salesforce_fields = super
+
+      salesforce_fields.Lottery_Preference = {
+        Id: salesforce_fields[:Lottery_Preference][:id],
+        Name: salesforce_fields[:Lottery_Preference][:name],
+      }
+      salesforce_fields
+    end
   end
 end

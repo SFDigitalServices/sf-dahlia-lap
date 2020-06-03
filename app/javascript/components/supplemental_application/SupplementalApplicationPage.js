@@ -5,10 +5,8 @@ import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
-import { mapApplication, mapFieldUpdateComment, mapListing, mapUnit } from '~/components/mappers/soqlToDomain'
 import Alerts from '~/components/Alerts'
 import { updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
-import { mapList } from '~/components/mappers/utils'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
@@ -57,7 +55,7 @@ class SupplementalApplicationPage extends React.Component {
     const updatedApplication = await updateApplication(application, this.state.application)
 
     if (updatedApplication) {
-      this.setState({ application: setApplicationsDefaults(mapApplication(updatedApplication)), loading: false, supplementalAppTouched: false }, () => {
+      this.setState({ application: setApplicationsDefaults(updatedApplication), loading: false, supplementalAppTouched: false }, () => {
         this.handleCloseRentalAssistancePanel()
       })
     } else {
@@ -169,8 +167,8 @@ class SupplementalApplicationPage extends React.Component {
       this.setState({loading: false})
     } else {
       this.setState({
-        application: setApplicationsDefaults(mapApplication(updatedApplication)),
-        statusHistory: mapList(mapFieldUpdateComment, updatedStatusHistory),
+        application: setApplicationsDefaults(updatedApplication),
+        statusHistory: updatedStatusHistory,
         loading: false,
         supplementalAppTouched: false
       }, () => this.updateStatusModal({loading: false, isOpen: false}))
@@ -295,6 +293,7 @@ class SupplementalApplicationPage extends React.Component {
   render () {
     const { fileBaseUrl, availableUnits, listing } = this.props
     const { leaveConfirmationModal, application, statusHistory } = this.state
+
     const pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
@@ -358,13 +357,13 @@ class SupplementalApplicationPage extends React.Component {
 
 const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
   return {
-    application: setApplicationsDefaults(mapApplication(application)),
-    listing: mapListing(application.Listing),
-    statusHistory: mapList(mapFieldUpdateComment, statusHistory),
+    application: setApplicationsDefaults(application),
+    listing: application.listing,
+    statusHistory: statusHistory,
     onSubmit: (values) => updateApplication(values, application),
     fileBaseUrl: fileBaseUrl,
-    units: mapList(mapUnit, units),
-    availableUnits: mapList(mapUnit, availableUnits)
+    units: units,
+    availableUnits: availableUnits
   }
 }
 

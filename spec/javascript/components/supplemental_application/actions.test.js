@@ -1,6 +1,5 @@
 import { updateApplication } from 'components/supplemental_application/actions'
 import supplementalApplication from '../../fixtures/supplemental_application'
-import { mapApplication } from '~/components/mappers/soqlToDomain'
 import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
@@ -46,10 +45,10 @@ jest.mock('apiService', () => {
 
 describe('updateApplication', () => {
   test('it should submit application to shortForm endpoint', async () => {
-    const applicationDomain = mapApplication(supplementalApplication)
+    const applicationDomain = supplementalApplication
     const response = await updateApplication(applicationDomain)
 
-    expect(response.id).toEqual(supplementalApplication.Id)
+    expect(response.id).toEqual(supplementalApplication.id)
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
     expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
   })

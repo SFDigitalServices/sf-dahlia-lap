@@ -5,7 +5,7 @@ import FlaggedApplicationsIndexPage from 'components/applications/flagged/Flagge
 import flaggedRecords from '../../../fixtures/flagged_records'
 
 describe('FlaggedApplicationsIndexPage', () => {
-  test('should render succesfully', () => {
+  test('should render successfully', () => {
     const title = 'Flagged Applications - Pending Review'
 
     const wrapper = renderer.create(

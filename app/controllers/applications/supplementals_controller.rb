@@ -7,11 +7,11 @@ module Applications
 
     def index
       @application = soql_application_service.application(params[:application_id])
-      @status_history = field_update_comment_service.status_history_by_application(params[:application_id])
+      @status_history = field_update_comment_service.status_history_by_application(@application.id)
       @file_base_url = file_base_url
-      @available_units = units_service.available_units_for_application(@application.Listing.Id, @application.Id)
-      @units = soql_listing_service.units(@application.Listing.Id)
-      @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.Id)
+      @available_units = units_service.available_units_for_application(@application[:listing_id], params[:application_id])
+      @units = soql_listing_service.units(@application[:listing_id])
+      @application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(@application.id)
     end
 
     def update
@@ -24,6 +24,10 @@ module Applications
 
     def soql_application_service
       Force::Soql::ApplicationService.new(current_user)
+    end
+
+    def soql_preference_service
+      Force::Soql::PreferenceService.new(current_user)
     end
 
     def units_service

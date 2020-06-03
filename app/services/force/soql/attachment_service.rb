@@ -24,7 +24,7 @@ module Force
           }
         end
 
-        result.map { |r| Force::Attachment.from_salesforce(r).to_domain }
+        Force::Attachment.convert_list(result, :from_salesforce, :to_domain)
       end
 
       private

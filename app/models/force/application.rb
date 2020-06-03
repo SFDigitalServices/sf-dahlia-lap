@@ -41,7 +41,8 @@ module Force
       { custom_api: 'isFirstTimeHomebuyer', domain: 'is_first_time_homebuyer', salesforce: '?' },
       { custom_api: 'interviewScheduledDate', domain: '', salesforce: 'Interview_Scheduled_Date' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: '?' },
-      { custom_api: 'listingID', domain: 'listing_id', salesforce: 'Listing' },
+      { custom_api: '', domain: 'listing', salesforce: 'Listing' },
+      { custom_api: 'listingID', domain: 'listing_id', salesforce: '?' },
       { custom_api: 'lotteryNumber', domain: 'lottery_number', salesforce: 'Lottery_Number' },
       { custom_api: 'lotteryNumberManual', domain: 'lottery_number_manual', salesforce: 'Lottery_Number_Manual' },
       { custom_api: 'monthlyIncome', domain: 'monthly_income', salesforce: 'Monthly_Income' },
@@ -69,9 +70,11 @@ module Force
       { custom_api: 'amiPercentage', domain: 'ami_percentage', salesforce: 'AMI_Percentage' },
       { custom_api: 'shortFormPreferences', domain: 'preferences', salesforce: '?', object: Force::Preference },
       { custom_api: 'primaryApplicant', domain: 'applicant', salesforce: '?', object: Force::ApplicationMember },
-      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: '?', object: Force::ApplicationMember },
-      { custom_api: 'householdMembers', domain: 'household_members', salesforce: '?', object: Force::ApplicationMember },
+      { custom_api: 'alternateContact', domain: 'alternate_contact', salesforce: 'Alternate_Contact', object: Force::ApplicationMember },
+      { custom_api: 'householdMembers', domain: 'household_members', salesforce: 'Household_Members', object: Force::ApplicationMember },
       { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
+      { custom_api: '', domain: 'applicant', salesforce: 'Applicant' },
+      { custom_api: '', domain: 'listing_preference', salesforce: 'Listing_Preference_ID' },
     ].freeze
 
     def to_domain
@@ -90,6 +93,39 @@ module Force
 
         # Created by
         domain_fields['createdby'] = { name: existing_fields['CreatedBy']['Name'] } if existing_fields['CreatedBy']
+        if existing_fields['householdMembers']
+          domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['householdMembers'], :from_custom_api, :to_domain)
+        elsif existing_fields['Household_Members']
+          domain_fields.household_members = Force::ApplicationMember.convert_list(existing_fields['Household_Members'], :from_salesforce, :to_domain)
+        end
+
+        if existing_fields['shortFormPreferences']
+          domain_fields.preferences = Force::Preference.convert_list(existing_fields['shortFormPreferences'], :from_custom_api, :to_domain)
+        end
+
+        if domain_fields['alternate_contact'] && !domain_fields['alternate_contact'].values.all?(&:blank?)
+          if existing_fields['Alternate_Contact']
+            domain_fields.alternate_contact = Force::ApplicationMember.from_salesforce(domain_fields.alternate_contact).to_domain
+          else existing_fields['alternateContact']
+            domain_fields.alternate_contact = Force::ApplicationMember.from_custom_api(domain_fields.alternate_contact).to_domain
+          end
+        end
+      end
+
+      if domain_fields.applicant && (domain_fields.applicant.First_Name || domain_fields.applicant.firstName)
+        if domain_fields.applicant.First_Name
+          applicant_object = Force::ApplicationMember.from_salesforce(domain_fields.applicant)
+        else
+          applicant_object = Force::ApplicationMember.from_custom_api(domain_fields.applicant)
+        end
+        domain_fields.applicant = applicant_object.to_domain
+        domain_fields.demographics = applicant_object.to_demographics_fields_domain
+      end
+
+      listingIsString = domain_fields.listing.is_a? String
+      if domain_fields.listing && !listingIsString
+        domain_fields.listing = Force::Listing.from_salesforce(domain_fields.listing).to_domain
+        domain_fields.listing_id = domain_fields.listing.id
       end
 
       domain_fields

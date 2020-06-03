@@ -9,7 +9,7 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
   lease_up_listing = 'a0W0P00000GbyuQ' # Lease up Listing
 
   describe '#index' do
-    it 'returns only applications with preferences where Preference_All_Name and Preference_All_Lottery_Rank exist' do
+    it 'returns only applications with preferences where preference_all_name and preference_all_lottery_rank exist' do
       VCR.use_cassette('/api/v1/lease-ups/applications') do
         params = {
           listing_id: lease_up_listing,
@@ -20,7 +20,7 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
       all_records_have_preferences = json['records'].all? { |r| (
-        r['Preference_All_Name'] && r['Preference_All_Name'].length > 0 && r['Preference_All_Lottery_Rank'] && r['Preference_All_Lottery_Rank'] > 0
+        r['preference_name'] && r['preference_name'].length > 0 && r['preference_all_lottery_rank'] && r['preference_all_lottery_rank'] > 0
       ) }
       expect(all_records_have_preferences).to eq(true)
     end

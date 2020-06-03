@@ -7,6 +7,8 @@ module Api::V1
       applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
       application_ids = applications[:records].map { |data| "'#{data[:Application]['Id']}'" }
 
+      applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
+
       # find the last time the status was updated on these applications,
       # i.e. what is the most recently-dated Field Update Comment, if
       # any, for each application
@@ -35,10 +37,10 @@ module Api::V1
     def set_status_last_updated(status_last_updated_dates, applications)
       status_last_updated_dates.each do |status_date|
         applications.each do |app_data|
-          application_id = app_data[:Application] ? app_data[:Application][:Id] : app_data[:Id]
+          application_id = app_data[:application] ? app_data[:application][:id] : app_data[:id]
           if application_id == status_date[:Application]
-            app_data[:Application][:Status_Last_Updated] = status_date[:Status_Last_Updated] if app_data[:Application]
-            app_data[:Status_Last_Updated] = status_date[:Status_Last_Updated] if app_data[:Application].nil?
+            app_data[:application][:status_last_updated] = status_date[:Status_Last_Updated] if app_data[:application]
+            app_data[:status_last_updated] = status_date[:Status_Last_Updated] if app_data[:application].nil?
           end
         end
       end

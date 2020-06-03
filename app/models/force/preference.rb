@@ -9,11 +9,17 @@ module Force
     # field mappings into YML files or other places.
     FIELD_NAME_MAPPINGS = [
       { custom_api: 'address', domain: 'street', salesforce: 'Street' },
-      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member' },
+      { custom_api: '', domain: 'application_member', salesforce: 'Application_Member' },
+      { custom_api: 'appMemberID', domain: 'application_member_id', salesforce: 'Application_Member.Id' },
+      { custom_api: '', domain: 'application', salesforce: 'Application' },
       { custom_api: 'certificateNumber', domain: 'certificate_number', salesforce: 'Certificate_Number' },
       { custom_api: 'city', domain: 'city', salesforce: 'City' },
       { custom_api: 'shortformPreferenceID', domain: 'id', salesforce: 'Id' },
+
+      # Individual_preference has a lowercase 'p' on purpose.
       { custom_api: 'individualPreference', domain: 'individual_preference', salesforce: 'Individual_preference' },
+
+      # TODO Split this into two fields, the String Listing_Preference_ID__c version, and the hash Listing_Preference_ID__r version.
       { custom_api: 'listingPreferenceID', domain: 'listing_preference_id', salesforce: 'Listing_Preference_ID' },
       { custom_api: '', domain: 'lottery_status', salesforce: 'Lottery_Status' },
       { custom_api: 'lwPreferenceProof', domain: 'lw_type_of_proof', salesforce: 'LW_Type_of_Proof' },
@@ -25,11 +31,12 @@ module Force
       { custom_api: '', domain: 'preference_lottery_rank', salesforce: 'Preference_Lottery_Rank' },
       { custom_api: '', domain: 'preference_name', salesforce: 'Preference_Name' },
       { custom_api: '', domain: 'preference_all_lottery_rank', salesforce: 'Preference_All_Lottery_Rank' },
-      { custom_api: '', domain: 'preference_all_name', salesforce: 'Preference_All_Name' },
+      { custom_api: '', domain: '', salesforce: 'Preference_All_Name' },
       { custom_api: '', domain: 'preference_order', salesforce: 'Preference_Order' },
       { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_proof' },
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
       { custom_api: 'recordTypeDevName', domain: 'recordtype_developername', salesforce: 'RecordType.DeveloperName' },
+      { custom_api: '', domain: 'record_type_for_app_preferences', salesforce: 'Listing_Preference_ID.Record_Type_For_App_Preferences' },
       { custom_api: 'state', domain: 'state', salesforce: 'State' },
       { custom_api: '', domain: 'total_household_rent', salesforce: 'Total_Household_Rent' },
       { custom_api: 'zip', domain: 'zip_code', salesforce: 'Zip_Code' },
@@ -49,13 +56,21 @@ module Force
     def self.from_salesforce(attributes)
       preference = super
 
+      fields = preference.fields.salesforce
+
       # Special field conversion cases for preferences
-      if attributes.RecordType
-        preference.fields.salesforce['RecordType.DeveloperName'] = attributes.RecordType.DeveloperName
+      if fields.RecordType
+        preference.fields.salesforce['RecordType.DeveloperName'] = fields.RecordType.DeveloperName
         preference.fields.salesforce.delete 'RecordType'
       end
 
-      preference.fields.salesforce['Application_Member'] = attributes.Application_Member.Id if attributes.Application_Member
+      # Listing_Preference_ID actually refers to both Listing_Preference_ID__r and Listing_Preference_ID__c
+      if fields.Listing_Preference_ID && !fields.Listing_Preference_ID.is_a?(String)
+        preference.fields.salesforce['Listing_Preference_ID.Record_Type_For_App_Preferences'] = fields.Listing_Preference_ID.Record_Type_For_App_Preferences
+        preference.fields.salesforce.delete 'Listing_Preference_ID'
+      end
+
+      preference.fields.salesforce['Application_Member.Id'] = fields.Application_Member.Id if fields.Application_Member
 
       preference
     end
@@ -66,13 +81,24 @@ module Force
       # Special field conversion cases for preferences
       domain_fields.total_household_rent = domain_fields.total_household_rent.to_s if domain_fields.total_household_rent
 
-      # Add preference name if it isn't already present
-      if !domain_fields.preference_name && @fields.salesforce.empty?
-        recordtype_developername = @fields.custom_api.recordTypeDevName
-        preference_type = PREFERENCE_TYPES.find do |t|
-          t[:recordtype_developername] == recordtype_developername
+      if !domain_fields.preference_name
+        if @fields.salesforce.Preference_All_Name
+          domain_fields.preference_name = @fields.salesforce.Preference_All_Name
+        elsif @fields.salesforce.empty?
+          recordtype_developername = @fields.custom_api.recordTypeDevName
+          preference_type = PREFERENCE_TYPES.find do |t|
+            t[:recordtype_developername] == recordtype_developername
+          end
+          domain_fields.preference_name = preference_type[:name] if preference_type
         end
-        domain_fields.preference_name = preference_type[:name] if preference_type
+      end
+
+      if domain_fields.application_member
+        domain_fields.application_member = Force::ApplicationMember.from_salesforce(domain_fields.application_member).to_domain
+      end
+
+      if domain_fields.application
+        domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain
       end
 
       domain_fields
@@ -88,6 +114,13 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
+      is_from_domain = @fields.domain.present?
+
+      if salesforce_fields['Application_Member.Id']
+        salesforce_fields['Application_Member'] = salesforce_fields['Application_Member.Id']
+        salesforce_fields.delete 'Application_Member.Id'
+      end
+
       add_salesforce_suffix(salesforce_fields)
     end
   end

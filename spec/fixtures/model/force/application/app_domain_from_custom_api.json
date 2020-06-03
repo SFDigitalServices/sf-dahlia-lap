@@ -9,95 +9,126 @@
   },
   "listing_id": "a0W0P00000F8YG4UAN",
   "alternate_contact": {
-    "firstName": "Alty",
-    "lastName": "Contact",
-    "middleName": "Sample",
-    "alternateContactType": "Other",
-    "alternateContactTypeOther": "Other Alt",
-    "agency": "Meda",
+    "first_name": "Alty",
+    "last_name": "Contact",
+    "middle_name": "Sample",
+    "name": "Alty Sample Contact",
+    "alternate_contact_type": "Other",
+    "alternate_contact_type_other": "Other Alt",
+    "agency_name": "Meda",
     "email": "alt@test.com",
     "phone": "4158675309",
-    "phoneType": "Cell"
+    "phone_type": "Cell",
+    "mailing_address": "",
+    "residence_address": ""
   },
   "applicant": {
     "email": "sample@test.com",
-    "firstName": "Sample",
-    "lastName": "application",
-    "middleName": "domain",
-    "address": "123 Main st",
+    "name": "Sample domain application",
+    "first_name": "Sample",
+    "last_name": "application",
+    "middle_name": "domain",
     "city": "San Francisco",
     "state": "CA",
-    "zip": "94103",
-    "mailingAddress": "123 Mailing way",
-    "mailingCity": "San Francisco",
-    "mailingState": "CA",
-    "mailingZip": "94103",
+    "street": "123 Main st",
+    "zip_code": "94103",
+    "mailing_city": "San Francisco",
+    "mailing_state": "CA",
+    "mailing_street": "123 Mailing way",
+    "mailing_zip_code": "94103",
     "phone": "4158675309",
-    "phoneType": "Cell",
-    "alternatePhone": "1234567890",
-    "alternatePhoneType": "Work",
-    "DOB": "1990-01-01",
+    "phone_type": "Cell",
+    "second_phone": "1234567890",
+    "second_phone_type": "Work",
+    "date_of_birth": {
+      "year": "1990",
+      "month": "01",
+      "day": "01"
+    },
+    "residence_address": "123 Main st, San Francisco, CA, 94103",
+    "mailing_address": "123 Mailing way, San Francisco, CA, 94103",
     "ethnicity": "Decline to state",
     "race": "Decline to state",
     "gender": "Not Listed",
-    "genderOther": "other gender",
-    "sexualOrientation": "Not Listed",
-    "sexualOrientationOther": "other orientation"
+    "gender_other": "other gender",
+    "sexual_orientation": "Not Listed",
+    "sexual_orientation_other": "other orientation"
+  },
+  "demographics": {
+    "ethnicity": "Decline to state",
+    "race": "Decline to state",
+    "gender": "Not Listed",
+    "gender_other": "other gender",
+    "sexual_orientation": "Not Listed",
+    "sexual_orientation_other": "other orientation"
   },
   "preferences": [
     {
-      "recordTypeDevName": "L_W",
-      "individualPreference": "Live in SF",
-      "preferenceProof": "Telephone bill",
-      "listingPreferenceID": "a0l0P00001Lx8XeQAJ",
-      "naturalKey": "Sample,application,1990-01-01"
+      "individual_preference": "Live in SF",
+      "listing_preference_id": "a0l0P00001Lx8XeQAJ",
+      "naturalKey": "Sample,application,1990-01-01",
+      "preference_name": "Live or Work in San Francisco Preference",
+      "recordtype_developername": "L_W",
+      "type_of_proof": "Telephone bill"
     },
     {
-      "recordTypeDevName": "COP",
-      "certificateNumber": "1232",
-      "listingPreferenceID": "a0l0P00001Lx8XKQAZ",
-      "naturalKey": "Sample,application,1990-01-01"
+      "certificate_number": "1232",
+      "listing_preference_id": "a0l0P00001Lx8XKQAZ",
+      "naturalKey": "Sample,application,1990-01-01",
+      "preference_name": "Certificate of Preference (COP)",
+      "recordtype_developername": "COP"
     },
     {
-      "recordTypeDevName": "RB_AHP",
-      "individualPreference": "Rent Burdened",
-      "listingPreferenceID": "a0l0P00001Lx8XZQAZ",
-      "naturalKey": "Sample,application,1990-01-01"
+      "individual_preference": "Rent Burdened",
+      "listing_preference_id": "a0l0P00001Lx8XZQAZ",
+      "naturalKey": "Sample,application,1990-01-01",
+      "preference_name": "Rent Burdened / Assisted Housing Preference",
+      "recordtype_developername": "RB_AHP"
     },
     {
-      "recordTypeDevName": "DTHP",
-      "certificateNumber": "1234",
-      "listingPreferenceID": "a0l0P00001Lx8XPQAZ",
-      "naturalKey": "Brother,Bob,1950-01-01"
+      "certificate_number": "1234",
+      "listing_preference_id": "a0l0P00001Lx8XPQAZ",
+      "naturalKey": "Brother,Bob,1950-01-01",
+      "preference_name": "Displaced Tenant Housing Preference (DTHP)",
+      "recordtype_developername": "DTHP"
     },
     {
-      "recordTypeDevName": "NRHP",
-      "preferenceProof": "Cable and internet bill",
-      "listingPreferenceID": "a0l0P00001Lx8XUQAZ",
-      "naturalKey": "Sample,application,1990-01-01"
+      "listing_preference_id": "a0l0P00001Lx8XUQAZ",
+      "naturalKey": "Sample,application,1990-01-01",
+      "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+      "recordtype_developername": "NRHP",
+      "type_of_proof": "Cable and internet bill"
     },
     {
-      "recordTypeDevName": "AG",
-      "preferenceProof": "Letter from SFHA verifying address",
       "city": "San Francisco",
+      "listing_preference_id": "a0l0P00001PsqDoQAJ",
+      "naturalKey": "Brother,Bob,1950-01-01",
+      "preference_name": "Alice Griffith Housing Development Resident",
+      "recordtype_developername": "AG",
       "state": "CA",
-      "address": "123 AG way",
-      "zip": "94103",
-      "listingPreferenceID": "a0l0P00001PsqDoQAJ",
-      "naturalKey": "Brother,Bob,1950-01-01"
+      "street": "123 AG way",
+      "type_of_proof": "Letter from SFHA verifying address",
+      "zip_code": "94103"
     }
   ],
   "household_members": [
     {
-      "firstName": "Brother",
-      "lastName": "Bob",
-      "middleName": "M",
-      "address": "123 Bob lane",
+      "name": "Brother M Bob",
+      "first_name": "Brother",
+      "last_name": "Bob",
+      "middle_name": "M",
+      "street": "123 Bob lane",
       "city": "San Francisco",
       "state": "CA",
-      "zip": "94103",
-      "relationship": "Sibling",
-      "DOB": "1950-01-01"
+      "zip_code": "94103",
+      "mailing_address": "",
+      "residence_address": "123 Bob lane, San Francisco, CA, 94103",
+      "relationship_to_applicant": "Sibling",
+      "date_of_birth": {
+        "day": "01",
+        "month": "01",
+        "year": "1950"
+      }
     }
   ]
 }

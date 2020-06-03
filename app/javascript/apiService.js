@@ -3,11 +3,9 @@ import { request } from '~/api/request'
 const updateFlaggedApplication = async (data) => {
   let putData = {
     flagged_application: {
-      // these are the only fields we're interested in for the update method
-      // have to reformat them back into salesforce-friendly terms
-      Id: data.id,
-      Review_Status__c: data.review_status,
-      Comments__c: data.comments
+      id: data.id,
+      review_status: data.review_status,
+      comments: data.comments
     }
   }
   let response = await request.put('/flagged-applications/update', putData)
@@ -53,10 +51,10 @@ const getAMI = async ({ chartType, chartYear }) => {
 const createFieldUpdateComment = async (data) => {
   let postData = {
     field_update_comment: {
-      Processing_Status__c: data.status,
-      Processing_Comment__c: data.comment,
-      Application__c: data.applicationId,
-      ...(data.subStatus ? { Sub_Status__c: data.subStatus } : {})
+      status: data.status,
+      comment: data.comment,
+      application: data.applicationId,
+      ...(data.subStatus ? { substatus: data.subStatus } : {})
     }
   }
   const { result } = await request.post('/field-update-comments/create', postData)

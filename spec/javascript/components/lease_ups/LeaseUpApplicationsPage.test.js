@@ -28,25 +28,23 @@ jest.mock('apiService', () => {
 
 const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
   return {
-    'Id': uniqId,
-    'Processing_Status': 'processing',
-    'Preference_Order': prefOrder,
-    'Preference_Lottery_Rank': prefRank,
-    'Listing_Preference_ID': {
-      'Record_Type_For_App_Preferences': 'COP'
-    },
-    'Application': {
-      'Id': 1000 + uniqId,
-      'Name': `Application Name ${uniqId}`,
-      'Status_Last_Updated': '2018-04-26T12:31:39.000+0000',
-      'Has_ADA_Priorities_Selected': 'vision_impairments',
-      'Applicant': {
-        'Id': '1',
-        'Residence_Address': `1316 BURNETT ${uniqId}`,
-        'First_Name': `some first name ${uniqId}`,
-        'Last_Name': `some last name ${uniqId}`,
-        'Phone': 'some phone',
-        'Email': `some email ${uniqId}`
+    'id': uniqId,
+    'processing_status': 'processing',
+    'preference_order': prefOrder,
+    'preference_lottery_rank': prefRank,
+    'record_type_for_app_preferences': 'COP',
+    'application': {
+      'id': 1000 + uniqId,
+      'name': `Application Name ${uniqId}`,
+      'status_last_updated': '2018-04-26T12:31:39.000+0000',
+      'has_ada_priorities_selected': { 'vision_impairments': true },
+      'applicant': {
+        'id': '1',
+        'residence_address': `1316 BURNETT ${uniqId}`,
+        'first_name': `some first name ${uniqId}`,
+        'last_name': `some last name ${uniqId}`,
+        'phone': 'some phone',
+        'email': `some email ${uniqId}`
       }
     }
   }

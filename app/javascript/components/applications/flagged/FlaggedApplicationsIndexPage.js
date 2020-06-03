@@ -4,7 +4,6 @@ import { get, defaultTo } from 'lodash'
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
-import { mapFlaggedRecord } from '~/components/mappers/soqlToDomain'
 
 const flaggedTableFields = {
   'id': null,
@@ -74,7 +73,7 @@ const mapProperties = ({ title, flaggedRecords, type }) => {
   return {
     type,
     title,
-    flaggedRecords: flaggedRecords.map(i => buildFlaggedRecordModel(mapFlaggedRecord(i)))
+    flaggedRecords: flaggedRecords.map(i => buildFlaggedRecordModel(i))
   }
 }
 
