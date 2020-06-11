@@ -130,12 +130,14 @@ export const PercentField = ({ fieldName, validation, id, label, placeholder, ma
   </Field>
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue, noPlaceholder }) => (
+export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue, noPlaceholder, format, isDirty = true }) => (
   <Field
     name={fieldName}
     validate={validation}
     component='select'
     parse={identity}
+    format={format}
+    formatOnBlur={isDirty}
   >
     {({ input, meta }) => {
       const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)

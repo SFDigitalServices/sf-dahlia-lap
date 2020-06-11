@@ -56,6 +56,10 @@ module Force
       @api.get(endpoint, params)
     end
 
+    def api_put(endpoint, params)
+      @api.put(endpoint, params)
+    end
+
     private_class_method
 
     def query_fields(type = :index)

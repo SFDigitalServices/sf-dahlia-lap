@@ -36,7 +36,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     describe 'application to pre-lottery listing' do
       it 'receives a successful response from Salesforce' do
         VCR.use_cassette('api/v1/short-form/submit/pre-lottery/success') do
-          post :submit, params: { application: new_application }
+          put :submit, params: { application: new_application }
         end
         expect(response).to have_http_status(:success)
         json = JSON.parse(response.body)
@@ -46,7 +46,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
       describe 'with supplemental param' do
         it 'receives a successful response with updated application from Salesforce' do
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
-            post :submit, params: { application: new_application, supplemental: true }
+            put :submit, params: { application: new_application, supplemental: true }
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)

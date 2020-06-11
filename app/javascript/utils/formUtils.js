@@ -59,6 +59,12 @@ const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
   return filterValues(obj, valueIsNonEmpty)
 }
 
+const formatNumber = (value) => {
+  if (!value) return null
+
+  return parseInt(value)
+}
+
 export const maxLengthMap = {
   first_name: 40,
   middle_name: 20,
@@ -83,6 +89,7 @@ export const maxLengthMap = {
 
 export default {
   toEmptyOption,
+  formatNumber,
   toOption,
   toOptions,
   formatPrice,

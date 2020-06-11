@@ -1,15 +1,23 @@
 import apiService from '~/apiService'
 import Alerts from '~/components/Alerts'
-import { isEmpty, find, isEqual, every, reject } from 'lodash'
+import { isEmpty, find, isEqual, every, reject, forEach } from 'lodash'
 import { convertCurrency } from '~/utils/form/validations'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
+  const changedFields = {id: application['id']}
+
+  forEach(application, (value, key) => {
+    if (!isEqual(prevApplication[key], value)) {
+      changedFields[key] = value
+    }
+  })
+
   // await lease and base application updates first
   const initialResponses = await Promise.all([
     updateLease(application['lease'], primaryApplicantContact, applicationId),
-    apiService.submitApplication(application, true)
+    apiService.submitApplication(changedFields, true)
   ])
   // next we update rental assistances if applicable
   await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))

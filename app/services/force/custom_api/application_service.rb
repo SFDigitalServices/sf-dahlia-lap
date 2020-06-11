@@ -49,7 +49,7 @@ module Force
 
       def submit(custom_api_attrs)
         application_params = application_defaults.merge(custom_api_attrs)
-        result = api_post('/LeasingAgentPortal/shortForm', application_params)
+        result = api_put('/LeasingAgentPortal/shortForm', application_params.except('primaryApplicant', 'alternateContact', 'listingID'))
         application(result['id'])
       end
 
