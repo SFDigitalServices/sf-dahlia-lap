@@ -1,4 +1,4 @@
-import { isObjectLike, isArray } from 'lodash'
+import { isObjectLike, isArray, isNil } from 'lodash'
 import { isValidPercent, isValidCurrency } from './form/validations'
 
 const toOption = (item) => {
@@ -60,7 +60,7 @@ const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
 }
 
 const formatNumber = (value) => {
-  if (!value) return null
+  if (isNil(value)) return null
 
   return parseInt(value)
 }

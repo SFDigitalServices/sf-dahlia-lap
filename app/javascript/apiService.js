@@ -15,7 +15,7 @@ const updateFlaggedApplication = async (data) => {
 const submitApplication = async (data, isSupplemental = false) => {
   const requestData = { application: data }
   let response
-  console.log(requestData)
+
   if (isSupplemental) {
     response = await request.put('/short-form/submit?supplemental=true', requestData)
   } else {
