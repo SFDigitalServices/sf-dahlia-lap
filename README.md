@@ -2,10 +2,10 @@
 
 A portal for leasing agents, sales agents, and developers to manage listings and applications.
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/maintainability)](https://codeclimate.com/github/Exygy/sf-dahlia-lap/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/maintainability)](https://codeclimate.com/github/SFDigitalServices/sf-dahlia-lap/maintainability)
 
 Only showing rspec tests for now:
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/test_coverage)](https://codeclimate.com/github/Exygy/sf-dahlia-lap/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/test_coverage)](https://codeclimate.com/github/SFDigitalServices/sf-dahlia-lap/test_coverage)
 
 Cross-browser testing done with <a href="https://www.browserstack.com/"><img src="./Browserstack-logo@2x.png?raw=true" height="36" ></a>
 
@@ -27,7 +27,7 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
 
 ## To update CSS from Pattern Library
-* Checkout your desired commit in your local copy of the [sf-dahlia-pattern-library](https://github.com/Exygy/sf-dahlia-pattern-library)
+* Checkout your desired commit in your local copy of the [sf-dahlia-pattern-library](https://github.com/SFDigitalServices/sf-dahlia-pattern-library)
 * Run `npm start` in your pattern lib directory
 * In a separate tab, change to the partners directory and run `grunt`
 
@@ -81,7 +81,7 @@ _Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests
 
-To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/Exygy/sf-dahlia-lap/blob/master/spec/javascript/support/puppeteer/consts.js)
+To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js)
 
 **Run server**
 
