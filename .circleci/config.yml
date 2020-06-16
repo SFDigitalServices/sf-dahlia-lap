@@ -98,6 +98,7 @@ jobs:
             - coverage
   e2e:
     executor: ruby_node
+    parallelism: 4
     steps:
       - checkout
       - *attach_workspace
@@ -120,11 +121,11 @@ jobs:
                 sleep 5
             done
       - run:
-          name: App server test
+          name: Run Jest tests using test splitting
           command: |
-            wget localhost:3000
-            cat index.html
-      - run: yarn e2e
+            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
+            echo "$TESTFILES"
+            jest --testPathPattern=$TESTFILES --runInBand. --forceExit
   coverage:
     executor: ruby_node
     steps:
