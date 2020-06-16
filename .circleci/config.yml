@@ -38,7 +38,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            bundle install --deployment --path vendor/bundle
+            bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
             - ./bundle
@@ -125,7 +125,7 @@ jobs:
           command: |
             TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
             echo "$TESTFILES"
-            jest --testPathPattern=$TESTFILES --runInBand. --forceExit
+            yarn test:all --testPathPattern=$TESTFILES --runInBand. --forceExit
   coverage:
     executor: ruby_node
     steps:
