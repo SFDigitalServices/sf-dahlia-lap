@@ -3,15 +3,15 @@
 # This script helps make recovering from Salesforce Refreshes easier. It:
 # 1. Updates Heroku env vars
 # 2. Clears now-invalid user DBs on Heroku apps
-# 3. Updates env vars for Semaphore
+# 3. Updates env vars for CircleCI
 
 # To use this script:
 #   1. Put the updated env vars in a file (.env generally)
-#   2. Add names of apps to update under heroku_apps
-#.  3. If you don't already have it installed, install the [Semaphore CLI](https://semaphoreci.com/docs/cli-overview.html) and login
+#   2. If you don't already have it installed, run `brew install jq` to install the jq tool
+#   3. Get a circleCI token by going to https://app.circleci.com/settings/user/tokens and adding a personal API token.
 #   3. Run the script, passing your path to env vars as an argument
 
-# TODO: Pull in heroku apps from files or at least review app numbers command line arg
+# TODO: add a qa flag to allow updates for QA.
 
 # Argument defaults
 env_file=".env"
@@ -48,7 +48,8 @@ echo "loaded SALESFORCE_SECURITY_TOKEN=$SALESFORCE_SECURITY_TOKEN"
 echo "loaded E2E_SALESFORCE_PASSWORD=$E2E_SALESFORCE_PASSWORD"
 
 echo "Starting Heroku credential update for Webapp full"
-# Get these app names from running "heroku apps"
+
+# Get all apps that are dahlia-lap-full apps.
 lap_full_apps=$(heroku apps --team=sfdigitalservices --json | jq '.[].name | select(test("dahlia-lap-full-*"))' )
 
 for app in $lap_full_apps
