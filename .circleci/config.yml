@@ -5,14 +5,14 @@ orbs:
 executors:
   ruby_node:
     docker:
-      - image: 'circleci/ruby:2.7.0-node-browsers'
+      - image: 'cimg/ruby:2.7.0-node-browsers'
         environment:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
-      - image: circleci/node:12.16.1-browsers
-        environment:
-          - NODE_OPTIONS: --max_old_space_size=4096
+      # - image: circleci/node:12.16.1-browsers
+      #   environment:
+      #     - NODE_OPTIONS: --max_old_space_size=4096
     working_directory: ~/tmp
 aliases:
   - &attach_workspace
