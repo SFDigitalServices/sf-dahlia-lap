@@ -47,16 +47,11 @@ echo "loaded COMMUNITY_LOGIN_URL=$COMMUNITY_LOGIN_URL"
 echo "loaded SALESFORCE_SECURITY_TOKEN=$SALESFORCE_SECURITY_TOKEN"
 echo "loaded E2E_SALESFORCE_PASSWORD=$E2E_SALESFORCE_PASSWORD"
 
-echo "Starting Heroku credential update for Webapp"
+echo "Starting Heroku credential update for Webapp full"
 # Get these app names from running "heroku apps"
-declare -a heroku_apps=(
-  "dahlia-lap-full-pr-293"
-  "dahlia-lap-full-pr-294"
-  "dahlia-lap-full-pr-296"
-  "dahlia-lap-full"
-)
+lap_full_apps=$(heroku apps --team=sfdigitalservices --json | jq '.[].name | select(test("dahlia-lap-full-*"))' )
 
-for app in "${heroku_apps[@]}"
+for app in $lap_full_apps
   do
     echo "Updating credentials for $app"
     heroku config:set SALESFORCE_CLIENT_SECRET=$SALESFORCE_CLIENT_SECRET --app $app
