@@ -9,9 +9,8 @@
 #   1. Put the updated env vars in a file (.env generally)
 #   2. If you don't already have it installed, run `brew install jq` to install the jq tool
 #   3. Get a circleCI token by going to https://app.circleci.com/settings/user/tokens and adding a personal API token.
-#   3. Run the script, passing your path to env vars as an argument
+#   3. Run the script, passing your environment and circle ci token as arguments
 
-# TODO: add a qa flag to allow updates for QA.
 
 # Argument defaults
 env_file=".env"
@@ -65,8 +64,6 @@ for app in ${heroku_apps[@]}
   do
     # Strip out double quotes from app names
     app=$(echo "$app" | tr -d '"')
-    echo "Updating credentials for $app"
-  do
     echo "Updating credentials for $app"
     heroku config:set SALESFORCE_CLIENT_SECRET=$SALESFORCE_CLIENT_SECRET --app $app
     heroku config:set SALESFORCE_CLIENT_ID=$SALESFORCE_CLIENT_ID --app $app
