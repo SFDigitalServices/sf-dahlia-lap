@@ -58,18 +58,17 @@ else
   exit 1
 fi
 
-
-# for app in ${heroku_apps[@]}
-#   do
-#     # Strip out double quotes from app names
-#     app=$(echo "$app" | tr -d '"')
-#     echo "Updating credentials for $app"
-#     heroku config:set SALESFORCE_CLIENT_SECRET=$SALESFORCE_CLIENT_SECRET --app $app
-#     heroku config:set SALESFORCE_CLIENT_ID=$SALESFORCE_CLIENT_ID --app $app
-#     heroku config:set SALESFORCE_INSTANCE_URL=$SALESFORCE_INSTANCE_URL --app $app
-#     heroku config:set COMMUNITY_LOGIN_URL=$COMMUNITY_LOGIN_URL --app $app
-#     echo "echo 'User.destroy_all' | rails c  && exit" | heroku run bash --app $app
-# done
+for app in ${heroku_apps[@]}
+  do
+    # Strip out double quotes from app names
+    app=$(echo "$app" | tr -d '"')
+    echo "Updating credentials for $app"
+    heroku config:set SALESFORCE_CLIENT_SECRET=$SALESFORCE_CLIENT_SECRET --app $app
+    heroku config:set SALESFORCE_CLIENT_ID=$SALESFORCE_CLIENT_ID --app $app
+    heroku config:set SALESFORCE_INSTANCE_URL=$SALESFORCE_INSTANCE_URL --app $app
+    heroku config:set COMMUNITY_LOGIN_URL=$COMMUNITY_LOGIN_URL --app $app
+    echo "echo 'User.destroy_all' | rails c  && exit" | heroku run bash --app $app
+done
 
 echo "Heroku update complete"
 
