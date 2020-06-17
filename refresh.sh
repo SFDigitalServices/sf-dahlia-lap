@@ -51,7 +51,6 @@ echo "Starting Heroku credential update for Partners $env"
 if [ $env == "full" ]; then
   # Get all apps that are dahlia-web-full apps.
   heroku_apps=$(heroku apps --team=sfdigitalservices --json | jq '.[].name | select(test("dahlia-lap-full-*"))')
-  heroku_apps=("dahlia-full" ${heroku_apps[@]})
 elif [ $env == "qa" ]; then
   heroku_apps=('dahlia-lap-qa')
 else
