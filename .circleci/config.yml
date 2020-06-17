@@ -24,7 +24,7 @@ aliases:
         keys:
             - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - yarn-packages-{{ .Branch }}
-            - yarn-packages-master
+            - yarn-packages-main
             - yarn-packages-
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
