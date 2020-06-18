@@ -46,11 +46,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438418492","signature":"bnPb4zWPXhA5MYWFWweUpPAoy9FKTZ/pY4M9MzZxGJM="}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:00:18 GMT
 - request:
     method: patch
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc3QAH
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc3QAH
     body:
       encoding: UTF-8
       string: '{"Individual_preference__c":"Work in SF","Post_Lottery_Validation__c":"Unconfirmed"}'
@@ -92,6 +92,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:00:19 GMT
 recorded_with: VCR 5.0.0
