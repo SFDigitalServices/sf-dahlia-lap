@@ -59,7 +59,7 @@ source $env_file
 
 for varname in ${VARS_TO_UPDATE_CIRCLE_CI[@]}; do
   value="${!varname}"
-  echo "loaded $varname=$value"
+  echo "  Loaded $varname=$value"
 done
 
 echo "Starting Heroku credential update for Partners $env"
@@ -94,8 +94,9 @@ if [ $env == "full" ]; then
 
   for varname in ${VARS_TO_UPDATE_CIRCLE_CI[@]}; do
     value="${!varname}"
-    curl -s -X DELETE $BASE_CIRCLECI_URL/$varname?circle-token=$circle_ci_token
-    curl -X POST --header "Content-Type: application/json" -d "{\"name\": \"$varname\", \"value\": \"$value\"}" $BASE_CIRCLECI_URL?circle-token=$circle_ci_token
+    echo "  Resetting env variable: $varname=$value"
+    curl -s -X DELETE $BASE_CIRCLECI_URL/$varname?circle-token=$circle_ci_token > /dev/null
+    curl -s -X POST --header "Content-Type: application/json" -d "{\"name\": \"$varname\", \"value\": \"$value\"}" $BASE_CIRCLECI_URL?circle-token=$circle_ci_token > /dev/null
   done
 
   echo "Credentials updated for CircleCI"
