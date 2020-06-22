@@ -7,7 +7,7 @@ executors:
     docker:
       - image: 'circleci/ruby:2.7.0-node-browsers'
         environment:
-          - RAILS_ENV: test
+          - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
       - image: circleci/node:12.16.1-browsers
