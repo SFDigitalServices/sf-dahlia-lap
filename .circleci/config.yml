@@ -22,12 +22,12 @@ aliases:
     restore_cache:
         name: Restore Cache
         keys:
-            - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
-            - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
-            - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
-            - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
-            - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
 jobs:
   build:
     executor: ruby_node
