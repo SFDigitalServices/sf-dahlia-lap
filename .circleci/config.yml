@@ -25,8 +25,8 @@ aliases:
     restore_cache:
         name: Restore Bundler Cache
         keys:
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1
 commands:
   prepare_workspace:
     description: "Attach workspace and restore cache"
@@ -45,7 +45,7 @@ jobs:
           command: |
             bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
+          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle/
       - run:
