@@ -8,9 +8,6 @@ executors:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
-      # - image: circleci/node:12.16.1-browsers
-      #   environment:
-      #     - NODE_OPTIONS: --max_old_space_size=4096
     working_directory: ~/tmp
 aliases:
   - &attach_workspace
@@ -34,12 +31,9 @@ jobs:
       - *attach_workspace
       - *restore_cache
       - run:
-          command: |
-            ls -al .
-      - run:
           name: install dependencies
           command: |
-            bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
+            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
             - vendor/bundle
@@ -103,10 +97,6 @@ jobs:
       - checkout
       - *attach_workspace
       - *restore_cache
-      # - puppeteer/install
-      # - run:
-      #     name: install yarn dependencies
-      #     command: yarn install --check-files
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
@@ -124,9 +114,13 @@ jobs:
           command: |
             TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
             echo "$TESTFILES"
-            yarn test:all --testPathPattern=$TESTFILES --runInBand. --forceExit
+            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
       - store_test_results:
-          path: test-results
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
   coverage:
     executor: ruby_node
     steps:
