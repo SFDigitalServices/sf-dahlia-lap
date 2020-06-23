@@ -37,7 +37,7 @@ jobs:
       - *restore_cache
       - run:
           command: |
-            ls -al vendor/bundle
+            ls -al .
       - run:
           name: install dependencies
           command: |
