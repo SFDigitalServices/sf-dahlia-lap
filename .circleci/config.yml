@@ -13,14 +13,18 @@ aliases:
   - &attach_workspace
     attach_workspace:
       at: ~/tmp
-  - &restore_cache
+  - &restore_yarn_cache
     restore_cache:
-        name: Restore Cache
+        name: Restore Yarn Cache
         keys:
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+  - &restore_bundler_cache
+    restore_cache:
+        name: Restore Bundler Cache
+        keys:
           - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
           - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
 jobs:
@@ -29,7 +33,8 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - *restore_cache
+      - *restore_yarn_cache
+      - *restore_bundler_cache
       - run:
           name: install dependencies
           command: |
@@ -64,7 +69,8 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - *restore_cache
+      - *restore_yarn_cache
+      - *restore_bundler_cache
       - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
@@ -80,7 +86,8 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - *restore_cache
+      - *restore_yarn_cache
+      - *restore_bundler_cache
       - run: yarn lint
       - run: yarn unit
       - run: ls .
@@ -96,7 +103,8 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - *restore_cache
+      - *restore_yarn_cache
+      - *restore_bundler_cache
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
