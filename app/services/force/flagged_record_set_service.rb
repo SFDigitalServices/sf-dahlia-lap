@@ -67,7 +67,7 @@ module Force
       return nil unless data[:Id]
       puts "updating flagged application with: #{data.as_json}"
       # by passing data[:Id] it will know to update that record
-      @client.update('Flagged_Application__c', data)
+      @client.update!('Flagged_Application__c', data)
     end
 
     def pending_review_index_fields

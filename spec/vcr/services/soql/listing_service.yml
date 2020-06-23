@@ -46,11 +46,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438585443","signature":"ORfLsgonsU1kO+BTcdupVefVoxemaWt9McG1PkSycT4="}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:03:05 GMT
 - request:
     method: get
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20In_Lottery__c,%20Units_Available__c,%20Lease_Signed_Application__c,%20LastModifiedDate%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Status__c%20=%20%27Lease%20Up%27%20AND%20Is_Applicant_List_for_Leaseup__c%20=%20FALSE%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Name%0A%20%20%20%20%20%20%20%20
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20In_Lottery__c,%20Units_Available__c,%20Lease_Signed_Application__c,%20LastModifiedDate%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Status__c%20=%20%27Lease%20Up%27%20AND%20Is_Applicant_List_for_Leaseup__c%20=%20FALSE%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Name%0A%20%20%20%20%20%20%20%20
     body:
       encoding: US-ASCII
       string: ''
@@ -101,6 +101,6 @@ http_interactions:
         Bay by Windsor Unit 303","Lottery_Date__c":"2019-09-26T18:00:00.000+0000","Lottery_Results_Date__c":"2019-09-27","In_Lottery__c":547.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-03-03T18:38:<<SALESFORCE_API_VERSION>>00+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Id":"a0W0P00000GbyuQUAR","Name":"Partners
         Test Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000","Lottery_Results_Date__c":"2018-06-05","In_Lottery__c":69.0,"Units_Available__c":9.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-03-05T19:26:23.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GsBimUAF"},"Id":"a0W0P00000GsBimUAF","Name":"Training
         - 901 Tennessee Street","Lottery_Date__c":"2020-01-17T19:00:00.000+0000","Lottery_Results_Date__c":"2020-01-24","In_Lottery__c":16.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-01-22T23:52:03.000+0000"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:03:06 GMT
 recorded_with: VCR 5.0.0
