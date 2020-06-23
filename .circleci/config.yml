@@ -27,21 +27,28 @@ aliases:
         keys:
           - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
           - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
+commands:
+  prepare_workspace:
+    description: "Attach workspace and restore cache"
+    steps:
+      - *attach_workspace
+      - *restore_yarn_cache
+      - *restore_bundler_cache
+      - run: mkdir vendor
+      - run: mv bundle vendor/bundle
 jobs:
   build:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_yarn_cache
-      - *restore_bundler_cache
+      - prepare_workspace
       - run:
           name: install dependencies
           command: |
-            bundle check --path bundle || bundle install --deployment --jobs=4 --retry=3 --path bundle
+            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
-            - bundle
+            - vendor/bundle
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: install yarn dependencies
@@ -68,10 +75,8 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_yarn_cache
-      - *restore_bundler_cache
-      - run: bundle --path bundle
+      - prepare_workspace
+      - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
       - run: ls .
@@ -85,9 +90,7 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_yarn_cache
-      - *restore_bundler_cache
+      - prepare_workspace
       - run: yarn lint
       - run: yarn unit
       - run: ls .
@@ -102,10 +105,8 @@ jobs:
     parallelism: 4
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_yarn_cache
-      - *restore_bundler_cache
-      - run: bundle --path bundle
+      - prepare_workspace
+      - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
           command: bundle exec rails server -p 3000
