@@ -46,11 +46,11 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438421194","signature":"K/T3eoBXaqxFbgejmeAXYaxFRbPeJIUkoEEbCtIH15g="}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:00:21 GMT
 - request:
     method: patch
-    uri: https://sfhousing--full.cs68.my.salesforce.com/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/invalid_id
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/invalid_id
     body:
       encoding: UTF-8
       string: '{"Individual_preference__c":"Work in SF","Post_Lottery_Validation__c":"Unconfirmed"}'
@@ -97,7 +97,7 @@ http_interactions:
       encoding: UTF-8
       string: '[{"errorCode":"NOT_FOUND","message":"Provided external ID field does
         not exist or is not accessible: invalid_id"}]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:00:22 GMT
 - request:
     method: post
@@ -143,6 +143,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"b2c7df1878524a94bc054187cd22f7cc"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Mar 2020 20:00:23 GMT
 recorded_with: VCR 5.0.0

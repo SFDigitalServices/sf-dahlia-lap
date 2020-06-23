@@ -7,7 +7,7 @@ executors:
     docker:
       - image: 'circleci/ruby:2.7.0-node-browsers'
         environment:
-          - RAILS_ENV: test
+          - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
       - image: circleci/node:12.16.1-browsers
@@ -22,12 +22,12 @@ aliases:
     restore_cache:
         name: Restore Cache
         keys:
-            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-{{ .Branch }}
-            - yarn-packages-main
-            - yarn-packages-
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
+          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
 jobs:
   build:
     executor: ruby_node
@@ -42,13 +42,13 @@ jobs:
       - save_cache:
           paths:
             - ./bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: install yarn dependencies
           command: yarn install --check-files
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
       - run: bundle exec rake db:setup

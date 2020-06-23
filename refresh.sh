@@ -3,34 +3,53 @@
 # This script helps make recovering from Salesforce Refreshes easier. It:
 # 1. Updates Heroku env vars
 # 2. Clears now-invalid user DBs on Heroku apps
-# 3. Updates env vars for Semaphore
+# 3. Updates env vars for CircleCI
 
 # To use this script:
 #   1. Put the updated env vars in a file (.env generally)
-#   2. Add names of apps to update under heroku_apps
-#.  3. If you don't already have it installed, install the [Semaphore CLI](https://semaphoreci.com/docs/cli-overview.html) and login
-#   3. Run the script, passing your path to env vars as an argument
+#   2. If you don't already have it installed, run `brew install jq` to install the jq tool
+#   3. Get a circleCI token by going to https://app.circleci.com/settings/user/tokens and adding a personal API token.
+#   3. Run the script, passing your environment and circle ci token as arguments
 
-# TODO: Pull in heroku apps from files or at least review app numbers command line arg
+VARS_TO_UPDATE_CIRCLE_CI=(
+  "SALESFORCE_HOST"
+  "SALESFORCE_INSTANCE_URL"
+  "SALESFORCE_PASSWORD"
+  "SALESFORCE_SECURITY_TOKEN"
+  "SALESFORCE_CLIENT_SECRET"
+  "SALESFORCE_CLIENT_ID"
+  "SALESFORCE_INSTANCE_URL"
+  "COMMUNITY_LOGIN_URL"
+  "E2E_SALESFORCE_PASSWORD"
+  "E2E_SALESFORCE_USERNAME"
+  "E2E_LENDING_INSTITUTION"
+  "E2E_FLAGGED_RECORD_SET_ID"
+)
+
+VARS_TO_UPDATE_HEROKU=(
+  "SALESFORCE_CLIENT_SECRET"
+  "SALESFORCE_CLIENT_ID"
+  "SALESFORCE_INSTANCE_URL"
+  "COMMUNITY_LOGIN_URL"
+)
 
 # Argument defaults
 env_file=".env"
-semaphore_secret="sf-dahlia-partners-full"
 
-while getopts ":f::s::h" opt; do
+while getopts ":h::e::c:" opt; do
   case $opt in
     h )
       echo "Usage:"
       echo "    refresh.sh -h                           Display this help message."
-      echo "    refresh.sh -f <environment file>        Specify an environment file to load from, defaults to .env."
-      echo "    refresh.sh -s <semaphore secret name>   Specify a Semaphore secret name to update, defaults to sf-dahlia-partners-full."
+      echo "    refresh.sh -e <environment>             Specify an environment to update, either full or qa."
+      echo "    refresh.sh -c <circle ci token>         Provide a CircleCI token."
       exit 0
       ;;
-    f )
-      env_file=$OPTARG
+    e )
+      env=$OPTARG
       ;;
-    s )
-      semaphore_secret=$OPTARG
+    c )
+      circle_ci_token=$OPTARG
       ;;
     \? ) echo "Usage: cmd [-h] [-f]"
       ;;
@@ -38,54 +57,48 @@ while getopts ":f::s::h" opt; do
 done
 echo "Loading environment variables from file: $env_file"
 source $env_file
-echo "loaded SALESFORCE_PASSWORD=$SALESFORCE_PASSWORD"
-echo "loaded SALESFORCE_CLIENT_SECRET=$SALESFORCE_CLIENT_SECRET"
-echo "loaded SALESFORCE_CLIENT_ID=$SALESFORCE_CLIENT_ID"
-echo "loaded SALESFORCE_INSTANCE_URL=$SALESFORCE_INSTANCE_URL"
-echo "loaded COMMUNITY_LOGIN_URL=$COMMUNITY_LOGIN_URL"
 
-# For Semaphore
-echo "loaded SALESFORCE_SECURITY_TOKEN=$SALESFORCE_SECURITY_TOKEN"
-echo "loaded E2E_SALESFORCE_PASSWORD=$E2E_SALESFORCE_PASSWORD"
+for varname in ${VARS_TO_UPDATE_CIRCLE_CI[@]}; do
+  value="${!varname}"
+  echo "  Loaded $varname=$value"
+done
 
-echo "Starting Heroku credential update for Webapp"
-# Get these app names from running "heroku apps"
-declare -a heroku_apps=(
-  "dahlia-lap-full-pr-293"
-  "dahlia-lap-full-pr-294"
-  "dahlia-lap-full-pr-296"
-  "dahlia-lap-full"
-)
+echo "Starting Heroku credential update for Partners $env"
 
-for app in "${heroku_apps[@]}"
+if [ $env == "full" ]; then
+  # Get all apps that are dahlia-web-full apps.
+  heroku_apps=$(heroku apps --team=sfdigitalservices --json | jq '.[].name | select(test("dahlia-lap-full-*"))')
+elif [ $env == "qa" ]; then
+  heroku_apps=('dahlia-lap-qa')
+else
+  echo "Error: environment must be full or qa"
+  exit 1
+fi
+
+for app in ${heroku_apps[@]}
   do
+    # Strip out double quotes from app names
+    app=$(echo "$app" | tr -d '"')
     echo "Updating credentials for $app"
-    heroku config:set SALESFORCE_CLIENT_SECRET=$SALESFORCE_CLIENT_SECRET --app $app
-    heroku config:set SALESFORCE_CLIENT_ID=$SALESFORCE_CLIENT_ID --app $app
-    heroku config:set SALESFORCE_INSTANCE_URL=$SALESFORCE_INSTANCE_URL --app $app
-    heroku config:set COMMUNITY_LOGIN_URL=$COMMUNITY_LOGIN_URL --app $app
+    for varname in ${VARS_TO_UPDATE_HEROKU[@]}; do
+      value="${!varname}"
+      heroku config:set $varname=$value --app $app
+    done
     echo "echo 'User.destroy_all' | rails c  && exit" | heroku run bash --app $app
 done
 
 echo "Heroku update complete"
 
+if [ $env == "full" ]; then
+  echo "Starting CircleCI credential update"
+  BASE_CIRCLECI_URL="https://circleci.com/api/v1.1/project/github/SFDigitalServices/sf-dahlia-lap/envvar"
 
-echo "Starting Semaphore credential update for $semaphore_secret"
+  for varname in ${VARS_TO_UPDATE_CIRCLE_CI[@]}; do
+    value="${!varname}"
+    echo "  Resetting env variable: $varname=$value"
+    curl -s -X DELETE $BASE_CIRCLECI_URL/$varname?circle-token=$circle_ci_token > /dev/null
+    curl -s -X POST --header "Content-Type: application/json" -d "{\"name\": \"$varname\", \"value\": \"$value\"}" $BASE_CIRCLECI_URL?circle-token=$circle_ci_token > /dev/null
+  done
 
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name SALESFORCE_PASSWORD
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name SALESFORCE_SECURITY_TOKEN
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name SALESFORCE_CLIENT_SECRET
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name SALESFORCE_CLIENT_ID
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name SALESFORCE_INSTANCE_URL
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name COMMUNITY_LOGIN_URL
-sem secrets:env-vars:remove exygy/$semaphore_secret  --name E2E_SALESFORCE_PASSWORD
-
-sem secrets:env-vars:add exygy/$semaphore_secret  --name SALESFORCE_PASSWORD --content "$SALESFORCE_PASSWORD"
-sem secrets:env-vars:add exygy/$semaphore_secret  --name SALESFORCE_SECURITY_TOKEN --content "$SALESFORCE_SECURITY_TOKEN"
-sem secrets:env-vars:add exygy/$semaphore_secret  --name SALESFORCE_CLIENT_SECRET --content "$SALESFORCE_CLIENT_SECRET"
-sem secrets:env-vars:add exygy/$semaphore_secret  --name SALESFORCE_CLIENT_ID --content "$SALESFORCE_CLIENT_ID"
-sem secrets:env-vars:add exygy/$semaphore_secret  --name SALESFORCE_INSTANCE_URL --content "$SALESFORCE_INSTANCE_URL"
-sem secrets:env-vars:add exygy/$semaphore_secret  --name COMMUNITY_LOGIN_URL --content "$COMMUNITY_LOGIN_URL"
-sem secrets:env-vars:add exygy/$semaphore_secret  --name E2E_SALESFORCE_PASSWORD --content "$E2E_SALESFORCE_PASSWORD"
-
-echo "Credentials updated for Semaphore"
+  echo "Credentials updated for CircleCI"
+fi
