@@ -34,8 +34,6 @@ commands:
       - *attach_workspace
       - *restore_yarn_cache
       - *restore_bundler_cache
-      - run: mkdir vendor
-      - run: mv bundle vendor/bundle
 jobs:
   build:
     executor: ruby_node
@@ -47,9 +45,9 @@ jobs:
           command: |
             bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          paths:
-            - vendor/bundle
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle/
       - run:
           name: install yarn dependencies
           command: yarn install --check-files
