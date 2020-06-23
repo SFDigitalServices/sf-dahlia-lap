@@ -66,8 +66,6 @@ jobs:
           paths:
             - .
   backend:
-    environment:
-      - RAILS_ENV: development
     executor: ruby_node
     steps:
       - checkout
