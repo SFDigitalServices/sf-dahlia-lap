@@ -160,7 +160,6 @@ workflows:
             branches:
               ignore:
                 - production
-                - chores/circle-ci-on-production-#173302542
       - frontend:
           requires:
             - build
@@ -168,7 +167,6 @@ workflows:
             branches:
               ignore:
                 - production
-                - chores/circle-ci-on-production-#173302542
       - e2e:
           requires:
             - build
@@ -176,7 +174,6 @@ workflows:
             branches:
               ignore:
                 - production
-                - chores/circle-ci-on-production-#173302542
       - coverage:
           requires:
             - backend
@@ -185,7 +182,6 @@ workflows:
             branches:
               ignore:
                 - production
-                - chores/circle-ci-on-production-#173302542
       - e2e-production:
           context: partners-prod
           requires:
