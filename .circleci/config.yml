@@ -189,5 +189,7 @@ workflows:
           filters:
             branches:
               only:
-                - chores/circle-ci-on-production-#173302542
+                - /^chores.*$/
+                - /^releases.*$/
+                - /^release.*$/
                 - production
