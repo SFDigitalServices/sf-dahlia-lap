@@ -189,7 +189,6 @@ workflows:
           filters:
             branches:
               only:
-                - /^chores.*$/
                 - /^releases.*$/
                 - /^release.*$/
                 - production
