@@ -28,6 +28,37 @@ aliases:
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
           - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
           - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
+commands:
+  run-e2e:
+    description: "Run e2e tests"
+    steps:
+      - checkout
+      - *attach_workspace
+      - *restore_cache
+      - puppeteer/install
+      - run:
+          name: install yarn dependencies
+          command: yarn install --check-files
+      - run: bundle --path vendor/bundle
+      - run: bundle exec rake assets:precompile
+      - run:
+          name: Run rails server in background
+          command: bundle exec rails server -p 3000
+          background: true
+      - run:
+          name: Wait for server
+          command: |
+            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
+                printf '.'
+                sleep 5
+            done
+      - run:
+          name: App server test
+          command: |
+            wget localhost:3000
+            cat index.html
+      - run: yarn e2e
+
 jobs:
   build:
     executor: ruby_node
@@ -99,32 +130,11 @@ jobs:
   e2e:
     executor: ruby_node
     steps:
-      - checkout
-      - *attach_workspace
-      - *restore_cache
-      - puppeteer/install
-      - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
-      - run: bundle --path vendor/bundle
-      - run: bundle exec rake assets:precompile
-      - run:
-          name: Run rails server in background
-          command: bundle exec rails server -p 3000
-          background: true
-      - run:
-          name: Wait for server
-          command: |
-            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
-                printf '.'
-                sleep 5
-            done
-      - run:
-          name: App server test
-          command: |
-            wget localhost:3000
-            cat index.html
-      - run: yarn e2e
+      - run-e2e
+  e2e-production:
+    executor: ruby_node
+    steps:
+      - run-e2e
   coverage:
     executor: ruby_node
     steps:
@@ -146,13 +156,39 @@ workflows:
       - backend:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - production
       - frontend:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - production
       - e2e:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - production
       - coverage:
           requires:
             - backend
             - frontend
+          filters:
+            branches:
+              ignore:
+                - production
+      - e2e-production:
+          context: partners-prod
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - /^releases.*$/
+                - /^release.*$/
+                - production
