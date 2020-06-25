@@ -9,6 +9,17 @@ executors:
           - PGHOST: 127.0.0.1
           - PGUSER: root
     working_directory: ~/tmp
+non_production_jobs: &non_production_jobs
+  filters:
+    branches:
+      ignore: production
+prod_and_release_jobs: &prod_and_release_jobs
+  context: partners-prod
+  filters:
+    branches:
+      only:
+        - /^release.*$/
+        - production
 aliases:
   - &attach_workspace
     attach_workspace:
@@ -133,11 +144,6 @@ jobs:
     parallelism: 4
     steps:
       - run-e2e
-  e2e-production:
-    executor: ruby_node
-    parallelism: 4
-    steps:
-      - run-e2e
   coverage:
     executor: ruby_node
     steps:
@@ -157,40 +163,24 @@ workflows:
     jobs:
       - build
       - backend:
+          <<: *non_production_jobs
           requires:
             - build
-          filters:
-            branches:
-              ignore:
-                - production
       - frontend:
+          <<: *non_production_jobs
           requires:
             - build
-          filters:
-            branches:
-              ignore:
-                - production
       - e2e:
+          <<: *non_production_jobs
           requires:
             - build
-          filters:
-            branches:
-              ignore:
-                - production
       - coverage:
+          <<: *non_production_jobs
           requires:
             - backend
             - frontend
-          filters:
-            branches:
-              ignore:
-                - production
-      - e2e-production:
-          context: partners-prod
+      - e2e:
+          <<: *prod_and_release_jobs
+          name: e2e-production
           requires:
             - build
-          filters:
-            branches:
-              only:
-                - /^release.*$/
-                - production
