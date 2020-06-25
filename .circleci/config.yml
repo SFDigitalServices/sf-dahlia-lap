@@ -1,7 +1,5 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-orbs:
-  puppeteer: threetreeslight/puppeteer@0.1.2
 executors:
   ruby_node:
     docker:
@@ -10,37 +8,38 @@ executors:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
-      - image: circleci/node:12.16.1-browsers
-        environment:
-          - NODE_OPTIONS: --max_old_space_size=4096
     working_directory: ~/tmp
 aliases:
   - &attach_workspace
     attach_workspace:
       at: ~/tmp
-  - &restore_cache
+  - &restore_yarn_cache
     restore_cache:
-        name: Restore Cache
+        name: Restore Yarn Cache
         keys:
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
+  - &restore_bundler_cache
+    restore_cache:
+        name: Restore Bundler Cache
+        keys:
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1
 commands:
+  prepare_workspace:
+    description: "Attach workspace and restore cache"
+    steps:
+      - *attach_workspace
+      - *restore_yarn_cache
+      - *restore_bundler_cache
   run-e2e:
     description: "Run e2e tests"
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
-      - puppeteer/install
-      - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
+      - prepare_workspace
       - run: bundle --path vendor/bundle
-      - run: bundle exec rake assets:precompile
       - run:
           name: Run rails server in background
           command: bundle exec rails server -p 3000
@@ -53,27 +52,32 @@ commands:
                 sleep 5
             done
       - run:
-          name: App server test
+          name: Run Jest tests using test splitting
           command: |
-            wget localhost:3000
-            cat index.html
-      - run: yarn e2e
+            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
+            echo "$TESTFILES"
+            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
 
 jobs:
   build:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - prepare_workspace
       - run:
           name: install dependencies
           command: |
-            bundle install --deployment --path vendor/bundle
+            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
+          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./bundle
-          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
+            - ./vendor/bundle/
       - run:
           name: install yarn dependencies
           command: yarn install --check-files
@@ -84,7 +88,6 @@ jobs:
             - node_modules/
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
-      - run: bundle exec rake assets:precompile
       - run:
           name:  Download cc-test-reporter
           command: |
@@ -100,8 +103,7 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - prepare_workspace
       - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
@@ -116,8 +118,7 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - prepare_workspace
       - run: yarn lint
       - run: yarn unit
       - run: ls .
@@ -129,10 +130,12 @@ jobs:
             - coverage
   e2e:
     executor: ruby_node
+    parallelism: 4
     steps:
       - run-e2e
   e2e-production:
     executor: ruby_node
+    parallelism: 4
     steps:
       - run-e2e
   coverage:
@@ -189,6 +192,5 @@ workflows:
           filters:
             branches:
               only:
-                - /^releases.*$/
                 - /^release.*$/
                 - production
