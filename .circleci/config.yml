@@ -192,6 +192,7 @@ workflows:
           filters:
             branches:
               only:
+                - chore/optimize-circleci-build-#172869530
                 - /^releases.*$/
                 - /^release.*$/
                 - production
