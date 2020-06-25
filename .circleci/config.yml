@@ -34,6 +34,36 @@ commands:
       - *attach_workspace
       - *restore_yarn_cache
       - *restore_bundler_cache
+  run-e2e:
+    description: "Run e2e tests"
+    steps:
+      - checkout
+      - prepare_workspace
+      - run: bundle --path vendor/bundle
+      - run:
+          name: Run rails server in background
+          command: bundle exec rails server -p 3000
+          background: true
+      - run:
+          name: Wait for server
+          command: |
+            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
+                printf '.'
+                sleep 5
+            done
+      - run:
+          name: Run Jest tests using test splitting
+          command: |
+            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
+            echo "$TESTFILES"
+            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
+
 jobs:
   build:
     executor: ruby_node
@@ -102,32 +132,12 @@ jobs:
     executor: ruby_node
     parallelism: 4
     steps:
-      - checkout
-      - prepare_workspace
-      - run: bundle --path vendor/bundle
-      - run:
-          name: Run rails server in background
-          command: bundle exec rails server -p 3000
-          background: true
-      - run:
-          name: Wait for server
-          command: |
-            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
-                printf '.'
-                sleep 5
-            done
-      - run:
-          name: Run Jest tests using test splitting
-          command: |
-            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
-            echo "$TESTFILES"
-            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
-      - store_test_results:
-          path: ./reports/junit/
-      - store_artifacts:
-          path: ./reports/junit
+      - run-e2e
+  e2e-production:
+    executor: ruby_node
+    parallelism: 4
+    steps:
+      - run-e2e
   coverage:
     executor: ruby_node
     steps:
@@ -149,13 +159,39 @@ workflows:
       - backend:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - production
       - frontend:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - production
       - e2e:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - production
       - coverage:
           requires:
             - backend
             - frontend
+          filters:
+            branches:
+              ignore:
+                - production
+      - e2e-production:
+          context: partners-prod
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - /^releases.*$/
+                - /^release.*$/
+                - production
