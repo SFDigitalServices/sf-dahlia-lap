@@ -1,18 +1,31 @@
 import apiService from '~/apiService'
 import Alerts from '~/components/Alerts'
-import { isEmpty, find, isEqual, every, reject, forEach } from 'lodash'
+import { isEmpty, find, isEqual, every, reject, forEach, isPlainObject } from 'lodash'
 import { convertCurrency } from '~/utils/form/validations'
+
+const filterChanged = (prev, current) => {
+  const changedFields = {}
+  forEach(current, (value, key) => {
+    if (!isEqual(prev[key], value)) {
+      if (isPlainObject(value)) {
+        const obj = filterChanged(prev[key], value)
+        if (!isEmpty(obj)) {
+          obj['id'] = value.id
+          changedFields[key] = obj
+        }
+      } else {
+        changedFields[key] = value
+      }
+    }
+  })
+  return changedFields
+}
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
-  const changedFields = {id: application['id']}
-
-  forEach(application, (value, key) => {
-    if (!isEqual(prevApplication[key], value)) {
-      changedFields[key] = value
-    }
-  })
+  const changedFields = filterChanged(prevApplication, application)
+  changedFields['id'] = application['id']
 
   // await lease and base application updates first
   const initialResponses = await Promise.all([

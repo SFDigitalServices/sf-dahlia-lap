@@ -51,6 +51,7 @@ module Force
         application_params = application_defaults.merge(custom_api_attrs)
         application_params = application_params.except('primaryApplicant') if application_params['primaryApplicant'].blank?
         result = api_put('/LeasingAgentPortal/shortForm', application_params.except('alternateContact', 'listingID'))
+        byebug
         application(result['id'])
       end
 

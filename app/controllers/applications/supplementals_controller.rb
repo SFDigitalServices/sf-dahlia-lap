@@ -7,6 +7,7 @@ module Applications
 
     def index
       @application = soql_application_service.application(params[:application_id])
+      byebug
       @status_history = field_update_comment_service.status_history_by_application(@application.id)
       @file_base_url = file_base_url
       @available_units = units_service.available_units_for_application(@application[:listing_id], params[:application_id])
