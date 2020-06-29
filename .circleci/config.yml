@@ -1,7 +1,5 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-orbs:
-  puppeteer: threetreeslight/puppeteer@0.1.2
 executors:
   ruby_node:
     docker:
@@ -10,39 +8,87 @@ executors:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
-      - image: circleci/node:12.16.1-browsers
-        environment:
-          - NODE_OPTIONS: --max_old_space_size=4096
     working_directory: ~/tmp
+non_production_jobs: &non_production_jobs
+  filters:
+    branches:
+      ignore: production
+prod_and_release_jobs: &prod_and_release_jobs
+  context: partners-prod
+  filters:
+    branches:
+      only:
+        - /^release.*$/
+        - production
 aliases:
   - &attach_workspace
     attach_workspace:
       at: ~/tmp
-  - &restore_cache
+  - &restore_yarn_cache
     restore_cache:
-        name: Restore Cache
+        name: Restore Yarn Cache
         keys:
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
           - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-
+  - &restore_bundler_cache
+    restore_cache:
+        name: Restore Bundler Cache
+        keys:
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1
+commands:
+  prepare_workspace:
+    description: "Attach workspace and restore cache"
+    steps:
+      - *attach_workspace
+      - *restore_yarn_cache
+      - *restore_bundler_cache
+  run-e2e:
+    description: "Run e2e tests"
+    steps:
+      - checkout
+      - prepare_workspace
+      - run: bundle --path vendor/bundle
+      - run:
+          name: Run rails server in background
+          command: bundle exec rails server -p 3000
+          background: true
+      - run:
+          name: Wait for server
+          command: |
+            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
+                printf '.'
+                sleep 5
+            done
+      - run:
+          name: Run Jest tests using test splitting
+          command: |
+            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
+            echo "$TESTFILES"
+            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
+
 jobs:
   build:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - prepare_workspace
       - run:
           name: install dependencies
           command: |
-            bundle install --deployment --path vendor/bundle
+            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
+          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./bundle
-          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-{{ checksum "Gemfile.lock" }}
+            - ./vendor/bundle/
       - run:
           name: install yarn dependencies
           command: yarn install --check-files
@@ -53,7 +99,6 @@ jobs:
             - node_modules/
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
-      - run: bundle exec rake assets:precompile
       - run:
           name:  Download cc-test-reporter
           command: |
@@ -69,8 +114,7 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - prepare_workspace
       - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
       - run: bundle exec rake spec
@@ -85,8 +129,7 @@ jobs:
     executor: ruby_node
     steps:
       - checkout
-      - *attach_workspace
-      - *restore_cache
+      - prepare_workspace
       - run: yarn lint
       - run: yarn unit
       - run: ls .
@@ -98,33 +141,9 @@ jobs:
             - coverage
   e2e:
     executor: ruby_node
+    parallelism: 4
     steps:
-      - checkout
-      - *attach_workspace
-      - *restore_cache
-      - puppeteer/install
-      - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
-      - run: bundle --path vendor/bundle
-      - run: bundle exec rake assets:precompile
-      - run:
-          name: Run rails server in background
-          command: bundle exec rails server -p 3000
-          background: true
-      - run:
-          name: Wait for server
-          command: |
-            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
-                printf '.'
-                sleep 5
-            done
-      - run:
-          name: App server test
-          command: |
-            wget localhost:3000
-            cat index.html
-      - run: yarn e2e
+      - run-e2e
   coverage:
     executor: ruby_node
     steps:
@@ -144,15 +163,24 @@ workflows:
     jobs:
       - build
       - backend:
+          <<: *non_production_jobs
           requires:
             - build
       - frontend:
+          <<: *non_production_jobs
           requires:
             - build
       - e2e:
+          <<: *non_production_jobs
           requires:
             - build
       - coverage:
+          <<: *non_production_jobs
           requires:
             - backend
             - frontend
+      - e2e:
+          <<: *prod_and_release_jobs
+          name: e2e-production
+          requires:
+            - build
