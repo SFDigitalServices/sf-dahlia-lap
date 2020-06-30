@@ -8,7 +8,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -21,18 +21,22 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 24 Mar 2020 18:02:03 GMT
+      - Tue, 30 Jun 2020 19:48:15 GMT
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=kT451G35EeqSfZcZAO5jag; domain=.salesforce.com; path=/; expires=Wed,
-        24-Mar-2021 18:02:03 GMT; Max-Age=31536000
+      - BrowserId=o5LfmLsKEeqGcCfIksbzoA; domain=.salesforce.com; path=/; expires=Wed,
+        30-Jun-2021 19:48:15 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -45,20 +49,19 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1585072924827","signature":"T5jm3B9R+Gx7xlZKYnfl9OXroXd2tYwzWJDLL2V1wko="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1593546495833","signature":"u08FVW8fie3Q8Uh9+v9w4/Huc5+4f/H7klKocKBYYs8="}'
     http_version:
-  recorded_at: Tue, 24 Mar 2020 18:02:04 GMT
+  recorded_at: Tue, 30 Jun 2020 19:48:15 GMT
 - request:
-    method: post
+    method: put
     uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm
     body:
       encoding: UTF-8
-      string: '{"applicationSubmissionType":"Paper","applicationSubmittedDate":"2019-03-12","status":"Submitted","annualIncome":"110000","applicationLanguage":"English","listingID":"a0W0P00000F8YG4UAN","primaryApplicant":{"city":"SAN
-        FRANCISCO","DOB":"1950-01-01","email":"eee@eeee.com","firstName":"Test","lastName":"Supp
-        app test","state":"CA","zip":"94105-1804"},"householdMembers":[{"DOB":"1976-06-11","firstName":"member","lastName":"test"}],"alternateContact":null}'
+      string: '{"applicationSubmissionType":"Paper","applicationSubmittedDate":"2020-06-30","status":"Submitted","adaPrioritiesSelected":"Vision
+        impairments","confirmedHouseholdAnnualIncome":"123","hasMilitaryService":"Yes","hasSenior":"Yes","id":"a0o0P00000JQawYQAT","numberOfDependents":"2","numberOfSeniors":"2","primaryApplicant":{"appMemberId":"a0n0P00000DowdHQAR","maritalStatus":"Single"}}'
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v0.17.3
       Content-Type:
       - application/json
       Authorization:
@@ -69,193 +72,81 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: Server Error
     headers:
       Date:
-      - Tue, 24 Mar 2020 18:02:05 GMT
+      - Tue, 30 Jun 2020 19:48:16 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
       - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
         pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
       Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
       X-Robots-Tag:
       - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=kmdQ1235EeqBYQedBYLgeg; domain=.salesforce.com; path=/; expires=Wed,
-        24-Mar-2021 18:02:05 GMT; Max-Age=31536000
+      - BrowserId=pFA8ELsKEeqxe18RqySIqg; domain=.salesforce.com; path=/; expires=Wed,
+        30-Jun-2021 19:48:16 GMT; Max-Age=31536000
       Content-Type:
       - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: '{"totalMonthlyRent":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1iQAA","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1jQAA","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1kQAA","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1lQAA","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1mQAA","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1nQAA","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null}],"referral":null,"processingStatus":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"race":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"lastName":"Supp
-        app test","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"email":"eee@eeee.com","DOB":"1950-01-01","contactId":"0031D00000S2WqgQAF","city":"SAN
-        FRANCISCO","candidateScore":null,"appMemberType":"Primary Applicant","appMemberId":"a0n1D000000vg2zQAA","applicationId":"a0o1D000001CjfJQAS","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-00482604","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00482604","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"id":"a0o1D000001CjfJQAS","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"race":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"lastName":"test","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"email":null,"DOB":"1976-06-11","contactId":null,"city":null,"candidateScore":null,"appMemberType":"Household
-        Member","appMemberId":"a0n1D000000vg2yQAA","applicationId":"a0o1D000001CjfJQAS","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null}],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":null,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"finalHouseholdIncome":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
+      encoding: UTF-8
+      string: '[{"errorCode":"APEX_ERROR","message":"API_LeaseUp_ShortForm.InternalException:
+        Illegal assignment from String to Decimal\n\nClass.API_LeaseUp_ShortForm.doPut:
+        line 215, column 1"}]'
     http_version:
-  recorded_at: Tue, 24 Mar 2020 18:02:09 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/a0o1D000001CjfJQAS
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.15.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Mar 2020 18:02:10 GMT
-      Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=lTZ2Sm35EeqPMzXW5bQR9g; domain=.salesforce.com; path=/; expires=Wed,
-        24-Mar-2021 18:02:10 GMT; Max-Age=31536000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalMonthlyRent":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1iQAA","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1jQAA","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1kQAA","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1lQAA","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1mQAA","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1D000000kp1nQAA","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o1D000001CjfJQAS","address":null}],"referral":null,"processingStatus":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"race":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"lastName":"Supp
-        app test","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"email":"eee@eeee.com","DOB":"1950-01-01","contactId":"0031D00000S2WqgQAF","city":"SAN
-        FRANCISCO","candidateScore":null,"appMemberType":"Primary Applicant","appMemberId":"a0n1D000000vg2zQAA","applicationId":"a0o1D000001CjfJQAS","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-00482604","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00482604","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"id":"a0o1D000001CjfJQAS","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"race":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"lastName":"test","languageOther":null,"language":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"email":null,"DOB":"1976-06-11","contactId":null,"city":null,"candidateScore":null,"appMemberType":"Household
-        Member","appMemberId":"a0n1D000000vg2yQAA","applicationId":"a0o1D000001CjfJQAS","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null}],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":null,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"finalHouseholdIncome":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
-    http_version:
-  recorded_at: Tue, 24 Mar 2020 18:02:10 GMT
+  recorded_at: Tue, 30 Jun 2020 19:48:17 GMT
 - request:
     method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    uri: https://sentry.io/api/1438051/store/
     body:
       encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      string: 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
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - sentry-ruby/2.9.0
       Content-Type:
-      - application/x-www-form-urlencoded
+      - application/octet-stream
+      X-Sentry-Auth:
+      - Sentry sentry_version=5, sentry_client=raven-ruby/2.9.0, sentry_timestamp=1593546497,
+        sentry_key=220b63fca88041809b887a91c5f3701d
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 403
+      message: Forbidden
     headers:
+      Server:
+      - nginx
       Date:
-      - Tue, 24 Mar 2020 18:02:11 GMT
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=laCp3W35EeqXwBcWtEGtoA; domain=.salesforce.com; path=/; expires=Wed,
-        24-Mar-2021 18:02:11 GMT; Max-Age=31536000
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
+      - Tue, 30 Jun 2020 19:48:18 GMT
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json
+      Content-Length:
+      - '61'
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - x-sentry-rate-limits, x-sentry-error, retry-after
       Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1585072933689","signature":"4WrqAiEQn4xC3A0JslVkbeCAK4O+8gFw4vliWSNL0mU="}'
-    http_version:
-  recorded_at: Tue, 24 Mar 2020 18:02:13 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o1D000001CjfJQAS%27%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.15.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 24 Mar 2020 18:02:15 GMT
+      - Origin
+      X-Envoy-Upstream-Service-Time:
+      - '1'
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1D0000009nrYm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1D0000009nrYm"
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=mDUQJm35Eeq0d7nWeJDc-g; domain=.salesforce.com; path=/; expires=Wed,
-        24-Mar-2021 18:02:15 GMT; Max-Age=31536000
-      Sforce-Limit-Info:
-      - api-usage=7589/5000000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
+      - max-age=31536000; includeSubDomains; preload
     body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1D000000kp1iQAA"},"Id":"a0w1D000000kp1iQAA","Name":"AP-0001684358","Preference_Name__c":"Certificate
-        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1D000000kp1jQAA"},"Id":"a0w1D000000kp1jQAA","Name":"AP-0001684359","Preference_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1D000000kp1kQAA"},"Id":"a0w1D000000kp1kQAA","Name":"AP-0001684360","Preference_Name__c":"Neighborhood
-        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1D000000kp1lQAA"},"Id":"a0w1D000000kp1lQAA","Name":"AP-0001684361","Preference_Name__c":"Rent
-        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1D000000kp1mQAA"},"Id":"a0w1D000000kp1mQAA","Name":"AP-0001684362","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1D000000kp1nQAA"},"Id":"a0w1D000000kp1nQAA","Name":"AP-0001684363","Preference_Name__c":"Alice
-        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001PsqDoQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0}]}'
+      encoding: UTF-8
+      string: '{"detail":"event submission rejected with_reason: ProjectId"}'
     http_version:
-  recorded_at: Tue, 24 Mar 2020 18:02:15 GMT
-recorded_with: VCR 5.0.0
+  recorded_at: Tue, 30 Jun 2020 19:48:18 GMT
+recorded_with: VCR 5.1.0
