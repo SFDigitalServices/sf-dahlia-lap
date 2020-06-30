@@ -12,9 +12,6 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     has_military_service: 'Yes',
     reserved_senior: 'Yes',
     has_ada_priorities_selected: {vision_impairments: true},
-    number_of_dependents: 2,
-    number_of_seniors: 2,
-    confirmed_household_annual_income: 123,
     id: 'a0o0P00000JQawYQAT'
   }
 
