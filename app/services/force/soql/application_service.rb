@@ -10,7 +10,7 @@ module Force
 
       def applications(opts = { page: 0 })
         query_scope = applications_query(opts)
-        query_scope.order_by('Application_Submitted_Date__c DESC')
+        query_scope.order_by('CreatedDate DESC')
         query_scope.where_contains(:Name, opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Listing__r.Id', "'#{opts[:listing_id]}'") if opts[:listing_id].present?
         query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
@@ -73,7 +73,7 @@ module Force
       def applications_query(opts)
         builder.from(:Application__c)
                .select(query_fields(:index))
-               .where("Status__c != '#{DRAFT}'")
+               .where("Status__c != '#{DRAFT}' AND Application_Submitted_Date__c != NULL")
                .paginate(opts)
                .transform_results { |results| massage(results) }
       end
