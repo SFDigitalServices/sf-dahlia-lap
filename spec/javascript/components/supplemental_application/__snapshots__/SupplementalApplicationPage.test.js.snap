@@ -5199,6 +5199,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.5.application_member_id"
                                                                                     parse={[Function]}
                                                                                   >
@@ -5310,6 +5311,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.5.post_lottery_validation"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6534,6 +6536,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.individual_preference"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6642,6 +6645,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.application_member_id"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6780,6 +6784,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.lw_type_of_proof"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6952,6 +6957,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.post_lottery_validation"
                                                                                     parse={[Function]}
                                                                                   >
@@ -8334,6 +8340,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <Field
                                                 component="select"
+                                                formatOnBlur={true}
                                                 name="ami_chart_type"
                                                 parse={[Function]}
                                               >
@@ -8404,6 +8411,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <Field
                                                 component="select"
+                                                formatOnBlur={true}
                                                 name="ami_chart_year"
                                                 parse={[Function]}
                                               >
@@ -9486,6 +9494,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   >
                                                     <Field
                                                       component="select"
+                                                      formatOnBlur={true}
                                                       name="lease.unit"
                                                       parse={[Function]}
                                                     >
@@ -9844,6 +9853,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   >
                                                     <Field
                                                       component="select"
+                                                      formatOnBlur={true}
                                                       name="lease.preference_used"
                                                       parse={[Function]}
                                                     >
@@ -10535,6 +10545,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                 >
                                                   <Field
                                                     component="select"
+                                                    formatOnBlur={true}
                                                     name="lease.bmr_parking_space_assigned"
                                                     parse={[Function]}
                                                   >
@@ -11336,6 +11347,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <SelectField
                                                 fieldName="number_of_dependents"
+                                                format={[Function]}
                                                 id="demographics-dependents"
                                                 label="Number of Dependents"
                                                 options={
@@ -11355,6 +11367,8 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="number_of_dependents"
                                                   parse={[Function]}
                                                 >
@@ -11491,6 +11505,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <SelectField
                                                 fieldName="number_of_seniors"
+                                                format={[Function]}
                                                 id="demographics-seniors"
                                                 label="Number of Seniors"
                                                 options={
@@ -11510,6 +11525,8 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="number_of_seniors"
                                                   parse={[Function]}
                                                 >
@@ -11652,6 +11669,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <SelectField
                                                 fieldName="number_of_minors"
+                                                format={[Function]}
                                                 id="demographics-minors"
                                                 label="Number of Minors"
                                                 options={
@@ -11671,6 +11689,8 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="number_of_minors"
                                                   parse={[Function]}
                                                 >
@@ -11819,6 +11839,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  formatOnBlur={true}
                                                   name="applicant.marital_status"
                                                   parse={[Function]}
                                                 >

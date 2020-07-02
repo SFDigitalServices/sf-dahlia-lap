@@ -8,7 +8,6 @@ export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
   const changedFields = filterChanged(prevApplication, application)
-  changedFields['id'] = application['id']
 
   // await lease and base application updates first
   const initialResponses = await Promise.all([

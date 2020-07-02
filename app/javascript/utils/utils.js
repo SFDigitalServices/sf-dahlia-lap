@@ -22,6 +22,9 @@ export const formatPercent = (value) => {
 }
 
 export const filterChanged = (prev, current) => {
+  if (!prev) {
+    return current
+  }
   const changedFields = {}
   forEach(current, (value, key) => {
     if (!isEqual(prev[key], value)) {
@@ -36,6 +39,7 @@ export const filterChanged = (prev, current) => {
       }
     }
   })
+  changedFields['id'] = prev['id']
   return changedFields
 }
 

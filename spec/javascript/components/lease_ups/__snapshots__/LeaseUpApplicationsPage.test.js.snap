@@ -362,6 +362,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             >
                               <Field
                                 component="select"
+                                formatOnBlur={true}
                                 name="preference"
                                 parse={[Function]}
                               >
@@ -379,7 +380,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
-                                    value=""
                                   >
                                     <option
                                       key=""
@@ -768,6 +768,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             >
                               <Field
                                 component="select"
+                                formatOnBlur={true}
                                 name="status"
                                 parse={[Function]}
                               >
@@ -785,7 +786,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
-                                    value=""
                                   >
                                     <option
                                       key=""
@@ -895,6 +895,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                             >
                               <Field
                                 component="select"
+                                formatOnBlur={true}
                                 name="accessibility"
                                 parse={[Function]}
                               >
@@ -912,7 +913,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
-                                    value=""
                                   >
                                     <option
                                       key=""

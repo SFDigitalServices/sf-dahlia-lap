@@ -99,9 +99,9 @@ describe('SupplementalApplicationPage', () => {
 
   test('it saves demographics correctly', async () => {
     const expectedDemographics = {
-      'number_of_dependents': '2',
-      'number_of_seniors': '3',
-      'number_of_minors': '0',
+      'number_of_dependents': 2,
+      'number_of_seniors': 3,
+      'number_of_minors': 0,
       'applicant': {'marital_status': 'Domestic Partner'}
     }
     let wrapper
