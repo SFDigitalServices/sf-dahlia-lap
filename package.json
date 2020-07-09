@@ -88,8 +88,7 @@
     "webpack-hot": "bin/webpack-dev-server --hot",
     "start": "npm-run-all -p -l webpack-hot rails-server",
     "print_release_info": "bash $PWD/print_release_info.sh",
-    "create_release_branch": "bash $PWD/create_release_branch.sh",
-    "abc": "echo \"hello!\""
+    "create_release_branch": "bash $PWD/create_release_branch.sh"
   },
   "jest": {
     "coverageReporters": [
