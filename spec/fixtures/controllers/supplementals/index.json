@@ -42,6 +42,7 @@
   "application_language": "English",
   "application_submission_type": "Electronic",
   "application_submitted_date": "2020-03-30",
+  "confirmed_household_annual_income": 801.45,
   "createdby": {
     "name": "DAHLIA API"
   },

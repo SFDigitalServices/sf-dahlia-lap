@@ -19,7 +19,7 @@ module Force
       { custom_api: 'applicationSubmissionType', domain: 'application_submission_type', salesforce: 'Application_Submission_Type' },
       { custom_api: 'applicationSubmittedDate', domain: 'application_submitted_date', salesforce: 'Application_Submitted_Date' },
       { custom_api: 'appRTType', domain: '', salesforce: '' },
-      { custom_api: 'confirmedHouseholdAnnualIncome', domain: 'confirmed_household_annual_income', salesforce: '?' },
+      { custom_api: 'confirmedHouseholdAnnualIncome', domain: 'confirmed_household_annual_income', salesforce: 'Confirmed_Household_Annual_Income' },
       { custom_api: '', domain: 'createdby', salesforce: 'CreatedBy' },
       { custom_api: 'didApplicantUseHousingCounselingAgency', domain: '', salesforce: 'Applicant_used_housing_counseling_agency' },
       { custom_api: 'externalSessionId', domain: '', salesforce: 'Third_Party_External_ID' },
