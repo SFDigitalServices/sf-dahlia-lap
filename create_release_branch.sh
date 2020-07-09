@@ -32,7 +32,7 @@ fi
 formatted_date=$(date +'%m-%d-%Y')
 branch_name="release-$formatted_date"
 
-if ${OPT_X}; then
+if ${skip_branch_creation}; then
     echo "Skipping creating a new branch. Checking out $branch_name."
     git checkout $branch_name
 else
