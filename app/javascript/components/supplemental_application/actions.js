@@ -2,7 +2,7 @@ import apiService from '~/apiService'
 import Alerts from '~/components/Alerts'
 import { isEmpty, find, isEqual, every, reject } from 'lodash'
 import { convertCurrency } from '~/utils/form/validations'
-import { filterChanged } from '~utils/utils'
+import { filterChanged } from '~/utils/utils'
 
 export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id

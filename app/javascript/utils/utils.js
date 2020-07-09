@@ -31,7 +31,9 @@ export const filterChanged = (prev, current) => {
       if (isPlainObject(value) && prev[key] !== null) {
         const obj = filterChanged(prev[key], value)
         if (!isEmpty(obj)) {
-          obj['id'] = value.id
+          if (value.id) {
+            obj['id'] = value.id
+          }
           changedFields[key] = obj
         }
       } else {
