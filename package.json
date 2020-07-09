@@ -86,7 +86,10 @@
     "lint:fix": "standard \"./**/*.js\" --fix | snazzy",
     "rails-server": "rails s",
     "webpack-hot": "bin/webpack-dev-server --hot",
-    "start": "npm-run-all -p -l webpack-hot rails-server"
+    "start": "npm-run-all -p -l webpack-hot rails-server",
+    "print_release_info": "bash $PWD/print_release_info.sh",
+    "create_release_branch": "bash $PWD/create_release_branch.sh",
+    "abc": "echo \"hello!\""
   },
   "jest": {
     "coverageReporters": [
