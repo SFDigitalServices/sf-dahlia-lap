@@ -64,7 +64,7 @@ echo "$commitmessages"
 print_section "Fetching branch names"
 while IFS= read -r line; do
   echo "Reading $line"
-  pr=$(echo "$line" | sed -E $'s/[a-z0-9]* (\\(.*\\) )?(.*) #(.*) \\(#(.*)\\)$/\\4/')
+  pr=$(echo "$line" | sed -E $'s/.*\\(#(.*)\\)$/\\1/')
 
   re='^[0-9]+$'
   if ! [[ $pr =~ $re ]] ; then
