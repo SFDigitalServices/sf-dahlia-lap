@@ -5,7 +5,7 @@
 
 # What you need before running this script:
 # 1. Generate a personal access token from github by going to github -> profile settings -> developer settings -> personal access token -> Generate new token.
-while getopts ":h::u::t:" opt; do
+while getopts ":hu::t:" opt; do
   case $opt in
     h )
       echo "Usage:"

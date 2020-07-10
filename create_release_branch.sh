@@ -5,7 +5,7 @@
 
 skip_branch_creation='false'
 
-while getopts ":s::h:" opt; do
+while getopts ":s::h" opt; do
   case $opt in
     h )
       echo "Usage:"
