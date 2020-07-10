@@ -78,25 +78,39 @@ echo "Release tracker: https://docs.google.com/spreadsheets/d/1EUvw2ugaFprt8FxlC
 
 echo "Paste the following into the release tracker on google sheets:"
 
+pr_re_full="[a-z0-9]* (\\(.*\\) )?(.*) #(.*) \\(#(.*)\\)$"
+pr_re_no_ticket="[a-z0-9]* (\\(.*\\) )?(.*) \\(#(.*)\\)$"
+pr_re_relaxed="[a-z0-9]* (.*)$"
+
+sheets_replacement_full='\\2\t\\3\t=IF\\(not\\(isblank\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\)\\)\\), HYPERLINK\\(CONCAT\\("https:\\/\\/www.pivotaltracker.com\\/story\\/show\\/",SUBSTITUTE\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\), "#", ""\\)\\)\\),""\\)\tYES\tYES\t\tNEEDS TESTING'
+sheets_replacement_no_ticket='\\2\t\tYES\tYES\t\tNEEDS TESTING'
+sheets_replacement_relaxed='\\2\t\tYES\tYES\t\tNEEDS TESTING'
+
 echo "
 Features"
 for t in "${features[@]}"; do
-  echo "$t" | sed -E $'s/[a-z0-9]* (\\(.*\\) )?(.*) #(.*) \\(#(.*)\\)$/\\2\t\\3\t=IF\\(not\\(isblank\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\)\\)\\), HYPERLINK\\(CONCAT\\("https:\\/\\/www.pivotaltracker.com\\/story\\/show\\/",SUBSTITUTE\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\), "#", ""\\)\\)\\),""\\)/'
+  echo "$t" | sed -E "s/$pr_re_full/$sheets_replacement_full/"
 done
 echo "
 Bugs"
 for t in "${bugs[@]}"; do
-  echo "$t" | sed -E $'s/[a-z0-9]* (\\(.*\\) )?(.*) #(.*) \\(#(.*)\\)$/\\2\t\\3\t=IF\\(not\\(isblank\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\)\\)\\), HYPERLINK\\(CONCAT\\("https:\\/\\/www.pivotaltracker.com\\/story\\/show\\/",SUBSTITUTE\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\), "#", ""\\)\\)\\),""\\)/'
+  echo "$t" | sed -E "s/$pr_re_full/$sheets_replacement_full/"
 done
 echo "
 Chores"
 for t in "${chores[@]}"; do
-  echo "$t" | sed -E $'s/[a-z0-9]* (\\(.*\\) )?(.*) #(.*) \\(#(.*)\\)$/\\2\t\\3\t=IF\\(not\\(isblank\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\)\\)\\), HYPERLINK\\(CONCAT\\("https:\\/\\/www.pivotaltracker.com\\/story\\/show\\/",SUBSTITUTE\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\), "#", ""\\)\\)\\),""\\)/'
+  echo "$t" | sed -E "s/$pr_re_full/$sheets_replacement_full/"
 done
 echo "
 Other"
 for t in "${other[@]}"; do
-  echo "$t" | sed -E $'s/[a-z0-9]* (\\(.*\\) )?(.*) #(.*) \\(#(.*)\\)$/\\2\t\\3\t=IF\\(not\\(isblank\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\)\\)\\), HYPERLINK\\(CONCAT\\("https:\\/\\/www.pivotaltracker.com\\/story\\/show\\/",SUBSTITUTE\\(INDEX\\($A$1:$C$50, ROW\\(\\), 2\\), "#", ""\\)\\)\\),""\\)/'
+  if [[ $pr =~ $pr_re_full ]] ; then
+    echo "$t" | sed -E "s/$pr_re_full/$sheets_replacement_full/"
+  elif [[ $pr =~ $pr_re_no_ticket ]] ; then
+    echo "$t" | sed -E "s/$pr_re_no_ticket/$sheets_replacement_no_ticket/"
+  else
+    echo "$t" | sed -E "s/$pr_re_relaxed/$sheets_replacement_relaxed/"
+  fi
 done
 
 echo "
