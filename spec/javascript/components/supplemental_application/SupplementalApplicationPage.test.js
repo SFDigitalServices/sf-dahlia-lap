@@ -15,10 +15,12 @@ const mockGetRentalAssistances = jest.fn()
 window.scrollTo = jest.fn()
 
 jest.mock('apiService', () => {
+  const mockedApplication = require('../../fixtures/supplemental_application').default
+  const _merge = require('lodash').merge
   return {
     submitApplication: async (application) => {
       mockSubmitApplication(application)
-      return application
+      return _merge(mockedApplication, application)
     },
     updateApplication: async (data) => {
       mockUpdateApplication(data)
@@ -78,11 +80,8 @@ describe('SupplementalApplicationPage', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('it saves expected values if no changes are made', async () => {
+  test('it doesnt send field that are not changed', async () => {
     const payload = supplementalApplication
-    payload['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
-    payload['listing_id'] = 'a0W0x000000GhJUEA0'
-    payload['rental_assistances'] = []
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -94,14 +93,14 @@ describe('SupplementalApplicationPage', () => {
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication).toHaveBeenCalledWith(payload)
+    expect(mockSubmitApplication).toHaveBeenCalledWith({id: payload.id})
   })
 
   test('it saves demographics correctly', async () => {
     const expectedDemographics = {
-      'number_of_dependents': '2',
-      'number_of_seniors': '3',
-      'number_of_minors': '0',
+      'number_of_dependents': 2,
+      'number_of_seniors': 3,
+      'number_of_minors': 0,
       'applicant': {'marital_status': 'Domestic Partner'}
     }
     let wrapper
@@ -240,10 +239,7 @@ describe('SupplementalApplicationPage', () => {
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-      const expectedApplication = supplementalApplication
-      expectedApplication['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
-      expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
-      expectedApplication['rental_assistances'] = []
+      const expectedApplication = {id: supplementalApplication.id}
       expectedApplication['confirmed_household_annual_income'] = 1234.0
 
       expect(mockSubmitApplication.mock.calls.length).toBe(1)
@@ -263,10 +259,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
-      const expectedApplication = supplementalApplication
-      expectedApplication['lease']['primary_applicant_contact'] = 'a0n0P00000D3qIZQAZ'
-      expectedApplication['listing_id'] = 'a0W0x000000GhJUEA0'
-      expectedApplication['rental_assistances'] = []
+      const expectedApplication = {id: supplementalApplication.id}
       expectedApplication['confirmed_household_annual_income'] = null
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })

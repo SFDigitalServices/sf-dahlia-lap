@@ -111,7 +111,6 @@ Array [
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
-                  value=""
                 >
                   <option
                     value=""
@@ -172,7 +171,6 @@ Array [
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
-                  value=""
                 >
                   <option
                     value=""
