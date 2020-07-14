@@ -5,18 +5,14 @@
 
 skip_branch_creation='false'
 
-while getopts ":s::h" opt; do
+while getopts ":h" opt; do
   case $opt in
     h )
       echo "Usage:"
       echo "    refresh.sh -h                           Display this help message."
-      echo "    refresh.sh -s                           Skip creating a new branch and merging it with the latest main. Use this when you needed to manually complete a merge."
       exit 0
       ;;
-    s )
-      skip_branch_creation='true'
-      ;;
-    \? ) echo "Usage: cmd [-h] [-s]"
+    \? ) echo "Usage: cmd [-h]"
       ;;
   esac
 done
@@ -28,31 +24,14 @@ if ! git diff-index --quiet HEAD --; then
   exit
 fi
 
-
 formatted_date=$(date +'%m-%d-%Y')
 branch_name="release-$formatted_date"
 
-if ${skip_branch_creation}; then
-    echo "Skipping creating a new branch. Checking out $branch_name."
-    git checkout $branch_name
-else
-  echo "Checking out new branch off production: $branch_name"
-  git checkout main && git pull --rebase origin main
+echo "Checking out and updating to the latest main"
+git checkout main && git pull --rebase origin main
 
-  echo "Checking out new branch off production: $branch_name"
-  git checkout -b $branch_name origin/production
-
-  echo "Merging $branch_name with main."
-  git merge main --ff-only --no-edit
-
-  if [ $? -ne 0 ]; then
-      echo "Merge failed because it wasn't a simple fast-forward."
-      echo "  To continue, do the following: "
-      echo "    1. Do a manual merge: Run `git merge main` from branch: $branch_name. You may need to address merge conflicts."
-      echo "    2. Run this script with the -s (skip branch creation) flag. Like `yarn create_release_branch -s`"
-      exit 1
-  fi
-fi
+echo "Checking out new branch off main: $branch_name"
+git checkout -b $branch_name
 
 echo "Pushing branch to Github and opening the compare view in browser."
 
