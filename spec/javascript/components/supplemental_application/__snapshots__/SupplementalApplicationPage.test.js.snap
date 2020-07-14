@@ -28,7 +28,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
         "mailing_state": "CA",
         "mailing_street": "123 Test St",
         "mailing_zip_code": "00000",
-        "marital_status": "Single",
+        "marital_status": "Domestic Partner",
         "middle_name": null,
         "name": "Automated Test Lease Up Application (do not modify)",
         "phone": null,
@@ -75,18 +75,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
         "bmr_parking_space_assigned": null,
         "id": "a130P000005TeZrQAK",
         "lease_start_date": Object {
-          "day": "01",
-          "month": "01",
+          "day": "12",
+          "month": "1",
           "year": "2019",
         },
         "lease_status": "Draft",
-        "monthly_parking_rent": 790.49,
-        "monthly_tenant_contribution": 259.77,
+        "monthly_parking_rent": "2",
+        "monthly_tenant_contribution": "3",
         "no_preference_used": false,
-        "preference_used": "a0w0P00000MOzyXQAT",
+        "preference_used": "testValidPref",
         "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-        "total_monthly_rent_without_parking": 146.92,
-        "unit": "a0b0P00001HIHrnQAH",
+        "total_monthly_rent_without_parking": "1",
+        "unit": "",
       },
       "lending_agent": null,
       "listing": Object {
@@ -96,14 +96,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
         "name": "Partners Test Listing (do not modify) - Yellow Acres",
         "reserved_community_type": null,
       },
-      "listing_id": "a0W0x000000GhJUEA0",
+      "listing_id": "a0W0P00000GbyuQUAR",
       "lottery_number": "00243697",
       "lottery_number_manual": null,
       "monthly_income": null,
       "name": "APP-00243697",
-      "number_of_dependents": 1,
-      "number_of_minors": null,
-      "number_of_seniors": null,
+      "number_of_dependents": 2,
+      "number_of_minors": 0,
+      "number_of_seniors": 3,
       "preferences": Array [
         Object {
           "application_member_id": null,
@@ -367,7 +367,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
           "mailing_state": "CA",
           "mailing_street": "123 Test St",
           "mailing_zip_code": "00000",
-          "marital_status": "Single",
+          "marital_status": "Domestic Partner",
           "middle_name": null,
           "name": "Automated Test Lease Up Application (do not modify)",
           "phone": null,
@@ -414,18 +414,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
           "bmr_parking_space_assigned": null,
           "id": "a130P000005TeZrQAK",
           "lease_start_date": Object {
-            "day": "01",
-            "month": "01",
+            "day": "12",
+            "month": "1",
             "year": "2019",
           },
           "lease_status": "Draft",
-          "monthly_parking_rent": 790.49,
-          "monthly_tenant_contribution": 259.77,
+          "monthly_parking_rent": "2",
+          "monthly_tenant_contribution": "3",
           "no_preference_used": false,
-          "preference_used": "a0w0P00000MOzyXQAT",
+          "preference_used": "testValidPref",
           "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-          "total_monthly_rent_without_parking": 146.92,
-          "unit": "a0b0P00001HIHrnQAH",
+          "total_monthly_rent_without_parking": "1",
+          "unit": "",
         },
         "lending_agent": null,
         "listing": Object {
@@ -435,14 +435,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
           "name": "Partners Test Listing (do not modify) - Yellow Acres",
           "reserved_community_type": null,
         },
-        "listing_id": "a0W0x000000GhJUEA0",
+        "listing_id": "a0W0P00000GbyuQUAR",
         "lottery_number": "00243697",
         "lottery_number_manual": null,
         "monthly_income": null,
         "name": "APP-00243697",
-        "number_of_dependents": 1,
-        "number_of_minors": null,
-        "number_of_seniors": null,
+        "number_of_dependents": 2,
+        "number_of_minors": 0,
+        "number_of_seniors": 3,
         "preferences": Array [
           Object {
             "application_member_id": null,
@@ -698,7 +698,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
               "title": "Lease Ups",
             },
             Object {
-              "link": "/listings/lease-ups/a0W0x000000GhJUEA0/applications",
+              "link": "/listings/lease-ups/a0W0P00000GbyuQUAR/applications",
               "title": "Partners Test Listing (do not modify) - Yellow Acres",
             },
             Object {
@@ -734,7 +734,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
               "title": "Lease Ups",
             },
             Object {
-              "link": "/listings/lease-ups/a0W0x000000GhJUEA0/applications",
+              "link": "/listings/lease-ups/a0W0P00000GbyuQUAR/applications",
               "title": "Partners Test Listing (do not modify) - Yellow Acres",
             },
             Object {
@@ -762,7 +762,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                       "title": "Lease Ups",
                     },
                     Object {
-                      "link": "/listings/lease-ups/a0W0x000000GhJUEA0/applications",
+                      "link": "/listings/lease-ups/a0W0P00000GbyuQUAR/applications",
                       "title": "Partners Test Listing (do not modify) - Yellow Acres",
                     },
                     Object {
@@ -798,7 +798,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                     <Item
                       item={
                         Object {
-                          "link": "/listings/lease-ups/a0W0x000000GhJUEA0/applications",
+                          "link": "/listings/lease-ups/a0W0P00000GbyuQUAR/applications",
                           "title": "Partners Test Listing (do not modify) - Yellow Acres",
                         }
                       }
@@ -806,7 +806,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                     >
                       <li>
                         <a
-                          href="/listings/lease-ups/a0W0x000000GhJUEA0/applications"
+                          href="/listings/lease-ups/a0W0P00000GbyuQUAR/applications"
                         >
                           Partners Test Listing (do not modify) - Yellow Acres
                         </a>
@@ -979,7 +979,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "mailing_state": "CA",
                             "mailing_street": "123 Test St",
                             "mailing_zip_code": "00000",
-                            "marital_status": "Single",
+                            "marital_status": "Domestic Partner",
                             "middle_name": null,
                             "name": "Automated Test Lease Up Application (do not modify)",
                             "phone": null,
@@ -1026,18 +1026,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "bmr_parking_space_assigned": null,
                             "id": "a130P000005TeZrQAK",
                             "lease_start_date": Object {
-                              "day": "01",
-                              "month": "01",
+                              "day": "12",
+                              "month": "1",
                               "year": "2019",
                             },
                             "lease_status": "Draft",
-                            "monthly_parking_rent": 790.49,
-                            "monthly_tenant_contribution": 259.77,
+                            "monthly_parking_rent": "2",
+                            "monthly_tenant_contribution": "3",
                             "no_preference_used": false,
-                            "preference_used": "a0w0P00000MOzyXQAT",
+                            "preference_used": "testValidPref",
                             "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                            "total_monthly_rent_without_parking": 146.92,
-                            "unit": "a0b0P00001HIHrnQAH",
+                            "total_monthly_rent_without_parking": "1",
+                            "unit": "",
                           },
                           "lending_agent": null,
                           "listing": Object {
@@ -1047,14 +1047,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "name": "Partners Test Listing (do not modify) - Yellow Acres",
                             "reserved_community_type": null,
                           },
-                          "listing_id": "a0W0x000000GhJUEA0",
+                          "listing_id": "a0W0P00000GbyuQUAR",
                           "lottery_number": "00243697",
                           "lottery_number_manual": null,
                           "monthly_income": null,
                           "name": "APP-00243697",
-                          "number_of_dependents": 1,
-                          "number_of_minors": null,
-                          "number_of_seniors": null,
+                          "number_of_dependents": 2,
+                          "number_of_minors": 0,
+                          "number_of_seniors": 3,
                           "preferences": Array [
                             Object {
                               "application_member_id": null,
@@ -1295,7 +1295,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "mailing_state": "CA",
                             "mailing_street": "123 Test St",
                             "mailing_zip_code": "00000",
-                            "marital_status": "Single",
+                            "marital_status": "Domestic Partner",
                             "middle_name": null,
                             "name": "Automated Test Lease Up Application (do not modify)",
                             "phone": null,
@@ -1385,7 +1385,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "mailing_state": "CA",
                             "mailing_street": "123 Test St",
                             "mailing_zip_code": "00000",
-                            "marital_status": "Single",
+                            "marital_status": "Domestic Partner",
                             "middle_name": null,
                             "name": "Automated Test Lease Up Application (do not modify)",
                             "phone": null,
@@ -1432,18 +1432,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "bmr_parking_space_assigned": null,
                             "id": "a130P000005TeZrQAK",
                             "lease_start_date": Object {
-                              "day": "01",
-                              "month": "01",
+                              "day": "12",
+                              "month": "1",
                               "year": "2019",
                             },
                             "lease_status": "Draft",
-                            "monthly_parking_rent": 790.49,
-                            "monthly_tenant_contribution": 259.77,
+                            "monthly_parking_rent": "2",
+                            "monthly_tenant_contribution": "3",
                             "no_preference_used": false,
-                            "preference_used": "a0w0P00000MOzyXQAT",
+                            "preference_used": "testValidPref",
                             "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                            "total_monthly_rent_without_parking": 146.92,
-                            "unit": "a0b0P00001HIHrnQAH",
+                            "total_monthly_rent_without_parking": "1",
+                            "unit": "",
                           },
                           "lending_agent": null,
                           "listing": Object {
@@ -1453,14 +1453,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                             "name": "Partners Test Listing (do not modify) - Yellow Acres",
                             "reserved_community_type": null,
                           },
-                          "listing_id": "a0W0x000000GhJUEA0",
+                          "listing_id": "a0W0P00000GbyuQUAR",
                           "lottery_number": "00243697",
                           "lottery_number_manual": null,
                           "monthly_income": null,
                           "name": "APP-00243697",
-                          "number_of_dependents": 1,
-                          "number_of_minors": null,
-                          "number_of_seniors": null,
+                          "number_of_dependents": 2,
+                          "number_of_minors": 0,
+                          "number_of_seniors": 3,
                           "preferences": Array [
                             Object {
                               "application_member_id": null,
@@ -1744,7 +1744,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     "mailing_state": "CA",
                                     "mailing_street": "123 Test St",
                                     "mailing_zip_code": "00000",
-                                    "marital_status": "Single",
+                                    "marital_status": "Domestic Partner",
                                     "middle_name": null,
                                     "name": "Automated Test Lease Up Application (do not modify)",
                                     "phone": null,
@@ -1791,18 +1791,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     "bmr_parking_space_assigned": null,
                                     "id": "a130P000005TeZrQAK",
                                     "lease_start_date": Object {
-                                      "day": "01",
-                                      "month": "01",
+                                      "day": "12",
+                                      "month": "1",
                                       "year": "2019",
                                     },
                                     "lease_status": "Draft",
-                                    "monthly_parking_rent": 790.49,
-                                    "monthly_tenant_contribution": 259.77,
+                                    "monthly_parking_rent": "2",
+                                    "monthly_tenant_contribution": "3",
                                     "no_preference_used": false,
-                                    "preference_used": "a0w0P00000MOzyXQAT",
+                                    "preference_used": "testValidPref",
                                     "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                    "total_monthly_rent_without_parking": 146.92,
-                                    "unit": "a0b0P00001HIHrnQAH",
+                                    "total_monthly_rent_without_parking": "1",
+                                    "unit": "",
                                   },
                                   "lending_agent": null,
                                   "listing": Object {
@@ -1812,14 +1812,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                     "reserved_community_type": null,
                                   },
-                                  "listing_id": "a0W0x000000GhJUEA0",
+                                  "listing_id": "a0W0P00000GbyuQUAR",
                                   "lottery_number": "00243697",
                                   "lottery_number_manual": null,
                                   "monthly_income": null,
                                   "name": "APP-00243697",
-                                  "number_of_dependents": 1,
-                                  "number_of_minors": null,
-                                  "number_of_seniors": null,
+                                  "number_of_dependents": 2,
+                                  "number_of_minors": 0,
+                                  "number_of_seniors": 3,
                                   "preferences": Array [
                                     Object {
                                       "application_member_id": null,
@@ -2060,7 +2060,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     "mailing_state": "CA",
                                     "mailing_street": "123 Test St",
                                     "mailing_zip_code": "00000",
-                                    "marital_status": "Single",
+                                    "marital_status": "Domestic Partner",
                                     "middle_name": null,
                                     "name": "Automated Test Lease Up Application (do not modify)",
                                     "phone": null,
@@ -2339,7 +2339,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "mailing_state": "CA",
                                 "mailing_street": "123 Test St",
                                 "mailing_zip_code": "00000",
-                                "marital_status": "Single",
+                                "marital_status": "Domestic Partner",
                                 "middle_name": null,
                                 "name": "Automated Test Lease Up Application (do not modify)",
                                 "phone": null,
@@ -2386,18 +2386,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "bmr_parking_space_assigned": null,
                                 "id": "a130P000005TeZrQAK",
                                 "lease_start_date": Object {
-                                  "day": "01",
-                                  "month": "01",
+                                  "day": "12",
+                                  "month": "1",
                                   "year": "2019",
                                 },
                                 "lease_status": "Draft",
-                                "monthly_parking_rent": 790.49,
-                                "monthly_tenant_contribution": 259.77,
+                                "monthly_parking_rent": "2",
+                                "monthly_tenant_contribution": "3",
                                 "no_preference_used": false,
-                                "preference_used": "a0w0P00000MOzyXQAT",
+                                "preference_used": "testValidPref",
                                 "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                "total_monthly_rent_without_parking": 146.92,
-                                "unit": "a0b0P00001HIHrnQAH",
+                                "total_monthly_rent_without_parking": "1",
+                                "unit": "",
                               },
                               "lending_agent": null,
                               "listing": Object {
@@ -2407,14 +2407,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                 "reserved_community_type": null,
                               },
-                              "listing_id": "a0W0x000000GhJUEA0",
+                              "listing_id": "a0W0P00000GbyuQUAR",
                               "lottery_number": "00243697",
                               "lottery_number_manual": null,
                               "monthly_income": null,
                               "name": "APP-00243697",
-                              "number_of_dependents": 1,
-                              "number_of_minors": null,
-                              "number_of_seniors": null,
+                              "number_of_dependents": 2,
+                              "number_of_minors": 0,
+                              "number_of_seniors": 3,
                               "preferences": Array [
                                 Object {
                                   "application_member_id": null,
@@ -2657,7 +2657,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "mailing_state": "CA",
                                 "mailing_street": "123 Test St",
                                 "mailing_zip_code": "00000",
-                                "marital_status": "Single",
+                                "marital_status": "Domestic Partner",
                                 "middle_name": null,
                                 "name": "Automated Test Lease Up Application (do not modify)",
                                 "phone": null,
@@ -2767,7 +2767,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "mailing_state": "CA",
                                         "mailing_street": "123 Test St",
                                         "mailing_zip_code": "00000",
-                                        "marital_status": "Single",
+                                        "marital_status": "Domestic Partner",
                                         "middle_name": null,
                                         "name": "Automated Test Lease Up Application (do not modify)",
                                         "phone": null,
@@ -2814,18 +2814,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "bmr_parking_space_assigned": null,
                                         "id": "a130P000005TeZrQAK",
                                         "lease_start_date": Object {
-                                          "day": "01",
-                                          "month": "01",
+                                          "day": "12",
+                                          "month": "1",
                                           "year": "2019",
                                         },
                                         "lease_status": "Draft",
-                                        "monthly_parking_rent": 790.49,
-                                        "monthly_tenant_contribution": 259.77,
+                                        "monthly_parking_rent": "2",
+                                        "monthly_tenant_contribution": "3",
                                         "no_preference_used": false,
-                                        "preference_used": "a0w0P00000MOzyXQAT",
+                                        "preference_used": "testValidPref",
                                         "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                        "total_monthly_rent_without_parking": 146.92,
-                                        "unit": "a0b0P00001HIHrnQAH",
+                                        "total_monthly_rent_without_parking": "1",
+                                        "unit": "",
                                       },
                                       "lending_agent": null,
                                       "listing": Object {
@@ -2835,14 +2835,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                         "reserved_community_type": null,
                                       },
-                                      "listing_id": "a0W0x000000GhJUEA0",
+                                      "listing_id": "a0W0P00000GbyuQUAR",
                                       "lottery_number": "00243697",
                                       "lottery_number_manual": null,
                                       "monthly_income": null,
                                       "name": "APP-00243697",
-                                      "number_of_dependents": 1,
-                                      "number_of_minors": null,
-                                      "number_of_seniors": null,
+                                      "number_of_dependents": 2,
+                                      "number_of_minors": 0,
+                                      "number_of_seniors": 3,
                                       "preferences": Array [
                                         Object {
                                           "application_member_id": null,
@@ -3085,7 +3085,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "mailing_state": "CA",
                                         "mailing_street": "123 Test St",
                                         "mailing_zip_code": "00000",
-                                        "marital_status": "Single",
+                                        "marital_status": "Domestic Partner",
                                         "middle_name": null,
                                         "name": "Automated Test Lease Up Application (do not modify)",
                                         "phone": null,
@@ -3167,7 +3167,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "mailing_state": "CA",
                                           "mailing_street": "123 Test St",
                                           "mailing_zip_code": "00000",
-                                          "marital_status": "Single",
+                                          "marital_status": "Domestic Partner",
                                           "middle_name": null,
                                           "name": "Automated Test Lease Up Application (do not modify)",
                                           "phone": null,
@@ -3214,18 +3214,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "bmr_parking_space_assigned": null,
                                           "id": "a130P000005TeZrQAK",
                                           "lease_start_date": Object {
-                                            "day": "01",
-                                            "month": "01",
+                                            "day": "12",
+                                            "month": "1",
                                             "year": "2019",
                                           },
                                           "lease_status": "Draft",
-                                          "monthly_parking_rent": 790.49,
-                                          "monthly_tenant_contribution": 259.77,
+                                          "monthly_parking_rent": "2",
+                                          "monthly_tenant_contribution": "3",
                                           "no_preference_used": false,
-                                          "preference_used": "a0w0P00000MOzyXQAT",
+                                          "preference_used": "testValidPref",
                                           "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                          "total_monthly_rent_without_parking": 146.92,
-                                          "unit": "a0b0P00001HIHrnQAH",
+                                          "total_monthly_rent_without_parking": "1",
+                                          "unit": "",
                                         },
                                         "lending_agent": null,
                                         "listing": Object {
@@ -3235,14 +3235,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                           "reserved_community_type": null,
                                         },
-                                        "listing_id": "a0W0x000000GhJUEA0",
+                                        "listing_id": "a0W0P00000GbyuQUAR",
                                         "lottery_number": "00243697",
                                         "lottery_number_manual": null,
                                         "monthly_income": null,
                                         "name": "APP-00243697",
-                                        "number_of_dependents": 1,
-                                        "number_of_minors": null,
-                                        "number_of_seniors": null,
+                                        "number_of_dependents": 2,
+                                        "number_of_minors": 0,
+                                        "number_of_seniors": 3,
                                         "preferences": Array [
                                           Object {
                                             "application_member_id": null,
@@ -3485,7 +3485,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "mailing_state": "CA",
                                           "mailing_street": "123 Test St",
                                           "mailing_zip_code": "00000",
-                                          "marital_status": "Single",
+                                          "marital_status": "Domestic Partner",
                                           "middle_name": null,
                                           "name": "Automated Test Lease Up Application (do not modify)",
                                           "phone": null,
@@ -3566,7 +3566,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "mailing_state": "CA",
                                             "mailing_street": "123 Test St",
                                             "mailing_zip_code": "00000",
-                                            "marital_status": "Single",
+                                            "marital_status": "Domestic Partner",
                                             "middle_name": null,
                                             "name": "Automated Test Lease Up Application (do not modify)",
                                             "phone": null,
@@ -3613,18 +3613,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "bmr_parking_space_assigned": null,
                                             "id": "a130P000005TeZrQAK",
                                             "lease_start_date": Object {
-                                              "day": "01",
-                                              "month": "01",
+                                              "day": "12",
+                                              "month": "1",
                                               "year": "2019",
                                             },
                                             "lease_status": "Draft",
-                                            "monthly_parking_rent": 790.49,
-                                            "monthly_tenant_contribution": 259.77,
+                                            "monthly_parking_rent": "2",
+                                            "monthly_tenant_contribution": "3",
                                             "no_preference_used": false,
-                                            "preference_used": "a0w0P00000MOzyXQAT",
+                                            "preference_used": "testValidPref",
                                             "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                            "total_monthly_rent_without_parking": 146.92,
-                                            "unit": "a0b0P00001HIHrnQAH",
+                                            "total_monthly_rent_without_parking": "1",
+                                            "unit": "",
                                           },
                                           "lending_agent": null,
                                           "listing": Object {
@@ -3634,14 +3634,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                             "reserved_community_type": null,
                                           },
-                                          "listing_id": "a0W0x000000GhJUEA0",
+                                          "listing_id": "a0W0P00000GbyuQUAR",
                                           "lottery_number": "00243697",
                                           "lottery_number_manual": null,
                                           "monthly_income": null,
                                           "name": "APP-00243697",
-                                          "number_of_dependents": 1,
-                                          "number_of_minors": null,
-                                          "number_of_seniors": null,
+                                          "number_of_dependents": 2,
+                                          "number_of_minors": 0,
+                                          "number_of_seniors": 3,
                                           "preferences": Array [
                                             Object {
                                               "application_member_id": null,
@@ -3882,7 +3882,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "mailing_state": "CA",
                                             "mailing_street": "123 Test St",
                                             "mailing_zip_code": "00000",
-                                            "marital_status": "Single",
+                                            "marital_status": "Domestic Partner",
                                             "middle_name": null,
                                             "name": "Automated Test Lease Up Application (do not modify)",
                                             "phone": null,
@@ -4286,7 +4286,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "mailing_state": "CA",
                                                                   "mailing_street": "123 Test St",
                                                                   "mailing_zip_code": "00000",
-                                                                  "marital_status": "Single",
+                                                                  "marital_status": "Domestic Partner",
                                                                   "middle_name": null,
                                                                   "name": "Automated Test Lease Up Application (do not modify)",
                                                                   "phone": null,
@@ -4333,18 +4333,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "bmr_parking_space_assigned": null,
                                                                   "id": "a130P000005TeZrQAK",
                                                                   "lease_start_date": Object {
-                                                                    "day": "01",
-                                                                    "month": "01",
+                                                                    "day": "12",
+                                                                    "month": "1",
                                                                     "year": "2019",
                                                                   },
                                                                   "lease_status": "Draft",
-                                                                  "monthly_parking_rent": 790.49,
-                                                                  "monthly_tenant_contribution": 259.77,
+                                                                  "monthly_parking_rent": "2",
+                                                                  "monthly_tenant_contribution": "3",
                                                                   "no_preference_used": false,
-                                                                  "preference_used": "a0w0P00000MOzyXQAT",
+                                                                  "preference_used": "testValidPref",
                                                                   "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                                                  "total_monthly_rent_without_parking": 146.92,
-                                                                  "unit": "a0b0P00001HIHrnQAH",
+                                                                  "total_monthly_rent_without_parking": "1",
+                                                                  "unit": "",
                                                                 },
                                                                 "lending_agent": null,
                                                                 "listing": Object {
@@ -4354,14 +4354,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                                                   "reserved_community_type": null,
                                                                 },
-                                                                "listing_id": "a0W0x000000GhJUEA0",
+                                                                "listing_id": "a0W0P00000GbyuQUAR",
                                                                 "lottery_number": "00243697",
                                                                 "lottery_number_manual": null,
                                                                 "monthly_income": null,
                                                                 "name": "APP-00243697",
-                                                                "number_of_dependents": 1,
-                                                                "number_of_minors": null,
-                                                                "number_of_seniors": null,
+                                                                "number_of_dependents": 2,
+                                                                "number_of_minors": 0,
+                                                                "number_of_seniors": 3,
                                                                 "preferences": Array [
                                                                   Object {
                                                                     "application_member_id": null,
@@ -4604,7 +4604,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "mailing_state": "CA",
                                                                   "mailing_street": "123 Test St",
                                                                   "mailing_zip_code": "00000",
-                                                                  "marital_status": "Single",
+                                                                  "marital_status": "Domestic Partner",
                                                                   "middle_name": null,
                                                                   "name": "Automated Test Lease Up Application (do not modify)",
                                                                   "phone": null,
@@ -4687,7 +4687,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "mailing_state": "CA",
                                                                     "mailing_street": "123 Test St",
                                                                     "mailing_zip_code": "00000",
-                                                                    "marital_status": "Single",
+                                                                    "marital_status": "Domestic Partner",
                                                                     "middle_name": null,
                                                                     "name": "Automated Test Lease Up Application (do not modify)",
                                                                     "phone": null,
@@ -4734,18 +4734,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "bmr_parking_space_assigned": null,
                                                                     "id": "a130P000005TeZrQAK",
                                                                     "lease_start_date": Object {
-                                                                      "day": "01",
-                                                                      "month": "01",
+                                                                      "day": "12",
+                                                                      "month": "1",
                                                                       "year": "2019",
                                                                     },
                                                                     "lease_status": "Draft",
-                                                                    "monthly_parking_rent": 790.49,
-                                                                    "monthly_tenant_contribution": 259.77,
+                                                                    "monthly_parking_rent": "2",
+                                                                    "monthly_tenant_contribution": "3",
                                                                     "no_preference_used": false,
-                                                                    "preference_used": "a0w0P00000MOzyXQAT",
+                                                                    "preference_used": "testValidPref",
                                                                     "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                                                    "total_monthly_rent_without_parking": 146.92,
-                                                                    "unit": "a0b0P00001HIHrnQAH",
+                                                                    "total_monthly_rent_without_parking": "1",
+                                                                    "unit": "",
                                                                   },
                                                                   "lending_agent": null,
                                                                   "listing": Object {
@@ -4755,14 +4755,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                                                     "reserved_community_type": null,
                                                                   },
-                                                                  "listing_id": "a0W0x000000GhJUEA0",
+                                                                  "listing_id": "a0W0P00000GbyuQUAR",
                                                                   "lottery_number": "00243697",
                                                                   "lottery_number_manual": null,
                                                                   "monthly_income": null,
                                                                   "name": "APP-00243697",
-                                                                  "number_of_dependents": 1,
-                                                                  "number_of_minors": null,
-                                                                  "number_of_seniors": null,
+                                                                  "number_of_dependents": 2,
+                                                                  "number_of_minors": 0,
+                                                                  "number_of_seniors": 3,
                                                                   "preferences": Array [
                                                                     Object {
                                                                       "application_member_id": null,
@@ -5005,7 +5005,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "mailing_state": "CA",
                                                                     "mailing_street": "123 Test St",
                                                                     "mailing_zip_code": "00000",
-                                                                    "marital_status": "Single",
+                                                                    "marital_status": "Domestic Partner",
                                                                     "middle_name": null,
                                                                     "name": "Automated Test Lease Up Application (do not modify)",
                                                                     "phone": null,
@@ -5199,6 +5199,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.5.application_member_id"
                                                                                     parse={[Function]}
                                                                                   >
@@ -5310,6 +5311,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.5.post_lottery_validation"
                                                                                     parse={[Function]}
                                                                                   >
@@ -5615,7 +5617,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "mailing_state": "CA",
                                                                   "mailing_street": "123 Test St",
                                                                   "mailing_zip_code": "00000",
-                                                                  "marital_status": "Single",
+                                                                  "marital_status": "Domestic Partner",
                                                                   "middle_name": null,
                                                                   "name": "Automated Test Lease Up Application (do not modify)",
                                                                   "phone": null,
@@ -5662,18 +5664,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "bmr_parking_space_assigned": null,
                                                                   "id": "a130P000005TeZrQAK",
                                                                   "lease_start_date": Object {
-                                                                    "day": "01",
-                                                                    "month": "01",
+                                                                    "day": "12",
+                                                                    "month": "1",
                                                                     "year": "2019",
                                                                   },
                                                                   "lease_status": "Draft",
-                                                                  "monthly_parking_rent": 790.49,
-                                                                  "monthly_tenant_contribution": 259.77,
+                                                                  "monthly_parking_rent": "2",
+                                                                  "monthly_tenant_contribution": "3",
                                                                   "no_preference_used": false,
-                                                                  "preference_used": "a0w0P00000MOzyXQAT",
+                                                                  "preference_used": "testValidPref",
                                                                   "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                                                  "total_monthly_rent_without_parking": 146.92,
-                                                                  "unit": "a0b0P00001HIHrnQAH",
+                                                                  "total_monthly_rent_without_parking": "1",
+                                                                  "unit": "",
                                                                 },
                                                                 "lending_agent": null,
                                                                 "listing": Object {
@@ -5683,14 +5685,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                                                   "reserved_community_type": null,
                                                                 },
-                                                                "listing_id": "a0W0x000000GhJUEA0",
+                                                                "listing_id": "a0W0P00000GbyuQUAR",
                                                                 "lottery_number": "00243697",
                                                                 "lottery_number_manual": null,
                                                                 "monthly_income": null,
                                                                 "name": "APP-00243697",
-                                                                "number_of_dependents": 1,
-                                                                "number_of_minors": null,
-                                                                "number_of_seniors": null,
+                                                                "number_of_dependents": 2,
+                                                                "number_of_minors": 0,
+                                                                "number_of_seniors": 3,
                                                                 "preferences": Array [
                                                                   Object {
                                                                     "application_member_id": null,
@@ -5933,7 +5935,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "mailing_state": "CA",
                                                                   "mailing_street": "123 Test St",
                                                                   "mailing_zip_code": "00000",
-                                                                  "marital_status": "Single",
+                                                                  "marital_status": "Domestic Partner",
                                                                   "middle_name": null,
                                                                   "name": "Automated Test Lease Up Application (do not modify)",
                                                                   "phone": null,
@@ -6016,7 +6018,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "mailing_state": "CA",
                                                                     "mailing_street": "123 Test St",
                                                                     "mailing_zip_code": "00000",
-                                                                    "marital_status": "Single",
+                                                                    "marital_status": "Domestic Partner",
                                                                     "middle_name": null,
                                                                     "name": "Automated Test Lease Up Application (do not modify)",
                                                                     "phone": null,
@@ -6063,18 +6065,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "bmr_parking_space_assigned": null,
                                                                     "id": "a130P000005TeZrQAK",
                                                                     "lease_start_date": Object {
-                                                                      "day": "01",
-                                                                      "month": "01",
+                                                                      "day": "12",
+                                                                      "month": "1",
                                                                       "year": "2019",
                                                                     },
                                                                     "lease_status": "Draft",
-                                                                    "monthly_parking_rent": 790.49,
-                                                                    "monthly_tenant_contribution": 259.77,
+                                                                    "monthly_parking_rent": "2",
+                                                                    "monthly_tenant_contribution": "3",
                                                                     "no_preference_used": false,
-                                                                    "preference_used": "a0w0P00000MOzyXQAT",
+                                                                    "preference_used": "testValidPref",
                                                                     "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                                                    "total_monthly_rent_without_parking": 146.92,
-                                                                    "unit": "a0b0P00001HIHrnQAH",
+                                                                    "total_monthly_rent_without_parking": "1",
+                                                                    "unit": "",
                                                                   },
                                                                   "lending_agent": null,
                                                                   "listing": Object {
@@ -6084,14 +6086,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                                                     "reserved_community_type": null,
                                                                   },
-                                                                  "listing_id": "a0W0x000000GhJUEA0",
+                                                                  "listing_id": "a0W0P00000GbyuQUAR",
                                                                   "lottery_number": "00243697",
                                                                   "lottery_number_manual": null,
                                                                   "monthly_income": null,
                                                                   "name": "APP-00243697",
-                                                                  "number_of_dependents": 1,
-                                                                  "number_of_minors": null,
-                                                                  "number_of_seniors": null,
+                                                                  "number_of_dependents": 2,
+                                                                  "number_of_minors": 0,
+                                                                  "number_of_seniors": 3,
                                                                   "preferences": Array [
                                                                     Object {
                                                                       "application_member_id": null,
@@ -6334,7 +6336,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                     "mailing_state": "CA",
                                                                     "mailing_street": "123 Test St",
                                                                     "mailing_zip_code": "00000",
-                                                                    "marital_status": "Single",
+                                                                    "marital_status": "Domestic Partner",
                                                                     "middle_name": null,
                                                                     "name": "Automated Test Lease Up Application (do not modify)",
                                                                     "phone": null,
@@ -6534,6 +6536,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.individual_preference"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6642,6 +6645,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.application_member_id"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6780,6 +6784,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.lw_type_of_proof"
                                                                                     parse={[Function]}
                                                                                   >
@@ -6952,6 +6957,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                                 >
                                                                                   <Field
                                                                                     component="select"
+                                                                                    formatOnBlur={true}
                                                                                     name="preferences.1.post_lottery_validation"
                                                                                     parse={[Function]}
                                                                                   >
@@ -8334,6 +8340,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <Field
                                                 component="select"
+                                                formatOnBlur={true}
                                                 name="ami_chart_type"
                                                 parse={[Function]}
                                               >
@@ -8404,6 +8411,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <Field
                                                 component="select"
+                                                formatOnBlur={true}
                                                 name="ami_chart_year"
                                                 parse={[Function]}
                                               >
@@ -8531,7 +8539,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "mailing_state": "CA",
                                 "mailing_street": "123 Test St",
                                 "mailing_zip_code": "00000",
-                                "marital_status": "Single",
+                                "marital_status": "Domestic Partner",
                                 "middle_name": null,
                                 "name": "Automated Test Lease Up Application (do not modify)",
                                 "phone": null,
@@ -8578,18 +8586,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "bmr_parking_space_assigned": null,
                                 "id": "a130P000005TeZrQAK",
                                 "lease_start_date": Object {
-                                  "day": "01",
-                                  "month": "01",
+                                  "day": "12",
+                                  "month": "1",
                                   "year": "2019",
                                 },
                                 "lease_status": "Draft",
-                                "monthly_parking_rent": 790.49,
-                                "monthly_tenant_contribution": 259.77,
+                                "monthly_parking_rent": "2",
+                                "monthly_tenant_contribution": "3",
                                 "no_preference_used": false,
-                                "preference_used": "a0w0P00000MOzyXQAT",
+                                "preference_used": "testValidPref",
                                 "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                "total_monthly_rent_without_parking": 146.92,
-                                "unit": "a0b0P00001HIHrnQAH",
+                                "total_monthly_rent_without_parking": "1",
+                                "unit": "",
                               },
                               "lending_agent": null,
                               "listing": Object {
@@ -8599,14 +8607,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                 "reserved_community_type": null,
                               },
-                              "listing_id": "a0W0x000000GhJUEA0",
+                              "listing_id": "a0W0P00000GbyuQUAR",
                               "lottery_number": "00243697",
                               "lottery_number_manual": null,
                               "monthly_income": null,
                               "name": "APP-00243697",
-                              "number_of_dependents": 1,
-                              "number_of_minors": null,
-                              "number_of_seniors": null,
+                              "number_of_dependents": 2,
+                              "number_of_minors": 0,
+                              "number_of_seniors": 3,
                               "preferences": Array [
                                 Object {
                                   "application_member_id": null,
@@ -9039,7 +9047,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               "mailing_state": "CA",
                                               "mailing_street": "123 Test St",
                                               "mailing_zip_code": "00000",
-                                              "marital_status": "Single",
+                                              "marital_status": "Domestic Partner",
                                               "middle_name": null,
                                               "name": "Automated Test Lease Up Application (do not modify)",
                                               "phone": null,
@@ -9086,18 +9094,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               "bmr_parking_space_assigned": null,
                                               "id": "a130P000005TeZrQAK",
                                               "lease_start_date": Object {
-                                                "day": "01",
-                                                "month": "01",
+                                                "day": "12",
+                                                "month": "1",
                                                 "year": "2019",
                                               },
                                               "lease_status": "Draft",
-                                              "monthly_parking_rent": 790.49,
-                                              "monthly_tenant_contribution": 259.77,
+                                              "monthly_parking_rent": "2",
+                                              "monthly_tenant_contribution": "3",
                                               "no_preference_used": false,
-                                              "preference_used": "a0w0P00000MOzyXQAT",
+                                              "preference_used": "testValidPref",
                                               "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                              "total_monthly_rent_without_parking": 146.92,
-                                              "unit": "a0b0P00001HIHrnQAH",
+                                              "total_monthly_rent_without_parking": "1",
+                                              "unit": "",
                                             },
                                             "lending_agent": null,
                                             "listing": Object {
@@ -9107,14 +9115,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                               "reserved_community_type": null,
                                             },
-                                            "listing_id": "a0W0x000000GhJUEA0",
+                                            "listing_id": "a0W0P00000GbyuQUAR",
                                             "lottery_number": "00243697",
                                             "lottery_number_manual": null,
                                             "monthly_income": null,
                                             "name": "APP-00243697",
-                                            "number_of_dependents": 1,
-                                            "number_of_minors": null,
-                                            "number_of_seniors": null,
+                                            "number_of_dependents": 2,
+                                            "number_of_minors": 0,
+                                            "number_of_seniors": 3,
                                             "preferences": Array [
                                               Object {
                                                 "application_member_id": null,
@@ -9355,7 +9363,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               "mailing_state": "CA",
                                               "mailing_street": "123 Test St",
                                               "mailing_zip_code": "00000",
-                                              "marital_status": "Single",
+                                              "marital_status": "Domestic Partner",
                                               "middle_name": null,
                                               "name": "Automated Test Lease Up Application (do not modify)",
                                               "phone": null,
@@ -9486,6 +9494,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   >
                                                     <Field
                                                       component="select"
+                                                      formatOnBlur={true}
                                                       name="lease.unit"
                                                       parse={[Function]}
                                                     >
@@ -9513,7 +9522,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           onBlur={[Function]}
                                                           onChange={[Function]}
                                                           onFocus={[Function]}
-                                                          value="a0b0P00001HIHrnQAH"
+                                                          value=""
                                                         >
                                                           <option
                                                             key=""
@@ -9530,7 +9539,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": "a0b0P00001HIHrnQAH",
+                                                              "initial": "",
                                                               "invalid": false,
                                                               "length": undefined,
                                                               "modified": false,
@@ -9629,7 +9638,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               "onBlur": [Function],
                                                               "onChange": [Function],
                                                               "onFocus": [Function],
-                                                              "value": "01",
+                                                              "value": "1",
                                                             }
                                                           }
                                                           maxLength={2}
@@ -9640,7 +9649,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": "01",
+                                                              "initial": "1",
                                                               "invalid": false,
                                                               "length": undefined,
                                                               "modified": false,
@@ -9668,7 +9677,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                             onFocus={[Function]}
                                                             placeholder="MM"
                                                             type="text"
-                                                            value="01"
+                                                            value="1"
                                                           />
                                                         </Input>
                                                       </Field>
@@ -9697,7 +9706,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               "onBlur": [Function],
                                                               "onChange": [Function],
                                                               "onFocus": [Function],
-                                                              "value": "01",
+                                                              "value": "12",
                                                             }
                                                           }
                                                           maxLength={2}
@@ -9708,7 +9717,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": "01",
+                                                              "initial": "12",
                                                               "invalid": false,
                                                               "length": undefined,
                                                               "modified": false,
@@ -9736,7 +9745,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                             onFocus={[Function]}
                                                             placeholder="DD"
                                                             type="text"
-                                                            value="01"
+                                                            value="12"
                                                           />
                                                         </Input>
                                                       </Field>
@@ -9844,6 +9853,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   >
                                                     <Field
                                                       component="select"
+                                                      formatOnBlur={true}
                                                       name="lease.preference_used"
                                                       parse={[Function]}
                                                     >
@@ -9870,7 +9880,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           onBlur={[Function]}
                                                           onChange={[Function]}
                                                           onFocus={[Function]}
-                                                          value="a0w0P00000MOzyXQAT"
+                                                          value="testValidPref"
                                                         >
                                                           <option
                                                             key="null"
@@ -9893,7 +9903,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               "dirty": false,
                                                               "dirtySinceLastSubmit": false,
                                                               "error": undefined,
-                                                              "initial": "a0w0P00000MOzyXQAT",
+                                                              "initial": "testValidPref",
                                                               "invalid": false,
                                                               "length": undefined,
                                                               "modified": false,
@@ -9968,7 +9978,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
                                                       placeholder="Enter Amount"
-                                                      value="$146.92"
+                                                      value="$1.00"
                                                     />
                                                     <FieldError
                                                       meta={
@@ -9978,7 +9988,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           "dirty": false,
                                                           "dirtySinceLastSubmit": false,
                                                           "error": undefined,
-                                                          "initial": 146.92,
+                                                          "initial": "1",
                                                           "invalid": false,
                                                           "length": undefined,
                                                           "modified": false,
@@ -10042,7 +10052,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
                                                       placeholder="Enter Amount"
-                                                      value="$259.77"
+                                                      value="$3.00"
                                                     />
                                                     <FieldError
                                                       meta={
@@ -10052,7 +10062,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           "dirty": false,
                                                           "dirtySinceLastSubmit": false,
                                                           "error": undefined,
-                                                          "initial": 259.77,
+                                                          "initial": "3",
                                                           "invalid": false,
                                                           "length": undefined,
                                                           "modified": false,
@@ -10171,7 +10181,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "mailing_state": "CA",
                                           "mailing_street": "123 Test St",
                                           "mailing_zip_code": "00000",
-                                          "marital_status": "Single",
+                                          "marital_status": "Domestic Partner",
                                           "middle_name": null,
                                           "name": "Automated Test Lease Up Application (do not modify)",
                                           "phone": null,
@@ -10218,18 +10228,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "bmr_parking_space_assigned": null,
                                           "id": "a130P000005TeZrQAK",
                                           "lease_start_date": Object {
-                                            "day": "01",
-                                            "month": "01",
+                                            "day": "12",
+                                            "month": "1",
                                             "year": "2019",
                                           },
                                           "lease_status": "Draft",
-                                          "monthly_parking_rent": 790.49,
-                                          "monthly_tenant_contribution": 259.77,
+                                          "monthly_parking_rent": "2",
+                                          "monthly_tenant_contribution": "3",
                                           "no_preference_used": false,
-                                          "preference_used": "a0w0P00000MOzyXQAT",
+                                          "preference_used": "testValidPref",
                                           "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                          "total_monthly_rent_without_parking": 146.92,
-                                          "unit": "a0b0P00001HIHrnQAH",
+                                          "total_monthly_rent_without_parking": "1",
+                                          "unit": "",
                                         },
                                         "lending_agent": null,
                                         "listing": Object {
@@ -10239,14 +10249,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                           "reserved_community_type": null,
                                         },
-                                        "listing_id": "a0W0x000000GhJUEA0",
+                                        "listing_id": "a0W0P00000GbyuQUAR",
                                         "lottery_number": "00243697",
                                         "lottery_number_manual": null,
                                         "monthly_income": null,
                                         "name": "APP-00243697",
-                                        "number_of_dependents": 1,
-                                        "number_of_minors": null,
-                                        "number_of_seniors": null,
+                                        "number_of_dependents": 2,
+                                        "number_of_minors": 0,
+                                        "number_of_seniors": 3,
                                         "preferences": Array [
                                           Object {
                                             "application_member_id": null,
@@ -10535,6 +10545,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                 >
                                                   <Field
                                                     component="select"
+                                                    formatOnBlur={true}
                                                     name="lease.bmr_parking_space_assigned"
                                                     parse={[Function]}
                                                   >
@@ -10652,7 +10663,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     onChange={[Function]}
                                                     onFocus={[Function]}
                                                     placeholder="Enter Amount"
-                                                    value="$790.49"
+                                                    value="$2.00"
                                                   />
                                                   <FieldError
                                                     meta={
@@ -10662,7 +10673,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                         "dirty": false,
                                                         "dirtySinceLastSubmit": false,
                                                         "error": undefined,
-                                                        "initial": 790.49,
+                                                        "initial": "2",
                                                         "invalid": false,
                                                         "length": undefined,
                                                         "modified": false,
@@ -10895,7 +10906,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "mailing_state": "CA",
                                             "mailing_street": "123 Test St",
                                             "mailing_zip_code": "00000",
-                                            "marital_status": "Single",
+                                            "marital_status": "Domestic Partner",
                                             "middle_name": null,
                                             "name": "Automated Test Lease Up Application (do not modify)",
                                             "phone": null,
@@ -10942,18 +10953,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "bmr_parking_space_assigned": null,
                                             "id": "a130P000005TeZrQAK",
                                             "lease_start_date": Object {
-                                              "day": "01",
-                                              "month": "01",
+                                              "day": "12",
+                                              "month": "1",
                                               "year": "2019",
                                             },
                                             "lease_status": "Draft",
-                                            "monthly_parking_rent": 790.49,
-                                            "monthly_tenant_contribution": 259.77,
+                                            "monthly_parking_rent": "2",
+                                            "monthly_tenant_contribution": "3",
                                             "no_preference_used": false,
-                                            "preference_used": "a0w0P00000MOzyXQAT",
+                                            "preference_used": "testValidPref",
                                             "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                            "total_monthly_rent_without_parking": 146.92,
-                                            "unit": "a0b0P00001HIHrnQAH",
+                                            "total_monthly_rent_without_parking": "1",
+                                            "unit": "",
                                           },
                                           "lending_agent": null,
                                           "listing": Object {
@@ -10963,14 +10974,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                             "reserved_community_type": null,
                                           },
-                                          "listing_id": "a0W0x000000GhJUEA0",
+                                          "listing_id": "a0W0P00000GbyuQUAR",
                                           "lottery_number": "00243697",
                                           "lottery_number_manual": null,
                                           "monthly_income": null,
                                           "name": "APP-00243697",
-                                          "number_of_dependents": 1,
-                                          "number_of_minors": null,
-                                          "number_of_seniors": null,
+                                          "number_of_dependents": 2,
+                                          "number_of_minors": 0,
+                                          "number_of_seniors": 3,
                                           "preferences": Array [
                                             Object {
                                               "application_member_id": null,
@@ -11211,7 +11222,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             "mailing_state": "CA",
                                             "mailing_street": "123 Test St",
                                             "mailing_zip_code": "00000",
-                                            "marital_status": "Single",
+                                            "marital_status": "Domestic Partner",
                                             "middle_name": null,
                                             "name": "Automated Test Lease Up Application (do not modify)",
                                             "phone": null,
@@ -11336,6 +11347,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <SelectField
                                                 fieldName="number_of_dependents"
+                                                format={[Function]}
                                                 id="demographics-dependents"
                                                 label="Number of Dependents"
                                                 options={
@@ -11355,6 +11367,8 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="number_of_dependents"
                                                   parse={[Function]}
                                                 >
@@ -11381,7 +11395,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onBlur={[Function]}
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
-                                                      value={1}
+                                                      value={2}
                                                     >
                                                       <option
                                                         key=""
@@ -11458,7 +11472,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           "dirty": false,
                                                           "dirtySinceLastSubmit": false,
                                                           "error": undefined,
-                                                          "initial": 1,
+                                                          "initial": 2,
                                                           "invalid": false,
                                                           "length": undefined,
                                                           "modified": false,
@@ -11491,6 +11505,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <SelectField
                                                 fieldName="number_of_seniors"
+                                                format={[Function]}
                                                 id="demographics-seniors"
                                                 label="Number of Seniors"
                                                 options={
@@ -11510,6 +11525,8 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="number_of_seniors"
                                                   parse={[Function]}
                                                 >
@@ -11536,7 +11553,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onBlur={[Function]}
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
-                                                      value=""
+                                                      value={3}
                                                     >
                                                       <option
                                                         key=""
@@ -11613,7 +11630,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           "dirty": false,
                                                           "dirtySinceLastSubmit": false,
                                                           "error": undefined,
-                                                          "initial": null,
+                                                          "initial": 3,
                                                           "invalid": false,
                                                           "length": undefined,
                                                           "modified": false,
@@ -11652,6 +11669,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             >
                                               <SelectField
                                                 fieldName="number_of_minors"
+                                                format={[Function]}
                                                 id="demographics-minors"
                                                 label="Number of Minors"
                                                 options={
@@ -11671,6 +11689,8 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  format={[Function]}
+                                                  formatOnBlur={true}
                                                   name="number_of_minors"
                                                   parse={[Function]}
                                                 >
@@ -11697,7 +11717,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onBlur={[Function]}
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
-                                                      value=""
+                                                      value={0}
                                                     >
                                                       <option
                                                         key=""
@@ -11774,7 +11794,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           "dirty": false,
                                                           "dirtySinceLastSubmit": false,
                                                           "error": undefined,
-                                                          "initial": null,
+                                                          "initial": 0,
                                                           "invalid": false,
                                                           "length": undefined,
                                                           "modified": false,
@@ -11819,6 +11839,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               >
                                                 <Field
                                                   component="select"
+                                                  formatOnBlur={true}
                                                   name="applicant.marital_status"
                                                   parse={[Function]}
                                                 >
@@ -11845,7 +11866,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       onBlur={[Function]}
                                                       onChange={[Function]}
                                                       onFocus={[Function]}
-                                                      value="Single"
+                                                      value="Domestic Partner"
                                                     >
                                                       <option
                                                         key=""
@@ -11880,7 +11901,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                           "dirty": false,
                                                           "dirtySinceLastSubmit": false,
                                                           "error": undefined,
-                                                          "initial": "Single",
+                                                          "initial": "Domestic Partner",
                                                           "invalid": false,
                                                           "length": undefined,
                                                           "modified": false,
@@ -11946,7 +11967,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "mailing_state": "CA",
                                         "mailing_street": "123 Test St",
                                         "mailing_zip_code": "00000",
-                                        "marital_status": "Single",
+                                        "marital_status": "Domestic Partner",
                                         "middle_name": null,
                                         "name": "Automated Test Lease Up Application (do not modify)",
                                         "phone": null,
@@ -11993,18 +12014,18 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "bmr_parking_space_assigned": null,
                                         "id": "a130P000005TeZrQAK",
                                         "lease_start_date": Object {
-                                          "day": "01",
-                                          "month": "01",
+                                          "day": "12",
+                                          "month": "1",
                                           "year": "2019",
                                         },
                                         "lease_status": "Draft",
-                                        "monthly_parking_rent": 790.49,
-                                        "monthly_tenant_contribution": 259.77,
+                                        "monthly_parking_rent": "2",
+                                        "monthly_tenant_contribution": "3",
                                         "no_preference_used": false,
-                                        "preference_used": "a0w0P00000MOzyXQAT",
+                                        "preference_used": "testValidPref",
                                         "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                        "total_monthly_rent_without_parking": 146.92,
-                                        "unit": "a0b0P00001HIHrnQAH",
+                                        "total_monthly_rent_without_parking": "1",
+                                        "unit": "",
                                       },
                                       "lending_agent": null,
                                       "listing": Object {
@@ -12014,14 +12035,14 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "name": "Partners Test Listing (do not modify) - Yellow Acres",
                                         "reserved_community_type": null,
                                       },
-                                      "listing_id": "a0W0x000000GhJUEA0",
+                                      "listing_id": "a0W0P00000GbyuQUAR",
                                       "lottery_number": "00243697",
                                       "lottery_number_manual": null,
                                       "monthly_income": null,
                                       "name": "APP-00243697",
-                                      "number_of_dependents": 1,
-                                      "number_of_minors": null,
-                                      "number_of_seniors": null,
+                                      "number_of_dependents": 2,
+                                      "number_of_minors": 0,
+                                      "number_of_seniors": 3,
                                       "preferences": Array [
                                         Object {
                                           "application_member_id": null,
@@ -12262,7 +12283,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         "mailing_state": "CA",
                                         "mailing_street": "123 Test St",
                                         "mailing_zip_code": "00000",
-                                        "marital_status": "Single",
+                                        "marital_status": "Domestic Partner",
                                         "middle_name": null,
                                         "name": "Automated Test Lease Up Application (do not modify)",
                                         "phone": null,

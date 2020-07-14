@@ -1,4 +1,4 @@
-import { map, mapValues, propertyOf } from 'lodash'
+import { forEach, isEmpty, isEqual, isPlainObject, map, mapValues, propertyOf } from 'lodash'
 
 // FIXME Rename to a more useful filename.
 export const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZZ'
@@ -19,6 +19,30 @@ export const decorateComponents = (inputs, fn) => {
 
 export const formatPercent = (value) => {
   return ((value * 100).toFixed(0) + '%')
+}
+
+export const filterChanged = (prev, current) => {
+  if (!prev) {
+    return current
+  }
+  const changedFields = {}
+  forEach(current, (value, key) => {
+    if (!isEqual(prev[key], value)) {
+      if (isPlainObject(value) && prev[key] !== null) {
+        const obj = filterChanged(prev[key], value)
+        if (!isEmpty(obj)) {
+          if (value.id) {
+            obj['id'] = value.id
+          }
+          changedFields[key] = obj
+        }
+      } else {
+        changedFields[key] = value
+      }
+    }
+  })
+  changedFields['id'] = prev['id']
+  return changedFields
 }
 
 export default {

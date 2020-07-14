@@ -9,7 +9,7 @@ class Api::V1::ShortFormController < ApiController
     # TODO: Consider adding a validator to check that all required params are present
     custom_api_application = Force::Application.from_domain(application_api_params).to_custom_api
 
-    application = custom_api_application_service.submit(custom_api_application)
+    application = custom_api_application_service.submit(custom_api_application, request.put? ? :put : :post)
     logger.debug "application submit response: #{application}"
     # if submitting a supplemental application we will re-fetch updated data from salesforce
     if params[:supplemental]

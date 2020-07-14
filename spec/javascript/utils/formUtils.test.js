@@ -146,3 +146,26 @@ describe('scrubEmptyValues', () => {
     })
   })
 })
+
+describe('formatNumber', () => {
+  test('should parse string into int', async () => {
+    expect(formUtils.formatNumber('10')).toEqual(10)
+    expect(formUtils.formatNumber('0')).toEqual(0)
+  })
+
+  test('should return number', async () => {
+    expect(formUtils.formatNumber(10)).toEqual(10)
+    expect(formUtils.formatNumber(0)).toEqual(0)
+  })
+
+  test('should be empty if there is no value', async () => {
+    expect(formUtils.formatNumber(undefined)).toEqual(null)
+    expect(formUtils.formatNumber(null)).toEqual(null)
+    expect(formUtils.formatNumber('')).toEqual(null)
+  })
+
+  test('should not format invalid values', async () => {
+    expect(formUtils.formatNumber('0.0.0')).toEqual('0.0.0')
+    expect(formUtils.formatNumber('abc')).toEqual('abc')
+  })
+})

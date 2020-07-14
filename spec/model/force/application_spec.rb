@@ -23,6 +23,7 @@ RSpec.describe Force::Application do
       domain_application = application.to_domain
       expect(domain_application['household_members']).to eq(app_domain_from_salesforce['household_members'])
       expect(domain_application).to eq(app_domain_from_salesforce)
+      expect(domain_application.confirmed_household_annual_income).to eq(10000.0)
     end
   end
 
