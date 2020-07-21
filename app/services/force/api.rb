@@ -20,5 +20,9 @@ module Force
     def get(endpoint, params)
       api_call('get', endpoint, params)
     end
+
+    def put(endpoint, params)
+      api_call('put', endpoint, params)
+    end
   end
 end

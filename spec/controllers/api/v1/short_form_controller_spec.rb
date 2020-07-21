@@ -4,6 +4,19 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ShortFormController, type: :controller do
   login_admin
+  application = {
+    applicant: {
+      marital_status: 'Single',
+      id: 'a0n0P00000DowdHQAR'
+    },
+    number_of_dependents: 2,
+    number_of_seniors: 2,
+    confirmed_household_annual_income: 123,
+    has_military_service: 'Yes',
+    reserved_senior: 'Yes',
+    has_ada_priorities_selected: {vision_impairments: true},
+    id: 'a0o0P00000JQawYQAT'
+  }
   pre_lottery_listing_id = 'a0W0P00000F8YG4UAN' # Automated Test Listing
   new_application = {
     application_submission_type: 'Paper',
@@ -36,22 +49,36 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     describe 'application to pre-lottery listing' do
       it 'receives a successful response from Salesforce' do
         VCR.use_cassette('api/v1/short-form/submit/pre-lottery/success') do
-          post :submit, params: { application: new_application }
+          post :submit, params: { application: new_application }, as: :json
         end
         expect(response).to have_http_status(:success)
         json = JSON.parse(response.body)
         expect(json['application']).not_to be_empty
       end
-      # TODO: Consider making this an update to an application on Yellow acres to make this more realistic.
+
+      it 'calls post method' do
+        expect_any_instance_of(Force::Base).to receive(:api_post).and_call_original
+        VCR.use_cassette('api/v1/short-form/submit/pre-lottery/success') do
+          post :submit, params: { application: new_application }, as: :json
+        end
+      end
+
       describe 'with supplemental param' do
         it 'receives a successful response with updated application from Salesforce' do
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
-            post :submit, params: { application: new_application, supplemental: true }
+            put :submit, params: { application: application, supplemental: true }, as: :json
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
           expect(json['application']).not_to be_empty
           expect(json['application']['application_submission_type']).to eq('Paper')
+        end
+
+        it 'calls put method' do
+          expect_any_instance_of(Force::Base).to receive(:api_put).and_call_original
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
+            put :submit, params: { application: application, supplemental: true }, as: :json
+          end
         end
       end
     end

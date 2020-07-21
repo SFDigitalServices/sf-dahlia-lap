@@ -390,7 +390,6 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
-            value=""
           >
             <option
               value=""
@@ -575,7 +574,6 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
-            value=""
           >
             <option
               value=""
