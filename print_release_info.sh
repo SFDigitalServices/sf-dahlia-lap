@@ -34,20 +34,26 @@ function print_section {
 --- $1 ---${NC}"
 }
 
-function print_error {
+function print_error_and_exit {
   RED='\033[1;31m'
   NC='\033[0m' # No Color
   echo -e "${RED}$1${NC}"
+  exit
 }
 
+branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
+branch_name="(unnamed branch)"
+
+if [[ "$branch_name" != "refs/heads/release-"* ]]; then
+  print_error_and_exit "You should only run this command on a release branch. Run yarn create_release_branch first."
+fi
+
 if [ -z "$username" ]; then
-  print_error "Must provide a github username."
-  exit
+  print_error_and_exit "Must provide a github username."
 fi
 
 if [ -z "$github_token" ]; then
-  print_error "Must provide a github token. Generate a new token from Github by going to profile settings -> developer settings -> personal access token -> Generate new token."
-  exit
+  print_error_and_exit "Must provide a github token. Generate a new token from Github by going to profile settings -> developer settings -> personal access token -> Generate new token."
 fi
 
 bugs=()
@@ -167,11 +173,44 @@ function print_release_category {
   done
 }
 
+function print_release_categories {
+  print_release_category "Features" features
+  print_release_category "Bugs" bugs
+  print_release_category "Chores" chores
+  print_release_category "Other" other
+}
+
+# from https://stackoverflow.com/a/10660730
+function rawurlencode() {
+  local string=`cat`
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:$pos:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  echo "${encoded}"    # You can either set a return variable (FASTER)
+}
 
 print_section "Printing release description"
-echo "New draft release url: https://github.com/SFDigitalServices/sf-dahlia-lap/releases/new"
 
-print_release_category "Features" features
-print_release_category "Bugs" bugs
-print_release_category "Chores" chores
-print_release_category "Other" other
+branch_date=$(echo "$branch_name" | awk -F'refs/heads/release-' '{print $2;}')
+target='production'
+base_release_url='https://github.com/SFDigitalServices/sf-dahlia-lap/releases/new'
+if ! [ -z "$branch_date" ]; then
+  month=$(echo "$branch_date" | cut -d'-' -f 1)
+  day=$(echo "$branch_date" | cut -d'-' -f 2)
+  year=$(echo "$branch_date" | cut -d'-' -f 3)
+  tag="v$year$month$day"
+  title=$(echo "Release week of $month/$day" | rawurlencode)
+  body=$(print_release_categories | rawurlencode)
+  echo "New draft release url: $base_release_url?target=$target&tag=$tag&title=$title&body=$body"
+else
+  echo "New draft release url: $base_release_url?target=$target"
+fi
