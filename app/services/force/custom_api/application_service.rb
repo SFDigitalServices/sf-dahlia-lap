@@ -47,9 +47,16 @@ module Force
         application
       end
 
-      def submit(custom_api_attrs)
+      def submit(custom_api_attrs, method)
         application_params = application_defaults.merge(custom_api_attrs)
-        result = api_post('/LeasingAgentPortal/shortForm', application_params)
+        application_params = application_params.except('primaryApplicant') if application_params['primaryApplicant'].blank?
+        endpoint = '/LeasingAgentPortal/shortForm'
+
+        result = if method == :put
+                   api_put(endpoint, application_params.except('alternateContact', 'listingID'))
+                 else
+                   api_post(endpoint, application_params)
+                 end
         application(result['id'])
       end
 

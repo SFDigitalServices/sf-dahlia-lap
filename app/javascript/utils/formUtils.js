@@ -1,4 +1,4 @@
-import { isObjectLike, isArray } from 'lodash'
+import { isObjectLike, isArray, isNaN, toNumber } from 'lodash'
 import { isValidPercent, isValidCurrency } from './form/validations'
 
 const toOption = (item) => {
@@ -59,6 +59,17 @@ const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
   return filterValues(obj, valueIsNonEmpty)
 }
 
+const formatNumber = (value) => {
+  if (value === '' || value === null || value === undefined) return null
+
+  const number = toNumber(value)
+  if (isNaN(number)) {
+    return value
+  } else {
+    return number
+  }
+}
+
 export const maxLengthMap = {
   first_name: 40,
   middle_name: 20,
@@ -83,6 +94,7 @@ export const maxLengthMap = {
 
 export default {
   toEmptyOption,
+  formatNumber,
   toOption,
   toOptions,
   formatPrice,

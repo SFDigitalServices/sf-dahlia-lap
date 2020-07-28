@@ -36,7 +36,7 @@ VARS_TO_UPDATE_HEROKU=(
 # Argument defaults
 env_file=".env"
 
-while getopts ":h::e::c:" opt; do
+while getopts ":he::c:" opt; do
   case $opt in
     h )
       echo "Usage:"
