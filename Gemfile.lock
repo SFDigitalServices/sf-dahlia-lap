@@ -375,7 +375,7 @@ DEPENDENCIES
   pry-byebug (~> 3.9.0)
   pry-rails
   puma (~> 3.12.6)
-  rack (>= 2.0.8)
+  rack (>= 2.2.3)
   rails (~> 5.2.4)
   rails-controller-testing
   rails_12factor
