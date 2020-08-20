@@ -208,16 +208,10 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
       {({ input, meta }) => (
         <React.Fragment>
           <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-            <Input
-              input={input}
-              type='hidden'
-              meta={meta}
-              aria-labelledby={ariaLabelledby}
-              id={id || `form-base-${fieldName}`} />
-            <input id={id || `form-ctrl-${fieldName}`} fieldName={fieldName} type='checkbox' checked={input.value === trueFalue} onClick={onChange} />
+            <input id={id || `form-${fieldName}`} type='checkbox' checked={input.value === trueFalue} onChange={onChange} />
             <Label
               label={label}
-              id={id || `form-ctrl-${fieldName}`}
+              id={id || `form-${fieldName}`}
               fieldName={fieldName}
               blockNote={blockNote} />
             <FieldError meta={meta} />
