@@ -194,6 +194,40 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
+export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueFalue = 'Yes', falseValue = 'No' }) => {
+  const onChange = (event) => {
+    form.change(fieldName, event.target.checked ? trueFalue : falseValue)
+  }
+  return (
+    <Field
+      name={fieldName}
+      validate={validation}
+      type='input'
+      component='input'
+    >
+      {({ input, meta }) => (
+        <React.Fragment>
+          <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+            <Input
+              input={input}
+              type='hidden'
+              meta={meta}
+              aria-labelledby={ariaLabelledby}
+              id={id || `form-base-${fieldName}`} />
+            <input id={id || `form-ctrl-${fieldName}`} fieldName={fieldName} type='checkbox' checked={input.value === trueFalue} onClick={onChange} />
+            <Label
+              label={label}
+              id={id || `form-ctrl-${fieldName}`}
+              fieldName={fieldName}
+              blockNote={blockNote} />
+            <FieldError meta={meta} />
+          </div>
+        </React.Fragment>
+      )}
+    </Field>
+  )
+}
+
 const YesNoRadioField = ({ value, label, type, fieldName, className, uniqId }) => (
   <Field name={fieldName} value={value} type='radio'>
     {({ input }) => (

@@ -65,10 +65,10 @@ const ConfirmedPreferencesSection = ({ application, applicationMembers, fileBase
   </ContentSection>
 )
 
-const ConfirmedHousehold = ({ listingAmiCharts, visited }) => (
+const ConfirmedHousehold = ({ listingAmiCharts, visited, form }) => (
   <ContentSection title='Confirmed Household'>
     <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
-      <ConfirmedUnits />
+      <ConfirmedUnits form={form} />
     </ContentSection.Sub>
     <ContentSection.Sub title='Confirmed Household Income'>
       <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} visited={visited} />
@@ -181,7 +181,7 @@ const SupplementalApplicationContainer = ({ store }) => {
               confirmedPreferencesFailed={confirmedPreferencesFailed}
               form={form}
             />
-            <ConfirmedHousehold listingAmiCharts={listingAmiCharts} visited={visited} />
+            <ConfirmedHousehold listingAmiCharts={listingAmiCharts} visited={visited} form={form} />
             <LeaseInformationSection form={form} values={values} visited={visited} />
             <RentalAssistanceSection form={form} submitting={submitting} visited={visited} />
             <DemographicsSection />
