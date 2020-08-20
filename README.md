@@ -113,8 +113,8 @@ To run an individual test:
 ### Release scripts
 More documentation for how these scripts are used during a release in the [partners release process doc](https://sfgovdt.jira.com/wiki/spaces/HOUS/pages/1900544029/Partners+Release+processes+template).
 
-#### 1. create_release_app
-Command: `yarn create_release_app`
+#### 1. create_release_branch
+Command: `yarn create_release_branch`
 
 This script will:
 - Create a new branch named `release-<todays-date>`
