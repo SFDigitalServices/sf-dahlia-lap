@@ -17,8 +17,8 @@ const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
       <PageHeader {...pageHeader} background='snow' />
       { tabSection
         ? (
-          <TabsSection {...tabSection} background='snow'>
-            <AppCard>{children}</AppCard>
+          <TabsSection {...tabSection} padding='false' tabBackground='white'>
+            {children}
           </TabsSection>
         )
         : (
