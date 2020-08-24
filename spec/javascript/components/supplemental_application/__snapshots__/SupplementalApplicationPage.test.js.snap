@@ -2237,7 +2237,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           >
                                             <button
                                               aria-expanded="false"
-                                              className="button dropdown-button has-icon--right margin-bottom-none text-align-left is-approved small"
+                                              className="button dropdown-button has-icon--right text-align-left is-approved small"
                                               disabled={false}
                                               onClick={[Function]}
                                               type="button"
@@ -12591,7 +12591,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 >
                                   <button
                                     aria-expanded="true"
-                                    className="button dropdown-button has-icon--right margin-bottom-none text-align-left is-withdrawn small has-status-width"
+                                    className="button dropdown-button has-icon--right text-align-left is-withdrawn small has-status-width"
                                     disabled={false}
                                     onClick={[Function]}
                                     type="button"
@@ -13258,7 +13258,7 @@ Array [
               >
                 <button
                   aria-expanded="false"
-                  className="button dropdown-button has-icon--right margin-bottom-none text-align-left tertiary small"
+                  className="button dropdown-button has-icon--right text-align-left tertiary small"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
@@ -18065,7 +18065,7 @@ Array [
             >
               <button
                 aria-expanded="false"
-                className="button dropdown-button has-icon--right margin-bottom-none text-align-left is-withdrawn small has-status-width"
+                className="button dropdown-button has-icon--right text-align-left is-withdrawn small has-status-width"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
