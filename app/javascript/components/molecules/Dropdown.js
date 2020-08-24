@@ -5,8 +5,6 @@ import classNames from 'classnames'
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 
-const dropdownStyle = { top: 40, left: 0 }
-
 const Dropdown = ({
   prompt,
   items,
@@ -78,7 +76,7 @@ const Dropdown = ({
         aria-expanded={expanded ? 'true' : 'false'}
         onClick={toggleExpand}
         ref={buttonRef}
-        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
+        className={`button dropdown-button has-icon--right margin-bottom-none text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
         type='button'
         disabled={disabled}>
         <span className='ui-icon ui-small'>
@@ -91,7 +89,6 @@ const Dropdown = ({
       <div className='dropdown-menu-wrapper' aria-hidden={expanded ? 'false' : 'true'} role='menu'>
         {expanded && (
           <DropdownComponent
-            style={dropdownStyle}
             onChange={onChangeHandler}
             items={items}
             {...(multiple ? {values: value} : {value})}
