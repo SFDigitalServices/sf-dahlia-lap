@@ -54,7 +54,7 @@ module.exports = function (grunt) {
   // load tasks
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
-  grunt.loadNpmTasks('grunt-replace')
+  grunt.loadNpmTasks('grunt-replace-regex')
 
   // register task
   grunt.registerTask('default', [
