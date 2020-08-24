@@ -3753,7 +3753,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                               >
                                                 <button
                                                   aria-expanded="false"
-                                                  className="button dropdown-button has-icon--right text-align-left tertiary tiny"
+                                                  className="button dropdown-button has-icon--right margin-bottom-none text-align-left tertiary tiny"
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
@@ -5685,7 +5685,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                               >
                                                 <button
                                                   aria-expanded="false"
-                                                  className="button dropdown-button has-icon--right text-align-left tertiary tiny"
+                                                  className="button dropdown-button has-icon--right margin-bottom-none text-align-left tertiary tiny"
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
@@ -7617,7 +7617,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                               >
                                                 <button
                                                   aria-expanded="false"
-                                                  className="button dropdown-button has-icon--right text-align-left tertiary tiny"
+                                                  className="button dropdown-button has-icon--right margin-bottom-none text-align-left tertiary tiny"
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
@@ -9549,7 +9549,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                               >
                                                 <button
                                                   aria-expanded="false"
-                                                  className="button dropdown-button has-icon--right text-align-left tertiary tiny"
+                                                  className="button dropdown-button has-icon--right margin-bottom-none text-align-left tertiary tiny"
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
@@ -11481,7 +11481,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                               >
                                                 <button
                                                   aria-expanded="false"
-                                                  className="button dropdown-button has-icon--right text-align-left tertiary tiny"
+                                                  className="button dropdown-button has-icon--right margin-bottom-none text-align-left tertiary tiny"
                                                   onClick={[Function]}
                                                   type="button"
                                                 >
