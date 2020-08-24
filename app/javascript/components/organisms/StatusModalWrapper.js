@@ -64,7 +64,7 @@ const StatusModalWrapper = ({
                 dropdownClasses='margin-bottom--half'
                 buttonClasses={['expand', 'small']}
                 menuClasses={['form-modal_dropdown-menu']}
-                wrapperClasses={['status']} />
+                wrapperClasses={['margin-bottom--half', 'status']} />
               {!values.status && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
             </React.Fragment>
           )}
@@ -87,7 +87,7 @@ const StatusModalWrapper = ({
                   dropdownClasses='margin-bottom--half'
                   buttonClasses={['expand', 'substatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']}
                   menuClasses={['form-modal_dropdown-menu']}
-                  wrapperClasses={['subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
+                  wrapperClasses={['margin-bottom--half', 'subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
                 {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
               </React.Fragment>
             )}
