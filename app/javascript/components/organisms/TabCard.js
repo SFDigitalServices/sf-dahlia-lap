@@ -2,7 +2,7 @@ import React from 'react'
 
 import classNames from 'classnames'
 
-const TabCard = ({ children, padding, background }) => {
+const TabCard = ({ children, padding }) => {
   const sectionClassName = classNames(
     'tabs-card-row',
     'row',
@@ -12,7 +12,7 @@ const TabCard = ({ children, padding, background }) => {
     {
       'padding-top--2x': padding
     },
-    `bg-${background}`
+    `bg-white`
   )
   return (
     <section className={sectionClassName}>
@@ -22,8 +22,7 @@ const TabCard = ({ children, padding, background }) => {
 }
 
 TabCard.defaultProps = {
-  padding: false,
-  background: 'white'
+  padding: false
 }
 
 export default TabCard
