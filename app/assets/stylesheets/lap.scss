@@ -94,3 +94,26 @@
 .button.has-icon--right {
   padding-left: 1rem;
 }
+
+// // Switch tabs to full width buttons at small screens
+// .stretch-to-fill-medium-down {
+//   // @media not #{$large-up} {
+//     button {
+//       // @include a-center;
+//       display: block;
+//       margin: 0 auto;
+//       width: 100%;
+//     }
+//     &.active button {
+//       background: 'white';
+//     }
+//     .tab-title {
+//       width: 50%;
+//     }
+//   // }
+// }
+// .tab-title {
+//   &.active > button {
+//     background: white;
+//   }
+// }

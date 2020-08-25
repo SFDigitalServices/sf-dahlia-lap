@@ -23,7 +23,7 @@ const TabCard = ({ children, padding, background }) => {
 
 TabCard.defaultProps = {
   padding: false,
-  background: 'snow'
+  background: 'white'
 }
 
 export default TabCard
