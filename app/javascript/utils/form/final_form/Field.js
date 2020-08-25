@@ -120,6 +120,7 @@ export const PercentField = ({ fieldName, validation, id, label, placeholder, ma
           id={id || `form-${fieldName}`}
           fieldName={fieldName} />
         <input {...input}
+          type='text'
           id={id || `form-${fieldName}`}
           placeholder={placeholder || '$0.00'}
           className={(meta.error && meta.touched && 'error') || ''}
