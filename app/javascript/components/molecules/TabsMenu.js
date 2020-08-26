@@ -29,6 +29,7 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
     tabContent =
       <a
         href={url}
+        className='button-unstyled'
         role='menuitem'
         ref={linkRefs}
         onFocus={onFocus}
@@ -66,7 +67,7 @@ const TabsMenu = ({ items }) => {
   }
 
   return (
-    <ul className='tabs full-width-small-only' role='menubar'>
+    <ul className='tabs' role='menubar'>
       {
         items.map((item) => (
           <Tab
