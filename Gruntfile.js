@@ -2,7 +2,7 @@
 module.exports = function (grunt) {
   grunt.initConfig({
 
-  // Define our Pattern Library and Application Assets paths
+    // Define our Pattern Library and Application Assets paths
     applicationAssetsPath: 'app/assets',
     patternLibraryPath: '../sf-dahlia-pattern-library',
 

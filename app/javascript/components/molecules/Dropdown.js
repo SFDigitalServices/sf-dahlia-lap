@@ -91,7 +91,7 @@ const Dropdown = ({
           <DropdownComponent
             onChange={onChangeHandler}
             items={items}
-            {...(multiple ? {values: value} : {value})}
+            {...(multiple ? { values: value } : { value })}
             classes={menuClasses} />
         )}
       </div>

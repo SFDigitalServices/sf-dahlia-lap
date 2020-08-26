@@ -93,7 +93,7 @@ describe('SupplementalApplicationPage', () => {
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication).toHaveBeenCalledWith({id: payload.id})
+    expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id })
   })
 
   test('it saves demographics correctly', async () => {
@@ -101,7 +101,7 @@ describe('SupplementalApplicationPage', () => {
       'number_of_dependents': 2,
       'number_of_seniors': 3,
       'number_of_minors': 0,
-      'applicant': {'marital_status': 'Domestic Partner'}
+      'applicant': { 'marital_status': 'Domestic Partner' }
     }
     let wrapper
     await act(async () => {
@@ -219,7 +219,7 @@ describe('SupplementalApplicationPage', () => {
       expect(mockUpdateApplication.mock.calls.length).toBe(1)
       expect(mockUpdatePreference.mock.calls.length).toBe(1)
       expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
-      expect(mockUpdateApplication).toHaveBeenCalledWith({'id': 'application_id', 'total_monthly_rent': '50'})
+      expect(mockUpdateApplication).toHaveBeenCalledWith({ 'id': 'application_id', 'total_monthly_rent': '50' })
     })
   })
 
@@ -239,7 +239,7 @@ describe('SupplementalApplicationPage', () => {
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-      const expectedApplication = {id: supplementalApplication.id}
+      const expectedApplication = { id: supplementalApplication.id }
       expectedApplication['confirmed_household_annual_income'] = 1234.0
 
       expect(mockSubmitApplication.mock.calls.length).toBe(1)
@@ -259,7 +259,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
-      const expectedApplication = {id: supplementalApplication.id}
+      const expectedApplication = { id: supplementalApplication.id }
       expectedApplication['confirmed_household_annual_income'] = null
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
@@ -281,8 +281,8 @@ describe('SupplementalApplicationPage', () => {
 
       // Add available units
       const mockAvailableUnits = [
-        {'unit_number': 1, 'id': 'id1'},
-        {'unit_number': 2, 'id': 'id2'}
+        { 'unit_number': 1, 'id': 'id1' },
+        { 'unit_number': 2, 'id': 'id2' }
       ]
 
       await act(async () => {
@@ -319,7 +319,7 @@ describe('SupplementalApplicationPage', () => {
         'id': 'a130P000005TeZrQAK',
         'bmr_parking_space_assigned': null,
         'unit': 'id1',
-        'lease_start_date': {'year': '2019', 'month': '1', 'day': '12'},
+        'lease_start_date': { 'year': '2019', 'month': '1', 'day': '12' },
         'lease_status': 'Draft',
         'no_preference_used': false,
         'preference_used': 'testValidPref',
@@ -342,7 +342,7 @@ describe('SupplementalApplicationPage', () => {
 
       // Verify that the API was called with null unit value
       expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)
-      expect(mockCreateOrUpdateLease).toHaveBeenCalledWith(expect.objectContaining({'unit': ''}))
+      expect(mockCreateOrUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ 'unit': '' }))
     })
 
     test('it displays "No Units Available" when no units available', async () => {

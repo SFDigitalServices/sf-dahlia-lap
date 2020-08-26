@@ -58,13 +58,13 @@ describe('filterChanged', () => {
   test('should return only id if object is not changed', async () => {
     const changedObject = cloneDeep(object)
     const diff = filterChanged(object, changedObject)
-    expect(diff).toEqual({id: 'abcd'})
+    expect(diff).toEqual({ id: 'abcd' })
   })
 
   test('should return only id if object is not changed', async () => {
     const changedObject = cloneDeep(object)
     const diff = filterChanged(object, changedObject)
-    expect(diff).toEqual({id: 'abcd'})
+    expect(diff).toEqual({ id: 'abcd' })
   })
 
   test('should update id', async () => {

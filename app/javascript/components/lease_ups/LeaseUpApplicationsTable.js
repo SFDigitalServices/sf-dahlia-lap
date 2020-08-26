@@ -18,7 +18,7 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
     <StatusDropdown
       status={value}
       onChange={val => onChange(applicationPreferenceId, applicationId, val)}
-      styles={{position: 'absolute'}}
+      styles={{ position: 'absolute' }}
       buttonClasses={['tiny']} />
   )
 }
@@ -31,7 +31,7 @@ const isInvalid = (original) => {
   return original.post_lottery_validation === 'Invalid'
 }
 
-const PreferenceRankCell = ({cell}) => {
+const PreferenceRankCell = ({ cell }) => {
   if (isInvalid(cell.original)) {
     return (
       <div>

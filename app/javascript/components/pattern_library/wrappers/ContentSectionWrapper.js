@@ -3,7 +3,7 @@ import React from 'react'
 import ContentSection from '~/components/molecules/ContentSection'
 import FormGridRow from '~/components/molecules/FormGridRow'
 
-const ContentSectionWrapper = ({title, titleDesc, subtitle, subtitleDesc}) => {
+const ContentSectionWrapper = ({ title, titleDesc, subtitle, subtitleDesc }) => {
   return (
     <ContentSection title={title} description={titleDesc}>
       <ContentSection.Sub title={subtitle} description={subtitleDesc}>

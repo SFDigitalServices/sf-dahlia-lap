@@ -77,9 +77,9 @@ class SpreadsheetIndexTable extends React.Component {
   closeRow = (rowInfo, save = false) => {
     return async () => {
       // close the expanded/editing state
-      let expanded = {...this.state.expanded}
+      let expanded = { ...this.state.expanded }
       expanded[rowInfo.viewIndex] = !expanded[rowInfo.viewIndex]
-      let loading = {...this.state.loading}
+      let loading = { ...this.state.loading }
       loading[rowInfo.index] = true
       this.setState({ loading })
 
@@ -88,14 +88,14 @@ class SpreadsheetIndexTable extends React.Component {
       let persistedData = [...this.state.persistedData]
 
       if (save) {
-        loading = {...loading}
+        loading = { ...loading }
         loading[rowInfo.index] = false
         persistedData[rowInfo.index] = cloneDeep(editData[rowInfo.index])
         await apiService.updateFlaggedApplication(persistedData[rowInfo.index])
         // ^^ await means that the setState won't happen until the call is made
         this.setState({ expanded, loading, persistedData })
       } else {
-        loading = {...loading}
+        loading = { ...loading }
         loading[rowInfo.index] = false
         editData = [...persistedData]
         this.setState({ expanded, loading, editData })

@@ -7,8 +7,8 @@ const memberValidate = (values) => {
   if (!values || !values.length) return
   const membersErrors = []
   values.forEach(value => {
-    const memberError = {date_of_birth: {}}
-    validate.isValidDate(value.date_of_birth, memberError.date_of_birth, {errorMessage: 'Please enter a Date of Birth'})
+    const memberError = { date_of_birth: {} }
+    validate.isValidDate(value.date_of_birth, memberError.date_of_birth, { errorMessage: 'Please enter a Date of Birth' })
     membersErrors.push(memberError)
   })
 
@@ -23,7 +23,7 @@ const HouseholdMembersSection = ({ form }) => {
       </div>
       <FieldArray name='household_members' validate={memberValidate}>
         {({ fields }) =>
-          <React.Fragment>
+          <>
             { fields.map((name, i) => {
               return (
                 <div key={name}>
@@ -50,7 +50,7 @@ const HouseholdMembersSection = ({ form }) => {
                 </div>
               </div>
             </div>
-          </React.Fragment>
+          </>
         }
       </FieldArray>
     </div>
