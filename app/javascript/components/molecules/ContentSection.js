@@ -2,10 +2,10 @@ import React from 'react'
 import classNames from 'classnames'
 
 const ContentSection = ({ title, description, children }) => (
-  <React.Fragment>
+  <>
     <ContentSection.Header title={title} description={description} />
     {children}
-  </React.Fragment>
+  </>
 )
 
 ContentSection.Header = ({ title, description }) => (
@@ -40,12 +40,12 @@ ContentSection.Content = ({ children, borderBottom, paddingBottomNone, marginTop
 }
 
 ContentSection.Sub = ({ title, description, borderBottom = true, children }) => (
-  <React.Fragment>
+  <>
     <ContentSection.SubHeader title={title} description={description} />
     <ContentSection.Content borderBottom={borderBottom}>
       {children}
     </ContentSection.Content>
-  </React.Fragment>
+  </>
 )
 
 export default ContentSection

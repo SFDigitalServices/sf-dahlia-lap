@@ -13,7 +13,7 @@ const {
 
 export const Custom = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
@@ -49,7 +49,7 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>)
+    </>)
 }
 
 export default Custom

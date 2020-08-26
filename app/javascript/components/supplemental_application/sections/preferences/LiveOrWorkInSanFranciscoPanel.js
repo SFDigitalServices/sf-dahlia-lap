@@ -38,7 +38,7 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
   }
 
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
@@ -86,7 +86,7 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>)
+    </>)
 }
 
 export default LiveOrWorkInSanFranciscoPanel

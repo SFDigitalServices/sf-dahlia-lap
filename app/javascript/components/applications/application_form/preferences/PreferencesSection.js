@@ -46,7 +46,7 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
       <h3>Preferences</h3>
       <FieldArray name='preferences'>
         {({ fields }) =>
-          <React.Fragment>
+          <>
             { fields.map((name, i) => {
               return (
                 <div className='border-bottom margin-bottom--2x' key={name}>
@@ -68,7 +68,7 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
                 </div>
               </div>
             </div>
-          </React.Fragment>
+          </>
         }
       </FieldArray>
     </div>

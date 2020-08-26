@@ -31,11 +31,11 @@ const rentalAssistanceInContext = (context) => (
       onSubmit={() => null}
       initialValues={context.application}
       render={({ form }) => (
-        <React.Fragment>
+        <>
           <form noValidate>
             <RentalAssistance form={form} />
           </form>
-        </React.Fragment>
+        </>
       )} />
   </Context.Provider>
 )

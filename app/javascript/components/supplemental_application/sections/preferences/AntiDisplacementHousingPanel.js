@@ -14,7 +14,7 @@ const {
 
 export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
@@ -55,7 +55,7 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, appl
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>)
+    </>)
 }
 
 export default AntiDisplacementHousingPanel

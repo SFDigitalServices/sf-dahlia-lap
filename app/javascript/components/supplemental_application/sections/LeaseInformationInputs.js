@@ -24,7 +24,7 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
   const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })
   const confirmedPreferenceOptions = formUtils.toOptions(map([{ 'id': null, 'preference_name': 'None' }, ...confirmedPreferences], pluck('id', 'preference_name')))
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group>
@@ -72,7 +72,7 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
             isDirty={visited && visited['lease.monthly_tenant_contribution']} />
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

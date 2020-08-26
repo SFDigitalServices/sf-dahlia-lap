@@ -23,7 +23,7 @@ const HouseholdMembersSection = ({ form }) => {
       </div>
       <FieldArray name='household_members' validate={memberValidate}>
         {({ fields }) =>
-          <React.Fragment>
+          <>
             { fields.map((name, i) => {
               return (
                 <div key={name}>
@@ -50,7 +50,7 @@ const HouseholdMembersSection = ({ form }) => {
                 </div>
               </div>
             </div>
-          </React.Fragment>
+          </>
         }
       </FieldArray>
     </div>

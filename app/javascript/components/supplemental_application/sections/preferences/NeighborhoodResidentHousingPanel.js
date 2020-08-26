@@ -14,7 +14,7 @@ const {
 
 export const NeighborhoodResidentHousingPanel = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
@@ -55,7 +55,7 @@ export const NeighborhoodResidentHousingPanel = ({ preferenceIndex, preference, 
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>)
+    </>)
 }
 
 export default NeighborhoodResidentHousingPanel

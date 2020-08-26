@@ -163,7 +163,7 @@ const SupplementalApplicationContainer = ({ store }) => {
       validate={validateForm}
       mutators={{ ...arrayMutators }}
       render={({ handleSubmit, form, touched, submitting, values, visited }) => (
-        <React.Fragment>
+        <>
           { failed && (
             <AlertBox
               invert
@@ -217,7 +217,7 @@ const SupplementalApplicationContainer = ({ store }) => {
             onClose={handleStatusModalClose}
             onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, convertPercentAndCurrency(form.getState().values))}
           />
-        </React.Fragment>
+        </>
       )}
     />
   )

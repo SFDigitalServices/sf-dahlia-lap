@@ -15,7 +15,7 @@ const buildTypeOfProofOptions = (values) => {
 }
 
 const AddressRow = ({ fieldId }) => (
-  <React.Fragment>
+  <>
     <Row form>
       <Column span={6} form>
         <InputField
@@ -58,7 +58,7 @@ const AddressRow = ({ fieldId }) => (
         </Row>
       </Column>
     </Row>
-  </React.Fragment>
+  </>
 )
 
 const AliceGriffithFields = ({ i, householdMembers }) => {

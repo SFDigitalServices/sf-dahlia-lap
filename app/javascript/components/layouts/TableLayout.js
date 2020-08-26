@@ -12,7 +12,7 @@ const TableLayout = ({ children, pageHeader, tabSection }) => {
   }, [])
 
   return (
-    <React.Fragment>
+    <>
       <PageHeader {...pageHeader} background='dust' />
       { tabSection
         ? (
@@ -26,7 +26,7 @@ const TableLayout = ({ children, pageHeader, tabSection }) => {
           </TabCard>
         )
       }
-    </React.Fragment>
+    </>
   )
 }
 

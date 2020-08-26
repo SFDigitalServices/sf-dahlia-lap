@@ -52,7 +52,7 @@ export const FieldError = ({ meta }) => (
 export const InputField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, type }) => (
   <Field name={fieldName} validate={validation} parse={identity}>
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
           <Label
             label={label}
@@ -68,7 +68,7 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
             maxLength={maxLength} />
           <FieldError meta={meta} />
         </div>
-      </React.Fragment>
+      </>
     )}
   </Field>
 )
@@ -142,7 +142,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
     {({ input, meta }) => {
       const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
       return (
-        <React.Fragment>
+        <>
           <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
             <Label
               label={label}
@@ -165,7 +165,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
             </select>
             <FieldError meta={meta} />
           </div>
-        </React.Fragment>
+        </>
       )
     }}
   </Field>
@@ -174,7 +174,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
 export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby }) => (
   <Field name={fieldName} validate={validation} type='checkbox'>
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
           <Input
             input={input}
@@ -189,7 +189,7 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
             blockNote={blockNote} />
           <FieldError meta={meta} />
         </div>
-      </React.Fragment>
+      </>
     )}
   </Field>
 )
@@ -209,7 +209,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
   const divClassName = classNames(className, 'radio-group-inline')
   return (
     <div className={divClassName}>
-      <React.Fragment>
+      <>
         <Label
           label={label}
           id={`form-${fieldName}`}
@@ -230,7 +230,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
           className={inputClassName}
           uniqId={uniqId}
         />
-      </React.Fragment>
+      </>
     </div>
   )
 }
@@ -238,7 +238,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
 export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
   <Field name={fieldName} validate={validation} component='textarea' parse={identity}>
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
           <Label
             label={label}
@@ -257,7 +257,7 @@ export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validatio
             aria-describedby={ariaDescribedby} />
           <FieldError meta={meta} />
         </div>
-      </React.Fragment>
+      </>
     )}
   </Field>
 )

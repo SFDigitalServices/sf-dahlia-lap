@@ -5,7 +5,7 @@ import { YesNoRadioGroup, CheckboxField } from '~/utils/form/final_form/Field.js
 
 const ConfirmedUnits = () => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group label='Senior in Household'>
@@ -38,7 +38,7 @@ const ConfirmedUnits = () => {
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

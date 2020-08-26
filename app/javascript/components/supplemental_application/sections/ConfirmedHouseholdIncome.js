@@ -46,7 +46,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
   }, [])
 
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group label='Recurring Voucher/Subsidy'>
@@ -118,7 +118,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
             noPlaceholder={amiChartYears.length <= 1} />
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

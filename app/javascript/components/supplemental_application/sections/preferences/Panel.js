@@ -49,7 +49,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
 
   return (
     <div className='app-editable expand-wide scrollable-table-nested'>
-      <React.Fragment>
+      <>
         <PreferencePanel
           preferenceIndex={preferenceIndex}
           preference={preference}
@@ -75,7 +75,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
             </button>
           </div>
         </FormGrid.Row>
-      </React.Fragment>
+      </>
     </div>
   )
 }

@@ -26,21 +26,21 @@ const StatusListItem = ({ status, substatus, comment, date }) => {
       <div className='status-list_comment'>
         {
           substatus ? (
-            <React.Fragment>
+            <>
               <p className='status-list_note t-base p-base c-steel'>{substatus}</p>
               <span className='status-list_date'>
                 <PrettyTime time={date} displayType='short' />
               </span>
               <br />
               <p className='status-list_note'>{comment}</p>
-            </React.Fragment>
+            </>
           ) : (
-            <React.Fragment>
+            <>
               <p className='status-list_note'>{comment}</p>
               <span className='status-list_date'>
                 <PrettyTime time={date} displayType='short' />
               </span>
-            </React.Fragment>
+            </>
           )
         }
       </div>
