@@ -10,7 +10,7 @@ const DemographicsInputs = () => {
   const martialStatusOptions = ['Single', 'Married', 'Domestic Partner']
 
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group>
@@ -52,7 +52,7 @@ const DemographicsInputs = () => {
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

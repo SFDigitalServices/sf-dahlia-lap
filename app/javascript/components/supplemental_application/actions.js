@@ -42,14 +42,14 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
       promises.push(apiService.createRentalAssistance(rentalAssistance, application.id))
       // Only update changed rental assistances
     } else if (prevApplication && prevApplication.rental_assistances &&
-      !isEqual(find(prevApplication.rental_assistances, {id: rentalAssistance.id}), rentalAssistance)) {
+      !isEqual(find(prevApplication.rental_assistances, { id: rentalAssistance.id }), rentalAssistance)) {
       promises.push(apiService.updateRentalAssistance(rentalAssistance, application.id))
     }
   })
   // if no promises have been pushed then we are not updating
   // anything but already have the data we need so return the assistances
   if (promises.length === 0) {
-    return [Promise.resolve({rental_assistances: rentalAssistances})]
+    return [Promise.resolve({ rental_assistances: rentalAssistances })]
   }
 
   return promises
@@ -67,7 +67,7 @@ const updateLease = async (lease, primaryApplicantContact, applicationId) => {
   }
 }
 
-export const getAMIAction = async ({chartType, chartYear}) => {
+export const getAMIAction = async ({ chartType, chartYear }) => {
   const response = await apiService.getAMI({ chartType, chartYear })
   if (response === false) {
     Alerts.error()

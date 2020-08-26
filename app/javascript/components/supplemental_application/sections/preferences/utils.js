@@ -55,7 +55,7 @@ export const statusOptions = formUtils.toOptions(['Unconfirmed', 'Confirmed', 'I
 
 export const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
 
-export const FormItem = ({label, children}) => (
+export const FormItem = ({ label, children }) => (
   <FormGrid.Item>
     <FormGrid.Group label={label}>
       {children}
@@ -63,7 +63,7 @@ export const FormItem = ({label, children}) => (
   </FormGrid.Item>
 )
 
-export const Comment = ({children}) => (
+export const Comment = ({ children }) => (
   <p className='t-base c-steel'>
     {children}
   </p>

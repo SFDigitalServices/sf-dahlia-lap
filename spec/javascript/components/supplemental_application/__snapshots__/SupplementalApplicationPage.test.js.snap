@@ -12897,24 +12897,12 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                         ]
                                       }
                                       onChange={[Function]}
-                                      style={
-                                        Object {
-                                          "left": 0,
-                                          "top": 40,
-                                        }
-                                      }
                                       value="Withdrawn"
                                     >
                                       <ul
                                         aria-activedescendant={true}
                                         className="dropdown-menu dropdown-menu-bottom"
                                         role="listbox"
-                                        style={
-                                          Object {
-                                            "left": 0,
-                                            "top": 40,
-                                          }
-                                        }
                                         tabIndex="-1"
                                       >
                                         <DropdownMenuItem

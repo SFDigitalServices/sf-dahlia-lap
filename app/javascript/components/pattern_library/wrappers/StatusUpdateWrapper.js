@@ -12,7 +12,7 @@ const StatusUpdateWrapper = ({ status, comment, date, statusHistoryAnchor }) => 
   }
 
   return (
-    <React.Fragment>
+    <>
       <div>
         <h3>Example with status, comment, and date</h3>
         <StatusUpdate
@@ -36,7 +36,7 @@ const StatusUpdateWrapper = ({ status, comment, date, statusHistoryAnchor }) => 
           statusHistoryAnchor={statusHistoryAnchor}
         />
       </div>
-    </React.Fragment>
+    </>
   )
 }
 

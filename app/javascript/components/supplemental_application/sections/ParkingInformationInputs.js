@@ -18,7 +18,7 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
     }
   }
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
           <FormGrid.Group>
@@ -41,7 +41,7 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
             isDirty={visited && visited[monthlyRentFieldName]} />
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@ import classNames from 'classnames'
 const InputField = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <Input
           input={input}
           type={type}
@@ -16,7 +16,7 @@ const InputField = ({ type, fieldName, validation, placeholder, maxLength, id })
           id={id || `form-${fieldName}`}
           placeholder={placeholder}
           maxLength={maxLength} />
-      </React.Fragment>
+      </>
     )}
   </Field>
 )

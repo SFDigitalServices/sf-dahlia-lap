@@ -1,8 +1,8 @@
 import apiService from '~/apiService'
 import { request } from '~/api/request'
 
-const mockLeasePostFn = jest.fn(() => Promise.resolve({lease: true}))
-const mockLeasePutFn = jest.fn(() => Promise.resolve({lease: true}))
+const mockLeasePostFn = jest.fn(() => Promise.resolve({ lease: true }))
+const mockLeasePutFn = jest.fn(() => Promise.resolve({ lease: true }))
 const mockPostFn = jest.fn(() => Promise.resolve(true))
 const mockPutFn = jest.fn(() => Promise.resolve(true))
 const mockDestroyFn = jest.fn(() => Promise.resolve(true))
@@ -23,7 +23,7 @@ describe('apiService', () => {
         'id': fakeLeaseId,
         'monthly_parking_rent': 100
       }
-      var expectedData = {'lease': lease}
+      var expectedData = { 'lease': lease }
 
       var result = await apiService.createOrUpdateLease(lease, fakeAppId)
 
@@ -36,7 +36,7 @@ describe('apiService', () => {
       var lease = {
         'monthly_parking_rent': 100
       }
-      var expectedData = {'lease': lease}
+      var expectedData = { 'lease': lease }
 
       var result = await apiService.createOrUpdateLease(lease, fakeAppId)
 
@@ -54,7 +54,7 @@ describe('apiService', () => {
       var rentalAssistance = {
         'property': 'something'
       }
-      var expectedData = {'rental_assistance': rentalAssistance, 'application_id': fakeAppId}
+      var expectedData = { 'rental_assistance': rentalAssistance, 'application_id': fakeAppId }
 
       var result = await apiService.createRentalAssistance(rentalAssistance, fakeAppId)
 
@@ -72,7 +72,7 @@ describe('apiService', () => {
       var rentalAssistance = {
         'id': fakeRentalAssistanceId
       }
-      var expectedData = {'rental_assistance': rentalAssistance, 'application_id': fakeAppId}
+      var expectedData = { 'rental_assistance': rentalAssistance, 'application_id': fakeAppId }
 
       var result = await apiService.updateRentalAssistance(rentalAssistance, fakeAppId)
       expect(result).toEqual(true)

@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 const FormGrid = {}
 
-FormGrid.Row = ({children, paddingBottom, expand}) => {
+FormGrid.Row = ({ children, paddingBottom, expand }) => {
   const divClassNames = classNames(
     'form-grid',
     'row',
@@ -33,7 +33,7 @@ FormGrid.Item = ({children, wide}) => {
   )
 }
 
-FormGrid.Group = ({children, label}) => (
+FormGrid.Group = ({ children, label }) => (
   <div className='form-group'>
     { label && <label htmlFor=''>{label}</label>}
     {children}

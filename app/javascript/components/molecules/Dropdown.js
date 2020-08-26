@@ -5,8 +5,6 @@ import classNames from 'classnames'
 import DropdownMenu from '../molecules/DropdownMenu'
 import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
 
-const dropdownStyle = { top: 40, left: 0 }
-
 const Dropdown = ({
   prompt,
   items,
@@ -91,10 +89,9 @@ const Dropdown = ({
       <div className='dropdown-menu-wrapper' aria-hidden={expanded ? 'false' : 'true'} role='menu'>
         {expanded && (
           <DropdownComponent
-            style={dropdownStyle}
             onChange={onChangeHandler}
             items={items}
-            {...(multiple ? {values: value} : {value})}
+            {...(multiple ? { values: value } : { value })}
             classes={menuClasses} />
         )}
       </div>

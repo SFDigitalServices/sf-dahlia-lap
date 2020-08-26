@@ -28,7 +28,7 @@ export const RentBurdenedPanel = ({ preferenceIndex, visited }) => (
     <FormItem>
       <SelectField
         fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-        options={labelize(statusOptions, {disableEmpty: true})}
+        options={labelize(statusOptions, { disableEmpty: true })}
         label='Status'
         className='preference-status-select' />
     </FormItem>

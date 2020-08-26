@@ -2,7 +2,7 @@
 module.exports = function (grunt) {
   grunt.initConfig({
 
-  // Define our Pattern Library and Application Assets paths
+    // Define our Pattern Library and Application Assets paths
     applicationAssetsPath: 'app/assets',
     patternLibraryPath: '../sf-dahlia-pattern-library',
 
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
   // load tasks
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
-  grunt.loadNpmTasks('grunt-replace')
+  grunt.loadNpmTasks('grunt-replace-regex')
 
   // register task
   grunt.registerTask('default', [

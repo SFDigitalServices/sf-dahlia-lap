@@ -78,7 +78,7 @@ const LeaseUpTableContainer = ({
   const rowsData = (applications) => map(applications, buildRowData)
 
   return (
-    <React.Fragment>
+    <>
       <LeaseUpApplicationsFilter preferences={preferences} onSubmit={handleOnFilter} loading={loading} />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
@@ -97,7 +97,7 @@ const LeaseUpTableContainer = ({
         submitButton='Update'
         onSubmit={createStatusUpdate}
         onClose={closeStatusModal} />
-    </React.Fragment>
+    </>
   )
 }
 

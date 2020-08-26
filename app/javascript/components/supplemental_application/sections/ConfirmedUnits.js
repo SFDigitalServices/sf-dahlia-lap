@@ -5,7 +5,7 @@ import { CheckboxField, TextCheckboxField } from '~/utils/form/final_form/Field.
 
 const ConfirmedUnits = ({form}) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item wide>
           <FormGrid.Group label='Household Members Priorities'>
@@ -44,7 +44,7 @@ const ConfirmedUnits = ({form}) => {
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -10,7 +10,7 @@ const {
   relationshipOptions
 } = formOptions
 
-const HouseholdMemberForm = ({i, form}) => {
+const HouseholdMemberForm = ({ i, form }) => {
   return (
     <div>
       <div className='row'>

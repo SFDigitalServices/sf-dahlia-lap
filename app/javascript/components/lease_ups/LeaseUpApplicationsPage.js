@@ -33,7 +33,7 @@ class LeaseUpApplicationsPage extends React.Component {
   eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
 
   fetchApplications = async (page, filters) => {
-    let { records, pages } = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, {filters})
+    let { records, pages } = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, { filters })
     records = map(records, buildLeaseUpAppPrefModel)
     return { records, pages }
   }
@@ -89,7 +89,7 @@ class LeaseUpApplicationsPage extends React.Component {
         loading: false,
         showAlert: true,
         alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
+        onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
       })
     }
   }
@@ -130,8 +130,8 @@ class LeaseUpApplicationsPage extends React.Component {
       content: listing.building_street_address,
       action: listing.report_id ? exportButtonAction : null,
       breadcrumbs: [
-        {title: 'Lease Ups', link: appPaths.toLeaseUps()},
-        {title: listing.name, link: appPaths.toLeaseUpApplications(listing.id)}
+        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
+        { title: listing.name, link: appPaths.toLeaseUpApplications(listing.id) }
       ]
     }
 

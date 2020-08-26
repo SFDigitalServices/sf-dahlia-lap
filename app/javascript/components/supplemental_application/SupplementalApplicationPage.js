@@ -47,7 +47,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   setLoading = (loading) => {
-    this.setState({loading})
+    this.setState({ loading })
   }
 
   handleSaveApplication = async (application) => {
@@ -126,7 +126,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleStatusModalClose = () => {
-    this.updateStatusModal({isOpen: false})
+    this.updateStatusModal({ isOpen: false })
   }
 
   handleStatusModalStatusChange = (value, key) => {
@@ -143,8 +143,8 @@ class SupplementalApplicationPage extends React.Component {
   handleStatusModalSubmit = async (submittedValues, fromApplication) => {
     const { application } = this.state
     const { status, subStatus, comment } = submittedValues
-    this.setState({loading: true})
-    this.updateStatusModal({loading: true})
+    this.setState({ loading: true })
+    this.updateStatusModal({ loading: true })
     const data = {
       status,
       comment,
@@ -162,16 +162,16 @@ class SupplementalApplicationPage extends React.Component {
         loading: false,
         showAlert: true,
         alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
+        onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
       })
-      this.setState({loading: false})
+      this.setState({ loading: false })
     } else {
       this.setState({
         application: setApplicationsDefaults(updatedApplication),
         statusHistory: updatedStatusHistory,
         loading: false,
         supplementalAppTouched: false
-      }, () => this.updateStatusModal({loading: false, isOpen: false}))
+      }, () => this.updateStatusModal({ loading: false, isOpen: false }))
     }
   }
 

@@ -54,18 +54,19 @@ const StatusModalWrapper = ({
         {/* Inline field due to the nested level throwing error in react-final-form */}
         <Field name='status' validate={validate.isPresent('Status is required')}>
           {({ input: { onChange }, meta }) => (
-            <React.Fragment>
+            <>
               <StatusDropdown
                 status={values.status}
                 onChange={val => {
                   onChange(val)
                   changeFieldValue('subStatus', null)
                 }}
-                buttonClasses={['margin-bottom--half', 'expand', 'small']}
+                dropdownClasses='margin-bottom--half'
+                buttonClasses={['expand', 'small']}
                 menuClasses={['form-modal_dropdown-menu']}
-                wrapperClasses={['status']} />
+                wrapperClasses={['margin-bottom--half', 'status']} />
               {!values.status && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
-            </React.Fragment>
+            </>
           )}
         </Field>
         {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
@@ -75,7 +76,7 @@ const StatusModalWrapper = ({
               and record level validation so it can be conditional
             */}
             {({ input: { onChange }, meta }) => (
-              <React.Fragment>
+              <>
                 <h2 className={`form-label ${!values.subStatus && meta.touched && meta.error ? 'error' : ''}`}>Status Detail (required)</h2>
                 <StatusDropdown
                   status={values.status}
@@ -83,11 +84,12 @@ const StatusModalWrapper = ({
                   prompt={'Select One...'}
                   showSubStatus
                   onChange={onChange}
-                  buttonClasses={['margin-bottom--half', 'expand', 'substatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']}
+                  dropdownClasses='margin-bottom--half'
+                  buttonClasses={['expand', 'substatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']}
                   menuClasses={['form-modal_dropdown-menu']}
-                  wrapperClasses={['subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
+                  wrapperClasses={['margin-bottom--half', 'subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
                 {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
-              </React.Fragment>
+              </>
             )}
           </Field>
         )}

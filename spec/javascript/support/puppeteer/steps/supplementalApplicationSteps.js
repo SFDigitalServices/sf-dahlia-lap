@@ -51,7 +51,7 @@ const generateRandomCurrency = () => {
   // Round to the nearest hundredth, then convert back to float.
   const val = Number.parseFloat((Math.random() * 1000).toFixed(2))
   // TODO We could improve this by adding commas to the currency string too.
-  return {'currency': `$${val}`, 'float': val}
+  return { 'currency': `$${val}`, 'float': val }
 }
 
 const savePage = async (page) => {

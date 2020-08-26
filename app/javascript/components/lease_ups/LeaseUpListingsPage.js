@@ -5,7 +5,7 @@ import appPaths from '~/utils/appPaths'
 import TableLayout from '../layouts/TableLayout'
 import LeaseUpListingsTable from './LeaseUpListingsTable'
 
-const LeaseUpListingsPage = ({listings}) => {
+const LeaseUpListingsPage = ({ listings }) => {
   const pageHeader = {
     title: 'Lease Ups'
   }

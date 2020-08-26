@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { kebabCase } from 'lodash'
 
@@ -22,7 +22,7 @@ const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, ex
   const rowId = rowKeyIndex ? kebabCase(row[rowKeyIndex].content) : null
 
   return (
-    <Fragment>
+    <>
       <tr className='tr-expand' aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
         {cells}
         <td key='expander'>
@@ -34,7 +34,7 @@ const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, ex
           {expandedRowRenderer && expandedRowRenderer(row, toggleExpandedRow, original)}
         </td>
       </tr>
-    </Fragment>
+    </>
   )
 }
 
