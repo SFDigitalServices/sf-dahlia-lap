@@ -12,7 +12,7 @@ const TabCard = ({ children, padding }) => {
     {
       'padding-top--2x': padding
     },
-    `bg-white`
+    'bg-white'
   )
   return (
     <section className={sectionClassName}>
