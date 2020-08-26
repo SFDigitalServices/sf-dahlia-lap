@@ -19,7 +19,7 @@ exports[`TabsMenu it should render correctly 1`] = `
   }
 >
   <div
-    className="tabs-section tabs-row full-width inner--3x bg-snow stretch-to-fill-medium-down"
+    className="tabs-section tabs-row full-width inner--3x bg-snow"
   >
     <TabsMenu
       currentUrl="/url1"

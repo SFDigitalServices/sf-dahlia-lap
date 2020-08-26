@@ -867,7 +867,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
         padding="false"
       >
         <div
-          className="tabs-section tabs-row full-width inner--3x bg-snow stretch-to-fill-medium-down"
+          className="tabs-section tabs-row full-width inner--3x bg-snow"
         >
           <TabsMenu
             items={
@@ -13180,7 +13180,7 @@ Array [
     </div>
   </header>,
   <div
-    className="tabs-section tabs-row full-width inner--3x bg-snow stretch-to-fill-medium-down"
+    className="tabs-section tabs-row full-width inner--3x bg-snow"
   >
     <ul
       className="tabs"
