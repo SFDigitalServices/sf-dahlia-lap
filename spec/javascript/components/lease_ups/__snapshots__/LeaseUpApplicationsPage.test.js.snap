@@ -179,7 +179,6 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
       </header>
     </PageHeader>
     <TabCard
-      background="white"
       padding={true}
     >
       <section

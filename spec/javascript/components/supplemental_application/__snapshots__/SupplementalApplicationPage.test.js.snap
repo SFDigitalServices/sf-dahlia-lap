@@ -943,7 +943,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
           </TabsMenu>
         </div>
         <TabCard
-          background="white"
           padding="false"
         >
           <section

@@ -95,7 +95,6 @@ exports[`TabsMenu it should render correctly 1`] = `
     </TabsMenu>
   </div>
   <TabCard
-    background="white"
     padding={false}
   >
     <section
