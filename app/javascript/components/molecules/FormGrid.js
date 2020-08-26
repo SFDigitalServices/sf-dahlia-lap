@@ -25,7 +25,7 @@ FormGrid.Row.defaultProps = {
 }
 
 // NOTE: Grid is hardcoded. This should not be generic element
-FormGrid.Item = ({children, wide}) => {
+FormGrid.Item = ({ children, wide }) => {
   return (
     <div className={`form-grid_item small-12 medium-6 ${wide ? 'large-6' : 'large-3'} column`}>
       {children}
