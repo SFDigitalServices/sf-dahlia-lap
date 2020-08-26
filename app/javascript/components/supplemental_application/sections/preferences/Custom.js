@@ -13,7 +13,7 @@ const {
 
 export const Custom = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
@@ -23,7 +23,7 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
-            options={labelize(applicationMembersOptions, {disableEmpty: true})}
+            options={labelize(applicationMembersOptions, { disableEmpty: true })}
             label='HH Member on Proof' />
         </FormItem>
         <FormItem>
@@ -35,7 +35,7 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-            options={labelize(statusOptions, {disableEmpty: true})}
+            options={labelize(statusOptions, { disableEmpty: true })}
             label='Status' />
         </FormItem>
       </FormGrid.Row>
@@ -49,7 +49,7 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>)
+    </>)
 }
 
 export default Custom

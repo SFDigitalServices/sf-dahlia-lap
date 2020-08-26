@@ -20,8 +20,8 @@ const getProofTypes = (pref) => {
 }
 
 const individualPreferenceOptions = [
-  {value: 'Live in SF', label: 'Live in SF'},
-  {value: 'Work in SF', label: 'Work in SF'}
+  { value: 'Live in SF', label: 'Live in SF' },
+  { value: 'Work in SF', label: 'Work in SF' }
 ]
 
 const LiveWorkFields = ({ i, form, householdMembers }) => {

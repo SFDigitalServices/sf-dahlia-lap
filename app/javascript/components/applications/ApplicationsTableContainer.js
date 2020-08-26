@@ -46,7 +46,7 @@ class ApplicationsTableContainer extends React.Component {
     const { listings } = this.props
     const { loading, applications, pages, atMaxPages } = this.state
     return (
-      <React.Fragment>
+      <>
         <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings} loading={loading} />
         <ApplicationsTable
           applications={applications}
@@ -56,7 +56,7 @@ class ApplicationsTableContainer extends React.Component {
           rowsPerPage={ROWS_PER_PAGE}
           atMaxPages={atMaxPages}
         />
-      </React.Fragment>
+      </>
     )
   }
 }

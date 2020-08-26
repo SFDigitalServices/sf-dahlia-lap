@@ -9,7 +9,7 @@ import { maxLengthMap } from '~/utils/formUtils'
 
 let { phoneTypeOptions } = formOptions
 
-const PrimaryApplicantSection = ({form}) => {
+const PrimaryApplicantSection = ({ form }) => {
   return (
     <div className='border-bottom margin-bottom--2x'>
       <div className='row'>

@@ -8,7 +8,7 @@ let {
   adaPriorityValueToLabelMap
 } = formOptions
 
-const ReservedPrioritySection = ({editValues, listing}) => {
+const ReservedPrioritySection = ({ editValues, listing }) => {
   let autofillValues = {}
 
   const adaPriorities = toPairs(adaPriorityValueToLabelMap)

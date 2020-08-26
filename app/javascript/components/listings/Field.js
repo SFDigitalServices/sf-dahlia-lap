@@ -1,10 +1,10 @@
 import React from 'react'
 
 var generateHtml = (value) => {
-  return {__html: value}
+  return { __html: value }
 }
 
-const RenderType = ({type, value}) => {
+const RenderType = ({ type, value }) => {
   if (type === 'html') {
     return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
   } else if (type === 'link') {

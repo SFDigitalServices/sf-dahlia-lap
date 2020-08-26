@@ -4,8 +4,8 @@ import { SelectField } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
 
 const individualPreferenceOptions = [
-  {value: 'Assisted Housing', label: 'Assisted Housing'},
-  {value: 'Rent Burdened', label: 'Rent Burdened'}
+  { value: 'Assisted Housing', label: 'Assisted Housing' },
+  { value: 'Rent Burdened', label: 'Rent Burdened' }
 ]
 
 const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {

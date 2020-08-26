@@ -163,7 +163,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   }
 
   return (
-    <React.Fragment>
+    <>
       <div className={classNames(
         'app-editable expand-wide scrollable-table-nested',
         {
@@ -246,7 +246,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
           </div>
         </FormGrid.Row>
       </div>
-    </React.Fragment>
+    </>
   )
 }
 
@@ -273,7 +273,7 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       { !isEmpty(application.rental_assistances) && (
         <RentalAssistanceTable
           rentalAssistances={application.rental_assistances}
@@ -290,7 +290,7 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
           onClose={onClose}
           applicationMembers={applicationMembers}
           loading={rentalAssistanceLoading}
-          values={{type_of_assistance: null}}
+          values={{ type_of_assistance: null }}
           index={application.rental_assistances.length}
           form={form}
           visited={visited}
@@ -300,7 +300,7 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
       { showAddRentalAssistanceBtn && (
         <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
       )}
-    </React.Fragment>
+    </>
   )
 }
 

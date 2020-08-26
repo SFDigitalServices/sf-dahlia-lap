@@ -27,7 +27,7 @@ const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
   )
 }
 
-const TypeOfProofWithoutFile = ({type}) => {
+const TypeOfProofWithoutFile = ({ type }) => {
   return (
     <ul>
       <li>

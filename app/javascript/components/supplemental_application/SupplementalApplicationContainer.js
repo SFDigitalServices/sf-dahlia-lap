@@ -23,7 +23,7 @@ import { convertPercentAndCurrency } from '../../utils/form/validations'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal, loading } = store
-  let recentStatusUpdate = statusHistory && statusHistory[0] ? statusHistory[0] : {status: null, comment: null, date: null}
+  let recentStatusUpdate = statusHistory && statusHistory[0] ? statusHistory[0] : { status: null, comment: null, date: null }
 
   return (
     <ContentSection.Content paddingBottomNone marginTop>
@@ -76,7 +76,7 @@ const ConfirmedHousehold = ({ listingAmiCharts, visited }) => (
   </ContentSection>
 )
 
-const LeaseInformationSection = ({form, values, visited}) => (
+const LeaseInformationSection = ({ form, values, visited }) => (
   <ContentSection title='Lease Information'>
     <ContentSection.Sub
       title='Unit'>
@@ -90,7 +90,7 @@ const LeaseInformationSection = ({form, values, visited}) => (
   </ContentSection>
 )
 
-const RentalAssistanceSection = ({form, submitting, visited}) => (
+const RentalAssistanceSection = ({ form, submitting, visited }) => (
   <ContentSection.Sub
     title='Rental Assistance Information'
     description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
@@ -120,10 +120,10 @@ const SupplementalApplicationContainer = ({ store }) => {
   const [failed, setFailed] = useState(false)
 
   const validateForm = (values) => {
-    const errors = {lease: {}}
+    const errors = { lease: {} }
     // only validate lease_start_date when any of the fields is present
     if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
-      errors.lease = {lease_start_date: {}}
+      errors.lease = { lease_start_date: {} }
       validate.isValidDate(values.lease.lease_start_date, errors.lease.lease_start_date)
     }
     return errors
@@ -163,7 +163,7 @@ const SupplementalApplicationContainer = ({ store }) => {
       validate={validateForm}
       mutators={{ ...arrayMutators }}
       render={({ handleSubmit, form, touched, submitting, values, visited }) => (
-        <React.Fragment>
+        <>
           { failed && (
             <AlertBox
               invert
@@ -217,7 +217,7 @@ const SupplementalApplicationContainer = ({ store }) => {
             onClose={handleStatusModalClose}
             onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, convertPercentAndCurrency(form.getState().values))}
           />
-        </React.Fragment>
+        </>
       )}
     />
   )

@@ -16,7 +16,7 @@ const ListingPage = ({ listing }) => {
   }
 
   return (
-    <CardLayout pageHeader={{title: listing.name}} tabSection={tabs}>
+    <CardLayout pageHeader={{ title: listing.name }} tabSection={tabs}>
       <ListingPageDetails listing={listing} />
     </CardLayout>
   )

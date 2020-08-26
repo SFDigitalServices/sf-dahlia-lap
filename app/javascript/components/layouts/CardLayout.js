@@ -13,7 +13,7 @@ const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
   }, [])
 
   return (
-    <React.Fragment>
+    <>
       <PageHeader {...pageHeader} background='snow' />
       { tabSection
         ? (
@@ -22,15 +22,15 @@ const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
           </TabsSection>
         )
         : (
-          <React.Fragment>
+          <>
             { toolbar && toolbar() }
             <TabCard padding>
               <AppCard>{children}</AppCard>
             </TabCard>
-          </React.Fragment>
+          </>
         )
       }
-    </React.Fragment>
+    </>
   )
 }
 

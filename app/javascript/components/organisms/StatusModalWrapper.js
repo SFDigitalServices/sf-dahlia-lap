@@ -54,7 +54,7 @@ const StatusModalWrapper = ({
         {/* Inline field due to the nested level throwing error in react-final-form */}
         <Field name='status' validate={validate.isPresent('Status is required')}>
           {({ input: { onChange }, meta }) => (
-            <React.Fragment>
+            <>
               <StatusDropdown
                 status={values.status}
                 onChange={val => {
@@ -66,7 +66,7 @@ const StatusModalWrapper = ({
                 menuClasses={['form-modal_dropdown-menu']}
                 wrapperClasses={['margin-bottom--half', 'status']} />
               {!values.status && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
-            </React.Fragment>
+            </>
           )}
         </Field>
         {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
@@ -76,7 +76,7 @@ const StatusModalWrapper = ({
               and record level validation so it can be conditional
             */}
             {({ input: { onChange }, meta }) => (
-              <React.Fragment>
+              <>
                 <h2 className={`form-label ${!values.subStatus && meta.touched && meta.error ? 'error' : ''}`}>Status Detail (required)</h2>
                 <StatusDropdown
                   status={values.status}
@@ -89,7 +89,7 @@ const StatusModalWrapper = ({
                   menuClasses={['form-modal_dropdown-menu']}
                   wrapperClasses={['margin-bottom--half', 'subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
                 {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
-              </React.Fragment>
+              </>
             )}
           </Field>
         )}
