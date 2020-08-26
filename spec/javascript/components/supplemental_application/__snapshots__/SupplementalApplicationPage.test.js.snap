@@ -2176,47 +2176,40 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                           Object {
                                             "commentRequired": true,
                                             "label": "Processing",
-                                            "pillStyle": "status-pill-processing",
                                             "style": "is-processing",
                                             "value": "Processing",
                                           },
                                           Object {
                                             "label": "Withdrawn",
-                                            "pillStyle": "status-pill-withdrawn",
                                             "style": "is-withdrawn",
                                             "value": "Withdrawn",
                                           },
                                           Object {
                                             "commentRequired": true,
                                             "label": "Appealed",
-                                            "pillStyle": "status-pill-appealed",
                                             "style": "is-appealed",
                                             "value": "Appealed",
                                           },
                                           Object {
                                             "commentRequired": true,
                                             "label": "Waitlisted",
-                                            "pillStyle": "status-pill-waitlisted",
                                             "style": "is-waitlisted",
                                             "value": "Waitlisted",
                                           },
                                           Object {
                                             "commentRequired": true,
                                             "label": "Disqualified",
-                                            "pillStyle": "status-pill-disqualified",
                                             "style": "is-disqualified",
                                             "value": "Disqualified",
                                           },
                                           Object {
                                             "commentRequired": true,
                                             "label": "Approved",
-                                            "pillStyle": "status-pill-approved",
                                             "style": "is-approved",
                                             "value": "Approved",
                                           },
                                           Object {
                                             "label": "Lease Signed",
-                                            "pillStyle": "status-pill-leased",
                                             "style": "is-leased",
                                             "value": "Lease Signed",
                                           },
@@ -12544,47 +12537,40 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 Object {
                                   "commentRequired": true,
                                   "label": "Processing",
-                                  "pillStyle": "status-pill-processing",
                                   "style": "is-processing",
                                   "value": "Processing",
                                 },
                                 Object {
                                   "label": "Withdrawn",
-                                  "pillStyle": "status-pill-withdrawn",
                                   "style": "is-withdrawn",
                                   "value": "Withdrawn",
                                 },
                                 Object {
                                   "commentRequired": true,
                                   "label": "Appealed",
-                                  "pillStyle": "status-pill-appealed",
                                   "style": "is-appealed",
                                   "value": "Appealed",
                                 },
                                 Object {
                                   "commentRequired": true,
                                   "label": "Waitlisted",
-                                  "pillStyle": "status-pill-waitlisted",
                                   "style": "is-waitlisted",
                                   "value": "Waitlisted",
                                 },
                                 Object {
                                   "commentRequired": true,
                                   "label": "Disqualified",
-                                  "pillStyle": "status-pill-disqualified",
                                   "style": "is-disqualified",
                                   "value": "Disqualified",
                                 },
                                 Object {
                                   "commentRequired": true,
                                   "label": "Approved",
-                                  "pillStyle": "status-pill-approved",
                                   "style": "is-approved",
                                   "value": "Approved",
                                 },
                                 Object {
                                   "label": "Lease Signed",
-                                  "pillStyle": "status-pill-leased",
                                   "style": "is-leased",
                                   "value": "Lease Signed",
                                 },
@@ -12642,47 +12628,40 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       Object {
                                         "commentRequired": true,
                                         "label": "Processing",
-                                        "pillStyle": "status-pill-processing",
                                         "style": "is-processing",
                                         "value": "Processing",
                                       },
                                       Object {
                                         "label": "Withdrawn",
-                                        "pillStyle": "status-pill-withdrawn",
                                         "style": "is-withdrawn",
                                         "value": "Withdrawn",
                                       },
                                       Object {
                                         "commentRequired": true,
                                         "label": "Appealed",
-                                        "pillStyle": "status-pill-appealed",
                                         "style": "is-appealed",
                                         "value": "Appealed",
                                       },
                                       Object {
                                         "commentRequired": true,
                                         "label": "Waitlisted",
-                                        "pillStyle": "status-pill-waitlisted",
                                         "style": "is-waitlisted",
                                         "value": "Waitlisted",
                                       },
                                       Object {
                                         "commentRequired": true,
                                         "label": "Disqualified",
-                                        "pillStyle": "status-pill-disqualified",
                                         "style": "is-disqualified",
                                         "value": "Disqualified",
                                       },
                                       Object {
                                         "commentRequired": true,
                                         "label": "Approved",
-                                        "pillStyle": "status-pill-approved",
                                         "style": "is-approved",
                                         "value": "Approved",
                                       },
                                       Object {
                                         "label": "Lease Signed",
-                                        "pillStyle": "status-pill-leased",
                                         "style": "is-leased",
                                         "value": "Lease Signed",
                                       },
@@ -12703,7 +12682,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Processing"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-processing"
                                       selected={false}
                                       style="is-processing"
                                       value="Processing"
@@ -12727,7 +12705,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Withdrawn"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-withdrawn"
                                       selected={true}
                                       style="is-withdrawn"
                                       value="Withdrawn"
@@ -12752,7 +12729,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Appealed"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-appealed"
                                       selected={false}
                                       style="is-appealed"
                                       value="Appealed"
@@ -12777,7 +12753,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Waitlisted"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-waitlisted"
                                       selected={false}
                                       style="is-waitlisted"
                                       value="Waitlisted"
@@ -12802,7 +12777,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Disqualified"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-disqualified"
                                       selected={false}
                                       style="is-disqualified"
                                       value="Disqualified"
@@ -12827,7 +12801,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Approved"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-approved"
                                       selected={false}
                                       style="is-approved"
                                       value="Approved"
@@ -12851,7 +12824,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       label="Lease Signed"
                                       onChange={[Function]}
                                       onKeyDown={[Function]}
-                                      pillStyle="status-pill-leased"
                                       selected={false}
                                       style="is-leased"
                                       value="Lease Signed"

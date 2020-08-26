@@ -69,13 +69,9 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
           className="status-item-header"
         >
           <div
-            className="status-pill-approved"
+            className="is-approved"
           >
-            <div
-              className="pill-text"
-            >
-              Approved
-            </div>
+            Approved
           </div>
           <div
             className="status-item-date"
@@ -324,13 +320,9 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="status-pill-approved"
+            className="is-approved"
           >
-            <div
-              className="pill-text"
-            >
-              Approved
-            </div>
+            Approved
           </div>
           <div
             className="status-item-date"
@@ -360,13 +352,9 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="status-pill-approved"
+            className="is-approved"
           >
-            <div
-              className="pill-text"
-            >
-              Approved
-            </div>
+            Approved
           </div>
           <div
             className="status-item-date"
@@ -396,13 +384,9 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="status-pill-approved"
+            className="is-approved"
           >
-            <div
-              className="pill-text"
-            >
-              Approved
-            </div>
+            Approved
           </div>
           <div
             className="status-item-date"
@@ -432,13 +416,9 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="status-pill-waitlisted"
+            className="is-waitlisted"
           >
-            <div
-              className="pill-text"
-            >
-              Waitlisted
-            </div>
+            Waitlisted
           </div>
           <div
             className="status-item-date"
@@ -466,13 +446,9 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="status-pill-leased"
+            className="is-leased"
           >
-            <div
-              className="pill-text"
-            >
-              Lease Signed
-            </div>
+            Lease Signed
           </div>
           <div
             className="status-item-date"
@@ -498,13 +474,9 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="status-pill-leased"
+            className="is-leased"
           >
-            <div
-              className="pill-text"
-            >
-              Lease Signed
-            </div>
+            Lease Signed
           </div>
           <div
             className="status-item-date"
