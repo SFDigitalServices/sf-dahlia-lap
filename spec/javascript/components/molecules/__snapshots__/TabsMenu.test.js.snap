@@ -17,7 +17,7 @@ exports[`TabsMenu should render tab 1`] = `
   }
 >
   <ul
-    className="tabs full-width-small-only"
+    className="tabs"
     role="menubar"
   >
     <Tab
@@ -35,6 +35,7 @@ exports[`TabsMenu should render tab 1`] = `
       >
         <a
           aria-selected={true}
+          className="button-unstyled"
           href="/url1"
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -58,6 +59,7 @@ exports[`TabsMenu should render tab 1`] = `
         role="none"
       >
         <a
+          className="button-unstyled"
           href="/url2"
           onFocus={[Function]}
           onKeyDown={[Function]}
