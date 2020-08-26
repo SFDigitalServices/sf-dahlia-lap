@@ -10,17 +10,42 @@ class PatternLibraryController < ApplicationController
     # Lease-up sidebar
     @example_lease_status_history = [
       {
-        timeStamp: 1598309423,
+        timeStamp: 1598425200,
         status: 'Withdrawn',
         subStatus: 'Written withdrawal',
         comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.'
       },
       {
-        timeStamp: 1598349423,
+        timeStamp: 1598338800,
         status: 'Processing'
       },
       {
-        timeStamp: 1598382431,
+        timeStamp: 1598252400,
+        status: 'Approved',
+        subStatus: 'Approval letter sent'
+      },
+      {
+        timeStamp: 1598166000,
+        status: 'Approved',
+        subStatus: 'Approval letter sent'
+      },
+      {
+        timeStamp: 1598079600,
+        status: 'Approved',
+        subStatus: 'Approval letter sent'
+      },
+      {
+        timeStamp: 1597993200,
+        status: 'Approved',
+        subStatus: 'Approval letter sent'
+      },
+      {
+        timeStamp: 1597906800,
+        status: 'Approved',
+        subStatus: 'Approval letter sent'
+      },
+      {
+        timeStamp: 1597820400,
         status: 'Approved',
         subStatus: 'Approval letter sent'
       }

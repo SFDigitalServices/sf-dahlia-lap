@@ -41,3 +41,6 @@ export const mockStatusItems = () => [
     timeStamp: toTimeStamp('8-20-2020')
   })
 ]
+
+export const mockManyStatusItems = (n) =>
+  Array.from({ length: n }, () => mockStatusItem())

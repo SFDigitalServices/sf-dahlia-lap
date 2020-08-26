@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import LeaseUpSidebar from 'components/molecules/LeaseUpSidebar'
-import { mockStatusItem, mockStatusItems } from '../../mocks/statusItemMock'
+import { mockStatusItem, mockStatusItems, mockManyStatusItems } from '../../mocks/statusItemMock'
 
 const getWrapper = (currentStatus, items) => renderer.create(
   <LeaseUpSidebar
@@ -23,6 +23,11 @@ describe('LeaseUpSidebar', () => {
 
   test('should render with multiple status items correctly', () => {
     const wrapper = getWrapper('Approved', mockStatusItems())
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should render with more than 4 status items correctly', () => {
+    const wrapper = getWrapper('Approved', mockManyStatusItems(5))
     expect(wrapper).toMatchSnapshot()
   })
 })

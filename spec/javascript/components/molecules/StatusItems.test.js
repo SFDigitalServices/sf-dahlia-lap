@@ -3,7 +3,12 @@ import renderer from 'react-test-renderer'
 import { mockStatusItem, mockStatusItems } from '../../mocks/statusItemMock'
 import StatusItems from 'components/molecules/StatusItems'
 
-const getWrapper = (items) => renderer.create(<StatusItems statusItems={items} />)
+const getWrapper = (items, limit = null) => renderer.create(
+  <StatusItems
+    statusItems={items}
+    limit={limit}
+  />
+)
 
 describe('StatusItems', () => {
   test('should render empty status items correctly', () => {
@@ -18,6 +23,21 @@ describe('StatusItems', () => {
 
   test('should render multiple status items correctly', () => {
     const wrapper = getWrapper(mockStatusItems())
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should render multiple status items with limit 0 correctly', () => {
+    const wrapper = getWrapper(mockStatusItems(), 0)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should render multiple status items with limit 1 correctly', () => {
+    const wrapper = getWrapper(mockStatusItems(), 1)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should render multiple status items with limit 100 correctly', () => {
+    const wrapper = getWrapper(mockStatusItems(), 100)
     expect(wrapper).toMatchSnapshot()
   })
 })

@@ -32,7 +32,7 @@
   == pl_component 'FormGridTable', { columns: @expandable_table_columns, rows: @expandable_table_rows }
   == pl_component 'LeaseUpSidebar', { currentStatus: 'Approved', statusItems: @example_lease_status_history }
   == pl_component 'Loading', { }
-  == pl_component 'StatusItems', { statusItems: @example_lease_status_history }
+  == pl_component 'StatusItems', { statusItems: @example_lease_status_history, limit: 4 }
   == pl_component 'TablePagination', { pages: 'of 6' }
   == pl_component 'TableSimple', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Jay' }
   == pl_component 'TabsMenu', { items: [ { title: 'Short Form Application', url: '/pattern_library?url1=true' }, { title: 'Supplemental Information', url: '/pattern_library?url2=false' }, { title: 'Other Information', url: '/pattern_library?url3=false' }], currentUrl: request.original_fullpath }
