@@ -69,7 +69,7 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
           className="status-item-header"
         >
           <div
-            className="is-approved"
+            className="status-pill is-approved"
           >
             Approved
           </div>
@@ -320,7 +320,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="is-approved"
+            className="status-pill is-approved"
           >
             Approved
           </div>
@@ -352,7 +352,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="is-approved"
+            className="status-pill is-approved"
           >
             Approved
           </div>
@@ -384,7 +384,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="is-approved"
+            className="status-pill is-approved"
           >
             Approved
           </div>
@@ -416,7 +416,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="is-waitlisted"
+            className="status-pill is-waitlisted"
           >
             Waitlisted
           </div>
@@ -446,7 +446,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="is-leased"
+            className="status-pill is-leased"
           >
             Lease Signed
           </div>
@@ -474,7 +474,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           className="status-item-header"
         >
           <div
-            className="is-leased"
+            className="status-pill is-leased"
           >
             Lease Signed
           </div>
