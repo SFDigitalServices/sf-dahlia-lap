@@ -1,4 +1,4 @@
-import { find } from 'lodash'
+import { find, map } from 'lodash'
 
 export const LEASE_UP_STATUS_OPTIONS = [
   { value: 'Processing', label: 'Processing', style: 'is-processing', pillStyle: 'status-pill-processing', commentRequired: true },
@@ -46,6 +46,11 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
     { value: 'Waiting for subsidy inspection', label: 'Waiting for subsidy inspection' }
   ]
 }
+
+export const LEASE_UP_STATUS_VALUES = LEASE_UP_STATUS_OPTIONS.map(option => option.value)
+export const LEASE_UP_SUBSTATUS_VALUES =
+  map(LEASE_UP_SUBSTATUS_OPTIONS, (substatusList) => map(substatusList, 'value'))
+    .flat()
 
 export const getLeaseUpStatusClass = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })

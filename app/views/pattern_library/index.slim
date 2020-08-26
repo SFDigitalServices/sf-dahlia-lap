@@ -30,8 +30,9 @@
   == pl_component 'ExpandableTableWrapper', { columns: @expandable_table_columns, rows: @expandable_table_rows }, { title: 'ExpandableTable'}
   == pl_component 'FormGridRow', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
   == pl_component 'FormGridTable', { columns: @expandable_table_columns, rows: @expandable_table_rows }
+  == pl_component 'LeaseUpSidebar', { currentStatus: 'Approved', statusItems: @example_lease_status_history }
   == pl_component 'Loading', { }
-  == pl_component 'StatusItems', { statusItems: [{timeStamp: 1598309423, status: 'Withdrawn', subStatus: 'Written withdrawal', comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.'}, {timeStamp: 1598309423, status: 'Processing'}]}
+  == pl_component 'StatusItems', { statusItems: @example_lease_status_history }
   == pl_component 'TablePagination', { pages: 'of 6' }
   == pl_component 'TableSimple', { header: 'Name', value: 'Solange', headerB: 'Other', valueB: 'Jay' }
   == pl_component 'TabsMenu', { items: [ { title: 'Short Form Application', url: '/pattern_library?url1=true' }, { title: 'Supplemental Information', url: '/pattern_library?url2=false' }, { title: 'Other Information', url: '/pattern_library?url3=false' }], currentUrl: request.original_fullpath }

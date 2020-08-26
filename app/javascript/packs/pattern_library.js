@@ -28,6 +28,7 @@ import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
+import LeaseUpSidebar from 'components/molecules/LeaseUpSidebar'
 import Loading from 'components/molecules/Loading'
 import StatusItems from 'components/molecules/StatusItems'
 import TablePagination from 'components/molecules/TablePagination'
@@ -75,6 +76,7 @@ WebpackerReact.setup({ DropdownMenu })
 WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
+WebpackerReact.setup({ LeaseUpSidebar })
 WebpackerReact.setup({ Loading })
 WebpackerReact.setup({ StatusItems })
 WebpackerReact.setup({ TablePagination })
