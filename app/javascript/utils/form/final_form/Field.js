@@ -194,7 +194,7 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
-export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No' }) => {
+export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No', initialValue = null }) => {
   const onChange = (event) => {
     form.change(fieldName, event.target.checked ? trueValue : falseValue)
   }
@@ -204,19 +204,24 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
       validate={validation}
       type='input'
       component='input'
+      initialValue={initialValue}
     >
       {({ input, meta }) => (
-        <React.Fragment>
-          <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-            <input id={id || `form-${fieldName}`} type='checkbox' checked={input.value === trueValue} onChange={onChange} />
-            <Label
-              label={label}
-              id={id || `form-${fieldName}`}
-              fieldName={fieldName}
-              blockNote={blockNote} />
-            <FieldError meta={meta} />
-          </div>
-        </React.Fragment>
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+          <Input
+            input={input}
+            type='hidden'
+            meta={meta}
+            aria-labelledby={ariaLabelledby}
+            id={id || `form-base-${fieldName}`} />
+          <input id={id || `form-ctrl-${fieldName}`} fieldName={fieldName} type='checkbox' checked={input.value === trueValue} onClick={onChange} />
+          <Label
+            label={label}
+            id={id || `form-ctrl-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote} />
+          <FieldError meta={meta} />
+        </div>
       )}
     </Field>
   )

@@ -13,14 +13,17 @@ const ConfirmedUnits = ({form}) => {
               <TextCheckboxField
                 fieldName='reserved_senior'
                 label='Senior in Household'
+                initialValue='No'
                 form={form} />
               <TextCheckboxField
                 fieldName='has_military_service'
                 label='Veteran in Household'
+                initialValue='No'
                 form={form} />
               <TextCheckboxField
                 fieldName='has_developmental_disability'
                 label='Person with Developmental Disability in Household'
+                initialValue='No'
                 form={form} />
             </div>
           </FormGrid.Group>
