@@ -3,6 +3,30 @@
 exports[`StatusItems should render a single status item correctly 1`] = `
 <div
   className="status-items"
+/>
+`;
+
+exports[`StatusItems should render empty status items correctly 1`] = `
+<div
+  className="status-items"
+/>
+`;
+
+exports[`StatusItems should render multiple status items correctly 1`] = `
+<div
+  className="status-items"
+/>
+`;
+
+exports[`StatusItems should render multiple status items with limit 0 correctly 1`] = `
+<div
+  className="status-items"
+/>
+`;
+
+exports[`StatusItems should render multiple status items with limit 1 correctly 1`] = `
+<div
+  className="status-items"
 >
   <div
     className="status-items"
@@ -39,13 +63,7 @@ exports[`StatusItems should render a single status item correctly 1`] = `
 </div>
 `;
 
-exports[`StatusItems should render empty status items correctly 1`] = `
-<div
-  className="status-items"
-/>
-`;
-
-exports[`StatusItems should render multiple status items correctly 1`] = `
+exports[`StatusItems should render multiple status items with limit 100 correctly 1`] = `
 <div
   className="status-items"
 >
