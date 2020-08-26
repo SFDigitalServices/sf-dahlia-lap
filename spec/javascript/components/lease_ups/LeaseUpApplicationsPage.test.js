@@ -17,7 +17,7 @@ jest.mock('apiService', () => {
   return {
     fetchLeaseUpApplications: async (data) => {
       mockfetchLeaseUpApplications(data)
-      return Promise.resolve({'records': mockApplications})
+      return Promise.resolve({ 'records': mockApplications })
     },
     createFieldUpdateComment: async (data) => {
       var response = mockCreateFieldUpdateComment(data)
@@ -153,7 +153,7 @@ describe('LeaseUpApplicationsPage', () => {
       }
 
       // Fill out the comment form and submit
-      wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
+      wrapper.find(commentBoxSelector).simulate('change', { target: { value: 'Sample comment value' } })
       wrapper.find(updateButtonSelector).simulate('submit')
       await tick()
       wrapper.update()
@@ -201,7 +201,7 @@ describe('LeaseUpApplicationsPage', () => {
       }
 
       // Fill out the comment and submit
-      wrapper.find(commentBoxSelector).simulate('change', {target: {value: 'Sample comment value'}})
+      wrapper.find(commentBoxSelector).simulate('change', { target: { value: 'Sample comment value' } })
       await act(async () => {
         wrapper.find(updateButtonSelector).simulate('submit')
       })

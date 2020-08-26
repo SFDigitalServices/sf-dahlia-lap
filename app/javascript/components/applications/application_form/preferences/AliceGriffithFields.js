@@ -14,7 +14,7 @@ const buildTypeOfProofOptions = (values) => {
   ))
 }
 
-const AddressRow = ({fieldId}) => (
+const AddressRow = ({ fieldId }) => (
   <React.Fragment>
     <Row form>
       <Column span={6} form>
@@ -61,7 +61,7 @@ const AddressRow = ({fieldId}) => (
   </React.Fragment>
 )
 
-const AliceGriffithFields = ({i, householdMembers}) => {
+const AliceGriffithFields = ({ i, householdMembers }) => {
   const typeOfProofOptions = buildTypeOfProofOptions(typeOfProofValues)
   const fieldId = (field) => buildFieldId(i, field)
 

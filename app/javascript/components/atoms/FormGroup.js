@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormGroup = ({children}) => (
+const FormGroup = ({ children }) => (
   <div className='form-group'>{children}</div>
 )
 

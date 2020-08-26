@@ -45,7 +45,7 @@ export const Label = ({ label, fieldName, blockNote, id, labelId, className }) =
   )
 }
 
-export const FieldError = ({meta}) => (
+export const FieldError = ({ meta }) => (
   meta.error && meta.touched ? <span className='error'>{meta.error}</span> : null
 )
 

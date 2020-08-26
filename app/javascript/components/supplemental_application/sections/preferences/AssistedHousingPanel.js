@@ -21,13 +21,13 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationM
           <SelectField
             label='Name on Lease'
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
-            options={labelize(applicationMembersOptions, {disableEmpty: true})} />
+            options={labelize(applicationMembersOptions, { disableEmpty: true })} />
         </FormItem>
         <FormItem>
           <SelectField
             label='Status'
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-            options={labelize(statusOptions, {disableEmpty: true})}
+            options={labelize(statusOptions, { disableEmpty: true })}
             className='preference-status-select' />
         </FormItem>
       </FormGrid.Row>

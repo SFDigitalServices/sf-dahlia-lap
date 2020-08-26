@@ -24,7 +24,7 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, appl
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
-            options={labelize(applicationMembersOptions, {disableEmpty: true})}
+            options={labelize(applicationMembersOptions, { disableEmpty: true })}
             label='HH Member on Proof' />
         </FormItem>
         <FormItem>
@@ -36,7 +36,7 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, appl
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-            options={labelize(statusOptions, {disableEmpty: true})}
+            options={labelize(statusOptions, { disableEmpty: true })}
             label='Status' />
         </FormItem>
       </FormGrid.Row>

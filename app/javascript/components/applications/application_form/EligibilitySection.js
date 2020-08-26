@@ -30,7 +30,7 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
   }, [])
 
   const handleSelectInstitution = (event) => {
-    const mappedLenders = map(lendingInstitutions[event.target.value], (lender) => ({label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id}))
+    const mappedLenders = map(lendingInstitutions[event.target.value], (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
     // reset lending_agent select
     form.change('lending_agent', null)
     setLenders(mappedLenders)
@@ -88,7 +88,7 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
               blockNote='(required)'
               id='lending_institution'
               fieldName='lending_institution'
-              options={map(lendingInstitutions, (_, key) => ({label: key, value: key}))}
+              options={map(lendingInstitutions, (_, key) => ({ label: key, value: key }))}
               onChange={handleSelectInstitution}
               validation={validate.isPresent('Please select a lending institution.')}
             />

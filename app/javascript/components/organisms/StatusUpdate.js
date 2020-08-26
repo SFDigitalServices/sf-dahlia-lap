@@ -13,7 +13,7 @@ const StatusUpdate = ({ status, substatus, comment, date, onStatusDropdownChange
         <StatusDropdown
           status={status}
           onChange={onStatusDropdownChange}
-          styles={{position: 'relative'}}
+          styles={{ position: 'relative' }}
           buttonClasses={['small']}
           disabled={loading}
         />
@@ -32,13 +32,13 @@ const StatusUpdate = ({ status, substatus, comment, date, onStatusDropdownChange
                     </span>
                   }
                 </div>
-                <p className={classNames('status-update_note', {'c-steel': !comment})}>
+                <p className={classNames('status-update_note', { 'c-steel': !comment })}>
                   {comment || 'Update status or add a comment'}
                 </p>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <p className={classNames('status-update_note', {'c-steel': !comment})}>
+                <p className={classNames('status-update_note', { 'c-steel': !comment })}>
                   {comment || 'Update status or add a comment'}
                 </p>
                 {

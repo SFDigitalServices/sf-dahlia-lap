@@ -290,7 +290,7 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
           onClose={onClose}
           applicationMembers={applicationMembers}
           loading={rentalAssistanceLoading}
-          values={{type_of_assistance: null}}
+          values={{ type_of_assistance: null }}
           index={application.rental_assistances.length}
           form={form}
           visited={visited}

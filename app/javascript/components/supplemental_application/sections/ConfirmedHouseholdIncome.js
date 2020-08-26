@@ -16,7 +16,7 @@ const validateIncomeCurrency = (value) => {
   )
 }
 
-export const getAmiPercent = ({income, ami}) => {
+export const getAmiPercent = ({ income, ami }) => {
   if (!income) {
     return 'Enter HH Income'
   }

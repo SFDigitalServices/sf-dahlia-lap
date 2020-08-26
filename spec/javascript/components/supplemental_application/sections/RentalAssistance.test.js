@@ -9,7 +9,7 @@ import { Form } from 'react-final-form'
 
 const baseContext = {
   application: { rental_assistances: [] },
-  applicationMembers: [{id: '123', first_name: 'Test', last_name: 'Tester'}],
+  applicationMembers: [{ id: '123', first_name: 'Test', last_name: 'Tester' }],
   showNewRentalAssistancePanel: false,
   handleOpenRentalAssistancePanel: () => { },
   handleCloseRentalAssistancePanel: () => { },

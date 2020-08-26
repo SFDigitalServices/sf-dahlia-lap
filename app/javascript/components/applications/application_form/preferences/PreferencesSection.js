@@ -50,7 +50,7 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
             { fields.map((name, i) => {
               return (
                 <div className='border-bottom margin-bottom--2x' key={name}>
-                  <PreferenceForm {...{i, name, form, listingPreferences, fullHousehold: getFullHousehold(form.getState().values)}} />
+                  <PreferenceForm {...{ i, name, form, listingPreferences, fullHousehold: getFullHousehold(form.getState().values) }} />
                 </div>)
             })
             }

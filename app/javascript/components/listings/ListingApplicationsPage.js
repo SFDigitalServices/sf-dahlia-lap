@@ -6,7 +6,7 @@ import { fetchApplications } from '../applications/actions'
 import ApplicationsTableContainer from '../applications/ApplicationsTableContainer'
 
 const ListingApplicationsPage = ({ listing }) => {
-  const filters = {listing_id: listing.id}
+  const filters = { listing_id: listing.id }
   const pageHeader = {
     title: listing.name
   }

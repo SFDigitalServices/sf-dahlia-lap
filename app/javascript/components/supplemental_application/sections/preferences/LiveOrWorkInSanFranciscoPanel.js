@@ -48,7 +48,7 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'individual_preference')}
-            options={labelize(individualPreferenceOptions, {disableEmpty: true})}
+            options={labelize(individualPreferenceOptions, { disableEmpty: true })}
             label='Individual Preference Name'
             className='individual-preference-select'
             onChange={updatePrefProofOptions} />
@@ -56,7 +56,7 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
-            options={labelize(applicationMembersOptions, {disableEmpty: true})}
+            options={labelize(applicationMembersOptions, { disableEmpty: true })}
             label='HH Member on Proof' />
         </FormItem>
         <FormItem>
@@ -71,7 +71,7 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-            options={labelize(statusOptions, {disableEmpty: true})}
+            options={labelize(statusOptions, { disableEmpty: true })}
             label='Status'
             className='preference-status-select' />
         </FormItem>

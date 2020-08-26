@@ -14,7 +14,7 @@ const getStatusClassName = (status) => {
   }
 }
 
-const StatusListItem = ({status, substatus, comment, date}) => {
+const StatusListItem = ({ status, substatus, comment, date }) => {
   const statusTagClassNames = classNames(
     'status-list_tag',
     `is-${getStatusClassName(status)}`
@@ -54,13 +54,13 @@ const sortByTimestamp = (item) => {
   return item.timestamp
 }
 
-const StatusList = ({items, onAddComment, commentDisabled}) => {
+const StatusList = ({ items, onAddComment, commentDisabled }) => {
   const orderedItems = sortBy(items, [sortByTimestamp])
 
   return (
     <div className='status-list'>
       <ul>
-        { !isEmpty(items) && orderedItems.map(({status, substatus, comment, date}, idx) => (
+        { !isEmpty(items) && orderedItems.map(({ status, substatus, comment, date }, idx) => (
           <StatusListItem key={idx} status={status} substatus={substatus} comment={comment} date={date} />
         ))
         }
