@@ -5,7 +5,7 @@ import { LEASE_UP_STATUS_VALUES, getStatusPillClass, getStatusPillLabel } from '
 
 const StatusPill = ({ status }) => (
   <div className={getStatusPillClass(status)}>
-    <div className='pill-text'>{getStatusPillLabel(status)}</div>
+    {getStatusPillLabel(status)}
   </div>
 )
 

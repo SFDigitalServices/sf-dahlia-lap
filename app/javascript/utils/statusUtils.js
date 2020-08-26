@@ -1,13 +1,13 @@
 import { find, map } from 'lodash'
 
 export const LEASE_UP_STATUS_OPTIONS = [
-  { value: 'Processing', label: 'Processing', style: 'is-processing', pillStyle: 'status-pill-processing', commentRequired: true },
-  { value: 'Withdrawn', label: 'Withdrawn', style: 'is-withdrawn', pillStyle: 'status-pill-withdrawn' },
-  { value: 'Appealed', label: 'Appealed', style: 'is-appealed', pillStyle: 'status-pill-appealed', commentRequired: true },
-  { value: 'Waitlisted', label: 'Waitlisted', style: 'is-waitlisted', pillStyle: 'status-pill-waitlisted', commentRequired: true },
-  { value: 'Disqualified', label: 'Disqualified', style: 'is-disqualified', pillStyle: 'status-pill-disqualified', commentRequired: true },
-  { value: 'Approved', label: 'Approved', style: 'is-approved', pillStyle: 'status-pill-approved', commentRequired: true },
-  { value: 'Lease Signed', label: 'Lease Signed', style: 'is-leased', pillStyle: 'status-pill-leased' }
+  { value: 'Processing', label: 'Processing', style: 'is-processing', commentRequired: true },
+  { value: 'Withdrawn', label: 'Withdrawn', style: 'is-withdrawn' },
+  { value: 'Appealed', label: 'Appealed', style: 'is-appealed', commentRequired: true },
+  { value: 'Waitlisted', label: 'Waitlisted', style: 'is-waitlisted', commentRequired: true },
+  { value: 'Disqualified', label: 'Disqualified', style: 'is-disqualified', commentRequired: true },
+  { value: 'Approved', label: 'Approved', style: 'is-approved', commentRequired: true },
+  { value: 'Lease Signed', label: 'Lease Signed', style: 'is-leased' }
 ]
 
 export const LEASE_UP_SUBSTATUS_OPTIONS = {
@@ -59,12 +59,12 @@ export const getLeaseUpStatusClass = status => {
 
 export const getStatusPillClass = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
-  return statusOption ? statusOption.pillStyle : 'status-pill-no-status'
+  return statusOption ? statusOption.style : 'is-no-status'
 }
 
 export const getStatusPillLabel = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
-  return statusOption ? statusOption.label : 'Comment'
+  return statusOption ? statusOption.label : null
 }
 
 export const getSubStatusLabel = (status, subStatus) => {
