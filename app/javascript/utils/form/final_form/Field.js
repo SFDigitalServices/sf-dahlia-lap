@@ -194,9 +194,9 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
-export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueFalue = 'Yes', falseValue = 'No' }) => {
+export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No' }) => {
   const onChange = (event) => {
-    form.change(fieldName, event.target.checked ? trueFalue : falseValue)
+    form.change(fieldName, event.target.checked ? trueValue : falseValue)
   }
   return (
     <Field
@@ -208,7 +208,7 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
       {({ input, meta }) => (
         <React.Fragment>
           <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
-            <input id={id || `form-${fieldName}`} type='checkbox' checked={input.value === trueFalue} onChange={onChange} />
+            <input id={id || `form-${fieldName}`} type='checkbox' checked={input.value === trueValue} onChange={onChange} />
             <Label
               label={label}
               id={id || `form-${fieldName}`}
