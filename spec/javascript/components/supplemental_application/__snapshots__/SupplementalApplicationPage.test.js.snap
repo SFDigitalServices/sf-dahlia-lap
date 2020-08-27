@@ -8052,6 +8052,41 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                               </ContentSection>
                             </ConfirmedPreferencesSection>
                             <ConfirmedHousehold
+                              form={
+                                Object {
+                                  "batch": [Function],
+                                  "blur": [Function],
+                                  "change": [Function],
+                                  "destroyOnUnregister": false,
+                                  "focus": [Function],
+                                  "getFieldState": [Function],
+                                  "getRegisteredFields": [Function],
+                                  "getState": [Function],
+                                  "initialize": [Function],
+                                  "isValidationPaused": [Function],
+                                  "mutators": Object {
+                                    "concat": [Function],
+                                    "insert": [Function],
+                                    "move": [Function],
+                                    "pop": [Function],
+                                    "push": [Function],
+                                    "remove": [Function],
+                                    "removeBatch": [Function],
+                                    "shift": [Function],
+                                    "swap": [Function],
+                                    "unshift": [Function],
+                                    "update": [Function],
+                                  },
+                                  "pauseValidation": [Function],
+                                  "registerField": [Function],
+                                  "reset": [Function],
+                                  "resetFieldState": [Function],
+                                  "resumeValidation": [Function],
+                                  "setConfig": [Function],
+                                  "submit": [Function],
+                                  "subscribe": [Function],
+                                }
+                              }
                               listingAmiCharts={Array []}
                               visited={
                                 Object {
@@ -8128,7 +8163,43 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                     <div
                                       className="app-inner"
                                     >
-                                      <ConfirmedUnits>
+                                      <ConfirmedUnits
+                                        form={
+                                          Object {
+                                            "batch": [Function],
+                                            "blur": [Function],
+                                            "change": [Function],
+                                            "destroyOnUnregister": false,
+                                            "focus": [Function],
+                                            "getFieldState": [Function],
+                                            "getRegisteredFields": [Function],
+                                            "getState": [Function],
+                                            "initialize": [Function],
+                                            "isValidationPaused": [Function],
+                                            "mutators": Object {
+                                              "concat": [Function],
+                                              "insert": [Function],
+                                              "move": [Function],
+                                              "pop": [Function],
+                                              "push": [Function],
+                                              "remove": [Function],
+                                              "removeBatch": [Function],
+                                              "shift": [Function],
+                                              "swap": [Function],
+                                              "unshift": [Function],
+                                              "update": [Function],
+                                            },
+                                            "pauseValidation": [Function],
+                                            "registerField": [Function],
+                                            "reset": [Function],
+                                            "resetFieldState": [Function],
+                                            "resumeValidation": [Function],
+                                            "setConfig": [Function],
+                                            "submit": [Function],
+                                            "subscribe": [Function],
+                                          }
+                                        }
+                                      >
                                         <Component
                                           expand={true}
                                           paddingBottom={true}
@@ -8141,7 +8212,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                 className="form-grid_item small-12 medium-12 large-6 column"
                                               >
                                                 <Component
-                                                  label="Senior in Household"
+                                                  label="Household Members Priorities"
                                                 >
                                                   <div
                                                     className="form-group"
@@ -8149,286 +8220,445 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     <label
                                                       htmlFor=""
                                                     >
-                                                      Senior in Household
+                                                      Household Members Priorities
                                                     </label>
-                                                    <YesNoRadioGroup
-                                                      falseValue="No"
-                                                      fieldName="reserved_senior"
-                                                      trueValue="Yes"
+                                                    <div
+                                                      className="checkbox-group form-checkbox-item"
+                                                      role="group"
                                                     >
-                                                      <div
-                                                        className="radio-group-inline"
+                                                      <TextCheckboxField
+                                                        fieldName="reserved_senior"
+                                                        form={
+                                                          Object {
+                                                            "batch": [Function],
+                                                            "blur": [Function],
+                                                            "change": [Function],
+                                                            "destroyOnUnregister": false,
+                                                            "focus": [Function],
+                                                            "getFieldState": [Function],
+                                                            "getRegisteredFields": [Function],
+                                                            "getState": [Function],
+                                                            "initialize": [Function],
+                                                            "isValidationPaused": [Function],
+                                                            "mutators": Object {
+                                                              "concat": [Function],
+                                                              "insert": [Function],
+                                                              "move": [Function],
+                                                              "pop": [Function],
+                                                              "push": [Function],
+                                                              "remove": [Function],
+                                                              "removeBatch": [Function],
+                                                              "shift": [Function],
+                                                              "swap": [Function],
+                                                              "unshift": [Function],
+                                                              "update": [Function],
+                                                            },
+                                                            "pauseValidation": [Function],
+                                                            "registerField": [Function],
+                                                            "reset": [Function],
+                                                            "resetFieldState": [Function],
+                                                            "resumeValidation": [Function],
+                                                            "setConfig": [Function],
+                                                            "submit": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                        initialValue="No"
+                                                        label="Senior in Household"
                                                       >
-                                                        <Label
-                                                          fieldName="reserved_senior"
-                                                          id="form-reserved_senior"
-                                                        />
-                                                        <YesNoRadioField
-                                                          fieldName="reserved_senior"
-                                                          label="Yes"
-                                                          type="yes"
-                                                          value="Yes"
+                                                        <Field
+                                                          component="input"
+                                                          initialValue="No"
+                                                          name="reserved_senior"
+                                                          type="input"
                                                         >
-                                                          <Field
-                                                            name="reserved_senior"
-                                                            type="radio"
-                                                            value="Yes"
+                                                          <div
+                                                            className="form-group"
                                                           >
-                                                            <p
-                                                              className="radio-inline"
+                                                            <Input
+                                                              id="form-base-reserved_senior"
+                                                              input={
+                                                                Object {
+                                                                  "checked": undefined,
+                                                                  "name": "reserved_senior",
+                                                                  "onBlur": [Function],
+                                                                  "onChange": [Function],
+                                                                  "onFocus": [Function],
+                                                                  "type": "input",
+                                                                  "value": "Yes",
+                                                                }
+                                                              }
+                                                              meta={
+                                                                Object {
+                                                                  "active": false,
+                                                                  "data": Object {},
+                                                                  "dirty": false,
+                                                                  "dirtySinceLastSubmit": false,
+                                                                  "error": undefined,
+                                                                  "initial": "Yes",
+                                                                  "invalid": false,
+                                                                  "length": undefined,
+                                                                  "modified": false,
+                                                                  "pristine": true,
+                                                                  "submitError": undefined,
+                                                                  "submitFailed": false,
+                                                                  "submitSucceeded": false,
+                                                                  "submitting": false,
+                                                                  "touched": false,
+                                                                  "valid": true,
+                                                                  "validating": false,
+                                                                  "visited": false,
+                                                                }
+                                                              }
+                                                              type="hidden"
                                                             >
                                                               <input
-                                                                checked={true}
-                                                                id="reserved_senior-undefined-yes"
+                                                                className=""
+                                                                id="form-base-reserved_senior"
                                                                 name="reserved_senior"
                                                                 onBlur={[Function]}
                                                                 onChange={[Function]}
                                                                 onFocus={[Function]}
-                                                                type="radio"
+                                                                type="hidden"
                                                                 value="Yes"
                                                               />
-                                                              <label
-                                                                className="radio-inline_label"
-                                                                htmlFor="reserved_senior-undefined-yes"
-                                                              >
-                                                                Yes
-                                                              </label>
-                                                            </p>
-                                                          </Field>
-                                                        </YesNoRadioField>
-                                                        <YesNoRadioField
-                                                          fieldName="reserved_senior"
-                                                          label="No"
-                                                          type="no"
-                                                          value="No"
-                                                        >
-                                                          <Field
-                                                            name="reserved_senior"
-                                                            type="radio"
-                                                            value="No"
-                                                          >
-                                                            <p
-                                                              className="radio-inline"
+                                                            </Input>
+                                                            <input
+                                                              checked={true}
+                                                              fieldName="reserved_senior"
+                                                              id="form-ctrl-reserved_senior"
+                                                              onClick={[Function]}
+                                                              type="checkbox"
+                                                            />
+                                                            <Label
+                                                              fieldName="reserved_senior"
+                                                              id="form-ctrl-reserved_senior"
+                                                              label="Senior in Household"
                                                             >
-                                                              <input
-                                                                checked={false}
-                                                                id="reserved_senior-undefined-no"
-                                                                name="reserved_senior"
-                                                                onBlur={[Function]}
-                                                                onChange={[Function]}
-                                                                onFocus={[Function]}
-                                                                type="radio"
-                                                                value="No"
-                                                              />
                                                               <label
-                                                                className="radio-inline_label"
-                                                                htmlFor="reserved_senior-undefined-no"
+                                                                className="form-label"
+                                                                htmlFor="form-ctrl-reserved_senior"
+                                                                id="label-reserved_senior"
                                                               >
-                                                                No
+                                                                Senior in Household
                                                               </label>
-                                                            </p>
-                                                          </Field>
-                                                        </YesNoRadioField>
-                                                      </div>
-                                                    </YesNoRadioGroup>
-                                                  </div>
-                                                </Component>
-                                              </div>
-                                            </Component>
-                                            <Component>
-                                              <div
-                                                className="form-grid_item small-12 medium-12 large-6 column"
-                                              >
-                                                <Component
-                                                  label="Veteran in Household"
-                                                >
-                                                  <div
-                                                    className="form-group"
-                                                  >
-                                                    <label
-                                                      htmlFor=""
-                                                    >
-                                                      Veteran in Household
-                                                    </label>
-                                                    <YesNoRadioGroup
-                                                      falseValue="No"
-                                                      fieldName="has_military_service"
-                                                      trueValue="Yes"
-                                                    >
-                                                      <div
-                                                        className="radio-group-inline"
+                                                            </Label>
+                                                            <FieldError
+                                                              meta={
+                                                                Object {
+                                                                  "active": false,
+                                                                  "data": Object {},
+                                                                  "dirty": false,
+                                                                  "dirtySinceLastSubmit": false,
+                                                                  "error": undefined,
+                                                                  "initial": "Yes",
+                                                                  "invalid": false,
+                                                                  "length": undefined,
+                                                                  "modified": false,
+                                                                  "pristine": true,
+                                                                  "submitError": undefined,
+                                                                  "submitFailed": false,
+                                                                  "submitSucceeded": false,
+                                                                  "submitting": false,
+                                                                  "touched": false,
+                                                                  "valid": true,
+                                                                  "validating": false,
+                                                                  "visited": false,
+                                                                }
+                                                              }
+                                                            />
+                                                          </div>
+                                                        </Field>
+                                                      </TextCheckboxField>
+                                                      <TextCheckboxField
+                                                        fieldName="has_military_service"
+                                                        form={
+                                                          Object {
+                                                            "batch": [Function],
+                                                            "blur": [Function],
+                                                            "change": [Function],
+                                                            "destroyOnUnregister": false,
+                                                            "focus": [Function],
+                                                            "getFieldState": [Function],
+                                                            "getRegisteredFields": [Function],
+                                                            "getState": [Function],
+                                                            "initialize": [Function],
+                                                            "isValidationPaused": [Function],
+                                                            "mutators": Object {
+                                                              "concat": [Function],
+                                                              "insert": [Function],
+                                                              "move": [Function],
+                                                              "pop": [Function],
+                                                              "push": [Function],
+                                                              "remove": [Function],
+                                                              "removeBatch": [Function],
+                                                              "shift": [Function],
+                                                              "swap": [Function],
+                                                              "unshift": [Function],
+                                                              "update": [Function],
+                                                            },
+                                                            "pauseValidation": [Function],
+                                                            "registerField": [Function],
+                                                            "reset": [Function],
+                                                            "resetFieldState": [Function],
+                                                            "resumeValidation": [Function],
+                                                            "setConfig": [Function],
+                                                            "submit": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                        initialValue="No"
+                                                        label="Veteran in Household"
                                                       >
-                                                        <Label
-                                                          fieldName="has_military_service"
-                                                          id="form-has_military_service"
-                                                        />
-                                                        <YesNoRadioField
-                                                          fieldName="has_military_service"
-                                                          label="Yes"
-                                                          type="yes"
-                                                          value="Yes"
+                                                        <Field
+                                                          component="input"
+                                                          initialValue="No"
+                                                          name="has_military_service"
+                                                          type="input"
                                                         >
-                                                          <Field
-                                                            name="has_military_service"
-                                                            type="radio"
-                                                            value="Yes"
+                                                          <div
+                                                            className="form-group"
                                                           >
-                                                            <p
-                                                              className="radio-inline"
+                                                            <Input
+                                                              id="form-base-has_military_service"
+                                                              input={
+                                                                Object {
+                                                                  "checked": undefined,
+                                                                  "name": "has_military_service",
+                                                                  "onBlur": [Function],
+                                                                  "onChange": [Function],
+                                                                  "onFocus": [Function],
+                                                                  "type": "input",
+                                                                  "value": "Yes",
+                                                                }
+                                                              }
+                                                              meta={
+                                                                Object {
+                                                                  "active": false,
+                                                                  "data": Object {},
+                                                                  "dirty": false,
+                                                                  "dirtySinceLastSubmit": false,
+                                                                  "error": undefined,
+                                                                  "initial": "Yes",
+                                                                  "invalid": false,
+                                                                  "length": undefined,
+                                                                  "modified": false,
+                                                                  "pristine": true,
+                                                                  "submitError": undefined,
+                                                                  "submitFailed": false,
+                                                                  "submitSucceeded": false,
+                                                                  "submitting": false,
+                                                                  "touched": false,
+                                                                  "valid": true,
+                                                                  "validating": false,
+                                                                  "visited": false,
+                                                                }
+                                                              }
+                                                              type="hidden"
                                                             >
                                                               <input
-                                                                checked={true}
-                                                                id="has_military_service-undefined-yes"
+                                                                className=""
+                                                                id="form-base-has_military_service"
                                                                 name="has_military_service"
                                                                 onBlur={[Function]}
                                                                 onChange={[Function]}
                                                                 onFocus={[Function]}
-                                                                type="radio"
+                                                                type="hidden"
                                                                 value="Yes"
                                                               />
-                                                              <label
-                                                                className="radio-inline_label"
-                                                                htmlFor="has_military_service-undefined-yes"
-                                                              >
-                                                                Yes
-                                                              </label>
-                                                            </p>
-                                                          </Field>
-                                                        </YesNoRadioField>
-                                                        <YesNoRadioField
-                                                          fieldName="has_military_service"
-                                                          label="No"
-                                                          type="no"
-                                                          value="No"
-                                                        >
-                                                          <Field
-                                                            name="has_military_service"
-                                                            type="radio"
-                                                            value="No"
-                                                          >
-                                                            <p
-                                                              className="radio-inline"
+                                                            </Input>
+                                                            <input
+                                                              checked={true}
+                                                              fieldName="has_military_service"
+                                                              id="form-ctrl-has_military_service"
+                                                              onClick={[Function]}
+                                                              type="checkbox"
+                                                            />
+                                                            <Label
+                                                              fieldName="has_military_service"
+                                                              id="form-ctrl-has_military_service"
+                                                              label="Veteran in Household"
                                                             >
-                                                              <input
-                                                                checked={false}
-                                                                id="has_military_service-undefined-no"
-                                                                name="has_military_service"
-                                                                onBlur={[Function]}
-                                                                onChange={[Function]}
-                                                                onFocus={[Function]}
-                                                                type="radio"
-                                                                value="No"
-                                                              />
                                                               <label
-                                                                className="radio-inline_label"
-                                                                htmlFor="has_military_service-undefined-no"
+                                                                className="form-label"
+                                                                htmlFor="form-ctrl-has_military_service"
+                                                                id="label-has_military_service"
                                                               >
-                                                                No
+                                                                Veteran in Household
                                                               </label>
-                                                            </p>
-                                                          </Field>
-                                                        </YesNoRadioField>
-                                                      </div>
-                                                    </YesNoRadioGroup>
-                                                  </div>
-                                                </Component>
-                                              </div>
-                                            </Component>
-                                            <Component>
-                                              <div
-                                                className="form-grid_item small-12 medium-12 large-6 column"
-                                              >
-                                                <Component
-                                                  label="Person with Developmental Disability in Household"
-                                                >
-                                                  <div
-                                                    className="form-group"
-                                                  >
-                                                    <label
-                                                      htmlFor=""
-                                                    >
-                                                      Person with Developmental Disability in Household
-                                                    </label>
-                                                    <YesNoRadioGroup
-                                                      falseValue="No"
-                                                      fieldName="has_developmental_disability"
-                                                      trueValue="Yes"
-                                                    >
-                                                      <div
-                                                        className="radio-group-inline"
+                                                            </Label>
+                                                            <FieldError
+                                                              meta={
+                                                                Object {
+                                                                  "active": false,
+                                                                  "data": Object {},
+                                                                  "dirty": false,
+                                                                  "dirtySinceLastSubmit": false,
+                                                                  "error": undefined,
+                                                                  "initial": "Yes",
+                                                                  "invalid": false,
+                                                                  "length": undefined,
+                                                                  "modified": false,
+                                                                  "pristine": true,
+                                                                  "submitError": undefined,
+                                                                  "submitFailed": false,
+                                                                  "submitSucceeded": false,
+                                                                  "submitting": false,
+                                                                  "touched": false,
+                                                                  "valid": true,
+                                                                  "validating": false,
+                                                                  "visited": false,
+                                                                }
+                                                              }
+                                                            />
+                                                          </div>
+                                                        </Field>
+                                                      </TextCheckboxField>
+                                                      <TextCheckboxField
+                                                        fieldName="has_developmental_disability"
+                                                        form={
+                                                          Object {
+                                                            "batch": [Function],
+                                                            "blur": [Function],
+                                                            "change": [Function],
+                                                            "destroyOnUnregister": false,
+                                                            "focus": [Function],
+                                                            "getFieldState": [Function],
+                                                            "getRegisteredFields": [Function],
+                                                            "getState": [Function],
+                                                            "initialize": [Function],
+                                                            "isValidationPaused": [Function],
+                                                            "mutators": Object {
+                                                              "concat": [Function],
+                                                              "insert": [Function],
+                                                              "move": [Function],
+                                                              "pop": [Function],
+                                                              "push": [Function],
+                                                              "remove": [Function],
+                                                              "removeBatch": [Function],
+                                                              "shift": [Function],
+                                                              "swap": [Function],
+                                                              "unshift": [Function],
+                                                              "update": [Function],
+                                                            },
+                                                            "pauseValidation": [Function],
+                                                            "registerField": [Function],
+                                                            "reset": [Function],
+                                                            "resetFieldState": [Function],
+                                                            "resumeValidation": [Function],
+                                                            "setConfig": [Function],
+                                                            "submit": [Function],
+                                                            "subscribe": [Function],
+                                                          }
+                                                        }
+                                                        initialValue="No"
+                                                        label="Person with Developmental Disability in Household"
                                                       >
-                                                        <Label
-                                                          fieldName="has_developmental_disability"
-                                                          id="form-has_developmental_disability"
-                                                        />
-                                                        <YesNoRadioField
-                                                          fieldName="has_developmental_disability"
-                                                          label="Yes"
-                                                          type="yes"
-                                                          value="Yes"
+                                                        <Field
+                                                          component="input"
+                                                          initialValue="No"
+                                                          name="has_developmental_disability"
+                                                          type="input"
                                                         >
-                                                          <Field
-                                                            name="has_developmental_disability"
-                                                            type="radio"
-                                                            value="Yes"
+                                                          <div
+                                                            className="form-group"
                                                           >
-                                                            <p
-                                                              className="radio-inline"
+                                                            <Input
+                                                              id="form-base-has_developmental_disability"
+                                                              input={
+                                                                Object {
+                                                                  "checked": undefined,
+                                                                  "name": "has_developmental_disability",
+                                                                  "onBlur": [Function],
+                                                                  "onChange": [Function],
+                                                                  "onFocus": [Function],
+                                                                  "type": "input",
+                                                                  "value": "Yes",
+                                                                }
+                                                              }
+                                                              meta={
+                                                                Object {
+                                                                  "active": false,
+                                                                  "data": Object {},
+                                                                  "dirty": false,
+                                                                  "dirtySinceLastSubmit": false,
+                                                                  "error": undefined,
+                                                                  "initial": "Yes",
+                                                                  "invalid": false,
+                                                                  "length": undefined,
+                                                                  "modified": false,
+                                                                  "pristine": true,
+                                                                  "submitError": undefined,
+                                                                  "submitFailed": false,
+                                                                  "submitSucceeded": false,
+                                                                  "submitting": false,
+                                                                  "touched": false,
+                                                                  "valid": true,
+                                                                  "validating": false,
+                                                                  "visited": false,
+                                                                }
+                                                              }
+                                                              type="hidden"
                                                             >
                                                               <input
-                                                                checked={true}
-                                                                id="has_developmental_disability-undefined-yes"
+                                                                className=""
+                                                                id="form-base-has_developmental_disability"
                                                                 name="has_developmental_disability"
                                                                 onBlur={[Function]}
                                                                 onChange={[Function]}
                                                                 onFocus={[Function]}
-                                                                type="radio"
+                                                                type="hidden"
                                                                 value="Yes"
                                                               />
-                                                              <label
-                                                                className="radio-inline_label"
-                                                                htmlFor="has_developmental_disability-undefined-yes"
-                                                              >
-                                                                Yes
-                                                              </label>
-                                                            </p>
-                                                          </Field>
-                                                        </YesNoRadioField>
-                                                        <YesNoRadioField
-                                                          fieldName="has_developmental_disability"
-                                                          label="No"
-                                                          type="no"
-                                                          value="No"
-                                                        >
-                                                          <Field
-                                                            name="has_developmental_disability"
-                                                            type="radio"
-                                                            value="No"
-                                                          >
-                                                            <p
-                                                              className="radio-inline"
+                                                            </Input>
+                                                            <input
+                                                              checked={true}
+                                                              fieldName="has_developmental_disability"
+                                                              id="form-ctrl-has_developmental_disability"
+                                                              onClick={[Function]}
+                                                              type="checkbox"
+                                                            />
+                                                            <Label
+                                                              fieldName="has_developmental_disability"
+                                                              id="form-ctrl-has_developmental_disability"
+                                                              label="Person with Developmental Disability in Household"
                                                             >
-                                                              <input
-                                                                checked={false}
-                                                                id="has_developmental_disability-undefined-no"
-                                                                name="has_developmental_disability"
-                                                                onBlur={[Function]}
-                                                                onChange={[Function]}
-                                                                onFocus={[Function]}
-                                                                type="radio"
-                                                                value="No"
-                                                              />
                                                               <label
-                                                                className="radio-inline_label"
-                                                                htmlFor="has_developmental_disability-undefined-no"
+                                                                className="form-label"
+                                                                htmlFor="form-ctrl-has_developmental_disability"
+                                                                id="label-has_developmental_disability"
                                                               >
-                                                                No
+                                                                Person with Developmental Disability in Household
                                                               </label>
-                                                            </p>
-                                                          </Field>
-                                                        </YesNoRadioField>
-                                                      </div>
-                                                    </YesNoRadioGroup>
+                                                            </Label>
+                                                            <FieldError
+                                                              meta={
+                                                                Object {
+                                                                  "active": false,
+                                                                  "data": Object {},
+                                                                  "dirty": false,
+                                                                  "dirtySinceLastSubmit": false,
+                                                                  "error": undefined,
+                                                                  "initial": "Yes",
+                                                                  "invalid": false,
+                                                                  "length": undefined,
+                                                                  "modified": false,
+                                                                  "pristine": true,
+                                                                  "submitError": undefined,
+                                                                  "submitFailed": false,
+                                                                  "submitSucceeded": false,
+                                                                  "submitting": false,
+                                                                  "touched": false,
+                                                                  "valid": true,
+                                                                  "validating": false,
+                                                                  "visited": false,
+                                                                }
+                                                              }
+                                                            />
+                                                          </div>
+                                                        </Field>
+                                                      </TextCheckboxField>
+                                                    </div>
                                                   </div>
                                                 </Component>
                                               </div>
@@ -14180,165 +14410,96 @@ Array [
                   <label
                     htmlFor=""
                   >
-                    Senior in Household
+                    Household Members Priorities
                   </label>
                   <div
-                    className="radio-group-inline"
+                    className="checkbox-group form-checkbox-item"
+                    role="group"
                   >
-                    <p
-                      className="radio-inline"
+                    <div
+                      className="form-group"
                     >
                       <input
-                        checked={true}
-                        id="reserved_senior-undefined-yes"
+                        className=""
+                        id="form-base-reserved_senior"
                         name="reserved_senior"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        type="radio"
+                        type="hidden"
                         value="Yes"
                       />
-                      <label
-                        className="radio-inline_label"
-                        htmlFor="reserved_senior-undefined-yes"
-                      >
-                        Yes
-                      </label>
-                    </p>
-                    <p
-                      className="radio-inline"
-                    >
-                      <input
-                        checked={false}
-                        id="reserved_senior-undefined-no"
-                        name="reserved_senior"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        type="radio"
-                        value="No"
-                      />
-                      <label
-                        className="radio-inline_label"
-                        htmlFor="reserved_senior-undefined-no"
-                      >
-                        No
-                      </label>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid_item small-12 medium-12 large-6 column"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    htmlFor=""
-                  >
-                    Veteran in Household
-                  </label>
-                  <div
-                    className="radio-group-inline"
-                  >
-                    <p
-                      className="radio-inline"
-                    >
                       <input
                         checked={true}
-                        id="has_military_service-undefined-yes"
+                        fieldName="reserved_senior"
+                        id="form-ctrl-reserved_senior"
+                        onClick={[Function]}
+                        type="checkbox"
+                      />
+                      <label
+                        className="form-label"
+                        htmlFor="form-ctrl-reserved_senior"
+                        id="label-reserved_senior"
+                      >
+                        Senior in Household
+                      </label>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <input
+                        className=""
+                        id="form-base-has_military_service"
                         name="has_military_service"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        type="radio"
+                        type="hidden"
                         value="Yes"
                       />
-                      <label
-                        className="radio-inline_label"
-                        htmlFor="has_military_service-undefined-yes"
-                      >
-                        Yes
-                      </label>
-                    </p>
-                    <p
-                      className="radio-inline"
-                    >
-                      <input
-                        checked={false}
-                        id="has_military_service-undefined-no"
-                        name="has_military_service"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        type="radio"
-                        value="No"
-                      />
-                      <label
-                        className="radio-inline_label"
-                        htmlFor="has_military_service-undefined-no"
-                      >
-                        No
-                      </label>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid_item small-12 medium-12 large-6 column"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    htmlFor=""
-                  >
-                    Person with Developmental Disability in Household
-                  </label>
-                  <div
-                    className="radio-group-inline"
-                  >
-                    <p
-                      className="radio-inline"
-                    >
                       <input
                         checked={true}
-                        id="has_developmental_disability-undefined-yes"
-                        name="has_developmental_disability"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        type="radio"
-                        value="Yes"
+                        fieldName="has_military_service"
+                        id="form-ctrl-has_military_service"
+                        onClick={[Function]}
+                        type="checkbox"
                       />
                       <label
-                        className="radio-inline_label"
-                        htmlFor="has_developmental_disability-undefined-yes"
+                        className="form-label"
+                        htmlFor="form-ctrl-has_military_service"
+                        id="label-has_military_service"
                       >
-                        Yes
+                        Veteran in Household
                       </label>
-                    </p>
-                    <p
-                      className="radio-inline"
+                    </div>
+                    <div
+                      className="form-group"
                     >
                       <input
-                        checked={false}
-                        id="has_developmental_disability-undefined-no"
+                        className=""
+                        id="form-base-has_developmental_disability"
                         name="has_developmental_disability"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        type="radio"
-                        value="No"
+                        type="hidden"
+                        value="Yes"
+                      />
+                      <input
+                        checked={true}
+                        fieldName="has_developmental_disability"
+                        id="form-ctrl-has_developmental_disability"
+                        onClick={[Function]}
+                        type="checkbox"
                       />
                       <label
-                        className="radio-inline_label"
-                        htmlFor="has_developmental_disability-undefined-no"
+                        className="form-label"
+                        htmlFor="form-ctrl-has_developmental_disability"
+                        id="label-has_developmental_disability"
                       >
-                        No
+                        Person with Developmental Disability in Household
                       </label>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>

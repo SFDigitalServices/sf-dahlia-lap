@@ -1,25 +1,31 @@
 import React from 'react'
 
 import FormGrid from '~/components/molecules/FormGrid'
-import { YesNoRadioGroup, CheckboxField } from '~/utils/form/final_form/Field.js'
+import { CheckboxField, TextCheckboxField } from '~/utils/form/final_form/Field.js'
 
-const ConfirmedUnits = () => {
+const ConfirmedUnits = ({ form }) => {
   return (
     <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
-          <FormGrid.Group label='Senior in Household'>
-            <YesNoRadioGroup fieldName='reserved_senior' trueValue='Yes' falseValue='No' />
-          </FormGrid.Group>
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <FormGrid.Group label='Veteran in Household'>
-            <YesNoRadioGroup fieldName='has_military_service' trueValue='Yes' falseValue='No' />
-          </FormGrid.Group>
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <FormGrid.Group label='Person with Developmental Disability in Household'>
-            <YesNoRadioGroup fieldName='has_developmental_disability' trueValue='Yes' falseValue='No' />
+          <FormGrid.Group label='Household Members Priorities'>
+            <div className='checkbox-group form-checkbox-item' role='group'>
+              <TextCheckboxField
+                fieldName='reserved_senior'
+                label='Senior in Household'
+                initialValue='No'
+                form={form} />
+              <TextCheckboxField
+                fieldName='has_military_service'
+                label='Veteran in Household'
+                initialValue='No'
+                form={form} />
+              <TextCheckboxField
+                fieldName='has_developmental_disability'
+                label='Person with Developmental Disability in Household'
+                initialValue='No'
+                form={form} />
+            </div>
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>

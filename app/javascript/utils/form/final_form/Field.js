@@ -196,6 +196,43 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
+/**
+ * Displays similarly to the CheckboxField but is backed by a string with two possible string
+ * values instead of a boolean. (ex: has_developental_disability: "Yes"/"No").
+ */
+export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No', initialValue = null }) => {
+  const onChange = (event) => {
+    form.change(fieldName, event.target.checked ? trueValue : falseValue)
+  }
+  return (
+    <Field
+      name={fieldName}
+      validate={validation}
+      type='input'
+      component='input'
+      initialValue={initialValue}
+    >
+      {({ input, meta }) => (
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+          <Input
+            input={input}
+            type='hidden'
+            meta={meta}
+            aria-labelledby={ariaLabelledby}
+            id={id || `form-base-${fieldName}`} />
+          <input id={id || `form-ctrl-${fieldName}`} fieldName={fieldName} type='checkbox' checked={input.value === trueValue} onClick={onChange} />
+          <Label
+            label={label}
+            id={id || `form-ctrl-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote} />
+          <FieldError meta={meta} />
+        </div>
+      )}
+    </Field>
+  )
+}
+
 const YesNoRadioField = ({ value, label, type, fieldName, className, uniqId }) => (
   <Field name={fieldName} value={value} type='radio'>
     {({ input }) => (
