@@ -9,14 +9,14 @@ const ContentSection = ({ title, description, children }) => (
 )
 
 ContentSection.Header = ({ title, description }) => (
-  <div className='app-inner header-wide'>
+  <div className='app-inner'>
     {title && <h2 className='app-card_h2'>{title}</h2>}
     {description && <p className='form-note max-width'>{description}</p>}
   </div>
 )
 
 ContentSection.SubHeader = ({ title, description }) => (
-  <div className='app-inner subheader-wide'>
+  <div className='app-inner'>
     {title && <h3 className='app-card_h3 t-sans'>{title}</h3>}
     {description && <p className='form-note max-width'>{description}</p>}
   </div>
@@ -25,7 +25,6 @@ ContentSection.SubHeader = ({ title, description }) => (
 ContentSection.Content = ({ children, borderBottom, paddingBottomNone, marginTop }) => {
   const divClassName = classNames(
     'app-inner',
-    'inset-wide',
     {
       'border-bottom': borderBottom,
       'padding-bottom-none': paddingBottomNone,
@@ -39,7 +38,7 @@ ContentSection.Content = ({ children, borderBottom, paddingBottomNone, marginTop
   )
 }
 
-ContentSection.Sub = ({ title, description, borderBottom = true, children }) => (
+ContentSection.Sub = ({ title, description, borderBottom = false, children }) => (
   <>
     <ContentSection.SubHeader title={title} description={description} />
     <ContentSection.Content borderBottom={borderBottom}>
