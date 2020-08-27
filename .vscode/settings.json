@@ -1,3 +1,7 @@
 {
-  "prettier.requireConfig": true
+    "standard.validate": [
+        "javascript",
+        "javascriptreact",
+    ],
+    "javascript.validate.enable": false
 }

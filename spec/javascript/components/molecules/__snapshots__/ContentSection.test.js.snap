@@ -3,7 +3,7 @@
 exports[`ContentSection should render correctly 1`] = `
 Array [
   <div
-    className="app-inner header-wide"
+    className="app-inner"
   >
     <h2
       className="app-card_h2"
@@ -17,7 +17,7 @@ Array [
     </p>
   </div>,
   <div
-    className="app-inner subheader-wide"
+    className="app-inner"
   >
     <h3
       className="app-card_h3 t-sans"
@@ -31,7 +31,7 @@ Array [
     </p>
   </div>,
   <div
-    className="app-inner inset-wide border-bottom"
+    className="app-inner"
   >
     content
   </div>,

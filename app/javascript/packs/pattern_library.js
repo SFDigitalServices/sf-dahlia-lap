@@ -15,6 +15,7 @@ import FormGroupTextInput from 'components/atoms/FormGroupTextInput'
 import FormGroupTextValue from 'components/atoms/FormGroupTextValue'
 import Icon from 'components/atoms/Icon'
 import Spinner from 'components/atoms/Spinner'
+import StatusPill from 'components/atoms/StatusPill'
 // Molecules
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
@@ -27,7 +28,9 @@ import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
+import LeaseUpSidebar from 'components/molecules/LeaseUpSidebar'
 import Loading from 'components/molecules/Loading'
+import StatusItems from 'components/molecules/StatusItems'
 import TablePagination from 'components/molecules/TablePagination'
 import TableSimple from 'components/molecules/TableSimple'
 import TabsMenu from 'components/molecules/TabsMenu'
@@ -60,6 +63,7 @@ WebpackerReact.setup({ FormGroupTextInput })
 WebpackerReact.setup({ FormGroupTextValue })
 WebpackerReact.setup({ Icon })
 WebpackerReact.setup({ Spinner })
+WebpackerReact.setup({ StatusPill })
 // Molecules
 WebpackerReact.setup({ AlertBox })
 WebpackerReact.setup({ AlertNotice })
@@ -72,7 +76,9 @@ WebpackerReact.setup({ DropdownMenu })
 WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
+WebpackerReact.setup({ LeaseUpSidebar })
 WebpackerReact.setup({ Loading })
+WebpackerReact.setup({ StatusItems })
 WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ TableSimple })
 WebpackerReact.setup({ TabsMenu })
