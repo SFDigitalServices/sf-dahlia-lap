@@ -228,7 +228,37 @@ const SupplementalApplicationContainer = ({ store }) => {
               <StatusUpdateSection
                 formIsValid={() => !checkForValidationErrors(form, touched)}
               />
+              <div className='padding-bottom--2x margin-bottom--2x' />
+              <div>
+                <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
+              </div>
+              <div className='button-pager'>
+                <div className='button-pager_row align-buttons-left primary inset-wide'>
+                  <StatusDropdown
+                    status={application.processing_status}
+                    onChange={value =>
+                      !checkForValidationErrors(form, touched)
+                        ? openUpdateStatusModal(value)
+                        : null
+                    }
+                    buttonClasses={['small', 'has-status-width']}
+                    wrapperClasses={['dropdown-inline']}
+                    menuClasses={['dropdown-menu-bottom']}
+                    disabled={loading}
+                  />
+                  <button
+                    className='button primary small save-btn'
+                    type='submit'
+                    id='save-supplemental-application'
+                    disabled={loading}
+                    onClick={() => checkForValidationErrors(form, touched)}
+                  >
+                    {loading ? 'Saving…' : 'Save'}
+                  </button>
+                </div>
+              </div>
               <AsymColumnLayout.Container>
+
                 <AsymColumnLayout.MainContent>
                   <ConfirmedPreferencesSection
                     application={application}
@@ -256,35 +286,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>
                 <AsymColumnLayout.Sidebar>
-                  <div className='padding-bottom--2x margin-bottom--2x' />
-                  <div className='button-pager'>
-                    <div className='button-pager_row align-buttons-left primary inset-wide'>
-                      <StatusDropdown
-                        status={application.processing_status}
-                        onChange={value =>
-                          !checkForValidationErrors(form, touched)
-                            ? openUpdateStatusModal(value)
-                            : null
-                        }
-                        buttonClasses={['small', 'has-status-width']}
-                        wrapperClasses={['dropdown-inline']}
-                        menuClasses={['dropdown-menu-bottom']}
-                        disabled={loading}
-                      />
-                      <button
-                        className='button primary small save-btn'
-                        type='submit'
-                        id='save-supplemental-application'
-                        disabled={loading}
-                        onClick={() => checkForValidationErrors(form, touched)}
-                      >
-                        {loading ? 'Saving…' : 'Save'}
-                      </button>
-                    </div>
-                    <div>
-                      <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
-                    </div>
-                  </div>
+                  <h1>Status sidebar placeholder</h1>
                 </AsymColumnLayout.Sidebar>
               </AsymColumnLayout.Container>
             </form>
