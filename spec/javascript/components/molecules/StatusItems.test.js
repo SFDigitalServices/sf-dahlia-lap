@@ -1,43 +1,139 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import { mockStatusItem, mockStatusItems } from '../../mocks/statusItemMock'
+import { shallow } from 'enzyme'
+import { mockManyStatusItems, mockStatusItem, mockStatusItems } from '../../mocks/statusItemMock'
 import StatusItems from 'components/molecules/StatusItems'
+import StatusItem from 'components/molecules/StatusItem'
 
-const getWrapper = (items, limit = null) => renderer.create(
+const getWrapper = (items, limit = undefined) => shallow(
   <StatusItems
     statusItems={items}
     limit={limit}
   />
 )
 
+const TIMESTAMP_AUGUST_25_2020 = 1598338800
+const TIMESTAMP_AUGUST_26_2020 = 1598400000
+
 describe('StatusItems', () => {
-  test('should render empty status items correctly', () => {
-    const wrapper = getWrapper([])
-    expect(wrapper).toMatchSnapshot()
+  describe('snapshot tests', () => {
+    test('should render empty status items correctly', () => {
+      const wrapper = getWrapper([])
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    test('should render a single status item correctly', () => {
+      const wrapper = getWrapper([mockStatusItem()])
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    test('should render multiple status items correctly', () => {
+      const wrapper = getWrapper(mockStatusItems())
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    test('should render multiple status items with limit 0 correctly', () => {
+      const wrapper = getWrapper(mockStatusItems(), 0)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    test('should render multiple status items with limit 1 correctly', () => {
+      const wrapper = getWrapper(mockStatusItems(), 1)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    test('should render multiple status items with limit 100 correctly', () => {
+      const wrapper = getWrapper(mockStatusItems(), 100)
+      expect(wrapper).toMatchSnapshot()
+    })
   })
 
-  test('should render a single status item correctly', () => {
-    const wrapper = getWrapper([mockStatusItem()])
-    expect(wrapper).toMatchSnapshot()
+  describe('with an empty status items list', () => {
+    const statusItems = []
+
+    test('should render no status items when no limit is specified', () => {
+      expect(getWrapper(statusItems).find(StatusItem)).toHaveLength(0)
+    })
+
+    test('should render no status items when limit is 0', () => {
+      expect(getWrapper(statusItems, 0).find(StatusItem)).toHaveLength(0)
+    })
+
+    test('should render no status items when limit is 1', () => {
+      expect(getWrapper(statusItems, 1).find(StatusItem)).toHaveLength(0)
+    })
+
+    test('should render no status items when limit is 4', () => {
+      expect(getWrapper(statusItems, 4).find(StatusItem)).toHaveLength(0)
+    })
   })
 
-  test('should render multiple status items correctly', () => {
-    const wrapper = getWrapper(mockStatusItems())
-    expect(wrapper).toMatchSnapshot()
+  describe('with a single item in the status items list', () => {
+    const statusItems = [mockStatusItems()]
+
+    test('should render one status item when no limit is specified', () => {
+      expect(getWrapper(statusItems).find(StatusItem)).toHaveLength(1)
+    })
+
+    test('should render no status items when limit is 0', () => {
+      expect(getWrapper(statusItems, 0).find(StatusItem)).toHaveLength(0)
+    })
+
+    test('should render one status items when limit is 1', () => {
+      expect(getWrapper(statusItems, 1).find(StatusItem)).toHaveLength(1)
+    })
+
+    test('should render one status item when limit is 4', () => {
+      expect(getWrapper(statusItems, 4).find(StatusItem)).toHaveLength(1)
+    })
   })
 
-  test('should render multiple status items with limit 0 correctly', () => {
-    const wrapper = getWrapper(mockStatusItems(), 0)
-    expect(wrapper).toMatchSnapshot()
+  describe('with five items in the status items list', () => {
+    const statusItems = mockManyStatusItems(5)
+
+    test('should render five status items when no limit is specified', () => {
+      expect(getWrapper(statusItems).find(StatusItem)).toHaveLength(5)
+    })
+
+    test('should render no status items when limit is 0', () => {
+      expect(getWrapper(statusItems, 0).find(StatusItem)).toHaveLength(0)
+    })
+
+    test('should render one status items when limit is 1', () => {
+      expect(getWrapper(statusItems, 1).find(StatusItem)).toHaveLength(1)
+    })
+
+    test('should render four status items when limit is 4', () => {
+      expect(getWrapper(statusItems, 4).find(StatusItem)).toHaveLength(4)
+    })
   })
 
-  test('should render multiple status items with limit 1 correctly', () => {
-    const wrapper = getWrapper(mockStatusItems(), 1)
-    expect(wrapper).toMatchSnapshot()
+  describe('with two status items in chronological order', () => {
+    const statusItems = [
+      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_25_2020 }),
+      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_26_2020 })
+    ]
+
+    test('should render status items in the order specified', () => {
+      const statusItemsWrapper = getWrapper(statusItems).find(StatusItem)
+      const firstStatusItem = statusItemsWrapper.first()
+      const secondStatusItem = statusItemsWrapper.at(1)
+      expect(firstStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_25_2020)
+      expect(secondStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_26_2020)
+    })
   })
 
-  test('should render multiple status items with limit 100 correctly', () => {
-    const wrapper = getWrapper(mockStatusItems(), 100)
-    expect(wrapper).toMatchSnapshot()
+  describe('with two status items not in chronological order', () => {
+    const statusItems = [
+      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_26_2020 }),
+      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_25_2020 })
+    ]
+
+    test('should render status items in the order specified', () => {
+      const statusItemsWrapper = getWrapper(statusItems).find(StatusItem)
+      const firstStatusItem = statusItemsWrapper.first()
+      const secondStatusItem = statusItemsWrapper.at(1)
+      expect(firstStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_26_2020)
+      expect(secondStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_25_2020)
+    })
   })
 })
