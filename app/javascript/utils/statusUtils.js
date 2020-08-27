@@ -1,4 +1,4 @@
-import { find } from 'lodash'
+import { find, map } from 'lodash'
 
 export const LEASE_UP_STATUS_OPTIONS = [
   { value: 'Processing', label: 'Processing', style: 'is-processing', commentRequired: true },
@@ -47,9 +47,29 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
   ]
 }
 
+export const LEASE_UP_STATUS_VALUES = LEASE_UP_STATUS_OPTIONS.map(option => option.value)
+export const LEASE_UP_SUBSTATUS_VALUES =
+  map(LEASE_UP_SUBSTATUS_OPTIONS, (substatusList) => map(substatusList, 'value'))
+    .flat()
+
 export const getLeaseUpStatusClass = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
   return statusOption ? statusOption.style : 'tertiary'
+}
+
+export const getStatusPillClass = status => {
+  const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
+  return statusOption ? statusOption.style : 'is-no-status'
+}
+
+export const getStatusPillLabel = status => {
+  const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
+  return statusOption ? statusOption.label : null
+}
+
+export const getSubStatusLabel = (status, subStatus) => {
+  const subStatusOption = find(LEASE_UP_SUBSTATUS_OPTIONS[status] || [], { value: subStatus })
+  return subStatusOption ? subStatusOption.label : ''
 }
 
 export const statusRequiresComments = (status, substatus) => {
