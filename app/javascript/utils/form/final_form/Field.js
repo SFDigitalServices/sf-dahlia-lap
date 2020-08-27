@@ -196,6 +196,10 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   </Field>
 )
 
+/**
+ * Displays similarly to the CheckboxField but is backed by a string with two possible string
+ * values instead of a boolean. (ex: has_developental_disability: "Yes"/"No").
+ */
 export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No', initialValue = null }) => {
   const onChange = (event) => {
     form.change(fieldName, event.target.checked ? trueValue : falseValue)
