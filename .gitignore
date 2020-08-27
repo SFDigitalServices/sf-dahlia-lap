@@ -37,3 +37,6 @@ npm-debug.log
 package-lock.json
 coverage
 TAGS
+
+# Do not track vscode changes
+.vscode
