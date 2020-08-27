@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ExpandablePanel = ({ children }) => {
+const InlineModal = ({ children }) => {
   return (
     <div className='app-editable padding-left--2x padding-right--2x scrollable-table-nested'>
       {children}
@@ -8,4 +8,4 @@ const ExpandablePanel = ({ children }) => {
   )
 }
 
-export default ExpandablePanel
+export default InlineModal
