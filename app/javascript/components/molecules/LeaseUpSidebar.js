@@ -12,7 +12,6 @@ const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 
 const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
   const buttonClasses = classNames(
-    'show-large-up',
     'button-link',
     't-tiny',
     'show-all-updates-toggle'

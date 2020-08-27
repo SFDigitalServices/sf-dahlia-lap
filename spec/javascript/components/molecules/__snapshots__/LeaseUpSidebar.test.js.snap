@@ -440,7 +440,7 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
     </div>
   </div>
   <button
-    className="show-large-up button-link t-tiny show-all-updates-toggle"
+    className="button-link t-tiny show-all-updates-toggle"
     onClick={[Function]}
   >
     Show all status updates
@@ -682,7 +682,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
     </div>
   </div>
   <button
-    className="show-large-up button-link t-tiny show-all-updates-toggle"
+    className="button-link t-tiny show-all-updates-toggle"
     onClick={[Function]}
   >
     Show all status updates
