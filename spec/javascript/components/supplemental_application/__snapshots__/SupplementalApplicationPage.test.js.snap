@@ -7274,11 +7274,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                       <div
                                         className="form-grid row expand padding-bottom"
                                       >
-                                        <Component
-                                          wide={true}
-                                        >
+                                        <Component>
                                           <div
-                                            className="form-grid_item small-12 medium-6 large-6 column"
+                                            className="form-grid_item small-12 medium-6 large-3 column"
                                           >
                                             <Component
                                               label="Household Members Priorities"
@@ -7732,11 +7730,9 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                             </Component>
                                           </div>
                                         </Component>
-                                        <Component
-                                          wide={true}
-                                        >
+                                        <Component>
                                           <div
-                                            className="form-grid_item small-12 medium-6 large-6 column"
+                                            className="form-grid_item small-12 medium-6 large-3 column"
                                           >
                                             <Component
                                               label="Household ADA Priorities"
@@ -14235,7 +14231,7 @@ Array [
             className="form-grid row expand padding-bottom"
           >
             <div
-              className="form-grid_item small-12 medium-6 large-6 column"
+              className="form-grid_item small-12 medium-6 large-3 column"
             >
               <div
                 className="form-group"
@@ -14337,7 +14333,7 @@ Array [
               </div>
             </div>
             <div
-              className="form-grid_item small-12 medium-6 large-6 column"
+              className="form-grid_item small-12 medium-6 large-3 column"
             >
               <div
                 className="form-group"

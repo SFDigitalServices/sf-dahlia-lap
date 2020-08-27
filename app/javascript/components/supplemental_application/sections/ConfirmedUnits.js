@@ -7,7 +7,7 @@ const ConfirmedUnits = ({ form }) => {
   return (
     <>
       <FormGrid.Row paddingBottom>
-        <FormGrid.Item wide>
+        <FormGrid.Item>
           <FormGrid.Group label='Household Members Priorities'>
             <div className='checkbox-group form-checkbox-item' role='group'>
               <TextCheckboxField
@@ -28,7 +28,7 @@ const ConfirmedUnits = ({ form }) => {
             </div>
           </FormGrid.Group>
         </FormGrid.Item>
-        <FormGrid.Item wide>
+        <FormGrid.Item>
           <FormGrid.Group label='Household ADA Priorities'>
             <div className='checkbox-group form-checkbox-item' role='group'>
               <CheckboxField
