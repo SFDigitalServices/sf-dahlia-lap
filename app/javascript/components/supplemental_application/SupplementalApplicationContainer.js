@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentSection from '../molecules/ContentSection'
 import DemographicsInputs from './sections/DemographicsInputs'
@@ -229,9 +230,11 @@ const SupplementalApplicationContainer = ({ store }) => {
                 formIsValid={() => !checkForValidationErrors(form, touched)}
               />
               <div className='padding-bottom--2x margin-bottom--2x' />
-              <div>
-                <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
-              </div>
+              <ScrollableAnchor id={'status-history-section'}>
+                <div>
+                  <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
+                </div>
+              </ScrollableAnchor>
               <div className='button-pager'>
                 <div className='button-pager_row align-buttons-left primary inset-wide'>
                   <StatusDropdown
