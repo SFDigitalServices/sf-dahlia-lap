@@ -11,44 +11,57 @@ const DemographicsInputs = () => {
 
   return (
     <>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group>
-            <SelectField id='demographics-dependents'
+            <SelectField
+              id='demographics-dependents'
               fieldName='number_of_dependents'
               options={numberOfPeopleOptions}
               format={formUtils.formatNumber}
-              label='Number of Dependents' />
+              label='Number of Dependents'
+            />
           </FormGrid.Group>
         </FormGrid.Item>
-
+      </FormGrid.Row>
+      <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group>
-            <SelectField id='demographics-seniors'
+            <SelectField
+              id='demographics-seniors'
               fieldName='number_of_seniors'
               options={numberOfPeopleOptions}
               format={formUtils.formatNumber}
-              label='Number of Seniors' />
+              label='Number of Seniors'
+            />
             <span className='form-note' id='household-annual-income'>
               Check the listing to verify the age cutoff for seniors.
             </span>
           </FormGrid.Group>
         </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group>
-            <SelectField id='demographics-minors'
+            <SelectField
+              id='demographics-minors'
               fieldName='number_of_minors'
               options={numberOfPeopleOptions}
               format={formUtils.formatNumber}
-              label='Number of Minors' />
+              label='Number of Minors'
+            />
           </FormGrid.Group>
         </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
         <FormGrid.Item>
           <FormGrid.Group>
-            <SelectField id='demographics-marital-status'
+            <SelectField
+              id='demographics-marital-status'
               fieldName='applicant.marital_status'
               options={martialStatusOptions}
-              label='Primary Applicant Marital Status' />
+              label='Primary Applicant Marital Status'
+            />
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
