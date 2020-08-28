@@ -27,7 +27,7 @@ FormGrid.Row.defaultProps = {
 // Wrapper for each form field.
 // NOTE: Grid is hardcoded. This should not be generic element
 FormGrid.Item = ({ children }) => (
-  <div className='form-grid_item small-12 medium-12 large-6 column'>
+  <div className='form-grid_item small-6 medium-6 large-6 column'>
     {children}
   </div>
 )
