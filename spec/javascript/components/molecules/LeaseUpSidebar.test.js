@@ -1,9 +1,9 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
 import LeaseUpSidebar from 'components/molecules/LeaseUpSidebar'
 import { mockStatusItem, mockStatusItems, mockManyStatusItems } from '../../mocks/statusItemMock'
 
-const getWrapper = (currentStatus, items) => renderer.create(
+const getWrapper = (currentStatus, items) => shallow(
   <LeaseUpSidebar
     currentStatus={currentStatus}
     statusItems={items}

@@ -1,145 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LeaseUpSidebarButtons should render correctly with desktop styling 1`] = `
-Array [
+<Fragment>
   <button
     className="primary save-button"
     onClick={null}
   >
     Save
-  </button>,
+  </button>
   <div
     className="status-history-buttons"
   >
-    <div
-      className="dropdown"
-      onClick={[Function]}
-    >
-      <button
-        aria-expanded="false"
-        className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-        onClick={[Function]}
-        type="button"
-      >
-        <span
-          className="ui-icon ui-small"
-        >
-          <svg>
-            <use
-              xlinkHref="#i-arrow-down"
-            />
-          </svg>
-        </span>
-        Approved
-      </button>
-      <div
-        aria-hidden="true"
-        className="dropdown-menu-wrapper"
-        role="menu"
-      />
-    </div>
+    <StatusDropdown
+      buttonClasses={
+        Array [
+          "tight-padding",
+        ]
+      }
+      onChange={null}
+      status="Approved"
+    />
     <button
       className="tertiary tight-padding"
       onClick={null}
     >
       Add a comment
     </button>
-  </div>,
-]
+  </div>
+</Fragment>
 `;
 
 exports[`LeaseUpSidebarButtons should render correctly with mobile styling 1`] = `
-Array [
+<Fragment>
   <div
     className="status-history-buttons"
   >
-    <div
-      className="dropdown"
-      onClick={[Function]}
-    >
-      <button
-        aria-expanded="false"
-        className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-        onClick={[Function]}
-        type="button"
-      >
-        <span
-          className="ui-icon ui-small"
-        >
-          <svg>
-            <use
-              xlinkHref="#i-arrow-down"
-            />
-          </svg>
-        </span>
-        Approved
-      </button>
-      <div
-        aria-hidden="true"
-        className="dropdown-menu-wrapper"
-        role="menu"
-      />
-    </div>
+    <StatusDropdown
+      buttonClasses={
+        Array [
+          "tight-padding",
+        ]
+      }
+      onChange={null}
+      status="Approved"
+    />
     <button
       className="tertiary tight-padding"
       onClick={null}
     >
       Add a comment
     </button>
-  </div>,
+  </div>
   <button
     className="primary save-button"
     onClick={null}
   >
     Save
-  </button>,
-]
+  </button>
+</Fragment>
 `;
 
 exports[`LeaseUpSidebarButtons should render desktop styling by default 1`] = `
-Array [
+<Fragment>
   <button
     className="primary save-button"
     onClick={null}
   >
     Save
-  </button>,
+  </button>
   <div
     className="status-history-buttons"
   >
-    <div
-      className="dropdown"
-      onClick={[Function]}
-    >
-      <button
-        aria-expanded="false"
-        className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-        onClick={[Function]}
-        type="button"
-      >
-        <span
-          className="ui-icon ui-small"
-        >
-          <svg>
-            <use
-              xlinkHref="#i-arrow-down"
-            />
-          </svg>
-        </span>
-        Approved
-      </button>
-      <div
-        aria-hidden="true"
-        className="dropdown-menu-wrapper"
-        role="menu"
-      />
-    </div>
+    <StatusDropdown
+      buttonClasses={
+        Array [
+          "tight-padding",
+        ]
+      }
+      onChange={null}
+      status="Approved"
+    />
     <button
       className="tertiary tight-padding"
       onClick={null}
     >
       Add a comment
     </button>
-  </div>,
-]
+  </div>
+</Fragment>
 `;

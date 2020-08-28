@@ -7,137 +7,42 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
   <div
     className="show-large-up"
   >
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={false}
+    />
   </div>
   <h3
     className="status-history-label"
   >
     Status History
   </h3>
-  <div
-    className="status-items"
-  >
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 25th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-  </div>
+  <StatusItems
+    limit={4}
+    statusItems={
+      Array [
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+      ]
+    }
+  />
   <div
     className="hide-large-up"
   >
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={true}
+    />
   </div>
 </div>
 `;
@@ -149,104 +54,33 @@ exports[`LeaseUpSidebar should render with empty status items correctly 1`] = `
   <div
     className="show-large-up"
   >
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={false}
+    />
   </div>
   <h3
     className="status-history-label"
   >
     Status History
   </h3>
-  <div
-    className="status-items"
+  <StatusItems
+    limit={4}
+    statusItems={Array []}
   />
   <div
     className="hide-large-up"
   >
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={true}
+    />
   </div>
 </div>
 `;
@@ -258,239 +92,70 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
   <div
     className="show-large-up"
   >
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={false}
+    />
   </div>
   <h3
     className="status-history-label"
   >
     Status History
   </h3>
-  <div
-    className="status-items"
-  >
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 25th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 25th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 25th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 25th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-  </div>
-  <button
-    className="button-link t-tiny show-all-updates-toggle"
+  <StatusItems
+    limit={4}
+    statusItems={
+      Array [
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+      ]
+    }
+  />
+  <ShowOrHideStatusesButton
     onClick={[Function]}
-  >
-    Show all status updates
-  </button>
+    showingAllStatuses={false}
+  />
   <div
     className="hide-large-up"
   >
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={true}
+    />
   </div>
 </div>
 `;
@@ -502,237 +167,76 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
   <div
     className="show-large-up"
   >
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={false}
+    />
   </div>
   <h3
     className="status-history-label"
   >
     Status History
   </h3>
-  <div
-    className="status-items"
-  >
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 25th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 24th 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Unit selected
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-approved"
-          >
-            Approved
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 23rd 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Waiting for subsidy inspection
-        </div>
-        <div
-          className="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-      </div>
-    </div>
-    <div
-      className="status-items"
-    >
-      <div
-        className="status-item"
-      >
-        <div
-          className="status-item-header"
-        >
-          <div
-            className="status-pill is-waitlisted"
-          >
-            Waitlisted
-          </div>
-          <div
-            className="status-item-date"
-          >
-            August 22nd 2020
-          </div>
-        </div>
-        <div
-          className="item-substatus-text"
-        >
-          Written confirmation sent
-        </div>
-        <div
-          className="status-item-text"
-        />
-      </div>
-    </div>
-  </div>
-  <button
-    className="button-link t-tiny show-all-updates-toggle"
+  <StatusItems
+    limit={4}
+    statusItems={
+      Array [
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Approval letter sent",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Unit selected",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "subStatus": "Waiting for subsidy inspection",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": null,
+          "status": "Waitlisted",
+          "subStatus": "Written confirmation sent",
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Lease Signed",
+          "subStatus": null,
+          "timeStamp": 1598573280,
+        },
+        Object {
+          "comment": null,
+          "status": "Lease Signed",
+          "subStatus": null,
+          "timeStamp": 1598573280,
+        },
+      ]
+    }
+  />
+  <ShowOrHideStatusesButton
     onClick={[Function]}
-  >
-    Show all status updates
-  </button>
+    showingAllStatuses={false}
+  />
   <div
     className="hide-large-up"
   >
-    <div
-      className="status-history-buttons"
-    >
-      <div
-        className="dropdown"
-        onClick={[Function]}
-      >
-        <button
-          aria-expanded="false"
-          className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="ui-icon ui-small"
-          >
-            <svg>
-              <use
-                xlinkHref="#i-arrow-down"
-              />
-            </svg>
-          </span>
-          Approved
-        </button>
-        <div
-          aria-hidden="true"
-          className="dropdown-menu-wrapper"
-          role="menu"
-        />
-      </div>
-      <button
-        className="tertiary tight-padding"
-        onClick={null}
-      >
-        Add a comment
-      </button>
-    </div>
-    <button
-      className="primary save-button"
-      onClick={null}
-    >
-      Save
-    </button>
+    <LeaseUpSidebarButtons
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={true}
+    />
   </div>
 </div>
 `;

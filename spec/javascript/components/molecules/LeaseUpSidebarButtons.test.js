@@ -1,10 +1,10 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
 import LeaseUpSidebarButtons from 'components/molecules/LeaseUpSidebarButtons'
 
 describe('LeaseUpSidebarButtons', () => {
   test('should render correctly with mobile styling', () => {
-    const wrapper = renderer.create(
+    const wrapper = shallow(
       <LeaseUpSidebarButtons
         status={'Approved'}
         withMobileStyling
@@ -14,7 +14,7 @@ describe('LeaseUpSidebarButtons', () => {
   })
 
   test('should render correctly with desktop styling', () => {
-    const wrapper = renderer.create(
+    const wrapper = shallow(
       <LeaseUpSidebarButtons
         status={'Approved'}
         withMobileStyling={false}
@@ -24,7 +24,7 @@ describe('LeaseUpSidebarButtons', () => {
   })
 
   test('should render desktop styling by default', () => {
-    const wrapper = renderer.create(
+    const wrapper = shallow(
       <LeaseUpSidebarButtons
         status={'Approved'}
       />
