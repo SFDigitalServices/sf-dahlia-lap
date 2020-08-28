@@ -28,7 +28,7 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
       ]
     }
@@ -113,31 +113,31 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
       ]
     }
@@ -188,37 +188,37 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Approval letter sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Unit selected",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "subStatus": "Waiting for subsidy inspection",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": null,
           "status": "Waitlisted",
           "subStatus": "Written confirmation sent",
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Lease Signed",
           "subStatus": null,
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
         Object {
           "comment": null,
           "status": "Lease Signed",
           "subStatus": null,
-          "timeStamp": "1598512080",
+          "timeStamp": 1598512080,
         },
       ]
     }
