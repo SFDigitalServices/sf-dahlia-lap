@@ -62,7 +62,9 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
     <>
       <FormGrid.Row>
         <FormGrid.Item>
-          <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
+          <FormGrid.Group label='Recurring Voucher/Subsidy'>
+            <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
+          </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row>
