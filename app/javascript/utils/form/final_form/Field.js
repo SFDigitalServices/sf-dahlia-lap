@@ -24,14 +24,16 @@ export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
 )
 
-export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName }) => (
+export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName, disabled }) => (
   <input {...input}
     id={id || `form-${fieldName}`}
     className={(meta.error && meta.touched && 'error') || ''}
     type={type}
     maxLength={maxLength}
     aria-labelledby={ariaLabelledby}
-    placeholder={placeholder} />
+    placeholder={placeholder}
+    disabled={disabled}
+  />
 )
 
 export const Label = ({ label, fieldName, blockNote, id, labelId, className }) => {
@@ -65,6 +67,7 @@ export const InputField = ({
   helpText,
   parse,
   format,
+  disabled,
   formatOnBlur = false,
   isDirty = false
 }) => (
@@ -89,7 +92,9 @@ export const InputField = ({
             id={id || `form-${fieldName}`}
             type={type || 'text'}
             placeholder={placeholder}
-            maxLength={maxLength} />
+            maxLength={maxLength}
+            disabled={disabled}
+          />
           <FieldError meta={meta} />
           { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
         </div>
@@ -121,6 +126,7 @@ export const CurrencyField = ({
     formatOnBlur
     isDirty={isDirty}
     format={formUtils.formatPrice}
+    disabled={disabled}
     parse={(value, name) => identity(value, name, true)}
   />
 )
