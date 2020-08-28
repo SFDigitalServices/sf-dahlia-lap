@@ -34,7 +34,7 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
   )
   return (
     <>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
         <FormGrid.Item>
           <SelectField
             id='lease_assigned_unit'
@@ -66,7 +66,7 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
           />
         </FormGrid.Item>
       </FormGrid.Row>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
         <FormGrid.Item>
           <CurrencyField
             label='Monthly Rent'

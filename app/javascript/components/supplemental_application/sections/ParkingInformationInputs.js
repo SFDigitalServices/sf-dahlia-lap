@@ -19,7 +19,7 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
   }
   return (
     <>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
         <FormGrid.Item>
           <SelectField
             label='BMR Parking Space Assigned?'
