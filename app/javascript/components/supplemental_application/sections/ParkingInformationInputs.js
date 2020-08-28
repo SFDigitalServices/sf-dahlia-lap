@@ -21,15 +21,13 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
     <>
       <FormGrid.Row paddingBottom>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <SelectField
-              label='BMR Parking Space Assigned?'
-              selectValue={parkingSpaceAssigned}
-              onChange={selectParkingSpaceAssigned}
-              fieldName='lease.bmr_parking_space_assigned'
-              options={[Yes, No]}
-              noPlaceholder />
-          </FormGrid.Group>
+          <SelectField
+            label='BMR Parking Space Assigned?'
+            selectValue={parkingSpaceAssigned}
+            onChange={selectParkingSpaceAssigned}
+            fieldName='lease.bmr_parking_space_assigned'
+            options={[Yes, No]}
+            noPlaceholder />
         </FormGrid.Item>
         <FormGrid.Item>
           <CurrencyField

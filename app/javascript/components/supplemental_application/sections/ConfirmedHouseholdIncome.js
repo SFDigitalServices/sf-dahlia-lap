@@ -62,50 +62,42 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
     <>
       <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group label='Recurring Voucher/Subsidy'>
-            <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
-          </FormGrid.Group>
+          <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <CurrencyField
-              fieldName='household_assets'
-              label='Household Assets'
-              placeholder='Enter Amount'
-              validation={validateIncomeCurrency}
-              isDirty={visited && visited['household_assets']}
-            />
-          </FormGrid.Group>
+          <CurrencyField
+            fieldName='household_assets'
+            label='Household Assets'
+            placeholder='Enter Amount'
+            validation={validateIncomeCurrency}
+            isDirty={visited && visited['household_assets']}
+          />
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <CurrencyField
-              fieldName='confirmed_household_annual_income'
-              label='Confirmed Annual Income'
-              placeholder='Enter Amount'
-              validation={validateIncomeCurrency}
-              isDirty={visited && visited['confirmed_household_annual_income']}
-              helpText='Not Including % of Assets'
-            />
-          </FormGrid.Group>
+          <CurrencyField
+            fieldName='confirmed_household_annual_income'
+            label='Confirmed Annual Income'
+            placeholder='Enter Amount'
+            validation={validateIncomeCurrency}
+            isDirty={visited && visited['confirmed_household_annual_income']}
+            helpText='Not Including % of Assets'
+          />
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <CurrencyField
-              fieldName='hh_total_income_with_assets_annual'
-              label='Final Household Annual Income'
-              placeholder='Enter Amount'
-              validation={validateIncomeCurrency}
-              isDirty={visited && visited['hh_total_income_with_assets_annual']}
-              helpText='Includes % of assets if applicable'
-            />
-          </FormGrid.Group>
+          <CurrencyField
+            fieldName='hh_total_income_with_assets_annual'
+            label='Final Household Annual Income'
+            placeholder='Enter Amount'
+            validation={validateIncomeCurrency}
+            isDirty={visited && visited['hh_total_income_with_assets_annual']}
+            helpText='Includes % of assets if applicable'
+          />
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row>
