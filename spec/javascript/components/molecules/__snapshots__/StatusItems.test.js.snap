@@ -10,8 +10,8 @@ exports[`StatusItems snapshot tests should render a single status item correctly
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Approval letter sent",
-        "timeStamp": 1598573280,
+        "substatus": "Approval letter sent",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -34,8 +34,8 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Approval letter sent",
-        "timeStamp": 1598573280,
+        "substatus": "Approval letter sent",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -45,8 +45,8 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Unit selected",
-        "timeStamp": 1598573280,
+        "substatus": "Unit selected",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -56,8 +56,8 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Waiting for subsidy inspection",
-        "timeStamp": 1598573280,
+        "substatus": "Waiting for subsidy inspection",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -67,8 +67,8 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
       Object {
         "comment": null,
         "status": "Waitlisted",
-        "subStatus": "Written confirmation sent",
-        "timeStamp": 1598573280,
+        "substatus": "Written confirmation sent",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -78,8 +78,8 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Lease Signed",
-        "subStatus": null,
-        "timeStamp": 1598573280,
+        "substatus": null,
+        "timestamp": 1598573280,
       }
     }
   />
@@ -89,8 +89,8 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
       Object {
         "comment": null,
         "status": "Lease Signed",
-        "subStatus": null,
-        "timeStamp": 1598573280,
+        "substatus": null,
+        "timestamp": 1598573280,
       }
     }
   />
@@ -113,8 +113,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Approval letter sent",
-        "timeStamp": 1598573280,
+        "substatus": "Approval letter sent",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -131,8 +131,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Approval letter sent",
-        "timeStamp": 1598573280,
+        "substatus": "Approval letter sent",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -142,8 +142,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Unit selected",
-        "timeStamp": 1598573280,
+        "substatus": "Unit selected",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -153,8 +153,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
-        "subStatus": "Waiting for subsidy inspection",
-        "timeStamp": 1598573280,
+        "substatus": "Waiting for subsidy inspection",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -164,8 +164,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": null,
         "status": "Waitlisted",
-        "subStatus": "Written confirmation sent",
-        "timeStamp": 1598573280,
+        "substatus": "Written confirmation sent",
+        "timestamp": 1598573280,
       }
     }
   />
@@ -175,8 +175,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Lease Signed",
-        "subStatus": null,
-        "timeStamp": 1598573280,
+        "substatus": null,
+        "timestamp": 1598573280,
       }
     }
   />
@@ -186,8 +186,8 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
       Object {
         "comment": null,
         "status": "Lease Signed",
-        "subStatus": null,
-        "timeStamp": 1598573280,
+        "substatus": null,
+        "timestamp": 1598573280,
       }
     }
   />

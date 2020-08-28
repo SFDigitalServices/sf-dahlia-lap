@@ -6,7 +6,9 @@ const AsymColumnLayout = {}
 
 AsymColumnLayout.Container = ({ children }) => {
   const styles = {
-    maxWidth: '74rem'
+    maxWidth: '74rem',
+    display: 'flex',
+    alignItems: 'stretch'
   }
 
   return (
@@ -39,7 +41,9 @@ AsymColumnLayout.Sidebar = ({ children }) => {
   )
   return (
     <div className={classes}>
-      {children}
+      <div className='sticky-sidebar-large-up'>
+        {children}
+      </div>
     </div>
   )
 }

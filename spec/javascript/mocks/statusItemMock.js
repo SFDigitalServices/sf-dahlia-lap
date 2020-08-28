@@ -5,40 +5,40 @@ const toTimeStamp = (dateString) => moment.utc(dateString, 'mm-dd-yyyy').unix()
 
 const statusItem = {
   status: 'Approved',
-  subStatus: 'Approval letter sent',
+  substatus: 'Approval letter sent',
   comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.',
-  timeStamp: toTimeStamp('08-25-2020')
+  timestamp: toTimeStamp('08-25-2020')
 }
 
 export const mockStatusItem = (overrides = {}) => ({ ...statusItem, ...overrides })
 
 export const mockStatusItems = () => [
   mockStatusItem({
-    timeStamp: toTimeStamp('08-25-2020')
+    timestamp: toTimeStamp('08-25-2020')
   }),
   mockStatusItem({
-    subStatus: 'Unit selected',
-    timeStamp: toTimeStamp('08-24-2020')
+    substatus: 'Unit selected',
+    timestamp: toTimeStamp('08-24-2020')
   }),
   mockStatusItem({
-    subStatus: 'Waiting for subsidy inspection',
-    timeStamp: toTimeStamp('08-23-2020')
+    substatus: 'Waiting for subsidy inspection',
+    timestamp: toTimeStamp('08-23-2020')
   }),
   mockStatusItem({
     status: 'Waitlisted',
-    subStatus: 'Written confirmation sent',
-    timeStamp: toTimeStamp('08-22-2020'),
+    substatus: 'Written confirmation sent',
+    timestamp: toTimeStamp('08-22-2020'),
     comment: null }),
   mockStatusItem({
     status: 'Lease Signed',
-    subStatus: null,
-    timeStamp: toTimeStamp('08-21-2020')
+    substatus: null,
+    timestamp: toTimeStamp('08-21-2020')
   }),
   mockStatusItem({
     status: 'Lease Signed',
-    subStatus: null,
+    substatus: null,
     comment: null,
-    timeStamp: toTimeStamp('08-20-2020')
+    timestamp: toTimeStamp('08-20-2020')
   })
 ]
 

@@ -22,6 +22,7 @@ import validate, { touchAllFields } from '~/utils/form/validations'
 import ParkingInformationInputs from './sections/ParkingInformationInputs'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
+import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
 
 const StatusUpdateSection = withContext(({ store, formIsValid }) => {
   const {
@@ -154,6 +155,25 @@ const StatusHistorySection = withContext(
   }
 )
 
+const Sidebar = withContext(
+  ({
+    store: { statusHistory, loading },
+    onChangeStatus,
+    onAddCommentClicked
+  }) => {
+    return (
+      <div className='sticky-sidebar-large-up'>
+        <LeaseUpSidebar
+          statusItems={statusHistory}
+          isLoading={loading}
+          onChangeStatus={onChangeStatus}
+          onAddCommentClicked={onAddCommentClicked}
+        />
+      </div>
+    )
+  }
+)
+
 const SupplementalApplicationContainer = ({ store }) => {
   const [failed, setFailed] = useState(false)
 
@@ -194,8 +214,17 @@ const SupplementalApplicationContainer = ({ store }) => {
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
+    openAddStatusCommentModal,
     openUpdateStatusModal
   } = store
+
+  const onAddCommentClicked = (form, touched) =>
+    !checkForValidationErrors(form, touched) ? openAddStatusCommentModal() : null
+
+  const onChangeStatus = (form, touched, value) =>
+    !checkForValidationErrors(form, touched)
+      ? openUpdateStatusModal(value)
+      : null
 
   return (
     <Form
@@ -290,7 +319,10 @@ const SupplementalApplicationContainer = ({ store }) => {
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>
                 <AsymColumnLayout.Sidebar>
-                  <h1>Status sidebar placeholder</h1>
+                  <Sidebar
+                    onAddCommentClicked={() => onAddCommentClicked(form, touched)}
+                    onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+                  />
                 </AsymColumnLayout.Sidebar>
               </AsymColumnLayout.Container>
             </form>

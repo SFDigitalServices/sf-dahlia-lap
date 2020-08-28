@@ -7,28 +7,28 @@ import StatusPill from '../atoms/StatusPill'
 import StatusItemShape from '../../utils/shapes/StatusItemShape'
 import { getSubStatusLabel } from '../../utils/statusUtils'
 
-const StatusDate = ({ timeStamp }) => (
+const StatusDate = ({ timestamp }) => (
   <div className='status-item-date'>
-    {moment.unix(timeStamp).format('MMMM Do YYYY')}
+    {moment.unix(timestamp).format('MMMM Do YYYY')}
   </div>
 )
 
-StatusDate.propTypes = { timeStamp: PropTypes.number }
+StatusDate.propTypes = { timestamp: PropTypes.number }
 
 const StatusItem = ({ statusItem }) => {
-  const { status, subStatus, comment, timeStamp } = statusItem
+  const { status, substatus, comment, timestamp } = statusItem
 
-  const subStatusLabel = getSubStatusLabel(status, subStatus)
+  const substatusLabel = getSubStatusLabel(status, substatus)
 
   return (
     <div className='status-item'>
       <div className='status-item-header'>
         <StatusPill status={status} />
-        <StatusDate timeStamp={timeStamp} />
+        <StatusDate timestamp={timestamp} />
       </div>
-      {subStatusLabel && (
+      {substatusLabel && (
         <div className='item-substatus-text'>
-          {subStatusLabel}
+          {substatusLabel}
         </div>
       )}
       <div className='status-item-text'>

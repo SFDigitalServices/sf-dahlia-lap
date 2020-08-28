@@ -22,32 +22,32 @@ describe('StatusItem', () => {
   })
 
   test('should render properly when no comment or substatus provided', () => {
-    const wrapper = getWrapper(mockStatusItem({ subStatus: null, comment: null }))
+    const wrapper = getWrapper(mockStatusItem({ substatus: null, comment: null }))
     expect(wrapper).toMatchSnapshot()
   })
 
   test('should render properly with withdrawn status', () => {
-    const wrapper = getWrapper(mockStatusItem({ status: 'Withdrawn', subStatus: null }))
+    const wrapper = getWrapper(mockStatusItem({ status: 'Withdrawn', substatus: null }))
     expect(wrapper).toMatchSnapshot()
   })
 
   test('should render properly with Processing status', () => {
-    const wrapper = getWrapper(mockStatusItem({ status: 'Processing', subStatus: null }))
+    const wrapper = getWrapper(mockStatusItem({ status: 'Processing', substatus: null }))
     expect(wrapper).toMatchSnapshot()
   })
 
   test('should render properly with Appealed status', () => {
-    const wrapper = getWrapper(mockStatusItem({ status: 'Appealed', subStatus: null }))
+    const wrapper = getWrapper(mockStatusItem({ status: 'Appealed', substatus: null }))
     expect(wrapper).toMatchSnapshot()
   })
 
   test('should render properly with Disqualified status', () => {
-    const wrapper = getWrapper(mockStatusItem({ status: 'Disqualified', subStatus: null }))
+    const wrapper = getWrapper(mockStatusItem({ status: 'Disqualified', substatus: null }))
     expect(wrapper).toMatchSnapshot()
   })
 
   test('should render properly with Lease Signed status', () => {
-    const wrapper = getWrapper(mockStatusItem({ status: 'Lease Signed', subStatus: null }))
+    const wrapper = getWrapper(mockStatusItem({ status: 'Lease Signed', substatus: null }))
     expect(wrapper).toMatchSnapshot()
   })
 })
