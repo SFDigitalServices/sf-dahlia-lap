@@ -5,6 +5,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import { formatPercent } from '~/utils/utils'
 import getAmiChartYears from '~/utils/amiYearUtils'
 import formUtils from '~/utils/formUtils'
+import ContentSection from '~/components/molecules/ContentSection'
 
 import {
   YesNoRadioGroup,
@@ -60,84 +61,88 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
 
   return (
     <>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <FormGrid.Group label='Recurring Voucher/Subsidy'>
-            <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
-          </FormGrid.Group>
-        </FormGrid.Item>
-      </FormGrid.Row>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <CurrencyField
-            fieldName='household_assets'
-            label='Household Assets'
-            placeholder='Enter Amount'
-            validation={validateIncomeCurrency}
-            isDirty={visited && visited['household_assets']}
-          />
-        </FormGrid.Item>
-      </FormGrid.Row>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <CurrencyField
-            fieldName='confirmed_household_annual_income'
-            label='Confirmed Annual Income'
-            placeholder='Enter Amount'
-            validation={validateIncomeCurrency}
-            isDirty={visited && visited['confirmed_household_annual_income']}
-            helpText='Not Including % of Assets'
-          />
-        </FormGrid.Item>
-      </FormGrid.Row>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <CurrencyField
-            fieldName='hh_total_income_with_assets_annual'
-            label='Final Household Annual Income'
-            placeholder='Enter Amount'
-            validation={validateIncomeCurrency}
-            isDirty={visited && visited['hh_total_income_with_assets_annual']}
-            helpText='Includes % of assets if applicable'
-          />
-        </FormGrid.Item>
-      </FormGrid.Row>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <PercentField
-            id='ami_percentage'
-            label='AMI Percentage'
-            fieldName='ami_percentage'
-            placeholder='Enter Percentage'
-            validation={validate.isValidPercent(
-              'Please enter a valid percent.'
-            )}
-            isDirty={visited && visited['ami_percentage']}
-          />
-        </FormGrid.Item>
-      </FormGrid.Row>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <SelectField
-            id='ami_chart_type'
-            fieldName='ami_chart_type'
-            label='AMI Chart Type'
-            options={amiChartTypes}
-            noPlaceholder={amiChartTypes.length <= 1}
-          />
-        </FormGrid.Item>
-      </FormGrid.Row>
-      <FormGrid.Row>
-        <FormGrid.Item>
-          <SelectField
-            id='ami_chart_year'
-            fieldName='ami_chart_year'
-            label='AMI Chart Year'
-            options={amiChartYears}
-            noPlaceholder={amiChartYears.length <= 1}
-          />
-        </FormGrid.Item>
-      </FormGrid.Row>
+      <ContentSection.Sub title='Confirmed Household Income'>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <FormGrid.Group label='Recurring Voucher/Subsidy'>
+              <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
+            </FormGrid.Group>
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <CurrencyField
+              fieldName='household_assets'
+              label='Household Assets'
+              placeholder='Enter Amount'
+              validation={validateIncomeCurrency}
+              isDirty={visited && visited['household_assets']}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <CurrencyField
+              fieldName='confirmed_household_annual_income'
+              label='Confirmed Annual Income'
+              placeholder='Enter Amount'
+              validation={validateIncomeCurrency}
+              isDirty={visited && visited['confirmed_household_annual_income']}
+              helpText='Not Including % of Assets'
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <CurrencyField
+              fieldName='hh_total_income_with_assets_annual'
+              label='Final Household Annual Income'
+              placeholder='Enter Amount'
+              validation={validateIncomeCurrency}
+              isDirty={visited && visited['hh_total_income_with_assets_annual']}
+              helpText='Includes % of assets if applicable'
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+      </ContentSection.Sub>
+      <ContentSection.Sub title='Area Median Income'>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <PercentField
+              id='ami_percentage'
+              label='AMI Percentage'
+              fieldName='ami_percentage'
+              placeholder='Enter Percentage'
+              validation={validate.isValidPercent(
+                'Please enter a valid percent.'
+              )}
+              isDirty={visited && visited['ami_percentage']}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <SelectField
+              id='ami_chart_type'
+              fieldName='ami_chart_type'
+              label='AMI Chart Type'
+              options={amiChartTypes}
+              noPlaceholder={amiChartTypes.length <= 1}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <SelectField
+              id='ami_chart_year'
+              fieldName='ami_chart_year'
+              label='AMI Chart Year'
+              options={amiChartYears}
+              noPlaceholder={amiChartYears.length <= 1}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+      </ContentSection.Sub>
     </>
   )
 }

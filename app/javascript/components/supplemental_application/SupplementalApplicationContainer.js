@@ -95,12 +95,10 @@ const ConfirmedPreferencesSection = ({
 
 const Income = ({ listingAmiCharts, visited, form }) => (
   <ContentSection title='Income'>
-    <ContentSection.Sub title='Confirmed Household Income' paddingBottomNone>
-      <ConfirmedHouseholdIncome
-        listingAmiCharts={listingAmiCharts}
-        visited={visited}
-      />
-    </ContentSection.Sub>
+    <ConfirmedHouseholdIncome
+      listingAmiCharts={listingAmiCharts}
+      visited={visited}
+    />
   </ContentSection>
 )
 
