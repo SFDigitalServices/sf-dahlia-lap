@@ -1,7 +1,7 @@
 import moment from 'moment'
 
 // 8-25-2020 -> 1598386370
-const toTimeStamp = (dateString) => moment(dateString, 'mm-dd-yyyy').utc().unix()
+const toTimeStamp = (dateString) => moment.utc(dateString, 'mm-dd-yyyy').unix()
 
 const statusItem = {
   status: 'Approved',

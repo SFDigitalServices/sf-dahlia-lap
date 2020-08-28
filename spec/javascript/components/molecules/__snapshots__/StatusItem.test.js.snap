@@ -14,7 +14,7 @@ exports[`StatusItem should render an approved status with substatus and comments
         status="Approved"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -45,7 +45,7 @@ exports[`StatusItem should render properly when no comment or substatus provided
         status="Approved"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -69,7 +69,7 @@ exports[`StatusItem should render properly when no comment provided 1`] = `
         status="Approved"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -98,7 +98,7 @@ exports[`StatusItem should render properly when no substatus provided 1`] = `
         status="Approved"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -129,7 +129,7 @@ exports[`StatusItem should render properly with Appealed status 1`] = `
         status="Appealed"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -155,7 +155,7 @@ exports[`StatusItem should render properly with Disqualified status 1`] = `
         status="Disqualified"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -181,7 +181,7 @@ exports[`StatusItem should render properly with Lease Signed status 1`] = `
         status="Lease Signed"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -207,7 +207,7 @@ exports[`StatusItem should render properly with Processing status 1`] = `
         status="Processing"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
@@ -233,7 +233,7 @@ exports[`StatusItem should render properly with withdrawn status 1`] = `
         status="Withdrawn"
       />
       <StatusDate
-        timeStamp={1598512080}
+        timeStamp={1598573280}
       />
     </div>
     <div
