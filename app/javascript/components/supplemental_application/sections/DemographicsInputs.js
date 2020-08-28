@@ -33,10 +33,8 @@ const DemographicsInputs = () => {
               options={numberOfPeopleOptions}
               format={formUtils.formatNumber}
               label='Number of Seniors'
+              helpText='Check the listing to verify the age cutoff for seniors.'
             />
-            <span className='form-note' id='household-annual-income'>
-              Check the listing to verify the age cutoff for seniors.
-            </span>
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>

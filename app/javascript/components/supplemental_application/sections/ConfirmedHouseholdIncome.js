@@ -89,10 +89,8 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               placeholder='Enter Amount'
               validation={validateIncomeCurrency}
               isDirty={visited && visited['confirmed_household_annual_income']}
+              helpText='Not Including % of Assets'
             />
-            <span className='form-note shift-up' id='household-annual-income'>
-              Not Including % of Assets
-            </span>
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
@@ -105,13 +103,8 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               placeholder='Enter Amount'
               validation={validateIncomeCurrency}
               isDirty={visited && visited['hh_total_income_with_assets_annual']}
+              helpText='Includes % of assets if applicable'
             />
-            <span
-              className='form-note shift-up'
-              id='final-household-annual-income'
-            >
-              Includes % of assets if applicable
-            </span>
           </FormGrid.Group>
         </FormGrid.Item>
       </FormGrid.Row>
