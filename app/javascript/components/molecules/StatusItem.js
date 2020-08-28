@@ -21,20 +21,18 @@ const StatusItem = ({ statusItem }) => {
   const subStatusLabel = getSubStatusLabel(status, subStatus)
 
   return (
-    <div className='status-items'>
-      <div className='status-item'>
-        <div className='status-item-header'>
-          <StatusPill status={status} />
-          <StatusDate timeStamp={timeStamp} />
+    <div className='status-item'>
+      <div className='status-item-header'>
+        <StatusPill status={status} />
+        <StatusDate timeStamp={timeStamp} />
+      </div>
+      {subStatusLabel && (
+        <div className='item-substatus-text'>
+          {subStatusLabel}
         </div>
-        {subStatusLabel && (
-          <div className='item-substatus-text'>
-            {subStatusLabel}
-          </div>
-        )}
-        <div className='status-item-text'>
-          {comment}
-        </div>
+      )}
+      <div className='status-item-text'>
+        {comment}
       </div>
     </div>
   )
