@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusPill should render properly with Appealed status 1`] = `
+<div
+  className="status-pill is-appealed"
+>
+  Appealed
+</div>
+`;
+
+exports[`StatusPill should render properly with Disqualified status 1`] = `
+<div
+  className="status-pill is-disqualified"
+>
+  Disqualified
+</div>
+`;
+
+exports[`StatusPill should render properly with Lease Signed status 1`] = `
+<div
+  className="status-pill is-leased"
+>
+  Lease Signed
+</div>
+`;
+
+exports[`StatusPill should render properly with Processing status 1`] = `
+<div
+  className="status-pill is-processing"
+>
+  Processing
+</div>
+`;
+
+exports[`StatusPill should render properly with approved status 1`] = `
+<div
+  className="status-pill is-approved"
+>
+  Approved
+</div>
+`;
+
+exports[`StatusPill should render properly with withdrawn status 1`] = `
+<div
+  className="status-pill is-withdrawn"
+>
+  Withdrawn
+</div>
+`;
