@@ -24,7 +24,17 @@ export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
 )
 
-export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName, disabled }) => (
+export const Input = ({
+  input,
+  id,
+  meta,
+  type,
+  maxLength,
+  placeholder,
+  ariaLabelledby,
+  fieldName,
+  disabled
+}) => (
   <input {...input}
     id={id || `form-${fieldName}`}
     className={(meta.error && meta.touched && 'error') || ''}
@@ -134,7 +144,8 @@ export const CurrencyField = ({
 /**
  * Field that allows only whole integer percent values.
  */
-export const PercentField = ({ fieldName,
+export const PercentField = ({
+  fieldName,
   validation,
   id,
   label,
@@ -233,7 +244,9 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
             label={label}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+            className='t-normal'
+          />
           <FieldError meta={meta} />
         </div>
       </>
@@ -270,7 +283,9 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
             label={label}
             id={id || `form-ctrl-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+            className='t-normal'
+          />
           <FieldError meta={meta} />
         </div>
       )}
