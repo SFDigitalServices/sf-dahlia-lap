@@ -14,7 +14,8 @@ const getMostRecentStatus = (statusHistory) =>
     ? statusHistory[0].status
     : null
 
-const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
+// visible for testing
+export const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
   const buttonClasses = classNames(
     'button-link',
     't-tiny',
