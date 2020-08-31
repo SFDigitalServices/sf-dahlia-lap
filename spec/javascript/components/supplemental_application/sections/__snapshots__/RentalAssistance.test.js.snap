@@ -11,7 +11,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
       className="small-12 column"
     >
       <div
-        className="scrollable-table-container-under-xlarge"
+        className="table-container-overflow-scroll"
       >
         <table
           className="td-light td-plain th-plain rental-assistances"
@@ -97,10 +97,10 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                 colSpan={5}
               >
                 <div
-                  className="app-editable expand-wide scrollable-table-nested"
+                  className="app-editable padding-left--2x padding-right--2x"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
+                    className="rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
@@ -285,7 +285,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="$0.00"
+                            placeholder="Enter Amount"
                             type="text"
                             value="100"
                           />
@@ -366,7 +366,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     </div>
   </div>
   <div
-    className="app-editable expand-wide scrollable-table-nested rental-assistance-new-form"
+    className="rental-assistance-new-form"
   >
     <div
       className="form-grid row"
@@ -550,9 +550,8 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
-            placeholder="$0.00"
+            placeholder="Enter Amount"
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -649,7 +648,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
       className="small-12 column"
     >
       <div
-        className="scrollable-table-container-under-xlarge"
+        className="table-container-overflow-scroll"
       >
         <table
           className="td-light td-plain th-plain rental-assistances"
@@ -735,10 +734,10 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                 colSpan={5}
               >
                 <div
-                  className="app-editable expand-wide scrollable-table-nested"
+                  className="app-editable padding-left--2x padding-right--2x"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
+                    className="rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
@@ -923,7 +922,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="$0.00"
+                            placeholder="Enter Amount"
                             type="text"
                             value="100"
                           />
@@ -1024,7 +1023,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
       className="small-12 column"
     >
       <div
-        className="scrollable-table-container-under-xlarge"
+        className="table-container-overflow-scroll"
       >
         <table
           className="td-light td-plain th-plain rental-assistances"
@@ -1110,10 +1109,10 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                 colSpan={5}
               >
                 <div
-                  className="app-editable expand-wide scrollable-table-nested"
+                  className="app-editable padding-left--2x padding-right--2x"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
+                    className="rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
@@ -1298,7 +1297,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="$0.00"
+                            placeholder="Enter Amount"
                             type="text"
                             value="100"
                           />

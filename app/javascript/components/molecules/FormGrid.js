@@ -24,6 +24,7 @@ FormGrid.Row.defaultProps = {
   expand: true
 }
 
+// Wrapper for each form field.
 // NOTE: Grid is hardcoded. This should not be generic element
 FormGrid.Item = ({ children }) => (
   <div className='form-grid_item small-6 medium-6 large-6 column'>
@@ -31,6 +32,7 @@ FormGrid.Item = ({ children }) => (
   </div>
 )
 
+// Use for form fields that have a shared label.
 FormGrid.Group = ({ children, label }) => (
   <div className='form-group'>
     { label && <label htmlFor=''>{label}</label>}

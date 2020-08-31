@@ -6,7 +6,22 @@ import { CheckboxField, TextCheckboxField } from '~/utils/form/final_form/Field.
 const ConfirmedUnits = ({ form }) => {
   return (
     <>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <FormGrid.Group label='Household ADA Priorities'>
+            <div className='checkbox-group form-checkbox-item' role='group'>
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.mobility_impairments'
+                label='Mobility Impairments' />
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.vision_impairments'
+                label='Vision Impairments' />
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.hearing_impairments'
+                label='Hearing Impairments' />
+            </div>
+          </FormGrid.Group>
+        </FormGrid.Item>
         <FormGrid.Item>
           <FormGrid.Group label='Household Members Priorities'>
             <div className='checkbox-group form-checkbox-item' role='group'>
@@ -25,21 +40,6 @@ const ConfirmedUnits = ({ form }) => {
                 label='Person with Developmental Disability in Household'
                 initialValue='No'
                 form={form} />
-            </div>
-          </FormGrid.Group>
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <FormGrid.Group label='Household ADA Priorities'>
-            <div className='checkbox-group form-checkbox-item' role='group'>
-              <CheckboxField
-                fieldName='has_ada_priorities_selected.mobility_impairments'
-                label='Mobility Impairments' />
-              <CheckboxField
-                fieldName='has_ada_priorities_selected.vision_impairments'
-                label='Vision Impairments' />
-              <CheckboxField
-                fieldName='has_ada_priorities_selected.hearing_impairments'
-                label='Hearing Impairments' />
             </div>
           </FormGrid.Group>
         </FormGrid.Item>

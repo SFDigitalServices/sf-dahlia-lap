@@ -31,10 +31,10 @@ const ConfirmedPreferencesSection = ({
   visited
 }) => (
   <ContentSection
-    title='Confirmed Preferences'
+    title='Confirmed Preferences and Priorities'
     description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'
   >
-    <ContentSection.Content>
+    <ContentSection.Sub title='Confirmed Preferences'>
       {confirmedPreferencesFailed && (
         <AlertBox
           invert
@@ -51,25 +51,23 @@ const ConfirmedPreferencesSection = ({
         form={form}
         visited={visited}
       />
-    </ContentSection.Content>
-  </ContentSection>
-)
-
-const ConfirmedHousehold = ({ listingAmiCharts, visited, form }) => (
-  <ContentSection title='Confirmed Household'>
+    </ContentSection.Sub>
     <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
       <ConfirmedUnits form={form} />
     </ContentSection.Sub>
-    <ContentSection.Sub title='Confirmed Household Income'>
-      <ConfirmedHouseholdIncome
-        listingAmiCharts={listingAmiCharts}
-        visited={visited}
-      />
-    </ContentSection.Sub>
   </ContentSection>
 )
 
-const LeaseInformationSection = ({ form, values, visited }) => (
+const Income = ({ listingAmiCharts, visited, form }) => (
+  <ContentSection title='Income'>
+    <ConfirmedHouseholdIncome
+      listingAmiCharts={listingAmiCharts}
+      visited={visited}
+    />
+  </ContentSection>
+)
+
+const LeaseInformationSection = ({ form, submitting, values, visited }) => (
   <ContentSection title='Lease Information'>
     <ContentSection.Sub title='Unit'>
       <LeaseInformationInputs form={form} visited={visited} />
@@ -80,22 +78,19 @@ const LeaseInformationSection = ({ form, values, visited }) => (
     >
       <ParkingInformationInputs form={form} values={values} visited={visited} />
     </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Rental Assistance Information'
+      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'
+    >
+      <RentalAssistance form={form} submitting={submitting} />
+    </ContentSection.Sub>
   </ContentSection>
 )
 
-const RentalAssistanceSection = ({ form, submitting, visited }) => (
-  <ContentSection.Sub
-    title='Rental Assistance Information'
-    description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'
-  >
-    <RentalAssistance form={form} submitting={submitting} />
-  </ContentSection.Sub>
-)
-
 const DemographicsSection = () => (
-  <ContentSection.Sub title='Demographics'>
+  <ContentSection title='Demographics'>
     <DemographicsInputs />
-  </ContentSection.Sub>
+  </ContentSection>
 )
 
 const Sidebar = withContext(
@@ -211,7 +206,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                     confirmedPreferencesFailed={confirmedPreferencesFailed}
                     form={form}
                   />
-                  <ConfirmedHousehold
+                  <Income
                     listingAmiCharts={listingAmiCharts}
                     visited={visited}
                     form={form}
@@ -219,10 +214,6 @@ const SupplementalApplicationContainer = ({ store }) => {
                   <LeaseInformationSection
                     form={form}
                     values={values}
-                    visited={visited}
-                  />
-                  <RentalAssistanceSection
-                    form={form}
                     submitting={submitting}
                     visited={visited}
                   />
