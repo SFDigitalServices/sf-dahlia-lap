@@ -9,7 +9,7 @@ import { getSubStatusLabel } from '../../utils/statusUtils'
 
 const StatusDate = ({ timestamp }) => (
   <div className='status-item-date'>
-    {moment.unix(timestamp).format('MMMM Do YYYY')}
+    {moment.unix(timestamp).format('MMM D, YYYY')}
   </div>
 )
 

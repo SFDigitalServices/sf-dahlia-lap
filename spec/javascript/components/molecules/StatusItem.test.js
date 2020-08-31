@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { mockStatusItem } from '../../mocks/statusItemMock'
 import StatusItem from 'components/molecules/StatusItem'
 
@@ -49,5 +49,11 @@ describe('StatusItem', () => {
   test('should render properly with Lease Signed status', () => {
     const wrapper = getWrapper(mockStatusItem({ status: 'Lease Signed', substatus: null }))
     expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should format timestamps as expected', () => {
+    const wrapper = mount(<StatusItem statusItem={mockStatusItem({ status: 'Lease Signed', substatus: null })} />)
+    const timestamp = wrapper.find('StatusDate').text()
+    expect(timestamp).toEqual('Aug 30, 2020')
   })
 })
