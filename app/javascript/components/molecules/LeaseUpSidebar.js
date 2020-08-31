@@ -21,13 +21,12 @@ const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
     'show-all-updates-toggle'
   )
 
-  const onClickPreventDefault = (event) => {
-    onClick()
-    event.preventDefault()
-  }
-
   return (
-    <button className={buttonClasses} onClick={onClickPreventDefault}>
+    <button
+      className={buttonClasses}
+      type='button'
+      onClick={onClick}
+    >
       {showingAllStatuses ? 'Show only recent status updates' : 'Show all status updates'}
     </button>
   )
