@@ -15810,6 +15810,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -16120,6 +16121,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -16430,6 +16432,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -16740,6 +16743,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -17050,6 +17054,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -17360,6 +17365,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -17670,6 +17676,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -17980,6 +17987,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />
@@ -18290,6 +18298,7 @@ Array [
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
+                                        placeholder="Enter Amount"
                                         type="text"
                                         value={1100}
                                       />

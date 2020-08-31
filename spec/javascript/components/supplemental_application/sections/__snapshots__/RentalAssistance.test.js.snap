@@ -285,6 +285,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
+                            placeholder="Enter Amount"
                             type="text"
                             value="100"
                           />
@@ -549,6 +550,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
+            placeholder="Enter Amount"
             type="text"
           />
         </div>
@@ -920,6 +922,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
+                            placeholder="Enter Amount"
                             type="text"
                             value="100"
                           />
@@ -1294,6 +1297,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
+                            placeholder="Enter Amount"
                             type="text"
                             value="100"
                           />
