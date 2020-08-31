@@ -8,10 +8,10 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     className="form-grid row expand"
   >
     <div
-      className="small-12 column"
+      className="small-12 medium-12 large-12 column"
     >
       <div
-        className="scrollable-table-container-under-xlarge"
+        className="table-container-overflow-scroll"
       >
         <table
           className="td-light td-plain th-plain rental-assistances"
@@ -97,16 +97,16 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                 colSpan={5}
               >
                 <div
-                  className="app-editable expand-wide scrollable-table-nested"
+                  className="app-editable padding-left--2x padding-right--2x"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
+                    className="rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -211,7 +211,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="rental-assistance-recurring radio-group-inline"
@@ -266,7 +266,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -285,14 +285,13 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="$0.00"
                             type="text"
                             value="100"
                           />
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -366,13 +365,13 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     </div>
   </div>
   <div
-    className="app-editable expand-wide scrollable-table-nested rental-assistance-new-form"
+    className="rental-assistance-new-form"
   >
     <div
       className="form-grid row"
     >
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="form-group"
@@ -476,7 +475,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="rental-assistance-recurring radio-group-inline"
@@ -531,7 +530,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="form-group"
@@ -550,14 +549,12 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
-            placeholder="$0.00"
             type="text"
-            value=""
           />
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="form-group"
@@ -646,10 +643,10 @@ exports[`RentalAssistance should render a table when rental assistances are pres
     className="form-grid row expand"
   >
     <div
-      className="small-12 column"
+      className="small-12 medium-12 large-12 column"
     >
       <div
-        className="scrollable-table-container-under-xlarge"
+        className="table-container-overflow-scroll"
       >
         <table
           className="td-light td-plain th-plain rental-assistances"
@@ -735,16 +732,16 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                 colSpan={5}
               >
                 <div
-                  className="app-editable expand-wide scrollable-table-nested"
+                  className="app-editable padding-left--2x padding-right--2x"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
+                    className="rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -849,7 +846,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="rental-assistance-recurring radio-group-inline"
@@ -904,7 +901,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -923,14 +920,13 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="$0.00"
                             type="text"
                             value="100"
                           />
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1021,10 +1017,10 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
     className="form-grid row expand"
   >
     <div
-      className="small-12 column"
+      className="small-12 medium-12 large-12 column"
     >
       <div
-        className="scrollable-table-container-under-xlarge"
+        className="table-container-overflow-scroll"
       >
         <table
           className="td-light td-plain th-plain rental-assistances"
@@ -1110,16 +1106,16 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                 colSpan={5}
               >
                 <div
-                  className="app-editable expand-wide scrollable-table-nested"
+                  className="app-editable padding-left--2x padding-right--2x"
                 >
                   <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
+                    className="rental-assistance-edit-form"
                   >
                     <div
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1224,7 +1220,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="rental-assistance-recurring radio-group-inline"
@@ -1279,7 +1275,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1298,14 +1294,13 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="$0.00"
                             type="text"
                             value="100"
                           />
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1344,7 +1339,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"

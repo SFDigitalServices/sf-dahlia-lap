@@ -430,6 +430,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               placeholder="Application Number"
                             >
                               <Field
+                                formatOnBlur={false}
                                 name="application_number"
                                 parse={[Function]}
                               >
@@ -525,6 +526,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               placeholder="First Name"
                             >
                               <Field
+                                formatOnBlur={false}
                                 name="first_name"
                                 parse={[Function]}
                               >
@@ -620,6 +622,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                               placeholder="Last Name"
                             >
                               <Field
+                                formatOnBlur={false}
                                 name="last_name"
                                 parse={[Function]}
                               >

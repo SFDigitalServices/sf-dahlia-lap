@@ -1912,7 +1912,6 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        placeholder="$0.00"
                         type="text"
                         value="$110,000.00"
                       />
@@ -4300,7 +4299,6 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        placeholder="$0.00"
                         type="text"
                         value="$110,000.00"
                       />

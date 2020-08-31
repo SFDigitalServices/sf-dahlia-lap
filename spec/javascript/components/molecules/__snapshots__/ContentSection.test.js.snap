@@ -1,39 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContentSection should render correctly 1`] = `
-Array [
-  <div
-    className="app-inner"
+<div
+  className="app-inner padding-bottom--half padding-top--half"
+>
+  <h2
+    className="app-card_h2"
   >
-    <h2
-      className="app-card_h2"
-    >
-      main title
-    </h2>
-    <p
-      className="form-note max-width"
-    >
-      main desc
-    </p>
-  </div>,
-  <div
-    className="app-inner"
+    main title
+  </h2>
+  <p
+    className="form-note max-width margin-bottom--3halves"
   >
-    <h3
-      className="app-card_h3 t-sans"
-    >
-      sub title
-    </h3>
-    <p
-      className="form-note max-width"
-    >
-      sub desc
-    </p>
-  </div>,
+    main desc
+  </p>
+  <h3
+    className="app-card_h3 t-sans"
+  >
+    sub title
+  </h3>
+  <p
+    className="form-note max-width margin-bottom--3halves"
+  >
+    sub desc
+  </p>
   <div
-    className="app-inner"
+    className=""
+    style={
+      Object {
+        "marginBottom": "1.75rem",
+      }
+    }
   >
     content
-  </div>,
-]
+  </div>
+</div>
 `;

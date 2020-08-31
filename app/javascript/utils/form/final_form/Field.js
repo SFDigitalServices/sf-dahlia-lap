@@ -46,10 +46,10 @@ export const Input = ({
   />
 )
 
-export const Label = ({ label, fieldName, blockNote, id, labelId, className }) => {
+export const Label = ({ label, fieldName, blockNote, id, labelId }) => {
   return (
     label ? (
-      <label htmlFor={id || `form-${fieldName}`} id={(labelId || `label-${fieldName}`).replace('.', '-')} className={className || 'form-label'}>
+      <label htmlFor={id || `form-${fieldName}`} id={(labelId || `label-${fieldName}`).replace('.', '-')} className='form-label'>
         {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
@@ -245,7 +245,6 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
             blockNote={blockNote}
-            className='t-normal'
           />
           <FieldError meta={meta} />
         </div>
@@ -284,7 +283,6 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
             id={id || `form-ctrl-${fieldName}`}
             fieldName={fieldName}
             blockNote={blockNote}
-            className='t-normal'
           />
           <FieldError meta={meta} />
         </div>
