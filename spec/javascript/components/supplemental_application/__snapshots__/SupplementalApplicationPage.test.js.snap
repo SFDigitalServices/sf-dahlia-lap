@@ -11424,10 +11424,12 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                             <ContextComponent
                               onAddCommentClicked={[Function]}
                               onChangeStatus={[Function]}
+                              onSaveClicked={[Function]}
                             >
                               <Component
                                 onAddCommentClicked={[Function]}
                                 onChangeStatus={[Function]}
+                                onSaveClicked={[Function]}
                                 store={
                                   Object {
                                     "application": Object {
@@ -11841,7 +11843,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     isLoading={false}
                                     onAddCommentClicked={[Function]}
                                     onChangeStatus={[Function]}
-                                    onSaveClicked={null}
+                                    onSaveClicked={[Function]}
                                     statusItems={
                                       Array [
                                         Object {
@@ -11867,7 +11869,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           isLoading={false}
                                           onAddCommentClicked={[Function]}
                                           onChangeStatus={[Function]}
-                                          onSaveClicked={null}
+                                          onSaveClicked={[Function]}
                                           status="Approved"
                                           withMobileStyling={false}
                                         >
@@ -11875,7 +11877,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                             className="primary save-button"
                                             disabled={false}
                                             id="save-supplemental-application"
-                                            onClick={null}
+                                            onClick={[Function]}
                                             type="submit"
                                           >
                                             Save
@@ -12101,7 +12103,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           isLoading={false}
                                           onAddCommentClicked={[Function]}
                                           onChangeStatus={[Function]}
-                                          onSaveClicked={null}
+                                          onSaveClicked={[Function]}
                                           status="Approved"
                                           withMobileStyling={true}
                                         >
@@ -12216,7 +12218,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                             className="primary save-button"
                                             disabled={false}
                                             id="save-supplemental-application"
-                                            onClick={null}
+                                            onClick={[Function]}
                                             type="submit"
                                           >
                                             Save
@@ -17369,7 +17371,7 @@ Array [
                   className="primary save-button"
                   disabled={false}
                   id="save-supplemental-application"
-                  onClick={null}
+                  onClick={[Function]}
                   type="submit"
                 >
                   Save
@@ -17468,7 +17470,7 @@ Array [
                   className="primary save-button"
                   disabled={false}
                   id="save-supplemental-application"
-                  onClick={null}
+                  onClick={[Function]}
                   type="submit"
                 >
                   Save

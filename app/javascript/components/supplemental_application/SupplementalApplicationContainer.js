@@ -102,7 +102,8 @@ const Sidebar = withContext(
   ({
     store: { statusHistory, loading },
     onChangeStatus,
-    onAddCommentClicked
+    onAddCommentClicked,
+    onSaveClicked
   }) => {
     return (
       <div className='sticky-sidebar-large-up'>
@@ -111,6 +112,7 @@ const Sidebar = withContext(
           isLoading={loading}
           onChangeStatus={onChangeStatus}
           onAddCommentClicked={onAddCommentClicked}
+          onSaveClicked={onSaveClicked}
         />
       </div>
     )
@@ -230,6 +232,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                   <Sidebar
                     onAddCommentClicked={() => onAddCommentClicked(form, touched)}
                     onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+                    onSaveClicked={() => checkForValidationErrors(form, touched)}
                   />
                 </AsymColumnLayout.Sidebar>
               </AsymColumnLayout.Container>
