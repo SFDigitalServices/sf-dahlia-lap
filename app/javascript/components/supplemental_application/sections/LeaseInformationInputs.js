@@ -34,18 +34,16 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
   )
   return (
     <>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <SelectField
-              id='lease_assigned_unit'
-              label='Assigned Unit Number'
-              fieldName='lease.unit'
-              options={availableUnitsOptions}
-              disabled={!availableUnitsOptions.length}
-              disabledOptions={noUnitsOptions}
-            />
-          </FormGrid.Group>
+          <SelectField
+            id='lease_assigned_unit'
+            label='Assigned Unit Number'
+            fieldName='lease.unit'
+            options={availableUnitsOptions}
+            disabled={!availableUnitsOptions.length}
+            disabledOptions={noUnitsOptions}
+          />
         </FormGrid.Item>
       </FormGrid.Row>
       <FormGrid.Row>
@@ -60,17 +58,15 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
       </FormGrid.Row>
       <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <SelectField
-              label='Preference Used'
-              onChange={value => toggleNoPreferenceUsed(form, value)}
-              fieldName='lease.preference_used'
-              options={confirmedPreferenceOptions}
-            />
-          </FormGrid.Group>
+          <SelectField
+            label='Preference Used'
+            onChange={value => toggleNoPreferenceUsed(form, value)}
+            fieldName='lease.preference_used'
+            options={confirmedPreferenceOptions}
+          />
         </FormGrid.Item>
       </FormGrid.Row>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
         <FormGrid.Item>
           <CurrencyField
             label='Monthly Rent'

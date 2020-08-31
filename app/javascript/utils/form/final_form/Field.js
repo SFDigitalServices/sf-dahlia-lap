@@ -24,20 +24,36 @@ export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
 )
 
-export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName }) => (
+export const Input = ({
+  input,
+  id,
+  meta,
+  type,
+  maxLength,
+  placeholder,
+  ariaLabelledby,
+  fieldName,
+  disabled
+}) => (
   <input {...input}
     id={id || `form-${fieldName}`}
     className={(meta.error && meta.touched && 'error') || ''}
     type={type}
     maxLength={maxLength}
     aria-labelledby={ariaLabelledby}
-    placeholder={placeholder} />
+    placeholder={placeholder}
+    disabled={disabled}
+  />
 )
 
-export const Label = ({ label, fieldName, blockNote, id, labelId, className }) => {
+export const Label = ({ label, fieldName, blockNote, id, labelId }) => {
   return (
     label ? (
-      <label htmlFor={id || `form-${fieldName}`} id={(labelId || `label-${fieldName}`).replace('.', '-')} className={className || 'form-label'}>
+      <label
+        htmlFor={id || `form-${fieldName}`}
+        id={(labelId || `label-${fieldName}`).replace('.', '-')}
+        className='form-label'
+      >
         {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
@@ -45,12 +61,37 @@ export const Label = ({ label, fieldName, blockNote, id, labelId, className }) =
   )
 }
 
+export const HelpText = ({ describeId, note }) => (
+  <span className='form-note shift-up' id={describeId}>{note}</span>
+)
+
 export const FieldError = ({ meta }) => (
   meta.error && meta.touched ? <span className='error'>{meta.error}</span> : null
 )
 
-export const InputField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, type }) => (
-  <Field name={fieldName} validate={validation} parse={identity}>
+export const InputField = ({
+  fieldName,
+  label,
+  blockNote,
+  validation,
+  placeholder,
+  maxLength,
+  id,
+  type,
+  helpText,
+  parse,
+  format,
+  disabled,
+  formatOnBlur = false,
+  isDirty = false
+}) => (
+  <Field
+    name={fieldName}
+    validate={validation}
+    parse={parse || identity}
+    format={format}
+    formatOnBlur={formatOnBlur && isDirty}
+  >
     {({ input, meta }) => (
       <>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
@@ -65,74 +106,92 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
             id={id || `form-${fieldName}`}
             type={type || 'text'}
             placeholder={placeholder}
-            maxLength={maxLength} />
+            maxLength={maxLength}
+            disabled={disabled}
+          />
           <FieldError meta={meta} />
+          { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
         </div>
       </>
     )}
   </Field>
 )
 
-export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
-  <Field
-    name={fieldName}
-    validate={validation}
-    component='input'
+export const CurrencyField = ({
+  fieldName,
+  validation,
+  id,
+  label,
+  placeholder,
+  maxLength,
+  disabled,
+  isDirty = true,
+  helpText
+}) => (
+  <InputField
+    fieldName={fieldName}
+    label={label}
+    validation={validation}
+    placeholder={placeholder}
+    maxLength={maxLength}
+    id={id}
+    type='text'
+    helpText={helpText}
+    formatOnBlur
+    isDirty={isDirty}
     format={formUtils.formatPrice}
+    disabled={disabled}
     parse={(value, name) => identity(value, name, true)}
-    formatOnBlur={isDirty}
-  >
-    {({ input, meta }) => (
-      <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-        <Label
-          label={label}
-          id={id || `form-${fieldName}`}
-          fieldName={fieldName} />
-        <input {...input}
-          type='text'
-          id={id || `form-${fieldName}`}
-          placeholder={placeholder || '$0.00'}
-          className={(meta.error && meta.touched && 'error') || ''}
-          maxLength={maxLength}
-          disabled={disabled} />
-        <FieldError meta={meta} />
-      </div>
-    )}
-  </Field>
+  />
 )
 
 /**
  * Field that allows only whole integer percent values.
  */
-export const PercentField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
-  <Field
-    name={fieldName}
-    validate={validation}
-    component='input'
+export const PercentField = ({
+  fieldName,
+  validation,
+  id,
+  label,
+  placeholder,
+  maxLength,
+  disabled,
+  isDirty = true,
+  helpText
+}) => (
+  <InputField
+    fieldName={fieldName}
+    label={label}
+    validation={validation}
+    placeholder={placeholder}
+    maxLength={maxLength}
+    id={id}
+    type='text'
+    helpText={helpText}
+    formatOnBlur
+    isDirty={isDirty}
     format={formUtils.formatPercent}
     parse={(value, name) => identity(value, name, true)}
-    formatOnBlur={isDirty}
-  >
-    {({ input, meta }) => (
-      <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-        <Label
-          label={label}
-          id={id || `form-${fieldName}`}
-          fieldName={fieldName} />
-        <input {...input}
-          type='text'
-          id={id || `form-${fieldName}`}
-          placeholder={placeholder || '$0.00'}
-          className={(meta.error && meta.touched && 'error') || ''}
-          maxLength={maxLength}
-          disabled={disabled} />
-        <FieldError meta={meta} />
-      </div>
-    )}
-  </Field>
+  />
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue, noPlaceholder, format, isDirty = true }) => (
+export const SelectField = ({
+  fieldName,
+  label,
+  blockNote,
+  validation,
+  id,
+  options,
+  onChange,
+  className,
+  disabled = false,
+  disabledOptions,
+  selectValue,
+  noPlaceholder,
+  format,
+  isDirty = true,
+  helpText
+}) => (
   <Field
     name={fieldName}
     validate={validation}
@@ -166,6 +225,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
               )) }
             </select>
             <FieldError meta={meta} />
+            { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
           </div>
         </>
       )
@@ -188,7 +248,8 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
             label={label}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+          />
           <FieldError meta={meta} />
         </div>
       </>
@@ -220,12 +281,13 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
             meta={meta}
             aria-labelledby={ariaLabelledby}
             id={id || `form-base-${fieldName}`} />
-          <input id={id || `form-ctrl-${fieldName}`} fieldName={fieldName} type='checkbox' checked={input.value === trueValue} onClick={onChange} />
+          <input id={id || `form-ctrl-${fieldName}`} type='checkbox' checked={input.value === trueValue} onClick={onChange} />
           <Label
             label={label}
             id={id || `form-ctrl-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+          />
           <FieldError meta={meta} />
         </div>
       )}
