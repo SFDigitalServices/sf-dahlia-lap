@@ -89,6 +89,61 @@ exports[`LeaseUpSidebar should render with empty status items correctly 1`] = `
 </div>
 `;
 
+exports[`LeaseUpSidebar should render with lease signed status 1`] = `
+<div
+  className="sidebar-content"
+>
+  <div
+    className="show-large-up"
+  >
+    <LeaseUpSidebarButtons
+      isLoading={false}
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Lease Signed"
+      withMobileStyling={false}
+    />
+  </div>
+  <h3
+    className="status-history-label"
+  >
+    Status History
+  </h3>
+  <StatusItems
+    limit={4}
+    statusItems={
+      Array [
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Lease Signed",
+          "substatus": null,
+          "timestamp": 1598832480,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598832480,
+        },
+      ]
+    }
+  />
+  <div
+    className="hide-large-up"
+  >
+    <LeaseUpSidebarButtons
+      isLoading={false}
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Lease Signed"
+      withMobileStyling={true}
+    />
+  </div>
+</div>
+`;
+
 exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`] = `
 <div
   className="sidebar-content"
@@ -225,6 +280,83 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           "comment": null,
           "status": "Lease Signed",
           "substatus": null,
+          "timestamp": 1598832480,
+        },
+      ]
+    }
+  />
+  <ShowOrHideStatusesButton
+    onClick={[Function]}
+    showingAllStatuses={false}
+  />
+  <div
+    className="hide-large-up"
+  >
+    <LeaseUpSidebarButtons
+      isLoading={false}
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={true}
+    />
+  </div>
+</div>
+`;
+
+exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items 1`] = `
+<div
+  className="sidebar-content"
+>
+  <div
+    className="show-large-up"
+  >
+    <LeaseUpSidebarButtons
+      isLoading={false}
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      onSaveClicked={null}
+      status="Approved"
+      withMobileStyling={false}
+    />
+  </div>
+  <h3
+    className="status-history-label"
+  >
+    Status History
+  </h3>
+  <StatusItems
+    limit={4}
+    statusItems={
+      Array [
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598832480,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598832480,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598832480,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598832480,
+        },
+        Object {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
           "timestamp": 1598832480,
         },
       ]
