@@ -106,7 +106,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -211,7 +211,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="rental-assistance-recurring radio-group-inline"
@@ -266,7 +266,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -292,7 +292,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -372,7 +372,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
       className="form-grid row"
     >
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="form-group"
@@ -476,7 +476,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="rental-assistance-recurring radio-group-inline"
@@ -531,7 +531,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="form-group"
@@ -557,7 +557,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
         </div>
       </div>
       <div
-        className="form-grid_item small-12 medium-12 large-6 column"
+        className="form-grid_item small-6 medium-6 large-6 column"
       >
         <div
           className="form-group"
@@ -744,7 +744,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -849,7 +849,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="rental-assistance-recurring radio-group-inline"
@@ -904,7 +904,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -930,7 +930,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1119,7 +1119,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1224,7 +1224,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="rental-assistance-recurring radio-group-inline"
@@ -1279,7 +1279,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1305,7 +1305,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                         </div>
                       </div>
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"
@@ -1344,7 +1344,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                       className="form-grid row"
                     >
                       <div
-                        className="form-grid_item small-12 medium-12 large-6 column"
+                        className="form-grid_item small-6 medium-6 large-6 column"
                       >
                         <div
                           className="form-group"

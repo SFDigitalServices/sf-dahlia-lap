@@ -8,6 +8,7 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
     className="show-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
@@ -28,7 +29,7 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
       ]
     }
@@ -37,6 +38,7 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
     className="hide-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
@@ -55,10 +57,11 @@ exports[`LeaseUpSidebar should render with empty status items correctly 1`] = `
     className="show-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
-      status="Approved"
+      status={null}
       withMobileStyling={false}
     />
   </div>
@@ -75,10 +78,11 @@ exports[`LeaseUpSidebar should render with empty status items correctly 1`] = `
     className="hide-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
-      status="Approved"
+      status={null}
       withMobileStyling={true}
     />
   </div>
@@ -93,6 +97,7 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
     className="show-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
@@ -113,31 +118,31 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
       ]
     }
@@ -150,6 +155,7 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
     className="hide-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
@@ -168,6 +174,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
     className="show-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
@@ -188,37 +195,37 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Unit selected",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Waiting for subsidy inspection",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": null,
           "status": "Waitlisted",
           "substatus": "Written confirmation sent",
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Lease Signed",
           "substatus": null,
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
         Object {
           "comment": null,
           "status": "Lease Signed",
           "substatus": null,
-          "timestamp": 1598573280,
+          "timestamp": 1598832480,
         },
       ]
     }
@@ -231,6 +238,7 @@ exports[`LeaseUpSidebar should render with multiple status items correctly 1`] =
     className="hide-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}

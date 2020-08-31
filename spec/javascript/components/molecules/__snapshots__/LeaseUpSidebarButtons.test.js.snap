@@ -4,7 +4,10 @@ exports[`LeaseUpSidebarButtons should render correctly with desktop styling 1`] 
 <Fragment>
   <button
     className="primary save-button"
+    disabled={false}
+    id="save-supplemental-application"
     onClick={null}
+    type="submit"
   >
     Save
   </button>
@@ -17,11 +20,13 @@ exports[`LeaseUpSidebarButtons should render correctly with desktop styling 1`] 
           "tight-padding",
         ]
       }
+      disabled={false}
       onChange={null}
       status="Approved"
     />
     <button
       className="tertiary tight-padding"
+      disabled={false}
       onClick={null}
     >
       Add a comment
@@ -41,11 +46,13 @@ exports[`LeaseUpSidebarButtons should render correctly with mobile styling 1`] =
           "tight-padding",
         ]
       }
+      disabled={false}
       onChange={null}
       status="Approved"
     />
     <button
       className="tertiary tight-padding"
+      disabled={false}
       onClick={null}
     >
       Add a comment
@@ -53,7 +60,10 @@ exports[`LeaseUpSidebarButtons should render correctly with mobile styling 1`] =
   </div>
   <button
     className="primary save-button"
+    disabled={false}
+    id="save-supplemental-application"
     onClick={null}
+    type="submit"
   >
     Save
   </button>
@@ -64,7 +74,10 @@ exports[`LeaseUpSidebarButtons should render desktop styling by default 1`] = `
 <Fragment>
   <button
     className="primary save-button"
+    disabled={false}
+    id="save-supplemental-application"
     onClick={null}
+    type="submit"
   >
     Save
   </button>
@@ -77,11 +90,13 @@ exports[`LeaseUpSidebarButtons should render desktop styling by default 1`] = `
           "tight-padding",
         ]
       }
+      disabled={false}
       onChange={null}
       status="Approved"
     />
     <button
       className="tertiary tight-padding"
+      disabled={false}
       onClick={null}
     >
       Add a comment
