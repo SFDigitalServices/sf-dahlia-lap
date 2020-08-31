@@ -27,6 +27,7 @@ exports[`LeaseUpSidebarButtons should render correctly with desktop styling 1`] 
     <button
       className="tertiary tight-padding"
       disabled={false}
+      id="add-status-history-comment"
       onClick={null}
     >
       Add a comment
@@ -53,6 +54,7 @@ exports[`LeaseUpSidebarButtons should render correctly with mobile styling 1`] =
     <button
       className="tertiary tight-padding"
       disabled={false}
+      id="add-status-history-comment"
       onClick={null}
     >
       Add a comment
@@ -97,6 +99,7 @@ exports[`LeaseUpSidebarButtons should render desktop styling by default 1`] = `
     <button
       className="tertiary tight-padding"
       disabled={false}
+      id="add-status-history-comment"
       onClick={null}
     >
       Add a comment

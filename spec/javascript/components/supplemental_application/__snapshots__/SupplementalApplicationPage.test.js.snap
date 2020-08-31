@@ -12291,6 +12291,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                             <button
                                               className="tertiary tight-padding"
                                               disabled={false}
+                                              id="add-status-history-comment"
                                               onClick={[Function]}
                                             >
                                               Add a comment
@@ -12516,6 +12517,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                             <button
                                               className="tertiary tight-padding"
                                               disabled={false}
+                                              id="add-status-history-comment"
                                               onClick={[Function]}
                                             >
                                               Add a comment
@@ -17699,6 +17701,7 @@ Array [
                   <button
                     className="tertiary tight-padding"
                     disabled={false}
+                    id="add-status-history-comment"
                     onClick={[Function]}
                   >
                     Add a comment
@@ -17750,6 +17753,7 @@ Array [
                   <button
                     className="tertiary tight-padding"
                     disabled={false}
+                    id="add-status-history-comment"
                     onClick={[Function]}
                   >
                     Add a comment
