@@ -8,7 +8,8 @@ AsymColumnLayout.Container = ({ children }) => {
   const styles = {
     maxWidth: '74rem',
     display: 'flex',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    flexWrap: 'wrap'
   }
 
   return (
@@ -20,7 +21,7 @@ AsymColumnLayout.Container = ({ children }) => {
 
 AsymColumnLayout.MainContent = ({ children }) => {
   const classes = classNames(
-    'small-12',
+    'medium-12',
     'large-8',
     'columns',
     'page-content-column'
@@ -34,16 +35,14 @@ AsymColumnLayout.MainContent = ({ children }) => {
 
 AsymColumnLayout.Sidebar = ({ children }) => {
   const classes = classNames(
-    'small-12',
+    'medium-12',
     'large-4',
     'columns',
     'sidebar-column'
   )
   return (
     <div className={classes}>
-      <div className='sticky-sidebar-large-up'>
-        {children}
-      </div>
+      {children}
     </div>
   )
 }
