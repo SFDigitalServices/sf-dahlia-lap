@@ -49,7 +49,11 @@ export const Input = ({
 export const Label = ({ label, fieldName, blockNote, id, labelId }) => {
   return (
     label ? (
-      <label htmlFor={id || `form-${fieldName}`} id={(labelId || `label-${fieldName}`).replace('.', '-')} className='form-label'>
+      <label
+        htmlFor={id || `form-${fieldName}`}
+        id={(labelId || `label-${fieldName}`).replace('.', '-')}
+        className='form-label'
+      >
         {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>

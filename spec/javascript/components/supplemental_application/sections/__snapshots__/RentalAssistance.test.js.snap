@@ -8,7 +8,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     className="form-grid row expand"
   >
     <div
-      className="small-12 medium-12 large-12 column"
+      className="small-12 column"
     >
       <div
         className="table-container-overflow-scroll"
@@ -645,7 +645,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
     className="form-grid row expand"
   >
     <div
-      className="small-12 medium-12 large-12 column"
+      className="small-12 column"
     >
       <div
         className="table-container-overflow-scroll"
@@ -1020,7 +1020,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
     className="form-grid row expand"
   >
     <div
-      className="small-12 medium-12 large-12 column"
+      className="small-12 column"
     >
       <div
         className="table-container-overflow-scroll"

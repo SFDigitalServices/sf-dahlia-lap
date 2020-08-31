@@ -4910,7 +4910,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   className="form-grid row expand"
                                                 >
                                                   <div
-                                                    className="small-12 medium-12 large-12 column"
+                                                    className="small-12 column"
                                                   >
                                                     <div
                                                       className="table-container-overflow-scroll"
@@ -14025,7 +14025,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="small-12 medium-12 large-12 column"
+                    className="small-12 column"
                   >
                     <div
                       className="table-container-overflow-scroll"
@@ -15533,7 +15533,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="small-12 medium-12 large-12 column"
+                  className="small-12 column"
                 >
                   <div
                     className="table-container-overflow-scroll"
