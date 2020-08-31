@@ -27,6 +27,8 @@ const LeaseUpSidebarButtons = ({ status, withMobileStyling, isLoading, onSaveCli
         buttonClasses={['tight-padding']}
       />
       <button
+        // ID is just for e2e tests
+        id='add-status-history-comment'
         className='tertiary tight-padding'
         disabled={isLoading}
         onClick={onAddCommentClicked}
