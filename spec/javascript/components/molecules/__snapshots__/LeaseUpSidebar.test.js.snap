@@ -29,31 +29,31 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598832480,
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598832480,
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598832480,
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598832480,
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
           "substatus": "Approval letter sent",
-          "timestamp": 1598832480,
+          "timestamp": 1598385600,
         },
       ]
     }
