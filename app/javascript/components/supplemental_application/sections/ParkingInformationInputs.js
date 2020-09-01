@@ -33,7 +33,6 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
           <CurrencyField
             label='Monthly Parking Cost'
             fieldName={monthlyRentFieldName}
-            placeholder='Enter Amount'
             validation={validateLeaseCurrency}
             disabled={parkingSpaceAssigned === No}
             isDirty={visited && visited[monthlyRentFieldName]} />

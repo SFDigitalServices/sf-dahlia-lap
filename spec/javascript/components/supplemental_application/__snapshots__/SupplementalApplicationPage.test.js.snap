@@ -2127,25 +2127,45 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                               onSave={[Function]}
                             >
                               <ContentSection
-                                description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied."
-                                title="Confirmed Preferences and Priorities"
+                                description={
+                                  <React.Fragment>
+                                    Complete this section first. 
+                                    <b>
+                                      You must confirm claimed preferences before sending out a post-lottery letter.
+                                    </b>
+                                     Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+                                  </React.Fragment>
+                                }
+                                title="Preferences and Priorities"
                               >
                                 <div
                                   className="app-inner padding-bottom--half padding-top--half"
                                 >
                                   <Component
-                                    description="Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied."
-                                    title="Confirmed Preferences and Priorities"
+                                    description={
+                                      <React.Fragment>
+                                        Complete this section first. 
+                                        <b>
+                                          You must confirm claimed preferences before sending out a post-lottery letter.
+                                        </b>
+                                         Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+                                      </React.Fragment>
+                                    }
+                                    title="Preferences and Priorities"
                                   >
                                     <h2
                                       className="app-card_h2"
                                     >
-                                      Confirmed Preferences and Priorities
+                                      Preferences and Priorities
                                     </h2>
                                     <p
                                       className="form-note max-width margin-bottom--3halves"
                                     >
-                                      Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+                                      Complete this section first. 
+                                      <b>
+                                        You must confirm claimed preferences before sending out a post-lottery letter.
+                                      </b>
+                                       Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
                                     </p>
                                   </Component>
                                   <Component
@@ -3396,25 +3416,25 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                               "content": "",
                                                             },
                                                             Object {
-                                                              "content": "Preference Name",
+                                                              "content": "Preference",
                                                             },
                                                             Object {
-                                                              "content": "Person Who Claimed",
+                                                              "content": "Claimant",
                                                             },
                                                             Object {
                                                               "classes": Array [
                                                                 "text-right",
                                                               ],
-                                                              "content": "Preference Rank",
+                                                              "content": "Rank",
                                                             },
                                                             Object {
-                                                              "content": "Type of proof",
+                                                              "content": "Proof",
                                                             },
                                                             Object {
                                                               "content": "Status",
                                                             },
                                                             Object {
-                                                              "content": "Actions",
+                                                              "content": "",
                                                             },
                                                           ]
                                                         }
@@ -3506,28 +3526,28 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                                 key="1"
                                                                 scope="col"
                                                               >
-                                                                Preference Name
+                                                                Preference
                                                               </th>
                                                               <th
                                                                 className=""
                                                                 key="2"
                                                                 scope="col"
                                                               >
-                                                                Person Who Claimed
+                                                                Claimant
                                                               </th>
                                                               <th
                                                                 className="text-right"
                                                                 key="3"
                                                                 scope="col"
                                                               >
-                                                                Preference Rank
+                                                                Rank
                                                               </th>
                                                               <th
                                                                 className=""
                                                                 key="4"
                                                                 scope="col"
                                                               >
-                                                                Type of proof
+                                                                Proof
                                                               </th>
                                                               <th
                                                                 className=""
@@ -3540,9 +3560,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                                 className=""
                                                                 key="6"
                                                                 scope="col"
-                                                              >
-                                                                Actions
-                                                              </th>
+                                                              />
                                                             </tr>
                                                           </thead>
                                                           <tbody>
@@ -6553,15 +6571,15 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     </Component>
                                   </Component>
                                   <Component
-                                    title="Confirmed Reserved and Priority Units"
+                                    title="Household Reserved and Priority Units"
                                   >
                                     <Component
-                                      title="Confirmed Reserved and Priority Units"
+                                      title="Household Reserved and Priority Units"
                                     >
                                       <h3
                                         className="app-card_h3 t-sans"
                                       >
-                                        Confirmed Reserved and Priority Units
+                                        Household Reserved and Priority Units
                                       </h3>
                                     </Component>
                                     <Component
@@ -6944,7 +6962,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                   className="form-grid_item small-6 medium-6 large-6 column"
                                                 >
                                                   <Component
-                                                    label="Household Members Priorities"
+                                                    label="Household Member Priorities"
                                                   >
                                                     <div
                                                       className="form-group"
@@ -6952,7 +6970,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                       <label
                                                         htmlFor=""
                                                       >
-                                                        Household Members Priorities
+                                                        Household Member Priorities
                                                       </label>
                                                       <div
                                                         className="checkbox-group form-checkbox-item"
@@ -7441,12 +7459,14 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                               visited={Object {}}
                             >
                               <ContentSection
+                                description="Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility."
                                 title="Income"
                               >
                                 <div
                                   className="app-inner padding-bottom--half padding-top--half"
                                 >
                                   <Component
+                                    description="Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility."
                                     title="Income"
                                   >
                                     <h2
@@ -7454,6 +7474,11 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     >
                                       Income
                                     </h2>
+                                    <p
+                                      className="form-note max-width margin-bottom--3halves"
+                                    >
+                                      Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility.
+                                    </p>
                                   </Component>
                                   <ConfirmedHouseholdIncome
                                     listingAmiCharts={Array []}
@@ -7493,7 +7518,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                   className="form-grid_item small-6 medium-6 large-6 column"
                                                 >
                                                   <Component
-                                                    label="Recurring Voucher/Subsidy"
+                                                    label="Household claimed a recurring voucher or subsidy"
                                                   >
                                                     <div
                                                       className="form-group"
@@ -7501,7 +7526,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                       <label
                                                         htmlFor=""
                                                       >
-                                                        Recurring Voucher/Subsidy
+                                                        Household claimed a recurring voucher or subsidy
                                                       </label>
                                                       <YesNoRadioGroup
                                                         fieldName="housing_voucher_or_subsidy"
@@ -7600,7 +7625,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                   <CurrencyField
                                                     fieldName="household_assets"
                                                     label="Household Assets"
-                                                    placeholder="Enter Amount"
                                                     validation={[Function]}
                                                   >
                                                     <InputField
@@ -7732,7 +7756,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                     fieldName="confirmed_household_annual_income"
                                                     helpText="Not Including % of Assets"
                                                     label="Confirmed Annual Income"
-                                                    placeholder="Enter Amount"
                                                     validation={[Function]}
                                                   >
                                                     <InputField
@@ -7876,7 +7899,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                     fieldName="hh_total_income_with_assets_annual"
                                                     helpText="Includes % of assets if applicable"
                                                     label="Final Household Annual Income"
-                                                    placeholder="Enter Amount"
                                                     validation={[Function]}
                                                   >
                                                     <InputField
@@ -8045,8 +8067,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                   <PercentField
                                                     fieldName="ami_percentage"
                                                     id="ami_percentage"
-                                                    label="AMI Percentage"
-                                                    placeholder="Enter Percentage"
+                                                    label="Household AMI Percentage"
                                                     validation={[Function]}
                                                   >
                                                     <InputField
@@ -8055,7 +8076,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                       formatOnBlur={true}
                                                       id="ami_percentage"
                                                       isDirty={true}
-                                                      label="AMI Percentage"
+                                                      label="Household AMI Percentage"
                                                       parse={[Function]}
                                                       placeholder="Enter Percentage"
                                                       type="text"
@@ -8074,14 +8095,14 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                           <Label
                                                             fieldName="ami_percentage"
                                                             id="ami_percentage"
-                                                            label="AMI Percentage"
+                                                            label="Household AMI Percentage"
                                                           >
                                                             <label
                                                               className="form-label"
                                                               htmlFor="ami_percentage"
                                                               id="label-ami_percentage"
                                                             >
-                                                              AMI Percentage
+                                                              Household AMI Percentage
                                                             </label>
                                                           </Label>
                                                           <Input
@@ -8693,19 +8714,26 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                               visited={Object {}}
                             >
                               <ContentSection
-                                title="Lease Information"
+                                description="Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution."
+                                title="Lease"
                               >
                                 <div
                                   className="app-inner padding-bottom--half padding-top--half"
                                 >
                                   <Component
-                                    title="Lease Information"
+                                    description="Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution."
+                                    title="Lease"
                                   >
                                     <h2
                                       className="app-card_h2"
                                     >
-                                      Lease Information
+                                      Lease
                                     </h2>
+                                    <p
+                                      className="form-note max-width margin-bottom--3halves"
+                                    >
+                                      Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.
+                                    </p>
                                   </Component>
                                   <Component
                                     title="Unit"
@@ -9693,7 +9721,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                     <CurrencyField
                                                       fieldName="lease.total_monthly_rent_without_parking"
                                                       label="Monthly Rent"
-                                                      placeholder="Enter Amount"
                                                       validation={[Function]}
                                                     >
                                                       <InputField
@@ -9823,16 +9850,17 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                   >
                                                     <CurrencyField
                                                       fieldName="lease.monthly_tenant_contribution"
-                                                      label="Monthly Tenant Contribution"
-                                                      placeholder="Enter Amount"
+                                                      helpText="Monthly rent minus recurring rental assistance, if any"
+                                                      label="Tenant Contribution"
                                                       validation={[Function]}
                                                     >
                                                       <InputField
                                                         fieldName="lease.monthly_tenant_contribution"
                                                         format={[Function]}
                                                         formatOnBlur={true}
+                                                        helpText="Monthly rent minus recurring rental assistance, if any"
                                                         isDirty={true}
-                                                        label="Monthly Tenant Contribution"
+                                                        label="Tenant Contribution"
                                                         parse={[Function]}
                                                         placeholder="Enter Amount"
                                                         type="text"
@@ -9851,14 +9879,14 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                             <Label
                                                               fieldName="lease.monthly_tenant_contribution"
                                                               id="form-lease.monthly_tenant_contribution"
-                                                              label="Monthly Tenant Contribution"
+                                                              label="Tenant Contribution"
                                                             >
                                                               <label
                                                                 className="form-label"
                                                                 htmlFor="form-lease.monthly_tenant_contribution"
                                                                 id="label-lease-monthly_tenant_contribution"
                                                               >
-                                                                Monthly Tenant Contribution
+                                                                Tenant Contribution
                                                               </label>
                                                             </Label>
                                                             <Input
@@ -9934,6 +9962,17 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                                 }
                                                               }
                                                             />
+                                                            <HelpText
+                                                              describeId="describe-lease.monthly_tenant_contribution"
+                                                              note="Monthly rent minus recurring rental assistance, if any"
+                                                            >
+                                                              <span
+                                                                className="form-note shift-up"
+                                                                id="describe-lease.monthly_tenant_contribution"
+                                                              >
+                                                                Monthly rent minus recurring rental assistance, if any
+                                                              </span>
+                                                            </HelpText>
                                                           </div>
                                                         </Field>
                                                       </InputField>
@@ -10442,7 +10481,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                     disabled={false}
                                                     fieldName="lease.monthly_parking_rent"
                                                     label="Monthly Parking Cost"
-                                                    placeholder="Enter Amount"
                                                     validation={[Function]}
                                                   >
                                                     <InputField
@@ -10568,11 +10606,11 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     </Component>
                                   </Component>
                                   <Component
-                                    description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
+                                    description="Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance."
                                     title="Rental Assistance Information"
                                   >
                                     <Component
-                                      description="Includes Vouchers, Subsidies, as well as other forms of Rental Assistance."
+                                      description="Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance."
                                       title="Rental Assistance Information"
                                     >
                                       <h3
@@ -10583,7 +10621,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                       <p
                                         className="form-note max-width margin-bottom--3halves"
                                       >
-                                        Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.
+                                        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
                                       </p>
                                     </Component>
                                     <Component
@@ -11102,12 +11140,14 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                             </LeaseInformationSection>
                             <DemographicsSection>
                               <ContentSection
+                                description="Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs."
                                 title="Demographics"
                               >
                                 <div
                                   className="app-inner padding-bottom--half padding-top--half"
                                 >
                                   <Component
+                                    description="Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs."
                                     title="Demographics"
                                   >
                                     <h2
@@ -11115,6 +11155,11 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     >
                                       Demographics
                                     </h2>
+                                    <p
+                                      className="form-note max-width margin-bottom--3halves"
+                                    >
+                                      Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.
+                                    </p>
                                   </Component>
                                   <DemographicsInputs>
                                     <Component
@@ -12937,12 +12982,16 @@ Array [
             <h2
               className="app-card_h2"
             >
-              Confirmed Preferences and Priorities
+              Preferences and Priorities
             </h2>
             <p
               className="form-note max-width margin-bottom--3halves"
             >
-              Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
+              Complete this section first. 
+              <b>
+                You must confirm claimed preferences before sending out a post-lottery letter.
+              </b>
+               Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
             </p>
             <h3
               className="app-card_h3 t-sans"
@@ -12985,25 +13034,25 @@ Array [
                               className=""
                               scope="col"
                             >
-                              Preference Name
+                              Preference
                             </th>
                             <th
                               className=""
                               scope="col"
                             >
-                              Person Who Claimed
+                              Claimant
                             </th>
                             <th
                               className="text-right"
                               scope="col"
                             >
-                              Preference Rank
+                              Rank
                             </th>
                             <th
                               className=""
                               scope="col"
                             >
-                              Type of proof
+                              Proof
                             </th>
                             <th
                               className=""
@@ -13015,7 +13064,7 @@ Array [
                               className=""
                               scope="col"
                             >
-                              Actions
+                              
                             </th>
                           </tr>
                         </thead>
@@ -13611,7 +13660,7 @@ Array [
             <h3
               className="app-card_h3 t-sans"
             >
-              Confirmed Reserved and Priority Units
+              Household Reserved and Priority Units
             </h3>
             <div
               className=""
@@ -13714,7 +13763,7 @@ Array [
                     <label
                       htmlFor=""
                     >
-                      Household Members Priorities
+                      Household Member Priorities
                     </label>
                     <div
                       className="checkbox-group form-checkbox-item"
@@ -13815,6 +13864,11 @@ Array [
             >
               Income
             </h2>
+            <p
+              className="form-note max-width margin-bottom--3halves"
+            >
+              Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility.
+            </p>
             <h3
               className="app-card_h3 t-sans"
             >
@@ -13840,7 +13894,7 @@ Array [
                     <label
                       htmlFor=""
                     >
-                      Recurring Voucher/Subsidy
+                      Household claimed a recurring voucher or subsidy
                     </label>
                     <div
                       className="radio-group-inline"
@@ -14019,7 +14073,7 @@ Array [
                       htmlFor="ami_percentage"
                       id="label-ami_percentage"
                     >
-                      AMI Percentage
+                      Household AMI Percentage
                     </label>
                     <input
                       className=""
@@ -14146,8 +14200,13 @@ Array [
             <h2
               className="app-card_h2"
             >
-              Lease Information
+              Lease
             </h2>
+            <p
+              className="form-note max-width margin-bottom--3halves"
+            >
+              Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.
+            </p>
             <h3
               className="app-card_h3 t-sans"
             >
@@ -14348,7 +14407,7 @@ Array [
                       htmlFor="form-lease.monthly_tenant_contribution"
                       id="label-lease-monthly_tenant_contribution"
                     >
-                      Monthly Tenant Contribution
+                      Tenant Contribution
                     </label>
                     <input
                       className=""
@@ -14361,6 +14420,12 @@ Array [
                       type="text"
                       value="$259.77"
                     />
+                    <span
+                      className="form-note shift-up"
+                      id="describe-lease.monthly_tenant_contribution"
+                    >
+                      Monthly rent minus recurring rental assistance, if any
+                    </span>
                   </div>
                 </div>
               </div>
@@ -14458,7 +14523,7 @@ Array [
             <p
               className="form-note max-width margin-bottom--3halves"
             >
-              Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.
+              Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
             </p>
             <div
               className=""
@@ -17337,6 +17402,11 @@ Array [
             >
               Demographics
             </h2>
+            <p
+              className="form-note max-width margin-bottom--3halves"
+            >
+              Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.
+            </p>
             <div
               className="form-grid row expand"
             >

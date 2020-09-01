@@ -1912,6 +1912,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
+                        placeholder="Enter Amount"
                         type="text"
                         value="$110,000.00"
                       />
@@ -4299,6 +4300,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
+                        placeholder="Enter Amount"
                         type="text"
                         value="$110,000.00"
                       />

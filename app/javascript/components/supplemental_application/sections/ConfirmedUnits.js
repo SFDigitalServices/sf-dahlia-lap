@@ -23,7 +23,7 @@ const ConfirmedUnits = ({ form }) => {
           </FormGrid.Group>
         </FormGrid.Item>
         <FormGrid.Item>
-          <FormGrid.Group label='Household Members Priorities'>
+          <FormGrid.Group label='Household Member Priorities'>
             <div className='checkbox-group form-checkbox-item' role='group'>
               <TextCheckboxField
                 fieldName='reserved_senior'

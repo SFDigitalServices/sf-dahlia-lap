@@ -196,7 +196,6 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
               fieldName={`rental_assistances.${index}.assistance_amount`}
               validation={validateAssistanceAmount}
               id='assistance_amount'
-              placeholder='Enter Amount'
               isDirty={visited && visited[`rental_assistances.${index}.assistance_amount`]}
             />
           </FormGrid.Item>

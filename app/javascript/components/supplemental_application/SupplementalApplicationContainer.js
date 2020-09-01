@@ -31,8 +31,8 @@ const ConfirmedPreferencesSection = ({
   visited
 }) => (
   <ContentSection
-    title='Confirmed Preferences and Priorities'
-    description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'
+    title='Preferences and Priorities'
+    description={<>Complete this section first. <b>You must confirm claimed preferences before sending out a post-lottery letter.</b> Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.</>}
   >
     <ContentSection.Sub title='Confirmed Preferences'>
       {confirmedPreferencesFailed && (
@@ -52,14 +52,17 @@ const ConfirmedPreferencesSection = ({
         visited={visited}
       />
     </ContentSection.Sub>
-    <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
+    <ContentSection.Sub title='Household Reserved and Priority Units'>
       <ConfirmedUnits form={form} />
     </ContentSection.Sub>
   </ContentSection>
 )
 
 const Income = ({ listingAmiCharts, visited, form }) => (
-  <ContentSection title='Income'>
+  <ContentSection
+    title='Income'
+    description='Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility.'
+  >
     <ConfirmedHouseholdIncome
       listingAmiCharts={listingAmiCharts}
       visited={visited}
@@ -68,7 +71,10 @@ const Income = ({ listingAmiCharts, visited, form }) => (
 )
 
 const LeaseInformationSection = ({ form, submitting, values, visited }) => (
-  <ContentSection title='Lease Information'>
+  <ContentSection
+    title='Lease'
+    description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
+  >
     <ContentSection.Sub title='Unit'>
       <LeaseInformationInputs form={form} visited={visited} />
     </ContentSection.Sub>
@@ -80,7 +86,7 @@ const LeaseInformationSection = ({ form, submitting, values, visited }) => (
     </ContentSection.Sub>
     <ContentSection.Sub
       title='Rental Assistance Information'
-      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'
+      description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
     >
       <RentalAssistance form={form} submitting={submitting} />
     </ContentSection.Sub>
@@ -88,7 +94,10 @@ const LeaseInformationSection = ({ form, submitting, values, visited }) => (
 )
 
 const DemographicsSection = () => (
-  <ContentSection title='Demographics'>
+  <ContentSection
+    title='Demographics'
+    description='Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.'
+  >
     <DemographicsInputs />
   </ContentSection>
 )

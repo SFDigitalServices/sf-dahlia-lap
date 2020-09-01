@@ -122,7 +122,6 @@ export const CurrencyField = ({
   validation,
   id,
   label,
-  placeholder,
   maxLength,
   disabled,
   isDirty = true,
@@ -132,7 +131,7 @@ export const CurrencyField = ({
     fieldName={fieldName}
     label={label}
     validation={validation}
-    placeholder={placeholder}
+    placeholder='Enter Amount'
     maxLength={maxLength}
     id={id}
     type='text'
@@ -153,7 +152,6 @@ export const PercentField = ({
   validation,
   id,
   label,
-  placeholder,
   maxLength,
   disabled,
   isDirty = true,
@@ -163,7 +161,7 @@ export const PercentField = ({
     fieldName={fieldName}
     label={label}
     validation={validation}
-    placeholder={placeholder}
+    placeholder='Enter Percentage'
     maxLength={maxLength}
     id={id}
     type='text'

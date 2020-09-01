@@ -71,7 +71,6 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
           <CurrencyField
             label='Monthly Rent'
             fieldName='lease.total_monthly_rent_without_parking'
-            placeholder='Enter Amount'
             validation={validateLeaseCurrency}
             isDirty={
               visited && visited['lease.total_monthly_rent_without_parking']
@@ -82,9 +81,9 @@ const LeaseInformationInputs = ({ form, store, visited }) => {
       <FormGrid.Row>
         <FormGrid.Item>
           <CurrencyField
-            label='Monthly Tenant Contribution'
+            label='Tenant Contribution'
             fieldName='lease.monthly_tenant_contribution'
-            placeholder='Enter Amount'
+            helpText='Monthly rent minus recurring rental assistance, if any'
             validation={validateLeaseCurrency}
             isDirty={visited && visited['lease.monthly_tenant_contribution']}
           />
