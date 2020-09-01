@@ -1321,6 +1321,7 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
+                        placeholder="Enter Amount"
                         type="text"
                       />
                     </div>
