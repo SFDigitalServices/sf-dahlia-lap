@@ -74,7 +74,6 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
             <CurrencyField
               fieldName='household_assets'
               label='Household Assets'
-              placeholder='Enter Amount'
               validation={validateIncomeCurrency}
               isDirty={visited && visited['household_assets']}
             />
@@ -85,7 +84,6 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
             <CurrencyField
               fieldName='confirmed_household_annual_income'
               label='Confirmed Annual Income'
-              placeholder='Enter Amount'
               validation={validateIncomeCurrency}
               isDirty={visited && visited['confirmed_household_annual_income']}
               helpText='Not Including % of Assets'
@@ -111,7 +109,6 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               id='ami_percentage'
               label='Household AMI Percentage'
               fieldName='ami_percentage'
-              placeholder='Enter Percentage'
               validation={validate.isValidPercent(
                 'Please enter a valid percent.'
               )}
