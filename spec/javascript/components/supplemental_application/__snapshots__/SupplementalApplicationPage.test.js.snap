@@ -1717,7 +1717,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                             "alignItems": "stretch",
                             "display": "flex",
                             "flexWrap": "wrap",
-                            "maxWidth": "74rem",
+                            "maxWidth": "80rem",
                           }
                         }
                       >
@@ -12924,7 +12924,7 @@ Array [
             "alignItems": "stretch",
             "display": "flex",
             "flexWrap": "wrap",
-            "maxWidth": "74rem",
+            "maxWidth": "80rem",
           }
         }
       >

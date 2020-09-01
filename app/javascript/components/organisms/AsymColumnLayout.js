@@ -6,7 +6,7 @@ const AsymColumnLayout = {}
 
 AsymColumnLayout.Container = ({ children }) => {
   const styles = {
-    maxWidth: '74rem',
+    maxWidth: '80rem',
     display: 'flex',
     alignItems: 'stretch',
     flexWrap: 'wrap'
