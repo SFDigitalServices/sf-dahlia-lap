@@ -2129,9 +2129,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                               <ContentSection
                                 description={
                                   <React.Fragment>
-                                     Complete this section first. 
+                                    Complete this section first. 
                                     <b>
-                                      You must confirm claimed preferences before sending out a post-lottery letter. 
+                                      You must confirm claimed preferences before sending out a post-lottery letter.
                                     </b>
                                      Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
                                   </React.Fragment>
@@ -2144,9 +2144,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                   <Component
                                     description={
                                       <React.Fragment>
-                                         Complete this section first. 
+                                        Complete this section first. 
                                         <b>
-                                          You must confirm claimed preferences before sending out a post-lottery letter. 
+                                          You must confirm claimed preferences before sending out a post-lottery letter.
                                         </b>
                                          Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
                                       </React.Fragment>
@@ -2161,9 +2161,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     <p
                                       className="form-note max-width margin-bottom--3halves"
                                     >
-                                       Complete this section first. 
+                                      Complete this section first. 
                                       <b>
-                                        You must confirm claimed preferences before sending out a post-lottery letter. 
+                                        You must confirm claimed preferences before sending out a post-lottery letter.
                                       </b>
                                        Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
                                     </p>
@@ -11140,14 +11140,14 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                             </LeaseInformationSection>
                             <DemographicsSection>
                               <ContentSection
-                                description="FInish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs."
+                                description="Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs."
                                 title="Demographics"
                               >
                                 <div
                                   className="app-inner padding-bottom--half padding-top--half"
                                 >
                                   <Component
-                                    description="FInish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs."
+                                    description="Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs."
                                     title="Demographics"
                                   >
                                     <h2
@@ -11158,7 +11158,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     <p
                                       className="form-note max-width margin-bottom--3halves"
                                     >
-                                      FInish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.
+                                      Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.
                                     </p>
                                   </Component>
                                   <DemographicsInputs>
@@ -12987,9 +12987,9 @@ Array [
             <p
               className="form-note max-width margin-bottom--3halves"
             >
-               Complete this section first. 
+              Complete this section first. 
               <b>
-                You must confirm claimed preferences before sending out a post-lottery letter. 
+                You must confirm claimed preferences before sending out a post-lottery letter.
               </b>
                Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.
             </p>
@@ -17405,7 +17405,7 @@ Array [
             <p
               className="form-note max-width margin-bottom--3halves"
             >
-              FInish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.
+              Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.
             </p>
             <div
               className="form-grid row expand"
