@@ -86,7 +86,7 @@ const LeaseInformationSection = ({ form, submitting, values, visited }) => (
     </ContentSection.Sub>
     <ContentSection.Sub
       title='Rental Assistance Information'
-      description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'
+      description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
     >
       <RentalAssistance form={form} submitting={submitting} />
     </ContentSection.Sub>
