@@ -7,7 +7,7 @@ import ExpandableTable from '~/components/molecules/ExpandableTable'
 import Button from '~/components/atoms/Button'
 import { withContext } from '../context'
 import FormGrid from '~/components/molecules/FormGrid'
-import ExpandablePanel from '~/components/molecules/ExpandablePanel'
+import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import validate, { convertCurrency } from '~/utils/form/validations'
 import { InputField, SelectField, YesNoRadioGroup, CurrencyField } from '~/utils/form/final_form/Field'
@@ -118,7 +118,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   }
 
   return (
-    <ExpandablePanel>
+    <InlineModal>
       <RentalAssistanceForm
         values={rentalAssistance}
         row={row}
@@ -130,7 +130,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
         loading={rentalAssistanceLoading}
         form={form}
       />
-    </ExpandablePanel>
+    </InlineModal>
   )
 })
 
@@ -165,7 +165,6 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   return (
     <>
       <div className={classNames(
-        'app-editable expand-wide scrollable-table-nested',
         {
           'rental-assistance-new-form': isNew,
           'rental-assistance-edit-form': !isNew

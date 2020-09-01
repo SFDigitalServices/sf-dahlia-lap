@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
+import InlineModal from '~/components/molecules/InlineModal'
 import DefaultPanel from './DefaultPanel'
 import RentBurdenedPanel from './RentBurdenedPanel'
 import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
@@ -48,7 +49,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
   }
 
   return (
-    <div className='app-editable expand-wide scrollable-table-nested'>
+    <InlineModal>
       <>
         <PreferencePanel
           preferenceIndex={preferenceIndex}
@@ -76,7 +77,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
           </div>
         </FormGrid.Row>
       </>
-    </div>
+    </InlineModal>
   )
 }
 

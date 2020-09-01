@@ -51,12 +51,12 @@ const buildRows = (application, applicationMembers, fileBaseUrl) => {
 
 const columns = [
   { content: '' },
-  { content: 'Preference Name' },
-  { content: 'Person Who Claimed' },
-  { content: 'Preference Rank', classes: ['text-right'] },
-  { content: 'Type of proof' },
+  { content: 'Preference' },
+  { content: 'Claimant' },
+  { content: 'Rank', classes: ['text-right'] },
+  { content: 'Proof' },
   { content: 'Status' },
-  { content: 'Actions' }
+  { content: '' }
 ]
 
 const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose, form, visited) => (row, toggle) => {

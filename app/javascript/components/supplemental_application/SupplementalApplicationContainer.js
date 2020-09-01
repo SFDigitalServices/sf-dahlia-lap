@@ -2,17 +2,13 @@ import React, { useState } from 'react'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentSection from '../molecules/ContentSection'
 import DemographicsInputs from './sections/DemographicsInputs'
-import StatusList from './sections/StatusList'
-import StatusUpdate from '~/components/organisms/StatusUpdate'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
@@ -22,38 +18,7 @@ import validate, { touchAllFields } from '~/utils/form/validations'
 import ParkingInformationInputs from './sections/ParkingInformationInputs'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
-
-const StatusUpdateSection = withContext(({ store, formIsValid }) => {
-  const {
-    statusHistory,
-    openUpdateStatusModal,
-    openAddStatusCommentModal,
-    loading
-  } = store
-  let recentStatusUpdate =
-    statusHistory && statusHistory[0]
-      ? statusHistory[0]
-      : { status: null, comment: null, date: null }
-
-  return (
-    <ContentSection.Content paddingBottomNone marginTop>
-      <StatusUpdate
-        status={recentStatusUpdate.status}
-        substatus={recentStatusUpdate.substatus}
-        comment={recentStatusUpdate.comment}
-        date={recentStatusUpdate.date}
-        onStatusDropdownChange={value =>
-          formIsValid() ? openUpdateStatusModal(value) : null
-        }
-        onAddCommentClick={() =>
-          formIsValid() ? openAddStatusCommentModal() : null
-        }
-        statusHistoryAnchor='#status-history-section'
-        loading={loading}
-      />
-    </ContentSection.Content>
-  )
-})
+import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -66,10 +31,10 @@ const ConfirmedPreferencesSection = ({
   visited
 }) => (
   <ContentSection
-    title='Confirmed Preferences'
-    description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'
+    title='Preferences and Priorities'
+    description={<>Complete this section first. <b>You must confirm claimed preferences before sending out a post-lottery letter.</b> Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.</>}
   >
-    <ContentSection.Content>
+    <ContentSection.Sub title='Confirmed Preferences'>
       {confirmedPreferencesFailed && (
         <AlertBox
           invert
@@ -86,26 +51,30 @@ const ConfirmedPreferencesSection = ({
         form={form}
         visited={visited}
       />
-    </ContentSection.Content>
-  </ContentSection>
-)
-
-const ConfirmedHousehold = ({ listingAmiCharts, visited }) => (
-  <ContentSection title='Confirmed Household'>
-    <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
-      <ConfirmedUnits />
     </ContentSection.Sub>
-    <ContentSection.Sub title='Confirmed Household Income'>
-      <ConfirmedHouseholdIncome
-        listingAmiCharts={listingAmiCharts}
-        visited={visited}
-      />
+    <ContentSection.Sub title='Household Reserved and Priority Units'>
+      <ConfirmedUnits form={form} />
     </ContentSection.Sub>
   </ContentSection>
 )
 
-const LeaseInformationSection = ({ form, values, visited }) => (
-  <ContentSection title='Lease Information'>
+const Income = ({ listingAmiCharts, visited, form }) => (
+  <ContentSection
+    title='Income'
+    description='Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility.'
+  >
+    <ConfirmedHouseholdIncome
+      listingAmiCharts={listingAmiCharts}
+      visited={visited}
+    />
+  </ContentSection>
+)
+
+const LeaseInformationSection = ({ form, submitting, values, visited }) => (
+  <ContentSection
+    title='Lease'
+    description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
+  >
     <ContentSection.Sub title='Unit'>
       <LeaseInformationInputs form={form} visited={visited} />
     </ContentSection.Sub>
@@ -115,41 +84,41 @@ const LeaseInformationSection = ({ form, values, visited }) => (
     >
       <ParkingInformationInputs form={form} values={values} visited={visited} />
     </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Rental Assistance Information'
+      description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
+    >
+      <RentalAssistance form={form} submitting={submitting} />
+    </ContentSection.Sub>
   </ContentSection>
 )
 
-const RentalAssistanceSection = ({ form, submitting, visited }) => (
-  <ContentSection.Sub
-    title='Rental Assistance Information'
-    description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'
-  >
-    <RentalAssistance form={form} submitting={submitting} />
-  </ContentSection.Sub>
-)
-
 const DemographicsSection = () => (
-  <ContentSection.Sub title='Demographics'>
+  <ContentSection
+    title='Demographics'
+    description='Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.'
+  >
     <DemographicsInputs />
-  </ContentSection.Sub>
+  </ContentSection>
 )
 
-const StatusHistorySection = withContext(
+const Sidebar = withContext(
   ({
-    store: { statusHistory, openAddStatusCommentModal, loading },
-    formIsValid
+    store: { statusHistory, loading },
+    onChangeStatus,
+    onAddCommentClicked,
+    onSaveClicked
   }) => {
     return (
-      !isEmpty(statusHistory) && (
-        <ContentSection.Sub title='Status History' borderBottom={false}>
-          <StatusList
-            items={statusHistory}
-            onAddComment={() =>
-              formIsValid() ? openAddStatusCommentModal() : null
-            }
-            commentDisabled={loading}
-          />
-        </ContentSection.Sub>
-      )
+      <div className='sticky-sidebar-large-up'>
+        <LeaseUpSidebar
+          statusItems={statusHistory}
+          isLoading={loading}
+          onChangeStatus={onChangeStatus}
+          onAddCommentClicked={onAddCommentClicked}
+          onSaveClicked={onSaveClicked}
+        />
+      </div>
     )
   }
 )
@@ -188,14 +157,22 @@ const SupplementalApplicationContainer = ({ store }) => {
     confirmedPreferencesFailed,
     onDismissError,
     listingAmiCharts,
-    loading,
     onSubmit,
     statusModal,
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
+    openAddStatusCommentModal,
     openUpdateStatusModal
   } = store
+
+  const onAddCommentClicked = (form, touched) =>
+    !checkForValidationErrors(form, touched) ? openAddStatusCommentModal() : null
+
+  const onChangeStatus = (form, touched, value) =>
+    !checkForValidationErrors(form, touched)
+      ? openUpdateStatusModal(value)
+      : null
 
   return (
     <Form
@@ -226,40 +203,6 @@ const SupplementalApplicationContainer = ({ store }) => {
               id='shortForm'
               noValidate
             >
-              <StatusUpdateSection
-                formIsValid={() => !checkForValidationErrors(form, touched)}
-              />
-              <div className='padding-bottom--2x margin-bottom--2x' />
-              <ScrollableAnchor id={'status-history-section'}>
-                <div>
-                  <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
-                </div>
-              </ScrollableAnchor>
-              <div className='button-pager'>
-                <div className='button-pager_row align-buttons-left primary inset-wide'>
-                  <StatusDropdown
-                    status={application.processing_status}
-                    onChange={value =>
-                      !checkForValidationErrors(form, touched)
-                        ? openUpdateStatusModal(value)
-                        : null
-                    }
-                    buttonClasses={['small', 'has-status-width']}
-                    wrapperClasses={['dropdown-inline']}
-                    menuClasses={['dropdown-menu-bottom']}
-                    disabled={loading}
-                  />
-                  <button
-                    className='button primary small save-btn'
-                    type='submit'
-                    id='save-supplemental-application'
-                    disabled={loading}
-                    onClick={() => checkForValidationErrors(form, touched)}
-                  >
-                    {loading ? 'Saving…' : 'Save'}
-                  </button>
-                </div>
-              </div>
               <AsymColumnLayout.Container>
 
                 <AsymColumnLayout.MainContent>
@@ -272,24 +215,25 @@ const SupplementalApplicationContainer = ({ store }) => {
                     confirmedPreferencesFailed={confirmedPreferencesFailed}
                     form={form}
                   />
-                  <ConfirmedHousehold
+                  <Income
                     listingAmiCharts={listingAmiCharts}
                     visited={visited}
+                    form={form}
                   />
                   <LeaseInformationSection
                     form={form}
                     values={values}
-                    visited={visited}
-                  />
-                  <RentalAssistanceSection
-                    form={form}
                     submitting={submitting}
                     visited={visited}
                   />
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>
                 <AsymColumnLayout.Sidebar>
-                  <h1>Status sidebar placeholder</h1>
+                  <Sidebar
+                    onAddCommentClicked={() => onAddCommentClicked(form, touched)}
+                    onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+                    onSaveClicked={() => checkForValidationErrors(form, touched)}
+                  />
                 </AsymColumnLayout.Sidebar>
               </AsymColumnLayout.Container>
             </form>

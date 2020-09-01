@@ -6,11 +6,16 @@ import LeaseUpSidebarButtons from './LeaseUpSidebarButtons'
 import StatusItems from './StatusItems'
 
 import StatusItemShape from '../../utils/shapes/StatusItemShape'
-import { LEASE_UP_STATUS_VALUES } from '../../utils/statusUtils'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 
-const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
+const getMostRecentStatus = (statusHistory) =>
+  statusHistory && statusHistory[0]
+    ? statusHistory[0].status
+    : null
+
+// visible for testing
+export const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
   const buttonClasses = classNames(
     'button-link',
     't-tiny',
@@ -18,18 +23,25 @@ const ShowOrHideStatusesButton = ({ showingAllStatuses, onClick }) => {
   )
 
   return (
-    <button className={buttonClasses} onClick={onClick}>
+    <button
+      className={buttonClasses}
+      type='button'
+      onClick={onClick}
+    >
       {showingAllStatuses ? 'Show only recent status updates' : 'Show all status updates'}
     </button>
   )
 }
 
-const LeaseUpSidebar = ({ currentStatus, statusItems, onSaveClicked, onChangeStatus, onAddCommentClicked }) => {
+const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus, onAddCommentClicked }) => {
   const [showingAllStatuses, setShowingAllStatuses] = useState(false)
+
+  const currentStatus = getMostRecentStatus(statusItems)
 
   const sidebarButtons = (withMobileStyling) => (
     <div className={withMobileStyling ? 'hide-large-up' : 'show-large-up'}>
       <LeaseUpSidebarButtons
+        isLoading={isLoading}
         status={currentStatus}
         withMobileStyling={withMobileStyling}
         onSaveClicked={onSaveClicked}
@@ -38,7 +50,6 @@ const LeaseUpSidebar = ({ currentStatus, statusItems, onSaveClicked, onChangeSta
       />
     </div>
   )
-
   const onShowHideStatusesToggled = () => setShowingAllStatuses(!showingAllStatuses)
 
   const numberOfStatusesToDisplay = showingAllStatuses ? statusItems.length : MAX_UPDATES_TO_SHOW_DEFAULT
@@ -63,7 +74,7 @@ const LeaseUpSidebar = ({ currentStatus, statusItems, onSaveClicked, onChangeSta
 }
 
 LeaseUpSidebar.propTypes = {
-  currentStatus: PropTypes.oneOf(LEASE_UP_STATUS_VALUES).isRequired,
+  isLoading: PropTypes.bool,
   statusItems: PropTypes.arrayOf(PropTypes.shape(StatusItemShape)),
   onSaveClicked: PropTypes.func,
   onChangeStatus: PropTypes.func,
@@ -71,6 +82,7 @@ LeaseUpSidebar.propTypes = {
 }
 
 LeaseUpSidebar.defaultProps = {
+  isLoading: false,
   statusItems: [],
   onSaveClicked: null,
   onChangeStatus: null,
