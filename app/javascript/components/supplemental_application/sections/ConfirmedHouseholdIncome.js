@@ -64,7 +64,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
       <ContentSection.Sub title='Confirmed Household Income'>
         <FormGrid.Row>
           <FormGrid.Item>
-            <FormGrid.Group label='Recurring Voucher/Subsidy'>
+            <FormGrid.Group label='Household claimed a recurring voucher or subsidy'>
               <YesNoRadioGroup fieldName='housing_voucher_or_subsidy' />
             </FormGrid.Group>
           </FormGrid.Item>
@@ -97,7 +97,6 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
             <CurrencyField
               fieldName='hh_total_income_with_assets_annual'
               label='Final Household Annual Income'
-              placeholder='Enter Amount'
               validation={validateIncomeCurrency}
               isDirty={visited && visited['hh_total_income_with_assets_annual']}
               helpText='Includes % of assets if applicable'
@@ -110,7 +109,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
           <FormGrid.Item>
             <PercentField
               id='ami_percentage'
-              label='AMI Percentage'
+              label='Household AMI Percentage'
               fieldName='ami_percentage'
               placeholder='Enter Percentage'
               validation={validate.isValidPercent(

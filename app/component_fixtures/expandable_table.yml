@@ -1,12 +1,12 @@
 columns:
-  - content: Preference Name
-  - content: Person Who Claimed
-  - content: Preference Rank
+  - content: Preference
+  - content: Claimaint
+  - content: Rank
     classes:
       - text-right
-  - content: Type of Proof
+  - content: Proof
   - content: Status
-  - content: Actions
+  - content:
     classes:
       - text-right
 
