@@ -82,7 +82,7 @@ while IFS= read -r line; do
 
     if [[ "$type" = "bug" ]] || [[ "$type" = "bugs" ]]; then
       bugs+=( "$line" )
-    elif [[ "$type" = "feature" ]] || [[ "$type" = "features" ]]; then
+    elif [[ "$type" = "feat" ]] || [[ "$type" = "feature" ]] || [[ "$type" = "features" ]]; then
       features+=( "$line" )
     elif [[ "$type" = "chore" ]] || [[ "$type" = "chores" ]]; then
       chores+=( "$line" )
@@ -98,29 +98,78 @@ echo "Release tracker: https://docs.google.com/spreadsheets/d/1EUvw2ugaFprt8FxlC
 
 echo "Paste the following into the release tracker on google sheets:"
 
-pr_re_full='[a-z0-9]* (\(.*\) )?(.*) #(.*) \(#(.*)\)$'
-pr_re_no_ticket='[a-z0-9]* (\(.*\) )?(.*) \(#(.*)\)$'
-pr_re_relaxed='[a-z0-9]* (.*)$'
+ticket_r='\[?#?DAH[A-Z]*-([0-9]+)\]?'
+title_r='(.*)'
+pr_r='\(#(.*)\)'
+commit_r='([a-z0-9]{7})'
+
+pr_re_proper="^$commit_r $title_r $ticket_r $pr_r$"
+pr_re_ticket_first="^$commit_r $ticket_r $title_r $pr_r$"
+pr_re_no_ticket="^$commit_r $title_r $pr_r$"
+pr_re_release_commit="^$commit_r release[-0-9]*$"
+pr_re_merge_commit="^$commit_r Merge branch.*into production"
+pr_re_no_ticket_or_pr="^$commit_r $title_r$"
+
+function get_ticket {
+  if [[ $1 =~ $pr_re_proper ]] ; then
+    result="DAH-${BASH_REMATCH[3]}"
+  elif [[ $1 =~ $pr_re_ticket_first ]] ; then
+    result="DAH-${BASH_REMATCH[2]}"
+  else
+    return
+  fi
+
+  echo "$result"
+}
+
+function get_ticket_link {
+  ticket=$(get_ticket "$1")
+  if [[ -z "$ticket" ]] ; then
+    result=""
+  else
+    result="https://sfgovdt.jira.com/browse/$ticket"
+  fi
+
+  echo "$result"
+}
+
+function get_title {
+  if [[ $1 =~ $pr_re_proper ]] ; then
+    echo "${BASH_REMATCH[2]}"
+  elif [[ $1 =~ $pr_re_ticket_first ]] ; then
+    echo "${BASH_REMATCH[3]}"
+  elif [[ $1 =~ $pr_re_no_ticket ]] ; then
+    echo "${BASH_REMATCH[2]}"
+  elif [[ $1 =~ $pr_re_release_commit ]] || [[ $1 =~ $pr_re_merge_commit ]] ; then
+    echo ""
+  elif [[ $1 =~ $pr_re_no_ticket_or_pr ]] ; then
+    echo "${BASH_REMATCH[1]}"
+  else
+    return
+  fi
+}
+
+function get_pr {
+  if [[ $1 =~ $pr_re_proper ]] ; then
+    echo "${BASH_REMATCH[4]}"
+  elif [[ $1 =~ $pr_re_ticket_first ]] ; then
+    echo "${BASH_REMATCH[4]}"
+  elif [[ $1 =~ $pr_re_no_ticket ]] ; then
+    echo "${BASH_REMATCH[3]}"
+  else
+    echo ""
+  fi
+}
 
 function print_sheet_line {
-  if [[ $1 =~ $pr_re_full ]] ; then
-    title=${BASH_REMATCH[2]}
-    ticket=${BASH_REMATCH[3]}
-  elif [[ $1 =~ $pr_re_no_ticket ]] ; then
-    title=${BASH_REMATCH[2]}
-    ticket=''
-  elif [[ $1 =~ $pr_re_relaxed ]] ; then
-    title=${BASH_REMATCH[1]}
-    ticket=''
-  fi
+  title=$(get_title "$1")
+  ticket_link=$(get_ticket_link "$1")
 
-  if [ -z "$ticket" ]; then
-    ticket_link_text=''
+  if [ -z "$title" ]; then
+    return
   else
-    ticket_link_text="https://www.pivotaltracker.com/story/show/$ticket"
+    echo -e "$title\t$ticket\t$ticket_link\tYES\tYES\t\tNEEDS TESTING"
   fi
-
-  echo -e "$title\t$ticket\t$ticket_link_text\tYES\tYES\t\tNEEDS TESTING"
 }
 
 # call like `print_sheet_category <category name string> <category commit array>``
@@ -140,25 +189,19 @@ print_sheet_category "Chores" chores
 print_sheet_category "Other" other
 
 function print_release_line {
-  if [[ $1 =~ $pr_re_full ]] ; then
-    title=${BASH_REMATCH[2]}
-    ticket=${BASH_REMATCH[3]}
-    pr=${BASH_REMATCH[4]}
-  elif [[ $1 =~ $pr_re_no_ticket ]] ; then
-    title=${BASH_REMATCH[2]}
-    ticket=''
-    pr=${BASH_REMATCH[3]}
-  elif [[ $1 =~ $pr_re_relaxed ]] ; then
-    title=${BASH_REMATCH[1]}
-    ticket=''
-    pr=''
+  title=$(get_title "$1")
+  ticket=$(get_ticket "$1")
+  ticket_link=$(get_ticket_link "$1")
+  pr=$(get_pr "$1")
+
+  if [ -z "$title" ]; then
+    return
   fi
 
   if [ -z "$ticket" ]; then
     echo -e "- $title, (#$pr)"
   else
-    ticket_link_text="https://www.pivotaltracker.com/story/show/$ticket"
-    echo -e "- $title [$ticket]($ticket_link_text), (#$pr)"
+    echo -e "- $title [$ticket]($ticket_link), (#$pr)"
   fi
 }
 
