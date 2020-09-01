@@ -50,13 +50,6 @@ const generateRandomCurrency = () => {
 
 const savePage = async (page) => {
   const selector = '#save-supplemental-application'
-  // To allow waitForNavigation to work post-save, we need to scroll
-  //   down to the save button, then wait for the url to update to the scrollable anchor
-  // FIXME this will cause issues if we use savePage when we're already at the
-  //   anchor #status-history-section
-  await page.focus(selector)
-  await page.waitForNavigation()
-
   await page.click(selector)
 }
 
