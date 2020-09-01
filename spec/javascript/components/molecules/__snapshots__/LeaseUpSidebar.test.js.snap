@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeaseUpSidebar should render with a single status item correctly 1`] = `
+exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items 1`] = `
 <div
   className="sidebar-content"
 >
@@ -8,6 +8,7 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
     className="show-large-up"
   >
     <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}
@@ -27,117 +28,32 @@ exports[`LeaseUpSidebar should render with a single status item correctly 1`] = 
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
-        },
-      ]
-    }
-  />
-  <div
-    className="hide-large-up"
-  >
-    <LeaseUpSidebarButtons
-      onAddCommentClicked={null}
-      onChangeStatus={null}
-      onSaveClicked={null}
-      status="Approved"
-      withMobileStyling={true}
-    />
-  </div>
-</div>
-`;
-
-exports[`LeaseUpSidebar should render with empty status items correctly 1`] = `
-<div
-  className="sidebar-content"
->
-  <div
-    className="show-large-up"
-  >
-    <LeaseUpSidebarButtons
-      onAddCommentClicked={null}
-      onChangeStatus={null}
-      onSaveClicked={null}
-      status="Approved"
-      withMobileStyling={false}
-    />
-  </div>
-  <h3
-    className="status-history-label"
-  >
-    Status History
-  </h3>
-  <StatusItems
-    limit={4}
-    statusItems={Array []}
-  />
-  <div
-    className="hide-large-up"
-  >
-    <LeaseUpSidebarButtons
-      onAddCommentClicked={null}
-      onChangeStatus={null}
-      onSaveClicked={null}
-      status="Approved"
-      withMobileStyling={true}
-    />
-  </div>
-</div>
-`;
-
-exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`] = `
-<div
-  className="sidebar-content"
->
-  <div
-    className="show-large-up"
-  >
-    <LeaseUpSidebarButtons
-      onAddCommentClicked={null}
-      onChangeStatus={null}
-      onSaveClicked={null}
-      status="Approved"
-      withMobileStyling={false}
-    />
-  </div>
-  <h3
-    className="status-history-label"
-  >
-    Status History
-  </h3>
-  <StatusItems
-    limit={4}
-    statusItems={
-      Array [
-        Object {
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-          "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
         },
         Object {
           "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
           "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
         },
       ]
     }
@@ -150,87 +66,7 @@ exports[`LeaseUpSidebar should render with more than 4 status items correctly 1`
     className="hide-large-up"
   >
     <LeaseUpSidebarButtons
-      onAddCommentClicked={null}
-      onChangeStatus={null}
-      onSaveClicked={null}
-      status="Approved"
-      withMobileStyling={true}
-    />
-  </div>
-</div>
-`;
-
-exports[`LeaseUpSidebar should render with multiple status items correctly 1`] = `
-<div
-  className="sidebar-content"
->
-  <div
-    className="show-large-up"
-  >
-    <LeaseUpSidebarButtons
-      onAddCommentClicked={null}
-      onChangeStatus={null}
-      onSaveClicked={null}
-      status="Approved"
-      withMobileStyling={false}
-    />
-  </div>
-  <h3
-    className="status-history-label"
-  >
-    Status History
-  </h3>
-  <StatusItems
-    limit={4}
-    statusItems={
-      Array [
-        Object {
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-          "status": "Approved",
-          "subStatus": "Approval letter sent",
-          "timeStamp": 1598832480,
-        },
-        Object {
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-          "status": "Approved",
-          "subStatus": "Unit selected",
-          "timeStamp": 1598832480,
-        },
-        Object {
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-          "status": "Approved",
-          "subStatus": "Waiting for subsidy inspection",
-          "timeStamp": 1598832480,
-        },
-        Object {
-          "comment": null,
-          "status": "Waitlisted",
-          "subStatus": "Written confirmation sent",
-          "timeStamp": 1598832480,
-        },
-        Object {
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-          "status": "Lease Signed",
-          "subStatus": null,
-          "timeStamp": 1598832480,
-        },
-        Object {
-          "comment": null,
-          "status": "Lease Signed",
-          "subStatus": null,
-          "timeStamp": 1598832480,
-        },
-      ]
-    }
-  />
-  <ShowOrHideStatusesButton
-    onClick={[Function]}
-    showingAllStatuses={false}
-  />
-  <div
-    className="hide-large-up"
-  >
-    <LeaseUpSidebarButtons
+      isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
       onSaveClicked={null}

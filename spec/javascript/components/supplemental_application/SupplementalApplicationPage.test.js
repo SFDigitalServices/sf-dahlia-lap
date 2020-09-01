@@ -362,8 +362,8 @@ describe('SupplementalApplicationPage', () => {
     })
   })
 
-  describe('Status Modal', () => {
-    test('should render the status update dropdown button and its menu of status options correctly', async () => {
+  describe('Status Sidebar', () => {
+    test('should render the LeaseUpSidebar', async () => {
       let wrapper
       await act(async () => {
         wrapper = mount(
@@ -373,64 +373,12 @@ describe('SupplementalApplicationPage', () => {
           />
         )
       })
-
-      // Click on the status update dropdown button to open
-      // the status options dropdown menu
-      wrapper.find('.button-pager .dropdown > button').simulate('click')
 
       // Check that the page matches the snapshot that we have stored
       // of how the dropdown button and dropdown menu should render
       // when the dropdown menu is open
-      expect(wrapper.find('.button-pager .dropdown .dropdown-menu-bottom').exists()).toBeTruthy()
+      expect(wrapper.find('.sidebar-content')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
-    })
-    test('should render the status dropdown modal correctly', async () => {
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={supplementalApplication}
-            statusHistory={statusHistory}
-          />
-        )
-      })
-      // Click on the status update dropdown button to open
-      // the status options dropdown menu
-      wrapper.find('.button-pager .dropdown > button').simulate('click')
-      expect(wrapper.find('.button-pager .dropdown .dropdown-menu-bottom').exists()).toBeTruthy()
-
-      // Select Withdrawn from the dropdown
-      wrapper.find('li.dropdown-menu_item.is-withdrawn > a').simulate('click')
-
-      // Modal opens
-      expect(wrapper.find('.form-modal_form_wrapper').exists()).toBeTruthy()
-
-      // Modal's status dropdown is the selected option
-      expect(wrapper.find('.modal-inner .dropdown.status').text()).toEqual('Withdrawn')
-    })
-    test('should allow the status update modal to open and close', async () => {
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={supplementalApplication}
-            statusHistory={statusHistory}
-          />
-        )
-      })
-
-      // Click on the add a comment button to open
-      // the status update modal
-      wrapper.find('div.status-update_footer > button').simulate('click')
-
-      // Expect modal to be open
-      expect(wrapper.find('#status-comment').exists()).toBeTruthy()
-
-      // Click Close
-      wrapper.find('div.modal-button_item.modal-button_secondary > button').simulate('click')
-
-      // Expect modal to be closed
-      expect(wrapper.find('#status-comment').exists()).toBe(false)
     })
   })
 
@@ -447,7 +395,7 @@ describe('SupplementalApplicationPage', () => {
 
     // Fill in letters in lease date month - which are invalid values
     wrapper.find('#lease_start_date_month').first().simulate('change', { target: { value: 'AB' } })
-    wrapper.find('#save-supplemental-application').simulate('click')
+    wrapper.find('#save-supplemental-application').first().simulate('click')
 
     // alert box to display
     expect(wrapper.find('.alert-box').exists()).toBeTruthy()

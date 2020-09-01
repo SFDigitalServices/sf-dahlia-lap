@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SupplementalApplicationPage Status Modal should render the status update dropdown button and its menu of status options correctly 1`] = `
+exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSidebar 1`] = `
 <MapProps
   application={
     Object {
@@ -1710,1546 +1710,20 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                       }
                     }
                   >
-                    <ContextComponent
-                      formIsValid={[Function]}
-                    >
-                      <Component
-                        formIsValid={[Function]}
-                        store={
-                          Object {
-                            "application": Object {
-                              "ami_chart_type": "HUD Unadjusted",
-                              "ami_chart_year": "2018",
-                              "ami_percentage": 5.55,
-                              "annual_income": 5000,
-                              "answered_community_screening": null,
-                              "applicant": Object {
-                                "city": "Testville",
-                                "date_of_birth": Object {
-                                  "day": "05",
-                                  "month": "01",
-                                  "year": "1989",
-                                },
-                                "email": "tessiel@email.com",
-                                "ethnicity": null,
-                                "first_name": "Automated Test Lease Up Application",
-                                "gender": null,
-                                "gender_other": null,
-                                "id": "a0n0P00000D3qIZQAZ",
-                                "last_name": "(do not modify)",
-                                "mailing_address": "123 Test St, Testville, CA, 00000",
-                                "mailing_city": "Testville",
-                                "mailing_state": "CA",
-                                "mailing_street": "123 Test St",
-                                "mailing_zip_code": "00000",
-                                "marital_status": "Domestic Partner",
-                                "middle_name": null,
-                                "name": "Automated Test Lease Up Application (do not modify)",
-                                "phone": null,
-                                "phone_type": null,
-                                "race": null,
-                                "residence_address": "123 Test St, Testville, CA, 00000",
-                                "second_phone": null,
-                                "second_phone_type": null,
-                                "sexual_orientation": null,
-                                "sexual_orientation_other": null,
-                                "state": "CA",
-                                "street": "123 Test St",
-                                "zip_code": "00000",
-                              },
-                              "application_language": "English",
-                              "application_submission_type": "Electronic",
-                              "application_submitted_date": "2020-03-30",
-                              "confirmed_household_annual_income": null,
-                              "createdby": Object {
-                                "name": "DAHLIA API",
-                              },
-                              "demographics": Object {
-                                "ethnicity": null,
-                                "gender": null,
-                                "gender_other": null,
-                                "race": null,
-                                "sexual_orientation": null,
-                                "sexual_orientation_other": null,
-                              },
-                              "general_lottery": false,
-                              "general_lottery_rank": null,
-                              "has_ada_priorities_selected": null,
-                              "has_completed_homebuyer_education": false,
-                              "has_developmental_disability": "Yes",
-                              "has_loan_preapproval": false,
-                              "has_military_service": "Yes",
-                              "hh_total_income_with_assets_annual": 374.05,
-                              "household_assets": 354.38,
-                              "household_members": Array [],
-                              "housing_voucher_or_subsidy": "true",
-                              "id": "a0o0P00000GZazOQAT",
-                              "is_first_time_homebuyer": false,
-                              "lease": Object {
-                                "bmr_parking_space_assigned": null,
-                                "id": "a130P000005TeZrQAK",
-                                "lease_start_date": Object {
-                                  "day": "12",
-                                  "month": "1",
-                                  "year": "2019",
-                                },
-                                "lease_status": "Draft",
-                                "monthly_parking_rent": "2",
-                                "monthly_tenant_contribution": "3",
-                                "no_preference_used": false,
-                                "preference_used": "testValidPref",
-                                "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                "total_monthly_rent_without_parking": "1",
-                                "unit": "",
-                              },
-                              "lending_agent": null,
-                              "listing": Object {
-                                "id": "a0W0P00000GbyuQUAR",
-                                "is_rental": true,
-                                "is_sale": false,
-                                "name": "Partners Test Listing (do not modify) - Yellow Acres",
-                                "reserved_community_type": null,
-                              },
-                              "listing_id": "a0W0P00000GbyuQUAR",
-                              "lottery_number": "00243697",
-                              "lottery_number_manual": null,
-                              "monthly_income": null,
-                              "name": "APP-00243697",
-                              "number_of_dependents": 2,
-                              "number_of_minors": 0,
-                              "number_of_seniors": 3,
-                              "preferences": Array [
-                                Object {
-                                  "application_member_id": null,
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000OUJc0QAH",
-                                  "individual_preference": null,
-                                  "listing_preference_id": "a0l0P00001Q1vxUQAR",
-                                  "lottery_status": null,
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0000826196",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": null,
-                                  "post_lottery_validation": null,
-                                  "preference_lottery_rank": null,
-                                  "preference_name": "Certificate of Preference (COP)",
-                                  "preference_order": 1,
-                                  "receives_preference": false,
-                                  "recordtype_developername": "COP",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": null,
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": "a0n0P00000D3qIZQAZ",
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000OUJc3QAH",
-                                  "individual_preference": "Live in SF",
-                                  "listing_preference_id": "a0l0P00001Q1w1BQAR",
-                                  "lottery_status": "None",
-                                  "lw_type_of_proof": "Telephone bill",
-                                  "name": "AP-0000826199",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
-                                  "post_lottery_validation": "Confirmed",
-                                  "preference_lottery_rank": 1,
-                                  "preference_name": "Live or Work in San Francisco Preference",
-                                  "preference_order": 4,
-                                  "receives_preference": true,
-                                  "recordtype_developername": "L_W",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": "Telephone bill",
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": null,
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000OUJc1QAH",
-                                  "individual_preference": null,
-                                  "listing_preference_id": "a0l0P00001Q1vxyQAB",
-                                  "lottery_status": null,
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0000826197",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": null,
-                                  "post_lottery_validation": null,
-                                  "preference_lottery_rank": null,
-                                  "preference_name": "Displaced Tenant Housing Preference (DTHP)",
-                                  "preference_order": 2,
-                                  "receives_preference": false,
-                                  "recordtype_developername": "DTHP",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": null,
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": null,
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000Oqew3QAB",
-                                  "individual_preference": null,
-                                  "listing_preference_id": "a0l0P00001QRQGzQAP",
-                                  "lottery_status": null,
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0000919888",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": null,
-                                  "post_lottery_validation": null,
-                                  "preference_lottery_rank": null,
-                                  "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
-                                  "preference_order": 6,
-                                  "receives_preference": false,
-                                  "recordtype_developername": "NRHP",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": null,
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": null,
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000PC8JoQAL",
-                                  "individual_preference": null,
-                                  "listing_preference_id": "a0l0P00001RbKCJQA3",
-                                  "lottery_status": "Unconfirmed",
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0001011481",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": null,
-                                  "post_lottery_validation": null,
-                                  "preference_lottery_rank": null,
-                                  "preference_name": "Anti-Displacement Housing Preference (ADHP)",
-                                  "preference_order": 8,
-                                  "receives_preference": false,
-                                  "recordtype_developername": "ADHP",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": null,
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": "a0n0P00000D3qIZQAZ",
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000OUJc2QAH",
-                                  "individual_preference": "Assisted Housing",
-                                  "listing_preference_id": "a0l0P00001Q1w0mQAB",
-                                  "lottery_status": "None",
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0000826198",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
-                                  "post_lottery_validation": "Unconfirmed",
-                                  "preference_lottery_rank": 1,
-                                  "preference_name": "Rent Burdened / Assisted Housing Preference",
-                                  "preference_order": 3,
-                                  "receives_preference": true,
-                                  "recordtype_developername": "RB_AHP",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": "Lease and rent proof",
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": null,
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000Oqew2QAB",
-                                  "individual_preference": null,
-                                  "listing_preference_id": "a0l0P00001QRPiaQAH",
-                                  "lottery_status": "None",
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0000919887",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": null,
-                                  "post_lottery_validation": null,
-                                  "preference_lottery_rank": null,
-                                  "preference_name": "Alice Griffith Housing Development Resident",
-                                  "preference_order": 5,
-                                  "receives_preference": false,
-                                  "recordtype_developername": "AG",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": null,
-                                  "zip_code": null,
-                                },
-                                Object {
-                                  "application_member_id": null,
-                                  "certificate_number": null,
-                                  "city": null,
-                                  "id": "a0w0P00000Oqew4QAB",
-                                  "individual_preference": null,
-                                  "listing_preference_id": "a0l0P00001QRQKlQAP",
-                                  "lottery_status": "Unconfirmed",
-                                  "lw_type_of_proof": null,
-                                  "name": "AP-0000919889",
-                                  "opt_out": false,
-                                  "person_who_claimed_name": null,
-                                  "post_lottery_validation": null,
-                                  "preference_lottery_rank": null,
-                                  "preference_name": "Artist Fund (Test Custom Pref)",
-                                  "preference_order": 7,
-                                  "receives_preference": false,
-                                  "recordtype_developername": "Custom",
-                                  "state": null,
-                                  "street": null,
-                                  "total_household_rent": "0.0",
-                                  "type_of_proof": null,
-                                  "zip_code": null,
-                                },
-                              ],
-                              "primary_applicant_contact": "0030P00002HAKDJQA5",
-                              "processing_status": "Withdrawn",
-                              "proof_files": Array [
-                                Object {
-                                  "document_type": "Copy of Lease",
-                                  "file_type": "Attachment",
-                                  "id": "00P0P00000t0P3vUAE",
-                                  "related_application": "a0o0P00000GZazOQAT",
-                                  "related_application_preference": "a0w0P00000OUJc2QAH",
-                                },
-                                Object {
-                                  "document_type": "Letter from employer",
-                                  "file_type": "Attachment",
-                                  "id": "00P0P00000t0P40UAE",
-                                  "related_application": "a0o0P00000GZazOQAT",
-                                  "related_application_preference": "a0w0P00000OUJc3QAH",
-                                },
-                              ],
-                              "referral_source": null,
-                              "rental_assistances": Array [],
-                              "reserved_senior": "Yes",
-                              "status": "Submitted",
-                              "terms_acknowledged": true,
-                              "total_household_size": 1,
-                              "total_monthly_rent": null,
-                            },
-                            "applicationMembers": Array [
-                              Object {
-                                "city": "Testville",
-                                "date_of_birth": Object {
-                                  "day": "05",
-                                  "month": "01",
-                                  "year": "1989",
-                                },
-                                "email": "tessiel@email.com",
-                                "ethnicity": null,
-                                "first_name": "Automated Test Lease Up Application",
-                                "gender": null,
-                                "gender_other": null,
-                                "id": "a0n0P00000D3qIZQAZ",
-                                "last_name": "(do not modify)",
-                                "mailing_address": "123 Test St, Testville, CA, 00000",
-                                "mailing_city": "Testville",
-                                "mailing_state": "CA",
-                                "mailing_street": "123 Test St",
-                                "mailing_zip_code": "00000",
-                                "marital_status": "Domestic Partner",
-                                "middle_name": null,
-                                "name": "Automated Test Lease Up Application (do not modify)",
-                                "phone": null,
-                                "phone_type": null,
-                                "race": null,
-                                "residence_address": "123 Test St, Testville, CA, 00000",
-                                "second_phone": null,
-                                "second_phone_type": null,
-                                "sexual_orientation": null,
-                                "sexual_orientation_other": null,
-                                "state": "CA",
-                                "street": "123 Test St",
-                                "zip_code": "00000",
-                              },
-                            ],
-                            "assignSupplementalAppTouched": [Function],
-                            "availableUnits": undefined,
-                            "confirmedPreferencesFailed": false,
-                            "fileBaseUrl": undefined,
-                            "handleCloseRentalAssistancePanel": [Function],
-                            "handleDeleteRentalAssistance": [Function],
-                            "handleOpenRentalAssistancePanel": [Function],
-                            "handleSaveRentalAssistance": [Function],
-                            "handleStatusModalClose": [Function],
-                            "handleStatusModalStatusChange": [Function],
-                            "handleStatusModalSubmit": [Function],
-                            "hideAddRentalAssistanceBtn": [Function],
-                            "leaveConfirmationModal": Object {
-                              "isOpen": false,
-                            },
-                            "listingAmiCharts": Array [],
-                            "loading": false,
-                            "onDismissError": [Function],
-                            "onSavePreference": [Function],
-                            "onSubmit": [Function],
-                            "openAddStatusCommentModal": [Function],
-                            "openUpdateStatusModal": [Function],
-                            "rentalAssistanceLoading": false,
-                            "rentalAssistances": undefined,
-                            "setLoading": [Function],
-                            "showAddRentalAssistanceBtn": true,
-                            "showNewRentalAssistancePanel": false,
-                            "statusHistory": Array [
-                              Object {
-                                "comment": "xxxx1",
-                                "date": "2018-05-10T19:54:11.000+0000",
-                                "status": "Approved",
-                              },
-                              Object {
-                                "comment": "xxxx2",
-                                "date": "2018-05-10T19:54:11.000+0000",
-                                "status": "Pending",
-                              },
-                            ],
-                            "statusModal": Object {
-                              "loading": false,
-                              "status": "Withdrawn",
-                            },
-                            "supplementalAppTouched": false,
-                          }
-                        }
-                      >
-                        <Component
-                          marginTop={true}
-                          paddingBottomNone={true}
-                        >
-                          <div
-                            className="margin-top"
-                            style={
-                              Object {
-                                "marginBottom": "1.75rem",
-                              }
-                            }
-                          >
-                            <StatusUpdate
-                              comment="xxxx1"
-                              date="2018-05-10T19:54:11.000+0000"
-                              loading={false}
-                              onAddCommentClick={[Function]}
-                              onStatusDropdownChange={[Function]}
-                              status="Approved"
-                              statusHistoryAnchor="#status-history-section"
-                            >
-                              <div
-                                className="status-update expand-wide is-approved"
-                              >
-                                <h3
-                                  className="status-update_title"
-                                >
-                                  Update Status
-                                </h3>
-                                <div
-                                  className="status-update_action"
-                                >
-                                  <StatusDropdown
-                                    buttonClasses={
-                                      Array [
-                                        "small",
-                                      ]
-                                    }
-                                    disabled={false}
-                                    onChange={[Function]}
-                                    status="Approved"
-                                    styles={
-                                      Object {
-                                        "position": "relative",
-                                      }
-                                    }
-                                  >
-                                    <Dropdown
-                                      buttonClasses={
-                                        Array [
-                                          "is-approved",
-                                          "small",
-                                        ]
-                                      }
-                                      disabled={false}
-                                      items={
-                                        Array [
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Processing",
-                                            "style": "is-processing",
-                                            "value": "Processing",
-                                          },
-                                          Object {
-                                            "label": "Withdrawn",
-                                            "style": "is-withdrawn",
-                                            "value": "Withdrawn",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Appealed",
-                                            "style": "is-appealed",
-                                            "value": "Appealed",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Waitlisted",
-                                            "style": "is-waitlisted",
-                                            "value": "Waitlisted",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Disqualified",
-                                            "style": "is-disqualified",
-                                            "value": "Disqualified",
-                                          },
-                                          Object {
-                                            "commentRequired": true,
-                                            "label": "Approved",
-                                            "style": "is-approved",
-                                            "value": "Approved",
-                                          },
-                                          Object {
-                                            "label": "Lease Signed",
-                                            "style": "is-leased",
-                                            "value": "Lease Signed",
-                                          },
-                                        ]
-                                      }
-                                      onChange={[Function]}
-                                      prompt="Status"
-                                      styles={
-                                        Object {
-                                          "position": "relative",
-                                        }
-                                      }
-                                      value="Approved"
-                                    >
-                                      <div
-                                        className="dropdown"
-                                        onClick={[Function]}
-                                        style={
-                                          Object {
-                                            "position": "relative",
-                                          }
-                                        }
-                                      >
-                                        <button
-                                          aria-expanded="false"
-                                          className="button dropdown-button has-icon--right text-align-left is-approved small"
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          <span
-                                            className="ui-icon ui-small"
-                                          >
-                                            <svg>
-                                              <use
-                                                xlinkHref="#i-arrow-down"
-                                              />
-                                            </svg>
-                                          </span>
-                                          Approved
-                                        </button>
-                                        <div
-                                          aria-hidden="true"
-                                          className="dropdown-menu-wrapper"
-                                          role="menu"
-                                        />
-                                      </div>
-                                    </Dropdown>
-                                  </StatusDropdown>
-                                </div>
-                                <div
-                                  className="status-update_message"
-                                >
-                                  <div
-                                    className="status-update_comment"
-                                  >
-                                    <p
-                                      className="status-update_note"
-                                    >
-                                      xxxx1
-                                    </p>
-                                    <span
-                                      className="status-update_date"
-                                    >
-                                      <PrettyTime
-                                        displayType="short"
-                                        time="2018-05-10T19:54:11.000+0000"
-                                      >
-                                        <div>
-                                          5/10/18
-                                        </div>
-                                      </PrettyTime>
-                                    </span>
-                                  </div>
-                                  <div
-                                    className="status-update_footer"
-                                  >
-                                    <button
-                                      className="button tiny tertiary"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Add a comment
-                                    </button>
-                                    <a
-                                      className="t-small right"
-                                      data-turbolinks="false"
-                                      href="#status-history-section"
-                                    >
-                                      See Status History
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </StatusUpdate>
-                          </div>
-                        </Component>
-                      </Component>
-                    </ContextComponent>
-                    <div
-                      className="padding-bottom--2x margin-bottom--2x"
-                    />
-                    <ScrollableAnchor
-                      id="status-history-section"
-                    >
-                      <div>
-                        <ContextComponent
-                          formIsValid={[Function]}
-                        >
-                          <Component
-                            formIsValid={[Function]}
-                            store={
-                              Object {
-                                "application": Object {
-                                  "ami_chart_type": "HUD Unadjusted",
-                                  "ami_chart_year": "2018",
-                                  "ami_percentage": 5.55,
-                                  "annual_income": 5000,
-                                  "answered_community_screening": null,
-                                  "applicant": Object {
-                                    "city": "Testville",
-                                    "date_of_birth": Object {
-                                      "day": "05",
-                                      "month": "01",
-                                      "year": "1989",
-                                    },
-                                    "email": "tessiel@email.com",
-                                    "ethnicity": null,
-                                    "first_name": "Automated Test Lease Up Application",
-                                    "gender": null,
-                                    "gender_other": null,
-                                    "id": "a0n0P00000D3qIZQAZ",
-                                    "last_name": "(do not modify)",
-                                    "mailing_address": "123 Test St, Testville, CA, 00000",
-                                    "mailing_city": "Testville",
-                                    "mailing_state": "CA",
-                                    "mailing_street": "123 Test St",
-                                    "mailing_zip_code": "00000",
-                                    "marital_status": "Domestic Partner",
-                                    "middle_name": null,
-                                    "name": "Automated Test Lease Up Application (do not modify)",
-                                    "phone": null,
-                                    "phone_type": null,
-                                    "race": null,
-                                    "residence_address": "123 Test St, Testville, CA, 00000",
-                                    "second_phone": null,
-                                    "second_phone_type": null,
-                                    "sexual_orientation": null,
-                                    "sexual_orientation_other": null,
-                                    "state": "CA",
-                                    "street": "123 Test St",
-                                    "zip_code": "00000",
-                                  },
-                                  "application_language": "English",
-                                  "application_submission_type": "Electronic",
-                                  "application_submitted_date": "2020-03-30",
-                                  "confirmed_household_annual_income": null,
-                                  "createdby": Object {
-                                    "name": "DAHLIA API",
-                                  },
-                                  "demographics": Object {
-                                    "ethnicity": null,
-                                    "gender": null,
-                                    "gender_other": null,
-                                    "race": null,
-                                    "sexual_orientation": null,
-                                    "sexual_orientation_other": null,
-                                  },
-                                  "general_lottery": false,
-                                  "general_lottery_rank": null,
-                                  "has_ada_priorities_selected": null,
-                                  "has_completed_homebuyer_education": false,
-                                  "has_developmental_disability": "Yes",
-                                  "has_loan_preapproval": false,
-                                  "has_military_service": "Yes",
-                                  "hh_total_income_with_assets_annual": 374.05,
-                                  "household_assets": 354.38,
-                                  "household_members": Array [],
-                                  "housing_voucher_or_subsidy": "true",
-                                  "id": "a0o0P00000GZazOQAT",
-                                  "is_first_time_homebuyer": false,
-                                  "lease": Object {
-                                    "bmr_parking_space_assigned": null,
-                                    "id": "a130P000005TeZrQAK",
-                                    "lease_start_date": Object {
-                                      "day": "12",
-                                      "month": "1",
-                                      "year": "2019",
-                                    },
-                                    "lease_status": "Draft",
-                                    "monthly_parking_rent": "2",
-                                    "monthly_tenant_contribution": "3",
-                                    "no_preference_used": false,
-                                    "preference_used": "testValidPref",
-                                    "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
-                                    "total_monthly_rent_without_parking": "1",
-                                    "unit": "",
-                                  },
-                                  "lending_agent": null,
-                                  "listing": Object {
-                                    "id": "a0W0P00000GbyuQUAR",
-                                    "is_rental": true,
-                                    "is_sale": false,
-                                    "name": "Partners Test Listing (do not modify) - Yellow Acres",
-                                    "reserved_community_type": null,
-                                  },
-                                  "listing_id": "a0W0P00000GbyuQUAR",
-                                  "lottery_number": "00243697",
-                                  "lottery_number_manual": null,
-                                  "monthly_income": null,
-                                  "name": "APP-00243697",
-                                  "number_of_dependents": 2,
-                                  "number_of_minors": 0,
-                                  "number_of_seniors": 3,
-                                  "preferences": Array [
-                                    Object {
-                                      "application_member_id": null,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000OUJc0QAH",
-                                      "individual_preference": null,
-                                      "listing_preference_id": "a0l0P00001Q1vxUQAR",
-                                      "lottery_status": null,
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000826196",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": null,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Certificate of Preference (COP)",
-                                      "preference_order": 1,
-                                      "receives_preference": false,
-                                      "recordtype_developername": "COP",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": "a0n0P00000D3qIZQAZ",
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000OUJc3QAH",
-                                      "individual_preference": "Live in SF",
-                                      "listing_preference_id": "a0l0P00001Q1w1BQAR",
-                                      "lottery_status": "None",
-                                      "lw_type_of_proof": "Telephone bill",
-                                      "name": "AP-0000826199",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
-                                      "post_lottery_validation": "Confirmed",
-                                      "preference_lottery_rank": 1,
-                                      "preference_name": "Live or Work in San Francisco Preference",
-                                      "preference_order": 4,
-                                      "receives_preference": true,
-                                      "recordtype_developername": "L_W",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": "Telephone bill",
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": null,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000OUJc1QAH",
-                                      "individual_preference": null,
-                                      "listing_preference_id": "a0l0P00001Q1vxyQAB",
-                                      "lottery_status": null,
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000826197",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": null,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Displaced Tenant Housing Preference (DTHP)",
-                                      "preference_order": 2,
-                                      "receives_preference": false,
-                                      "recordtype_developername": "DTHP",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": null,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000Oqew3QAB",
-                                      "individual_preference": null,
-                                      "listing_preference_id": "a0l0P00001QRQGzQAP",
-                                      "lottery_status": null,
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000919888",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": null,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
-                                      "preference_order": 6,
-                                      "receives_preference": false,
-                                      "recordtype_developername": "NRHP",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": null,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000PC8JoQAL",
-                                      "individual_preference": null,
-                                      "listing_preference_id": "a0l0P00001RbKCJQA3",
-                                      "lottery_status": "Unconfirmed",
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0001011481",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": null,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Anti-Displacement Housing Preference (ADHP)",
-                                      "preference_order": 8,
-                                      "receives_preference": false,
-                                      "recordtype_developername": "ADHP",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": "a0n0P00000D3qIZQAZ",
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000OUJc2QAH",
-                                      "individual_preference": "Assisted Housing",
-                                      "listing_preference_id": "a0l0P00001Q1w0mQAB",
-                                      "lottery_status": "None",
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000826198",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
-                                      "post_lottery_validation": "Unconfirmed",
-                                      "preference_lottery_rank": 1,
-                                      "preference_name": "Rent Burdened / Assisted Housing Preference",
-                                      "preference_order": 3,
-                                      "receives_preference": true,
-                                      "recordtype_developername": "RB_AHP",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": "Lease and rent proof",
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": null,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000Oqew2QAB",
-                                      "individual_preference": null,
-                                      "listing_preference_id": "a0l0P00001QRPiaQAH",
-                                      "lottery_status": "None",
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000919887",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": null,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Alice Griffith Housing Development Resident",
-                                      "preference_order": 5,
-                                      "receives_preference": false,
-                                      "recordtype_developername": "AG",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                    Object {
-                                      "application_member_id": null,
-                                      "certificate_number": null,
-                                      "city": null,
-                                      "id": "a0w0P00000Oqew4QAB",
-                                      "individual_preference": null,
-                                      "listing_preference_id": "a0l0P00001QRQKlQAP",
-                                      "lottery_status": "Unconfirmed",
-                                      "lw_type_of_proof": null,
-                                      "name": "AP-0000919889",
-                                      "opt_out": false,
-                                      "person_who_claimed_name": null,
-                                      "post_lottery_validation": null,
-                                      "preference_lottery_rank": null,
-                                      "preference_name": "Artist Fund (Test Custom Pref)",
-                                      "preference_order": 7,
-                                      "receives_preference": false,
-                                      "recordtype_developername": "Custom",
-                                      "state": null,
-                                      "street": null,
-                                      "total_household_rent": "0.0",
-                                      "type_of_proof": null,
-                                      "zip_code": null,
-                                    },
-                                  ],
-                                  "primary_applicant_contact": "0030P00002HAKDJQA5",
-                                  "processing_status": "Withdrawn",
-                                  "proof_files": Array [
-                                    Object {
-                                      "document_type": "Copy of Lease",
-                                      "file_type": "Attachment",
-                                      "id": "00P0P00000t0P3vUAE",
-                                      "related_application": "a0o0P00000GZazOQAT",
-                                      "related_application_preference": "a0w0P00000OUJc2QAH",
-                                    },
-                                    Object {
-                                      "document_type": "Letter from employer",
-                                      "file_type": "Attachment",
-                                      "id": "00P0P00000t0P40UAE",
-                                      "related_application": "a0o0P00000GZazOQAT",
-                                      "related_application_preference": "a0w0P00000OUJc3QAH",
-                                    },
-                                  ],
-                                  "referral_source": null,
-                                  "rental_assistances": Array [],
-                                  "reserved_senior": "Yes",
-                                  "status": "Submitted",
-                                  "terms_acknowledged": true,
-                                  "total_household_size": 1,
-                                  "total_monthly_rent": null,
-                                },
-                                "applicationMembers": Array [
-                                  Object {
-                                    "city": "Testville",
-                                    "date_of_birth": Object {
-                                      "day": "05",
-                                      "month": "01",
-                                      "year": "1989",
-                                    },
-                                    "email": "tessiel@email.com",
-                                    "ethnicity": null,
-                                    "first_name": "Automated Test Lease Up Application",
-                                    "gender": null,
-                                    "gender_other": null,
-                                    "id": "a0n0P00000D3qIZQAZ",
-                                    "last_name": "(do not modify)",
-                                    "mailing_address": "123 Test St, Testville, CA, 00000",
-                                    "mailing_city": "Testville",
-                                    "mailing_state": "CA",
-                                    "mailing_street": "123 Test St",
-                                    "mailing_zip_code": "00000",
-                                    "marital_status": "Domestic Partner",
-                                    "middle_name": null,
-                                    "name": "Automated Test Lease Up Application (do not modify)",
-                                    "phone": null,
-                                    "phone_type": null,
-                                    "race": null,
-                                    "residence_address": "123 Test St, Testville, CA, 00000",
-                                    "second_phone": null,
-                                    "second_phone_type": null,
-                                    "sexual_orientation": null,
-                                    "sexual_orientation_other": null,
-                                    "state": "CA",
-                                    "street": "123 Test St",
-                                    "zip_code": "00000",
-                                  },
-                                ],
-                                "assignSupplementalAppTouched": [Function],
-                                "availableUnits": undefined,
-                                "confirmedPreferencesFailed": false,
-                                "fileBaseUrl": undefined,
-                                "handleCloseRentalAssistancePanel": [Function],
-                                "handleDeleteRentalAssistance": [Function],
-                                "handleOpenRentalAssistancePanel": [Function],
-                                "handleSaveRentalAssistance": [Function],
-                                "handleStatusModalClose": [Function],
-                                "handleStatusModalStatusChange": [Function],
-                                "handleStatusModalSubmit": [Function],
-                                "hideAddRentalAssistanceBtn": [Function],
-                                "leaveConfirmationModal": Object {
-                                  "isOpen": false,
-                                },
-                                "listingAmiCharts": Array [],
-                                "loading": false,
-                                "onDismissError": [Function],
-                                "onSavePreference": [Function],
-                                "onSubmit": [Function],
-                                "openAddStatusCommentModal": [Function],
-                                "openUpdateStatusModal": [Function],
-                                "rentalAssistanceLoading": false,
-                                "rentalAssistances": undefined,
-                                "setLoading": [Function],
-                                "showAddRentalAssistanceBtn": true,
-                                "showNewRentalAssistancePanel": false,
-                                "statusHistory": Array [
-                                  Object {
-                                    "comment": "xxxx1",
-                                    "date": "2018-05-10T19:54:11.000+0000",
-                                    "status": "Approved",
-                                  },
-                                  Object {
-                                    "comment": "xxxx2",
-                                    "date": "2018-05-10T19:54:11.000+0000",
-                                    "status": "Pending",
-                                  },
-                                ],
-                                "statusModal": Object {
-                                  "loading": false,
-                                  "status": "Withdrawn",
-                                },
-                                "supplementalAppTouched": false,
-                              }
-                            }
-                          >
-                            <Component
-                              borderBottom={false}
-                              title="Status History"
-                            >
-                              <Component
-                                title="Status History"
-                              >
-                                <h3
-                                  className="app-card_h3 t-sans"
-                                >
-                                  Status History
-                                </h3>
-                              </Component>
-                              <Component
-                                borderBottom={false}
-                              >
-                                <div
-                                  className=""
-                                  style={
-                                    Object {
-                                      "marginBottom": "1.75rem",
-                                    }
-                                  }
-                                >
-                                  <StatusList
-                                    commentDisabled={false}
-                                    items={
-                                      Array [
-                                        Object {
-                                          "comment": "xxxx1",
-                                          "date": "2018-05-10T19:54:11.000+0000",
-                                          "status": "Approved",
-                                        },
-                                        Object {
-                                          "comment": "xxxx2",
-                                          "date": "2018-05-10T19:54:11.000+0000",
-                                          "status": "Pending",
-                                        },
-                                      ]
-                                    }
-                                    onAddComment={[Function]}
-                                  >
-                                    <div
-                                      className="status-list"
-                                    >
-                                      <ul>
-                                        <StatusListItem
-                                          comment="xxxx1"
-                                          date="2018-05-10T19:54:11.000+0000"
-                                          key="0"
-                                          status="Approved"
-                                        >
-                                          <li
-                                            className="status-list_item"
-                                          >
-                                            <div
-                                              className="status-list_tag is-approved"
-                                            >
-                                              Approved
-                                            </div>
-                                            <div
-                                              className="status-list_comment"
-                                            >
-                                              <p
-                                                className="status-list_note"
-                                              >
-                                                xxxx1
-                                              </p>
-                                              <span
-                                                className="status-list_date"
-                                              >
-                                                <PrettyTime
-                                                  displayType="short"
-                                                  time="2018-05-10T19:54:11.000+0000"
-                                                >
-                                                  <div>
-                                                    5/10/18
-                                                  </div>
-                                                </PrettyTime>
-                                              </span>
-                                            </div>
-                                          </li>
-                                        </StatusListItem>
-                                        <StatusListItem
-                                          comment="xxxx2"
-                                          date="2018-05-10T19:54:11.000+0000"
-                                          key="1"
-                                          status="Pending"
-                                        >
-                                          <li
-                                            className="status-list_item"
-                                          >
-                                            <div
-                                              className="status-list_tag is-pending"
-                                            >
-                                              Pending
-                                            </div>
-                                            <div
-                                              className="status-list_comment"
-                                            >
-                                              <p
-                                                className="status-list_note"
-                                              >
-                                                xxxx2
-                                              </p>
-                                              <span
-                                                className="status-list_date"
-                                              >
-                                                <PrettyTime
-                                                  displayType="short"
-                                                  time="2018-05-10T19:54:11.000+0000"
-                                                >
-                                                  <div>
-                                                    5/10/18
-                                                  </div>
-                                                </PrettyTime>
-                                              </span>
-                                            </div>
-                                          </li>
-                                        </StatusListItem>
-                                      </ul>
-                                      <div
-                                        className="status-list_footer"
-                                      >
-                                        <button
-                                          className="button tertiary tiny margin-bottom-none"
-                                          data-event=""
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          type="button"
-                                        >
-                                          Add a comment
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </StatusList>
-                                </div>
-                              </Component>
-                            </Component>
-                          </Component>
-                        </ContextComponent>
-                      </div>
-                    </ScrollableAnchor>
-                    <div
-                      className="button-pager"
-                    >
-                      <div
-                        className="button-pager_row align-buttons-left primary inset-wide"
-                      >
-                        <StatusDropdown
-                          buttonClasses={
-                            Array [
-                              "small",
-                              "has-status-width",
-                            ]
-                          }
-                          disabled={false}
-                          menuClasses={
-                            Array [
-                              "dropdown-menu-bottom",
-                            ]
-                          }
-                          onChange={[Function]}
-                          status="Withdrawn"
-                          wrapperClasses={
-                            Array [
-                              "dropdown-inline",
-                            ]
-                          }
-                        >
-                          <Dropdown
-                            buttonClasses={
-                              Array [
-                                "is-withdrawn",
-                                "small",
-                                "has-status-width",
-                              ]
-                            }
-                            disabled={false}
-                            items={
-                              Array [
-                                Object {
-                                  "commentRequired": true,
-                                  "label": "Processing",
-                                  "style": "is-processing",
-                                  "value": "Processing",
-                                },
-                                Object {
-                                  "label": "Withdrawn",
-                                  "style": "is-withdrawn",
-                                  "value": "Withdrawn",
-                                },
-                                Object {
-                                  "commentRequired": true,
-                                  "label": "Appealed",
-                                  "style": "is-appealed",
-                                  "value": "Appealed",
-                                },
-                                Object {
-                                  "commentRequired": true,
-                                  "label": "Waitlisted",
-                                  "style": "is-waitlisted",
-                                  "value": "Waitlisted",
-                                },
-                                Object {
-                                  "commentRequired": true,
-                                  "label": "Disqualified",
-                                  "style": "is-disqualified",
-                                  "value": "Disqualified",
-                                },
-                                Object {
-                                  "commentRequired": true,
-                                  "label": "Approved",
-                                  "style": "is-approved",
-                                  "value": "Approved",
-                                },
-                                Object {
-                                  "label": "Lease Signed",
-                                  "style": "is-leased",
-                                  "value": "Lease Signed",
-                                },
-                              ]
-                            }
-                            menuClasses={
-                              Array [
-                                "dropdown-menu-bottom",
-                              ]
-                            }
-                            onChange={[Function]}
-                            prompt="Status"
-                            value="Withdrawn"
-                            wrapperClasses={
-                              Array [
-                                "dropdown-inline",
-                              ]
-                            }
-                          >
-                            <div
-                              className="dropdown dropdown-inline"
-                              onClick={[Function]}
-                            >
-                              <button
-                                aria-expanded="true"
-                                className="button dropdown-button has-icon--right text-align-left is-withdrawn small has-status-width"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                <span
-                                  className="ui-icon ui-small"
-                                >
-                                  <svg>
-                                    <use
-                                      xlinkHref="#i-arrow-down"
-                                    />
-                                  </svg>
-                                </span>
-                                Withdrawn
-                              </button>
-                              <div
-                                aria-hidden="false"
-                                className="dropdown-menu-wrapper"
-                                role="menu"
-                              >
-                                <DropdownMenu
-                                  classes={
-                                    Array [
-                                      "dropdown-menu-bottom",
-                                    ]
-                                  }
-                                  items={
-                                    Array [
-                                      Object {
-                                        "commentRequired": true,
-                                        "label": "Processing",
-                                        "style": "is-processing",
-                                        "value": "Processing",
-                                      },
-                                      Object {
-                                        "label": "Withdrawn",
-                                        "style": "is-withdrawn",
-                                        "value": "Withdrawn",
-                                      },
-                                      Object {
-                                        "commentRequired": true,
-                                        "label": "Appealed",
-                                        "style": "is-appealed",
-                                        "value": "Appealed",
-                                      },
-                                      Object {
-                                        "commentRequired": true,
-                                        "label": "Waitlisted",
-                                        "style": "is-waitlisted",
-                                        "value": "Waitlisted",
-                                      },
-                                      Object {
-                                        "commentRequired": true,
-                                        "label": "Disqualified",
-                                        "style": "is-disqualified",
-                                        "value": "Disqualified",
-                                      },
-                                      Object {
-                                        "commentRequired": true,
-                                        "label": "Approved",
-                                        "style": "is-approved",
-                                        "value": "Approved",
-                                      },
-                                      Object {
-                                        "label": "Lease Signed",
-                                        "style": "is-leased",
-                                        "value": "Lease Signed",
-                                      },
-                                    ]
-                                  }
-                                  onChange={[Function]}
-                                  value="Withdrawn"
-                                >
-                                  <ul
-                                    aria-activedescendant={true}
-                                    className="dropdown-menu dropdown-menu-bottom"
-                                    role="listbox"
-                                    tabIndex="-1"
-                                  >
-                                    <DropdownMenuItem
-                                      commentRequired={true}
-                                      key="Processing"
-                                      label="Processing"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={false}
-                                      style="is-processing"
-                                      value="Processing"
-                                    >
-                                      <li
-                                        aria-selected={false}
-                                        className="dropdown-menu_item is-processing"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Processing
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                      key="Withdrawn"
-                                      label="Withdrawn"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={true}
-                                      style="is-withdrawn"
-                                      value="Withdrawn"
-                                    >
-                                      <li
-                                        aria-selected={true}
-                                        className="dropdown-menu_item is-selected is-withdrawn"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Withdrawn
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                      commentRequired={true}
-                                      key="Appealed"
-                                      label="Appealed"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={false}
-                                      style="is-appealed"
-                                      value="Appealed"
-                                    >
-                                      <li
-                                        aria-selected={false}
-                                        className="dropdown-menu_item is-appealed"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Appealed
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                      commentRequired={true}
-                                      key="Waitlisted"
-                                      label="Waitlisted"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={false}
-                                      style="is-waitlisted"
-                                      value="Waitlisted"
-                                    >
-                                      <li
-                                        aria-selected={false}
-                                        className="dropdown-menu_item is-waitlisted"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Waitlisted
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                      commentRequired={true}
-                                      key="Disqualified"
-                                      label="Disqualified"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={false}
-                                      style="is-disqualified"
-                                      value="Disqualified"
-                                    >
-                                      <li
-                                        aria-selected={false}
-                                        className="dropdown-menu_item is-disqualified"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Disqualified
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                      commentRequired={true}
-                                      key="Approved"
-                                      label="Approved"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={false}
-                                      style="is-approved"
-                                      value="Approved"
-                                    >
-                                      <li
-                                        aria-selected={false}
-                                        className="dropdown-menu_item is-approved"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Approved
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                      key="Lease Signed"
-                                      label="Lease Signed"
-                                      onChange={[Function]}
-                                      onKeyDown={[Function]}
-                                      selected={false}
-                                      style="is-leased"
-                                      value="Lease Signed"
-                                    >
-                                      <li
-                                        aria-selected={false}
-                                        className="dropdown-menu_item is-leased"
-                                        role="option"
-                                      >
-                                        <a
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          tabIndex="0"
-                                        >
-                                          Lease Signed
-                                        </a>
-                                      </li>
-                                    </DropdownMenuItem>
-                                  </ul>
-                                </DropdownMenu>
-                              </div>
-                            </div>
-                          </Dropdown>
-                        </StatusDropdown>
-                        <button
-                          className="button primary small save-btn"
-                          disabled={false}
-                          id="save-supplemental-application"
-                          onClick={[Function]}
-                          type="submit"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </div>
                     <Component>
                       <div
                         style={
                           Object {
-                            "maxWidth": "74rem",
+                            "alignItems": "stretch",
+                            "display": "flex",
+                            "flexWrap": "wrap",
+                            "maxWidth": "80rem",
                           }
                         }
                       >
                         <Component>
                           <div
-                            className="small-12 large-8 columns page-content-column"
+                            className="medium-12 large-8 columns page-content-column"
                           >
                             <ConfirmedPreferencesSection
                               application={
@@ -8964,42 +7438,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                 }
                               }
                               listingAmiCharts={Array []}
-                              visited={
-                                Object {
-                                  "ami_chart_type": false,
-                                  "ami_chart_year": false,
-                                  "ami_percentage": false,
-                                  "applicant.marital_status": false,
-                                  "confirmed_household_annual_income": false,
-                                  "has_ada_priorities_selected.hearing_impairments": false,
-                                  "has_ada_priorities_selected.mobility_impairments": false,
-                                  "has_ada_priorities_selected.vision_impairments": false,
-                                  "has_developmental_disability": false,
-                                  "has_military_service": false,
-                                  "hh_total_income_with_assets_annual": false,
-                                  "household_assets": false,
-                                  "housing_voucher_or_subsidy": false,
-                                  "lease.bmr_parking_space_assigned": false,
-                                  "lease.lease_start_date.day": false,
-                                  "lease.lease_start_date.month": false,
-                                  "lease.lease_start_date.year": false,
-                                  "lease.monthly_parking_rent": false,
-                                  "lease.monthly_tenant_contribution": false,
-                                  "lease.preference_used": false,
-                                  "lease.total_monthly_rent_without_parking": false,
-                                  "lease.unit": false,
-                                  "number_of_dependents": false,
-                                  "number_of_minors": false,
-                                  "number_of_seniors": false,
-                                  "preferences.1.application_member_id": false,
-                                  "preferences.1.individual_preference": false,
-                                  "preferences.1.lw_type_of_proof": false,
-                                  "preferences.1.post_lottery_validation": false,
-                                  "preferences.5.application_member_id": false,
-                                  "preferences.5.post_lottery_validation": false,
-                                  "reserved_senior": false,
-                                }
-                              }
+                              visited={Object {}}
                             >
                               <ContentSection
                                 title="Income"
@@ -9018,42 +7457,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                   </Component>
                                   <ConfirmedHouseholdIncome
                                     listingAmiCharts={Array []}
-                                    visited={
-                                      Object {
-                                        "ami_chart_type": false,
-                                        "ami_chart_year": false,
-                                        "ami_percentage": false,
-                                        "applicant.marital_status": false,
-                                        "confirmed_household_annual_income": false,
-                                        "has_ada_priorities_selected.hearing_impairments": false,
-                                        "has_ada_priorities_selected.mobility_impairments": false,
-                                        "has_ada_priorities_selected.vision_impairments": false,
-                                        "has_developmental_disability": false,
-                                        "has_military_service": false,
-                                        "hh_total_income_with_assets_annual": false,
-                                        "household_assets": false,
-                                        "housing_voucher_or_subsidy": false,
-                                        "lease.bmr_parking_space_assigned": false,
-                                        "lease.lease_start_date.day": false,
-                                        "lease.lease_start_date.month": false,
-                                        "lease.lease_start_date.year": false,
-                                        "lease.monthly_parking_rent": false,
-                                        "lease.monthly_tenant_contribution": false,
-                                        "lease.preference_used": false,
-                                        "lease.total_monthly_rent_without_parking": false,
-                                        "lease.unit": false,
-                                        "number_of_dependents": false,
-                                        "number_of_minors": false,
-                                        "number_of_seniors": false,
-                                        "preferences.1.application_member_id": false,
-                                        "preferences.1.individual_preference": false,
-                                        "preferences.1.lw_type_of_proof": false,
-                                        "preferences.1.post_lottery_validation": false,
-                                        "preferences.5.application_member_id": false,
-                                        "preferences.5.post_lottery_validation": false,
-                                        "reserved_senior": false,
-                                      }
-                                    }
+                                    visited={Object {}}
                                   >
                                     <Component
                                       title="Confirmed Household Income"
@@ -9195,7 +7599,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                 >
                                                   <CurrencyField
                                                     fieldName="household_assets"
-                                                    isDirty={false}
                                                     label="Household Assets"
                                                     placeholder="Enter Amount"
                                                     validation={[Function]}
@@ -9204,7 +7607,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       fieldName="household_assets"
                                                       format={[Function]}
                                                       formatOnBlur={true}
-                                                      isDirty={false}
+                                                      isDirty={true}
                                                       label="Household Assets"
                                                       parse={[Function]}
                                                       placeholder="Enter Amount"
@@ -9213,7 +7616,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     >
                                                       <Field
                                                         format={[Function]}
-                                                        formatOnBlur={false}
+                                                        formatOnBlur={true}
                                                         name="household_assets"
                                                         parse={[Function]}
                                                         validate={[Function]}
@@ -9243,7 +7646,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                 "onBlur": [Function],
                                                                 "onChange": [Function],
                                                                 "onFocus": [Function],
-                                                                "value": "$354.38",
+                                                                "value": 354.38,
                                                               }
                                                             }
                                                             meta={
@@ -9280,7 +7683,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               onFocus={[Function]}
                                                               placeholder="Enter Amount"
                                                               type="text"
-                                                              value="$354.38"
+                                                              value={354.38}
                                                             />
                                                           </Input>
                                                           <FieldError
@@ -9328,7 +7731,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   <CurrencyField
                                                     fieldName="confirmed_household_annual_income"
                                                     helpText="Not Including % of Assets"
-                                                    isDirty={false}
                                                     label="Confirmed Annual Income"
                                                     placeholder="Enter Amount"
                                                     validation={[Function]}
@@ -9338,7 +7740,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       format={[Function]}
                                                       formatOnBlur={true}
                                                       helpText="Not Including % of Assets"
-                                                      isDirty={false}
+                                                      isDirty={true}
                                                       label="Confirmed Annual Income"
                                                       parse={[Function]}
                                                       placeholder="Enter Amount"
@@ -9347,7 +7749,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     >
                                                       <Field
                                                         format={[Function]}
-                                                        formatOnBlur={false}
+                                                        formatOnBlur={true}
                                                         name="confirmed_household_annual_income"
                                                         parse={[Function]}
                                                         validate={[Function]}
@@ -9473,7 +7875,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   <CurrencyField
                                                     fieldName="hh_total_income_with_assets_annual"
                                                     helpText="Includes % of assets if applicable"
-                                                    isDirty={false}
                                                     label="Final Household Annual Income"
                                                     placeholder="Enter Amount"
                                                     validation={[Function]}
@@ -9483,7 +7884,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       format={[Function]}
                                                       formatOnBlur={true}
                                                       helpText="Includes % of assets if applicable"
-                                                      isDirty={false}
+                                                      isDirty={true}
                                                       label="Final Household Annual Income"
                                                       parse={[Function]}
                                                       placeholder="Enter Amount"
@@ -9492,7 +7893,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     >
                                                       <Field
                                                         format={[Function]}
-                                                        formatOnBlur={false}
+                                                        formatOnBlur={true}
                                                         name="hh_total_income_with_assets_annual"
                                                         parse={[Function]}
                                                         validate={[Function]}
@@ -9522,7 +7923,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                 "onBlur": [Function],
                                                                 "onChange": [Function],
                                                                 "onFocus": [Function],
-                                                                "value": "$374.05",
+                                                                "value": 374.05,
                                                               }
                                                             }
                                                             meta={
@@ -9559,7 +7960,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               onFocus={[Function]}
                                                               placeholder="Enter Amount"
                                                               type="text"
-                                                              value="$374.05"
+                                                              value={374.05}
                                                             />
                                                           </Input>
                                                           <FieldError
@@ -9644,7 +8045,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   <PercentField
                                                     fieldName="ami_percentage"
                                                     id="ami_percentage"
-                                                    isDirty={false}
                                                     label="AMI Percentage"
                                                     placeholder="Enter Percentage"
                                                     validation={[Function]}
@@ -9654,7 +8054,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       format={[Function]}
                                                       formatOnBlur={true}
                                                       id="ami_percentage"
-                                                      isDirty={false}
+                                                      isDirty={true}
                                                       label="AMI Percentage"
                                                       parse={[Function]}
                                                       placeholder="Enter Percentage"
@@ -9663,7 +8063,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     >
                                                       <Field
                                                         format={[Function]}
-                                                        formatOnBlur={false}
+                                                        formatOnBlur={true}
                                                         name="ami_percentage"
                                                         parse={[Function]}
                                                         validate={[Function]}
@@ -9693,7 +8093,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                 "onBlur": [Function],
                                                                 "onChange": [Function],
                                                                 "onFocus": [Function],
-                                                                "value": "5.55%",
+                                                                "value": 5.55,
                                                               }
                                                             }
                                                             meta={
@@ -9730,7 +8130,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               onFocus={[Function]}
                                                               placeholder="Enter Percentage"
                                                               type="text"
-                                                              value="5.55%"
+                                                              value={5.55}
                                                             />
                                                           </Input>
                                                           <FieldError
@@ -10290,42 +8690,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                   "total_monthly_rent": null,
                                 }
                               }
-                              visited={
-                                Object {
-                                  "ami_chart_type": false,
-                                  "ami_chart_year": false,
-                                  "ami_percentage": false,
-                                  "applicant.marital_status": false,
-                                  "confirmed_household_annual_income": false,
-                                  "has_ada_priorities_selected.hearing_impairments": false,
-                                  "has_ada_priorities_selected.mobility_impairments": false,
-                                  "has_ada_priorities_selected.vision_impairments": false,
-                                  "has_developmental_disability": false,
-                                  "has_military_service": false,
-                                  "hh_total_income_with_assets_annual": false,
-                                  "household_assets": false,
-                                  "housing_voucher_or_subsidy": false,
-                                  "lease.bmr_parking_space_assigned": false,
-                                  "lease.lease_start_date.day": false,
-                                  "lease.lease_start_date.month": false,
-                                  "lease.lease_start_date.year": false,
-                                  "lease.monthly_parking_rent": false,
-                                  "lease.monthly_tenant_contribution": false,
-                                  "lease.preference_used": false,
-                                  "lease.total_monthly_rent_without_parking": false,
-                                  "lease.unit": false,
-                                  "number_of_dependents": false,
-                                  "number_of_minors": false,
-                                  "number_of_seniors": false,
-                                  "preferences.1.application_member_id": false,
-                                  "preferences.1.individual_preference": false,
-                                  "preferences.1.lw_type_of_proof": false,
-                                  "preferences.1.post_lottery_validation": false,
-                                  "preferences.5.application_member_id": false,
-                                  "preferences.5.post_lottery_validation": false,
-                                  "reserved_senior": false,
-                                }
-                              }
+                              visited={Object {}}
                             >
                               <ContentSection
                                 title="Lease Information"
@@ -10401,42 +8766,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               "subscribe": [Function],
                                             }
                                           }
-                                          visited={
-                                            Object {
-                                              "ami_chart_type": false,
-                                              "ami_chart_year": false,
-                                              "ami_percentage": false,
-                                              "applicant.marital_status": false,
-                                              "confirmed_household_annual_income": false,
-                                              "has_ada_priorities_selected.hearing_impairments": false,
-                                              "has_ada_priorities_selected.mobility_impairments": false,
-                                              "has_ada_priorities_selected.vision_impairments": false,
-                                              "has_developmental_disability": false,
-                                              "has_military_service": false,
-                                              "hh_total_income_with_assets_annual": false,
-                                              "household_assets": false,
-                                              "housing_voucher_or_subsidy": false,
-                                              "lease.bmr_parking_space_assigned": false,
-                                              "lease.lease_start_date.day": false,
-                                              "lease.lease_start_date.month": false,
-                                              "lease.lease_start_date.year": false,
-                                              "lease.monthly_parking_rent": false,
-                                              "lease.monthly_tenant_contribution": false,
-                                              "lease.preference_used": false,
-                                              "lease.total_monthly_rent_without_parking": false,
-                                              "lease.unit": false,
-                                              "number_of_dependents": false,
-                                              "number_of_minors": false,
-                                              "number_of_seniors": false,
-                                              "preferences.1.application_member_id": false,
-                                              "preferences.1.individual_preference": false,
-                                              "preferences.1.lw_type_of_proof": false,
-                                              "preferences.1.post_lottery_validation": false,
-                                              "preferences.5.application_member_id": false,
-                                              "preferences.5.post_lottery_validation": false,
-                                              "reserved_senior": false,
-                                            }
-                                          }
+                                          visited={Object {}}
                                         >
                                           <LeaseInformationInputs
                                             form={
@@ -10879,42 +9209,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                 "supplementalAppTouched": false,
                                               }
                                             }
-                                            visited={
-                                              Object {
-                                                "ami_chart_type": false,
-                                                "ami_chart_year": false,
-                                                "ami_percentage": false,
-                                                "applicant.marital_status": false,
-                                                "confirmed_household_annual_income": false,
-                                                "has_ada_priorities_selected.hearing_impairments": false,
-                                                "has_ada_priorities_selected.mobility_impairments": false,
-                                                "has_ada_priorities_selected.vision_impairments": false,
-                                                "has_developmental_disability": false,
-                                                "has_military_service": false,
-                                                "hh_total_income_with_assets_annual": false,
-                                                "household_assets": false,
-                                                "housing_voucher_or_subsidy": false,
-                                                "lease.bmr_parking_space_assigned": false,
-                                                "lease.lease_start_date.day": false,
-                                                "lease.lease_start_date.month": false,
-                                                "lease.lease_start_date.year": false,
-                                                "lease.monthly_parking_rent": false,
-                                                "lease.monthly_tenant_contribution": false,
-                                                "lease.preference_used": false,
-                                                "lease.total_monthly_rent_without_parking": false,
-                                                "lease.unit": false,
-                                                "number_of_dependents": false,
-                                                "number_of_minors": false,
-                                                "number_of_seniors": false,
-                                                "preferences.1.application_member_id": false,
-                                                "preferences.1.individual_preference": false,
-                                                "preferences.1.lw_type_of_proof": false,
-                                                "preferences.1.post_lottery_validation": false,
-                                                "preferences.5.application_member_id": false,
-                                                "preferences.5.post_lottery_validation": false,
-                                                "reserved_senior": false,
-                                              }
-                                            }
+                                            visited={Object {}}
                                           >
                                             <Component
                                               expand={true}
@@ -11397,7 +9692,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   >
                                                     <CurrencyField
                                                       fieldName="lease.total_monthly_rent_without_parking"
-                                                      isDirty={false}
                                                       label="Monthly Rent"
                                                       placeholder="Enter Amount"
                                                       validation={[Function]}
@@ -11406,7 +9700,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                         fieldName="lease.total_monthly_rent_without_parking"
                                                         format={[Function]}
                                                         formatOnBlur={true}
-                                                        isDirty={false}
+                                                        isDirty={true}
                                                         label="Monthly Rent"
                                                         parse={[Function]}
                                                         placeholder="Enter Amount"
@@ -11415,7 +9709,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       >
                                                         <Field
                                                           format={[Function]}
-                                                          formatOnBlur={false}
+                                                          formatOnBlur={true}
                                                           name="lease.total_monthly_rent_without_parking"
                                                           parse={[Function]}
                                                           validate={[Function]}
@@ -11445,7 +9739,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "onBlur": [Function],
                                                                   "onChange": [Function],
                                                                   "onFocus": [Function],
-                                                                  "value": "$1.00",
+                                                                  "value": "1",
                                                                 }
                                                               }
                                                               meta={
@@ -11482,7 +9776,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                 onFocus={[Function]}
                                                                 placeholder="Enter Amount"
                                                                 type="text"
-                                                                value="$1.00"
+                                                                value="1"
                                                               />
                                                             </Input>
                                                             <FieldError
@@ -11529,7 +9823,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   >
                                                     <CurrencyField
                                                       fieldName="lease.monthly_tenant_contribution"
-                                                      isDirty={false}
                                                       label="Monthly Tenant Contribution"
                                                       placeholder="Enter Amount"
                                                       validation={[Function]}
@@ -11538,7 +9831,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                         fieldName="lease.monthly_tenant_contribution"
                                                         format={[Function]}
                                                         formatOnBlur={true}
-                                                        isDirty={false}
+                                                        isDirty={true}
                                                         label="Monthly Tenant Contribution"
                                                         parse={[Function]}
                                                         placeholder="Enter Amount"
@@ -11547,7 +9840,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       >
                                                         <Field
                                                           format={[Function]}
-                                                          formatOnBlur={false}
+                                                          formatOnBlur={true}
                                                           name="lease.monthly_tenant_contribution"
                                                           parse={[Function]}
                                                           validate={[Function]}
@@ -11577,7 +9870,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                   "onBlur": [Function],
                                                                   "onChange": [Function],
                                                                   "onFocus": [Function],
-                                                                  "value": "$3.00",
+                                                                  "value": "3",
                                                                 }
                                                               }
                                                               meta={
@@ -11614,7 +9907,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                 onFocus={[Function]}
                                                                 placeholder="Enter Amount"
                                                                 type="text"
-                                                                value="$3.00"
+                                                                value="3"
                                                               />
                                                             </Input>
                                                             <FieldError
@@ -12043,42 +10336,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                               "total_monthly_rent": null,
                                             }
                                           }
-                                          visited={
-                                            Object {
-                                              "ami_chart_type": false,
-                                              "ami_chart_year": false,
-                                              "ami_percentage": false,
-                                              "applicant.marital_status": false,
-                                              "confirmed_household_annual_income": false,
-                                              "has_ada_priorities_selected.hearing_impairments": false,
-                                              "has_ada_priorities_selected.mobility_impairments": false,
-                                              "has_ada_priorities_selected.vision_impairments": false,
-                                              "has_developmental_disability": false,
-                                              "has_military_service": false,
-                                              "hh_total_income_with_assets_annual": false,
-                                              "household_assets": false,
-                                              "housing_voucher_or_subsidy": false,
-                                              "lease.bmr_parking_space_assigned": false,
-                                              "lease.lease_start_date.day": false,
-                                              "lease.lease_start_date.month": false,
-                                              "lease.lease_start_date.year": false,
-                                              "lease.monthly_parking_rent": false,
-                                              "lease.monthly_tenant_contribution": false,
-                                              "lease.preference_used": false,
-                                              "lease.total_monthly_rent_without_parking": false,
-                                              "lease.unit": false,
-                                              "number_of_dependents": false,
-                                              "number_of_minors": false,
-                                              "number_of_seniors": false,
-                                              "preferences.1.application_member_id": false,
-                                              "preferences.1.individual_preference": false,
-                                              "preferences.1.lw_type_of_proof": false,
-                                              "preferences.1.post_lottery_validation": false,
-                                              "preferences.5.application_member_id": false,
-                                              "preferences.5.post_lottery_validation": false,
-                                              "reserved_senior": false,
-                                            }
-                                          }
+                                          visited={Object {}}
                                         >
                                           <Component
                                             expand={true}
@@ -12183,7 +10441,6 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                   <CurrencyField
                                                     disabled={false}
                                                     fieldName="lease.monthly_parking_rent"
-                                                    isDirty={false}
                                                     label="Monthly Parking Cost"
                                                     placeholder="Enter Amount"
                                                     validation={[Function]}
@@ -12193,7 +10450,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                       fieldName="lease.monthly_parking_rent"
                                                       format={[Function]}
                                                       formatOnBlur={true}
-                                                      isDirty={false}
+                                                      isDirty={true}
                                                       label="Monthly Parking Cost"
                                                       parse={[Function]}
                                                       placeholder="Enter Amount"
@@ -12202,7 +10459,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                     >
                                                       <Field
                                                         format={[Function]}
-                                                        formatOnBlur={false}
+                                                        formatOnBlur={true}
                                                         name="lease.monthly_parking_rent"
                                                         parse={[Function]}
                                                         validate={[Function]}
@@ -12233,7 +10490,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                                 "onBlur": [Function],
                                                                 "onChange": [Function],
                                                                 "onFocus": [Function],
-                                                                "value": "$2.00",
+                                                                "value": "2",
                                                               }
                                                             }
                                                             meta={
@@ -12271,7 +10528,7 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                                                               onFocus={[Function]}
                                                               placeholder="Enter Amount"
                                                               type="text"
-                                                              value="$2.00"
+                                                              value="2"
                                                             />
                                                           </Input>
                                                           <FieldError
@@ -13469,11 +11726,819 @@ exports[`SupplementalApplicationPage Status Modal should render the status updat
                         </Component>
                         <Component>
                           <div
-                            className="small-12 large-4 columns sidebar-column"
+                            className="medium-12 large-4 columns sidebar-column"
                           >
-                            <h1>
-                              Status sidebar placeholder
-                            </h1>
+                            <ContextComponent
+                              onAddCommentClicked={[Function]}
+                              onChangeStatus={[Function]}
+                              onSaveClicked={[Function]}
+                            >
+                              <Component
+                                onAddCommentClicked={[Function]}
+                                onChangeStatus={[Function]}
+                                onSaveClicked={[Function]}
+                                store={
+                                  Object {
+                                    "application": Object {
+                                      "ami_chart_type": "HUD Unadjusted",
+                                      "ami_chart_year": "2018",
+                                      "ami_percentage": 5.55,
+                                      "annual_income": 5000,
+                                      "answered_community_screening": null,
+                                      "applicant": Object {
+                                        "city": "Testville",
+                                        "date_of_birth": Object {
+                                          "day": "05",
+                                          "month": "01",
+                                          "year": "1989",
+                                        },
+                                        "email": "tessiel@email.com",
+                                        "ethnicity": null,
+                                        "first_name": "Automated Test Lease Up Application",
+                                        "gender": null,
+                                        "gender_other": null,
+                                        "id": "a0n0P00000D3qIZQAZ",
+                                        "last_name": "(do not modify)",
+                                        "mailing_address": "123 Test St, Testville, CA, 00000",
+                                        "mailing_city": "Testville",
+                                        "mailing_state": "CA",
+                                        "mailing_street": "123 Test St",
+                                        "mailing_zip_code": "00000",
+                                        "marital_status": "Domestic Partner",
+                                        "middle_name": null,
+                                        "name": "Automated Test Lease Up Application (do not modify)",
+                                        "phone": null,
+                                        "phone_type": null,
+                                        "race": null,
+                                        "residence_address": "123 Test St, Testville, CA, 00000",
+                                        "second_phone": null,
+                                        "second_phone_type": null,
+                                        "sexual_orientation": null,
+                                        "sexual_orientation_other": null,
+                                        "state": "CA",
+                                        "street": "123 Test St",
+                                        "zip_code": "00000",
+                                      },
+                                      "application_language": "English",
+                                      "application_submission_type": "Electronic",
+                                      "application_submitted_date": "2020-03-30",
+                                      "confirmed_household_annual_income": null,
+                                      "createdby": Object {
+                                        "name": "DAHLIA API",
+                                      },
+                                      "demographics": Object {
+                                        "ethnicity": null,
+                                        "gender": null,
+                                        "gender_other": null,
+                                        "race": null,
+                                        "sexual_orientation": null,
+                                        "sexual_orientation_other": null,
+                                      },
+                                      "general_lottery": false,
+                                      "general_lottery_rank": null,
+                                      "has_ada_priorities_selected": null,
+                                      "has_completed_homebuyer_education": false,
+                                      "has_developmental_disability": "Yes",
+                                      "has_loan_preapproval": false,
+                                      "has_military_service": "Yes",
+                                      "hh_total_income_with_assets_annual": 374.05,
+                                      "household_assets": 354.38,
+                                      "household_members": Array [],
+                                      "housing_voucher_or_subsidy": "true",
+                                      "id": "a0o0P00000GZazOQAT",
+                                      "is_first_time_homebuyer": false,
+                                      "lease": Object {
+                                        "bmr_parking_space_assigned": null,
+                                        "id": "a130P000005TeZrQAK",
+                                        "lease_start_date": Object {
+                                          "day": "12",
+                                          "month": "1",
+                                          "year": "2019",
+                                        },
+                                        "lease_status": "Draft",
+                                        "monthly_parking_rent": "2",
+                                        "monthly_tenant_contribution": "3",
+                                        "no_preference_used": false,
+                                        "preference_used": "testValidPref",
+                                        "primary_applicant_contact": "a0n0P00000D3qIZQAZ",
+                                        "total_monthly_rent_without_parking": "1",
+                                        "unit": "",
+                                      },
+                                      "lending_agent": null,
+                                      "listing": Object {
+                                        "id": "a0W0P00000GbyuQUAR",
+                                        "is_rental": true,
+                                        "is_sale": false,
+                                        "name": "Partners Test Listing (do not modify) - Yellow Acres",
+                                        "reserved_community_type": null,
+                                      },
+                                      "listing_id": "a0W0P00000GbyuQUAR",
+                                      "lottery_number": "00243697",
+                                      "lottery_number_manual": null,
+                                      "monthly_income": null,
+                                      "name": "APP-00243697",
+                                      "number_of_dependents": 2,
+                                      "number_of_minors": 0,
+                                      "number_of_seniors": 3,
+                                      "preferences": Array [
+                                        Object {
+                                          "application_member_id": null,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000OUJc0QAH",
+                                          "individual_preference": null,
+                                          "listing_preference_id": "a0l0P00001Q1vxUQAR",
+                                          "lottery_status": null,
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000826196",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": null,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Certificate of Preference (COP)",
+                                          "preference_order": 1,
+                                          "receives_preference": false,
+                                          "recordtype_developername": "COP",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": "a0n0P00000D3qIZQAZ",
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000OUJc3QAH",
+                                          "individual_preference": "Live in SF",
+                                          "listing_preference_id": "a0l0P00001Q1w1BQAR",
+                                          "lottery_status": "None",
+                                          "lw_type_of_proof": "Telephone bill",
+                                          "name": "AP-0000826199",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
+                                          "post_lottery_validation": "Confirmed",
+                                          "preference_lottery_rank": 1,
+                                          "preference_name": "Live or Work in San Francisco Preference",
+                                          "preference_order": 4,
+                                          "receives_preference": true,
+                                          "recordtype_developername": "L_W",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": "Telephone bill",
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": null,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000OUJc1QAH",
+                                          "individual_preference": null,
+                                          "listing_preference_id": "a0l0P00001Q1vxyQAB",
+                                          "lottery_status": null,
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000826197",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": null,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Displaced Tenant Housing Preference (DTHP)",
+                                          "preference_order": 2,
+                                          "receives_preference": false,
+                                          "recordtype_developername": "DTHP",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": null,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000Oqew3QAB",
+                                          "individual_preference": null,
+                                          "listing_preference_id": "a0l0P00001QRQGzQAP",
+                                          "lottery_status": null,
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000919888",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": null,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                                          "preference_order": 6,
+                                          "receives_preference": false,
+                                          "recordtype_developername": "NRHP",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": null,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000PC8JoQAL",
+                                          "individual_preference": null,
+                                          "listing_preference_id": "a0l0P00001RbKCJQA3",
+                                          "lottery_status": "Unconfirmed",
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0001011481",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": null,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Anti-Displacement Housing Preference (ADHP)",
+                                          "preference_order": 8,
+                                          "receives_preference": false,
+                                          "recordtype_developername": "ADHP",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": "a0n0P00000D3qIZQAZ",
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000OUJc2QAH",
+                                          "individual_preference": "Assisted Housing",
+                                          "listing_preference_id": "a0l0P00001Q1w0mQAB",
+                                          "lottery_status": "None",
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000826198",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
+                                          "post_lottery_validation": "Unconfirmed",
+                                          "preference_lottery_rank": 1,
+                                          "preference_name": "Rent Burdened / Assisted Housing Preference",
+                                          "preference_order": 3,
+                                          "receives_preference": true,
+                                          "recordtype_developername": "RB_AHP",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": "Lease and rent proof",
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": null,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000Oqew2QAB",
+                                          "individual_preference": null,
+                                          "listing_preference_id": "a0l0P00001QRPiaQAH",
+                                          "lottery_status": "None",
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000919887",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": null,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Alice Griffith Housing Development Resident",
+                                          "preference_order": 5,
+                                          "receives_preference": false,
+                                          "recordtype_developername": "AG",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                        Object {
+                                          "application_member_id": null,
+                                          "certificate_number": null,
+                                          "city": null,
+                                          "id": "a0w0P00000Oqew4QAB",
+                                          "individual_preference": null,
+                                          "listing_preference_id": "a0l0P00001QRQKlQAP",
+                                          "lottery_status": "Unconfirmed",
+                                          "lw_type_of_proof": null,
+                                          "name": "AP-0000919889",
+                                          "opt_out": false,
+                                          "person_who_claimed_name": null,
+                                          "post_lottery_validation": null,
+                                          "preference_lottery_rank": null,
+                                          "preference_name": "Artist Fund (Test Custom Pref)",
+                                          "preference_order": 7,
+                                          "receives_preference": false,
+                                          "recordtype_developername": "Custom",
+                                          "state": null,
+                                          "street": null,
+                                          "total_household_rent": "0.0",
+                                          "type_of_proof": null,
+                                          "zip_code": null,
+                                        },
+                                      ],
+                                      "primary_applicant_contact": "0030P00002HAKDJQA5",
+                                      "processing_status": "Withdrawn",
+                                      "proof_files": Array [
+                                        Object {
+                                          "document_type": "Copy of Lease",
+                                          "file_type": "Attachment",
+                                          "id": "00P0P00000t0P3vUAE",
+                                          "related_application": "a0o0P00000GZazOQAT",
+                                          "related_application_preference": "a0w0P00000OUJc2QAH",
+                                        },
+                                        Object {
+                                          "document_type": "Letter from employer",
+                                          "file_type": "Attachment",
+                                          "id": "00P0P00000t0P40UAE",
+                                          "related_application": "a0o0P00000GZazOQAT",
+                                          "related_application_preference": "a0w0P00000OUJc3QAH",
+                                        },
+                                      ],
+                                      "referral_source": null,
+                                      "rental_assistances": Array [],
+                                      "reserved_senior": "Yes",
+                                      "status": "Submitted",
+                                      "terms_acknowledged": true,
+                                      "total_household_size": 1,
+                                      "total_monthly_rent": null,
+                                    },
+                                    "applicationMembers": Array [
+                                      Object {
+                                        "city": "Testville",
+                                        "date_of_birth": Object {
+                                          "day": "05",
+                                          "month": "01",
+                                          "year": "1989",
+                                        },
+                                        "email": "tessiel@email.com",
+                                        "ethnicity": null,
+                                        "first_name": "Automated Test Lease Up Application",
+                                        "gender": null,
+                                        "gender_other": null,
+                                        "id": "a0n0P00000D3qIZQAZ",
+                                        "last_name": "(do not modify)",
+                                        "mailing_address": "123 Test St, Testville, CA, 00000",
+                                        "mailing_city": "Testville",
+                                        "mailing_state": "CA",
+                                        "mailing_street": "123 Test St",
+                                        "mailing_zip_code": "00000",
+                                        "marital_status": "Domestic Partner",
+                                        "middle_name": null,
+                                        "name": "Automated Test Lease Up Application (do not modify)",
+                                        "phone": null,
+                                        "phone_type": null,
+                                        "race": null,
+                                        "residence_address": "123 Test St, Testville, CA, 00000",
+                                        "second_phone": null,
+                                        "second_phone_type": null,
+                                        "sexual_orientation": null,
+                                        "sexual_orientation_other": null,
+                                        "state": "CA",
+                                        "street": "123 Test St",
+                                        "zip_code": "00000",
+                                      },
+                                    ],
+                                    "assignSupplementalAppTouched": [Function],
+                                    "availableUnits": undefined,
+                                    "confirmedPreferencesFailed": false,
+                                    "fileBaseUrl": undefined,
+                                    "handleCloseRentalAssistancePanel": [Function],
+                                    "handleDeleteRentalAssistance": [Function],
+                                    "handleOpenRentalAssistancePanel": [Function],
+                                    "handleSaveRentalAssistance": [Function],
+                                    "handleStatusModalClose": [Function],
+                                    "handleStatusModalStatusChange": [Function],
+                                    "handleStatusModalSubmit": [Function],
+                                    "hideAddRentalAssistanceBtn": [Function],
+                                    "leaveConfirmationModal": Object {
+                                      "isOpen": false,
+                                    },
+                                    "listingAmiCharts": Array [],
+                                    "loading": false,
+                                    "onDismissError": [Function],
+                                    "onSavePreference": [Function],
+                                    "onSubmit": [Function],
+                                    "openAddStatusCommentModal": [Function],
+                                    "openUpdateStatusModal": [Function],
+                                    "rentalAssistanceLoading": false,
+                                    "rentalAssistances": undefined,
+                                    "setLoading": [Function],
+                                    "showAddRentalAssistanceBtn": true,
+                                    "showNewRentalAssistancePanel": false,
+                                    "statusHistory": Array [
+                                      Object {
+                                        "comment": "xxxx1",
+                                        "date": "2018-05-10T19:54:11.000+0000",
+                                        "status": "Approved",
+                                      },
+                                      Object {
+                                        "comment": "xxxx2",
+                                        "date": "2018-05-10T19:54:11.000+0000",
+                                        "status": "Pending",
+                                      },
+                                    ],
+                                    "statusModal": Object {
+                                      "loading": false,
+                                      "status": "Withdrawn",
+                                    },
+                                    "supplementalAppTouched": false,
+                                  }
+                                }
+                              >
+                                <div
+                                  className="sticky-sidebar-large-up"
+                                >
+                                  <LeaseUpSidebar
+                                    isLoading={false}
+                                    onAddCommentClicked={[Function]}
+                                    onChangeStatus={[Function]}
+                                    onSaveClicked={[Function]}
+                                    statusItems={
+                                      Array [
+                                        Object {
+                                          "comment": "xxxx1",
+                                          "date": "2018-05-10T19:54:11.000+0000",
+                                          "status": "Approved",
+                                        },
+                                        Object {
+                                          "comment": "xxxx2",
+                                          "date": "2018-05-10T19:54:11.000+0000",
+                                          "status": "Pending",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    <div
+                                      className="sidebar-content"
+                                    >
+                                      <div
+                                        className="show-large-up"
+                                      >
+                                        <LeaseUpSidebarButtons
+                                          isLoading={false}
+                                          onAddCommentClicked={[Function]}
+                                          onChangeStatus={[Function]}
+                                          onSaveClicked={[Function]}
+                                          status="Approved"
+                                          withMobileStyling={false}
+                                        >
+                                          <button
+                                            className="primary save-button"
+                                            disabled={false}
+                                            id="save-supplemental-application"
+                                            onClick={[Function]}
+                                            type="submit"
+                                          >
+                                            Save
+                                          </button>
+                                          <div
+                                            className="status-history-buttons"
+                                          >
+                                            <StatusDropdown
+                                              buttonClasses={
+                                                Array [
+                                                  "tight-padding",
+                                                ]
+                                              }
+                                              disabled={false}
+                                              onChange={[Function]}
+                                              status="Approved"
+                                            >
+                                              <Dropdown
+                                                buttonClasses={
+                                                  Array [
+                                                    "is-approved",
+                                                    "tight-padding",
+                                                  ]
+                                                }
+                                                disabled={false}
+                                                items={
+                                                  Array [
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Processing",
+                                                      "style": "is-processing",
+                                                      "value": "Processing",
+                                                    },
+                                                    Object {
+                                                      "label": "Withdrawn",
+                                                      "style": "is-withdrawn",
+                                                      "value": "Withdrawn",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Appealed",
+                                                      "style": "is-appealed",
+                                                      "value": "Appealed",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Waitlisted",
+                                                      "style": "is-waitlisted",
+                                                      "value": "Waitlisted",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Disqualified",
+                                                      "style": "is-disqualified",
+                                                      "value": "Disqualified",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Approved",
+                                                      "style": "is-approved",
+                                                      "value": "Approved",
+                                                    },
+                                                    Object {
+                                                      "label": "Lease Signed",
+                                                      "style": "is-leased",
+                                                      "value": "Lease Signed",
+                                                    },
+                                                  ]
+                                                }
+                                                onChange={[Function]}
+                                                prompt="Status"
+                                                value="Approved"
+                                              >
+                                                <div
+                                                  className="dropdown"
+                                                  onClick={[Function]}
+                                                >
+                                                  <button
+                                                    aria-expanded="false"
+                                                    className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    type="button"
+                                                  >
+                                                    <span
+                                                      className="ui-icon ui-small"
+                                                    >
+                                                      <svg>
+                                                        <use
+                                                          xlinkHref="#i-arrow-down"
+                                                        />
+                                                      </svg>
+                                                    </span>
+                                                    Approved
+                                                  </button>
+                                                  <div
+                                                    aria-hidden="true"
+                                                    className="dropdown-menu-wrapper"
+                                                    role="menu"
+                                                  />
+                                                </div>
+                                              </Dropdown>
+                                            </StatusDropdown>
+                                            <button
+                                              className="tertiary tight-padding"
+                                              disabled={false}
+                                              id="add-status-history-comment"
+                                              onClick={[Function]}
+                                            >
+                                              Add a comment
+                                            </button>
+                                          </div>
+                                        </LeaseUpSidebarButtons>
+                                      </div>
+                                      <h3
+                                        className="status-history-label"
+                                      >
+                                        Status History
+                                      </h3>
+                                      <StatusItems
+                                        limit={4}
+                                        statusItems={
+                                          Array [
+                                            Object {
+                                              "comment": "xxxx1",
+                                              "date": "2018-05-10T19:54:11.000+0000",
+                                              "status": "Approved",
+                                            },
+                                            Object {
+                                              "comment": "xxxx2",
+                                              "date": "2018-05-10T19:54:11.000+0000",
+                                              "status": "Pending",
+                                            },
+                                          ]
+                                        }
+                                      >
+                                        <div
+                                          className="status-items"
+                                        >
+                                          <StatusItem
+                                            key="0"
+                                            statusItem={
+                                              Object {
+                                                "comment": "xxxx1",
+                                                "date": "2018-05-10T19:54:11.000+0000",
+                                                "status": "Approved",
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="status-item"
+                                            >
+                                              <div
+                                                className="status-item-header"
+                                              >
+                                                <StatusPill
+                                                  status="Approved"
+                                                >
+                                                  <div
+                                                    className="status-pill is-approved"
+                                                  >
+                                                    Approved
+                                                  </div>
+                                                </StatusPill>
+                                                <StatusDate>
+                                                  <div
+                                                    className="status-item-date"
+                                                  >
+                                                    Invalid date
+                                                  </div>
+                                                </StatusDate>
+                                              </div>
+                                              <div
+                                                className="status-item-text"
+                                              >
+                                                xxxx1
+                                              </div>
+                                            </div>
+                                          </StatusItem>
+                                          <StatusItem
+                                            key="1"
+                                            statusItem={
+                                              Object {
+                                                "comment": "xxxx2",
+                                                "date": "2018-05-10T19:54:11.000+0000",
+                                                "status": "Pending",
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="status-item"
+                                            >
+                                              <div
+                                                className="status-item-header"
+                                              >
+                                                <StatusPill
+                                                  status="Pending"
+                                                >
+                                                  <div
+                                                    className="status-pill is-no-status"
+                                                  />
+                                                </StatusPill>
+                                                <StatusDate>
+                                                  <div
+                                                    className="status-item-date"
+                                                  >
+                                                    Invalid date
+                                                  </div>
+                                                </StatusDate>
+                                              </div>
+                                              <div
+                                                className="status-item-text"
+                                              >
+                                                xxxx2
+                                              </div>
+                                            </div>
+                                          </StatusItem>
+                                        </div>
+                                      </StatusItems>
+                                      <div
+                                        className="hide-large-up"
+                                      >
+                                        <LeaseUpSidebarButtons
+                                          isLoading={false}
+                                          onAddCommentClicked={[Function]}
+                                          onChangeStatus={[Function]}
+                                          onSaveClicked={[Function]}
+                                          status="Approved"
+                                          withMobileStyling={true}
+                                        >
+                                          <div
+                                            className="status-history-buttons"
+                                          >
+                                            <StatusDropdown
+                                              buttonClasses={
+                                                Array [
+                                                  "tight-padding",
+                                                ]
+                                              }
+                                              disabled={false}
+                                              onChange={[Function]}
+                                              status="Approved"
+                                            >
+                                              <Dropdown
+                                                buttonClasses={
+                                                  Array [
+                                                    "is-approved",
+                                                    "tight-padding",
+                                                  ]
+                                                }
+                                                disabled={false}
+                                                items={
+                                                  Array [
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Processing",
+                                                      "style": "is-processing",
+                                                      "value": "Processing",
+                                                    },
+                                                    Object {
+                                                      "label": "Withdrawn",
+                                                      "style": "is-withdrawn",
+                                                      "value": "Withdrawn",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Appealed",
+                                                      "style": "is-appealed",
+                                                      "value": "Appealed",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Waitlisted",
+                                                      "style": "is-waitlisted",
+                                                      "value": "Waitlisted",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Disqualified",
+                                                      "style": "is-disqualified",
+                                                      "value": "Disqualified",
+                                                    },
+                                                    Object {
+                                                      "commentRequired": true,
+                                                      "label": "Approved",
+                                                      "style": "is-approved",
+                                                      "value": "Approved",
+                                                    },
+                                                    Object {
+                                                      "label": "Lease Signed",
+                                                      "style": "is-leased",
+                                                      "value": "Lease Signed",
+                                                    },
+                                                  ]
+                                                }
+                                                onChange={[Function]}
+                                                prompt="Status"
+                                                value="Approved"
+                                              >
+                                                <div
+                                                  className="dropdown"
+                                                  onClick={[Function]}
+                                                >
+                                                  <button
+                                                    aria-expanded="false"
+                                                    className="button dropdown-button has-icon--right text-align-left is-approved tight-padding"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    type="button"
+                                                  >
+                                                    <span
+                                                      className="ui-icon ui-small"
+                                                    >
+                                                      <svg>
+                                                        <use
+                                                          xlinkHref="#i-arrow-down"
+                                                        />
+                                                      </svg>
+                                                    </span>
+                                                    Approved
+                                                  </button>
+                                                  <div
+                                                    aria-hidden="true"
+                                                    className="dropdown-menu-wrapper"
+                                                    role="menu"
+                                                  />
+                                                </div>
+                                              </Dropdown>
+                                            </StatusDropdown>
+                                            <button
+                                              className="tertiary tight-padding"
+                                              disabled={false}
+                                              id="add-status-history-comment"
+                                              onClick={[Function]}
+                                            >
+                                              Add a comment
+                                            </button>
+                                          </div>
+                                          <button
+                                            className="primary save-button"
+                                            disabled={false}
+                                            id="save-supplemental-application"
+                                            onClick={[Function]}
+                                            type="submit"
+                                          >
+                                            Save
+                                          </button>
+                                        </LeaseUpSidebarButtons>
+                                      </div>
+                                    </div>
+                                  </LeaseUpSidebar>
+                                </div>
+                              </Component>
+                            </ContextComponent>
                           </div>
                         </Component>
                       </div>
@@ -13854,143 +12919,17 @@ Array [
       }
     >
       <div
-        className="margin-top"
         style={
           Object {
-            "marginBottom": "1.75rem",
+            "alignItems": "stretch",
+            "display": "flex",
+            "flexWrap": "wrap",
+            "maxWidth": "80rem",
           }
         }
       >
         <div
-          className="status-update expand-wide tertiary"
-        >
-          <h3
-            className="status-update_title"
-          >
-            Update Status
-          </h3>
-          <div
-            className="status-update_action"
-          >
-            <div
-              className="dropdown"
-              onClick={[Function]}
-              style={
-                Object {
-                  "position": "relative",
-                }
-              }
-            >
-              <button
-                aria-expanded="false"
-                className="button dropdown-button has-icon--right text-align-left tertiary small"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <span
-                  className="ui-icon ui-small"
-                >
-                  <svg>
-                    <use
-                      xlinkHref="#i-arrow-down"
-                    />
-                  </svg>
-                </span>
-                Status
-              </button>
-              <div
-                aria-hidden="true"
-                className="dropdown-menu-wrapper"
-                role="menu"
-              />
-            </div>
-          </div>
-          <div
-            className="status-update_message"
-          >
-            <div
-              className="status-update_comment"
-            >
-              <p
-                className="status-update_note c-steel"
-              >
-                Update status or add a comment
-              </p>
-            </div>
-            <div
-              className="status-update_footer"
-            >
-              <button
-                className="button tiny tertiary"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                Add a comment
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="padding-bottom--2x margin-bottom--2x"
-      />
-      <div />
-      <div
-        className="button-pager"
-      >
-        <div
-          className="button-pager_row align-buttons-left primary inset-wide"
-        >
-          <div
-            className="dropdown dropdown-inline"
-            onClick={[Function]}
-          >
-            <button
-              aria-expanded="false"
-              className="button dropdown-button has-icon--right text-align-left is-withdrawn small has-status-width"
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              <span
-                className="ui-icon ui-small"
-              >
-                <svg>
-                  <use
-                    xlinkHref="#i-arrow-down"
-                  />
-                </svg>
-              </span>
-              Withdrawn
-            </button>
-            <div
-              aria-hidden="true"
-              className="dropdown-menu-wrapper"
-              role="menu"
-            />
-          </div>
-          <button
-            className="button primary small save-btn"
-            disabled={false}
-            id="save-supplemental-application"
-            onClick={[Function]}
-            type="submit"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-      <div
-        style={
-          Object {
-            "maxWidth": "74rem",
-          }
-        }
-      >
-        <div
-          className="small-12 large-8 columns page-content-column"
+          className="medium-12 large-8 columns page-content-column"
         >
           <div
             className="app-inner padding-bottom--half padding-top--half"
@@ -18708,11 +17647,130 @@ Array [
           </div>
         </div>
         <div
-          className="small-12 large-4 columns sidebar-column"
+          className="medium-12 large-4 columns sidebar-column"
         >
-          <h1>
-            Status sidebar placeholder
-          </h1>
+          <div
+            className="sticky-sidebar-large-up"
+          >
+            <div
+              className="sidebar-content"
+            >
+              <div
+                className="show-large-up"
+              >
+                <button
+                  className="primary save-button"
+                  disabled={false}
+                  id="save-supplemental-application"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Save
+                </button>
+                <div
+                  className="status-history-buttons"
+                >
+                  <div
+                    className="dropdown"
+                    onClick={[Function]}
+                  >
+                    <button
+                      aria-expanded="false"
+                      className="button dropdown-button has-icon--right text-align-left tertiary tight-padding"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <span
+                        className="ui-icon ui-small"
+                      >
+                        <svg>
+                          <use
+                            xlinkHref="#i-arrow-down"
+                          />
+                        </svg>
+                      </span>
+                      Status
+                    </button>
+                    <div
+                      aria-hidden="true"
+                      className="dropdown-menu-wrapper"
+                      role="menu"
+                    />
+                  </div>
+                  <button
+                    className="tertiary tight-padding"
+                    disabled={false}
+                    id="add-status-history-comment"
+                    onClick={[Function]}
+                  >
+                    Add a comment
+                  </button>
+                </div>
+              </div>
+              <h3
+                className="status-history-label"
+              >
+                Status History
+              </h3>
+              <div
+                className="status-items"
+              />
+              <div
+                className="hide-large-up"
+              >
+                <div
+                  className="status-history-buttons"
+                >
+                  <div
+                    className="dropdown"
+                    onClick={[Function]}
+                  >
+                    <button
+                      aria-expanded="false"
+                      className="button dropdown-button has-icon--right text-align-left tertiary tight-padding"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <span
+                        className="ui-icon ui-small"
+                      >
+                        <svg>
+                          <use
+                            xlinkHref="#i-arrow-down"
+                          />
+                        </svg>
+                      </span>
+                      Status
+                    </button>
+                    <div
+                      aria-hidden="true"
+                      className="dropdown-menu-wrapper"
+                      role="menu"
+                    />
+                  </div>
+                  <button
+                    className="tertiary tight-padding"
+                    disabled={false}
+                    id="add-status-history-comment"
+                    onClick={[Function]}
+                  >
+                    Add a comment
+                  </button>
+                </div>
+                <button
+                  className="primary save-button"
+                  disabled={false}
+                  id="save-supplemental-application"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </form>

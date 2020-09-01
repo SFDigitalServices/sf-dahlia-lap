@@ -2,17 +2,13 @@ import React, { useState } from 'react'
 import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentSection from '../molecules/ContentSection'
 import DemographicsInputs from './sections/DemographicsInputs'
-import StatusList from './sections/StatusList'
-import StatusUpdate from '~/components/organisms/StatusUpdate'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-import StatusDropdown from '~/components/molecules/StatusDropdown'
 import LeaseInformationInputs from './sections/LeaseInformationInputs'
 import RentalAssistance from './sections/RentalAssistance'
 import { withContext } from './context'
@@ -22,38 +18,7 @@ import validate, { touchAllFields } from '~/utils/form/validations'
 import ParkingInformationInputs from './sections/ParkingInformationInputs'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
-
-const StatusUpdateSection = withContext(({ store, formIsValid }) => {
-  const {
-    statusHistory,
-    openUpdateStatusModal,
-    openAddStatusCommentModal,
-    loading
-  } = store
-  let recentStatusUpdate =
-    statusHistory && statusHistory[0]
-      ? statusHistory[0]
-      : { status: null, comment: null, date: null }
-
-  return (
-    <ContentSection.Content paddingBottomNone marginTop>
-      <StatusUpdate
-        status={recentStatusUpdate.status}
-        substatus={recentStatusUpdate.substatus}
-        comment={recentStatusUpdate.comment}
-        date={recentStatusUpdate.date}
-        onStatusDropdownChange={value =>
-          formIsValid() ? openUpdateStatusModal(value) : null
-        }
-        onAddCommentClick={() =>
-          formIsValid() ? openAddStatusCommentModal() : null
-        }
-        statusHistoryAnchor='#status-history-section'
-        loading={loading}
-      />
-    </ContentSection.Content>
-  )
-})
+import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -128,23 +93,23 @@ const DemographicsSection = () => (
   </ContentSection>
 )
 
-const StatusHistorySection = withContext(
+const Sidebar = withContext(
   ({
-    store: { statusHistory, openAddStatusCommentModal, loading },
-    formIsValid
+    store: { statusHistory, loading },
+    onChangeStatus,
+    onAddCommentClicked,
+    onSaveClicked
   }) => {
     return (
-      !isEmpty(statusHistory) && (
-        <ContentSection.Sub title='Status History' borderBottom={false}>
-          <StatusList
-            items={statusHistory}
-            onAddComment={() =>
-              formIsValid() ? openAddStatusCommentModal() : null
-            }
-            commentDisabled={loading}
-          />
-        </ContentSection.Sub>
-      )
+      <div className='sticky-sidebar-large-up'>
+        <LeaseUpSidebar
+          statusItems={statusHistory}
+          isLoading={loading}
+          onChangeStatus={onChangeStatus}
+          onAddCommentClicked={onAddCommentClicked}
+          onSaveClicked={onSaveClicked}
+        />
+      </div>
     )
   }
 )
@@ -183,14 +148,22 @@ const SupplementalApplicationContainer = ({ store }) => {
     confirmedPreferencesFailed,
     onDismissError,
     listingAmiCharts,
-    loading,
     onSubmit,
     statusModal,
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
+    openAddStatusCommentModal,
     openUpdateStatusModal
   } = store
+
+  const onAddCommentClicked = (form, touched) =>
+    !checkForValidationErrors(form, touched) ? openAddStatusCommentModal() : null
+
+  const onChangeStatus = (form, touched, value) =>
+    !checkForValidationErrors(form, touched)
+      ? openUpdateStatusModal(value)
+      : null
 
   return (
     <Form
@@ -221,40 +194,6 @@ const SupplementalApplicationContainer = ({ store }) => {
               id='shortForm'
               noValidate
             >
-              <StatusUpdateSection
-                formIsValid={() => !checkForValidationErrors(form, touched)}
-              />
-              <div className='padding-bottom--2x margin-bottom--2x' />
-              <ScrollableAnchor id={'status-history-section'}>
-                <div>
-                  <StatusHistorySection formIsValid={() => !checkForValidationErrors(form, touched)} />
-                </div>
-              </ScrollableAnchor>
-              <div className='button-pager'>
-                <div className='button-pager_row align-buttons-left primary inset-wide'>
-                  <StatusDropdown
-                    status={application.processing_status}
-                    onChange={value =>
-                      !checkForValidationErrors(form, touched)
-                        ? openUpdateStatusModal(value)
-                        : null
-                    }
-                    buttonClasses={['small', 'has-status-width']}
-                    wrapperClasses={['dropdown-inline']}
-                    menuClasses={['dropdown-menu-bottom']}
-                    disabled={loading}
-                  />
-                  <button
-                    className='button primary small save-btn'
-                    type='submit'
-                    id='save-supplemental-application'
-                    disabled={loading}
-                    onClick={() => checkForValidationErrors(form, touched)}
-                  >
-                    {loading ? 'Saving…' : 'Save'}
-                  </button>
-                </div>
-              </div>
               <AsymColumnLayout.Container>
 
                 <AsymColumnLayout.MainContent>
@@ -281,7 +220,11 @@ const SupplementalApplicationContainer = ({ store }) => {
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>
                 <AsymColumnLayout.Sidebar>
-                  <h1>Status sidebar placeholder</h1>
+                  <Sidebar
+                    onAddCommentClicked={() => onAddCommentClicked(form, touched)}
+                    onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+                    onSaveClicked={() => checkForValidationErrors(form, touched)}
+                  />
                 </AsymColumnLayout.Sidebar>
               </AsymColumnLayout.Container>
             </form>

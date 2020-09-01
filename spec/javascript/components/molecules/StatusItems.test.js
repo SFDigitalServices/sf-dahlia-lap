@@ -109,31 +109,31 @@ describe('StatusItems', () => {
 
   describe('with two status items in chronological order', () => {
     const statusItems = [
-      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_25_2020 }),
-      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_26_2020 })
+      mockStatusItem({ timestamp: TIMESTAMP_AUGUST_25_2020 }),
+      mockStatusItem({ timestamp: TIMESTAMP_AUGUST_26_2020 })
     ]
 
     test('should render status items in the order specified', () => {
       const statusItemsWrapper = getWrapper(statusItems).find(StatusItem)
       const firstStatusItem = statusItemsWrapper.first()
       const secondStatusItem = statusItemsWrapper.at(1)
-      expect(firstStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_25_2020)
-      expect(secondStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_26_2020)
+      expect(firstStatusItem.prop('statusItem').timestamp).toEqual(TIMESTAMP_AUGUST_25_2020)
+      expect(secondStatusItem.prop('statusItem').timestamp).toEqual(TIMESTAMP_AUGUST_26_2020)
     })
   })
 
   describe('with two status items not in chronological order', () => {
     const statusItems = [
-      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_26_2020 }),
-      mockStatusItem({ timeStamp: TIMESTAMP_AUGUST_25_2020 })
+      mockStatusItem({ timestamp: TIMESTAMP_AUGUST_26_2020 }),
+      mockStatusItem({ timestamp: TIMESTAMP_AUGUST_25_2020 })
     ]
 
     test('should render status items in the order specified', () => {
       const statusItemsWrapper = getWrapper(statusItems).find(StatusItem)
       const firstStatusItem = statusItemsWrapper.first()
       const secondStatusItem = statusItemsWrapper.at(1)
-      expect(firstStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_26_2020)
-      expect(secondStatusItem.prop('statusItem').timeStamp).toEqual(TIMESTAMP_AUGUST_25_2020)
+      expect(firstStatusItem.prop('statusItem').timestamp).toEqual(TIMESTAMP_AUGUST_26_2020)
+      expect(secondStatusItem.prop('statusItem').timestamp).toEqual(TIMESTAMP_AUGUST_25_2020)
     })
   })
 })

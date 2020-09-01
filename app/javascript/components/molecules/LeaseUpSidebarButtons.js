@@ -5,13 +5,16 @@ import StatusDropdown from './StatusDropdown'
 
 import { LEASE_UP_STATUS_VALUES } from '../../utils/statusUtils'
 
-const LeaseUpSidebarButtons = ({ status, withMobileStyling, onSaveClicked, onChangeStatus, onAddCommentClicked }) => {
+const LeaseUpSidebarButtons = ({ status, withMobileStyling, isLoading, onSaveClicked, onChangeStatus, onAddCommentClicked }) => {
   const saveButton = (
     <button
       className='primary save-button'
+      id='save-supplemental-application'
+      type='submit'
+      disabled={isLoading}
       onClick={onSaveClicked}
     >
-      Save
+      {isLoading ? 'Saving…' : 'Save'}
     </button>
   )
 
@@ -20,10 +23,14 @@ const LeaseUpSidebarButtons = ({ status, withMobileStyling, onSaveClicked, onCha
       <StatusDropdown
         status={status}
         onChange={onChangeStatus}
+        disabled={isLoading}
         buttonClasses={['tight-padding']}
       />
       <button
+        // ID is just for e2e tests
+        id='add-status-history-comment'
         className='tertiary tight-padding'
+        disabled={isLoading}
         onClick={onAddCommentClicked}
       >
         Add a comment
@@ -43,6 +50,7 @@ const LeaseUpSidebarButtons = ({ status, withMobileStyling, onSaveClicked, onCha
 LeaseUpSidebarButtons.propTypes = {
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES).isRequired,
   withMobileStyling: PropTypes.bool,
+  isLoading: PropTypes.bool,
   onSaveClicked: PropTypes.func,
   onChangeStatus: PropTypes.func,
   onAddCommentClicked: PropTypes.func
@@ -50,6 +58,7 @@ LeaseUpSidebarButtons.propTypes = {
 
 LeaseUpSidebarButtons.defaultProps = {
   withMobileStyling: false,
+  isLoading: false,
   onSaveClicked: null,
   onChangeStatus: null,
   onAddCommentClicked: null
