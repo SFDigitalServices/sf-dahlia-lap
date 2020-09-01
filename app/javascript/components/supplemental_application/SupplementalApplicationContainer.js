@@ -32,7 +32,7 @@ const ConfirmedPreferencesSection = ({
 }) => (
   <ContentSection
     title='Preferences and Priorities'
-    description={<> Complete this section first. <b>You must confirm claimed preferences before sending out a post-lottery letter. </b> Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.</>}
+    description={<>Complete this section first. <b>You must confirm claimed preferences before sending out a post-lottery letter.</b> Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.</>}
   >
     <ContentSection.Sub title='Confirmed Preferences'>
       {confirmedPreferencesFailed && (
@@ -96,7 +96,7 @@ const LeaseInformationSection = ({ form, submitting, values, visited }) => (
 const DemographicsSection = () => (
   <ContentSection
     title='Demographics'
-    description='FInish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.'
+    description='Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.'
   >
     <DemographicsInputs />
   </ContentSection>
