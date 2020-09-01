@@ -191,7 +191,6 @@ print_sheet_category "Other" other
 function print_release_line {
   title=$(get_title "$1")
   ticket=$(get_ticket "$1")
-  ticket_link=$(get_ticket_link "$1")
   pr=$(get_pr "$1")
 
   if [ -z "$title" ]; then
@@ -201,7 +200,7 @@ function print_release_line {
   if [ -z "$ticket" ]; then
     echo -e "- $title, (#$pr)"
   else
-    echo -e "- $title [$ticket]($ticket_link), (#$pr)"
+    echo -e "- $title [$ticket] (#$pr)"
   fi
 }
 
