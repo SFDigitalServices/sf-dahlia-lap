@@ -91,7 +91,7 @@ const LeaseInformationSection = ({ form, submitting, values, visited }) => (
         title='Rental Assistance Information'
         description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
       >
-        <InlineModal level='2'>
+        <InlineModal whiteBackground>
           <RentalAssistance form={form} submitting={submitting} />
         </InlineModal>
       </ContentSection.Sub>
