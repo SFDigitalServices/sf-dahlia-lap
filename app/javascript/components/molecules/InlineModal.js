@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const InlineModal = ({ whiteBackground = false, children }) => {
@@ -14,6 +15,10 @@ const InlineModal = ({ whiteBackground = false, children }) => {
       {children}
     </div>
   )
+}
+
+InlineModal.propTypes = {
+  whiteBackground: PropTypes.bool
 }
 
 export default InlineModal
