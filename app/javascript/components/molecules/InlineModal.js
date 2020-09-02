@@ -5,11 +5,10 @@ const InlineModal = ({ whiteBackground = false, children }) => {
   let classes = [
     'inline-modal',
     'padding-left--2x',
-    'padding-right--2x'
+    'padding-right--2x',
+    { 'white-background': whiteBackground }
   ]
-  if (whiteBackground) {
-    classes.push('white-background')
-  }
+
   return (
     <div className={classNames(classes)}>
       {children}
