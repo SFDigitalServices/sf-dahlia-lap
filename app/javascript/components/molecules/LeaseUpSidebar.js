@@ -6,6 +6,7 @@ import LeaseUpSidebarButtons from './LeaseUpSidebarButtons'
 import StatusItems from './StatusItems'
 
 import StatusItemShape from '../../utils/shapes/StatusItemShape'
+import ContentSection from './ContentSection'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 
@@ -56,8 +57,12 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
 
   const header = (title) => (
     <>
-      <h3 className='status-history-label app-card_h3 t-sans show-large-up'>{title}</h3>
-      <h2 className='status-history-label app-card_h2 hide-large-up'>{title}</h2>
+      <div className='padding-top--3x show-large-up'>
+        <ContentSection.SubHeader title={title} />
+      </div>
+      <div className='hide-large-up'>
+        <ContentSection.Header title={title} />
+      </div>
     </>
   )
   return (
