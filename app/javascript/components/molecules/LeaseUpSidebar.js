@@ -60,7 +60,7 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
       <div className='padding-top--3x show-large-up'>
         <ContentSection.SubHeader title={title} />
       </div>
-      <div className='hide-large-up'>
+      <div className='padding-top--half hide-large-up'>
         <ContentSection.Header title={title} />
       </div>
     </>
