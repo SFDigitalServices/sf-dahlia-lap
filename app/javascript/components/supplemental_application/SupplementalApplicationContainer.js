@@ -19,7 +19,6 @@ import ParkingInformationInputs from './sections/ParkingInformationInputs'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
 import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
-import InlineModal from '../molecules/InlineModal'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -76,26 +75,21 @@ const LeaseInformationSection = ({ form, submitting, values, visited }) => (
     title='Lease'
     description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
   >
-    <InlineModal>
-      <ContentSection.Sub description='If the household receives...' />
-      <ContentSection.Sub title='Unit'>
-        <LeaseInformationInputs form={form} visited={visited} />
-      </ContentSection.Sub>
-      <ContentSection.Sub
-        title='Parking'
-        description='If the applicant will receive a below market rate parking space, indicate the monthly cost.'
-      >
-        <ParkingInformationInputs form={form} values={values} visited={visited} />
-      </ContentSection.Sub>
-      <ContentSection.Sub
-        title='Rental Assistance Information'
-        description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
-      >
-        <InlineModal whiteBackground>
-          <RentalAssistance form={form} submitting={submitting} />
-        </InlineModal>
-      </ContentSection.Sub>
-    </InlineModal>
+    <ContentSection.Sub title='Unit'>
+      <LeaseInformationInputs form={form} visited={visited} />
+    </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Parking'
+      description='If the applicant will receive a below market rate parking space, indicate the monthly cost.'
+    >
+      <ParkingInformationInputs form={form} values={values} visited={visited} />
+    </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Rental Assistance Information'
+      description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
+    >
+      <RentalAssistance form={form} submitting={submitting} />
+    </ContentSection.Sub>
   </ContentSection>
 )
 

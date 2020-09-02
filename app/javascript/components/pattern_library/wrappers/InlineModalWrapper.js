@@ -22,8 +22,7 @@ const InlineModalWrapper = () => {
                 id='text-area'
                 name='Area'
                 placeholder='Enter text'
-                describeId='label'
-                note='More text' />
+                describeId='label' />
             </ContentSection.Sub>
           </InlineModal>
         </ContentSection.Sub>
