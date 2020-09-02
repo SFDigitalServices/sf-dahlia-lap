@@ -12344,11 +12344,32 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           </div>
                                         </LeaseUpSidebarButtons>
                                       </div>
-                                      <h3
-                                        className="status-history-label"
+                                      <div
+                                        className="padding-top--3x show-large-up"
                                       >
-                                        Status History
-                                      </h3>
+                                        <Component
+                                          title="Status History"
+                                        >
+                                          <h3
+                                            className="app-card_h3 t-sans"
+                                          >
+                                            Status History
+                                          </h3>
+                                        </Component>
+                                      </div>
+                                      <div
+                                        className="padding-top--half hide-large-up"
+                                      >
+                                        <Component
+                                          title="Status History"
+                                        >
+                                          <h2
+                                            className="app-card_h2"
+                                          >
+                                            Status History
+                                          </h2>
+                                        </Component>
+                                      </div>
                                       <StatusItems
                                         limit={4}
                                         statusItems={
@@ -17778,11 +17799,24 @@ Array [
                   </button>
                 </div>
               </div>
-              <h3
-                className="status-history-label"
+              <div
+                className="padding-top--3x show-large-up"
               >
-                Status History
-              </h3>
+                <h3
+                  className="app-card_h3 t-sans"
+                >
+                  Status History
+                </h3>
+              </div>
+              <div
+                className="padding-top--half hide-large-up"
+              >
+                <h2
+                  className="app-card_h2"
+                >
+                  Status History
+                </h2>
+              </div>
               <div
                 className="status-items"
               />
