@@ -17,10 +17,15 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
     />
   </div>
   <h3
-    className="status-history-label"
+    className="status-history-label app-card_h3 t-sans show-large-up"
   >
     Status History
   </h3>
+  <h2
+    className="status-history-label app-card_h2 hide-large-up"
+  >
+    Status History
+  </h2>
   <StatusItems
     limit={4}
     statusItems={
