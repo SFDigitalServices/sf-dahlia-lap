@@ -54,10 +54,16 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
 
   const numberOfStatusesToDisplay = showingAllStatuses ? statusItems.length : MAX_UPDATES_TO_SHOW_DEFAULT
 
+  const header = (title) => (
+    <>
+      <h3 className='status-history-label app-card_h3 t-sans show-large-up'>{title}</h3>
+      <h2 className='status-history-label app-card_h2 hide-large-up'>{title}</h2>
+    </>
+  )
   return (
     <div className='sidebar-content'>
       {sidebarButtons(false)}
-      <h3 className='status-history-label'>Status History</h3>
+      {header('Status History')}
       <StatusItems
         statusItems={statusItems}
         limit={numberOfStatusesToDisplay}
