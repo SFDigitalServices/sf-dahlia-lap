@@ -4513,7 +4513,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                                     >
                                                                       <InlineModal>
                                                                         <div
-                                                                          className="app-editable padding-left--2x padding-right--2x"
+                                                                          className="inline-modal padding-left--2x padding-right--2x"
                                                                         >
                                                                           <AssistedHousingPanel
                                                                             applicationMembersOptions={
@@ -5846,7 +5846,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                                     >
                                                                       <InlineModal>
                                                                         <div
-                                                                          className="app-editable padding-left--2x padding-right--2x"
+                                                                          className="inline-modal padding-left--2x padding-right--2x"
                                                                         >
                                                                           <LiveOrWorkInSanFranciscoPanel
                                                                             applicationMembersOptions={
@@ -13133,7 +13133,7 @@ Array [
                               colSpan={7}
                             >
                               <div
-                                className="app-editable padding-left--2x padding-right--2x"
+                                className="inline-modal padding-left--2x padding-right--2x"
                               >
                                 <div
                                   className="form-grid row"
@@ -13359,7 +13359,7 @@ Array [
                               colSpan={7}
                             >
                               <div
-                                className="app-editable padding-left--2x padding-right--2x"
+                                className="inline-modal padding-left--2x padding-right--2x"
                               >
                                 <div
                                   className="form-grid row"
@@ -14626,7 +14626,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -14937,7 +14937,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -15248,7 +15248,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -15559,7 +15559,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -15870,7 +15870,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -16181,7 +16181,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -16492,7 +16492,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -16803,7 +16803,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
@@ -17114,7 +17114,7 @@ Array [
                             colSpan={5}
                           >
                             <div
-                              className="app-editable padding-left--2x padding-right--2x"
+                              className="inline-modal padding-left--2x padding-right--2x"
                             >
                               <div
                                 className="rental-assistance-edit-form"
