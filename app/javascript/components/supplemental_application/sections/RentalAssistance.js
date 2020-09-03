@@ -81,7 +81,7 @@ const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, ap
   const rows = buildRows()
 
   return (
-    <TableWrapper>
+    <TableWrapper marginTop>
       <ExpandableTable
         originals={rentalAssistances}
         columns={columns}
