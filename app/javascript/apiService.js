@@ -1,4 +1,5 @@
 import { request } from '~/api/request'
+import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
 const updateFlaggedApplication = async (data) => {
   let putData = {
@@ -107,20 +108,40 @@ const deleteRentalAssistance = async (rentalAssistanceId) => {
   return request.destroy(`/rental-assistances/${rentalAssistanceId}`)
 }
 
-export const createOrUpdateLease = async (leaseToCreateOrUpdate, applicationId) => {
-  const leaseId = leaseToCreateOrUpdate['id']
-  // check if lease_start_date was removed
-  if (!leaseToCreateOrUpdate['lease_start_date']) {
-    leaseToCreateOrUpdate['lease_start_date'] = {}
+const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => {
+  return {
+    lease: {
+      ...rawLeaseObject,
+      // TODO: We should consider setting the Tenant on a Lease more explicitly
+      // either via a non-interactable form element or using Salesforce
+      primary_applicant_contact: primaryApplicantContact,
+      // TODO: determine why lease_start_date gets removed
+      lease_start_date: rawLeaseObject.lease_start_date || {}
+    }
   }
-  const data = { lease: leaseToCreateOrUpdate }
-  if (leaseId) {
-    const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
-    return lease
-  } else {
-    const { lease } = await request.post(`/applications/${applicationId}/leases`, data)
-    return lease
+}
+
+export const updateLease = async (leaseToUpdate, primaryApplicantContact, applicationId) => {
+  if (!isLeaseAlreadyCreated(leaseToUpdate)) {
+    throw new Error('Trying to update a lease that doesn’t yet exist.')
   }
+
+  const data = getLeaseRequestData(leaseToUpdate, primaryApplicantContact)
+
+  const leaseId = leaseToUpdate['id']
+  const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+  return lease
+}
+
+export const createLease = async (leaseToCreate, primaryApplicantContact, applicationId) => {
+  if (isLeaseAlreadyCreated(leaseToCreate)) {
+    throw new Error('Trying to create a lease that already exists.')
+  }
+
+  const data = getLeaseRequestData(leaseToCreate, primaryApplicantContact)
+
+  const { lease } = await request.post(`/applications/${applicationId}/leases`, data)
+  return lease
 }
 
 export default {
@@ -136,5 +157,6 @@ export default {
   createRentalAssistance,
   updateRentalAssistance,
   deleteRentalAssistance,
-  createOrUpdateLease
+  createLease,
+  updateLease
 }

@@ -3,7 +3,8 @@ import supplementalApplication from '../../fixtures/supplemental_application'
 import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
-const mockSubmitLeaseFn = jest.fn()
+const mockCreateLeaseFn = jest.fn()
+const mockUpdateLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
 const mockUpdateRentalFn = jest.fn()
 const mockGetRentalAssistancesFn = jest.fn()
@@ -14,8 +15,13 @@ jest.mock('apiService', () => {
     return application
   }
 
-  const mockCreateOrUpdateLease = async (lease) => {
-    mockSubmitLeaseFn(lease)
+  const mockCreateLease = async (lease) => {
+    mockCreateLeaseFn(lease)
+    return lease
+  }
+
+  const mockUpdateLease = async (lease) => {
+    mockUpdateLeaseFn(lease)
     return lease
   }
 
@@ -36,7 +42,8 @@ jest.mock('apiService', () => {
 
   return {
     submitApplication: mockSubmitApplication,
-    createOrUpdateLease: mockCreateOrUpdateLease,
+    createLease: mockCreateLease,
+    updateLease: mockUpdateLease,
     createRentalAssistance: mockCreateRental,
     updateRentalAssistance: mockUpdateRental,
     getRentalAssistances: mockGetRentalAssistances
@@ -46,12 +53,14 @@ jest.mock('apiService', () => {
 describe('updateApplication', () => {
   test('it should submit application to shortForm endpoint', async () => {
     const applicationDomain = supplementalApplication
-    const response = await updateApplication(applicationDomain)
-
-    expect(response.id).toEqual(supplementalApplication.id)
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
+    updateApplication(applicationDomain)
+      .then(response => {
+        expect(response.id).toEqual(supplementalApplication.id)
+        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+        expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
+      })
   })
+
   test('it should submit lease to backend if lease is present in application', async () => {
     const application = {
       'id': 'appID',
@@ -62,13 +71,15 @@ describe('updateApplication', () => {
       }
     }
 
-    const response = await updateApplication(application)
-
-    expect(response.id).toEqual(application.id)
-    expect(response.listing_id).toEqual(application.listing_id)
-    expect(response.lease.id).toEqual(application.lease.id)
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockSubmitLeaseFn.mock.calls.length).toEqual(1)
+    updateApplication(application)
+      .then(response => {
+        expect(response.id).toEqual(application.id)
+        expect(response.listing_id).toEqual(application.listing_id)
+        expect(response.lease.id).toEqual(application.lease.id)
+        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
+      })
   })
   test('it should not submit lease to backend if application has no lease', async () => {
     const application = {
@@ -79,13 +90,17 @@ describe('updateApplication', () => {
       },
       'lease': {}
     }
-    const response = await updateApplication(application)
 
-    expect(response.id).toEqual(application.id)
-    expect(response.lease).toEqual({})
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockSubmitLeaseFn.mock.calls.length).toEqual(0)
+    updateApplication(application)
+      .then(response => {
+        expect(response.id).toEqual(application.id)
+        expect(response.lease).toEqual({})
+        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+      })
   })
+
   test('it should create and update rental assistances', async () => {
     const baseApplication = {
       'id': 'appID',
@@ -102,11 +117,12 @@ describe('updateApplication', () => {
     application.rental_assistances[0].assistance_amount = 22
     application.rental_assistances[2] = { assistance_amount: 22, recipient: 'recipient3' }
 
-    const response = await updateApplication(application, baseApplication)
-
-    expect(response.id).toEqual(application.id)
-    expect(response.id).toEqual(application.id)
-    expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
-    expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
+    updateApplication(application, baseApplication)
+      .then(response => {
+        expect(response.id).toEqual(application.id)
+        expect(response.id).toEqual(application.id)
+        expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
+        expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
+      })
   })
 })
