@@ -112,6 +112,35 @@ const Lease = ({ form, submitting, values, store, visited }) => {
           </FormGrid.Item>
         </FormGrid.Row>
       </ContentSection.Sub>
+      <FormGrid.Row>
+        {/* TODO: Wire up actions for buttons, set to disabled when loading */}
+        <div className='form-grid_item column'>
+          <button
+            className='button primary small margin-right margin-bottom-none'
+            type='button'
+            onClick={() => console.log('clicked save lease')}
+            disabled={false}>
+                Save Lease
+          </button>
+          <button
+            className='button secondary small margin-right margin-bottom-none'
+            type='button'
+            onClick={() => console.log('cancel lease change')}
+            disabled={false}>
+                Cancel
+          </button>
+          {/* Only show delete button for non-new leases */}
+          {!false && (
+            <button
+              className='button alert-fill small margin-bottom-none right'
+              type='button'
+              onClick={() => console.log('delete lease')}
+              disabled={false}>
+                  Delete
+            </button>
+          )}
+        </div>
+      </FormGrid.Row>
     </InlineModal>
   )
 }
