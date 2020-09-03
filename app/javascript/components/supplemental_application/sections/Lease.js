@@ -22,6 +22,34 @@ const toggleNoPreferenceUsed = (form, event) => {
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
+const LeaseActions = (onSave, onCancel, onDelete, isNew, loading) => (
+  <div className='form-grid_item column'>
+    <button
+      className='button primary small margin-right margin-bottom-none'
+      type='button'
+      onClick={() => console.log('save lease')}
+      disabled={loading}>
+        Save Lease
+    </button>
+    <button
+      className='button secondary small margin-right margin-bottom-none'
+      type='button'
+      onClick={() => console.log('cancel lease')}
+      disabled={loading}>
+        Cancel
+    </button>
+    {!isNew && (
+      <button
+        className='button alert-fill small margin-bottom-none right'
+        type='button'
+        onClick={() => console.log('delete lease')}
+        disabled={loading}>
+          Delete
+      </button>
+    )}
+  </div>
+)
+
 const Lease = ({ form, submitting, values, store }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(
@@ -119,32 +147,13 @@ const Lease = ({ form, submitting, values, store }) => {
       </ContentSection.Sub>
       <FormGrid.Row>
         {/* TODO: Wire up actions for buttons, set to disabled when loading */}
-        <div className='form-grid_item column'>
-          <button
-            className='button primary small margin-right margin-bottom-none'
-            type='button'
-            onClick={() => console.log('clicked save lease')}
-            disabled={false}>
-                Save Lease
-          </button>
-          <button
-            className='button secondary small margin-right margin-bottom-none'
-            type='button'
-            onClick={() => console.log('cancel lease change')}
-            disabled={false}>
-                Cancel
-          </button>
-          {/* Only show delete button for non-new leases */}
-          {!false && (
-            <button
-              className='button alert-fill small margin-bottom-none right'
-              type='button'
-              onClick={() => console.log('delete lease')}
-              disabled={false}>
-                  Delete
-            </button>
-          )}
-        </div>
+        <LeaseActions
+          onSave={null}
+          onCancel={null}
+          onDelete={null}
+          loading={false}
+          isNew={false}
+        />
       </FormGrid.Row>
     </InlineModal>
   )
