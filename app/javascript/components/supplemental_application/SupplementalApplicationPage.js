@@ -40,7 +40,7 @@ class SupplementalApplicationPage extends React.Component {
     leaveConfirmationModal: {
       isOpen: false
     },
-    showLeaseSection: false,
+    showLeaseSection: true,
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
     rentalAssistanceLoading: false,

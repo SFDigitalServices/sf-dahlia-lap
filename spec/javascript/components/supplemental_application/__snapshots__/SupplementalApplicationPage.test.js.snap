@@ -1313,9 +1313,13 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                     "availableUnits": undefined,
                     "confirmedPreferencesFailed": false,
                     "fileBaseUrl": undefined,
+                    "handleClickCancelLease": [Function],
+                    "handleClickCreateLease": [Function],
                     "handleCloseRentalAssistancePanel": [Function],
+                    "handleDeleteLease": [Function],
                     "handleDeleteRentalAssistance": [Function],
                     "handleOpenRentalAssistancePanel": [Function],
+                    "handleSaveLease": [Function],
                     "handleSaveRentalAssistance": [Function],
                     "handleStatusModalClose": [Function],
                     "handleStatusModalStatusChange": [Function],
@@ -1335,6 +1339,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                     "rentalAssistances": undefined,
                     "setLoading": [Function],
                     "showAddRentalAssistanceBtn": true,
+                    "showLeaseSection": true,
                     "showNewRentalAssistancePanel": false,
                     "statusHistory": Array [
                       Object {
@@ -3353,9 +3358,13 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                 "availableUnits": undefined,
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
+                                                "handleClickCancelLease": [Function],
+                                                "handleClickCreateLease": [Function],
                                                 "handleCloseRentalAssistancePanel": [Function],
+                                                "handleDeleteLease": [Function],
                                                 "handleDeleteRentalAssistance": [Function],
                                                 "handleOpenRentalAssistancePanel": [Function],
+                                                "handleSaveLease": [Function],
                                                 "handleSaveRentalAssistance": [Function],
                                                 "handleStatusModalClose": [Function],
                                                 "handleStatusModalStatusChange": [Function],
@@ -3375,6 +3384,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                 "rentalAssistances": undefined,
                                                 "setLoading": [Function],
                                                 "showAddRentalAssistanceBtn": true,
+                                                "showLeaseSection": true,
                                                 "showNewRentalAssistancePanel": false,
                                                 "statusHistory": Array [
                                                   Object {
@@ -8392,6 +8402,8 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                   "subscribe": [Function],
                                 }
                               }
+                              handleClickCreateLease={[Function]}
+                              showLeaseSection={true}
                               submitting={false}
                               values={
                                 Object {
@@ -8716,17 +8728,16 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                   "total_monthly_rent": null,
                                 }
                               }
-                              visited={Object {}}
                             >
                               <ContentSection
-                                description="Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution."
+                                description={false}
                                 title="Lease"
                               >
                                 <div
                                   className="app-inner padding-bottom--half padding-top--half"
                                 >
                                   <Component
-                                    description="Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution."
+                                    description={false}
                                     title="Lease"
                                   >
                                     <h2
@@ -8734,11 +8745,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     >
                                       Lease
                                     </h2>
-                                    <p
-                                      className="form-note max-width margin-bottom--3halves"
-                                    >
-                                      Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.
-                                    </p>
                                   </Component>
                                   <ContextComponent
                                     form={
@@ -9100,7 +9106,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                         "total_monthly_rent": null,
                                       }
                                     }
-                                    visited={Object {}}
                                   >
                                     <Lease
                                       form={
@@ -9501,9 +9506,13 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           "availableUnits": undefined,
                                           "confirmedPreferencesFailed": false,
                                           "fileBaseUrl": undefined,
+                                          "handleClickCancelLease": [Function],
+                                          "handleClickCreateLease": [Function],
                                           "handleCloseRentalAssistancePanel": [Function],
+                                          "handleDeleteLease": [Function],
                                           "handleDeleteRentalAssistance": [Function],
                                           "handleOpenRentalAssistancePanel": [Function],
+                                          "handleSaveLease": [Function],
                                           "handleSaveRentalAssistance": [Function],
                                           "handleStatusModalClose": [Function],
                                           "handleStatusModalStatusChange": [Function],
@@ -9523,6 +9532,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           "rentalAssistances": undefined,
                                           "setLoading": [Function],
                                           "showAddRentalAssistanceBtn": true,
+                                          "showLeaseSection": true,
                                           "showNewRentalAssistancePanel": false,
                                           "statusHistory": Array [
                                             Object {
@@ -9867,7 +9877,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           "total_monthly_rent": null,
                                         }
                                       }
-                                      visited={Object {}}
                                     >
                                       <InlineModal>
                                         <div
@@ -10359,7 +10368,6 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                       "total_monthly_rent": null,
                                                     }
                                                   }
-                                                  visited={Object {}}
                                                 >
                                                   <Component
                                                     expand={true}
@@ -11210,9 +11218,13 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                             "availableUnits": undefined,
                                                             "confirmedPreferencesFailed": false,
                                                             "fileBaseUrl": undefined,
+                                                            "handleClickCancelLease": [Function],
+                                                            "handleClickCreateLease": [Function],
                                                             "handleCloseRentalAssistancePanel": [Function],
+                                                            "handleDeleteLease": [Function],
                                                             "handleDeleteRentalAssistance": [Function],
                                                             "handleOpenRentalAssistancePanel": [Function],
+                                                            "handleSaveLease": [Function],
                                                             "handleSaveRentalAssistance": [Function],
                                                             "handleStatusModalClose": [Function],
                                                             "handleStatusModalStatusChange": [Function],
@@ -11232,6 +11244,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                             "rentalAssistances": undefined,
                                                             "setLoading": [Function],
                                                             "showAddRentalAssistanceBtn": true,
+                                                            "showLeaseSection": true,
                                                             "showNewRentalAssistancePanel": false,
                                                             "statusHistory": Array [
                                                               Object {
@@ -11263,11 +11276,13 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                               onClick={[Function]}
                                                               small={true}
                                                               text="Add Rental Assistance"
+                                                              type="button"
                                                             >
                                                               <button
                                                                 className="button small"
                                                                 id="add-rental-assistance"
                                                                 onClick={[Function]}
+                                                                type="button"
                                                               >
                                                                 Add Rental Assistance
                                                               </button>
@@ -11832,6 +11847,77 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                 </Component>
                                               </div>
                                             </Component>
+                                          </Component>
+                                          <Component
+                                            expand={true}
+                                          >
+                                            <div
+                                              className="form-grid row expand"
+                                            >
+                                              <LeaseActions
+                                                isNew={false}
+                                                loading={false}
+                                                onCancel={[Function]}
+                                                onDelete={[Function]}
+                                                onSave={[Function]}
+                                              >
+                                                <div
+                                                  className="form-grid_item column"
+                                                >
+                                                  <Button
+                                                    classes="primary margin-right"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    small={true}
+                                                    text="Save Lease"
+                                                    type="button"
+                                                  >
+                                                    <button
+                                                      className="button primary margin-right small"
+                                                      disabled={false}
+                                                      onClick={[Function]}
+                                                      type="button"
+                                                    >
+                                                      Save Lease
+                                                    </button>
+                                                  </Button>
+                                                  <Button
+                                                    classes="secondary"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    small={true}
+                                                    text="Cancel"
+                                                    type="button"
+                                                  >
+                                                    <button
+                                                      className="button secondary small"
+                                                      disabled={false}
+                                                      onClick={[Function]}
+                                                      type="button"
+                                                    >
+                                                      Cancel
+                                                    </button>
+                                                  </Button>
+                                                  <Button
+                                                    classes="alert-fill right"
+                                                    disabled={false}
+                                                    onClick={[Function]}
+                                                    small={true}
+                                                    text="Delete"
+                                                    type="button"
+                                                  >
+                                                    <button
+                                                      className="button alert-fill right small"
+                                                      disabled={false}
+                                                      onClick={[Function]}
+                                                      type="button"
+                                                    >
+                                                      Delete
+                                                    </button>
+                                                  </Button>
+                                                </div>
+                                              </LeaseActions>
+                                            </div>
                                           </Component>
                                         </div>
                                       </InlineModal>
@@ -12847,9 +12933,13 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     "availableUnits": undefined,
                                     "confirmedPreferencesFailed": false,
                                     "fileBaseUrl": undefined,
+                                    "handleClickCancelLease": [Function],
+                                    "handleClickCreateLease": [Function],
                                     "handleCloseRentalAssistancePanel": [Function],
+                                    "handleDeleteLease": [Function],
                                     "handleDeleteRentalAssistance": [Function],
                                     "handleOpenRentalAssistancePanel": [Function],
+                                    "handleSaveLease": [Function],
                                     "handleSaveRentalAssistance": [Function],
                                     "handleStatusModalClose": [Function],
                                     "handleStatusModalStatusChange": [Function],
@@ -12869,6 +12959,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     "rentalAssistances": undefined,
                                     "setLoading": [Function],
                                     "showAddRentalAssistanceBtn": true,
+                                    "showLeaseSection": true,
                                     "showNewRentalAssistancePanel": false,
                                     "statusHistory": Array [
                                       Object {
@@ -14930,11 +15021,6 @@ Array [
             >
               Lease
             </h2>
-            <p
-              className="form-note max-width margin-bottom--3halves"
-            >
-              Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.
-            </p>
             <div
               className="inline-modal padding-left--2x padding-right--2x"
             >
@@ -15466,7 +15552,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -15474,7 +15560,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -15482,7 +15568,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -15789,7 +15875,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -15797,7 +15883,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -15805,7 +15891,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16112,7 +16198,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16120,7 +16206,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16128,7 +16214,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16435,7 +16521,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16443,7 +16529,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16451,7 +16537,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16758,7 +16844,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16766,7 +16852,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -16774,7 +16860,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17081,7 +17167,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17089,7 +17175,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17097,7 +17183,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17404,7 +17490,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17412,7 +17498,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17420,7 +17506,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17727,7 +17813,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17735,7 +17821,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -17743,7 +17829,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -18050,7 +18136,7 @@ Array [
                                         className="form-grid_item column"
                                       >
                                         <button
-                                          className="button primary tiny margin-right margin-bottom-none"
+                                          className="button primary margin-right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -18058,7 +18144,7 @@ Array [
                                           Save
                                         </button>
                                         <button
-                                          className="button secondary tiny margin-right margin-bottom-none"
+                                          className="button secondary tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -18066,7 +18152,7 @@ Array [
                                           Cancel
                                         </button>
                                         <button
-                                          className="button alert-fill tiny margin-bottom-none right"
+                                          className="button alert-fill right tiny"
                                           disabled={false}
                                           onClick={[Function]}
                                           type="button"
@@ -18091,6 +18177,7 @@ Array [
                       className="button small"
                       id="add-rental-assistance"
                       onClick={[Function]}
+                      type="button"
                     >
                       Add Rental Assistance
                     </button>
@@ -18258,6 +18345,38 @@ Array [
                       </select>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div
+                className="form-grid row expand"
+              >
+                <div
+                  className="form-grid_item column"
+                >
+                  <button
+                    className="button primary margin-right small"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Save Lease
+                  </button>
+                  <button
+                    className="button secondary small"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="button alert-fill right small"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
