@@ -22,7 +22,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
-const Lease = ({ form, submitting, values, store, visited }) => {
+const Lease = ({ form, submitting, values, store }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number'))
@@ -37,6 +37,11 @@ const Lease = ({ form, submitting, values, store, visited }) => {
       pluck('id', 'preference_name')
     )
   )
+
+  const getVisited = (fieldName) => (
+    form.getFieldState(fieldName)?.visited
+  )
+
   return (
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
@@ -53,7 +58,7 @@ const Lease = ({ form, submitting, values, store, visited }) => {
             />
           </FormGrid.Item>
         </FormGrid.Row>
-        <ParkingInformationInputs form={form} values={values} visited={visited} />
+        <ParkingInformationInputs form={form} values={values} />
       </ContentSection.Sub>
       <ContentSection.Sub
         title='Rent and Assistance'
@@ -65,7 +70,7 @@ const Lease = ({ form, submitting, values, store, visited }) => {
               fieldName='lease.total_monthly_rent_without_parking'
               validation={validateLeaseCurrency}
               isDirty={
-                visited && visited['lease.total_monthly_rent_without_parking']
+                getVisited('lease.total_monthly_rent_without_parking')
               }
             />
           </FormGrid.Item>
@@ -85,7 +90,7 @@ const Lease = ({ form, submitting, values, store, visited }) => {
               fieldName='lease.monthly_tenant_contribution'
               helpText='Monthly rent minus recurring rental assistance, if any'
               validation={validateLeaseCurrency}
-              isDirty={visited && visited['lease.monthly_tenant_contribution']}
+              isDirty={getVisited('lease.monthly_tenant_contribution')}
             />
           </FormGrid.Item>
         </FormGrid.Row>

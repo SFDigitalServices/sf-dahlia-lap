@@ -8,7 +8,7 @@ const monthlyRentFieldName = 'lease.monthly_parking_rent'
 const Yes = 'Yes'
 const No = 'No'
 
-const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited }) => {
+const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { lease } }) => {
   const [parkingSpaceAssigned, setParkingSpaceAssigned] = useState(lease && lease['monthly_parking_rent'] ? Yes : No)
   const selectParkingSpaceAssigned = (event) => {
     const { target: { value } } = event
@@ -17,6 +17,7 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
       change(monthlyRentFieldName, '')
     }
   }
+  const monthlyRentVisited = getFieldState(monthlyRentFieldName)?.visited
   return (
     <>
       <FormGrid.Row>
@@ -35,7 +36,7 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
             fieldName={monthlyRentFieldName}
             validation={validateLeaseCurrency}
             disabled={parkingSpaceAssigned === No}
-            isDirty={visited && visited[monthlyRentFieldName]} />
+            isDirty={monthlyRentVisited} />
         </FormGrid.Item>
       </FormGrid.Row>
     </>
