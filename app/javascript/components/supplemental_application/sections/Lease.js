@@ -22,7 +22,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
-const LeaseInformationInputs = ({ form, submitting, values, store, visited }) => {
+const Lease = ({ form, submitting, values, store, visited }) => {
   const { availableUnits, application } = store
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number'))
@@ -116,4 +116,4 @@ const LeaseInformationInputs = ({ form, submitting, values, store, visited }) =>
   )
 }
 
-export default withContext(LeaseInformationInputs)
+export default withContext(Lease)

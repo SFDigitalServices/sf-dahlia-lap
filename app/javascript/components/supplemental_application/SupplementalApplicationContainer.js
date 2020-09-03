@@ -9,7 +9,7 @@ import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-import LeaseInformationInputs from './sections/LeaseInformationInputs'
+import Lease from './sections/Lease'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
@@ -73,7 +73,7 @@ const LeaseSection = ({ form, submitting, values, visited }) => (
     title='Lease'
     description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
   >
-    <LeaseInformationInputs
+    <Lease
       form={form}
       values={values}
       submitting={submitting}
