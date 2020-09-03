@@ -53,7 +53,7 @@ export const updateApplicationAndAddComment = (application, prevApplication, com
     statusHistory
   })
 
-  performInSequence(
+  return performInSequence(
     () => updateApplication(application, prevApplication),
     () => createFieldUpdateComment(commentData)
   ).then(([appResponse, statusHistory]) => packageResponseData(appResponse, statusHistory))
