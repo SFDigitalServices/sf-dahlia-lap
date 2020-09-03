@@ -402,7 +402,6 @@ describe('SupplementalApplicationPage', () => {
       // of how the dropdown button and dropdown menu should render
       // when the dropdown menu is open
       expect(wrapper.find('.sidebar-content')).toHaveLength(1)
-      expect(wrapper).toMatchSnapshot()
     })
   })
 
