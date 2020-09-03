@@ -124,19 +124,17 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   }
 
   return (
-    <InlineModal>
-      <RentalAssistanceForm
-        values={rentalAssistance}
-        row={row}
-        onSave={onSave}
-        onClose={onClose}
-        onDelete={onDelete}
-        index={index}
-        applicationMembers={applicationMembers}
-        loading={rentalAssistanceLoading}
-        form={form}
-      />
-    </InlineModal>
+    <RentalAssistanceForm
+      values={rentalAssistance}
+      row={row}
+      onSave={onSave}
+      onClose={onClose}
+      onDelete={onDelete}
+      index={index}
+      applicationMembers={applicationMembers}
+      loading={rentalAssistanceLoading}
+      form={form}
+    />
   )
 })
 
