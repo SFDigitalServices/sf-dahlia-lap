@@ -28,7 +28,7 @@ const LeaseActions = ({ onSave, onCancel, onDelete, isNew, loading }) => (
     <Button
       classes='primary margin-right'
       small
-      onClick={() => console.log('just saving lease in lease actions')}
+      onClick={onSave}
       disabled={loading}
       text='Save Lease'
     />

@@ -175,7 +175,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
           'rental-assistance-edit-form': !isNew
         }
       )}>
-        <InlineModal whiteBackground>
+        <InlineModal whiteBackground marginBottom={isNew} >
           <FormGrid.Row>
             <FormGrid.Item>
               <SelectField
