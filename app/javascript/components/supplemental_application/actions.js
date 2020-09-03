@@ -12,7 +12,7 @@ import { performInSequence } from '~/utils/promiseUtils'
  */
 const transformApplicationResponses = (lease, application, rentalAssistances) => ({
   ...application,
-  lease: lease,
+  lease,
   rental_assistances: rentalAssistances || []
 })
 
@@ -41,8 +41,7 @@ export const updateApplication = (application, prevApplication) => {
     // Lease must be saved first before rental assistances to avoid race condition.
     leaseAndApplicationPromise,
     () => updateUnsavedRentalAssistances(application, prevApplication)
-  ).then((
-    [[lease, responseApplication], rentalAssistances]) =>
+  ).then(([[lease, responseApplication], rentalAssistances]) =>
     transformApplicationResponses(lease, responseApplication, rentalAssistances))
 }
 
