@@ -40,6 +40,7 @@ class SupplementalApplicationPage extends React.Component {
     leaveConfirmationModal: {
       isOpen: false
     },
+    showLeaseSection: false,
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
     rentalAssistanceLoading: false,
@@ -173,6 +174,15 @@ class SupplementalApplicationPage extends React.Component {
         supplementalAppTouched: false
       }, () => this.updateStatusModal({ loading: false, isOpen: false }))
     }
+  }
+
+  handleClickCreateLease = () => {
+    this.setState({ showLeaseSection: true })
+  }
+
+  handleClickCancelLease = () => {
+    // Need to also clear state, etc.
+    this.setState({ showLeaseSection: false })
   }
 
   handleCloseRentalAssistancePanel = (props) => {
@@ -324,6 +334,10 @@ class SupplementalApplicationPage extends React.Component {
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
       fileBaseUrl: fileBaseUrl,
+      handleClickCreateLease: this.handleClickCreateLease,
+      handleClickCancelLease: this.handleClickCancelLease,
+      handleSaveLease: () => console.log('clicked save lease'),
+      handleDeleteLease: () => console.log('clicked delete lease'),
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,

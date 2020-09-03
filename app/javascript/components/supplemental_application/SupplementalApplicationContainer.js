@@ -3,6 +3,7 @@ import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
 
+import Button from '~/components/atoms/Button'
 import ContentSection from '../molecules/ContentSection'
 import DemographicsInputs from './sections/DemographicsInputs'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
@@ -68,17 +69,18 @@ const Income = ({ listingAmiCharts, visited, form }) => (
   </ContentSection>
 )
 
-const LeaseSection = ({ form, submitting, values, visited }) => (
+const LeaseSection = ({ form, submitting, values, handleClickCreateLease, showLeaseSection }) => (
   <ContentSection
     title='Lease'
-    description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
+    description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
   >
-    <Lease
+    { showLeaseSection ? <Lease
       form={form}
       values={values}
       submitting={submitting}
-      visited={visited}
     />
+      : <Button id='create-lease' text='Create Lease' small onClick={handleClickCreateLease} />
+    }
   </ContentSection>
 )
 
@@ -148,11 +150,13 @@ const SupplementalApplicationContainer = ({ store }) => {
     listingAmiCharts,
     onSubmit,
     statusModal,
+    handleClickCreateLease,
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
     openAddStatusCommentModal,
-    openUpdateStatusModal
+    openUpdateStatusModal,
+    showLeaseSection
   } = store
 
   const onAddCommentClicked = (form, touched) =>
@@ -213,7 +217,8 @@ const SupplementalApplicationContainer = ({ store }) => {
                     form={form}
                     values={values}
                     submitting={submitting}
-                    visited={visited}
+                    showLeaseSection={showLeaseSection}
+                    handleClickCreateLease={handleClickCreateLease}
                   />
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>

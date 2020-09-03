@@ -1,6 +1,7 @@
 import React from 'react'
 import { filter, map, isEmpty } from 'lodash'
 
+import Button from '~/components/atoms/Button'
 import ContentSection from '~/components/molecules/ContentSection'
 import FormGrid from '~/components/molecules/FormGrid'
 import InlineModal from '~/components/molecules/InlineModal'
@@ -22,36 +23,42 @@ const toggleNoPreferenceUsed = (form, event) => {
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
-const LeaseActions = (onSave, onCancel, onDelete, isNew, loading) => (
+const LeaseActions = ({ onSave, onCancel, onDelete, isNew, loading }) => (
   <div className='form-grid_item column'>
-    <button
-      className='button primary small margin-right margin-bottom-none'
-      type='button'
-      onClick={() => console.log('save lease')}
-      disabled={loading}>
-        Save Lease
-    </button>
-    <button
-      className='button secondary small margin-right margin-bottom-none'
-      type='button'
-      onClick={() => console.log('cancel lease')}
-      disabled={loading}>
-        Cancel
-    </button>
+    <Button
+      classes='primary margin-right'
+      small
+      onClick={() => console.log('just saving lease in lease actions')}
+      disabled={loading}
+      text='Save Lease'
+    />
+    <Button
+      classes='secondary'
+      small
+      onClick={onCancel}
+      disabled={loading}
+      text='Cancel'
+    />
     {!isNew && (
-      <button
-        className='button alert-fill small margin-bottom-none right'
-        type='button'
-        onClick={() => console.log('delete lease')}
-        disabled={loading}>
-          Delete
-      </button>
+      <Button
+        classes='alert-fill right'
+        small
+        onClick={onDelete}
+        disabled={loading}
+        text='Delete'
+      />
     )}
   </div>
 )
 
 const Lease = ({ form, submitting, values, store }) => {
-  const { availableUnits, application } = store
+  const {
+    availableUnits,
+    application,
+    handleSaveLease,
+    handleDeleteLease,
+    handleClickCancelLease
+  } = store
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number'))
   )
@@ -69,7 +76,6 @@ const Lease = ({ form, submitting, values, store }) => {
   const getVisited = (fieldName) => (
     form.getFieldState(fieldName)?.visited
   )
-
   return (
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
@@ -148,9 +154,9 @@ const Lease = ({ form, submitting, values, store }) => {
       <FormGrid.Row>
         {/* TODO: Wire up actions for buttons, set to disabled when loading */}
         <LeaseActions
-          onSave={null}
-          onCancel={null}
-          onDelete={null}
+          onSave={handleSaveLease}
+          onCancel={handleClickCancelLease}
+          onDelete={handleDeleteLease}
           loading={false}
           isNew={false}
         />

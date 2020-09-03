@@ -231,28 +231,28 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
           )}
           <FormGrid.Row>
             <div className='form-grid_item column'>
-              <button
-                className='button primary tiny margin-right margin-bottom-none'
-                type='button'
+              <Button
+                classes='primary margin-right'
+                tiny
                 onClick={onSaveWithIndex}
-                disabled={loading}>
-                Save
-              </button>
-              <button
-                className='button secondary tiny margin-right margin-bottom-none'
-                type='button'
+                disabled={loading}
+                text='Save'
+              />
+              <Button
+                classes='secondary'
+                tiny
                 onClick={onClose}
-                disabled={loading}>
-                Cancel
-              </button>
+                disabled={loading}
+                text='Cancel'
+              />
               {!isNew && (
-                <button
-                  className='button alert-fill tiny margin-bottom-none right'
-                  type='button'
+                <Button
+                  classes='alert-fill right'
+                  tiny
                   onClick={onDelete}
-                  disabled={loading}>
-                  Delete
-                </button>
+                  disabled={loading}
+                  text='Delete'
+                />
               )}
             </div>
           </FormGrid.Row>
