@@ -44,11 +44,11 @@ const isOther = (values) => values && values.type_of_assistance === 'Other'
 
 const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, applicationMembers }) => {
   const columns = [
-    { content: 'Type of Assistance' },
-    { content: 'Recurring Assistance' },
-    { content: 'Assistance Amount' },
     { content: 'Recipient' },
-    { content: 'Edit' }
+    { content: 'Type' },
+    { content: 'Amount' },
+    { content: 'Recurring' },
+    { content: '' }
   ]
 
   const expanderRenderer = (row, expanded, expandedRowToggler) => {
@@ -71,10 +71,10 @@ const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, ap
     const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
 
     return [
+      { content: appMemberName },
       { content: ra.other_assistance_name || ra.type_of_assistance },
-      { content: ra.recurring_assistance },
       { content: ra.assistance_amount ? ra.assistance_amount : '', formatType: 'currency' },
-      { content: appMemberName }
+      { content: ra.recurring_assistance }
     ]
   })
 
