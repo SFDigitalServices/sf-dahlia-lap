@@ -4,28 +4,28 @@ import { isEmpty, find, isEqual, reject } from 'lodash'
 import { convertCurrency } from '~/utils/form/validations'
 import { filterChanged } from '~/utils/utils'
 import { isLeaseAlreadyCreated } from '~/utils/leaseUtils'
+import { performInSequence } from '~/utils/promiseUtils'
 
 /**
- * Given two functions that resolve to promises, resolve them sequentially and
- * return a promise that resolves to an array of the individual promise results.
- *
- * Note that this takes two _functions_ that resolve to promises, not the promises
- * themselves. That's because once a promise is created it's already firing asyncronously.
- * @param {() => Promise)} promiseFunc1
- * @param {() => Promise} promiseFunc2
- * @return a promise that resolves to an array with
+ * Combine lease, application, and rental assistances responses into a single
+ * application object.
  */
-const performInSequence = (promiseFunc1, promiseFunc2) =>
-  promiseFunc1()
-    .then(result1 =>
-      promiseFunc2().then(result2 => [result1, result2]))
-
 const transformApplicationResponses = (lease, application, rentalAssistances) => ({
   ...application,
   lease: lease,
   rental_assistances: rentalAssistances || []
 })
 
+/**
+ * Update any fields on the application that have been changed from
+ * prevApplication. This action triggers multiple separate requests:
+ * 1. An application update request
+ * 2. A lease create or update request
+ * 3. Multiple rental assistance create/update requests
+ * 4. A rental assistance get request
+ *
+ * TODO: Don't create an empty lease in this function.
+ */
 export const updateApplication = (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
@@ -77,11 +77,7 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
   })
 
   return Promise.all(promises)
-    .then(
-      // this request returns a 304 if no assistances exist, the catch makes sure it fails silently.
-      apiService.getRentalAssistances(application.id)
-        .catch(() => [])
-    )
+    .then(() => apiService.getRentalAssistances(application.id))
 }
 
 export const createLease = async (lease, primaryApplicantContact, applicationId) =>

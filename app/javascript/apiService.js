@@ -91,10 +91,9 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
   return request.post('/rental-assistances', postData)
 }
 
-const getRentalAssistances = async (applicationId) => {
-  const { rental_assistances: rentalAssistances } = await request.get('/rental-assistances', { params: { application_id: applicationId } })
-  return rentalAssistances
-}
+const getRentalAssistances = (applicationId) =>
+  request.get('/rental-assistances', { params: { application_id: applicationId } })
+    .then((response) => response.rental_assistances)
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
   const putData = {
