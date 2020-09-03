@@ -55,10 +55,10 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
 
     // Check that the last rental assistance in table has the values we saved
     const lastRentalAssistanceSelector = '.rental-assistances > tbody > .tr-expand:nth-last-child(2)'
-    const newTypeLabel = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(1)`, e => e.textContent)
-    const newRecurring = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(2)`, e => e.textContent)
+    const newRecipient = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(1)`, e => e.textContent)
+    const newTypeLabel = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(2)`, e => e.textContent)
     const newAmount = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(3)`, e => e.textContent)
-    const newRecipient = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(4)`, e => e.textContent)
+    const newRecurring = await page.$eval(`${lastRentalAssistanceSelector} td:nth-child(4)`, e => e.textContent)
     expect(newTypeLabel).toEqual(typeLabel)
     expect(newRecurring).toEqual(recurring)
     expect(newAmount).toEqual('$1,100.00')
