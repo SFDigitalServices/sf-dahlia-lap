@@ -129,8 +129,8 @@ export const updateLease = async (leaseToUpdate, primaryApplicantContact, applic
   const data = getLeaseRequestData(leaseToUpdate, primaryApplicantContact)
 
   const leaseId = leaseToUpdate['id']
-  const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
-  return lease
+  return request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+    .then(response => response.lease)
 }
 
 export const createLease = async (leaseToCreate, primaryApplicantContact, applicationId) => {
@@ -140,8 +140,8 @@ export const createLease = async (leaseToCreate, primaryApplicantContact, applic
 
   const data = getLeaseRequestData(leaseToCreate, primaryApplicantContact)
 
-  const { lease } = await request.post(`/applications/${applicationId}/leases`, data)
-  return lease
+  return request.post(`/applications/${applicationId}/leases`, data)
+    .then(response => response.lease)
 }
 
 export default {
