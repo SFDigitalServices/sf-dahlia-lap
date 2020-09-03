@@ -80,10 +80,10 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
     .then(() => apiService.getRentalAssistances(application.id))
 }
 
-export const createLease = async (lease, primaryApplicantContact, applicationId) =>
+export const createLease = (lease, primaryApplicantContact, applicationId) =>
   apiService.createLease(lease, primaryApplicantContact, applicationId)
 
-export const updateLease = async (lease, primaryApplicantContact, applicationId) =>
+export const updateLease = (lease, primaryApplicantContact, applicationId) =>
   apiService.updateLease(lease, primaryApplicantContact, applicationId)
 
 const updateOrCreateLease = (lease, primaryApplicantContact, applicationId) => {
