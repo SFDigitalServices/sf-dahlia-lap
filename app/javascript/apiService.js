@@ -1,7 +1,7 @@
 import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
-const updateFlaggedApplication = async (data) => {
+const updateFlaggedApplication = (data) => {
   let putData = {
     flagged_application: {
       id: data.id,
@@ -9,12 +9,13 @@ const updateFlaggedApplication = async (data) => {
       comments: data.comments
     }
   }
-  let response = await request.put('/flagged-applications/update', putData)
-  return response.result
+
+  request.put('/flagged-applications/update', putData)
+    .then(response => response.result)
 }
 
-const submitApplication = (data, isSupplemental = false) => {
-  const requestData = { application: data }
+const submitApplication = (application, isSupplemental = false) => {
+  const requestData = { application }
 
   const promise = isSupplemental
     ? request.put('/short-form/submit?supplemental=true', requestData, true)
@@ -23,16 +24,15 @@ const submitApplication = (data, isSupplemental = false) => {
   return promise.then(response => response.application)
 }
 
-const fetchApplications = async ({ page, filters }) => {
-  return request.get('/applications', {
+const fetchApplications = ({ page, filters }) =>
+  request.get('/applications', {
     params: {
       page,
       ...filters
     }
   })
-}
 
-const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
+const fetchLeaseUpApplications = (listingId, page, { filters }) => {
   // Fetch applications associated with a lease up listing.
   return request.get('/lease-ups/applications', {
     params: {
@@ -43,15 +43,14 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   })
 }
 
-const getAMI = async ({ chartType, chartYear }) => {
-  return request.get('/ami', {
+const getAMI = ({ chartType, chartYear }) =>
+  request.get('/ami', {
     params: {
       chartType: chartType,
       year: chartYear,
       percent: 100
     }
   })
-}
 
 const createFieldUpdateComment = (applicationId, status, comment, substatus) => {
   const postData = {
@@ -73,11 +72,12 @@ const updatePreference = (preference) =>
 const updateApplication = (application) =>
   request.put(`/applications/${application.id}`, { application }, true)
 
-const createRentalAssistance = async (rentalAssistance, applicationId) => {
+const createRentalAssistance = (rentalAssistance, applicationId) => {
   const postData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
+
   return request.post('/rental-assistances', postData)
 }
 
@@ -85,17 +85,17 @@ const getRentalAssistances = (applicationId) =>
   request.get('/rental-assistances', { params: { application_id: applicationId } }, true)
     .then((response) => response.rental_assistances)
 
-const updateRentalAssistance = async (rentalAssistance, applicationId) => {
+const updateRentalAssistance = (rentalAssistance, applicationId) => {
   const putData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
+
   return request.put(`/rental-assistances/${rentalAssistance.id}`, putData)
 }
 
-const deleteRentalAssistance = async (rentalAssistanceId) => {
-  return request.destroy(`/rental-assistances/${rentalAssistanceId}`)
-}
+const deleteRentalAssistance = (rentalAssistanceId) =>
+  request.destroy(`/rental-assistances/${rentalAssistanceId}`)
 
 const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => {
   return {
@@ -110,7 +110,7 @@ const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => {
   }
 }
 
-export const updateLease = async (leaseToUpdate, primaryApplicantContact, applicationId) => {
+export const updateLease = (leaseToUpdate, primaryApplicantContact, applicationId) => {
   if (!isLeaseAlreadyCreated(leaseToUpdate)) {
     throw new Error('Trying to update a lease that doesn’t yet exist.')
   }
@@ -122,7 +122,7 @@ export const updateLease = async (leaseToUpdate, primaryApplicantContact, applic
     .then(response => response.lease)
 }
 
-export const createLease = async (leaseToCreate, primaryApplicantContact, applicationId) => {
+export const createLease = (leaseToCreate, primaryApplicantContact, applicationId) => {
   if (isLeaseAlreadyCreated(leaseToCreate)) {
     throw new Error('Trying to create a lease that already exists.')
   }
