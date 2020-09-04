@@ -13,6 +13,10 @@ module Force
         lease = Force::Lease.from_domain(domain_attrs)
         @client.update!('Lease__c', lease.to_salesforce)
       end
+
+      def destroy(lease_id)
+        @client.destroy!('Lease__c', lease_id)
+      end
     end
   end
 end
