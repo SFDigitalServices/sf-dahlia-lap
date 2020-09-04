@@ -12217,23 +12217,21 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                       <div
                                         className="show-large-up"
                                       >
-                                        <LeaseUpSidebarButtons
+                                        <button
+                                          className="primary save-button"
+                                          disabled={false}
+                                          id="save-supplemental-application"
+                                          onClick={[Function]}
+                                          type="submit"
+                                        >
+                                          Save
+                                        </button>
+                                        <LeaseUpStatusButtons
                                           isLoading={false}
                                           onAddCommentClicked={[Function]}
                                           onChangeStatus={[Function]}
-                                          onSaveClicked={[Function]}
                                           status="Approved"
-                                          withMobileStyling={false}
                                         >
-                                          <button
-                                            className="primary save-button"
-                                            disabled={false}
-                                            id="save-supplemental-application"
-                                            onClick={[Function]}
-                                            type="submit"
-                                          >
-                                            Save
-                                          </button>
                                           <div
                                             className="status-history-buttons"
                                           >
@@ -12342,36 +12340,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                               Add a comment
                                             </button>
                                           </div>
-                                        </LeaseUpSidebarButtons>
+                                        </LeaseUpStatusButtons>
                                       </div>
-                                      <div
-                                        className="padding-top--3x show-large-up"
-                                      >
-                                        <Component
-                                          title="Status History"
-                                        >
-                                          <h3
-                                            className="app-card_h3 t-sans"
-                                          >
-                                            Status History
-                                          </h3>
-                                        </Component>
-                                      </div>
-                                      <div
-                                        className="padding-top--half hide-large-up"
-                                      >
-                                        <Component
-                                          title="Status History"
-                                        >
-                                          <h2
-                                            className="app-card_h2"
-                                          >
-                                            Status History
-                                          </h2>
-                                        </Component>
-                                      </div>
-                                      <StatusItems
-                                        limit={4}
+                                      <StatusHistoryContainer
                                         statusItems={
                                           Array [
                                             Object {
@@ -12388,98 +12359,140 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                         }
                                       >
                                         <div
-                                          className="status-items"
+                                          className="padding-top--3x show-large-up"
                                         >
-                                          <StatusItem
-                                            key="0"
-                                            statusItem={
+                                          <Component
+                                            title="Status History"
+                                          >
+                                            <h3
+                                              className="app-card_h3 t-sans"
+                                            >
+                                              Status History
+                                            </h3>
+                                          </Component>
+                                        </div>
+                                        <div
+                                          className="padding-top--half hide-large-up"
+                                        >
+                                          <Component
+                                            title="Status History"
+                                          >
+                                            <h2
+                                              className="app-card_h2"
+                                            >
+                                              Status History
+                                            </h2>
+                                          </Component>
+                                        </div>
+                                        <StatusItems
+                                          limit={4}
+                                          statusItems={
+                                            Array [
                                               Object {
                                                 "comment": "xxxx1",
                                                 "date": "2018-05-10T19:54:11.000+0000",
                                                 "status": "Approved",
-                                              }
-                                            }
-                                          >
-                                            <div
-                                              className="status-item"
-                                            >
-                                              <div
-                                                className="status-item-header"
-                                              >
-                                                <StatusPill
-                                                  status="Approved"
-                                                >
-                                                  <div
-                                                    className="status-pill is-approved"
-                                                  >
-                                                    Approved
-                                                  </div>
-                                                </StatusPill>
-                                                <StatusDate>
-                                                  <div
-                                                    className="status-item-date"
-                                                  >
-                                                    Invalid date
-                                                  </div>
-                                                </StatusDate>
-                                              </div>
-                                              <div
-                                                className="status-item-text"
-                                              >
-                                                xxxx1
-                                              </div>
-                                            </div>
-                                          </StatusItem>
-                                          <StatusItem
-                                            key="1"
-                                            statusItem={
+                                              },
                                               Object {
                                                 "comment": "xxxx2",
                                                 "date": "2018-05-10T19:54:11.000+0000",
                                                 "status": "Pending",
-                                              }
-                                            }
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <div
+                                            className="status-items"
                                           >
-                                            <div
-                                              className="status-item"
+                                            <StatusItem
+                                              key="0"
+                                              statusItem={
+                                                Object {
+                                                  "comment": "xxxx1",
+                                                  "date": "2018-05-10T19:54:11.000+0000",
+                                                  "status": "Approved",
+                                                }
+                                              }
                                             >
                                               <div
-                                                className="status-item-header"
+                                                className="status-item"
                                               >
-                                                <StatusPill
-                                                  status="Pending"
+                                                <div
+                                                  className="status-item-header"
                                                 >
-                                                  <div
-                                                    className="status-pill is-no-status"
-                                                  />
-                                                </StatusPill>
-                                                <StatusDate>
-                                                  <div
-                                                    className="status-item-date"
+                                                  <StatusPill
+                                                    status="Approved"
                                                   >
-                                                    Invalid date
-                                                  </div>
-                                                </StatusDate>
+                                                    <div
+                                                      className="status-pill is-approved"
+                                                    >
+                                                      Approved
+                                                    </div>
+                                                  </StatusPill>
+                                                  <StatusDate>
+                                                    <div
+                                                      className="status-item-date"
+                                                    >
+                                                      Invalid date
+                                                    </div>
+                                                  </StatusDate>
+                                                </div>
+                                                <div
+                                                  className="status-item-text"
+                                                >
+                                                  xxxx1
+                                                </div>
                                               </div>
+                                            </StatusItem>
+                                            <StatusItem
+                                              key="1"
+                                              statusItem={
+                                                Object {
+                                                  "comment": "xxxx2",
+                                                  "date": "2018-05-10T19:54:11.000+0000",
+                                                  "status": "Pending",
+                                                }
+                                              }
+                                            >
                                               <div
-                                                className="status-item-text"
+                                                className="status-item"
                                               >
-                                                xxxx2
+                                                <div
+                                                  className="status-item-header"
+                                                >
+                                                  <StatusPill
+                                                    status="Pending"
+                                                  >
+                                                    <div
+                                                      className="status-pill is-no-status"
+                                                    />
+                                                  </StatusPill>
+                                                  <StatusDate>
+                                                    <div
+                                                      className="status-item-date"
+                                                    >
+                                                      Invalid date
+                                                    </div>
+                                                  </StatusDate>
+                                                </div>
+                                                <div
+                                                  className="status-item-text"
+                                                >
+                                                  xxxx2
+                                                </div>
                                               </div>
-                                            </div>
-                                          </StatusItem>
-                                        </div>
-                                      </StatusItems>
+                                            </StatusItem>
+                                          </div>
+                                        </StatusItems>
+                                      </StatusHistoryContainer>
                                       <div
                                         className="hide-large-up"
                                       >
-                                        <LeaseUpSidebarButtons
+                                        <LeaseUpStatusButtons
                                           isLoading={false}
                                           onAddCommentClicked={[Function]}
                                           onChangeStatus={[Function]}
-                                          onSaveClicked={[Function]}
                                           status="Approved"
-                                          withMobileStyling={true}
                                         >
                                           <div
                                             className="status-history-buttons"
@@ -12589,16 +12602,16 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                               Add a comment
                                             </button>
                                           </div>
-                                          <button
-                                            className="primary save-button"
-                                            disabled={false}
-                                            id="save-supplemental-application"
-                                            onClick={[Function]}
-                                            type="submit"
-                                          >
-                                            Save
-                                          </button>
-                                        </LeaseUpSidebarButtons>
+                                        </LeaseUpStatusButtons>
+                                        <button
+                                          className="primary save-button"
+                                          disabled={false}
+                                          id="save-supplemental-application"
+                                          onClick={[Function]}
+                                          type="submit"
+                                        >
+                                          Save
+                                        </button>
                                       </div>
                                     </div>
                                   </LeaseUpSidebar>
