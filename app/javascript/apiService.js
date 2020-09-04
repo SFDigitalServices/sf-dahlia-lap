@@ -10,7 +10,7 @@ const updateFlaggedApplication = (data) => {
     }
   }
 
-  request.put('/flagged-applications/update', putData)
+  return request.put('/flagged-applications/update', putData)
     .then(response => response.result)
 }
 
